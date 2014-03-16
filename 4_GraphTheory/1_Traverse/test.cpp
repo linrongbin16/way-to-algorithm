@@ -43,7 +43,7 @@ int main()
 	depth_first_search_adjlist(g);	//4
 	cout << endl << "bfs:" << endl;
 	breadth_first_search_adjlist(g, 0);	//5
-	cout << endl << "wrong topological sort 1:" << endl;
+	cout << endl << "topological sort 1:" << endl;
 	deque<graph_node> p1;
 	topological_sort1(g, p1);	//6
 	for(int i = 0; i < (int)p1.size(); ++ i)
