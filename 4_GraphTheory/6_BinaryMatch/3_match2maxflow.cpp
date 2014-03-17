@@ -13,6 +13,6 @@
 //原图B中的无向边都改为从X集合中节点指向Y集合中节点的有向边，权值为1
 //该流网络的最大流即为原二分图B的最大匹配数
 
-//int match2maxflow(bipartite& b, int *ymatch);
+//int match2maxflow(bipartite& b, int *ymatch)
 
 
