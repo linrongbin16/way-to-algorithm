@@ -9,7 +9,7 @@
 //其中的物品特性都可以在泛化物品中找到对应的一种
 //泛化物品是一种更加概括的抽象，求解这样属性的物品需要更多层次的动规循环
 
-//int generic_item(object *t, int n, int w);
+//int generic_item(object *t, int n, int w)
 
 
 

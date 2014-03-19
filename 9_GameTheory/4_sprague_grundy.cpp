@@ -1,4 +1,4 @@
-//Sprague-Grundy函数
+//SG函数
 //sprague_grundy.cpp
 
 //A和B两人从有向图的起始点开始轮流将一颗棋子沿着有向边移动，每次至少移动1个节点
