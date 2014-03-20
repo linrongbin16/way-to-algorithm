@@ -73,7 +73,7 @@ public:
 		while(p->h_next->h_value != r)
 			p = p->h_next;
 		hash_node *del = p->h_next;
-		p->h_next = p->h_next->h_next;	//链表中删除p点
+		p->h_next = p->h_next->h_next;	//链表中删除p->h_next点
 		delete(del);
 	}
 	void h_print(){
