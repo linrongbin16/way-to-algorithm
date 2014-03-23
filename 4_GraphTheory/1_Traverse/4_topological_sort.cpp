@@ -49,6 +49,7 @@ void topological_sort1(graph_list g, deque<graph_node>& topo)
 		topo[i].g_idx = i;
 	for(int i = 0; i < (int)g.g_l.size(); ++ i)
 		if(!visited[i])
+			//从i.g_idx节点开始dfs遍历
 			dfs_visit(g, i, visited, time);
 	for(int i = 0; i < (int)g.g_l.size(); ++ i)
 		topo[i].g_value = g.g_l[i][0].g_value;
@@ -64,35 +65,39 @@ bool compare(graph_node a, graph_node b)
 
 //2)判断节点度数方法
 
+void degree(graph_list g, int *in_degree);
+
 void topological_sort2(graph_list g, deque<graph_node>& topo)
 {
 	topo.clear();
+	//in_degree[i]指代节点i的入度
 	int in_degree[MAX];
 	while(!g.g_l.empty()){
-		//in_degree[i]指代节点i的入度
 		//每次循环之前更新节点入度为0，因为上次循环中删除节点会改变节点状态
-		memset(in_degree, 0, MAX * sizeof(int));
-		for(int i = 0; i < (int)g.g_l.size(); ++ i)
-			for(int j = 1; j < (int)g.g_l[i].size(); ++ j) 
-				//第i个队列上第j个节点即为节点j.g_idx的一条 入弧边
-				++ in_degree[g.g_l[i][j].g_idx];
+		//求出当前图中各节点的入度
+		degree(g, in_degree);
 		for(int i = 0; i < MAX; ++ i)
 			if(in_degree[i] == 0) 
 				//在in_degree中找 出入度为0的节点
 				for(deque<deque<graph_node> >::iterator it = g.g_l.begin();
 						it != g.g_l.end(); ++ it)
-					if(!it->empty() && (*it)[0].g_idx == i){
+					if((*it)[0].g_idx == i){
 						//加入答案集
 						topo.push_back((*it)[0]);
 						//在邻接表g_l中删除该节点
 						g.g_l.erase(it);
+						//该节点只有一个，可以跳过余下的判断
 					 	break;
 					} 
 	}
 }
-
-
-
-
+void degree(graph_list g, int *in_degree)
+{
+	memset(in_degree, 0, MAX * sizeof(int));
+	for(int i = 0; i < (int)g.g_l.size(); ++ i)
+		for(int j = 1; j < (int)g.g_l[i].size(); ++ j)
+			//第i个队列上第j个节点即为节点j.g_idx的一条入弧边
+			++ in_degree[g.g_l[i][j].g_idx];
+}
 
 

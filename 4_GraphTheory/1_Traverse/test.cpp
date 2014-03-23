@@ -88,6 +88,7 @@ int main()
 	cout << "kosaraju:" << endl;
 	kosaraju(gl);	//9
 	print_component(gl);
+
 	return(0);
 }
 void print_component(graph_list g)
