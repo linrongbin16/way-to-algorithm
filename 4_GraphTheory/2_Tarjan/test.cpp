@@ -5,7 +5,7 @@
 extern void strongest_connected_component(graph_list& g);	//1
 extern void gabow(graph_list& g);	//2
 extern void cut(graph_list& g, vector<pair<int, int> >& cut_edge);	//3
-extern void double_connected_component(graph_list& g);	//4
+extern void double_connected_component(graph_list g, deque<deque<pair<int, int> > >& com);	//4
 extern void least_common_ancestors(graph_list g, map<pair<int, int>, int>& query);	//5
 void print_value(graph_list g);
 int main()
@@ -26,7 +26,9 @@ int main()
 	strongest_connected_component(gl);	//1
 	print_value(gl);
 
-	cout << "gabow:" << endl;
+	for(int i = 0; i < 6; ++ i)
+		gl.g_l[i][0].g_value = 0;
+	cout << endl << "gabow:" << endl;
 	gabow(gl);	//2
 	print_value(gl);
 
@@ -55,9 +57,9 @@ int main()
 	g2.g_l[14].push_back(gn2[12]); g2.g_l[14].push_back(gn2[13]);
 
 	vector<pair<int, int> > edge;
-	cout << "cut:" << endl;
+	cout << endl << "cut:" << endl;
 	cut(g2, edge);	//3
-	cout << "cut point: "; 
+	cout << "cut node: "; 
 	for(int i = 0; i < (int)g2.g_l.size(); ++ i)
 		if(g2.g_l[i][0].g_value == 1)
 			cout << "(node:" << i << ") ";
@@ -66,9 +68,23 @@ int main()
 		cout << "(edge:" << edge[i].first << "," << edge[i].second << ") ";
 	cout << endl;
 
-//	cout << "double connected component:" << endl;
-//	double_connected_component(g2);	//4
-//	print_value(g2);
+	cout << endl << "double connected component:" << endl;
+	deque<deque<pair<int, int> > > comp;
+	double_connected_component(g2, comp);	//4
+
+	int visit[MAX];
+	for(int i = 0; i < (int)comp.size(); ++ i){
+		memset(visit, 0, MAX * sizeof(int));
+		cout << "the " << i+1 << " double connected component:" << endl;
+		for(int j = 0; j < (int)comp[i].size(); ++ j){
+			if(!visit[comp[i][j].first])
+				cout << "(node:" << comp[i][j].first << ") ";
+			if(!visit[comp[i][j].second])
+				cout << "(node:" << comp[i][j].second << ") ";
+			visit[comp[i][j].first] = visit[comp[i][j].second] = 1;
+		}
+		cout << endl;
+	}
 
 	graph_list g3(11);
 	graph_node n3[11];
@@ -82,7 +98,7 @@ int main()
 
 	g3.g_l[8].push_back(n3[10]); g3.g_l[8].push_back(n3[9]); 
 
-	cout << "least common ancestors:" << endl;
+	cout << endl << "least common ancestors:" << endl;
 	map<pair<int, int>, int> query;
 	query.insert(make_pair(make_pair(3, 4), 0));
 	query.insert(make_pair(make_pair(3, 5), 0));
@@ -97,5 +113,4 @@ void print_value(graph_list g)
 	for(int i = 0; i < (int)g.g_l.size(); ++ i)
 		cout << "(node:" << i << ",value:" << g.g_l[i][0].g_value << ")" << endl;
 }
-
 

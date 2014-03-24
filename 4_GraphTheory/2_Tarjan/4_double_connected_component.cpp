@@ -1,72 +1,113 @@
-//双连通分量
+//双连通分支
 //double_connected_component.cpp
 
-//求无向图的双连通分量
+//求无向图的双连通分支
 
 //1)基础概念
+//无向图G中
 //点连通度：
-//无向图中割点的数量
+//一个拥有n个节点的连通分支，删去任意k-1个节点后该连通分支仍然连通
+//但存在一个方案，删除k个节点，使该连通分支不再连通
+//则称该连通分支是k点连通分支，k是该连通分支的点连通度
+//特别的当k = 2时，即该连通分支任意删除1个节点都仍然连通
+//但存在一个方案，删除2个节点，使该连通分支不再连通
+//称点连通度k = 2的连通分支为点双连通分支
 //边连通度：
-//无向图中割边的数量
-//块，点双连通分支：
-//极大连通子图的点连通度大于等于2，即该图中至少有两个割点
-//删除这两个割点才能破坏该图的连通性
-//边双连通分支：
-//极大连通子图的边连通度大于等于2，即该图中至少有两个割边
-//删除这两个割边才能破坏该图的连通性
+//一个拥有n条边的连通分支，删去任意k-1条边后该连通分支仍然连通
+//但存在一个方案，删除k条边，使得该连通分支不再连通
+//则称该连通分支是k边连通分支，k是该连通分支的边连通度
+//特别的当k = 2时，即该连通分支任意删除1条边都仍然连通
+//但存在一个方案，删除2条边，使得该连通分支不再连通
+//称边连通度k = 2的连通分支为边双连通分支
 //
-//点双连通分支和边双连通分支其实与割点和割边本质上是相同的概念
-//割点是两个点双连通分支的交点，割边则连接两个边双连通分支
-//即割点和割边其实本质上是将两个双连通分支分开的边界
-//因此当求出割点和割边时也就求出了对应的点双连通分支和边双连通分支
-//具体的实现中一般通过一个栈暂时存储节点或边
+//而更一般性的点连通度和边连通度的问题则应用了最大流算法，详见本章第5节流网络
+//
+//2)具体实现
+//在本节割cut.cpp中我曾讲过割点和割边有两个很直观的特性：
+//假设删去一个割点后得到两个新的连通分支
+//则割点可以看作同时属于两个新连通分支，而非割点总是只属于一个连通分支
+//假设删去一条割边后得到两个新的连通分支
+//则割边的两端点可以看作分别属于两个新连通分支，而非割边的两端点只属于同一个连通分支
+//事实上点或边的双连通分支就是通过割点割边的这个特性来求出的
+//边双连通分支：
+//应用Tarjan算法求出无向图的所有割边
+//将原图中所有割边删去后的所有连通分支即为原图的所有边双连通分支
+//点双连通分支：
+//应用Tarjan算法求出无向图的所有割点
+//每个割点都分别属于两个连通分支，这两个连通分支就是两个点双连通分支
+//也可以说将原图中所有割点删去后的所有连通分支再加上原割点即可得所有点双连通分支
+//
+//边双连通分支完全由割边得到，因此本文不再花费篇幅编写代码，只解决点双连通分支问题
+//Tarjan算法通过设置栈来存储连通分支，点双连通分支也是通过这个方法来求解
+//但存储的方式并非本节的强连通分支那样用栈存储节点
+//因为一个节点属于且只属于一个强连通分支，而割点同时属于两个点双连通分支
+//因此本问题中栈存储的不是单个的节点，而是边，因为每条边都只属于一个点或边双连通分支
+//当dfs递归的遍历到节点i时，对于i的一个邻节点j(或称孩子节点j)，将边e(i, j)压栈
+//而当节点i及其邻节点j满足dfn[i] <= low[j]，即节点i是割点时
+//将栈中的边出栈，直到出栈的边是e(i, j)为止
+//
+//点双连通分支与割点还有一处不同就是根节点上的判断
+//在割点的判断中会特别强调若根节点有两个孩子子树，则该根节点是割点
+//但在点双连通分支中不会进行这样的判断，具体的原因我也无法解释
+//通过自己画一些图读者看出，根节点不可能同时属于两个点双连通分支，最多只能属于一个
 //
 //本文的代码仍然存在问题，由于时间关系我可能以后将Tarjan算法进一步的改写
 //保证该算法在数学模型的构造上更加科学易懂，在本节最后的测试用例中本文的函数注释掉了
+//
+//本文引用了“图的割点、桥与双连通分支”，作者“byvoid”
 
 #include "general_head.h"
 #include "graph.h"
-//strongest_connected_component.cpp
-extern void set_value(graph_list& g);
-void dfs_dcc(graph_list& g, int p, int& time, int *dfn, int *low, 
-		int father, stack<int>& stk, int& grp);
+void dfs_dcc(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
+		stack<pair<int, int> >& stk, int& grp, deque<deque<pair<int, int> > >& com);
 
-void double_connected_component(graph_list& g)
-{//无向无环图G有g_l.size()个节点，下标从0到g_l.size()-1，图G是一课树，根节点是0
- //返回图G的所有点双连通分量，存储于邻接表头节点的g_value成员中
-	//将邻接表头结点的g_value初始化为-1
-	set_value(g);
-	int dfn[MAX], low[MAX], time(1), grp(1);
+void double_connected_component(graph_list g, deque<deque<pair<int, int> > >& com)
+{//无向图G有g_l.size()个节点，下标从0到g_l.size()-1
+ //返回图G的所有点双连通分支，每个连通分支存储于com的一个deque<pair<int, int> >元素中
+	com.clear();
+	int dfn[MAX], low[MAX], visited[MAX], time(1), grp(1);
 	memset(dfn, 0, MAX * sizeof(int));
 	memset(low, 0, MAX * sizeof(int));
-	stack<int> stk;
+	memset(visited, 0, MAX * sizeof(int));
+	stack<pair<int, int> > stk;
 	for(int i = 0; i < (int)g.g_l.size(); ++ i)
-		if(!dfn[i])
-			dfs_dcc(g, i, time, dfn, low, i, stk, grp);
+		if(visited[i] == 0)
+			dfs_dcc(g, i, visited, time, dfn, low, stk, grp, com);
 }
-void dfs_dcc(graph_list& g, int p, int& time, int *dfn, int *low, 
-		int father, stack<int>& stk, int& grp)
+void dfs_dcc(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
+		stack<pair<int, int> >& stk, int& grp, deque<deque<pair<int, int> > >& com)
 {
 	dfn[p] = low[p] = time ++;
-	//将当前节点p入栈
-	stk.push(p);
+	visited[p] = 1;
+	//除了栈的操作其他与求割点算法是完全相同的
+	//注意这里并不像强连通分支一样一开始就stk.push(p)将节点p压栈
 	for(int i = 1; i < (int)g.g_l[p].size(); ++ i){
-		if(!dfn[g.g_l[p][i].g_idx]){
-			dfs_dcc(g, g.g_l[p][i].g_idx, time, dfn, low, p, stk, grp);
+		if(visited[g.g_l[p][i].g_idx] == 0){
+			//将边e(p, i.g_idx)压栈
+			stk.push(make_pair(p, g.g_l[p][i].g_idx));
+			dfs_dcc(g, g.g_l[p][i].g_idx, visited, time, dfn, low, stk, grp, com);
 			low[p] = min(low[p], low[g.g_l[p][i].g_idx]);
+			//判断点双连通分支
 			if(dfn[p] <= low[g.g_l[p][i].g_idx]){
-				int tmp;
+				//节点p是割点
+				deque<pair<int, int> > tmp;
+				pair<int, int> tmp_edge;
 				do{
-					tmp = stk.top(); stk.pop();
-					g.g_l[tmp][0].g_value = grp;
-				}while(tmp != p);
-				++ grp;
+					tmp_edge = stk.top(); stk.pop();
+					tmp.push_back(tmp_edge);
+				}while(!((tmp_edge.first == p &&
+								tmp_edge.second == g.g_l[p][i].g_idx)
+							|| (tmp_edge.first == g.g_l[p][i].g_idx &&
+								tmp_edge.second == p)));
+				//直到出栈的边是e(p, i.g_idx)为止
+				//tmp是一个点双连通分支
+				com.push_back(tmp);
 			}
 		}
-		else if(g.g_l[p][i].g_idx != father){
+		else if(visited[g.g_l[p][i].g_idx] == 1)
 			low[p] = min(low[p], dfn[g.g_l[p][i].g_idx]);
-		}
 	}
+	visited[p] = 2;
 }
 
 
