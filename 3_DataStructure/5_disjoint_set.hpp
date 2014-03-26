@@ -45,14 +45,12 @@ public:
 			d_set[i].d_idx = i, d_set[i].d_fa = &d_set[i];
 	}
 	void d_union(int p1, int p2){
-		//p1与p2属同一家族，将两个成员合并
+		//将p2的家族合并入p1的家族，最早的祖先节点是p1家族的
+		//pf1是p1的父节点，pf2是p2的父节点
 		dis_node *pf1 = d_find_father(&d_set[p1]);
 		dis_node *pf2 = d_find_father(&d_set[p2]);
-		//随机将p1设置为p2的父节点
-		//更平衡的做法是设置一个数组来记录每个节点为父节点的集合中成员的数量
-		//每次合并时将成员较少的集合合并到成员较多的集合中
-		//即将成员较少的集合中的节点的父指针改为指向成员较多的集合的父节点
-		//从而达到尽量减少更改指针的操作
+		//将pf1设置为pf2的父节点
+		//以后d_find_father操作会使p2家族中的所有节点的父节点最终都指向p1的父节点
 		pf2->d_fa = pf1;
 	}
 	bool d_query(int p1, int p2){
