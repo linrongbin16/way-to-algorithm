@@ -14,7 +14,7 @@
 //当且仅当x mod= y(mod $(n))成立
 //
 //2)具体实现
-//通过辗转相除法求解a^b mod n
+//通过求幂运算法求解a^b mod n
 
 #include "general_head.h"
 
