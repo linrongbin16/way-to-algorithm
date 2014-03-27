@@ -3,7 +3,9 @@
 #include "general_head.h"
 #include "1_large.hpp"	//struct large
 void test_op(large a, large b, string info, int operat);
-string decimal_conversion(int num, int b);
+extern string decimal_conversion(int num, int b);	//1
+extern long long exponentiation1(long long x, long long n);	//2
+extern long long exponentiation2(long long x, long long n);	//3
 int main()
 {
 	large a(5), b(4), c(6);
@@ -19,9 +21,14 @@ int main()
 	test_op(a, c, "a * c: ", 3);
 	test_op(c, b, "c * b: ", 3);
 
-	for(int b = 2; b <= 10; ++ b)
+	for(int b = 2; b <= 10; ++ b)	//1
 		cout << endl << "turn 10 base number "<< 123456789 << " to " << b << " base number:" << decimal_conversion(123456789, b) << endl;
 
+	cout << endl;
+	cout << "1234 ^ 899 (exp 1) = " << exponentiation1(1234, 899) << endl;
+	cout << "98253 ^ 14235 (exp 1) = " << exponentiation1(98253, 14235) << endl;
+	cout << "1234 ^ 899 (exp 2) = " << exponentiation2(1234, 899) << endl;
+	cout << "98253 ^ 14235 (exp 2) = " << exponentiation2(98253, 14235) << endl;
 	return(0);
 }
 void test_op(large a, large b, string info, int operat)
