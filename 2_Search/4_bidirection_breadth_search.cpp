@@ -22,11 +22,8 @@
 
 #include "general_head.h"
 #include "search.h"
-pair<bi_node, bi_node> expand_queue(
-		deque<bi_node>& q_expand,
-		deque<bi_node>& q_exist,
-		bi_node **s, int m, int n,
-		int **visited, int flag);
+pair<bi_node, bi_node> expand_queue(deque<bi_node>& q_expand,
+		deque<bi_node>& q_exist, bi_node **s, int m, int n, int **visited, int flag);
 void print_road(pair<bi_node, bi_node> meet_pos,
 		bi_node **s);
 void print_forward(bi_node f, bi_node **s);
@@ -76,11 +73,8 @@ void bidirection_breadth_search(bi_node **s,
 	//若找到相遇的两点，则传入print_road函数输出路径
 	print_road(meet_pos, s);
 }
-pair<bi_node, bi_node> expand_queue(
-		deque<bi_node>& q_expand,
-		deque<bi_node>& q_exist,
-		bi_node **s, int m, int n,
-		int **visited, int flag)
+pair<bi_node, bi_node> expand_queue(deque<bi_node>& q_expand,
+		deque<bi_node>& q_exist, bi_node **s, int m, int n, int **visited, int flag)
 {//对q_expand队列的头节点的所有邻节点进行扩展
  //在将某个邻节点加入队列q_expand之前，先检查该点是否已经被q_expand队列访问过
  //或者查找该点是否已经存在于q_exist队列中

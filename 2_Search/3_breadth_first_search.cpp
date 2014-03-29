@@ -15,9 +15,7 @@ void print_elem(pair<int, int> p);
 
 void breadth_first_search(int m, int n, pair<int, int> beg)
 {//矩阵有m行，n列，行下标从0到m-1，列下标从0到n-1
- //起点beg的x坐标为beg.first(列标)，y坐标为beg.second(行标)
- //x坐标是列标，即取值范围从0到n-1
- //y坐标是行标，即取值范围从0到m-1(编程时经常容易搞混行列与xy坐标的关系)
+ //起点beg的行下标为beg.first(对应m行)，列下标为beg.second(对应n列)
 	//visited标记节点是否被访问过
 	int visited[MAX][MAX];
 	memset(visited, 0, MAX * MAX *sizeof(int));
@@ -28,34 +26,33 @@ void breadth_first_search(int m, int n, pair<int, int> beg)
 	//不同的方法会有不同的效果，但它们都存在缺陷，这些缺陷在bfs中并不会体现
 	//而在后面的双向广度搜索和启发式搜索中会体现出来，所以请记住这个细节
 	q.push(beg);
-	visited[beg.second][beg.first] = 1;
+	visited[beg.first][beg.second] = 1;
 	while(!q.empty()){
 		pair<int, int> p = q.front(); q.pop();
-		//xy坐标的概念和数组中行列的概念总是相反的，容易搞混
 		print_elem(p);
 		//对p点四个方向的邻节点进行考虑
 		//还需判断矩阵越界
 		if(p.first - 1 >= 0 && !visited[p.first - 1][p.second]){
-			q.push(pair<int, int>(p.first - 1, p.second));
+			q.push(make_pair(p.first - 1, p.second));
 			visited[p.first - 1][p.second] = 1;
 		}
-		if(p.first + 1 < n && !visited[p.first + 1][p.second]){
-			q.push(pair<int, int>(p.first + 1, p.second));
+		if(p.first + 1 < m && !visited[p.first + 1][p.second]){
+			q.push(make_pair(p.first + 1, p.second));
 			visited[p.first + 1][p.second] = 1;
 		}
 		if(p.second - 1 >= 0 && !visited[p.first][p.second - 1]){
-			q.push(pair<int, int>(p.first, p.second - 1));
+			q.push(make_pair(p.first, p.second - 1));
 			visited[p.first][p.second - 1] = 1; 
 		}
-		if(p.second + 1 < m && !visited[p.first][p.second + 1]){
-			q.push(pair<int, int>(p.first, p.second + 1));
+		if(p.second + 1 < n && !visited[p.first][p.second + 1]){
+			q.push(make_pair(p.first, p.second + 1));
 			visited[p.first][p.second + 1] = 1;
 		}
 	}
 }
 void print_elem(pair<int, int> p)
 {
-	cout << "(x:" << p.first << ",y:" << p.second << ")" << endl;
+	cout << "(row:" << p.first << ",column:" << p.second << ")" << endl;
 }
 
 
