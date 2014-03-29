@@ -16,7 +16,8 @@
 
 bool binary_search(int *s, int x, int beg, int end, int& idx)
 {//[beg, end)是左闭右开区间，s为已序序列，下标从beg到end-1，查找元素值x
- //idx返回查找的下标，返回bool标志查找成功与否，若查找不成功返回最接近x且比x小的元素下标
+ //idx返回查找的下标，返回bool标志查找成功与否
+ //若查找不成功返回最接近x且比x小的元素下标
 	int low(beg), high(end - 1), mid((beg + end - 1) / 2);
 	while(s[mid] != x && low <= high){
 		if(s[mid] > x)
