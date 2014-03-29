@@ -79,8 +79,7 @@
 bool heuristic_search(star_node beg, star_node end, deque<star_node>& close);
 void print_road(star_node *pre);
 bool compare(star_node a, star_node b);
-deque<star_node>::iterator min_f(deque<star_node>& q,
-		star_node end);
+deque<star_node>::iterator min_f(deque<star_node>& q, star_node end);
 int x_position(star_node a, char x);
 void left_swap(star_node& a, int pos);
 void right_swap(star_node& a, int pos);
@@ -176,8 +175,7 @@ void print_road(star_node *pre)
 		print_road(pre->s_fa);
 	cout << "(status:" << pre->s_status << ",length:" << pre->s_g << ")" << endl;
 }
-deque<star_node>::iterator min_f(deque<star_node>& q,
-		star_node end)
+deque<star_node>::iterator min_f(deque<star_node>& q, star_node end)
 {
 	deque<star_node>::iterator pos;
 	int mf(INF);
