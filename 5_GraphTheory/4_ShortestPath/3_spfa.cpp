@@ -1,7 +1,7 @@
 //最短路径更快算法
 //spfa.cpp
 
-//求给定图中从起点beg到各节点的最短路径及长度
+//求给定图中从起点beg到各节点的最短路径长度
 
 //最短路径更快算法(Shortest Path Faster Algorithm)是Bellman-Ford算法的队列优化版本
 //它比Bellman-Ford拥有更好的性能
