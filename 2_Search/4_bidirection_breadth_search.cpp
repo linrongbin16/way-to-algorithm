@@ -24,8 +24,7 @@
 #include "search.h"
 pair<bi_node, bi_node> expand_queue(deque<bi_node>& q_expand,
 		deque<bi_node>& q_exist, bi_node **s, int m, int n, int **visited, int flag);
-void print_road(pair<bi_node, bi_node> meet_pos,
-		bi_node **s);
+void print_road(pair<bi_node, bi_node> meet_pos, bi_node **s);
 void print_forward(bi_node f, bi_node **s);
 void print_backward(bi_node b, bi_node **s);
 
@@ -88,9 +87,7 @@ pair<bi_node, bi_node> expand_queue(deque<bi_node>& q_expand,
 		//判断矩阵边界与是否已经被访问过	
 		//C++算法find需要结构体bi_node提供比较操作operator==
 		//在search.h中该操作操作定义两节点的xy坐标相等即为同一点，不考虑父节点指针
-		if((pos = find(q_exist.begin(),
-						q_exist.end(),
-						s[p.b_y][p.b_x - 1])) !=
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p.b_y][p.b_x - 1])) !=
 					q_exist.end()){
 			//若在q_exist中找到q_expand头节点的该邻节点，则返回相遇的两节点
 			//flag == 1标志本次扩展的队列是q_beg
@@ -110,9 +107,7 @@ pair<bi_node, bi_node> expand_queue(deque<bi_node>& q_expand,
 		visited[p.b_y][p.b_x - 1] = 1;
 	}
 	if(p.b_x + 1 < n && !visited[p.b_y][p.b_x + 1]){
-		if((pos = find(q_exist.begin(),
-						q_exist.end(),
-						s[p.b_y][p.b_x + 1])) !=
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p.b_y][p.b_x + 1])) !=
 					q_exist.end()){
 			if(flag == 1)
 				return(pair<bi_node, bi_node>(p, *pos));
@@ -125,9 +120,7 @@ pair<bi_node, bi_node> expand_queue(deque<bi_node>& q_expand,
 		visited[p.b_y][p.b_x + 1] = 1;
 	}
 	if(p.b_y - 1 >= 0 && !visited[p.b_y - 1][p.b_x]){
-		if((pos = find(q_exist.begin(),
-						q_exist.end(),
-						s[p.b_y - 1][p.b_x])) !=
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p.b_y - 1][p.b_x])) !=
 					q_exist.end()){
 			if(flag == 1)
 				return(pair<bi_node, bi_node>(p, *pos));
@@ -140,9 +133,7 @@ pair<bi_node, bi_node> expand_queue(deque<bi_node>& q_expand,
 		visited[p.b_y - 1][p.b_x] = 1;
 	}
 	if(p.b_y + 1 < m && !visited[p.b_y + 1][p.b_x]){
-		if((pos = find(q_exist.begin(),
-						q_exist.end(),
-						s[p.b_y + 1][p.b_x])) !=
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p.b_y + 1][p.b_x])) !=
 					q_exist.end()){
 			if(flag == 1)
 				return(pair<bi_node, bi_node>(p, *pos));
@@ -158,8 +149,7 @@ pair<bi_node, bi_node> expand_queue(deque<bi_node>& q_expand,
 	//若这次扩展中两队列未相遇则返回q_expand的尾部迭代器
 	return(pair<bi_node, bi_node>(*q_expand.end(), *q_expand.end()));
 }
-void print_road(pair<bi_node, bi_node> meet_pos,
-		bi_node **s)
+void print_road(pair<bi_node, bi_node> meet_pos, bi_node **s)
 {//meet_pos中是两队列相遇处的两节点
  //其中first是q_beg队列中的节点，second是q_end队列中的节点
  //这两个点是相邻的
