@@ -153,16 +153,12 @@ bool heuristic_search(star_node beg, star_node end, deque<star_node>& close)
 				deque<star_node>::iterator ot;
 				deque<star_node>::iterator ct;
 				//查询open中是否存在next[i]这个节点
-				if((ot = find(open.begin(),
-						open.end(),
-						next[i])) != open.end())
+				if((ot = find(open.begin(), open.end(), next[i])) != open.end())
 					//若存在该节点则选择g值较小的节点
 					if(ot->s_g > next[i].s_g)
 						*ot = next[i];
 				//查询close中是否存在next[i]这个节点
-				if((ct = find(close.begin(),
-						close.end(),
-						next[i])) != close.end())
+				if((ct = find(close.begin(), close.end(), next[i])) != close.end())
 					//若存在该节点则选择g值较小的节点
 					if(ct->s_g > next[i].s_g)
 						*ct = next[i];
