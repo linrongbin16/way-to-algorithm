@@ -14,23 +14,21 @@ using std::string;
 struct bi_node{
 	//专门支持双向广度优先搜索算法的节点
 	
-	int b_x;					//点的x坐标
-	int b_y;					//点的y坐标
+	int b_row;					//点的行下标
+	int b_col;					//点的列下标
 	pair<int, int> b_fa;		//点的父节点坐标
-								//s_fa.first为x坐标
-								//s_fa.second为y坐标
-	bi_node(int cx = 0, int cy = 0,
-			pair<int, int> cf = pair<int, int>(-1, -1))
+								//s_fa.first为行下标
+								//s_fa.second为列下标
+	bi_node(int cr = 0, int cc = 0, pair<int, int> cf = pair<int, int>(-1, -1))
 		//-1指代父节点默认为不存在
-		: b_x(cx), b_y(cy), b_fa(cf){
+		: b_row(cr), b_col(cc), b_fa(cf){
 	}
 	bi_node(const bi_node& cr)
-		: b_x(cr.b_x), b_y(cr.b_y), b_fa(cr.b_fa){
+		: b_row(cr.b_row), b_col(cr.b_col), b_fa(cr.b_fa){
 	}
 	//在使用find算法需要定义operator==
-	//而且这个重载需要比较严格的写法
 	bool operator==(const bi_node& r) const{
-		return(b_x == r.b_x && b_y == r.b_y);
+		return(b_row == r.b_row && b_col == r.b_col);
 	}
 };
 struct star_node{

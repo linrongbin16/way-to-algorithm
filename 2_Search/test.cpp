@@ -25,10 +25,10 @@ int main()
 	for(int i = 0; i < 4; ++ i){
 		s2[i] = new bi_node[5];
 		for(int j = 0; j < 5; ++ j)
-			s2[i][j].b_x = j, s2[i][j].b_y = i;
+			s2[i][j].b_row = i, s2[i][j].b_col = j;
 	}
 	cout << endl << "bidirection breadth search: " << endl;
-	bidirection_breadth_search(s2, 4, 5, s2[0][2], s2[3][4]);	//4
+	bidirection_breadth_search(s2, 4, 5, s2[0][0], s2[3][4]);	//4
 
 	star_node beg, end;
 	beg.s_status = "4132x6758", end.s_status = "12345678x";
