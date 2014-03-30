@@ -80,11 +80,11 @@ int binary_tree2(tree_node *r, int **f, int resv)
 	//递归终止条件
 	if(r == NULL)
 		return(0);
+	if(resv == 0)
+		return(0);
 	//若r节点保留resv个节点的决策已经得到，直接查询返回
 	if(f[r->t_idx][resv])
 		return(f[r->t_idx][resv]);
-	if(resv == 0)
-		return(0);
 
 	for(int i = 0; i < resv; ++ i){
 		int lmax = binary_tree2(r->t_lc, f, i);
