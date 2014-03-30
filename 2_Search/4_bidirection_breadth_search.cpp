@@ -160,10 +160,3 @@ void print_forward(bi_node f, bi_node **s)
 
 
 
-
-
-
-
-
-
-
