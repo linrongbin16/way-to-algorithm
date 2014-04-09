@@ -25,8 +25,8 @@
 struct dis_node{
 	int d_idx;
 	dis_node *d_fa;
-	dis_node(int ci = 0)
-		: d_idx(ci), d_fa(NULL){
+	dis_node(int cidx = 0)
+		: d_idx(cidx), d_fa(NULL){
 	}
 };
 struct disjoint_set{

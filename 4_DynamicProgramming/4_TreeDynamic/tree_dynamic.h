@@ -26,9 +26,9 @@ struct tree_node{
 								//将原本动态规划中使用的f数组也存储在树中
 								//t_f[i]指代以当前节点为根节点的子树上
 								//保留或分配的节点数为i时最大权值
-	tree_node(int ci = 0, int cv = 0, tree_node *cl = NULL, tree_node *cr = NULL,
-			tree_node *ca = NULL, int cc = 0)
-		: t_idx(ci), t_value(cv), t_lc(cl), t_rc(cr), t_fa(ca), t_cnt(cc){
+	tree_node(int cidx = 0, int cvalue = 0, tree_node *clc = NULL,
+			tree_node *crc = NULL, tree_node *cfa = NULL, int ccnt = 0)
+		: t_idx(cidx), t_value(cvalue), t_lc(clc), t_rc(crc), t_fa(cfa), t_cnt(ccnt){
 			for(int i = 0; i < MAX; ++ i)
 				t_child[i] = NULL;
 			for(int i = 0; i < MAX; ++ i)

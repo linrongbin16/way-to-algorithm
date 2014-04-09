@@ -28,8 +28,8 @@
 struct hash_node{
 	int h_value;
 	hash_node *h_next;
-	hash_node(int cv = 0)
-		: h_value(cv), h_next(NULL){
+	hash_node(int cvalue = 0)
+		: h_value(cvalue), h_next(NULL){
 	}
 };
 struct hash_table{
@@ -37,13 +37,12 @@ private:
 	//h_table数组中的节点均为单链头节点，不存储实际值
 	hash_node h_table[MAX];
 	int h_prime;
-	int h_n;
 	int hash_func(int value){
 		return(value % h_prime);
 	}
 public:
-	hash_table(int p)
-		: h_prime(p), h_n(p){
+	hash_table(int cprime)
+		: h_prime(cprime){
 	}
 	void h_insert(int r){
 		//向哈希表中插入值为value的节点
@@ -78,7 +77,7 @@ public:
 	}
 	void h_print(){
 		cout << "prime: " << h_prime << endl;
-		for(int i = 0; i < h_n; ++ i){
+		for(int i = 0; i < h_prime; ++ i){
 			cout << "key: " << i << ", node: ";
 			hash_node *p = h_table[i].h_next;
 			while(p != NULL){

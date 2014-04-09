@@ -16,8 +16,8 @@ struct node{
 						//专门支持扫除线算法
 	int n_idx;			//n_idx指代点所在线段的所在数组的下标号
 	int n_lt;			//n_lt指代点是所在的线段的左端点(1)或右端点(0)
-	node(double cx = 0, double cy = 0, double ci = 0, double cl = 0)
-		: n_x(cx), n_y(cy), n_idx(cy), n_lt(cl){
+	node(double cx = 0, double cy = 0, double cidx = 0, double clt = 0)
+		: n_x(cx), n_y(cy), n_idx(cidx), n_lt(clt){
 	}
 	node(const node& cr)
 		: n_x(cr.n_x), n_y(cr.n_y), n_idx(cr.n_idx), n_lt(cr.n_lt){
@@ -52,7 +52,7 @@ struct segment{
 	node s_lt;			//s_lt指代当前线段的左端点，即x坐标较小的点
 	node s_rt;			//s_rt指代当前线段的右端点，即x坐标较大的点
 	segment()
-		: s_lt(node()), s_rt(node()){
+		: s_lt(), s_rt(){
 	}
 	segment(const node& cl, const node& cr)
 		: s_lt(cl), s_rt(cr){ 

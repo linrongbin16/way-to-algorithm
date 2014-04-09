@@ -31,8 +31,8 @@ struct left_node{
 	int l_dist;
 	left_node *l_lc;
 	left_node *l_rc;
-	left_node(int ci = 0, int cd = 0)
-		: l_idx(ci), l_dist(cd), l_lc(NULL), l_rc(NULL){
+	left_node(int cidx = 0, int cdist = 0)
+		: l_idx(cidx), l_dist(cdist), l_lc(NULL), l_rc(NULL){
 	}
 };
 struct leftist_tree{

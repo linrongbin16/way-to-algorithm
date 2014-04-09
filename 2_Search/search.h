@@ -19,9 +19,9 @@ struct bi_node{
 	pair<int, int> b_fa;		//点的父节点坐标
 								//s_fa.first为行下标
 								//s_fa.second为列下标
-	bi_node(int cr = 0, int cc = 0, pair<int, int> cf = pair<int, int>(-1, -1))
+	bi_node(int crow = 0, int ccol = 0, pair<int, int> cfa = pair<int, int>(-1, -1))
 		//-1指代父节点默认为不存在
-		: b_row(cr), b_col(cc), b_fa(cf){
+		: b_row(crow), b_col(ccol), b_fa(cfa){
 	}
 	bi_node(const bi_node& cr)
 		: b_row(cr.b_row), b_col(cr.b_col), b_fa(cr.b_fa){
@@ -40,8 +40,8 @@ struct star_node{
 	int s_g;					//s_g表示从起点到当前点的路径长度
 								//在A*算法中相当于g(i)函数
 	star_node *s_fa;			//指向当前节点的父节点
-	star_node(string cs = "", int ch = 0, int cg = 0, star_node *cf = NULL)
-		: s_status(cs), s_h(ch), s_g(cg), s_fa(cf){
+	star_node(string cstatus = "", int ch = 0, int cg = 0, star_node *cfa = NULL)
+		: s_status(cstatus), s_h(ch), s_g(cg), s_fa(cfa){
 	}
 	star_node(const star_node& cr)
 		//支持复制指针的操作

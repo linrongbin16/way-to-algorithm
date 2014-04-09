@@ -24,8 +24,8 @@ struct tree_node{
 	tree_node *t_lc;			//t_lc指向左孩子节点
 	tree_node *t_rc;			//t_rc指向右孩子节点
 	tree_node *t_fa;			//t_fa指向父节点
-	tree_node(int ci = 0, int cv = 0)
-		: t_idx(ci), t_value(cv), t_lc(NULL), t_rc(NULL), t_fa(NULL){
+	tree_node(int cidx = 0, int cvalue = 0)
+		: t_idx(cidx), t_value(cvalue), t_lc(NULL), t_rc(NULL), t_fa(NULL){
 	}
 	tree_node(const tree_node& cr)
 		: t_idx(cr.t_idx), t_value(cr.t_value),
@@ -36,8 +36,8 @@ struct graph_node{
 	int g_idx;					//g_idx指代当前节点在图中的下标号，从0开始
 								//它是该节点在图中的唯一标识
 	int g_value;				//g_value指代当前节点权值
-	graph_node(int ci = 0, int cv = 0)
-		:g_idx(ci), g_value(cv){
+	graph_node(int cidx = 0, int cvalue = 0)
+		:g_idx(cidx), g_value(cvalue){
 	}
 	graph_node(const graph_node& cr)
 		: g_idx(cr.g_idx), g_value(cr.g_value){
@@ -46,8 +46,8 @@ struct graph_node{
 struct graph_matrix{
 	int g_m[MAX][MAX];			//g_m[i][j]指代矩阵中节点i到j的单向距离
 	int g_cnt;					//g_cnt指代矩阵中节点数量，节点下标从0到g_cnt-1
-	graph_matrix(int cg = 0)
-		: g_cnt(cg){
+	graph_matrix(int ccnt = 0)
+		: g_cnt(ccnt){
 			for(int i = 0; i < MAX; ++ i)
 				for(int j = 0; j < MAX; ++ j)
 					g_m[i][j] = 0;
@@ -68,8 +68,8 @@ struct graph_list{
 									//并且保证队列i中的头结点g_l[i][0]
 									//中的g_idx成员与i相等
 									//但队列i中其他的节点的g_idx成员与下标则无关系
-	graph_list(int cg = 0)
-		: g_l(cg){
+	graph_list(int ccnt = 0)
+		: g_l(ccnt){
 	}
 	graph_list(const graph_list& cr)
 		: g_l(cr.g_l){
@@ -90,10 +90,10 @@ struct edge{
 								//费用和长度两个成员专门支持
 								//最优比率生成树和最小费用流问题的计算
 
-	edge(int cb = 0, int ce = 0, double cv = 0,
-			int cj = 0, double cc = 0, double cd = 0)
-		: e_beg(cb), e_end(ce), e_value(cv),
-		e_join(cj), e_cost(cc), e_dist(cd){
+	edge(int cbeg = 0, int cend = 0, double cvalue = 0,
+			int cjoin = 0, double ccost = 0, double cdist = 0)
+		: e_beg(cbeg), e_end(cend), e_value(cvalue),
+		e_join(cjoin), e_cost(ccost), e_dist(cdist){
 	}
 	edge(const edge& cr)
 		: e_beg(cr.e_beg), e_end(cr.e_end), e_value(cr.e_value),
@@ -105,8 +105,8 @@ struct edge_list{
 	//并且规定：无向图中的一条边使用两条反向且权值相等的edge来描述
 	
 	vector<edge> e_l;			//使用vector实作该数据结构
-	edge_list(int cn = 0)
-		: e_l(cn){
+	edge_list(int ccnt = 0)
+		: e_l(ccnt){
 	}
 	edge_list(const edge_list& cr)
 		:e_l(cr.e_l){
@@ -124,8 +124,8 @@ struct bipartite{
 										//ymatch中的节点i是Y集合中的第i个节点
 										//但它们并不是在二分图中的唯一标记
 										//二分图的节点数量=X节点数量+Y节点数量
-	bipartite(int cx = 0, int cy = 0)
-		: b_xn(cx), b_yn(cy){
+	bipartite(int cxn = 0, int cyn = 0)
+		: b_xn(cxn), b_yn(cyn){
 			for(int i = 0; i < MAX; ++ i)
 				for(int j = 0; j < MAX; ++ j)
 					b_g[i][j] = 0;

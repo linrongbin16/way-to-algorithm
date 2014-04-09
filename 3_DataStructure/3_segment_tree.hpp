@@ -42,8 +42,8 @@ struct seg_node{
 	int s_cover;
 	seg_node *s_lc;
 	seg_node *s_rc;
-	seg_node(int cb = 0, int ce = 0)
-		: s_beg(cb), s_end(ce), s_cover(0), s_lc(NULL), s_rc(NULL){
+	seg_node(int cbeg = 0, int cend = 0)
+		: s_beg(cbeg), s_end(cend), s_cover(0), s_lc(NULL), s_rc(NULL){
 	}
 };
 struct segment_tree{
@@ -134,11 +134,6 @@ public:
 		s_rec_print(s_root);
 	}
 };
-
-
-
-
-
 
 
 

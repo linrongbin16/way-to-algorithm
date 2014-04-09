@@ -13,8 +13,8 @@ using std::endl;
 struct matrix{
 	double m_m[MAX][MAX];
 	int m_row, m_col;
-	matrix(int cr = 0, int cc = 0)
-		: m_row(cr), m_col(cc){
+	matrix(int crow = 0, int ccol = 0)
+		: m_row(crow), m_col(ccol){
 			for(int i = 0; i < MAX; ++ i)
 				for(int j = 0; j < MAX; ++ j)
 					m_m[i][j] = 0;
