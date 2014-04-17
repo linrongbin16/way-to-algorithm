@@ -64,8 +64,7 @@ private:
 	}
 public:
 	binary_index_tree(){
-		for(int i = 1; i < MAX; ++ i)
-			b_c[i] = 0;
+		memset(b_c, 0, MAX * sizeof(int));
 	}
 	void b_add(int i, int x){
 		//s[i]加x，注意i从1开始

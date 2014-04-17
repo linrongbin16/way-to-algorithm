@@ -3,6 +3,7 @@
 
 //支持树形动规一节的自定义数据结构
 
+#include <cstring>
 #ifndef NULL
 #define NULL 0
 #endif
@@ -29,10 +30,8 @@ struct tree_node{
 	tree_node(int cidx = 0, int cvalue = 0, tree_node *clc = NULL,
 			tree_node *crc = NULL, tree_node *cfa = NULL, int ccnt = 0)
 		: t_idx(cidx), t_value(cvalue), t_lc(clc), t_rc(crc), t_fa(cfa), t_cnt(ccnt){
-			for(int i = 0; i < MAX; ++ i)
-				t_child[i] = NULL;
-			for(int i = 0; i < MAX; ++ i)
-				t_f[i] = 0;
+			memset(t_child, 0, MAX * sizeof(tree_node*));
+			memset(t_f, 0, MAX * sizeof(int));
 	}
 	tree_node(const tree_node& cr)
 		: t_idx(cr.t_idx), t_value(cr.t_value), t_lc(cr.t_lc), t_rc(cr.t_rc),

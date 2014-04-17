@@ -4,6 +4,7 @@
 //支持线性规划一章的自定义数据结构
 
 #include <iostream>
+#include <cstring>
 #ifndef MAX
 #define MAX 60
 #endif
@@ -15,9 +16,7 @@ struct matrix{
 	int m_row, m_col;
 	matrix(int crow = 0, int ccol = 0)
 		: m_row(crow), m_col(ccol){
-			for(int i = 0; i < MAX; ++ i)
-				for(int j = 0; j < MAX; ++ j)
-					m_m[i][j] = 0;
+			memset(m_m, 0, MAX * MAX * sizeof(double));
 	}
 	matrix(const matrix& cr)
 		: m_row(cr.m_row), m_col(cr.m_col){

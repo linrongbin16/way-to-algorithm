@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <deque>
+#include <cstring>
 #ifndef NULL
 #define NULL 0
 #endif
@@ -48,9 +49,7 @@ struct graph_matrix{
 	int g_cnt;					//g_cnt指代矩阵中节点数量，节点下标从0到g_cnt-1
 	graph_matrix(int ccnt = 0)
 		: g_cnt(ccnt){
-			for(int i = 0; i < MAX; ++ i)
-				for(int j = 0; j < MAX; ++ j)
-					g_m[i][j] = 0;
+			memset(g_m, 0, MAX * MAX * sizeof(int));
 	}
 	graph_matrix(const graph_matrix& cr)
 		: g_cnt(cr.g_cnt){
@@ -126,9 +125,7 @@ struct bipartite{
 										//二分图的节点数量=X节点数量+Y节点数量
 	bipartite(int cxn = 0, int cyn = 0)
 		: b_xn(cxn), b_yn(cyn){
-			for(int i = 0; i < MAX; ++ i)
-				for(int j = 0; j < MAX; ++ j)
-					b_g[i][j] = 0;
+			memset(b_g, 0, MAX * MAX * sizeof(int));
 	}
 	bipartite(const bipartite& cr)
 		: b_xn(cr.b_xn), b_yn(cr.b_yn){
