@@ -53,6 +53,14 @@ int chinese_remainer_theorem(int *a, int *n, int k)
 				t[i] = j;
 				break;
 			}
+	//上面的循环
+	//for(int i = 0; i < k; ++ i)
+	//	for(int j = 1; ; ++ j)
+	//时间复杂度为k的平方级，可以作进一步的优化，写作循环：
+	//for(int j = 1; ; ++ j)
+	//	for(int i = 0; i < k; ++ i)
+	//对于每个j，都判断这个j是否是m[i]的数论倒数，则不会对于同一个j作多余的重复判断
+	
 	int x0(0);
 	for(int i = 0; i < k; ++ i)
 		x0 += a[i] * t[i] * m[i];
