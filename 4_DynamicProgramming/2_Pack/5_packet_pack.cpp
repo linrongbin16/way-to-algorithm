@@ -1,5 +1,5 @@
 //分组背包
-//group_knapsack.cpp
+//packet_pack.cpp
 
 //给定背包承重w，选择集s上有n种物品，物品s[i]的重量为w[i]，价值为v[i]
 //这些物品被划分为grpcnt个组，每组中有objcnt个物品，同一组中物品相互冲突
@@ -14,10 +14,10 @@
 //初始条件：f[k][j]为0，其中0 <= k <= grpcnt，0 <= j <= w
 
 #include "general_head.h"
-#include "knapsack.h"
+#include "pack.h"
 bool compare(object a, object b);
 
-int group_knapsack(group_object t, int w) 
+int packet_pack(packet_object t, int w) 
 {//物品分组t的组数量为g_grpcnt，下标从1到g_grpcnt
  //每个分组中的物品数量为g_objcnt，下标从1到g_objcnt，物品总数为g_totalcnt
  //背包承重为w

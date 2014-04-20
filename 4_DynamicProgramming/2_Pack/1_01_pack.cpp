@@ -1,5 +1,5 @@
 //01背包
-//_01_knapsack.cpp
+//_01_pack.cpp
 
 //给定背包最大承重w，选择集s有n个物品，s[i]物品的价值是v[i]，重量(费用)是w[i]
 //每种物品只能选1个或0个，不能切割，求出背包可以装载的最大价值
@@ -17,9 +17,9 @@
 //1)原始方法
 
 #include "general_head.h"
-#include "knapsack.h"
+#include "pack.h"
 
-int _01_knapsack1(object *t, int n, int w) 
+int _01_pack1(object *t, int n, int w) 
 {//物品序列t的数量为n，下标从1到n，空出0位置，背包承重为w
  //返回背包能装载的最大价值
 	int f[OMAX + 1][WMAX + 1];
@@ -42,7 +42,7 @@ int _01_knapsack1(object *t, int n, int w)
 
 //2)优化空间方法
 
-int _01_knapsack2(object *t, int n, int w)
+int _01_pack2(object *t, int n, int w)
 {
 	int f[WMAX + 1];
 	for(int i = 0; i <= w; ++ i)

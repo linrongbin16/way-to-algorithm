@@ -1,5 +1,5 @@
 //完全背包
-//complete_knapsack.cpp
+//complete_pack.cpp
 
 //给定背包承重w，选择集s中有n个物品可以选择，物品s[i]的价值为v，重量为w[i]
 //每种物品可以选择0个或无限多个，不可分割，求出背包可以装载的最大价值
@@ -13,9 +13,9 @@
 //初始条件：f[i][j]为0，其中0 <= i <= n，0 <= j <= w
 
 #include "general_head.h"
-#include "knapsack.h"
+#include "pack.h"
 
-int complete_knapsack(object *t, int n, int w) 
+int complete_pack(object *t, int n, int w) 
 {//物品序列t的数量为n，下标从1到n，空出0位置，背包承重为w
 	int f[OMAX + 1][WMAX + 1];
 	for(int i = 0; i <= n; ++ i)

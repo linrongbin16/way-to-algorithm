@@ -20,7 +20,7 @@ struct object{
 		o_count(cr.o_count), o_weigh2(cr.o_weigh){
 	}
 };
-struct group_object{
+struct packet_object{
 	//专门用于支持分组背包的计算
 	
 	object g[GMAX][OMAX];	//分组物品
@@ -29,9 +29,9 @@ struct group_object{
 	int g_grpcnt;			//g_grpcnt指代分组背包中分组数量
 	int g_objcnt;			//g_objcnt指代每组中的物品种类
 	int g_totalcnt;			//g_totalcnt指代总共物品种类
-	//一般有g_totalobjectcnt = g_groupcnt * g_objectcnt
+	//一般有g_totalobjectcnt = g_packetcnt * g_objectcnt
 	//物品总共种类 = 每组物品种类 * 分组数量
-	group_object(int cgrpcnt = 0, int cobjcnt = 0, int ctotalcnt = 0)
+	packet_object(int cgrpcnt = 0, int cobjcnt = 0, int ctotalcnt = 0)
 		: g_grpcnt(cgrpcnt), g_objcnt(cobjcnt), g_totalcnt(ctotalcnt){
 	}
 };

@@ -1,5 +1,5 @@
 //依赖背包
-//dependent_knapsack.cpp
+//dependent_pack.cpp
 
 //给定固定背包最大承重w，选择集s有n个物品
 //s[i]物品的价值是v[i]，重量(费用)是w[i]
@@ -29,7 +29,7 @@
 //物品之间的关系组成了一棵多叉树，就成为了树形动态规划问题
 //动规的具体算法见树形动态规划一节
 
-//int dependent_knapsack(object *t, int n, int w)
+//int dependent_pack(object *t, int n, int w)
 
 
 

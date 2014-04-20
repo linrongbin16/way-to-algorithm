@@ -1,5 +1,5 @@
 //二维背包
-//two_dimension_knapsack.cpp
+//two_dimension_pack.cpp
 
 //给定背包的两种费用w1和w2，选择集s上有n种物品
 //物品s[i]的价值为v[i]，费用1为w1[i]，费用2为w2[i]，可选1个或0个，不能切割
@@ -15,9 +15,9 @@
 //由此我们也可以联想到多维背包是使用了更多维度的数组f
 
 #include "general_head.h"
-#include "knapsack.h"
+#include "pack.h"
 
-int two_dimension_knapsack(object *t, int n, int w1, int w2) 
+int two_dimension_pack(object *t, int n, int w1, int w2) 
 {//物品序列t的数量为n，下标从1到n，空出0位置，背包承重1为w1，承重2为w2
 	int f[OMAX + 1][WMAX + 1][WMAX + 1];
 	for(int i = 0; i <= w1; ++ i)
