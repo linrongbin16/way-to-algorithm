@@ -5,6 +5,7 @@ void full_permutation(int *s, int n, int& cnt, int prev = 0);	//1
 void combination1(int *s, int n, int m, int prev = 0);	//2
 void combination2(int *s, int n, int m, int prev = 0);	//3
 void combination3(int *s, int n, int m);	//4
+void permutation_group(int *s, int n, int *t, int k, int *f);	//5
 int main()
 {
 	int q[] = {1, 2, 3, 4};
@@ -20,6 +21,24 @@ int main()
 	combination2(s2, 5, 3);
 	cout << endl << "combination 3" << endl;
 	combination3(s3, 5, 3);
+
+	int s[11] = {0, 4, 5, 3, 7, 2, 8, 1, 6, 10, 9};
+	int t[11] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	int f[11];
+	cout << endl << "permutation group:" << endl;
+	cout << "s:" << endl;
+	for(int i = 1; i <= 10; ++ i)
+		cout << s[i] << ' ';
+	cout << endl;
+	cout << "t" << endl << "before:" << endl;
+	for(int i = 1; i <= 10; ++ i)
+		cout << t[i] << ' ';
+	cout << endl;
+	permutation_group(s, 10, t, 10, f);
+	cout << "after:" << endl;
+	for(int i = 1; i <= 10; ++ i)
+		cout << f[i] << ' ';
+	cout << endl;
 	return(0);
 }
 
