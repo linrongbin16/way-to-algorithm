@@ -52,7 +52,7 @@ int min_distance(int *distance, int *visited, int beg, int end)
 {//[beg, end)是左闭右开区间
 	int dist(INF), index(0);
 	for(int i = beg; i < end; ++ i)
-		if(dist > distance[i] && distance[i] && !visited[i])
+		if(dist > distance[i] && !visited[i])
 			//除过distance[i]为0，或者已经遍历过的节点
 			//找出距离最短的新节点
 			dist = distance[i], index = i;
