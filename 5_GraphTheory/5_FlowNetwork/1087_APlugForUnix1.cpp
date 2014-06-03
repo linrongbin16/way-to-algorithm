@@ -19,157 +19,135 @@
 using namespace std;
 ifstream fin;
 
-const int maxn = 30000;
-const int maxm = 50000;
-const int INF=0x7fffffff;
-int idx;
-int cur[maxn], path[maxn];
-int d[maxn], d_num[maxn];
-int aug[maxn], head[maxn];
-char name[3000][30];
-int k;
-struct Node
-{
-	int u, v, w;
-	int next;
-};
-Node edge[maxm];
-int relabel(int index);
-int find_allow(int index);
-void addEdge(int u, int v, int w)
-{
-    edge[idx].u = u;
-    edge[idx].v = v;
-    edge[idx].w = w;
-    edge[idx].next = head[u];
-    head[u] = idx++;
-    edge[idx].u = v;
-    edge[idx].v = u;
-    edge[idx].w = 0;
-    edge[idx].next = head[v];
-    head[v] = idx++;
-}
-int sol(char *str)
-{
-	int i;
-	if(k==0)
-	{
-		strcpy(name[1],str);
-		k=1;
-		return  1;
-	}
-	for(i=1;i<=k;i++)
-		if(strcmp(name[i],str)==0)
-			return i;
-	k++;
-	strcpy(name[k],str);
-	return k;
-}
-int SAP(int s, int e, int n)
-{
-    int max_flow = 0, v, u = s;
-    int id, min_dist;
-    aug[s] = INF;
-    path[s] = -1;
-    memset(d, 0, sizeof(d));
-    memset(d_num, 0, sizeof(d_num));
-    d_num[0] = n; // 我觉得这一句要不要都行，因为d[e]始终为0
-	copy(head, head + maxn, cur); // 初始化当前弧为第一条弧
-    while (d[s] < n)
-    {
-        if (u == e)
-        {
-            max_flow += aug[e];
-            for (v = path[e]; v != -1; v = path[v]) // 路径回溯更新残留网络
-            {
-                id = cur[v];
-                edge[id].w -= aug[e];
-                edge[id^1].w += aug[e];
-                aug[v] -= aug[e]; // 修改可增广量，以后会用到
-                if (edge[id].w == 0) u = v; // 不回退到源点，仅回退到容量为0的弧的弧尾
-            }
-        }
-		int tmp = find_allow(u);
-		if(tmp != -1)
-			u = tmp;
-		else{
-            if (--d_num[d[u]] == 0)
-				break; /* gap优化，层次树出现断层则结束算法 */
-            min_dist = n;
-            cur[u] = head[u];
-            d[u] = relabel(u) + 1;
-            ++ d_num[d[u]];
-            if (u != s)
-				u = path[u]; // 回溯继续寻找允许弧
-        }
-    }
-    return max_flow;
-}
+#define MAX 500
+#define INF (1 << 30)
+int n, m, k, name_cnt;
+map<string, int> name;
+int g[MAX][MAX], start, dest, ans;
+int d[MAX], path[MAX], d_num[MAX];
+
+
+int distance_label();
+void bfs();
+int relabel(int u);
+int find_allow(int u);
 int main()
 {
-	freopen("main.in", "r", stdin);
+	fin.open("main.in");
+	cin.rdbuf(fin.rdbuf());
 
-    int i,n1,n2,n3;
-	int st,ed;
-	int a,b;
-	char str1[30],str2[30];
-    while(scanf("%d",&n1)!=EOF)
-    {
-		idx = 0;
-        memset(head, -1, sizeof(head));
-        st=0;
-		k=0;
-        for(i=1;i<=n1;i++)
-		{
-			scanf("%s",str1);
-			a=sol(str1);
-			addEdge(st,a,1);  //源点向插座建边
+
+	string tmp1, tmp2;
+	while(cin >> n){
+		start = 0;
+		name_cnt = 1;
+		memset(g, 0, sizeof(g));
+	for(int i = 0; i < n; ++ i){
+		cin >> tmp1;
+		if(name.find(tmp1) == name.end()){
+			name[tmp1] = name_cnt ++;
 		}
-		scanf("%d",&n2);
-		ed=n1+n2+1;
-		for(i=1;i<=n2;i++)
-		{
-			scanf("%s %s",str1,str2);
-			a=sol(str1);
-			b=sol(str2);  
-			addEdge(b,a,1);   //插座向电器建立边
-			addEdge(a,ed,1);  //电器向汇点建边
+		g[start][name[tmp1]] = 1;
+	}
+	cin >> m;
+	dest = n + m + 1;
+	for(int i = 0; i < m; ++ i){
+		cin >> tmp1 >> tmp2;
+		if(name.find(tmp1) == name.end()){
+			name[tmp1] = name_cnt ++;
 		}
-		scanf("%d",&n3);
-		for(i=1;i<=n3;i++)
-		{
-			scanf("%s %s",str1,str2);
-			a=sol(str1);
-			b=sol(str2);
-			addEdge(b,a,INF);
+		if(name.find(tmp2) == name.end()){
+			name[tmp2] = name_cnt ++;
 		}
-        printf("%d\n",n2 - SAP(st, ed, k+2));
-    }
+		g[name[tmp2]][name[tmp1]] = 1;
+		g[name[tmp1]][dest] = 1;
+	}
+	cin >> k;
+	for(int i = 0; i < k; ++ i){
+		cin >> tmp1 >> tmp2;
+		if(name.find(tmp1) == name.end()){
+			name[tmp1] = name_cnt ++;
+		}
+		if(name.find(tmp2) == name.end()){
+			name[tmp2] = name_cnt ++;
+		}
+		g[name[tmp2]][name[tmp1]] = INF;
+	}
+
+	name_cnt += 1;
+	ans = distance_label();
+	cout << m - ans << endl;
+	}
     return 0;
 }
-int find_allow(int index)
+int distance_label()
 {
-	for(int i = cur[index]; i != -1; i = edge[i].next){
-		int v = edge[i].v;
-		if(edge[i].w > 0 && d[index] == d[v] + 1){
-			path[v] = index;
-			cur[index] = i;
-			aug[v] = min(aug[index], edge[i].w);
-			return(v);
+	memset(path, -1, sizeof(path));
+
+	bfs();
+
+	int max_flow(0), u(start);
+	while(d[start] < name_cnt){
+		if(u == dest){
+			int v = INF;
+			for(u = dest; u != start; u = path[u])
+				v = min(v, g[path[u]][u]);
+			for(u = dest; u != start; u = path[u]){
+				g[path[u]][u] -= v;
+				g[u][path[u]] += v;
+			}
+			max_flow += v;
+		}
+		int p = find_allow(u);
+		if(p >= 0){
+			path[p] = u;
+			u = p;
+		}
+		else{
+			if(-- d_num[d[u]] == 0)
+				return(max_flow);
+
+			int v = relabel(u);
+			d[u] = v;
+			++ d_num[d[u]];
+			if(u != start)
+				u = path[u];
 		}
 	}
+	return(max_flow);
+}
+int find_allow(int u)
+{
+	for(int i = 0; i < name_cnt; ++ i)
+		if(g[u][i] > 0 && d[u] == d[i] + 1)
+			return(i);
 	return(-1);
 }
-int relabel(int index)
+int relabel(int u)
 {
-	int min_dist(k + 2);
-	for (int i = head[index]; i != -1; i = edge[i].next){
-		int v = edge[i].v;
-		if (edge[i].w > 0 && d[v] < min_dist)
-		{
-			min_dist = d[v];
-			cur[index] = i; // 修改标号的同时修改当前弧
-		}
+	int d_tmp(INF);
+	for(int i = 0; i < name_cnt; ++ i)
+		if(g[u][i] > 0)
+			d_tmp = min(d_tmp, d[i] + 1);
+	return(d_tmp);
+}
+void bfs()
+{
+	for(int i = 0; i < MAX; ++ i)
+		d[i] = INF;
+	memset(d_num, 0, sizeof(d_num));
+
+	queue<int> q;
+	q.push(dest);
+	d[dest] = 0;
+	d_num[0] = 1;
+	while(!q.empty()){
+		int p = q.front(); q.pop();
+		for(int i = 0; i < name_cnt; ++ i)
+			if(d[i] >= name_cnt && g[i][p] > 0){
+				d[i] = d[p] + 1;
+				q.push(i);
+				++ d_num[d[i]];
+			}
 	}
-	return(min_dist);
 }
