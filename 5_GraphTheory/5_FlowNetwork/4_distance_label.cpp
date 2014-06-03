@@ -126,10 +126,9 @@ int distance_label(graph_matrix residue, int beg, int end)
 			//另一篇文档“网络最大流算法算法拓展(最大流算法拓展，百度文库)”中的更好
 			//调整顺序之后重标记中不会出现d_tmp==INF的意外情况
 			int v = relabel(u, residue, d);
-			//距离标号为v的节点数量加1
-			++ d_num[v];
-			//与节点u的距离标号相等的节点数量减1
 			d[u] = v;
+			//距离标号为v的节点数量加1
+			++ d_num[d[u]];
 			if(u != beg)
 				//将节点u退回其父节点重走
 				//这是当前弧优化
