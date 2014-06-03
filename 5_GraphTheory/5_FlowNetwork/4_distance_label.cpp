@@ -58,6 +58,18 @@
 //而不存在一个到汇点拓扑距离为 x 的节点
 //可以判断再也没有一条从源点到汇点的增广路径，算法直接结束
 //
+//该算法和本节第四篇的距离标号，这两篇算法
+//使用了Peking University Judge Online for ACM/ICPC中的1087 A Plug for UNIX题目
+//作为测试，实际测试中发现虽然代码的接口提供了最大流起点beg，终点end节点号的参数
+//但实际上我将起点设置为一个其他的数字时，在该题目中的测试结果是Wrong Answer
+//比如说最大流中起点号为10，终点号为11，其他中间节点号为从0到9，节点总数为12
+//则在该题目的测试中会出错，而若起点为0，终点为11，其他节点从1到10则正确
+//因此读者在编码时也应该注意保证起点和终点分别是节点号的0和最大值
+//这个规则适用于本节的所有算法
+//
+//而且在1087 A Plug for UNIX这个题目中流网络中的所有节点也是自然按照拓扑顺序出现的
+//每个节点的节点号按照拓扑顺序增加，我没有测试过乱序情况下该算法的表现
+//
 //本文引用了“最大流ISAP(距离标号最短增广路算法)模板”，作者“北海小龙”
 //“距离标号最短增广路算法模板”，作者“冰糖葫芦”
 
@@ -81,6 +93,21 @@ int distance_label(graph_matrix residue, int beg, int end)
 	int max_flow(0), u(beg);
 	//算法结束条件是源点beg的距离标号d值小于节点数量g_cnt
 	while(d[beg] < residue.g_cnt){
+		if(u == end){
+			//当走到汇点end，可以使用这条增广路径上的残留网络volum
+			int volum = INF;
+			//在该增广路径上找出剩余容量volum
+			for(u = end; u != beg; u = path[u])
+				volum = min(volum, residue.g_m[path[u]][u]);
+			//更新残留网络
+			for(u = end; u != beg; u = path[u]){
+				residue.g_m[path[u]][u] -= volum;
+				residue.g_m[u][path[u]] += volum;
+			}
+			//经过此遍历u又倒着回到beg
+			//下一轮循环时u仍从源点出发，搜索下一条增广路径
+			max_flow += volum;
+		}
 		//从残留网络residue中找出节点u的容许边
 		//返回节点u的这条容许边的邻节点p
 		int p = find_allow_edge(u, residue, d);
@@ -90,21 +117,6 @@ int distance_label(graph_matrix residue, int beg, int end)
 			path[p] = u;
 			//从节点u走到当前节点p
 			u = p;
-			if(u == end){
-				//当走到汇点end，可以使用这条增广路径上的残留网络volum
-				int volum = INF;
-				//在该增广路径上找出剩余容量volum
-				for(u = end; u != beg; u = path[u])
-					volum = min(volum, residue.g_m[path[u]][u]);
-				//更新残留网络
-				for(u = end; u != beg; u = path[u]){
-					residue.g_m[path[u]][u] -= volum;
-					residue.g_m[u][path[u]] += volum;
-				}
-				//经过此遍历u又倒着回到beg
-				//下一轮循环时u仍从源点出发，搜索下一条增广路径
-				max_flow += volum;
-			}
 		}
 		else{
 			//若不存在这样的容许边则find_allow_edge返回-1
@@ -124,9 +136,8 @@ int distance_label(graph_matrix residue, int beg, int end)
 			//引用的文档“最大流ISAP(距离标号最短增广路算法)模”中的顺序不同
 			//因为在实际测试中我发现这里的顺序按照
 			//另一篇文档“网络最大流算法算法拓展(最大流算法拓展，百度文库)”中的更好
-			//调整顺序之后重标记中不会出现d_tmp==INF的意外情况
-			int v = relabel(u, residue, d);
-			d[u] = v;
+			//调整顺序之后重标记中不会出现min_dist==INF的意外情况
+			d[u] = relabel(u, residue, d);
 			//距离标号为d[u]的节点数量加1
 			++ d_num[d[u]];
 			if(u != beg)
@@ -176,19 +187,19 @@ int find_allow_edge(int u, graph_matrix residue, int *d)
 }
 int relabel(int u, graph_matrix residue, int *d)
 {//对u节点进行重标号操作，返回重标号之后u节点的d值
-	int d_tmp(INF);
+	int min_dist(INF);
 	for(int i = 0; i < residue.g_cnt; ++ i)
-		//设置d_tmp为u节点出弧(向外)边的邻节点中距离标号最低的d值加1
+		//设置min_dist为u节点出弧(向外)边的邻节点中距离标号最低的d值加1
 		if(residue.g_m[u][i] > 0)
-			d_tmp = min(d_tmp, d[i] + 1);
-	//若d_tmp == INF则忽略d_tmp==INF的重标记操作
+			min_dist = min(min_dist, d[i] + 1);
+	//若min_dist == INF则忽略min_dist==INF的重标记操作
 	//这次重标记中节点u已经没有出弧边，即没有可以向外运输的管道了
-	//if(d_tmp == INF)
+	//if(min_dist == INF)
 	//	return(residue.g_cnt);
 	//调整重标记与间隙优化的顺序之后可以避免这里出现该情况
 	//当然按照原文“最大流ISAP(距离标号最短增广路算法)模”中的顺序也可以
 	//但本文的方法显然更简洁
-	return(d_tmp);
+	return(min_dist);
 }
 
 

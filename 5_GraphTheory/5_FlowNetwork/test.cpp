@@ -5,7 +5,7 @@
 extern int edmonds_karp(graph_matrix residue, int beg, int end);	//1
 extern int distance_label(graph_matrix residue, int beg, int end);	//2
 extern int relabel_to_front(graph_list residue, int beg, int end);	//3
-extern int distance_label_list(edge_list residue, int beg, int end);	//4
+extern int distance_label_list(edge_list residue, int beg, int end, int n);	//4
 extern pair<int, int> minimum_cost_max_flow(graph_matrix residue, graph_matrix cost,
 		int beg, int end);	//5
 extern bool no_source_sink_bounded_flow(graph_matrix upper, graph_matrix lower);//6
@@ -42,34 +42,85 @@ int main()
 	delete(g2);
 
 	//g3->g1描绘相同的图
-	edge_list *g3= new edge_list(25);
+	//由于距离标号算法的邻接表优化形式的需要，每条边对应有一条反向边
+	//并且这两条边第一个是偶数号，第二个是奇数号，反向边比原边大1
+	edge_list *g3= new edge_list(50);
 	g3->e_l[0].e_beg = 0; g3->e_l[0].e_end = 1; g3->e_l[0].e_value = 30;
-	g3->e_l[1].e_beg = 0; g3->e_l[1].e_end = 2; g3->e_l[1].e_value = 43;
-	g3->e_l[2].e_beg = 1; g3->e_l[2].e_end = 3; g3->e_l[2].e_value = 18;
-	g3->e_l[3].e_beg = 1; g3->e_l[3].e_end = 4; g3->e_l[3].e_value = 15;
-	g3->e_l[4].e_beg = 2; g3->e_l[4].e_end = 4; g3->e_l[4].e_value = 25;
-	g3->e_l[5].e_beg = 2; g3->e_l[5].e_end = 5; g3->e_l[5].e_value = 30;
-	g3->e_l[6].e_beg = 3; g3->e_l[6].e_end = 4; g3->e_l[6].e_value = 10;
-	g3->e_l[7].e_beg = 3; g3->e_l[7].e_end = 6; g3->e_l[7].e_value = 5;
-	g3->e_l[8].e_beg = 4; g3->e_l[8].e_end = 6; g3->e_l[8].e_value = 30;
-	g3->e_l[9].e_beg = 4; g3->e_l[9].e_end = 5; g3->e_l[9].e_value = 6;
-	g3->e_l[10].e_beg = 5; g3->e_l[10].e_end = 7; g3->e_l[10].e_value = 27;
-	g3->e_l[11].e_beg = 5; g3->e_l[11].e_end = 10; g3->e_l[11].e_value = 16;
-	g3->e_l[12].e_beg = 6; g3->e_l[12].e_end = 7; g3->e_l[12].e_value = 21;
-	g3->e_l[13].e_beg = 6; g3->e_l[13].e_end = 11; g3->e_l[13].e_value = 11;
-	g3->e_l[14].e_beg = 7; g3->e_l[14].e_end = 8; g3->e_l[14].e_value = 9;
-	g3->e_l[15].e_beg = 7; g3->e_l[15].e_end = 9; g3->e_l[15].e_value = 15;
-	g3->e_l[16].e_beg = 7; g3->e_l[16].e_end = 10; g3->e_l[16].e_value = 35;
-	g3->e_l[17].e_beg = 8; g3->e_l[17].e_end = 11; g3->e_l[17].e_value = 11;
-	g3->e_l[18].e_beg = 9; g3->e_l[18].e_end = 12; g3->e_l[18].e_value = 7;
-	g3->e_l[19].e_beg = 9; g3->e_l[19].e_end = 13; g3->e_l[19].e_value = 2;
-	g3->e_l[20].e_beg = 11; g3->e_l[20].e_end = 12; g3->e_l[20].e_value = 30;
-	g3->e_l[21].e_beg = 11; g3->e_l[21].e_end = 14; g3->e_l[21].e_value = 40;
-	g3->e_l[22].e_beg = 12; g3->e_l[22].e_end = 13; g3->e_l[22].e_value = 40;
-	g3->e_l[23].e_beg = 13; g3->e_l[23].e_end = 14; g3->e_l[23].e_value = 13;
-	g3->e_l[24].e_beg = 10; g3->e_l[24].e_end = 13; g3->e_l[24].e_value = 20;
+	g3->e_l[1].e_beg = 1; g3->e_l[1].e_end = 0; g3->e_l[1].e_value = 0;
+
+	g3->e_l[2].e_beg = 0; g3->e_l[2].e_end = 2; g3->e_l[2].e_value = 43;
+	g3->e_l[3].e_beg = 2; g3->e_l[3].e_end = 0; g3->e_l[3].e_value = 0;
+
+	g3->e_l[4].e_beg = 1; g3->e_l[4].e_end = 3; g3->e_l[4].e_value = 18;
+	g3->e_l[5].e_beg = 3; g3->e_l[5].e_end = 1; g3->e_l[5].e_value = 0;
+
+	g3->e_l[6].e_beg = 1; g3->e_l[6].e_end = 4; g3->e_l[6].e_value = 15;
+	g3->e_l[7].e_beg = 4; g3->e_l[7].e_end = 1; g3->e_l[7].e_value = 0;
+
+	g3->e_l[8].e_beg = 2; g3->e_l[8].e_end = 4; g3->e_l[8].e_value = 25;
+	g3->e_l[9].e_beg = 4; g3->e_l[9].e_end = 2; g3->e_l[9].e_value = 0;
+
+	g3->e_l[10].e_beg = 2; g3->e_l[10].e_end = 5; g3->e_l[10].e_value = 30;
+	g3->e_l[11].e_beg = 5; g3->e_l[11].e_end = 2; g3->e_l[11].e_value = 0;
+
+	g3->e_l[12].e_beg = 3; g3->e_l[12].e_end = 4; g3->e_l[12].e_value = 10;
+	g3->e_l[13].e_beg = 4; g3->e_l[13].e_end = 3; g3->e_l[13].e_value = 0;
+
+	g3->e_l[14].e_beg = 3; g3->e_l[14].e_end = 6; g3->e_l[14].e_value = 5;
+	g3->e_l[15].e_beg = 6; g3->e_l[15].e_end = 3; g3->e_l[15].e_value = 0;
+
+	g3->e_l[16].e_beg = 4; g3->e_l[16].e_end = 6; g3->e_l[16].e_value = 30;
+	g3->e_l[17].e_beg = 6; g3->e_l[17].e_end = 4; g3->e_l[17].e_value = 0;
+
+	g3->e_l[18].e_beg = 4; g3->e_l[18].e_end = 5; g3->e_l[18].e_value = 6;
+	g3->e_l[19].e_beg = 5; g3->e_l[19].e_end = 4; g3->e_l[19].e_value = 0;
+
+	g3->e_l[20].e_beg = 5; g3->e_l[20].e_end = 7; g3->e_l[20].e_value = 27;
+	g3->e_l[21].e_beg = 7; g3->e_l[21].e_end = 5; g3->e_l[21].e_value = 0;
+
+	g3->e_l[22].e_beg = 5; g3->e_l[22].e_end = 10; g3->e_l[22].e_value = 16;
+	g3->e_l[23].e_beg = 10; g3->e_l[23].e_end = 5; g3->e_l[23].e_value = 0;
+
+	g3->e_l[24].e_beg = 6; g3->e_l[24].e_end = 7; g3->e_l[24].e_value = 21;
+	g3->e_l[25].e_beg = 7; g3->e_l[25].e_end = 6; g3->e_l[25].e_value = 0;
+
+	g3->e_l[26].e_beg = 6; g3->e_l[26].e_end = 11; g3->e_l[26].e_value = 11;
+	g3->e_l[27].e_beg = 11; g3->e_l[27].e_end = 6; g3->e_l[27].e_value = 0;
+
+	g3->e_l[28].e_beg = 7; g3->e_l[28].e_end = 8; g3->e_l[28].e_value = 9;
+	g3->e_l[29].e_beg = 8; g3->e_l[29].e_end = 7; g3->e_l[29].e_value = 0;
+
+	g3->e_l[30].e_beg = 7; g3->e_l[30].e_end = 9; g3->e_l[30].e_value = 15;
+	g3->e_l[31].e_beg = 9; g3->e_l[31].e_end = 7; g3->e_l[31].e_value = 0;
+
+	g3->e_l[32].e_beg = 7; g3->e_l[32].e_end = 10; g3->e_l[32].e_value = 35;
+	g3->e_l[33].e_beg = 10; g3->e_l[33].e_end = 7; g3->e_l[33].e_value = 0;
+
+	g3->e_l[34].e_beg = 8; g3->e_l[34].e_end = 11; g3->e_l[34].e_value = 11;
+	g3->e_l[35].e_beg = 11; g3->e_l[35].e_end = 8; g3->e_l[35].e_value = 0;
+
+	g3->e_l[36].e_beg = 9; g3->e_l[36].e_end = 12; g3->e_l[36].e_value = 7;
+	g3->e_l[37].e_beg = 12; g3->e_l[37].e_end = 9; g3->e_l[37].e_value = 0;
+
+	g3->e_l[38].e_beg = 9; g3->e_l[38].e_end = 13; g3->e_l[38].e_value = 2;
+	g3->e_l[39].e_beg = 13; g3->e_l[39].e_end = 9; g3->e_l[39].e_value = 0;
+
+	g3->e_l[40].e_beg = 11; g3->e_l[40].e_end = 12; g3->e_l[40].e_value = 30;
+	g3->e_l[41].e_beg = 12; g3->e_l[41].e_end = 11; g3->e_l[41].e_value = 0;
+
+	g3->e_l[42].e_beg = 11; g3->e_l[42].e_end = 14; g3->e_l[42].e_value = 40;
+	g3->e_l[43].e_beg = 14; g3->e_l[43].e_end = 11; g3->e_l[43].e_value = 0;
+
+	g3->e_l[44].e_beg = 12; g3->e_l[44].e_end = 13; g3->e_l[44].e_value = 40;
+	g3->e_l[45].e_beg = 13; g3->e_l[45].e_end = 12; g3->e_l[45].e_value = 0;
+
+	g3->e_l[46].e_beg = 13; g3->e_l[46].e_end = 14; g3->e_l[46].e_value = 13;
+	g3->e_l[47].e_beg = 14; g3->e_l[47].e_end = 13; g3->e_l[47].e_value = 0;
+
+	g3->e_l[48].e_beg = 10; g3->e_l[48].e_end = 13; g3->e_l[48].e_value = 20;
+	g3->e_l[49].e_beg = 13; g3->e_l[49].e_end = 10; g3->e_l[49].e_value = 0;
 	
-	cout << "distance label list: " << distance_label_list(*g3, 0, 14) << endl;	//4
+	cout << "distance label list: " << distance_label_list(*g3, 0, 14, 15) << endl;	//4
 	delete(g3);
 
 	graph_matrix c1;

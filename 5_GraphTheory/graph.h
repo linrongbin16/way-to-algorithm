@@ -89,14 +89,16 @@ struct edge{
 								//费用和长度两个成员专门支持
 								//最优比率生成树和最小费用流问题的计算
 
+	int e_next;					//专门用于支持最大流中距离标号算法的邻接表优化形式
+
 	edge(int cbeg = 0, int cend = 0, double cvalue = 0,
-			int cjoin = 0, double ccost = 0, double cdist = 0)
+			int cjoin = 0, double ccost = 0, double cdist = 0, int cnext = 0)
 		: e_beg(cbeg), e_end(cend), e_value(cvalue),
-		e_join(cjoin), e_cost(ccost), e_dist(cdist){
+		e_join(cjoin), e_cost(ccost), e_dist(cdist), e_next(cnext){
 	}
 	edge(const edge& cr)
 		: e_beg(cr.e_beg), e_end(cr.e_end), e_value(cr.e_value),
-		e_join(cr.e_join), e_cost(cr.e_cost), e_dist(cr.e_dist){
+		e_join(cr.e_join), e_cost(cr.e_cost), e_dist(cr.e_dist), e_next(cr.e_next){
 	}
 };
 struct edge_list{
