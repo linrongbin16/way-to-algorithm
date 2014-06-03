@@ -127,7 +127,7 @@ int distance_label(graph_matrix residue, int beg, int end)
 			//调整顺序之后重标记中不会出现d_tmp==INF的意外情况
 			int v = relabel(u, residue, d);
 			d[u] = v;
-			//距离标号为v的节点数量加1
+			//距离标号为d[u]的节点数量加1
 			++ d_num[d[u]];
 			if(u != beg)
 				//将节点u退回其父节点重走
