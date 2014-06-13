@@ -17,7 +17,7 @@ struct object{
 	}
 	object(const object& cr)
 		: o_value(cr.o_value), o_weigh(cr.o_weigh),
-		o_count(cr.o_count), o_weigh2(cr.o_weigh){
+		o_count(cr.o_count), o_weigh2(cr.o_weigh2){
 	}
 };
 struct packet_object{
