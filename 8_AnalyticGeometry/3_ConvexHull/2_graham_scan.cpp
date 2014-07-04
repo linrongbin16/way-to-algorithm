@@ -102,6 +102,8 @@ void graham_scan(vector<node> s, stack<node>& stk)
 			p0_pos = it;
 		}
 		else if(p0.n_y == it->n_y && p0.n_x > it->n_x){
+			p0 = *it;
+			p0_pos = it;
 		}
 	}
 	//从点集s中删除p0点
