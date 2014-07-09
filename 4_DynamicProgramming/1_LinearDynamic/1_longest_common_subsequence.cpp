@@ -39,7 +39,3 @@ int longest_common_subsequence(int *s1, int *s2, int n)
 		}
 	return(f[n][n]);
 }
-
-
-
-
