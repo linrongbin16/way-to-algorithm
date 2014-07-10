@@ -36,4 +36,3 @@ bool bash_game(int n, int m, int& get)
 	else
 		return(false);
 }
-

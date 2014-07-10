@@ -53,7 +53,3 @@ void print_edge(edge_list e)
 			cout << ",edge value:" << e.e_l[i].e_value << ")" << endl;
 		}
 }
-
-
-
-

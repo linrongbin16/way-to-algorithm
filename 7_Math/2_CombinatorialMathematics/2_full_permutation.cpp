@@ -25,7 +25,3 @@ void full_permutation(int *s, int n, int &cnt, int prev = 0)
 		swap(s[prev], s[i]);
 	}
 }
-
-
-
-

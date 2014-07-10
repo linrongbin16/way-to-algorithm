@@ -51,7 +51,3 @@ int minimum_merge_cost(int *s, int n)
 						f[i][k] + f[k + 1][j] + sum[i][k] + sum[k + 1][j]);
 	return(f[1][n]);
 }
-
-
-
-

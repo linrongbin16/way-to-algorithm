@@ -96,6 +96,3 @@ void print_component(graph_list g)
 	for(int i = 0; i < (int)g.g_l.size(); ++ i)
 		cout << "(node:" << i << ",component:" << g.g_l[i][0].g_value << ")" << endl;
 }
-
-
-

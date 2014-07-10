@@ -54,5 +54,3 @@ bool compare(edge a, edge b)
 {
 	return(a.e_value < b.e_value);
 }
-
-

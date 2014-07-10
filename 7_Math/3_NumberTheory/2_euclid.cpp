@@ -23,5 +23,3 @@ int least_common_multiple(int a, int b)
 	int tb = b / greatest_common_divisor;
 	return(ta * tb * greatest_common_divisor);
 }
-
-

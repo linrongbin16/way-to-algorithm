@@ -127,5 +127,3 @@ double node2segment_distance(segment l, node p)
 	return(fabs(cross(vec(l.s_lt, p), vec(l.s_lt, l.s_rt)) /
 			node_distance(l.s_lt, l.s_rt)));
 }
-
-

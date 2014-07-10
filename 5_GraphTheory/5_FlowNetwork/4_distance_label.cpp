@@ -203,6 +203,3 @@ int relabel(int u, graph_matrix residue, int *d)
 	//但本文的方法显然更简洁
 	return(min_dist);
 }
-
-
-

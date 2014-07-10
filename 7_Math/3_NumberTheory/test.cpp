@@ -58,6 +58,3 @@ int main()
 	cout << "7^560 mod 561: " << modular_exponentiation(7, 560, 561) << endl;	//9
 	return(0);
 }
-
-
-

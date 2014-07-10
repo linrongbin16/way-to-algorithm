@@ -29,9 +29,3 @@
 //得到图中任意两点之间，在最小生成树的路径上的权值最大的边
 
 //void degree_bounded_spanning_tree(edge_list& e, int n, int beg, int k)
-
-
-
-
-
-

@@ -70,8 +70,3 @@ void print_p(node *s, int n, string info)
 	}
 	cout << endl;
 }
-
-
-
-
-

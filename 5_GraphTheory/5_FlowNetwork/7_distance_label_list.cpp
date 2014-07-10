@@ -126,9 +126,3 @@ int relabel(int u, edge_list residue, int *d, int *head, int *current)
 	}
 	return(min_dist);
 }
-
-
-
-
-
-

@@ -115,6 +115,3 @@ int main()
 	cout << "traverse tree: " << traverse_tree(&t[1], f2, f3, 4) << endl;	//5
 	return(0);
 }
-
-
-

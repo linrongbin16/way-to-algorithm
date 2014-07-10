@@ -54,7 +54,3 @@ void print_elem(pair<int, int> p)
 {
 	cout << "(row:" << p.first << ",column:" << p.second << ")" << endl;
 }
-
-
-
-

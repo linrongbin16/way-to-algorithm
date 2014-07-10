@@ -31,10 +31,3 @@ void floyd(graph_matrix& g)
 				g.g_m[i][j] = min(g.g_m[i][j],
 						g.g_m[i][k] + g.g_m[k][j]);
 }
-
-
-
-
-
-
-

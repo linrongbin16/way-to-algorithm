@@ -30,8 +30,3 @@ int complete_pack(object *t, int n, int w)
 		}
 	return(f[n][w]);
 }
-
-
-
-
-

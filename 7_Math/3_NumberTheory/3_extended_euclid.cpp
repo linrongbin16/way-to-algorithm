@@ -32,6 +32,3 @@ int extended_euclid(int a, int b, int& x, int& y)
 	y = tmp - (a / b) * y;
 	return(gcd);
 }
-
-
-

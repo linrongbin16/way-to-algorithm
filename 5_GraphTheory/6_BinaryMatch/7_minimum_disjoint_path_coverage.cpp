@@ -43,6 +43,3 @@ void construct_b(graph_matrix g, bipartite& b)
 			if(i != j && g.g_m[i][j] != INF)
 				b.b_g[i][j] = g.g_m[i][j];
 }
-
-
-

@@ -152,6 +152,3 @@ void construct_z(matrix r, matrix s, matrix t, matrix u, matrix& z, int n)
 			z.m_m[i + n / 2][j + n / 2] = u.m_m[i][j];
 		}
 }
-
-
-

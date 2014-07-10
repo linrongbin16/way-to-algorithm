@@ -63,4 +63,3 @@ void print_pos(string s, string t, vector<int> pos)
 	}
 	cout << endl;
 }
-

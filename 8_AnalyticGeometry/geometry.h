@@ -68,6 +68,3 @@ struct segment{
 		cout << endl;
 	}
 };
-
-
-

@@ -119,6 +119,3 @@ bool next_combination(int *s, int n)
 	//若没有“10”组合算法结束
 	return(false);
 }
-
-
-

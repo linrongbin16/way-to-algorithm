@@ -61,5 +61,3 @@
 //这个定理与尼姆博弈中的定理相对应
 
 //bool sprague_grundy(int *a, int n, int& idx, int& get)
-
-

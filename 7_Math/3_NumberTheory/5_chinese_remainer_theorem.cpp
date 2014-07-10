@@ -67,6 +67,3 @@ int chinese_remainer_theorem(int *a, int *n, int k)
 	x0 %= m[k];
 	return(x0);
 }
-		
-
-

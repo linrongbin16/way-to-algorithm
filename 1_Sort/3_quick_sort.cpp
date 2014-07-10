@@ -35,14 +35,3 @@ int partion(int *s, int beg, int end)
 	s[beg] = tmp;
 	return(beg);
 }
-
-
-
-
-
-
-
-
-
-
-

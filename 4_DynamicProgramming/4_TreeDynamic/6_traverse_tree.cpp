@@ -194,9 +194,3 @@ int traverse_max(tree_node *r, int **fdown, int **fup, int level)
 		fmax = max(fmax, traverse_max(r->t_child[i], fdown, fup, level));
 	return(fmax);
 }
-
-
-
-
-
-

@@ -142,8 +142,3 @@ int main()
 		cout << "no ans" << endl;
 	return(0);
 }
-
-
-
-
-

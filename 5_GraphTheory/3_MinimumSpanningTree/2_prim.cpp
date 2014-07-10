@@ -65,10 +65,3 @@ int min_distance(int *visited, edge_list e, int beg, int end)
 						dist = e.e_l[j].e_value, index = j;
 	return(index);
 }
-
-
-
-
-
-
-

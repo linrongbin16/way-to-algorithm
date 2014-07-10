@@ -122,6 +122,3 @@ int dfs_path(bipartite b, int *visit_x, int *visit_y, int p,
 		}
 	return(0);
 }
-
-
-

@@ -6,6 +6,7 @@
 #define OMAX 10				//物品最大数量
 #define WMAX 20				//背包承重(费用)最大值
 #define GMAX 10				//分组最大数量
+#define XMAX 1000			//所有物品的价值总和
 
 struct object{
 	int o_value;			//该种物品的价值
@@ -35,11 +36,3 @@ struct packet_object{
 		: g_grpcnt(cgrpcnt), g_objcnt(cobjcnt), g_totalcnt(ctotalcnt){
 	}
 };
-
-
-
-
-
-
-
-

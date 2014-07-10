@@ -36,4 +36,3 @@ int main()
 	a_heuristic_search(beg, end);	//5
 	return(0);
 }
-

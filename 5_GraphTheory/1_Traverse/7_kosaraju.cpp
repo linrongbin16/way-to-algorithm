@@ -103,6 +103,3 @@ void transpose(graph_list g, graph_list& trans)
 		for(int j = 1; j < (int)g.g_l[i].size(); ++ j)
 			trans.g_l[g.g_l[i][j].g_idx].push_back(g.g_l[i][0]);
 }
-
-
-

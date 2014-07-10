@@ -50,5 +50,3 @@ void test_segment(segment l1, segment l2)
 		cout << "two segments intersection" << endl;
 	cout << endl;
 }
-
-

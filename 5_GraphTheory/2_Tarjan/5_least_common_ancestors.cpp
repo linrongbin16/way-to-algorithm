@@ -89,6 +89,3 @@ tree_node* find_father(tree_node *p)
 		p->t_fa = find_father(p->t_fa);
 	return(p->t_fa);
 }
-
-
-

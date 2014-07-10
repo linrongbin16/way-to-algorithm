@@ -62,7 +62,3 @@ int longest_increasing_subsequence2(int *s, int n)
 	}
 	return(len);
 }
-
-
-
-

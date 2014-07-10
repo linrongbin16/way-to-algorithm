@@ -136,8 +136,3 @@ struct bipartite{
 					b_g[i][j] = cr.b_g[i][j];
 	}
 };
-
-
-
-
-

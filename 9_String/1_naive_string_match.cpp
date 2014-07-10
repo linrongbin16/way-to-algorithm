@@ -44,6 +44,3 @@ void naive_string_match(string s, string t, vector<int>& pos)
 		//	++ i;
 	}
 }
-
-
-

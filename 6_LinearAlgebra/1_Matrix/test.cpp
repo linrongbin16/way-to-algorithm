@@ -100,12 +100,3 @@ void test_lu_decomposition(matrix e, int n)
 	construct_u(e, n, y, u);
 	u.m_print();
 }
-
-
-
-
-
-
-
-
-

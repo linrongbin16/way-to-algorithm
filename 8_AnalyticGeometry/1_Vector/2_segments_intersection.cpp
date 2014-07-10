@@ -58,5 +58,3 @@ bool on_segment(segment l, node p)
 			p.n_y >= min(l.s_lt.n_y, l.s_rt.n_y) &&
 			p.n_y <= max(l.s_lt.n_y, l.s_rt.n_y));
 }
-
-

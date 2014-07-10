@@ -11,6 +11,3 @@
 //但实际上该算法就是重标记与前移算法，该算法可以说没什么意义
 
 //int highest_label_preflow_push(graph_list residue, int beg, int end)
-
-
-

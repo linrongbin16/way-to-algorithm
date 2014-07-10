@@ -12,7 +12,3 @@
 //就可以求出多叉树的最大权值
 
 //int multi2binary(tree_node *t, int resv)
-
-
-
-

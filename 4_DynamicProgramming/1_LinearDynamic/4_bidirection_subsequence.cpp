@@ -49,6 +49,3 @@ int longest_decreasing_subsequence(int *s, int beg, int end)
 				f[i] = max(f[i], f[j] + 1);
 	return(f[end]);
 }
-
-
-

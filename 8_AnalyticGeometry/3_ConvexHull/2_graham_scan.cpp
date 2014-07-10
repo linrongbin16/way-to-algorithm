@@ -130,6 +130,3 @@ node next_top(stack<node> stk)
 	node nexttmp = stk.top(); stk.push(tmp);
 	return(nexttmp);
 }
-
-
-

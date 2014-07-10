@@ -28,8 +28,3 @@ string int2str(int p)
 	s >> t;
 	return(t);
 }
-
-
-
-
-

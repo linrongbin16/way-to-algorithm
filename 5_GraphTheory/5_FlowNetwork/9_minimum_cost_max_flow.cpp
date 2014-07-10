@@ -66,6 +66,3 @@ pair<int, int> minimum_cost_max_flow(graph_matrix residue, graph_matrix cost,
 	}
 	return(make_pair(-1, -1));
 }
-
-
-

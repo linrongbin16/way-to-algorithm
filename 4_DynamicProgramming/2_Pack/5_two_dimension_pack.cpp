@@ -34,11 +34,3 @@ int two_dimension_pack(object *t, int n, int w1, int w2)
 			}
 	return(f[n][w1][w2]);
 }
-
-
-
-
-
-
-
-

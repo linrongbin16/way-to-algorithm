@@ -54,9 +54,3 @@ void dfs_gabow(graph_list& g, int p, int *visited, int& time,
 		++ grp;
 	}
 }
-
-
-
-
-
-

@@ -180,5 +180,3 @@ double cosine_c(node a, node b, node c)
 	return((a_dist * a_dist + b_dist * b_dist - c_dist * c_dist) /
 			(2 * a_dist * b_dist));
 }
-
-

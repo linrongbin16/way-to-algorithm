@@ -76,7 +76,3 @@ void depth_search(tree_node *r, int **f, int *next_resv,
 		}
 	}
 }
-
-
-
-

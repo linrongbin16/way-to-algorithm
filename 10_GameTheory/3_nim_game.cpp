@@ -65,5 +65,3 @@ bool nim_game(int *a, int n, int& idx, int& get)
 		}
 	return(false);
 }
-
-

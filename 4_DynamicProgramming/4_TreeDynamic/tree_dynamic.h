@@ -42,10 +42,3 @@ struct tree_node{
 				t_f[i] = cr.t_f[i];
 	}
 };
-
-
-
-
-
-
-

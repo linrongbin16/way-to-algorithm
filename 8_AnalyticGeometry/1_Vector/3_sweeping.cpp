@@ -141,6 +141,3 @@ multimap<double, node, less<double> >::iterator find_node(
 			return(it);
 	return(t.end());
 }
-
-
-

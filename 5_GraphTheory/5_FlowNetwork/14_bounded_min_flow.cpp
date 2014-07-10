@@ -58,6 +58,3 @@ bool bounded_min_flow(graph_matrix upper, graph_matrix lower,
 	else
 		return(false);
 }
-
-
-

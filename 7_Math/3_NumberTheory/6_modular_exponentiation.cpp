@@ -29,5 +29,3 @@ int modular_exponentiation(int a, int b, int n)
     }
     return(d);
 }
-
-

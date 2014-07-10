@@ -116,5 +116,3 @@ void dfs_dcc(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
 	}
 	visited[p] = 2;
 }
-
-

@@ -164,6 +164,3 @@ int get_b2k(int b)
 	int k = (int)p + 1;
 	return(k);
 }
-
-
-

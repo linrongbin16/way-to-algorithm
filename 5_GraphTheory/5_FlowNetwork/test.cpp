@@ -222,4 +222,3 @@ graph_list* create_list()
 		g2->g_l.push_back(d[i]);
 	return(g2);
 }
-

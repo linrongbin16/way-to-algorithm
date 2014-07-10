@@ -70,6 +70,3 @@ bool modular_linear_equation(int a, int b, int n, int& d, int *x)
 	else
 		return(false);
 }
-
-
-

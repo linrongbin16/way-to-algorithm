@@ -70,9 +70,3 @@ bool spfa(graph_matrix g, int beg, int *distance, int *path)
 	}
 	return(true);
 }
-
-
-
-
-
-

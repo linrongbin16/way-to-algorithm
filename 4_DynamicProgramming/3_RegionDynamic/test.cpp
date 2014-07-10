@@ -20,8 +20,3 @@ int main()
 	cout << "maximum binary tree merge: " << maximum_binary_tree_merge(s1, 6) << endl;
 	return(0);
 }
-
-
-
-
-

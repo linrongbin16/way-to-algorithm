@@ -243,13 +243,3 @@ bool down_bound(int pos)
 {
 	return(pos == 6 || pos == 7 || pos == 8);
 }
-
-
-
-
-
-
-
-
-
-

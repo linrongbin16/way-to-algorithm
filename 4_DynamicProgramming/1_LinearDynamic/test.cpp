@@ -41,9 +41,3 @@ int main()
 		cout << "query:(" << it->first.first << "," << it->first.second << "),max: " << it->second << endl;
 	return(0);
 }
-
-
-
-
-
-

@@ -46,15 +46,3 @@ int extend_minimum_merge(int *s, int n)
 		min_cost = min(min_cost, f[i][i + n - 1]);
 	return(min_cost);
 }
-
-
-
-
-
-
-
-
-
-
-
-

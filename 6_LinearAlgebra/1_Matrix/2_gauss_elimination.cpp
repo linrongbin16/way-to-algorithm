@@ -187,6 +187,3 @@ void forward_substitution(matrix e, int n, double *x)
 		}
 	}
 }
-
-
-

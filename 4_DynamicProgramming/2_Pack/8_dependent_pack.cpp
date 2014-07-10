@@ -30,6 +30,3 @@
 //动规的具体算法见树形动态规划一节
 
 //int dependent_pack(object *t, int n, int w)
-
-
-

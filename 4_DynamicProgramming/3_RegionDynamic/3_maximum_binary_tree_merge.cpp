@@ -49,13 +49,3 @@ int maximum_binary_tree_merge(int *s, int n)
 		}
 	return(f[1][n]);
 }
-
-
-
-
-
-
-
-
-
-

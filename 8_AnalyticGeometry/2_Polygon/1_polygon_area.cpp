@@ -50,5 +50,3 @@ double triangle_area(node a, node b, node c)
  //返回三角形面积
 	return(cross(vec(a, b), vec(a, c)) / 2);
 }
-
-

@@ -67,5 +67,3 @@ void dfs_visit(graph_list& g, int p, int *visited, int& time)
 			dfs_visit(g, g.g_l[p][i].g_idx, visited, time);
 	g.g_l[p][0].g_value = time ++;
 }
-
-

@@ -113,5 +113,3 @@ void dfs_scc(graph_list& g, int p, int *visited, int& time,
 		//节点p是该强连通分支中第一个入栈的节点
 	}
 }
-
-

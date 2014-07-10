@@ -32,6 +32,3 @@ int main()
 	cout << packet_pack(q, 8) << endl;
 	return(0);
 }
-
-
-

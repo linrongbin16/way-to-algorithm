@@ -24,9 +24,3 @@ using namespace std;
 
 #define MAX 60			//最大值
 #define INF 99999		//极大值
-
-
-
-
-
-

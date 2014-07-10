@@ -116,6 +116,3 @@ void bfs_visit(edge_list e, int **max_edge, int n, int beg)
 		}
 	}
 }
-
-
-

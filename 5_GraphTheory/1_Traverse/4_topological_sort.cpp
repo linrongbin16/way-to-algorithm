@@ -99,5 +99,3 @@ void degree(graph_list g, int *in_degree)
 			//第i个队列上第j个节点即为节点j.g_idx的一条入弧边
 			++ in_degree[g.g_l[i][j].g_idx];
 }
-
-

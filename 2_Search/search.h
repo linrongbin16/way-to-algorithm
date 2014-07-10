@@ -51,9 +51,3 @@ struct star_node{
 		return(s_status == r.s_status);
 	}
 };
-
-
-
-
-
-

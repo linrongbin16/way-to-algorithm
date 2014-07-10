@@ -69,14 +69,3 @@ int extended_longest_increasing_subsequence(int *s, int n, int& m)
 	m = cnt;
 	return(f[n]);
 }
-
-
-
-
-
-
-
-
-
-
-

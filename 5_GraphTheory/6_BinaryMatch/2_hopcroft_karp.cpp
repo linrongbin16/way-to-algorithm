@@ -86,6 +86,3 @@ int dfs_path(bipartite b, int *visited, int p, int *xmatch, int *ymatch,
 		}
 	return(0);
 }
-
-
-

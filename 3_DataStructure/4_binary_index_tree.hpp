@@ -99,8 +99,3 @@ public:
 		cout << endl;
 	}
 };
-
-
-
-
-

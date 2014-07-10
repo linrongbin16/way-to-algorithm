@@ -87,5 +87,3 @@ bool compare_y(node a, node b)
 {//按y坐标从小到大排序
 	return(a.n_y < b.n_y);
 }
-
-

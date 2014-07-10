@@ -48,7 +48,3 @@ void print_status(int *s, int beg, int end)
 		cout << s[i] << ' ';
 	cout << endl;
 }
-
-
-
-

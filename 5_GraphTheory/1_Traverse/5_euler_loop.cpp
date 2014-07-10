@@ -108,6 +108,3 @@ int max_degree(graph_matrix g, int *degree, int beg)
 	}
 	return(index);
 }
-
-
-

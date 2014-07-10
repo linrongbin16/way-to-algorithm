@@ -58,7 +58,3 @@
 //而对节点进行该操作的顺序没有确定的说明，或者说随机的顺序都可以
 
 //int generic_push_relabel(graph_matrix residue, int beg, int end)
-
-
-
-

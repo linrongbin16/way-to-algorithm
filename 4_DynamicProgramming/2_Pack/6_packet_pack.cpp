@@ -57,12 +57,3 @@ bool compare(object a, object b)
 		return(a.o_weigh < b.o_weigh);
 	return(false);
 }
-
-
-
-
-
-
-
-
-

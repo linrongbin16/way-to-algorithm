@@ -81,8 +81,3 @@ void deconstruct_c(graph_matrix& residue,
 	//删去从end到beg的容量无穷大的边
 	residue.g_m[end][beg] = 0;
 }
-
-
-
-
-

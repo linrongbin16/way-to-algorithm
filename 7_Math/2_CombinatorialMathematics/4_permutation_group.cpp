@@ -63,5 +63,3 @@ void permutation_group(int *s, int n, int *t, int k, int *f)
 		f[pos] = t[i];
 	}
 }
-
-

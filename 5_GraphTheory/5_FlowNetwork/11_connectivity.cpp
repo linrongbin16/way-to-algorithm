@@ -76,4 +76,3 @@
 //对应的原图中的同一节点i组成的点集即为最小的点割集
 
 //void connectivity(graph_list g)
-

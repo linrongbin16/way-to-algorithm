@@ -12,6 +12,3 @@
 
 //int multi_source_sink_maxflow(graph_matrix residue,
 //		int *beg, int bn, int *end, int en);
-
-
-

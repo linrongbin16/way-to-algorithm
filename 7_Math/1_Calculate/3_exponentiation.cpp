@@ -58,4 +58,3 @@ long long exponentiation2(long long x, long long n)
 	}
 	return(power);
 }
-

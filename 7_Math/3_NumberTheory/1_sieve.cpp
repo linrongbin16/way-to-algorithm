@@ -53,5 +53,3 @@ void sieve3(int n, int *prime)
 		}
 	}
 }
-
-

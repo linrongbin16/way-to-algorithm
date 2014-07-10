@@ -77,4 +77,3 @@ void test_m(matrix e, double *c, int m, int n)
 	}
 	cout << endl;
 }
-

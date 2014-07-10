@@ -55,8 +55,3 @@ void print_node(graph_node *p)
 
 	cout << "(index:" << p->g_idx << ")" << endl;
 }
-
-
-
-
-

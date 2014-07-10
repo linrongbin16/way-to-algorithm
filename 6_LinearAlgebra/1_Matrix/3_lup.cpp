@@ -156,5 +156,3 @@ void construct_u(matrix e, int n, double *y, matrix& u)
 	for(int i = 0; i < n; ++ i)
 		u.m_m[i][n] = y[i];
 }
-
-

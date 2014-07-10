@@ -86,4 +86,3 @@
 //“2-SAT解法浅析(百度文库)”，作者“华中师大一附中 赵爽”
 
 //bool _2_satisfiability(graph_list g, int n, int *s)
-

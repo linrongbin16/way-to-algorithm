@@ -27,6 +27,3 @@
 //即最大点权独立集的权值和可以转化为最小点权覆盖的权值和，进一步转化为最大流问题
 
 //int weight_covering_independent_set(bipartite b)
-
-
-

@@ -48,7 +48,3 @@
 //求汉密尔顿图是一个NP完全问题
 
 //void hamilton_loop(graph_matrix g, edge_list e)
-
-
-
-

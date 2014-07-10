@@ -113,4 +113,3 @@ void print_value(graph_list g)
 	for(int i = 0; i < (int)g.g_l.size(); ++ i)
 		cout << "(node:" << i << ",value:" << g.g_l[i][0].g_value << ")" << endl;
 }
-

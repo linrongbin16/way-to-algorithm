@@ -96,5 +96,3 @@ void dfs_cut(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
 	//visited值为2指代该节点已经确定
 	visited[p] = 2;
 }
-
-

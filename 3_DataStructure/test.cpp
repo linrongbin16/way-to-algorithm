@@ -101,7 +101,3 @@ int main()
 	lt.l_print();
 	return(0);
 }
-
-
-
-

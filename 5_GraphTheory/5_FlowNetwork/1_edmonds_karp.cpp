@@ -161,11 +161,3 @@ int bfs_path(graph_matrix residue, int beg, int end, int *path)
 	else
 		return(1);
 }
-
-
-
-
-
-
-
-

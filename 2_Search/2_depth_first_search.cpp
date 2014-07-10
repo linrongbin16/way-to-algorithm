@@ -47,6 +47,3 @@ void depth_first_search(int *s, int n, int m, int prev = 0)
 	//n个成员，m种选择，所有排列组合的可能有m^n(m的n次方)种
 	//也可以将递归看做对一棵高度为 n+1 的 m 叉的完全树进行中序遍历的过程
 }
-
-
-

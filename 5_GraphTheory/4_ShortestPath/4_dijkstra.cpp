@@ -58,9 +58,3 @@ int min_distance(int *distance, int *visited, int beg, int end)
 			dist = distance[i], index = i;
 	return(index);
 }
-
-
-
-
-
-

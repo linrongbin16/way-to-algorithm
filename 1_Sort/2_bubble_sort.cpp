@@ -19,12 +19,3 @@ void bubble_sort(int *s, int beg, int end)
 			if(s[j] < s[j - 1])
 				swap(s[j], s[j - 1]);
 }
-
-
-
-
-
-
-
-
-

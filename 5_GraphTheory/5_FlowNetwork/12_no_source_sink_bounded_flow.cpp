@@ -95,8 +95,3 @@ int beg_out(graph_matrix residue, int beg, int n)
 		sum += residue.g_m[beg][i];
 	return(sum);
 }
-
-
-
-
-

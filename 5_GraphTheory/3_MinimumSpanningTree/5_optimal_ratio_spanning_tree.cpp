@@ -70,6 +70,3 @@ void clear_tree_status(edge_list& e)
 	for(int i = 0; i < (int)e.e_l.size(); ++ i)
 		e.e_l[i].e_join = 0;
 }
-
-
-

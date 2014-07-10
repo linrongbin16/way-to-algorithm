@@ -51,5 +51,3 @@ void print_match(bipartite b, int *ymatch)
 			cout << "(x node:" << ymatch[i] << ", y node: " << i << ", value: " << b.b_g[ymatch[i]][i] << ")"  <<  endl;
 	cout << endl;
 }
-
-

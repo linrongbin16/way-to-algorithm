@@ -33,7 +33,3 @@ int minimum_joint_path_covering(graph_matrix g)
 				g.g_m[i][j] = 1;
 	return(minimum_disjoint_path_covering(g));
 }
-
-
-
-

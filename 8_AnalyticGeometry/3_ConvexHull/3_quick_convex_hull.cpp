@@ -131,6 +131,3 @@ void quick_core(vector<node> s, node a, node b, vector<node>& con)
 	//求向量far->b左边的区域中的凸包顶点
 	quick_core(rt, far, b, con);
 }
-
-
-

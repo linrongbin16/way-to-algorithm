@@ -17,6 +17,3 @@
 //然后就可以用正常的多叉树动规方法解决了
 
 //int loop_tree(tree_node *t, int resv)
-
-
-

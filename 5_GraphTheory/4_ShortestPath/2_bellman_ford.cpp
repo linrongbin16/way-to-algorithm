@@ -70,11 +70,3 @@ bool bellman_ford(graph_matrix g, edge_list e,
 			return(false);
 	return(true);
 }
-
-
-
-
-
-
-
-

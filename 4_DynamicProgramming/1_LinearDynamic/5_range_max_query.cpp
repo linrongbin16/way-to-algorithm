@@ -44,6 +44,3 @@ void range_max_query(int *s, int n, map<pair<int, int>, int>& query)
 		it->second = max(f[beg][k], f[end - (1 << k) + 1][k]);
 	}
 }
-
-
-

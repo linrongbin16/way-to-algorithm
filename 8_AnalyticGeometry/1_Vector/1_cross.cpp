@@ -50,5 +50,3 @@ double cross(vec v1, vec v2)
 {//返回二维坐标系中的v1 cross v2
 	return(v1.v_x * v2.v_y - v2.v_x * v1.v_y);
 }
-
-

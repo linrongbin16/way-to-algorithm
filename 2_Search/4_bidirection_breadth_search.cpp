@@ -156,7 +156,3 @@ void print_forward(bi_node f, bi_node **s)
 	if(f.b_fa.first != -1 && f.b_fa.second != -1)
 		print_forward(s[f.b_fa.first][f.b_fa.second], s);
 }
-
-
-
-

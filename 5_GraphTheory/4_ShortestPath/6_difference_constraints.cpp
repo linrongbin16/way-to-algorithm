@@ -95,7 +95,3 @@ bool difference_constraints(int **s, int m, int n, int *b, int *distance)
 	else
 		return(false);
 }
-
-
-
-

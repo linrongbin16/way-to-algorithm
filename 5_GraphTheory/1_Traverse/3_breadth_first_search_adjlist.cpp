@@ -28,7 +28,3 @@ void breadth_first_search_adjlist(graph_list g, int beg)
 			}
 	}
 }
-
-
-
-

@@ -63,5 +63,3 @@ void test_op(large a, large b, string info, int operat)
 	b.l_print();
 	cout << endl << endl;;
 }
-
-

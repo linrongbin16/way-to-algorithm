@@ -57,5 +57,3 @@ pair<double, double> triangle_gravity_center(node a, node b, node c)
 	return(make_pair((a.n_x + b.n_x + c.n_x) / 3,
 				(a.n_y + b.n_y + c.n_y) / 3));
 }
-
-

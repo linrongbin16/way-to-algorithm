@@ -94,6 +94,3 @@ int binary_tree2(tree_node *r, int **f, int resv)
 	f[r->t_idx][resv] += r->t_value;
 	return(f[r->t_idx][resv]);
 }
-
-
-

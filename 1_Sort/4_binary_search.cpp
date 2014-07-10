@@ -32,13 +32,3 @@ bool binary_search(int *s, int x, int beg, int end, int& idx)
 	else
 		return(false);
 }
-
-
-
-
-
-
-
-
-
-

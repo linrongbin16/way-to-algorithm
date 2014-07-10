@@ -79,8 +79,3 @@ struct large{
 			cout << l_num[i];
 	}
 };
-
-
-
-
-

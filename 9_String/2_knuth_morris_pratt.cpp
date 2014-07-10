@@ -173,7 +173,3 @@ void compute_prefix(string s, int *pref)
 		pref[i] = k;
 	}
 }
-
-
-
-

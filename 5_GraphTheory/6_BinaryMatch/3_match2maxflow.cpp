@@ -14,5 +14,3 @@
 //该流网络的最大流即为原二分图B的最大匹配数
 
 //int match2maxflow(bipartite& b, int *ymatch)
-
-

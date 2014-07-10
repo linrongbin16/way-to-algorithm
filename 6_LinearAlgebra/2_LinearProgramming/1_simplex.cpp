@@ -504,7 +504,3 @@ void rewrite_matrix(matrix& e, int m, int n, int pivot, int row,
 	c[m + n] += c[pivot] * e.m_m[row][m + n];
 	c[pivot] = 0;
 }
-
-	
-
-

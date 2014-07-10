@@ -77,5 +77,3 @@ public:
 		return(p->t_cnt);
 	}
 };
-
-

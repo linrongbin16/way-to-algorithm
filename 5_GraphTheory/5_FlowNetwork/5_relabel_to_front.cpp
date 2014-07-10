@@ -190,7 +190,3 @@ void construct_d(graph_list residue, int beg, int end, int *d)
 			}
 	}
 }
-
-
-
-

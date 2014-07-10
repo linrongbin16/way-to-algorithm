@@ -76,5 +76,3 @@ bool compare(xnode a, xnode b)
 {
 	return(a.x_value < b.x_value);
 }
-
-

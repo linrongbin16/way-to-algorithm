@@ -25,7 +25,3 @@
 //这些内容请参考算法导论第28章28.4矩阵求逆和28.5对称正定矩阵与最小二乘逼近
 
 //void inverse_matrix(matrix e, matrix& inverse)
-
-
-
-

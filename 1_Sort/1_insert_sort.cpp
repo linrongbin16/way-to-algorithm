@@ -27,12 +27,3 @@ void insert_sort(int *s, int beg, int end)
 		s[j + 1] = tmp;
 	}
 }
-
-
-
-
-
-
-
-
-
