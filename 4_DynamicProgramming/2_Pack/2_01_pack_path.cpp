@@ -39,6 +39,7 @@ int _01_pack_path(object *t, int n, int w, bool *choose)
 			//对f数组的操作与前一篇中相同
 			//但增加了path数组的判断
 			if(oldf >= newf){
+				//只有当出现更高价值的选择时才更新
 				f[i][j] = oldf;
 				//没有选择第i件物品，重量为j，价值为oldf
 				path[i][j][oldf] = false;
