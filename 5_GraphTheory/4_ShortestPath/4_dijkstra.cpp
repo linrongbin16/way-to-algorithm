@@ -26,7 +26,6 @@ void dijkstra(graph_matrix g, int beg, int *distance, int *path)
  //图G有g_cnt个节点，下标从0到g_cnt-1，起点为beg，返回distance和path数组
 	for(int i = 0; i < g.g_cnt; ++ i)
 		distance[i] = INF;
-	distance[beg] = 0;
 	memset(path, -1, MAX * sizeof(int));
 	//使用visited指代该节点已被访问，已加入生成树
 	int visited[MAX];
@@ -52,9 +51,11 @@ int min_distance(int *distance, int *visited, int beg, int end)
 {//[beg, end)是左闭右开区间
 	int dist(INF), index(0);
 	for(int i = beg; i < end; ++ i)
-		if(dist > distance[i] && !visited[i])
+		if(dist > distance[i] && !visited[i]){
 			//除过distance[i]为0，或者已经遍历过的节点
 			//找出距离最短的新节点
-			dist = distance[i], index = i;
+			dist = distance[i];
+			index = i;
+		}
 	return(index);
 }
