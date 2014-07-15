@@ -24,12 +24,13 @@ int min_distance(int *distance, int *visited, int beg, int end);
 void dijkstra(graph_matrix g, int beg, int *distance, int *path)
 {//distance存储起点beg到各节点的最短路径长度，path[i]指代节点i在最短路径上的父节点
  //图G有g_cnt个节点，下标从0到g_cnt-1，起点为beg，返回distance和path数组
-	for(int i = 0; i < g.g_cnt; ++ i)
-		distance[i] = INF;
 	memset(path, -1, MAX * sizeof(int));
 	//使用visited指代该节点已被访问，已加入生成树
 	int visited[MAX];
 	memset(visited, 0, MAX * sizeof(int));
+	//不直接连接点beg的节点距离视作INF无穷大
+	for(int i = 0; i < g.g_cnt; ++ i)
+		distance[i] = g.g_m[beg][i];
 	distance[beg] = 0;
 	visited[beg] = 1;
 	for(int i = 0; i < g.g_cnt - 1; ++ i){
