@@ -30,8 +30,9 @@ bool bellman_ford(graph_matrix g, edge_list e,
 		distance[i] = INF;
 	distance[beg] = 0;
 	//path[beg]值为beg表示该节点为根节点，没有父节点，初始时所有节点path值设为beg
-	for(int i = 0; i < g.g_cnt; ++ i)
-		path[i] = beg;
+	memset(path, -1, MAX * sizeof(int));
+	//for(int i = 0; i < g.g_cnt; ++ i)
+	//	path[i] = beg;
 	for(int i = 0; i < g.g_cnt; ++ i)
 		//外层遍历图的节点个数g_cnt次
 		//与具体节点的下标号无关

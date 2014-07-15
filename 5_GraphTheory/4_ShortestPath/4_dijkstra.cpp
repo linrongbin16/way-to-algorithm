@@ -27,14 +27,14 @@ void dijkstra(graph_matrix g, int beg, int *distance, int *path)
 	//使用visited指代该节点已被访问，已加入生成树
 	int visited[MAX];
 	memset(visited, 0, MAX * sizeof(int));
+	memset(path, -1, MAX * sizeof(int));
+	//节点beg到其他所有节点距离初始化为INF
 	for(int i = 0; i < g.g_cnt; ++ i)
-		path[i] = beg;
-	//不直接连接点beg的节点距离视作INF无穷大
-	for(int i = 0; i < g.g_cnt; ++ i)
-		distance[i] = g.g_m[beg][i];
+		distance[i] = INF;
 	distance[beg] = 0;
 
-	visited[beg] = 1;
+	//专门不设置visited[beg] = 1
+	//在第一次调用min_distance时自然会设置beg的邻节点
 	for(int i = 0; i < g.g_cnt - 1; ++ i){
 		//生成树有g_cnt个节点，g_cnt-1条边，故循环g_cnt-1次
 		//k是未加入生成树，且到生成树距离最近的节点的下标号

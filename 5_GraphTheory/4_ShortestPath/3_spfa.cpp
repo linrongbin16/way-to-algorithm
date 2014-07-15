@@ -37,8 +37,9 @@ bool spfa(graph_matrix g, int beg, int *distance, int *path)
 	for(int i = 0; i < MAX; ++ i)
 		distance[i] = INF;
 	distance[beg] = 0;
-	for(int i = 0; i < MAX; ++ i)
-		path[i] = beg;
+	memset(path, -1, MAX * sizeof(int));
+	//for(int i = 0; i < MAX; ++ i)
+	//	path[i] = beg;
 	//in_queue[i]指代节点i入队次数
 	int in_queue[MAX];
 	memset(in_queue, 0, MAX * sizeof(int));
