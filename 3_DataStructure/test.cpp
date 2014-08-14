@@ -1,10 +1,10 @@
 //test
 
-#include "2_hash_table.hpp"	//struct hash_table
-#include "3_segment_tree.hpp"	//struct segment_tree
-#include "4_binary_index_tree.hpp"	//struct binary_index_tree
-#include "5_disjoint_set.hpp"	//struct disjoint_set
-#include "6_leftist_tree.hpp"	//struct leftist_tree
+#include "2_hash_table.hpp"	//hash_table bkdr_hash_table
+#include "3_segment_tree.hpp"	//segment_tree
+#include "4_binary_index_tree.hpp"	//binary_index_tree
+#include "5_disjoint_set.hpp"	//disjoint_set
+#include "6_leftist_tree.hpp"	//leftist_tree
 int main()
 {
 	hash_table ht(13);	//1
@@ -25,6 +25,27 @@ int main()
 	else
 		cout << "can't find 24 in hash table" << endl;
 	ht.h_print();
+
+	bkdr_hash_table bht;
+	char s1[] = "hello world";
+	char s2[] = "henno hoood";
+	char s3[] = "hh you wrong";
+	char s4[] = "that's a test";
+	int h1 = bht.b_hash(s1);
+	int h2 = bht.b_hash(s2);
+	int h3 = bht.b_hash(s3);
+	int h4 = bht.b_hash(s4);
+	cout << endl << "bkdr hash table" << endl;
+	cout << "string 1:" << endl << s1 << endl << "hash value: " << h1 << endl;
+	cout << "string 2:" << endl << s2 << endl << "hash value: " << h2 << endl;
+	cout << "string 3:" << endl << s3 << endl << "hash value: " << h3 << endl;
+	cout << "string 4:" << endl << s4 << endl << "hash value: " << h4 << endl;
+	cout << "insert string 1" << endl;
+	bht.b_insert(h1);
+	if(bht.b_find(h1))
+		cout << "find string 1" << endl;
+	else
+		cout << "can't find string 1" << endl;
 
 	segment_tree st;	//2
 	cout << endl << "segment tree [0, 10]" << endl;

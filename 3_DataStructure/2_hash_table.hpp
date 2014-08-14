@@ -17,11 +17,11 @@
 //键值冲突问题没有办法真正解决
 //但可以通过很多方法来构造不同性能的哈希函数，从而缓解键值冲突
 //常见的设计方法有：直接定址法，平方取中法，折叠法，随机数法，除留取余法
-//本文只给出最简单的哈希函数实现即素数取模
-//取一个大素数P，哈希函数为key = hash_func(value) = value % P
-//所有在键key处冲突的值连接在以键key为头结点的单链上
+//本文给出一个简单的素数取模哈希和一个常用于字符串处理的BKDR哈希
 //
 //为了方便，本章所有数据结构的实现中均不处理异常
+
+//1)素数取模哈希
 
 #include "general_head.h"
 
@@ -37,7 +37,7 @@ private:
 	//h_table数组中的节点均为单链头节点，不存储实际值
 	hash_node h_table[MAX];
 	int h_prime;
-	int hash_func(int value){
+	int h_hash(int value){
 		return(value % h_prime);
 	}
 public:
@@ -47,7 +47,7 @@ public:
 	void h_insert(int r){
 		//向哈希表中插入值为value的节点
 		//用哈希函数计算出在值value在哈希表中对应的节点下标
-		int idx = hash_func(r);
+		int idx = h_hash(r);
 		hash_node *p = &h_table[idx];
 		while(p->h_next != NULL)
 			p = p->h_next;
@@ -55,7 +55,7 @@ public:
 		p->h_next = new hash_node(r);	
 	}
 	hash_node* h_find(int r){
-		int idx = hash_func(r);
+		int idx = h_hash(r);
 		hash_node *p = &h_table[idx];
 		while(p->h_next != NULL){
 			if(p->h_next->h_value == r)
@@ -67,7 +67,7 @@ public:
 	void h_delete(int r){
 		//h_delete函数认为值value一定已经存储于哈希表
 		//而不处理值value不存在的情况
-		int idx = hash_func(r);
+		int idx = h_hash(r);
 		hash_node *p = &h_table[idx];
 		while(p->h_next->h_value != r)
 			p = p->h_next;
@@ -86,5 +86,34 @@ public:
 			}
 			cout << endl;
 		}	
+	}
+};
+
+//2)BKDR哈希
+
+struct bkdr_hash_table{
+private:
+	int b_table[MAX];
+	int b_seed;
+public:
+	bkdr_hash_table(int seed = 131)	//种子可以是31 131 1313 13131 ...
+		: b_seed(seed){
+		memset(b_table, 0, sizeof(b_table));
+	}
+	int b_hash(char *str){
+		int hash = 0;
+		while(*str)
+			hash = hash * b_seed + (*str++);
+		hash = (hash & 0x7FFFFFFF) % MAX;
+		return(hash);
+	}
+	void b_insert(int r){
+		b_table[r] = 1;
+	}
+	void b_delete(int r){
+		b_table[r] = 0;
+	}
+	bool b_find(int r){
+		return(b_table[r]);
 	}
 };
