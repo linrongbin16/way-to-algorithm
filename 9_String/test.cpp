@@ -19,9 +19,11 @@ int main()
 	s.push_back("baba");	//3
 	s.push_back("asdf");	//4, not exist
 	vector<int> pos;
+	cout << "naive string match" << endl;
 	naive_string_match(s[1], t, pos);	//1
 	print_pos(s[1], t, pos);
 
+	cout << "knuth morris pratt" << endl;
 	knuth_morris_pratt(s[1], t, pos);	//2
 	print_pos(s[1], t, pos);
 
