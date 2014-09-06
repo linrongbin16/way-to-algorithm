@@ -12,6 +12,8 @@
 //2)另外给出算法导论上的伪代码
 //虽然算法导论中对字符数组下标的计算从1开始，但在测试中我发现该代码确实无法使用
 //所以最终还是推荐第一种方法
+//
+//本文引用了“KMP算法”，作者“海子”
 
 #include "general_head.h"
 void compute_prefix_function1(string s, int *prefix);
