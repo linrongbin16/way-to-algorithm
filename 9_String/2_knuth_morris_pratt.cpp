@@ -50,7 +50,7 @@ void compute_prefix_function1(string s, int *prefix)
 {
 	int i = 0, j = -1;
 	prefix[0] = -1;
-	while(i < (int)s.length() - 1){
+	while(i < (int)s.length()){
 		if(j == -1 || s[i] == s[j])
 			prefix[++ i] = ++ j;
 		else
