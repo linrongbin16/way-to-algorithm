@@ -4,8 +4,7 @@
 #include "3_trie_tree.hpp"	//struct trie_tree
 #include "4_aho_corasick_automation.hpp"	//struct aho_corasick_automation
 extern void naive_string_match(string s, string t, vector<int>& pos);
-extern void knuth_morris_pratt1(string s, string t, vector<int>& pos);
-extern void knuth_morris_pratt2(string s, string t, vector<int>& pos);
+extern void knuth_morris_pratt(string s, string t, vector<int>& pos);
 void print_pos(string s, string t, vector<int> pos);
 int main()
 {	
@@ -24,12 +23,8 @@ int main()
 	naive_string_match(s[1], t, pos);	//1
 	print_pos(s[1], t, pos);
 
-	cout << "knuth morris pratt 1" << endl;
-	knuth_morris_pratt1(s[1], t, pos);	//2
-	print_pos(s[1], t, pos);
-
-	cout << "knuth morris pratt 2" << endl;
-	knuth_morris_pratt2(s[1], t, pos);	//2
+	cout << "knuth morris pratt" << endl;
+	knuth_morris_pratt(s[1], t, pos);	//2
 	print_pos(s[1], t, pos);
 
 	cout << "trie tree" << endl;
