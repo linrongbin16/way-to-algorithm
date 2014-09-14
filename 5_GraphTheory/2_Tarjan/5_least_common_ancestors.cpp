@@ -49,7 +49,6 @@ void least_common_ancestors(graph_list g, map<pair<int, int>, int>& query)
 void dfs_lca(graph_list g, int p, map<pair<int, int>, int>& query,
 		int *visited, tree_node *tree)
 {
-	visited[p] = 1;
 	//进行下一轮dfs遍历，并更新并查集
 	for(int i = 1; i < (int)g.g_l[p].size(); ++ i){
 		dfs_lca(g, g.g_l[p][i].g_idx, query, visited, tree);
@@ -59,6 +58,7 @@ void dfs_lca(graph_list g, int p, map<pair<int, int>, int>& query,
 		//将孩子节点i.g_idx的父节点指针设置为p节点的父节点
 		pf2->t_fa = pf1;
 	}
+	visited[p] = 1;
 	//用并查集进行查询
 	for(map<pair<int, int>, int>::iterator it = query.begin();
 			it != query.end(); ++ it){
