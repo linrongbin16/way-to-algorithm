@@ -51,3 +51,19 @@ struct star_node{
 		return(s_status == r.s_status);
 	}
 };
+struct link_node{
+	int l_idx;
+	link_node *l_up;
+	link_node *l_down;
+	link_node *l_left;
+	link_node *l_right;
+	link_node(int cidx = 0, link_node *cup = NULL, link_node *cdown = NULL,
+			link_node *cleft = NULL, link_node *cright = NULL)
+		: l_idx(cidx), l_up(cup), l_down(cdown),
+		l_left(cleft), l_right(cright){
+	}
+	link_node(const link_node& cr)
+		: l_idx(cr.l_idx), l_up(cr.l_up), l_down(cr.l_down),
+		l_left(cr.l_left), l_right(cr.l_right){
+	}
+};
