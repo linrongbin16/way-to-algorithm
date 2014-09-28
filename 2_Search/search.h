@@ -52,18 +52,20 @@ struct star_node{
 	}
 };
 struct link_node{
-	int l_idx;
+	int l_row;
+	int l_col;
 	link_node *l_up;
 	link_node *l_down;
 	link_node *l_left;
 	link_node *l_right;
-	link_node(int cidx = 0, link_node *cup = NULL, link_node *cdown = NULL,
+	link_node(int crow = 0, int ccol = 0,
+			link_node *cup = NULL, link_node *cdown = NULL,
 			link_node *cleft = NULL, link_node *cright = NULL)
-		: l_idx(cidx), l_up(cup), l_down(cdown),
-		l_left(cleft), l_right(cright){
+		: l_idx(cidx), l_row(crow), l_col(ccol), l_up(cup),
+		l_down(cdown), l_left(cleft), l_right(cright){
 	}
 	link_node(const link_node& cr)
-		: l_idx(cr.l_idx), l_up(cr.l_up), l_down(cr.l_down),
-		l_left(cr.l_left), l_right(cr.l_right){
+		: l_row(cr.l_row), l_col(cr.l_col), l_up(cr.l_up), 
+		l_down(cr.l_down), l_left(cr.l_left), l_right(cr.l_right){
 	}
 };
