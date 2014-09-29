@@ -41,8 +41,7 @@ void range_most_query(int *s, int n,
 		int end = max(it->first.first, it->first.second);
 		int tmp_max = get_max(beg, end, fmax);
 		int tmp_min = get_min(beg, end, fmin);
-		pair<int, int> tmp_ans = make_pair(tmp_max, tmp_min);
-		it->second = tmp_ans;
+		it->second = make_pair(tmp_max, tmp_min);
 	}
 }
 void dp_max(int f[MAX + 1][MAX + 1], int *s, int n)
