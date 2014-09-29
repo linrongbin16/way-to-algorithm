@@ -1,5 +1,5 @@
-//区域最大值查询
-//range_max_query.cpp
+//区域最值查询
+//range_most_query.cpp
 
 //查询一个序列中某个范围中的最大或最小值
 
@@ -8,7 +8,7 @@
 //区域最值查询问题也可以用本书第2章中的线段树，区域树这样的数据结构来求解
 //但本文介绍的Sparse Table算法(ST算法)是一种最为合适和流行的在线算法
 //在经过预处理过程后，读取一个查询之后可以立刻求出区域的最值
-//为了方便序列中各个元素的值都是整数，且只查询最大值
+//为了方便序列中各个元素的值都是整数，查询最大值和最小值
 //
 //Sparse Table算法是一种基于动态规划的算法，需要预先进行一次动态规划作为预处理
 //设f[i][j]指代从s[i]起连续2^j个元素，到s[i+(2^j)-1]为止，该范围中的最大值
@@ -22,11 +22,31 @@
 //本文引用了“poj 3264 RMQ算法”，作者“品味&兴趣”
 
 #include "general_head.h"
+void dp_max(int f[MAX + 1][MAX + 1], int *s, int n);
+void dp_min(int f[MAX + 1][MAX + 1], int *s, int n);
+int get_max(int beg, int end, int f[MAX + 1][MAX + 1]);
+int get_min(int beg, int end, int f[MAX + 1][MAX + 1]);
 
-void range_max_query(int *s, int n, map<pair<int, int>, int>& query)
+void range_most_query(int *s, int n,
+		map<pair<int, int>, pair<int, int> >& query)
 {//序列s有n个元素，下标从1到n
- //查询query中的所有区域的最大值，存储于pair对应的位置
-	int f[MAX + 1][MAX + 1];
+ //查询query中区域的最大值和最小值，分别存储于第二个pair中
+	int fmax[MAX + 1][MAX + 1];
+	int fmin[MAX + 1][MAX + 1];
+	dp_max(fmax, s, n);
+	dp_min(fmin, s, n);
+	for(map<pair<int, int>, pair<int, int> >::iterator it = query.begin();
+			it != query.end(); ++ it){
+		int beg = min(it->first.first, it->first.second);
+		int end = max(it->first.first, it->first.second);
+		int tmp_max = get_max(beg, end, fmax);
+		int tmp_min = get_min(beg, end, fmin);
+		pair<int, int> tmp_ans = make_pair(tmp_max, tmp_min);
+		it->second = tmp_ans;
+	}
+}
+void dp_max(int f[MAX + 1][MAX + 1], int *s, int n)
+{
 	for(int i = 1; i <= n; ++ i)
 		f[i][0] = s[i];
 	for(int j = 1; j <= (int)(log((double)n + 1) / log(2.0)); ++ j)
@@ -36,11 +56,23 @@ void range_max_query(int *s, int n, map<pair<int, int>, int>& query)
 		for(int i = 1; i + (1 << j) - 1 <= n; ++ i)
 			//内存循环i从1开始，且i+(2^j)-1 <= n
 			f[i][j] = max(f[i][j - 1], f[i + (1 << (j - 1))][j - 1]);
-	for(map<pair<int, int>, int>::iterator it = query.begin();
-			it != query.end(); ++ it){
-		int beg = min(it->first.first, it->first.second);
-		int end = max(it->first.first, it->first.second);
-		int k = (int)(log((double)end - beg + 1) / log(2.0));
-		it->second = max(f[beg][k], f[end - (1 << k) + 1][k]);
-	}
 }
+void dp_min(int f[MAX + 1][MAX + 1], int *s, int n)
+{
+	for(int i = 1; i <= n; ++ i)
+		f[i][0] = s[i];
+	for(int j = 1; j <= (int)(log((double)n + 1) / log(2.0)); ++ j)
+		for(int i = 1; i + (1 << j) - 1 <= n; ++ i)
+			f[i][j] = min(f[i][j - 1], f[i + (1 << (j - 1))][j - 1]);
+}
+int get_max(int beg, int end, int f[MAX + 1][MAX + 1])
+{//[beg, end]是被查询的左闭右闭区间
+	int k = (int)(log((double)(end - beg + 1)) / log(2.0));
+	return(max(f[beg][k], f[end - (1 << k) + 1][k]));
+}
+int get_min(int beg, int end, int f[MAX + 1][MAX + 1])
+{//[beg, end]是被查询的左闭右闭区间
+	int k = (int)(log((double)(end - beg + 1)) / log(2.0));
+	return(min(f[beg][k], f[end - (1 << k) + 1][k]));
+}
+

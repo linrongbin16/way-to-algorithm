@@ -7,7 +7,8 @@ extern void gabow(graph_list& g);	//2
 extern void cut(graph_list& g, vector<pair<int, int> >& cut_edge);	//3
 extern void double_connected_component(graph_list g, deque<deque<pair<int, int> > >& com);	//4
 extern void least_common_ancestors(graph_list g, map<pair<int, int>, int>& query);	//5
-extern void range_max_query(int *s, int n, map<pair<int, int>, int>& query);
+extern void range_most_query(int *s, int n,
+		map<pair<int, int>, pair<int, int> >& query);
 void print_value(graph_list g);
 int main()
 {
@@ -108,20 +109,20 @@ int main()
 	for(map<pair<int, int>, int>::iterator it = query.begin(); it != query.end(); ++ it)
 		cout << "query:(" << it->first.first << "," << it->first.second << "): " << it->second << endl;
 
-	cout << endl << "range max query" << endl;
+	cout << endl << "range most query" << endl;
 	cout << "sequence: ";
 	int q[15] ={0, 3, 4, 12, 34, -5, 3, 45, 12, 22, 9, 7, 56, 27, 11};
 	for(int i = 1; i < 15; ++ i)
 		cout << q[i] << ' ';
 	cout << endl;
-	query.clear();
-	query.insert(make_pair(make_pair(1, 14), 0));
-	query.insert(make_pair(make_pair(1, 1), 0));
-	query.insert(make_pair(make_pair(11, 14), 0));
-	range_max_query(q, 14, query);
-	for(map<pair<int, int>, int>::iterator it = query.begin(); 
-			it != query.end(); ++ it)
-		cout << "query:(" << it->first.first << "," << it->first.second << "),max: " << it->second << endl;
+	map<pair<int, int>, pair<int, int> > query1;
+	query1.insert(make_pair(make_pair(1, 14), make_pair(0, 0)));
+	query1.insert(make_pair(make_pair(1, 1), make_pair(0, 0)));
+	query1.insert(make_pair(make_pair(11, 14), make_pair(0, 0)));
+	range_most_query(q, 14, query1);
+	for(map<pair<int, int>, pair<int, int> >::iterator it = query1.begin(); 
+			it != query1.end(); ++ it)
+		cout << "query1:(" << it->first.first << "," << it->first.second << "), max: " << it->second.first << ", min: " << it->second.second << endl;
 	return(0);
 }
 void print_value(graph_list g)
