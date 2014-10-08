@@ -1,4 +1,4 @@
 //后缀树
-//suffix_tree.hpp
+//suffix_tree.cpp
 
 //待续

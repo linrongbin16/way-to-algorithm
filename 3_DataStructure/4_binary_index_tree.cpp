@@ -1,5 +1,5 @@
 //树状数组
-//binary_index_tree.hpp
+//binary_index_tree.cpp
 
 //求数组s的所有成员的和
 
@@ -54,48 +54,39 @@
 //利用数组c和s在i和k上的对应关系可以很快的计算
 
 #include "general_head.h"
+//数组c下标从1开始
+int _binary_index[MAX];
 
-struct binary_index_tree{
-private:
-	int b_c[MAX];		//数组c，两数组下标从1开始
-	int b_lowbit(int i){
-		//计算2^k = i & (-i)
-		return(i & (-i));
+int _binary_index_tree_lowbit(int i)
+{
+	//计算2^k = i & (-i)
+	return(i & (-i));
+}
+void binary_index_tree_init()
+{
+	memset(_binary_index, 0, MAX * sizeof(int));
+}
+void binary_index_tree_add(int i, int value)
+{//s[i]加value，注意i从1开始
+	while(i < MAX){
+		//比如当i=1时，因为c[1]=s[1]故c[1]加value
+		//lowbit(1)=1，i=2，恰好c[2]=s[1]+s[2]，c[2]中包含s[1]，因此c[2]加value
+		//lowbit(2)=2，i=4，恰好c[4]=s[1]+s[2]+s[3]+s[4]，因此c[4]加value
+		//lowbit(4)=4，i=8，恰好c[8]中包含s[1]，因此c[8]加value，以此类推
+		//可以看出应用二进制位数的关系可以快速的改变数组s中的一个成员
+		//而不必实际的设置数组s，只需要设置数组c
+		_binary_index[i] += value;
+		i += _binary_index_tree_lowbit(i);
 	}
-public:
-	binary_index_tree(){
-		memset(b_c, 0, MAX * sizeof(int));
+}
+int binary_index_tree_sum(int i)
+{
+	//计算数组s中从1到i的和
+	//与加操作类似，避免了遍历从1到i的累加，从而降低时间复杂度
+	int sum(0);
+	while(i > 0){
+		sum += _binary_index[i];
+		i -= _binary_index_tree_lowbit(i);
 	}
-	void b_add(int i, int x){
-		//s[i]加x，注意i从1开始
-		while(i < MAX){
-			//比如当i=1时，因为c[1]=s[1]故c[1]加x
-			//lowbit(1)=1，i=2，恰好c[2]=s[1]+s[2]，c[2]中包含s[1]，因此c[2]加x
-			//lowbit(2)=2，i=4，恰好c[4]=s[1]+s[2]+s[3]+s[4]，因此c[4]加x
-			//lowbit(4)=4，i=8，恰好c[8]中包含s[1]，因此c[8]加x，以此类推
-			//可以看出应用二进制位数的关系可以快速的改变数组s中的一个成员
-			//而不必实际的设置数组s，只需要设置数组c
-			b_c[i] += x;
-			i += b_lowbit(i);
-		}
-	}
-	int b_sum(int i){
-		//计算数组s中从1到i的和
-		//与加操作类似，避免了遍历从1到i的累加，从而降低时间复杂度
-		int sum(0);
-		while(i > 0){
-			sum += b_c[i];
-			i -= b_lowbit(i);
-		}
-		return(sum);
-	}
-	void b_print(){
-		cout << endl << "array c: " << endl;
-		for(int i = 1; i < MAX; ++ i){
-			if(i % 10 == 0)
-				cout << endl;
-			cout << b_c[i] << '\t';
-		}
-		cout << endl;
-	}
-};
+	return(sum);
+}
