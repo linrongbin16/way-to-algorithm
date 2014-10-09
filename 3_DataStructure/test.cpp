@@ -30,8 +30,8 @@ extern bool disjoint_set_query(int p1, int p2);
 //leftist_tree
 extern left_node* leftist_tree_merge(left_node *a, left_node *b);
 extern int leftist_tree_top(left_node *root);
-extern void leftist_tree_push(left_node *root, int value);
-extern void leftist_tree_pop(left_node *root);
+extern left_node* leftist_tree_push(left_node *root, int value);
+extern left_node* leftist_tree_pop(left_node *root);
 extern void leftist_tree_print(left_node *root);//for test
 int main()
 {
@@ -142,11 +142,17 @@ int main()
 	leftist_tree_print(&tr[6]);
 	cout << "tree rt:" << endl;
 	leftist_tree_print(&tr[7]);
-	left_node *root2 = leftist_tree_merge(&tr[6], &tr[7]);
+
 	cout << endl << "after lt merge rt:" << endl;
+	left_node *root2 = leftist_tree_merge(&tr[6], &tr[7]);
 	leftist_tree_print(root2);
+
 	cout << endl << "after pop the top node:" << endl;
-	leftist_tree_pop(root2);
+	root2 = leftist_tree_pop(root2);
+	leftist_tree_print(root2);
+
+	cout << endl << "after push node 3:" << endl;
+	root2 = leftist_tree_push(root2, 3);
 	leftist_tree_print(root2);
 	return(0);
 }

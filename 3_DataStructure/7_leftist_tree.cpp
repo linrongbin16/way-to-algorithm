@@ -28,7 +28,7 @@
 #include "data_structure.h"
 
 left_node* leftist_tree_merge(left_node *a, left_node *b)
-{//将节点a与节点b合并
+{//将以节点a为根的子树与以节点b为根的子树合并
 	if(a == NULL)
 		return(b);
 	if(b == NULL)
@@ -56,13 +56,13 @@ int leftist_tree_top(left_node *root)
 {//root左偏树的根节点
 	return(root->l_idx);
 }
-void leftist_tree_push(left_node *root, int value)
-{//向root左偏树中插入值为value的节点即为将一个value值的节点与root树合并
-	root = leftist_tree_merge(root, new left_node(value));
+left_node* leftist_tree_push(left_node *root, int value)
+{//向root左偏树中插入值为value的节点，即为将一个value值的节点与root树合并
+	return(leftist_tree_merge(root, new left_node(value)));
 }
-void leftist_tree_pop(left_node *root)
-{//删除根节点即为将root树的左子树和右子树合并
-	root = leftist_tree_merge(root->l_lc, root->l_rc);
+left_node* leftist_tree_pop(left_node *root)
+{//删除根节点，即为将root树的左子树和右子树合并
+	return(leftist_tree_merge(root->l_lc, root->l_rc));
 }
 void leftist_tree_print(left_node *root)
 {//打印root左偏树
