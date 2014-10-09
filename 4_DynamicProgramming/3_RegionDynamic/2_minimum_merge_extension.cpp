@@ -1,5 +1,5 @@
-//扩展最小合并
-//extend_minimum_merge.cpp
+//最小合并扩展
+//minimum_merge_extension.cpp
 
 //与最小合并代价一样，唯一不同是序列s的首尾相接
 //题目的原型是石子合并
@@ -10,7 +10,7 @@
 
 #include "general_head.h"
 
-int extend_minimum_merge(int *s, int n)
+int minimum_merge_extension(int *s, int n)
 {//序列s的数量为n，下标从1到n，首尾相接，返回最小合并代价
 	int f[MAX + 1][2 * MAX + 1], sum[2 * MAX + 1][2 * MAX + 1];
 	int ss[2 * MAX + 1], min_cost(INF);
