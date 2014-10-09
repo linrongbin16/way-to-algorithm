@@ -6,7 +6,7 @@ extern void sieve2(int n, int *prime);		//2
 extern void sieve3(int n, int *prime);		//3
 extern int euclid(int a, int b);			//4
 extern int least_common_multiple(int a, int b);	//5
-extern int extended_euclid(int a, int b, int& x, int& y);	//6
+extern int euclid_extension(int a, int b, int& x, int& y);	//6
 extern bool modular_linear_equation(int a, int b, int n, int& d, int *x);	//7
 extern int chinese_remainer_theorem(int *a, int *n, int k);	//8
 extern int modular_exponentiation(int a, int b, int n);	//9
@@ -38,7 +38,7 @@ int main()
 	cout << "least common multiple of 24 and 39 is: " << least_common_multiple(24, 39) << endl;	//5
 	cout << "extended euclid, x and y that satisfied gcd(24,39) = 24*x + 39*y" << endl;	
 	int x, y, d;
-	d = extended_euclid(24, 39, x, y);	//6
+	d = euclid_extension(24, 39, x, y);	//6
 	cout << "gcd(24,39): " << d << ", x: " << x << ", y: " << y << endl;
 
 	int xx[MAX];

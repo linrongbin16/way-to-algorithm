@@ -1,5 +1,5 @@
 ﻿//Euclid扩展
-//extended_euclid.cpp
+//euclid_extension.cpp
 
 //求两数a，b的最大公约数以及使下式满足的系数x，y
 //gcd(a, b) = d = ax + by
@@ -16,7 +16,7 @@
 
 #include "general_head.h"
 
-int extended_euclid(int a, int b, int& x, int& y)
+int euclid_extension(int a, int b, int& x, int& y)
 {//返回a，b的最大公约数以及a，b的系数x和y
  //使得等式gcd(a, b) = d = ax + by成立
 	//递归终止条件
@@ -26,7 +26,7 @@ int extended_euclid(int a, int b, int& x, int& y)
 		y = 0;
 		return(gcd);
 	}
-	int gcd = extended_euclid(b, a % b, x, y);
+	int gcd = euclid_extension(b, a % b, x, y);
 	int tmp = x;
 	x = y;
 	y = tmp - (a / b) * y;
