@@ -1,5 +1,5 @@
-//扩展最长递增子序列
-//extended_longest_increasing_subsequence.cpp
+//最长递增子序列扩展
+//longest_increasing_subsequence_extension.cpp
 
 //对最长递增子序列的扩展问题
 //1)求出序列s中的最长递增子序列长度
@@ -38,7 +38,7 @@
 
 #include "general_head.h"
 
-int extended_longest_increasing_subsequence(int *s, int n, int& m)
+int longest_increasing_subsequence_extension(int *s, int n, int& m)
 {//序列s长为n+1，下标从1到n，空出0位置
  //返回序列s的最长子列的长度，和这样的子列的个数m
 	int f[MAX + 1], c[MAX + 1];

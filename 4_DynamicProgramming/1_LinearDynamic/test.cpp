@@ -4,7 +4,7 @@
 extern int longest_common_subsequence(int *s1, int *s2, int n);
 extern int longest_increasing_subsequence1(int *s, int n);
 extern int longest_increasing_subsequence2(int *s, int n);
-extern int extended_longest_increasing_subsequence(int *s, int n, int& m);
+extern int longest_increasing_subsequence_extension(int *s, int n, int& m);
 extern int bidirection_subsequence(int *s, int n, int& idx);
 int main()
 {
@@ -18,7 +18,7 @@ int main()
 	int s3[9] = {0, 9, 3, 7, 6, 10, 15, 8, 11};
 	int m;
 	cout << "extended subsequence: "
-		 << extended_longest_increasing_subsequence(s3, 8, m) << endl;
+		 << longest_increasing_subsequence_extension(s3, 8, m) << endl;
 	cout << "number of the subsequence: " << m << endl << endl;
 	cout << "bidirection subsequence: "
 		 << bidirection_subsequence(s3, 8, m) << endl
