@@ -67,7 +67,7 @@ void binary_index_tree_init()
 	memset(_binary_index, 0, MAX * sizeof(int));
 }
 void binary_index_tree_add(int i, int value)
-{//s[i]加value，注意i从1开始
+{//s[i]加value，其中下标i从1开始
 	while(i < MAX){
 		//比如当i=1时，因为c[1]=s[1]故c[1]加value
 		//lowbit(1)=1，i=2，恰好c[2]=s[1]+s[2]，c[2]中包含s[1]，因此c[2]加value
@@ -80,8 +80,7 @@ void binary_index_tree_add(int i, int value)
 	}
 }
 int binary_index_tree_sum(int i)
-{
-	//计算数组s中从1到i的和
+{//计算数组s中从1到i的和
 	//与加操作类似，避免了遍历从1到i的累加，从而降低时间复杂度
 	int sum(0);
 	while(i > 0){
