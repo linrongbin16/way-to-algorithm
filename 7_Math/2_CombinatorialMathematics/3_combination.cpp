@@ -8,7 +8,6 @@
 //还有一种方式为s = {1, 1, 0, 0, 1}
 
 #include "general_head.h"
-#include "com_local.h"
 //1)全排列方法
 //当n=3，m=1，可选择的组合有3种：{1, 0, 0}, {0, 1, 0}, {0, 0, 1}
 //当n=4，m=2，可选择的组合有：{1, 1, 0, 0}, {1, 0, 1, 0}, {0, 1, 1, 0}...
@@ -23,7 +22,7 @@
 //brute_force.cpp
 extern void print_status(int *s, int beg, int end);
 
-void combination1(int *s, int n, int m, int prev)
+void combination1(int *s, int n, int m, int prev = 0)
 {//序列s有n个成员，下标从0到n-1
  //求出从中选取m个成员的所有可能，被选取的成员为1，未被选取的成员为0
 	if(prev == n){
@@ -48,7 +47,7 @@ void combination1(int *s, int n, int m, int prev)
 
 bool is_combination(int *s, int n, int m);
 
-void combination2(int *s, int n, int m, int prev )
+void combination2(int *s, int n, int m, int prev = 0)
 {
 	if(prev == n){
 		if(is_combination(s, n, m))
