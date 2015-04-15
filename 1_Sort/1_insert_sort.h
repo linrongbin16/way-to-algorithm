@@ -1,5 +1,5 @@
-#ifndef WAY_TO_ALGORITHM_INSERT_SORT_H
-#define WAY_TO_ALGORITHM_INSERT_SORT_H 1
+#ifndef SORT_INSERT_SORT_H
+#define SORT_INSERT_SORT_H 1
 //插入排序
 //insert sort
 
@@ -16,8 +16,9 @@
 
 void insert_sort(int *s, int beg, int end) 
 {//[beg, end)为左闭右开区间，序列s下标从beg到end-1
-	int i, j, k, tmp;
+	int i;
 	for(i = beg + 1; i < end; ++ i){
+		int j, k, tmp;
 		j = i - 1;
 		while(j >= beg && s[j] > s[i])
 			-- j;
