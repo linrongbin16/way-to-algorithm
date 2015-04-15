@@ -1,3 +1,5 @@
+#ifndef SORT_BINARY_SEARCH_H
+#define SORT_BINARY_SEARCH_H 1
 //二分查找法，也称折半查找法
 //binary_search.cpp
 
@@ -12,13 +14,15 @@
 //直到找到x元素为止
 //当low > high时说明排除所有可能后仍没有找到x，说明不存在x返回0
 
-#include "general_head.h"
 
-bool binary_search(int *s, int x, int beg, int end, int& idx)
+int binary_search(int *s, int x, int beg, int end, int *idx)
 {//[beg, end)是左闭右开区间，s为已序序列，下标从beg到end-1，查找元素值x
  //idx返回查找的下标，返回bool标志查找成功与否
  //若查找不成功返回最接近x且比x小的元素下标
-	int low(beg), high(end - 1), mid((beg + end - 1) / 2);
+	int low, high, mid;
+	low = beg;
+	high = end - 1;
+	mid = (beg + end - 1) / 2;
 	while(s[mid] != x && low <= high){
 		if(s[mid] > x)
 			high = mid - 1; 
@@ -26,9 +30,12 @@ bool binary_search(int *s, int x, int beg, int end, int& idx)
 			low = mid + 1;
 		mid = (low + high) / 2;
 	}
-	idx = mid;
+	*idx = mid;
 	if(s[mid] == x)
-		return(true);
+		return(1);
 	else
-		return(false);
+		return(0);
 }
+
+
+#endif

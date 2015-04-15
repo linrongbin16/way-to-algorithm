@@ -1,4 +1,6 @@
-﻿//快速排序
+﻿#ifndef SORT_QUICK_SORT_H
+#define SORT_QUICK_SORT_H 1
+//快速排序
 //quick_sort.cpp
 
 //用快速排序算法将无序序列s从小到大排序
@@ -9,21 +11,12 @@
 //直到子序列长度为3时，比基准元素小的元素只有1个，比它大的元素也只有1个
 //即可得到已序序列s
 
-#include "general_head.h"
-int partion(int *s, int beg, int end);
 
-void quick_sort(int *s, int beg, int end) 
-{//[beg, end)为左闭右开区间，序列s下标从beg到end-1
-	if(beg < end - 1){
-		int mid = partion(s, beg, end - 1);
-		quick_sort(s, beg, mid);
-		quick_sort(s, mid + 1, end);
-	}
-}
 int partion(int *s, int beg, int end) 
 {//[beg, end]为左闭右闭区间，序列s下标从beg到end
-	int pivot = s[beg];
-	int tmp = s[beg];
+	int pivot, tmp;
+	pivot = s[beg];
+	tmp = s[beg];
 	while(beg < end){
 		while(beg < end && s[end] >= pivot)
 			-- end;
@@ -35,3 +28,15 @@ int partion(int *s, int beg, int end)
 	s[beg] = tmp;
 	return(beg);
 }
+
+void quick_sort(int *s, int beg, int end) 
+{//[beg, end)为左闭右开区间，序列s下标从beg到end-1
+	if(beg < end - 1){
+		int mid = partion(s, beg, end - 1);
+		quick_sort(s, beg, mid);
+		quick_sort(s, mid + 1, end);
+	}
+}
+
+
+#endif
