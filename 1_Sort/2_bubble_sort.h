@@ -13,18 +13,19 @@
 //最终可将s排序
 
 
+void bubble_sort_swap(int *a, int *b)
+{
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 void bubble_sort(int *s, int beg, int end) 
 {//[beg, end)为左闭右开区间，序列s下标从beg到end-1
-	int i;
-	for(i = beg; i < end - 1; ++ i) {
-		int j;
-		for(j = end - 1; j > i; -- j)
-			if(s[j] < s[j - 1]) {
-				int tmp = s[j];
-				s[j] = s[j - 1];
-				s[j - 1] = tmp;
-			} 
-	}
+	int i, j;
+	for(i = beg; i < end - 1; ++i)
+		for(j = end - 1; j > i; --j)
+			if(s[j] < s[j - 1])
+				bubble_sort_swap(&s[j], &s[j - 1]);
 }
 
 

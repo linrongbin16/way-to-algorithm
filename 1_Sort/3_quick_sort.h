@@ -12,17 +12,17 @@
 //即可得到已序序列s
 
 
-int partion(int *s, int beg, int end) 
+int quick_sort_partion(int *s, int beg, int end) 
 {//[beg, end]为左闭右闭区间，序列s下标从beg到end
 	int pivot, tmp;
 	pivot = s[beg];
 	tmp = s[beg];
 	while(beg < end){
 		while(beg < end && s[end] >= pivot)
-			-- end;
+			--end;
 		s[beg] = s[end];
 		while(beg < end && s[beg] <= pivot)
-			++ beg;
+			++beg;
 		s[end] = s[beg];
 	}
 	s[beg] = tmp;
@@ -32,7 +32,7 @@ int partion(int *s, int beg, int end)
 void quick_sort(int *s, int beg, int end) 
 {//[beg, end)为左闭右开区间，序列s下标从beg到end-1
 	if(beg < end - 1){
-		int mid = partion(s, beg, end - 1);
+		int mid = quick_sort_partion(s, beg, end - 1);
 		quick_sort(s, beg, mid);
 		quick_sort(s, mid + 1, end);
 	}

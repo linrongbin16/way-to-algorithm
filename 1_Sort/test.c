@@ -13,7 +13,7 @@ int main()
 	p[1] = bubble_sort;
 	p[2] = quick_sort;
 	for(i = 0; i < 3; ++ i){
-		int s[6] = {3, 4, 9, -1, 0, 4};
+		int s[6] = {4, 3, 9, -1, 0, 4};
 		int beg = 0, end = 6;
 		int j;
 		p[i](s, beg, end);
@@ -22,7 +22,7 @@ int main()
 			printf("%d ", s[j]);
 		printf("\n");
 		int idx, x = 3, y = 2;
-		if(binary_search(s, x, beg, end, &idx))
+		if(binary_search(s, beg, end, x, &idx))
 			printf("binary search: %d, yes: %d\n", x, idx);
 		else
 			printf("binary search: %d, no: %d\n", x, idx);
