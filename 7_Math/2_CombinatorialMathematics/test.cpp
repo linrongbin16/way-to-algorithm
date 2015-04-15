@@ -1,14 +1,14 @@
 //test
-/*
-函数声明应该放在.h文件中
-*/
 
 #include "general_head.h"
-void full_permutation(int *s, int n, int& cnt, int prev = 0);	//1
-void combination1(int *s, int n, int m, int prev = 0);	//2
-void combination2(int *s, int n, int m, int prev = 0);	//3
-void combination3(int *s, int n, int m);	//4
-void permutation_group(int *s, int n, int *t, int k, int *f);	//5
+#include "com_local.h"
+/*
+extern void full_permutation(int *s, int n, int& cnt, int prev = 0);	//1
+extern void combination1(int *s, int n, int m, int prev = 0);	//2
+extern void combination2(int *s, int n, int m, int prev = 0);	//3
+extern void combination3(int *s, int n, int m);	//4
+extern void permutation_group(int *s, int n, int *t, int k, int *f);	//5
+*/
 int main()
 {
 	int q[] = {1, 2, 3, 4};
@@ -42,5 +42,7 @@ int main()
 	for(int i = 1; i <= 10; ++ i)
 		cout << f[i] << ' ';
 	cout << endl;
+	cout<<"count the split of  number (enter a positive integer):";
+	calculus_number_diverse(0,NULL);
 	return(0);
 }
