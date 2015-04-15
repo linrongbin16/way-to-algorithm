@@ -1,3 +1,5 @@
+#ifndef SEARCH_BRUTE_FORCE_H
+#define SEARCH_BRUTE_FORCE_H 1
 //暴力枚举
 //brute_force.cpp
 
@@ -21,8 +23,14 @@
 //通过循环枚举出序列中每个成员的所有选择
 //每个成员的选择变化一次都是一种新的组合，将其加入答案集中
 
-#include "general_head.h"
-void print_status(int *s, int beg, int end);
+#include <stdio.h>
+void print_status(int *s, int beg, int end)
+{//[beg, end)是左闭右开区间，序列s下标从beg到end-1
+	int i;
+	for (i = beg; i < end; ++i)
+		printf("%d ", s[i]);
+	printf("\n");
+}
 
 void brute_force(int *s, int n, int m) 
 {//序列s有n个成员，下标从0到n-1，每个成员s[i]有m种选择
@@ -42,9 +50,6 @@ void brute_force(int *s, int n, int m)
 						print_status(s, 0, n);
 					}
 }
-void print_status(int *s, int beg, int end)
-{//[beg, end)是左闭右开区间，序列s下标从beg到end-1
-	for(int i = beg; i < end; ++ i)
-		cout << s[i] << ' ';
-	cout << endl;
-}
+
+
+#endif
