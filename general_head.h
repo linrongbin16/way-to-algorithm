@@ -17,7 +17,7 @@
 #include <set>
 #include <stack>
 #include <queue>
-#ifdef _MSC_VER			
+#if defined(WIN32) || defined(_WIN32)
 #include <windows.h>
 #endif
 using namespace std;

@@ -1,0 +1,9 @@
+test
+tags
+*.log
+*.txt
+*.out
+*.o
+*.a
+*.so
+*.gch
