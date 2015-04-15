@@ -8,10 +8,11 @@
 //全排列的方法非常像深度优先搜索，同样通过递归技术实现
 
 #include "general_head.h"
+#include "com_local.h"
 //brute_force.cpp
 extern void print_status(int *s, int beg, int end);
 
-void full_permutation(int *s, int n, int &cnt, int prev = 0)
+void full_permutation(int *s, int n, int &cnt, int prev )
 {//数组s有n个成员，从0到n-1，对他们进行全排列，cnt初始应该为0
 	if(prev == n){
 		//将每种排列加入答案集

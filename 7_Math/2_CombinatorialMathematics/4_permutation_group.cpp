@@ -23,6 +23,7 @@
 //再计算序列t即可快速的得到序列t的最终状态
 
 #include "general_head.h"
+#include "com_local.h"
 
 void permutation_group(int *s, int n, int *t, int k, int *f)
 {//序列s和t都有n个成员，下标都从1到n
