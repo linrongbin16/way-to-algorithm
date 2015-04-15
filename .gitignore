@@ -7,3 +7,5 @@ tags
 *.a
 *.so
 *.gch
+Makefile
+makefile
