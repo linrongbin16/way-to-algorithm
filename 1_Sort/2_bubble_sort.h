@@ -1,7 +1,7 @@
 ﻿#ifndef SORT_BUBBLE_SORT_H
 #define SORT_BUBBLE_SORT_H 1
 //冒泡排序
-//bubble_sort.cpp
+//bubble sort
 
 //用冒泡排序算法将无序序列s从小到大排序
 

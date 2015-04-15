@@ -1,7 +1,7 @@
 ﻿#ifndef SORT_QUICK_SORT_H
 #define SORT_QUICK_SORT_H 1
 //快速排序
-//quick_sort.cpp
+//quick sort
 
 //用快速排序算法将无序序列s从小到大排序
 

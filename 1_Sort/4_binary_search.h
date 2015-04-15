@@ -1,7 +1,7 @@
 #ifndef SORT_BINARY_SEARCH_H
 #define SORT_BINARY_SEARCH_H 1
 //二分查找法，也称折半查找法
-//binary_search.cpp
+//binary search
 
 //在从小到大排序的序列s中查找元素x是否存在
 //若存在找出元素x的下标，若不存在x则找出比x小且距离最近的元素的下标
