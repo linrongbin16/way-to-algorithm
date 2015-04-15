@@ -1,4 +1,7 @@
 //test
+/*
+函数声明应该放在.h文件中
+*/
 
 #include "general_head.h"
 void full_permutation(int *s, int n, int& cnt, int prev = 0);	//1
