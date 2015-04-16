@@ -1,5 +1,7 @@
+#ifndef SEARCH_DEPTH_FIRST_SEARCH_H
+#define SEARCH_DEPTH_FIRST_SEARCH_H 1
 //深度优先搜索
-//depth_first_search.cpp
+//depth first search
 
 //使用深度优先搜索寻找序列s的所有组合
 
@@ -7,7 +9,7 @@
 //但是暴力枚举的扩展性较差，代码中循环的次数是固定的
 //而深度搜索通过使用递归技术可以对此进行扩展
 //深度优先搜索的递归式具有明显的结构特点：
-//1)一般参数中都有 prev 参数来指明当前递归式处理的成员号
+//1)一般参数中都有prev参数来指明当前递归式处理的成员号
 //2)递归式中第一部分处理终止递归
 //当所有成员都作出了一次选择，即得到一种当前排列组合
 //也可以进行剪枝，提前结束当前节点的子空间的搜索
@@ -15,26 +17,27 @@
 //这时prev之前的成员已做出选择，prev以及它之后的成员尚未选择
 //prev作出它的其中一种选择并进入下一个成员的递归
 
-#include "general_head.h"
-//brute_force.cpp:
-extern void print_status(int *s, int beg, int end);
 
-void depth_first_search(int *s, int n, int m, int prev = 0) 
+//brute_force_print(int *s, int beg, int end);
+#include "1_brute_force.h"
+
+void depth_first_search(int *s, int n, int m, int prev/*default=0*/)
 {//序列s拥有n个成员，下标从0到n-1，每个成员有m种选择
 	//深度搜索一般都以prev = 0开头，这是一个特点
 	//prev指代当前正在做出选择的成员号
+	int i;
 	//1)第一部分：递归终止条件
 	if(prev == n){
 		//从0到n-1的每个成员都做出了选择，组成一个排列组合
 		//输出当前排列组合，结束递归返回上层
-		print_status(s, 0, n);
+		brute_force_print(s, 0, n);
 		//在多数题目中还需要对结果进行剪枝，即去除明显已经不需要继续递归搜索的情况
 		return;
 	}
 
 	//2)第二部分：处理当前成员prev，他有m种选择
 	//循环遍历prev的每一种选择
-	for(int i = 0; i < m; ++ i){
+	for(i = 0; i < m; ++ i){
 		//s[prev] = i即为成员s[prev]的一种选择
 		s[prev] = i;
 		//当前成员prev做出选择后，递归进入下一个成员
@@ -47,3 +50,5 @@ void depth_first_search(int *s, int n, int m, int prev = 0)
 	//n个成员，m种选择，所有排列组合的可能有m^n(m的n次方)种
 	//也可以将递归看做对一棵高度为 n+1 的 m 叉的完全树进行中序遍历的过程
 }
+
+#endif

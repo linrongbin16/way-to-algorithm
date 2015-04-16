@@ -1,7 +1,7 @@
 #ifndef SEARCH_BRUTE_FORCE_H
 #define SEARCH_BRUTE_FORCE_H 1
 //暴力枚举
-//brute_force.cpp
+//brute force
 
 //序列s中有n个成员，每个成员有m种选择
 //当这n个成员每个人都作出一种选择后，组成了一种序列可能，显然这样不同的组合有m^n个
@@ -23,8 +23,9 @@
 //通过循环枚举出序列中每个成员的所有选择
 //每个成员的选择变化一次都是一种新的组合，将其加入答案集中
 
+
 #include <stdio.h>
-void print_status(int *s, int beg, int end)
+void brute_force_print(int *s, int beg, int end)
 {//[beg, end)是左闭右开区间，序列s下标从beg到end-1
 	int i;
 	for (i = beg; i < end; ++i)
@@ -47,7 +48,7 @@ void brute_force(int *s, int n, int m)
 						s[n - 1] = in_1;
 
 						//将这次选择加入答案集
-						print_status(s, 0, n);
+						brute_force_print(s, 0, n);
 					}
 }
 
