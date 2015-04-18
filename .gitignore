@@ -8,5 +8,6 @@ tags
 *.so
 *.gch
 *.exe
+*~1
 Makefile
 makefile
