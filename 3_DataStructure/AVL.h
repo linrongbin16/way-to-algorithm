@@ -11,7 +11,7 @@
 //**************4*****************************************************************************
 //***************\****************************************************************************
 //****************5***************************************************************************
-//				其中主要的策略就是选择，旋转一共分为下面四种情况
+//				其中主要的策略就是旋转，旋转一共分为下面四种情况
 //******** A ********** B ************** C ********************* D ***************************
 //********************************************************************************************
 //*****    6   ****     6    ************2***********************2****************************
@@ -57,26 +57,26 @@ template <typename T>
 class AVLTree
 {
 private :
-	TreeNode<T> *root;								/*根节点*/
+	TreeNode<T> *root;					/*根节点*/
 
 	void InsertPri(TreeNode<T> * &node, T x);		/*插入x*/
-	TreeNode <T>* FindPri(TreeNode<T> *node ,T x);	/*查找x*/
-	void InSubTree(TreeNode<T> *node);				/*中序遍历*/
+	TreeNode <T>* FindPri(TreeNode<T> *node ,T x);		/*查找x*/
+	void InSubTree(TreeNode<T> *node);			/*中序遍历*/
 	void DeletePri(TreeNode<T> * &node, T x);		/*删除*/
-	int height(TreeNode<T> *node);					/*树的高度*/
+	int height(TreeNode<T> *node);				/*树的高度*/
 	void SingRotateLeft(TreeNode<T> * &k2);			/*左左情况下的旋转*/
 	void SingRotateRight(TreeNode<T> * &k2);		/*右右情况的旋转*/
 	void DoubleRotateLR(TreeNode<T> * &k3);			/*左右情况的旋转*/
 	void DoubleRotateRL(TreeNode<T> * &k3);			/*左右情况的旋转*/
-	int Max(int cmpa,int cmpb);						/*求最大值*/
+	int Max(int cmpa,int cmpb);				/*求最大值*/
 
 
 public :
 	AVLTree():root(NULL){}
-	void insert(T x);								/*插入接口*/
-	TreeNode<T> * Find(T x);						/*查找接口*/
-	void Delete(T x);								/*删除接口*/
-	void Treversal();								/*遍历接口*/
+	void insert(T x);					/*插入接口*/
+	TreeNode<T> * Find(T x);				/*查找接口*/
+	void Delete(T x);					/*删除接口*/
+	void Treversal();					/*遍历接口*/
 };
 
 
