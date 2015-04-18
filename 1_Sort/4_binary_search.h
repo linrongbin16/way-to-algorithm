@@ -15,14 +15,13 @@
 //当low > high时说明排除所有可能后仍没有找到x，说明不存在x返回0
 
 
-int binary_search(int *s, int beg, int end, int x, int *idx)
+int binary_search(int *s, int beg, int end, int x, int& idx)
 {//[beg, end)是左闭右开区间，s为已序序列，下标从beg到end-1，查找元素值x
  //idx返回查找的下标，返回int标志查找成功与否
  //若查找不成功返回最接近x且比x小的元素下标
-	int low, high, mid;
-	low = beg;
-	high = end - 1;
-	mid = (beg + end - 1) / 2;
+	int low = beg;
+	int high = end - 1;
+	int mid = (beg + end - 1) / 2;
 	while(s[mid] != x && low <= high){
 		if(s[mid] > x)
 			high = mid - 1; 
@@ -30,7 +29,7 @@ int binary_search(int *s, int beg, int end, int x, int *idx)
 			low = mid + 1;
 		mid = (low + high) / 2;
 	}
-	*idx = mid;
+	idx = mid;
 	if(s[mid] == x)
 		return(1);
 	else

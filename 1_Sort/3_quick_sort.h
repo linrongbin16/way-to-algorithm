@@ -14,9 +14,8 @@
 
 int quick_sort_partion(int *s, int beg, int end) 
 {//[beg, end]为左闭右闭区间，序列s下标从beg到end
-	int pivot, tmp;
-	pivot = s[beg];
-	tmp = s[beg];
+	int pivot = s[beg];
+	int tmp = s[beg];
 	while(beg < end){
 		while(beg < end && s[end] >= pivot)
 			--end;
