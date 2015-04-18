@@ -22,7 +22,7 @@ int main()
 			printf("%d ", s[j]);
 		printf("\n");
 		int idx, x = 3, y = 2;
-		if(binary_search(s, beg, end, x, &idx))
+		if(binary_search(s, beg, end, x, idx))
 			printf("binary search: %d, yes: %d\n", x, idx);
 		else
 			printf("binary search: %d, no: %d\n", x, idx);

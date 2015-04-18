@@ -19,7 +19,7 @@ void bubble_sort(int *s, int beg, int end)
 	for(int i = beg; i < end - 1; ++i)
 		for(int j = end - 1; j > i; --j)
 			if(s[j] < s[j - 1])
-				swap(s[j], s[j - 1]);
+				std::swap(s[j], s[j - 1]);
 }
 
 
