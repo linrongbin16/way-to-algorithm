@@ -3,6 +3,7 @@
 #include "general_head.h"
 #include "data_structure.h"
 #include "AVL.h"
+
 //prime_hash_table
 extern void prime_hash_init(int prime);
 extern void prime_hash_insert(int value);
