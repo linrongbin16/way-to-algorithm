@@ -24,13 +24,12 @@
 //每个成员的选择变化一次都是一种新的组合，将其加入答案集中
 
 
-#include <stdio.h>
+#include <iostream>
 void brute_force_print(int *s, int beg, int end)
 {//[beg, end)是左闭右开区间，序列s下标从beg到end-1
-	int i;
-	for (i = beg; i < end; ++i)
-		printf("%d ", s[i]);
-	printf("\n");
+	for (int i = beg; i < end; ++i)
+		std::cout << s[i] << " ";
+	std::cout << std::endl;
 }
 
 void brute_force(int *s, int n, int m) 

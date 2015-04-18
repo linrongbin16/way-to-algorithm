@@ -25,7 +25,6 @@ void depth_first_search(int *s, int n, int m, int prev/*default=0*/)
 {//序列s拥有n个成员，下标从0到n-1，每个成员有m种选择
 	//深度搜索一般都以prev = 0开头，这是一个特点
 	//prev指代当前正在做出选择的成员号
-	int i;
 	//1)第一部分：递归终止条件
 	if(prev == n){
 		//从0到n-1的每个成员都做出了选择，组成一个排列组合
@@ -37,7 +36,7 @@ void depth_first_search(int *s, int n, int m, int prev/*default=0*/)
 
 	//2)第二部分：处理当前成员prev，他有m种选择
 	//循环遍历prev的每一种选择
-	for(i = 0; i < m; ++ i){
+	for(int i = 0; i < m; ++ i){
 		//s[prev] = i即为成员s[prev]的一种选择
 		s[prev] = i;
 		//当前成员prev做出选择后，递归进入下一个成员

@@ -1,3 +1,5 @@
+#ifndef SEARCH_BREADTH_FIRST_SEARCH_H
+#define SEARCH_BREADTH_FIRST_SEARCH_H 1
 //广度优先搜索
 //breadth_first_search.cpp
 
@@ -10,16 +12,19 @@
 //直到所有节点都被访问过即完成遍历
 //像这样用队列来存储节点的邻节点的操作称为扩充该队列
 
-#include "general_head.h"
-void print_elem(pair<int, int> p);
+
+#include <string.h>
+#include <iostream>
+#include <deque.h>
 
 void breadth_first_search(int m, int n, pair<int, int> beg)
 {//矩阵有m行，n列，行下标从0到m-1，列下标从0到n-1
- //起点beg的行下标为beg.first(对应m行)，列下标为beg.second(对应n列)
+ //起点beg的行下标为beg.first(对应m行)，列下标为beg.seocnd(对应n列)
 	//visited标记节点是否被访问过
 	int visited[MAX][MAX];
 	memset(visited, 0, MAX * MAX *sizeof(int));
-	queue<pair<int, int> > q;
+
+	std::deque<pair<int, int> > q;
 	//将点进队之后就要将visit数组进行标识
 	//这样做可以“保证”队列中总是存储着：“将要被访问，而且从未访问过的点”
 	//何时对visited数组标记有很多种做法
@@ -28,7 +33,11 @@ void breadth_first_search(int m, int n, pair<int, int> beg)
 	q.push(beg);
 	visited[beg.first][beg.second] = 1;
 	while(!q.empty()){
-		pair<int, int> p = q.front(); q.pop();
+		pair<int, int> p = q.front();
+		q.pop_front();
+		int p_row = p.first;
+		int p_col = p.second;
+
 		print_elem(p);
 		//对p点四个方向的邻节点进行考虑
 		//还需判断矩阵越界
@@ -50,7 +59,10 @@ void breadth_first_search(int m, int n, pair<int, int> beg)
 		}
 	}
 }
-void print_elem(pair<int, int> p)
+void breadth_first_search_print(pair<int, int> p)
 {
-	cout << "(row:" << p.first << ",column:" << p.second << ")" << endl;
+	std::cout << "(row:" << p.first << ",column:";
+	std::cout << p.second << ")" << std::endl;
 }
+
+#endif
