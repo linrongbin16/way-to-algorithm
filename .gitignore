@@ -7,5 +7,7 @@ tags
 *.a
 *.so
 *.gch
+*.exe
+*~
 Makefile
 makefile

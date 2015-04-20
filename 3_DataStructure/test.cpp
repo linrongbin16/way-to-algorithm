@@ -2,6 +2,8 @@
 
 #include "general_head.h"
 #include "data_structure.h"
+#include "AVL.h"
+
 //prime_hash_table
 extern void prime_hash_init(int prime);
 extern void prime_hash_insert(int value);
@@ -154,5 +156,15 @@ int main()
 	cout << endl << "after push node 3:" << endl;
 	root2 = leftist_tree_push(root2, 3);
 	leftist_tree_print(root2);
+	
+	{
+		cout<<"avl test :"<<endl;
+		AVLTree<int> te;
+		for (int i=0;i<10;i++)
+		{
+			te.insert(i);
+		}
+		te.Treversal();
+	}
 	return(0);
 }
