@@ -1,4 +1,7 @@
 //test
+/*
+函数声明应该放在.h文件中
+*/
 
 #include "general_head.h"
 #include "com_local.h"
