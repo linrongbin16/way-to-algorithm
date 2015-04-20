@@ -15,17 +15,20 @@
 
 #include <iostream>
 #include <deque>
-#include <string.h>
+#include <cstring>
 #ifndef MAX
-#define MAX 500
+#define MAX 50
 #endif
+using std::pair;
+using std::cout;
+using std::endl;
+using std::deque;
 
-void breadth_first_search_print(std::pair<int, int> p)
+void breadth_first_search_print(pair<int, int> p)
 {
-	std::cout << "(row:" << p.first << ",column:";
-	std::cout << p.second << ")" << std::endl;
+	cout << "(row:" << p.first << ",column:" << p.second << ")" << endl;
 }
-void breadth_first_search(int m, int n, std::pair<int, int> beg)
+void breadth_first_search(int m, int n, pair<int, int> beg)
 {//矩阵有m行，n列，行下标从0到m-1，列下标从0到n-1
  //起点beg的行下标为beg.first(对应m行)，列下标为beg.seocnd(对应n列)
 	//visited标记节点是否被访问过
@@ -33,7 +36,7 @@ void breadth_first_search(int m, int n, std::pair<int, int> beg)
 	memset(visited, 0, MAX * MAX *sizeof(int));
 	int beg_row = beg.first, beg_col = beg.second;
 
-	std::deque<std::pair<int, int> > q;
+	deque<pair<int, int> > q;
 	//将点进队之后就要将visit数组进行标识
 	//这样做可以“保证”队列中总是存储着：“将要被访问，而且从未访问过的点”
 	//何时对visited数组标记有很多种做法
@@ -42,7 +45,7 @@ void breadth_first_search(int m, int n, std::pair<int, int> beg)
 	q.push_back(beg);
 	visited[beg_row][beg_col] = 1;
 	while(!q.empty()){
-		std::pair<int, int> p = q.front();
+		pair<int, int> p = q.front();
 		q.pop_front();
 		int p_row = p.first;
 		int p_col = p.second;
@@ -51,19 +54,19 @@ void breadth_first_search(int m, int n, std::pair<int, int> beg)
 		//对p点四个方向的邻节点进行考虑
 		//还需判断矩阵越界
 		if(p_row - 1 >= 0 && !visited[p_row - 1][p_col]){
-			q.push_back(std::pair<int, int>(p_row - 1, p_col));
+			q.push_back(pair<int, int>(p_row - 1, p_col));
 			visited[p_row - 1][p_col] = 1;
 		}
 		if(p_row + 1 < m && !visited[p_row + 1][p_col]){
-			q.push_back(std::pair<int, int>(p_row + 1, p_col));
+			q.push_back(pair<int, int>(p_row + 1, p_col));
 			visited[p_row + 1][p_col] = 1;
 		}
 		if(p_col - 1 >= 0 && !visited[p_row][p_col - 1]){
-			q.push_back(std::pair<int, int>(p_row, p_col - 1));
+			q.push_back(pair<int, int>(p_row, p_col - 1));
 			visited[p_row][p_col - 1] = 1; 
 		}
 		if(p_col + 1 < n && !visited[p_row][p_col + 1]){
-			q.push_back(std::pair<int, int>(p_row, p_col + 1));
+			q.push_back(pair<int, int>(p_row, p_col + 1));
 			visited[p_row][p_col + 1] = 1;
 		}
 	}

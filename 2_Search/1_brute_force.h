@@ -25,11 +25,14 @@
 
 
 #include <iostream>
+using std::cout;
+using std::endl;
+
 void brute_force_print(int *s, int beg, int end)
 {//[beg, end)是左闭右开区间，序列s下标从beg到end-1
 	for (int i = beg; i < end; ++i)
-		std::cout << s[i] << " ";
-	std::cout << std::endl;
+		cout << s[i] << " ";
+	cout << endl;
 }
 
 void brute_force(int *s, int n, int m) 

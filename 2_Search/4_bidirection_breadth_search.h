@@ -20,16 +20,132 @@
 //
 //本文引用了“双向广度优先搜索算法框架及八数码问题例程”，作者“~纯净的天空~”
 
-#include "general_head.h"
-#include "search.h"
-pair<bi_node, bi_node> expand_queue(deque<bi_node>& q_expand,
-		deque<bi_node>& q_exist, bi_node **s, int m, int n, int **visited, int flag);
-void print_road(pair<bi_node, bi_node> meet_pos, bi_node **s);
-void print_forward(bi_node f, bi_node **s);
-void print_backward(bi_node b, bi_node **s);
 
-void bidirection_breadth_search(bi_node **s,
-		int m, int n, bi_node beg, bi_node end)
+#include <algorithm>
+#include <cstring>
+#include <utility>
+#include <deque>
+#include <iostream>
+#ifndef MAX
+#define MAX 50
+#endif
+using std::pair;
+using std::deque;
+using std::find;
+using std::cout;
+using std::endl;
+using std::swap;
+
+struct bbs_node
+{
+	int row;
+	int col;
+	int father_row;
+	int father_col;
+	bbs_node() { }
+	bbs_node(const bbs_node& node)
+		: row(node.row), col(node.col),
+		father_row(node.father_row), father_col(node.father_col)
+	{ }
+	bbs_node& operator=(const bbs_node& node)
+	{
+		row = node.row;
+		col = node.col;
+		father_row = node.father_row;
+		father_col = node.father_col;
+		return(*this);
+	}
+	bool operator==(const bbs_node& node) const
+	{
+		return(row == node.row && col == node.col);
+	}
+	bool operator!=(const bbs_node& node) const
+	{
+		return(row != node.row || col != node.col);
+	}
+};
+pair<bbs_node, bbs_node> bidirection_breadth_search_expand(
+		deque<bbs_node>& q_expand, deque<bbs_node>& q_exist,
+		bbs_node **s, int m, int n, int **visited, int flag)
+{//对q_expand队列的头节点的所有邻节点进行扩展
+ //在将某个邻节点加入队列q_expand之前，先检查该点是否已经被q_expand队列访问过
+ //或者查找该点是否已经存在于q_exist队列中
+ //若已经存在，则q_expand的头节点与q_exist中该邻节点是相邻的，即两队列相遇
+	deque<bbs_node>::iterator pos;
+	bbs_node p = q_expand.front();
+	q_expand.pop_front();
+	//扩展q_expand头节点的四个方向上的邻节点
+	if(p.row - 1 >= 0 && !visited[p.row - 1][p.col]){
+		//判断矩阵边界与是否已经被访问过	
+		//C++算法find需要结构体bbs_node提供比较操作operator==
+		//该操作操作定义两节点的xy坐标相等即为同一点，不考虑父节点指针
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p.row - 1][p.col])) !=
+					q_exist.end())
+			//若在q_exist中找到q_expand头节点的该邻节点，则返回相遇的两节点
+			//返回的节点中first是q_expand队列的待扩展节点p，second是q_exist队列中节点
+			return(pair<bbs_node, bbs_node>(p, *pos));
+		//若没有在q_exist中找到该邻节点则两队列未在此节点处相遇
+		//将q_expand队列扩展至该邻节点，并标记其父节点指针
+		s[p.row - 1][p.col].father_row = p.row;
+		s[p.row - 1][p.col].father_col = p.col;
+		q_expand.push_back(s[p.row - 1][p.col]);
+		visited[p.row - 1][p.col] = 1;
+	}
+	if(p.row + 1 < m && !visited[p.row + 1][p.col]){
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p.row + 1][p.col])) !=
+					q_exist.end())
+			return(pair<bbs_node, bbs_node>(p, *pos));
+		s[p.row + 1][p.col].father_row = p.row;
+		s[p.row + 1][p.col].father_col = p.col;
+		q_expand.push_back(s[p.row + 1][p.col]);
+		visited[p.row + 1][p.col] = 1;
+	}
+	if(p.col - 1 >= 0 && !visited[p.row][p.col - 1]){
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p.row][p.col - 1])) !=
+					q_exist.end())
+			return(pair<bbs_node, bbs_node>(p, *pos));
+		s[p.row][p.col - 1].father_row = p.row;
+		s[p.row][p.col - 1].father_col = p.col;
+		q_expand.push_back(s[p.row][p.col - 1]);
+		visited[p.row][p.col - 1] = 1;
+	}
+	if(p.col + 1 < n && !visited[p.row][p.col + 1]){
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p.row][p.col + 1])) !=
+					q_exist.end())
+			return(pair<bbs_node, bbs_node>(p, *pos));
+		s[p.row][p.col + 1].father_row = p.row;
+		s[p.row][p.col + 1].father_col = p.col;
+		q_expand.push_back(s[p.row][p.col + 1]);
+		visited[p.row][p.col + 1] = 1;
+	}
+	//一次扩展只是从q_expand队列的头节点向外扩展四个邻节点
+	//若这次扩展中两队列未相遇则返回q_expand的尾部迭代器
+	return(pair<bbs_node, bbs_node>(*q_expand.end(), *q_expand.end()));
+}
+void bidirection_breadth_search_print_forward(bbs_node f, bbs_node **s)
+{//从点f向终点输出路径
+	cout << " (row:" << f.row << ",col:" << f.col << ")" << endl;
+	if(f.father_row != -1 && f.father_col != -1)
+		bidirection_breadth_search_print_forward(s[f.father_row][f.father_col], s);
+}
+void bidirection_breadth_search_print_backward(bbs_node b, bbs_node **s)
+{//从点b向起点反向输出路径
+ //注意这里递归的使用，输出的顺序是从起点到终点的顺序
+	if(b.father_row != -1 && b.father_col != -1)
+		bidirection_breadth_search_print_backward(s[b.father_row][b.father_col], s);		
+	cout << " (row:" << b.row << ",col:" << b.col << ")" << endl;
+}
+void bidirection_breadth_search_print_road(
+		pair<bbs_node, bbs_node> meet_pos, bbs_node **s)
+{//meet_pos中是两队列相遇处的两节点
+ //其中first是q_beg队列中的节点，second是q_end队列中的节点，这两个点是相邻的
+ //输出路径时向后递归逆序输出q_beg的路径，向前顺序输出q_end的路径
+	bidirection_breadth_search_print_backward(s[meet_pos.first.row][meet_pos.first.col], s);
+	bidirection_breadth_search_print_forward(s[meet_pos.second.row][meet_pos.second.col], s);
+}
+
+void bidirection_breadth_search(bbs_node **s,
+		int m, int n, bbs_node beg, bbs_node end)
 {//矩阵s有m行n列，行下标从0到m-1，列下标从0到n-1
 	//visit_beg记录beg队列访问过的点
 	//visit_end记录end队列访问过的点
@@ -43,20 +159,22 @@ void bidirection_breadth_search(bi_node **s,
 	}
 	//q_beg是从起点bfs的队列
 	//q_end是从终点bfs的队列
-	deque<bi_node> q_beg, q_end;
+	deque<bbs_node> q_beg, q_end;
 	//起点终点分别进入两个队列
-	q_beg.push_back(beg), q_end.push_back(end);
-	visit_beg[beg.b_row][beg.b_col] = 1, visit_end[end.b_row][end.b_col] = 1;
+	q_beg.push_back(beg);
+	q_end.push_back(end);
+	visit_beg[beg.row][beg.col] = 1;
+	visit_end[end.row][end.col] = 1;
 	//meet_pos返回q_beg和q_end中相遇的点
 	//这两个点是相邻的，即这两个点相遇
-	pair<bi_node, bi_node> meet_pos;
-	int flag(0);
+	pair<bbs_node, bbs_node> meet_pos;
+	int flag = 0;
 	while(1){
 		if(q_beg.size() > q_end.size()){
 			//扩展q_end，检查要加入q_end的点是否已存在于q_beg中
 			//最后一个参数 2 标志被扩展的队列是q_end
-			meet_pos = expand_queue(q_end, q_beg, s, m, n, visit_end, 2);
-			if(meet_pos != pair<bi_node, bi_node>(*q_end.end(), *q_end.end())){
+			meet_pos = bidirection_breadth_search_expand(q_end, q_beg, s, m, n, visit_end, 2);
+			if(meet_pos != pair<bbs_node, bbs_node>(*q_end.end(), *q_end.end())){
 				//找到了相遇点
 				flag = 2;
 				break;
@@ -65,8 +183,8 @@ void bidirection_breadth_search(bi_node **s,
 		else{
 			//扩展q_beg，检查要加入q_beg的点是否已存在于q_end中
 			//最后一个参数 1 标志被扩展的队列是q_beg
-			meet_pos = expand_queue(q_beg, q_end, s, m, n, visit_beg, 1);
-			if(meet_pos != pair<bi_node, bi_node>(*q_beg.end(), *q_beg.end())){
+			meet_pos = bidirection_breadth_search_expand(q_beg, q_end, s, m, n, visit_beg, 1);
+			if(meet_pos != pair<bbs_node, bbs_node>(*q_beg.end(), *q_beg.end())){
 				flag = 1;
 				break;
 			}
@@ -78,81 +196,5 @@ void bidirection_breadth_search(bi_node **s,
 		//meet_pos.first是q_end队列中节点，meet_pos.second是q_beg队列中节点
 		//交换位置，因为print_road函数将first看作q_beg中节点，second看作q_end中节点
 		swap(meet_pos.first, meet_pos.second);
-	print_road(meet_pos, s);
-}
-pair<bi_node, bi_node> expand_queue(deque<bi_node>& q_expand,
-		deque<bi_node>& q_exist, bi_node **s, int m, int n, int **visited, int flag)
-{//对q_expand队列的头节点的所有邻节点进行扩展
- //在将某个邻节点加入队列q_expand之前，先检查该点是否已经被q_expand队列访问过
- //或者查找该点是否已经存在于q_exist队列中
- //若已经存在，则q_expand的头节点与q_exist中该邻节点是相邻的，即两队列相遇
-	deque<bi_node>::iterator pos;
-	bi_node p = q_expand.front(); q_expand.pop_front();
-	//扩展q_expand头节点的四个方向上的邻节点
-	if(p.b_row - 1 >= 0 && !visited[p.b_row - 1][p.b_col]){
-		//判断矩阵边界与是否已经被访问过	
-		//C++算法find需要结构体bi_node提供比较操作operator==
-		//在search.h中该操作操作定义两节点的xy坐标相等即为同一点，不考虑父节点指针
-		if((pos = find(q_exist.begin(), q_exist.end(), s[p.b_row - 1][p.b_col])) !=
-					q_exist.end())
-			//若在q_exist中找到q_expand头节点的该邻节点，则返回相遇的两节点
-			//返回的节点中first是q_expand队列的待扩展节点p，second是q_exist队列中节点
-			return(pair<bi_node, bi_node>(p, *pos));
-		//若没有在q_exist中找到该邻节点则两队列未在此节点处相遇
-		//将q_expand队列扩展至该邻节点，并标记其父节点指针
-		s[p.b_row - 1][p.b_col].b_fa.first = p.b_row;
-		s[p.b_row - 1][p.b_col].b_fa.second = p.b_col;
-		q_expand.push_back(s[p.b_row - 1][p.b_col]);
-		visited[p.b_row - 1][p.b_col] = 1;
-	}
-	if(p.b_row + 1 < m && !visited[p.b_row + 1][p.b_col]){
-		if((pos = find(q_exist.begin(), q_exist.end(), s[p.b_row + 1][p.b_col])) !=
-					q_exist.end())
-			return(pair<bi_node, bi_node>(p, *pos));
-		s[p.b_row + 1][p.b_col].b_fa.first = p.b_row;
-		s[p.b_row + 1][p.b_col].b_fa.second = p.b_col;
-		q_expand.push_back(s[p.b_row + 1][p.b_col]);
-		visited[p.b_row + 1][p.b_col] = 1;
-	}
-	if(p.b_col - 1 >= 0 && !visited[p.b_row][p.b_col - 1]){
-		if((pos = find(q_exist.begin(), q_exist.end(), s[p.b_row][p.b_col - 1])) !=
-					q_exist.end())
-			return(pair<bi_node, bi_node>(p, *pos));
-		s[p.b_row][p.b_col - 1].b_fa.first = p.b_row;
-		s[p.b_row][p.b_col - 1].b_fa.second = p.b_col;
-		q_expand.push_back(s[p.b_row][p.b_col - 1]);
-		visited[p.b_row][p.b_col - 1] = 1;
-	}
-	if(p.b_col + 1 < n && !visited[p.b_row][p.b_col + 1]){
-		if((pos = find(q_exist.begin(), q_exist.end(), s[p.b_row][p.b_col + 1])) !=
-					q_exist.end())
-			return(pair<bi_node, bi_node>(p, *pos));
-		s[p.b_row][p.b_col + 1].b_fa.first = p.b_row;
-		s[p.b_row][p.b_col + 1].b_fa.second = p.b_col;
-		q_expand.push_back(s[p.b_row][p.b_col + 1]);
-		visited[p.b_row][p.b_col + 1] = 1;
-	}
-	//一次扩展只是从q_expand队列的头节点向外扩展四个邻节点
-	//若这次扩展中两队列未相遇则返回q_expand的尾部迭代器
-	return(pair<bi_node, bi_node>(*q_expand.end(), *q_expand.end()));
-}
-void print_road(pair<bi_node, bi_node> meet_pos, bi_node **s)
-{//meet_pos中是两队列相遇处的两节点
- //其中first是q_beg队列中的节点，second是q_end队列中的节点，这两个点是相邻的
- //输出路径时向后递归逆序输出q_beg的路径，向前顺序输出q_end的路径
-	print_backward(s[meet_pos.first.b_row][meet_pos.first.b_col], s);
-	print_forward(s[meet_pos.second.b_row][meet_pos.second.b_col], s);
-}
-void print_backward(bi_node b, bi_node **s)
-{//从点b向起点反向输出路径
- //注意这里递归的使用，输出的顺序是从起点到终点的顺序
-	if(b.b_fa.first != -1 && b.b_fa.second != -1)
-		print_backward(s[b.b_fa.first][b.b_fa.second], s);		
-	cout << " (row:" << b.b_row << ",col:" << b.b_col << ")" << endl;
-}
-void print_forward(bi_node f, bi_node **s)
-{//从点f向终点输出路径
-	cout << " (row:" << f.b_row << ",col:" << f.b_col << ")" << endl;
-	if(f.b_fa.first != -1 && f.b_fa.second != -1)
-		print_forward(s[f.b_fa.first][f.b_fa.second], s);
+	bidirection_breadth_search_print_road(meet_pos, s);
 }

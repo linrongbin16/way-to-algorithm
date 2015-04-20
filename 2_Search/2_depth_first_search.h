@@ -50,4 +50,5 @@ void depth_first_search(int *s, int n, int m, int prev/*default=0*/)
 	//也可以将递归看做对一棵高度为 n+1 的 m 叉的完全树进行中序遍历的过程
 }
 
+
 #endif

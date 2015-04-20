@@ -51,6 +51,7 @@ struct star_node{
 		return(s_status == r.s_status);
 	}
 };
+/*
 struct link_node{
 	int l_row;
 	int l_col;
@@ -69,3 +70,4 @@ struct link_node{
 		l_down(cr.l_down), l_left(cr.l_left), l_right(cr.l_right){
 	}
 };
+*/
