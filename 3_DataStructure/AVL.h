@@ -2,7 +2,7 @@
 //***说明：二叉排序树遍历是从小到大的顺序，AVL树也是bst，但是满足所有的树的左右高度相差不大于1
 //***平衡二叉树是一种特殊的二叉树，满足以上要求，主要是为了进一步的优化，提高操作的效率（O(log(n))）
 //***针对下面情况进行调整
-//参考博客：http://www.cppblog.com/cxiaojia/archive/2012/08/20/187776.html
+//***测试pat1066 http://www.patest.cn/contests/pat-a-practise/1066
 //*********1*******************************1**********2***************************************
 //**********\****************************************/*\**************************************
 //***********2**************************************1***4*************************************
@@ -11,7 +11,7 @@
 //**************4*****************************************************************************
 //***************\****************************************************************************
 //****************5***************************************************************************
-//				其中主要的策略就是旋转，旋转一共分为下面四种情况
+//				其中主要的策略就是选择，旋转一共分为下面四种情况
 //******** A ********** B ************** C ********************* D ***************************
 //********************************************************************************************
 //*****    6   ****     6    ************2***********************2****************************
@@ -57,26 +57,26 @@ template <typename T>
 class AVLTree
 {
 private :
-	TreeNode<T> *root;					/*根节点*/
+	TreeNode<T> *root;								/*根节点*/
 
 	void InsertPri(TreeNode<T> * &node, T x);		/*插入x*/
-	TreeNode <T>* FindPri(TreeNode<T> *node ,T x);		/*查找x*/
-	void InSubTree(TreeNode<T> *node);			/*中序遍历*/
+	TreeNode <T>* FindPri(TreeNode<T> *node ,T x);	/*查找x*/
+	void InSubTree(TreeNode<T> *node);				/*中序遍历*/
 	void DeletePri(TreeNode<T> * &node, T x);		/*删除*/
-	int height(TreeNode<T> *node);				/*树的高度*/
+	int height(TreeNode<T> *node);					/*树的高度*/
 	void SingRotateLeft(TreeNode<T> * &k2);			/*左左情况下的旋转*/
 	void SingRotateRight(TreeNode<T> * &k2);		/*右右情况的旋转*/
 	void DoubleRotateLR(TreeNode<T> * &k3);			/*左右情况的旋转*/
 	void DoubleRotateRL(TreeNode<T> * &k3);			/*左右情况的旋转*/
-	int Max(int cmpa,int cmpb);				/*求最大值*/
+	int Max(int cmpa,int cmpb);						/*求最大值*/
 
 
 public :
 	AVLTree():root(NULL){}
-	void insert(T x);					/*插入接口*/
-	TreeNode<T> * Find(T x);				/*查找接口*/
-	void Delete(T x);					/*删除接口*/
-	void Treversal();					/*遍历接口*/
+	void insert(T x);								/*插入接口*/
+	TreeNode<T> * Find(T x);						/*查找接口*/
+	void Delete(T x);								/*删除接口*/
+	void Treversal();								/*遍历接口*/
 };
 
 
@@ -126,6 +126,7 @@ void AVLTree<T>::SingRotateLeft(TreeNode<T> * &k2)
 
 	k2->hgt=Max(height(k2->lchild),height(k2->rchild))+1;
 	k1->hgt=Max(height(k1->lchild),k2->hgt)+1;
+	k2=k1;/*最后一定要更新根节点*/
 }
 /*右右旋转*/
 template <typename T>
@@ -139,6 +140,7 @@ void AVLTree<T>::SingRotateRight(TreeNode<T> * &k2)
 
 	k2->hgt=Max(height(k2->lchild),height(k2->rchild))+1;
 	k1->hgt=Max(height(k1->rchild),k2->hgt)+1;
+	k2=k1;/*最后一定要更新根节点*/
 }
 /**************************双旋转(左右情况下的双旋转)************************/
 //************************************************************************
@@ -204,7 +206,7 @@ void AVLTree<T>::InsertPri(TreeNode<T>* &node, T x)
 		InsertPri(node->rchild,x);
 		if (2==height(node->rchild)-height(node->lchild))
 		{
-			if (x<node->rchild->data)
+			if (x>node->rchild->data)
 			{
 				SingRotateRight(node);
 			}
@@ -214,7 +216,7 @@ void AVLTree<T>::InsertPri(TreeNode<T>* &node, T x)
 	}
 	else
 		node->freq++;/*如果相等，频率加1*/
-	node->hgt=Max(height(node->lchild),height(node->rchild));
+	node->hgt=Max(height(node->lchild),height(node->rchild))+1;
 }
 
 /************************************************************************/
@@ -349,6 +351,7 @@ void AVLTree<T>::InSubTree(TreeNode<T> *node)
 template<typename T>
 void AVLTree<T>::Treversal()
 {
+	//cout<<root->data;
 	InSubTree(root);
 }
 #endif//avl.h
