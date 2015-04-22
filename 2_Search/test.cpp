@@ -1,11 +1,11 @@
 //test
 
-#include <algorithm>
 #include "1_brute_force.h"
 #include "2_depth_first_search.h"
 #include "3_breadth_first_search.h"
 #include "4_bidirection_breadth_search.h"
-//#include "5_a_heuristic_search.h"
+#include "5_a_heuristic_search.h"
+#include <algorithm>
 using std::make_pair;
 
 int main()
@@ -25,20 +25,23 @@ int main()
 	for(int i = 0; i < 20; ++ i){
 		s2[i] = new bbs_node[17];
 		for(int j = 0; j < 17; ++ j) {
-			s2[i][j].row = i;
-			s2[i][j].col = j;
-			s2[i][j].father_row = -1;
-			s2[i][j].father_col = -1;
+			s2[i][j]._row = i;
+			s2[i][j]._col = j;
+			s2[i][j]._father_row = -1;
+			s2[i][j]._father_col = -1;
 		}
 	}
 	cout << endl << "bidirection breadth search: " << endl;
 	bidirection_breadth_search(s2, 20, 17, s2[0][0], s2[19][16]);	//4
 
-	/*
-	star_node beg, end;
-	beg.s_status = "4132x6758", end.s_status = "12345678x";
+	hs_node beg, end;
+	beg._status = "4132x6758";
+	end._status = "12345678x";
 	cout << endl << "A* heuristic search:" << endl;
 	a_heuristic_search(beg, end);	//5
-	*/
+	beg._status = "41732x568";
+	end._status = "12345678x";
+	cout << endl << "A* heuristic search:" << endl;
+	a_heuristic_search(beg, end);
 	return(0);
 }

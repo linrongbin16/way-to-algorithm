@@ -1,3 +1,5 @@
+#ifndef SEARCH_ADVANCED_SEARCH_ALGORITHM_INTRODUCTION_H
+#define SEARCH_ADVANCED_SEARCH_ALGORITHM_INTRODUCTION_H 1
 //高级搜索算法介绍
 //advanced_search_algorithm_introduction.cpp
 
@@ -48,3 +50,4 @@
 //
 //本文引用了“局部搜索算法”，作者“JiePro”
 //“经典算法研究系列：七，深入浅出遗传算法”，作者“v_JULY_v”
+#endif

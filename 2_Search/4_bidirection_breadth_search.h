@@ -38,30 +38,33 @@ using std::swap;
 
 struct bbs_node
 {
-	int row;
-	int col;
-	int father_row;
-	int father_col;
+	int _row;
+	int _col;
+	int _father_row;
+	int _father_col;
 	bbs_node() { }
 	bbs_node(const bbs_node& node)
-		: row(node.row), col(node.col),
-		father_row(node.father_row), father_col(node.father_col)
-	{ }
+	{
+		_row = node._row;
+		_col = node._col;
+		_father_row = node._father_row;
+		_father_col = node._father_col;
+	}
 	bbs_node& operator=(const bbs_node& node)
 	{
-		row = node.row;
-		col = node.col;
-		father_row = node.father_row;
-		father_col = node.father_col;
+		_row = node._row;
+		_col = node._col;
+		_father_row = node._father_row;
+		_father_col = node._father_col;
 		return(*this);
 	}
 	bool operator==(const bbs_node& node) const
 	{
-		return(row == node.row && col == node.col);
+		return(_row == node._row && _col == node._col);
 	}
 	bool operator!=(const bbs_node& node) const
 	{
-		return(row != node.row || col != node.col);
+		return(_row != node._row || _col != node._col);
 	}
 };
 pair<bbs_node, bbs_node> bidirection_breadth_search_expand(
@@ -75,48 +78,48 @@ pair<bbs_node, bbs_node> bidirection_breadth_search_expand(
 	bbs_node p = q_expand.front();
 	q_expand.pop_front();
 	//扩展q_expand头节点的四个方向上的邻节点
-	if(p.row - 1 >= 0 && !visited[p.row - 1][p.col]){
+	if(p._row - 1 >= 0 && !visited[p._row - 1][p._col]){
 		//判断矩阵边界与是否已经被访问过	
 		//C++算法find需要结构体bbs_node提供比较操作operator==
 		//该操作操作定义两节点的xy坐标相等即为同一点，不考虑父节点指针
-		if((pos = find(q_exist.begin(), q_exist.end(), s[p.row - 1][p.col])) !=
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p._row - 1][p._col])) !=
 					q_exist.end())
 			//若在q_exist中找到q_expand头节点的该邻节点，则返回相遇的两节点
 			//返回的节点中first是q_expand队列的待扩展节点p，second是q_exist队列中节点
 			return(pair<bbs_node, bbs_node>(p, *pos));
 		//若没有在q_exist中找到该邻节点则两队列未在此节点处相遇
 		//将q_expand队列扩展至该邻节点，并标记其父节点指针
-		s[p.row - 1][p.col].father_row = p.row;
-		s[p.row - 1][p.col].father_col = p.col;
-		q_expand.push_back(s[p.row - 1][p.col]);
-		visited[p.row - 1][p.col] = 1;
+		s[p._row - 1][p._col]._father_row = p._row;
+		s[p._row - 1][p._col]._father_col = p._col;
+		q_expand.push_back(s[p._row - 1][p._col]);
+		visited[p._row - 1][p._col] = 1;
 	}
-	if(p.row + 1 < m && !visited[p.row + 1][p.col]){
-		if((pos = find(q_exist.begin(), q_exist.end(), s[p.row + 1][p.col])) !=
+	if(p._row + 1 < m && !visited[p._row + 1][p._col]){
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p._row + 1][p._col])) !=
 					q_exist.end())
 			return(pair<bbs_node, bbs_node>(p, *pos));
-		s[p.row + 1][p.col].father_row = p.row;
-		s[p.row + 1][p.col].father_col = p.col;
-		q_expand.push_back(s[p.row + 1][p.col]);
-		visited[p.row + 1][p.col] = 1;
+		s[p._row + 1][p._col]._father_row = p._row;
+		s[p._row + 1][p._col]._father_col = p._col;
+		q_expand.push_back(s[p._row + 1][p._col]);
+		visited[p._row + 1][p._col] = 1;
 	}
-	if(p.col - 1 >= 0 && !visited[p.row][p.col - 1]){
-		if((pos = find(q_exist.begin(), q_exist.end(), s[p.row][p.col - 1])) !=
+	if(p._col - 1 >= 0 && !visited[p._row][p._col - 1]){
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p._row][p._col - 1])) !=
 					q_exist.end())
 			return(pair<bbs_node, bbs_node>(p, *pos));
-		s[p.row][p.col - 1].father_row = p.row;
-		s[p.row][p.col - 1].father_col = p.col;
-		q_expand.push_back(s[p.row][p.col - 1]);
-		visited[p.row][p.col - 1] = 1;
+		s[p._row][p._col - 1]._father_row = p._row;
+		s[p._row][p._col - 1]._father_col = p._col;
+		q_expand.push_back(s[p._row][p._col - 1]);
+		visited[p._row][p._col - 1] = 1;
 	}
-	if(p.col + 1 < n && !visited[p.row][p.col + 1]){
-		if((pos = find(q_exist.begin(), q_exist.end(), s[p.row][p.col + 1])) !=
+	if(p._col + 1 < n && !visited[p._row][p._col + 1]){
+		if((pos = find(q_exist.begin(), q_exist.end(), s[p._row][p._col + 1])) !=
 					q_exist.end())
 			return(pair<bbs_node, bbs_node>(p, *pos));
-		s[p.row][p.col + 1].father_row = p.row;
-		s[p.row][p.col + 1].father_col = p.col;
-		q_expand.push_back(s[p.row][p.col + 1]);
-		visited[p.row][p.col + 1] = 1;
+		s[p._row][p._col + 1]._father_row = p._row;
+		s[p._row][p._col + 1]._father_col = p._col;
+		q_expand.push_back(s[p._row][p._col + 1]);
+		visited[p._row][p._col + 1] = 1;
 	}
 	//一次扩展只是从q_expand队列的头节点向外扩展四个邻节点
 	//若这次扩展中两队列未相遇则返回q_expand的尾部迭代器
@@ -124,24 +127,24 @@ pair<bbs_node, bbs_node> bidirection_breadth_search_expand(
 }
 void bidirection_breadth_search_print_forward(bbs_node f, bbs_node **s)
 {//从点f向终点输出路径
-	cout << " (row:" << f.row << ",col:" << f.col << ")" << endl;
-	if(f.father_row != -1 && f.father_col != -1)
-		bidirection_breadth_search_print_forward(s[f.father_row][f.father_col], s);
+	cout << " (row:" << f._row << ",col:" << f._col << ")" << endl;
+	if(f._father_row != -1 && f._father_col != -1)
+		bidirection_breadth_search_print_forward(s[f._father_row][f._father_col], s);
 }
 void bidirection_breadth_search_print_backward(bbs_node b, bbs_node **s)
 {//从点b向起点反向输出路径
  //注意这里递归的使用，输出的顺序是从起点到终点的顺序
-	if(b.father_row != -1 && b.father_col != -1)
-		bidirection_breadth_search_print_backward(s[b.father_row][b.father_col], s);		
-	cout << " (row:" << b.row << ",col:" << b.col << ")" << endl;
+	if(b._father_row != -1 && b._father_col != -1)
+		bidirection_breadth_search_print_backward(s[b._father_row][b._father_col], s);		
+	cout << " (row:" << b._row << ",col:" << b._col << ")" << endl;
 }
 void bidirection_breadth_search_print_road(
 		pair<bbs_node, bbs_node> meet_pos, bbs_node **s)
 {//meet_pos中是两队列相遇处的两节点
  //其中first是q_beg队列中的节点，second是q_end队列中的节点，这两个点是相邻的
  //输出路径时向后递归逆序输出q_beg的路径，向前顺序输出q_end的路径
-	bidirection_breadth_search_print_backward(s[meet_pos.first.row][meet_pos.first.col], s);
-	bidirection_breadth_search_print_forward(s[meet_pos.second.row][meet_pos.second.col], s);
+	bidirection_breadth_search_print_backward(s[meet_pos.first._row][meet_pos.first._col], s);
+	bidirection_breadth_search_print_forward(s[meet_pos.second._row][meet_pos.second._col], s);
 }
 
 void bidirection_breadth_search(bbs_node **s,
@@ -163,8 +166,8 @@ void bidirection_breadth_search(bbs_node **s,
 	//起点终点分别进入两个队列
 	q_beg.push_back(beg);
 	q_end.push_back(end);
-	visit_beg[beg.row][beg.col] = 1;
-	visit_end[end.row][end.col] = 1;
+	visit_beg[beg._row][beg._col] = 1;
+	visit_end[end._row][end._col] = 1;
 	//meet_pos返回q_beg和q_end中相遇的点
 	//这两个点是相邻的，即这两个点相遇
 	pair<bbs_node, bbs_node> meet_pos;
