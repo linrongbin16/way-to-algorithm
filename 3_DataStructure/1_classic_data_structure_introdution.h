@@ -1,5 +1,7 @@
+#ifndef DATASTRUCTURE_CLASSIC_DATA_STRUCTURE_INTRODUCTION_H
+#define DATASTRUCTURE_CLASSIC_DATA_STRUCTURE_INTRODUCTION_H 1
 //经典数据结构介绍
-//classic_data_structure_introduction.cpp
+//classic data structure introduction
 
 //1)平衡二叉树(Balanced Binary Tree)
 //平衡二叉树是一种特别的二叉树，它保证所有节点的左右子树的高度相差不超过1
@@ -31,3 +33,4 @@
 //斐波那契堆用于实现优先队列数据结构，其核心思路在于使用斐波那契数列分析
 //从而保证其查询和插入操作的时间复杂度为O(1)
 //用于优先队列的较为流行的数据结构还有二项堆和Pairing堆
+#endif
