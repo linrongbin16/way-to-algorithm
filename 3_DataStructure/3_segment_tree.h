@@ -1,5 +1,7 @@
+#ifndef DATASTRUCTURE_SEGMENT_TREE_H
+#define DATASTRUCTURE_SEGMENT_TREE_H 1
 //线段树
-//segment_tree.cpp
+//segment tree
 
 //x轴上有一条直线，多次对x轴上的一些线段进行染色，同一范围的线段可能重复染色
 //求被染色的线段的长度之和
@@ -34,73 +36,105 @@
 //
 //本文引用了“线段树(segment tree)”，作者“Microgoogle”
 
-#include "general_head.h"
-#include "data_structure.h"
+
+#include <iostream>
+using std::cout;
+using std::endl;
+struct st_node
+{
+	int _beg;
+	int _end;
+	int _cover;
+	st_node *_leftchild;
+	st_node *_rightchild;
+	st_node()
+	{
+		_beg = 0;
+		_end = 0;
+		_cover = 0;
+		_leftchild = 0;
+		_rightchild = 0;
+	}
+	st_node(const st_node& node)
+	{
+		_beg = node._beg;
+		_end = node._end;
+		_cover = node._cover;
+		_leftchild = node._leftchild;
+		_rightchild = node._rightchild;
+	}
+	~st_node()
+	{ }
+};
 
 //线段树的实现使用递归技术
-seg_node* segment_tree_build(int beg, int end)
+st_node* segment_tree_build(int beg, int end)
 {//生成[beg, end]中的所有节点
  //左子树生成根节点从beg到mid的线段区域
  //右子树生成根节点从mid到end的线段区域
  //右子树通常会比左子树高一层
  //返回最终得到的线段树的根节点指针
-	seg_node *root = new seg_node(beg, end);
+	st_node *root = new st_node();
+	root->_beg = beg;
+	root->_end = end;
 	if(beg + 1 < end){
-		root->s_lc = segment_tree_build(beg, (beg + end) / 2);
-		root->s_rc = segment_tree_build((beg + end) / 2, end);
+		root->_leftchild = segment_tree_build(beg, (beg + end) / 2);
+		root->_rightchild = segment_tree_build((beg + end) / 2, end);
 	}
 	return(root);
 }
-void segment_tree_insert(seg_node *root, int beg, int end)
+void segment_tree_insert(st_node *root, int beg, int end)
 {//若当前节点已被染色则不必再继续向下遍历
-	if(root->s_cover)
+	if(root->_cover)
 		return;
 
 	//注意这里的判断条件
 	//mid指代当前节点的区域的中间点
-	int mid = (root->s_beg + root->s_end) / 2;
-	if(beg == root->s_beg && end == root->s_end)
+	int mid = (root->_beg + root->_end) / 2;
+	if(beg == root->_beg && end == root->_end)
 		//插入区域与当前节点的区域“完全重合”
-		root->s_cover = 1;
+		root->_cover = 1;
 	else if(end <= mid)
 		//插入区域的右界在当前节点的中间点mid的左边
 		//则将插入区域插入当前节点的左子树
-		segment_tree_insert(root->s_lc, beg, end);
+		segment_tree_insert(root->_leftchild, beg, end);
 	else if(beg >= mid)
 		//插入区域的左界在当前节点的中间点mid的右边
 		//则将插入区域插入当前节点的右子树
-		segment_tree_insert(root->s_rc, beg, end);
+		segment_tree_insert(root->_rightchild, beg, end);
 	else{
 		//插入区域的一部分在当前节点的中间点mid的左边
 		//另一部分在中间点mid的右边
 		//将插入区域从中间点mid分成两个部分，分别继续递归插入
-		segment_tree_insert(root->s_lc, beg, mid);
-		segment_tree_insert(root->s_rc, mid, end);
+		segment_tree_insert(root->_leftchild, beg, mid);
+		segment_tree_insert(root->_rightchild, mid, end);
 	}
 }
-int segment_tree_length(seg_node *root)
+int segment_tree_length(st_node *root)
 {//求当前线段树中被覆盖的线段长度之和
 	if(root == NULL)
 		return(0);
-	if(root->s_cover)
-		return(root->s_end - root->s_beg);
+	if(root->_cover)
+		return(root->_end - root->_beg);
 
-	int left_length = segment_tree_length(root->s_lc);
-	int right_length = segment_tree_length(root->s_rc);
+	int left_length = segment_tree_length(root->_leftchild);
+	int right_length = segment_tree_length(root->_rightchild);
 	return(left_length + right_length);
 }
-void segment_tree_print(seg_node *root)
+void segment_tree_print(st_node *root)
 {//打印线段树信息
 	if(root == NULL)
 		return;
-	cout << "node beg:" << root->s_beg << ", end:" << root->s_end << ", cover:" << root->s_cover;
-	if(root->s_lc){
-		cout << " left child(beg:" << root->s_lc->s_beg << ",end:" << root->s_lc->s_end << ")";
+	cout << "node beg:" << root->_beg << ", end:" << root->_end << ", cover:" << root->_cover;
+	if(root->_leftchild){
+		cout << " left child(beg:" << root->_leftchild->_beg << ",end:" << root->_leftchild->_end << ")";
 	}
-	if(root->s_rc){
-		cout << " right child(beg:" << root->s_rc->s_beg << ",end:" << root->s_rc->s_end << ")";
+	if(root->_rightchild){
+		cout << " right child(beg:" << root->_rightchild->_beg << ",end:" << root->_rightchild->_end << ")";
 	}
 	cout << endl;
-	segment_tree_print(root->s_lc);
-	segment_tree_print(root->s_rc);
+	segment_tree_print(root->_leftchild);
+	segment_tree_print(root->_rightchild);
 }
+
+#endif
