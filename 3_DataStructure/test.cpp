@@ -4,85 +4,68 @@
 #include "data_structure.h"
 #include "AVL.h"
 #include "RedBlackTree.h"
+#include "1_classic_data_structure_introduction.h"
+#include "2_hash_table.h"
+#include "3_segment_tree.h"
+#include "4_binary_index_tree.h"
+#include "5_disjoint_set.h"
+#include "6_leftist_tree.h"
+#include "7_suffix_tree.h"
 
-//prime_hash_table
-extern void prime_hash_init(int prime);
-extern void prime_hash_insert(int value);
-extern hash_node* prime_hash_find(int value);
-extern void prime_hash_delete(int value);
-extern void prime_hash_print(int n);//for test
-//bkdr_hash_table
-extern int bkdr_hash(char *s);
-extern void bkdr_hash_init(int seed = 131);
-extern void bkdr_hash_insert(int value);
-extern void bkdr_hash_delete(int value);
-extern bool bkdr_hash_find(int value);
-//segment_tree
-extern seg_node* segment_tree_build(int beg, int end);
-extern void segment_tree_insert(seg_node *root, int beg, int end);
-extern int segment_tree_length(seg_node *root);
-extern void segment_tree_print(seg_node *root);//for test
-//binary_index_tree
-extern void binary_index_tree_init();
-extern void binary_index_tree_add(int i, int value);
-extern int binary_index_tree_sum(int i);
-//disjoint_set
-extern void disjoint_set_init();
-extern void disjoint_set_union(int p1, int p2);
-extern bool disjoint_set_query(int p1, int p2);
-//leftist_tree
-extern left_node* leftist_tree_merge(left_node *a, left_node *b);
-extern int leftist_tree_top(left_node *root);
-extern left_node* leftist_tree_push(left_node *root, int value);
-extern left_node* leftist_tree_pop(left_node *root);
-extern void leftist_tree_print(left_node *root);//for test
 int main()
 {
 	//prime hash table
+	{
 	cout << "hash table" << endl;
-	prime_hash_init(13);
+	prime_hash_table ht;
+	prime_hash_init(ht, 13);
 	for(int i = 0; i < 30; ++ i)
-		prime_hash_insert(i);
-	prime_hash_print(13);
-	hash_node *p1 = prime_hash_find(24);
+		prime_hash_insert(ht, i);
+	prime_hash_print(ht, 13);
+	prime_hash_node *p1 = prime_hash_find(ht, 24);
 	if(p1)
-		cout << "find 24 in hash table: " << p1->h_value << endl;
+		cout << "find 24 in hash table: " << p1->_value << endl;
 	else
 		cout << "can't find 24 in hash table" << endl;
-	prime_hash_delete(24);
-	p1 = prime_hash_find(24);
+	prime_hash_delete(ht, 24);
+	p1 = prime_hash_find(ht, 24);
 	cout << "after delete 24 from hash table" << endl;
 	if(p1)
-		cout << "find 24 in hash table: " << p1->h_value << endl;
+		cout << "find 24 in hash table: " << p1->_value << endl;
 	else
 		cout << "can't find 24 in hash table" << endl;
-	prime_hash_print(13);
+	prime_hash_print(ht, 13);
+	}
 
 	//bkdr hash
+	{
 	cout << endl << "bkdr hash table" << endl;
-	bkdr_hash_init();
+	bkdr_hash_table bt;
+	bkdr_hash_init(bt, 31);
 	char s1[] = "hello world";
 	char s2[] = "henno hoood";
 	char s3[] = "hh you wrong";
 	char s4[] = "that's a test";
-	int h1 = bkdr_hash(s1);
-	int h2 = bkdr_hash(s2);
-	int h3 = bkdr_hash(s3);
-	int h4 = bkdr_hash(s4);
+	int h1 = _bkdr_hash(s1);
+	int h2 = _bkdr_hash(s2);
+	int h3 = _bkdr_hash(s3);
+	int h4 = _bkdr_hash(s4);
 	cout << "string 1:" << endl << s1 << endl << "hash value: " << h1 << endl;
 	cout << "string 2:" << endl << s2 << endl << "hash value: " << h2 << endl;
 	cout << "string 3:" << endl << s3 << endl << "hash value: " << h3 << endl;
 	cout << "string 4:" << endl << s4 << endl << "hash value: " << h4 << endl;
 	cout << "insert string 1" << endl;
-	bkdr_hash_insert(h1);
-	if(bkdr_hash_find(h1))
+	bkdr_hash_insert(bt, s1);
+	if(bkdr_hash_find(bt, s1))
 		cout << "find string 1" << endl;
 	else
 		cout << "can't find string 1" << endl;
+	}
 
 	//segment tree
+	{
 	cout << endl << "segment tree [0, 10]" << endl;
-	seg_node *root = segment_tree_build(0, 10);
+	segment_tree_node *root = segment_tree_build(0, 10);
 	segment_tree_insert(root, 2, 4);
 	segment_tree_insert(root, 6, 9);
 	cout << "insert [2, 4], [6, 9], length: " << segment_tree_length(root) << endl;
@@ -90,17 +73,22 @@ int main()
 	segment_tree_insert(root, 5, 7);
 	cout << "insert [5, 7], length: " << segment_tree_length(root) << endl;
 	segment_tree_print(root);
+	}
 	
+	{
 	//binary index tree
-	binary_index_tree_init();
+	binary_index_tree bit;
+	binary_index_tree_init(bit);
 	cout << endl << "binary index tree" << endl;
 	for(int i = 1; i < 20; ++ i){
 		cout << "array s[" << i << "] add " << 2 * i << endl;
-		binary_index_tree_add(i, 2 * i);
+		binary_index_tree_add(bit, i, 2 * i);
 	}
-	cout << "array sum from 1 to 10: " << binary_index_tree_sum(10) << endl;
+	cout << "array sum from 1 to 10: " << binary_index_tree_sum(bit, 10) << endl;
+	}
 
 	//disjoint set
+	{
 	disjoint_set_init();	
 	cout << endl << "disjoint set" << endl;
 	cout << "union" << endl;
@@ -121,7 +109,10 @@ int main()
 		cout << "number 2 and 21 in one set" << endl;
 	else
 		cout << "number 2 and 21 not in one set" << endl;
+	}
 	
+	//leftist tree
+	{
 	cout << endl << "leftist tree" << endl;
 	left_node tr[51];
 	for(int i = 0; i < 51; ++ i)
@@ -157,7 +148,9 @@ int main()
 	cout << endl << "after push node 3:" << endl;
 	root2 = leftist_tree_push(root2, 3);
 	leftist_tree_print(root2);
+	}
 	
+	//avl tree
 	{
 		cout<<"avl test :"<<endl;
 		AVLTree<int> te;
@@ -167,6 +160,7 @@ int main()
 		}
 		te.Treversal();
 	}
+	//red black tree
 	{
 		cout<<"reb black tree test :"<<endl;
 		RedBlackTree p;
