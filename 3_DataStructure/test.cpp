@@ -1,14 +1,14 @@
 //test
 
-#include "1_classic_data_structure_introduction.h"
-#include "2_hash_table.h"
-#include "3_segment_tree.h"
-#include "4_binary_index_tree.h"
-#include "5_disjoint_set.h"
-#include "6_leftist_tree.h"
-#include "7_suffix_tree.h"
-#include "8_AVL_tree.h"
-#include "9_red_black_tree.h"
+#include "0_classic_data_structure_introduction.h"
+#include "1_AVL_tree.h"
+#include "2_red_black_tree.h"
+#include "3_hash_table.h"
+#include "4_segment_tree.h"
+#include "5_binary_index_tree.h"
+#include "6_disjoint_set.h"
+#include "7_leftist_tree.h"
+#include "8_suffix_tree.h"
 
 int main()
 {

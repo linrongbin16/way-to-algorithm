@@ -44,14 +44,19 @@ using std::endl;
 
 /*AVL树节点信息*/
 template <typename T>
-class TreeNode
+struct TreeNode
 {
-public :
-	TreeNode():lchild(NULL),rchild(NULL),freq(1),hgt(0){}
 	T data ;/*值*/
 	int hgt;/*以此节点为根的树的高度*/
 	unsigned int freq;/*频率*/
-	TreeNode * lchild,*rchild;/*左右孩子*/
+	TreeNode *lchild, *rchild;/*左右孩子*/
+	TreeNode()
+	{
+		hgt = 0;
+		freq = 1;
+		lchild = NULL;
+		rchild = NULL;
+	}
 };
 
 /*AVL树类的属性和方法声明*/
@@ -186,8 +191,8 @@ void AVLTree<T>::InsertPri(TreeNode<T>* &node, T x)
 {
 	if(node==NULL)/*如果节点为空,就在此节点处加入x信息*/
 	{
-		node =new TreeNode<T>();
-		node->data=x;
+		node = new TreeNode<T>();
+		node->data = x;
 		return ;
 	}
 	if (node->data>x)/*如果X小于节点的值，就继续再节点的左子树中插入*/
