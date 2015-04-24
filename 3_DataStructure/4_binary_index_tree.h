@@ -1,3 +1,5 @@
+#ifndef DATASTRUCTURE_BINARY_INDEX_TREE_H
+#define DATASTRUCTURE_BINARY_INDEX_TREE_H 1
 //树状数组
 //binary_index_tree.cpp
 
@@ -53,20 +55,27 @@
 //计算数组s中从1到n所有成员之和，或者改变某个成员的值时
 //利用数组c和s在i和k上的对应关系可以很快的计算
 
-#include "general_head.h"
-//数组c下标从1开始
-int _binary_index[MAX];
+
+#include <cstring>
+#ifndef MAX
+#define MAX 60
+#endif
+struct binary_index_tree
+{
+	//数组c下标从1开始
+	int _table[MAX];
+};
 
 int _binary_index_tree_lowbit(int i)
 {
 	//计算2^k = i & (-i)
 	return(i & (-i));
 }
-void binary_index_tree_init()
+void binary_index_tree_init(binary_index_tree& tree)
 {
-	memset(_binary_index, 0, MAX * sizeof(int));
+	memset(tree._table, 0, MAX * sizeof(int));
 }
-void binary_index_tree_add(int i, int value)
+void binary_index_tree_add(binary_index_tree& tree, int i, int value)
 {//s[i]加value，其中下标i从1开始
 	while(i < MAX){
 		//比如当i=1时，因为c[1]=s[1]故c[1]加value
@@ -75,17 +84,19 @@ void binary_index_tree_add(int i, int value)
 		//lowbit(4)=4，i=8，恰好c[8]中包含s[1]，因此c[8]加value，以此类推
 		//可以看出应用二进制位数的关系可以快速的改变数组s中的一个成员
 		//而不必实际的设置数组s，只需要设置数组c
-		_binary_index[i] += value;
+		tree._table[i] += value;
 		i += _binary_index_tree_lowbit(i);
 	}
 }
-int binary_index_tree_sum(int i)
+int binary_index_tree_sum(binary_index_tree& tree, int i)
 {//计算数组s中从1到i的和
 	//与加操作类似，避免了遍历从1到i的累加，从而降低时间复杂度
 	int sum(0);
 	while(i > 0){
-		sum += _binary_index[i];
+		sum += tree._table[i];
 		i -= _binary_index_tree_lowbit(i);
 	}
 	return(sum);
 }
+
+#endif
