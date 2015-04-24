@@ -25,21 +25,21 @@
 #ifndef MAX
 #define MAX 60
 #endif
-struct ds_node
+struct disjoint_set_node
 {
 	int _index;
-	ds_node *_father;
-	ds_node()
+	disjoint_set_node *_father;
+	disjoint_set_node()
 	{
 		_index = 0;
-		_father = (ds_node*)0;
+		_father = (disjoint_set_node*)0;
 	}
-	ds_node(const ds_node& node)
+	disjoint_set_node(const disjoint_set_node& node)
 	{
 		_index = node._index;
 		_father = node._father;
 	}
-	ds_node& operator=(const ds_node& node)
+	disjoint_set_node& operator=(const disjoint_set_node& node)
 	{
 		_index = node._index;
 		_father = node._father;
@@ -48,11 +48,11 @@ struct ds_node
 };
 struct disjoint_set
 {
-	ds_node _table[MAX];
+	disjoint_set_node _table[MAX];
 	disjoint_set()
 	{
 		for (int i = 0; i < MAX; ++i)
-			_table[i] = ds_node();
+			_table[i] = disjoint_set_node();
 	}
 	disjoint_set(const disjoint_set& set)
 	{
@@ -68,7 +68,7 @@ void disjoint_set_init(disjoint_set& set)
 		set._table[i]._father = &set._table[i];
 	}
 }
-ds_node* _disjoint_set_find_father(ds_node *p)
+disjoint_set_node* _disjoint_set_find_father(disjoint_set_node *p)
 {//查询节点p的父节点
 	if(p->_father != p)
 		//属于同一集合的所有节点拥有相同的父节点
@@ -82,8 +82,8 @@ ds_node* _disjoint_set_find_father(ds_node *p)
 void disjoint_set_union(disjoint_set& set, int p1, int p2)
 {//将p2的家族合并入p1的家族，最早的祖先节点是p1家族的
 	//pf1是p1的父节点，pf2是p2的父节点
-	ds_node *pf1 = _disjoint_set_find_father(&set._table[p1]);
-	ds_node *pf2 = _disjoint_set_find_father(&set._table[p2]);
+	disjoint_set_node *pf1 = _disjoint_set_find_father(&set._table[p1]);
+	disjoint_set_node *pf2 = _disjoint_set_find_father(&set._table[p2]);
 	//将pf1设置为pf2的父节点
 	//以后_disjoint_set_find_father操作会
 	//使p2家族中的所有节点的父节点最终都指向p1的父节点

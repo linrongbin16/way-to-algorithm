@@ -81,7 +81,7 @@ void prime_hash_table_init(prime_hash_table& table, int prime)
 {
 	table._seed = prime;
 }
-void prime_hash_insert(prime_hash_table& table, int value)
+void prime_hash_table_insert(prime_hash_table& table, int value)
 {
 	//向哈希表中插入值为value的节点
 	//用哈希函数计算出在值value在哈希表中对应的节点下标
@@ -93,7 +93,7 @@ void prime_hash_insert(prime_hash_table& table, int value)
 	p->_next = new prime_hash_node();
 	p->_next->_value = value;
 }
-prime_hash_node* prime_hash_find(prime_hash_table table, int value)
+prime_hash_node* prime_hash_table_find(prime_hash_table table, int value)
 {
 	int idx = _prime_hash(table, value);
 	prime_hash_node *p = &table._table[idx];
@@ -104,7 +104,7 @@ prime_hash_node* prime_hash_find(prime_hash_table table, int value)
 	}
 	return((prime_hash_node*)0);
 }
-void prime_hash_delete(prime_hash_table& table, int value)
+void prime_hash_table_delete(prime_hash_table& table, int value)
 {
 	//prime_hash_delete函数认为值value一定已经存储于哈希表
 	//而不处理值value不存在的异常情况
@@ -116,9 +116,9 @@ void prime_hash_delete(prime_hash_table& table, int value)
 	p->_next = p->_next->_next;	//链表中删除p->h_next点
 	delete(del);
 }
-void prime_hash_print(prime_hash_table table)
+void prime_hash_table_print(prime_hash_table table)
 {//打印素数取模哈希表
-	for(int i = 0; i < MAX; ++ i){
+	for(int i = 0; i < table._seed; ++ i){
 		cout << "index " << i << ": ";
 		prime_hash_node *p = &table._table[i];
 		while(p->_next != NULL){
@@ -148,7 +148,7 @@ struct bkdr_hash_table
 	}
 };
 
-int _bkdr_hash(int seed, char *s)
+int _bkdr_hash(int seed, const char *s)
 {
 	int hash = 0;
 	while(*s)

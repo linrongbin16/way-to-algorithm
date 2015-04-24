@@ -31,27 +31,27 @@
 using std::swap;
 using std::cout;
 using std::endl;
-struct lt_node
+struct leftist_tree_node
 {
 	int _index;
 	int _depth;
-	lt_node *_leftchild;
-	lt_node *_rightchild;
-	lt_node()
+	leftist_tree_node *_leftchild;
+	leftist_tree_node *_rightchild;
+	leftist_tree_node()
 	{
 		_index = 0;
 		_depth = 0;
-		_leftchild = (lt_node*)0;
-		_rightchild = (lt_node*)0;
+		_leftchild = (leftist_tree_node*)0;
+		_rightchild = (leftist_tree_node*)0;
 	}
-	lt_node(const lt_node& node)
+	leftist_tree_node(const leftist_tree_node& node)
 	{
 		_index = node._index;
 		_depth = node._depth;
 		_leftchild = node._leftchild;
 		_rightchild = node._rightchild;
 	}
-	lt_node& operator=(const lt_node& node)
+	leftist_tree_node& operator=(const leftist_tree_node& node)
 	{
 		_index = node._index;
 		_depth = node._depth;
@@ -62,7 +62,7 @@ struct lt_node
 };
 
 
-lt_node* leftist_tree_merge(lt_node *a, lt_node *b)
+leftist_tree_node* leftist_tree_merge(leftist_tree_node *a, leftist_tree_node *b)
 {//将以节点a为根的子树与以节点b为根的子树合并
 	if(a == NULL)
 		return(b);
@@ -87,21 +87,21 @@ lt_node* leftist_tree_merge(lt_node *a, lt_node *b)
 	}
 	return(a);
 }
-int leftist_tree_top(lt_node *root)
+int leftist_tree_top(leftist_tree_node *root)
 {//root左偏树的根节点
 	return(root->_index);
 }
-lt_node* leftist_tree_push(lt_node *root, int value)
+leftist_tree_node* leftist_tree_push(leftist_tree_node *root, int value)
 {//向root左偏树中插入值为value的节点，即为将一个value值的节点与root树合并
-	lt_node *node = new lt_node();
+	leftist_tree_node *node = new leftist_tree_node();
 	node->_index = value;
 	return(leftist_tree_merge(root, node));
 }
-lt_node* leftist_tree_pop(lt_node *root)
+leftist_tree_node* leftist_tree_pop(leftist_tree_node *root)
 {//删除根节点，即为将root树的左子树和右子树合并
 	return(leftist_tree_merge(root->_leftchild, root->_rightchild));
 }
-void leftist_tree_print(lt_node *root)
+void leftist_tree_print(leftist_tree_node *root)
 {//打印root左偏树
 	if(root == NULL)
 		return;

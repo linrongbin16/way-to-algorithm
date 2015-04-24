@@ -1,9 +1,5 @@
 //test
 
-#include "general_head.h"
-#include "data_structure.h"
-#include "AVL.h"
-#include "RedBlackTree.h"
 #include "1_classic_data_structure_introduction.h"
 #include "2_hash_table.h"
 #include "3_segment_tree.h"
@@ -11,6 +7,8 @@
 #include "5_disjoint_set.h"
 #include "6_leftist_tree.h"
 #include "7_suffix_tree.h"
+#include "8_AVL_tree.h"
+#include "9_red_black_tree.h"
 
 int main()
 {
@@ -18,23 +16,23 @@ int main()
 	{
 	cout << "hash table" << endl;
 	prime_hash_table ht;
-	prime_hash_init(ht, 13);
+	prime_hash_table_init(ht, 13);
 	for(int i = 0; i < 30; ++ i)
-		prime_hash_insert(ht, i);
-	prime_hash_print(ht, 13);
-	prime_hash_node *p1 = prime_hash_find(ht, 24);
+		prime_hash_table_insert(ht, i);
+	prime_hash_table_print(ht);
+	prime_hash_node *p1 = prime_hash_table_find(ht, 24);
 	if(p1)
 		cout << "find 24 in hash table: " << p1->_value << endl;
 	else
 		cout << "can't find 24 in hash table" << endl;
-	prime_hash_delete(ht, 24);
-	p1 = prime_hash_find(ht, 24);
+	prime_hash_table_delete(ht, 24);
+	p1 = prime_hash_table_find(ht, 24);
 	cout << "after delete 24 from hash table" << endl;
 	if(p1)
 		cout << "find 24 in hash table: " << p1->_value << endl;
 	else
 		cout << "can't find 24 in hash table" << endl;
-	prime_hash_print(ht, 13);
+	prime_hash_table_print(ht);
 	}
 
 	//bkdr hash
@@ -46,10 +44,10 @@ int main()
 	char s2[] = "henno hoood";
 	char s3[] = "hh you wrong";
 	char s4[] = "that's a test";
-	int h1 = _bkdr_hash(s1);
-	int h2 = _bkdr_hash(s2);
-	int h3 = _bkdr_hash(s3);
-	int h4 = _bkdr_hash(s4);
+	int h1 = _bkdr_hash(bt._seed, s1);
+	int h2 = _bkdr_hash(bt._seed, s2);
+	int h3 = _bkdr_hash(bt._seed, s3);
+	int h4 = _bkdr_hash(bt._seed, s4);
 	cout << "string 1:" << endl << s1 << endl << "hash value: " << h1 << endl;
 	cout << "string 2:" << endl << s2 << endl << "hash value: " << h2 << endl;
 	cout << "string 3:" << endl << s3 << endl << "hash value: " << h3 << endl;
@@ -89,23 +87,24 @@ int main()
 
 	//disjoint set
 	{
-	disjoint_set_init();	
+		disjoint_set set;
+	disjoint_set_init(set);
 	cout << endl << "disjoint set" << endl;
 	cout << "union" << endl;
 	for(int i = 0; i < 10; ++ i){
 		cout << "number " << i << " and " << 3 * i << " is in one set" << endl;
-		disjoint_set_union(i, 3 * i);
+		disjoint_set_union(set, i, 3 * i);
 	}
 	cout << "query" << endl;
-	if(disjoint_set_query(1, 27))
+	if(disjoint_set_query(set, 1, 27))
 		cout << "number 1 and 27 in one set" << endl;
 	else
 		cout << "number 1 and 27 not in one set" << endl;
-	if(disjoint_set_query(2, 18))
+	if(disjoint_set_query(set, 2, 18))
 		cout << "number 2 and 18 in one set" << endl;
 	else
 		cout << "number 2 and 18 not in one set" << endl;
-	if(disjoint_set_query(2, 21))
+	if(disjoint_set_query(set, 2, 21))
 		cout << "number 2 and 21 in one set" << endl;
 	else
 		cout << "number 2 and 21 not in one set" << endl;
@@ -114,31 +113,31 @@ int main()
 	//leftist tree
 	{
 	cout << endl << "leftist tree" << endl;
-	left_node tr[51];
+	leftist_tree_node tr[51];
 	for(int i = 0; i < 51; ++ i)
-		tr[i].l_idx = i;
+		tr[i]._index = i;
 	//left child: &tr[6];
-	tr[6].l_lc = &tr[11]; tr[6].l_rc = &tr[8]; tr[6].l_dist = 2;
-	tr[11].l_lc = &tr[17]; tr[11].l_rc = &tr[14]; tr[11].l_dist = 2;
-	tr[17].l_lc = &tr[18]; tr[17].l_rc = &tr[20]; tr[17].l_dist = 1;
-	tr[14].l_lc = &tr[19]; tr[14].l_rc = &tr[24]; tr[14].l_dist = 1;
-	tr[8].l_lc = &tr[10]; tr[8].l_rc = &tr[13]; tr[8].l_dist = 1;
-	tr[10].l_lc = &tr[15]; tr[10].l_rc = &tr[30]; tr[10].l_dist = 1;
-	tr[13].l_lc = &tr[28];
+	tr[6]._leftchild = &tr[11]; tr[6]._leftchild = &tr[8]; tr[6]._depth = 2;
+	tr[11]._leftchild = &tr[17]; tr[11]._leftchild = &tr[14]; tr[11]._depth = 2;
+	tr[17]._leftchild = &tr[18]; tr[17]._leftchild = &tr[20]; tr[17]._depth = 1;
+	tr[14]._leftchild = &tr[19]; tr[14]._leftchild = &tr[24]; tr[14]._depth = 1;
+	tr[8]._leftchild = &tr[10]; tr[8]._leftchild = &tr[13]; tr[8]._depth = 1;
+	tr[10]._leftchild = &tr[15]; tr[10]._leftchild = &tr[30]; tr[10]._depth = 1;
+	tr[13]._leftchild = &tr[28];
 	//right child: &tr[7];
-	tr[7].l_lc = &tr[9]; tr[7].l_rc = &tr[12]; tr[7].l_dist = 2;
-	tr[9].l_lc = &tr[21]; tr[9].l_rc = &tr[16]; tr[9].l_dist = 1;
-	tr[12].l_lc = &tr[31]; tr[12].l_rc = &tr[26]; tr[12].l_dist = 1;
-	tr[31].l_lc = &tr[42]; tr[31].l_rc = &tr[33]; tr[31].l_dist = 1;
-	tr[42].l_lc = &tr[50];
-	tr[26].l_lc = &tr[27];
+	tr[7]._leftchild = &tr[9]; tr[7]._leftchild = &tr[12]; tr[7]._depth = 2;
+	tr[9]._leftchild = &tr[21]; tr[9]._leftchild = &tr[16]; tr[9]._depth = 1;
+	tr[12]._leftchild = &tr[31]; tr[12]._leftchild = &tr[26]; tr[12]._depth = 1;
+	tr[31]._leftchild = &tr[42]; tr[31]._leftchild = &tr[33]; tr[31]._depth = 1;
+	tr[42]._leftchild = &tr[50];
+	tr[26]._leftchild = &tr[27];
 	cout << "tree lt:" << endl;
 	leftist_tree_print(&tr[6]);
 	cout << "tree rt:" << endl;
 	leftist_tree_print(&tr[7]);
 
 	cout << endl << "after lt merge rt:" << endl;
-	left_node *root2 = leftist_tree_merge(&tr[6], &tr[7]);
+	leftist_tree_node *root2 = leftist_tree_merge(&tr[6], &tr[7]);
 	leftist_tree_print(root2);
 
 	cout << endl << "after pop the top node:" << endl;
@@ -152,17 +151,18 @@ int main()
 	
 	//avl tree
 	{
-		cout<<"avl test :"<<endl;
+		cout<<endl << "avl test :"<<endl;
 		AVLTree<int> te;
 		for (int i=0;i<10;i++)
 		{
 			te.insert(i);
 		}
 		te.Treversal();
+		cout << endl;
 	}
 	//red black tree
 	{
-		cout<<"reb black tree test :"<<endl;
+		cout<< endl << "reb black tree test :"<<endl;
 		RedBlackTree p;
 		cout<<p.Find(4)<<endl;
 		p.Insert(9);
