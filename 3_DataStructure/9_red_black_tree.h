@@ -1,3 +1,5 @@
+#ifndef DATASTRUCTURE_RED_BLACK_TREE_H
+#define DATASTRUCTURE_RED_BLACK_TREE_H 1
 /*****************************************************************************
  * 红黑色：
  * 或者是一颗空树，或者是一颗二叉树，满足以下性质
@@ -11,14 +13,20 @@
  *
  *因此红黑色在插入节点必然是红节点，因为黑节点会破坏性质5，但是会出现下列问题
  *****************************************************************************/
-#ifndef REDBLACK_H_
-#define REDBLACK_H_
 
 #include <iostream>
-
+#include <string>
+#include <algorithm>
+using std::cout;
+using std::endl;
+using std::string;
+using std::swap;
+#ifndef BLACK
 #define BLACK 1
+#endif
+#ifndef RED
 #define RED 0
-using namespace std;
+#endif
 
 /**************每个节点的信息***********************/
 class Node
@@ -28,7 +36,7 @@ public:
     bool color;/***节点颜色****/
     Node *leftTree, *rightTree, *parent;/*******左右子树，父节点**********/
 
-    Node(void):color(RED),leftTree(NULL),rightTree(NULL),parent(NULL),value(0) {}
+    Node(void):value(0),color(RED),leftTree(NULL),rightTree(NULL),parent(NULL){}
 	/**********获取祖父节点************/
     Node* grandparent(void)
     {
