@@ -1,7 +1,7 @@
 #ifndef DATASTRUCTURE_BINARY_INDEX_TREE_H
 #define DATASTRUCTURE_BINARY_INDEX_TREE_H 1
 //树状数组
-//binary_index_tree.cpp
+//binary index tree
 
 //求数组s的所有成员的和
 

@@ -40,14 +40,14 @@
 #include <iostream>
 using std::cout;
 using std::endl;
-struct st_node
+struct segment_tree_node
 {
 	int _beg;
 	int _end;
 	int _cover;
-	st_node *_leftchild;
-	st_node *_rightchild;
-	st_node()
+	segment_tree_node *_leftchild;
+	segment_tree_node *_rightchild;
+	segment_tree_node()
 	{
 		_beg = 0;
 		_end = 0;
@@ -55,7 +55,7 @@ struct st_node
 		_leftchild = 0;
 		_rightchild = 0;
 	}
-	st_node(const st_node& node)
+	segment_tree_node(const segment_tree_node& node)
 	{
 		_beg = node._beg;
 		_end = node._end;
@@ -63,18 +63,18 @@ struct st_node
 		_leftchild = node._leftchild;
 		_rightchild = node._rightchild;
 	}
-	~st_node()
+	~segment_tree_node()
 	{ }
 };
 
 //线段树的实现使用递归技术
-st_node* segment_tree_build(int beg, int end)
+segment_tree_node* segment_tree_build(int beg, int end)
 {//生成[beg, end]中的所有节点
  //左子树生成根节点从beg到mid的线段区域
  //右子树生成根节点从mid到end的线段区域
  //右子树通常会比左子树高一层
  //返回最终得到的线段树的根节点指针
-	st_node *root = new st_node();
+	segment_tree_node *root = new segment_tree_node();
 	root->_beg = beg;
 	root->_end = end;
 	if(beg + 1 < end){
@@ -83,7 +83,7 @@ st_node* segment_tree_build(int beg, int end)
 	}
 	return(root);
 }
-void segment_tree_insert(st_node *root, int beg, int end)
+void segment_tree_insert(segment_tree_node *root, int beg, int end)
 {//若当前节点已被染色则不必再继续向下遍历
 	if(root->_cover)
 		return;
@@ -110,7 +110,7 @@ void segment_tree_insert(st_node *root, int beg, int end)
 		segment_tree_insert(root->_rightchild, mid, end);
 	}
 }
-int segment_tree_length(st_node *root)
+int segment_tree_length(segment_tree_node *root)
 {//求当前线段树中被覆盖的线段长度之和
 	if(root == NULL)
 		return(0);
@@ -121,7 +121,7 @@ int segment_tree_length(st_node *root)
 	int right_length = segment_tree_length(root->_rightchild);
 	return(left_length + right_length);
 }
-void segment_tree_print(st_node *root)
+void segment_tree_print(segment_tree_node *root)
 {//打印线段树信息
 	if(root == NULL)
 		return;

@@ -28,7 +28,7 @@
 using std::cout;
 using std::endl;
 #ifndef MAX
-#define MAX 100
+#define MAX 60
 #endif
 
 //1)素数取模哈希
@@ -160,17 +160,20 @@ void bkdr_hash_init(bkdr_hash_table& table, int seed/*default=31,131,1313*/)
 {//种子可以是31 131 1313 13131 ...
 	table._seed = seed;
 }
-void bkdr_hash_insert(bkdr_hash_table& table, int value)
+void bkdr_hash_insert(bkdr_hash_table& table, const char *s)
 {
-	table._table[value] = 1;
+	int index = _bkdr_hash(table._seed, s);
+	table._table[index] = 1;
 }
-void bkdr_hash_delete(bkdr_hash_table& table, int value)
+void bkdr_hash_delete(bkdr_hash_table& table, const char *s)
 {
-	table._table[value] = 0;
+	int index = _bkdr_hash(table._seed, s);
+	table._table[index] = 0;
 }
-bool bkdr_hash_find(bkdr_hash_table table, int value)
+bool bkdr_hash_find(bkdr_hash_table table, const char *s)
 {
-	return(table._table[value]);
+	int index = _bkdr_hash(table._seed, s);
+	return(table._table[index]);
 }
 
 #endif
