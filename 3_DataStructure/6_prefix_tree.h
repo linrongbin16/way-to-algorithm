@@ -23,10 +23,10 @@ using std::endl;
 #endif
 struct prefix_tree_node
 {
-	char _value;
-	int _count;
-	string _final;
-	prefix_tree_node *_children[MAX];
+	char _value;	//字符本身
+	int _count;		//该字符串出现次数
+	string _final;	//该字符作为字符串的最后一个字符，这个字符串的值
+	prefix_tree_node *_children[MAX];	//下一个字符
 
 	prefix_tree_node()
 	{
