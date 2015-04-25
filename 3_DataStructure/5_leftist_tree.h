@@ -1,7 +1,7 @@
 #ifndef DATASTRUCTURE_LEFTIST_TREE_H
 #define DATASTRUCTURE_LEFTIST_TREE_H 1
 //左偏树
-//leftist_tree.cpp
+//leftist tree
 
 //实现左偏树
 
@@ -25,6 +25,7 @@
 //本章最后的测试用例中将其中一个“11”节点改成了“13”，经过测试可以得到正确答案
 //
 //本文引用了“左偏树(维基百科)”，无作者
+
 
 #include <algorithm>
 #include <iostream>
@@ -60,7 +61,6 @@ struct leftist_tree_node
 		return(*this);
 	}
 };
-
 
 leftist_tree_node* leftist_tree_merge(leftist_tree_node *a, leftist_tree_node *b)
 {//将以节点a为根的子树与以节点b为根的子树合并

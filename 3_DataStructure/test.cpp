@@ -77,38 +77,38 @@ int main()
 	{
 	//binary index tree
 	binary_index_tree bit;
-	binary_index_tree_init(bit);
+	binary_index_tree_init(&bit);
 	cout << endl << "binary index tree" << endl;
 	for(int i = 1; i < 20; ++ i){
 		cout << "array s[" << i << "] add " << 2 * i << endl;
-		binary_index_tree_add(bit, i, 2 * i);
+		binary_index_tree_add(&bit, i, 2 * i);
 	}
-	cout << "array sum from 1 to 10: " << binary_index_tree_sum(bit, 10) << endl;
+	cout << "array sum from 1 to 10: " << binary_index_tree_sum(&bit, 10) << endl;
 	}
 
 	//disjoint set
 	{
 		disjoint_set set;
-	disjoint_set_init(set);
-	cout << endl << "disjoint set" << endl;
-	cout << "union" << endl;
-	for(int i = 0; i < 10; ++ i){
-		cout << "number " << i << " and " << 3 * i << " is in one set" << endl;
-		disjoint_set_union(set, i, 3 * i);
-	}
-	cout << "query" << endl;
-	if(disjoint_set_query(set, 1, 27))
-		cout << "number 1 and 27 in one set" << endl;
-	else
-		cout << "number 1 and 27 not in one set" << endl;
-	if(disjoint_set_query(set, 2, 18))
-		cout << "number 2 and 18 in one set" << endl;
-	else
-		cout << "number 2 and 18 not in one set" << endl;
-	if(disjoint_set_query(set, 2, 21))
-		cout << "number 2 and 21 in one set" << endl;
-	else
-		cout << "number 2 and 21 not in one set" << endl;
+		disjoint_set_init(&set);
+		cout << endl << "disjoint set" << endl;
+		cout << "union" << endl;
+		for(int i = 0; i < 10; ++ i){
+			cout << "number " << i << " and " << 3 * i << " is in one set" << endl;
+			disjoint_set_union(&set, i, 3 * i);
+		}
+		cout << "query" << endl;
+		if(disjoint_set_query(&set, 1, 27))
+			cout << "number 1 and 27 in one set" << endl;
+		else
+			cout << "number 1 and 27 not in one set" << endl;
+		if(disjoint_set_query(&set, 2, 18))
+			cout << "number 2 and 18 in one set" << endl;
+		else
+			cout << "number 2 and 18 not in one set" << endl;
+		if(disjoint_set_query(&set, 2, 21))
+			cout << "number 2 and 21 in one set" << endl;
+		else
+			cout << "number 2 and 21 not in one set" << endl;
 	}
 	
 	//leftist tree
@@ -183,6 +183,48 @@ int main()
 		p.Insert(9);
 		p.Insert(37);
 		p.InOrderTraverse();
+	}
+
+	//prefix tree
+	{
+		cout << endl << endl << "prefix tree" << endl;
+		prefix_tree_node *pfnode = new prefix_tree_node();
+		prefix_tree_init(pfnode);
+		char str1[] = "hello";
+		char str2[] = "ok";
+		char str3[] = "dontworry";
+		char str4[] = "happy";
+		char str5[] = "hello";
+		char str6[] = "letmedown";
+		char str7[] = "pppppppp";
+		char str8[] = "thisisatest";
+		char str9[] = "ok";
+		char str10[] = "happy";
+		prefix_tree_insert(pfnode, str1);
+		prefix_tree_insert(pfnode, str2);
+		prefix_tree_insert(pfnode, str3);
+		prefix_tree_insert(pfnode, str4);
+		prefix_tree_insert(pfnode, str5);
+		prefix_tree_insert(pfnode, str6);
+		prefix_tree_insert(pfnode, str7);
+		prefix_tree_insert(pfnode, str8);
+		prefix_tree_insert(pfnode, str9);
+		prefix_tree_insert(pfnode, str10);
+		cout << "find \"" << str1 << "\":" << prefix_tree_find(pfnode, str1) << endl;
+		cout << "find \"" << str2 << "\":" << prefix_tree_find(pfnode, str2) << endl;
+		cout << "find \"" << str3 << "\":" << prefix_tree_find(pfnode, str3) << endl;
+		cout << "prefix print:" << endl;
+		prefix_tree_print(pfnode);
+		prefix_tree_delete(pfnode, str1);
+		prefix_tree_delete(pfnode, str3);
+		prefix_tree_delete(pfnode, str8);
+		prefix_tree_delete(pfnode, str10);
+		cout << "find \"" << str5 << "\":" << prefix_tree_find(pfnode, str5) << endl;
+		cout << "find \"" << str6 << "\":" << prefix_tree_find(pfnode, str6) << endl;
+		cout << "find \"" << str7 << "\":" << prefix_tree_find(pfnode, str7) << endl;
+		cout << "find \"" << str8 << "\":" << prefix_tree_find(pfnode, str8) << endl;
+		cout << "prefix print:" << endl;
+		prefix_tree_print(pfnode);
 	}
 	return(0);
 }

@@ -1,7 +1,7 @@
 #ifndef DATASTRUCTURE_HASH_TABLE_H
 #define DATASTRUCTURE_HASH_TABLE_H 1
 //哈希表
-//hash_table.cpp
+//hash table
 
 //实现哈希表
 

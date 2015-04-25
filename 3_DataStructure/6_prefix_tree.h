@@ -18,55 +18,56 @@
 using std::string;
 using std::cout;
 using std::endl;
-#ifndef MAX
-#define MAX 26
-#endif
 struct prefix_tree_node
 {
 	char _value;	//字符本身
 	int _count;		//该字符串出现次数
 	string _final;	//该字符作为字符串的最后一个字符，这个字符串的值
-	prefix_tree_node *_children[MAX];	//下一个字符
+	prefix_tree_node *_children[26];	//下一个字符
 
 	prefix_tree_node()
 	{
 		_value = 0;
 		_count = 0;
 		_final = "";
-		memset(_children, 0, MAX * sizeof(prefix_tree_node));
+		for (int i = 0; i < 26; ++i)
+			_children[i] = 0;
 	}
 	prefix_tree_node(const prefix_tree_node& node)
 	{
 		_value = node._value;
 		_count = node._count;
 		_final = node._final;
-		memcpy((void*)_children, (void*)node._children, MAX * sizeof(prefix_tree_node));
+		for (int i = 0; i < 26; ++i)
+			_children[i] = node._children[i];
 	}
 	prefix_tree_node& operator=(const prefix_tree_node& node)
 	{
 		_value = node._value;
 		_count = node._count;
 		_final = node._final;
-		memcpy((void*)_children, (void*)node._children, MAX * sizeof(prefix_tree_node));
+		for (int i = 0; i < 26; ++i)
+			_children[i] = node._children[i];
 		return(*this);
 	}
 };
 
-void prefix_tree_init(prefix_tree_node& root) 
+void prefix_tree_init(prefix_tree_node *root) 
 {//实际上我们在节点构造函数中已经完成了这些代码，这里是为了保证C语言代码风格
-	root._value = 0;
-	root._count = 0;
-	root._final = "";
-	memset(root._children, 0, MAX * sizeof(prefix_tree_node));
+	root->_value = 0;
+	root->_count = 0;
+	root->_final = "";
+	for (int i = 0; i < 26; ++i)
+		root->_children[i] = 0;
 }
-void prefix_tree_insert(prefix_tree_node& root, char *str)
+void prefix_tree_insert(prefix_tree_node *root, char *str)
 {
-	prefix_tree_node *p = &root;
+	prefix_tree_node *p = root;
 	char *s = str;
 	int index;
 	for (int i = 0; i < (int)strlen(s); ++i) {
 		index = s[i] - 'a';
-		if (p->_children[index] == (prefix_tree_node*)0) {
+		if (p->_children[index] == 0) {
 			p->_children[index] = new prefix_tree_node();
 			p->_children[index]->_value = s[i];
 		}
@@ -77,9 +78,9 @@ void prefix_tree_insert(prefix_tree_node& root, char *str)
 		}
 	}
 }
-int prefix_tree_find(prefix_tree_node root, char *str)
+int prefix_tree_find(prefix_tree_node *root, char *str)
 {//寻找字符串str，若不存在则返回0，存在则返回该字符串出现次数
-	prefix_tree_node *p = &root;
+	prefix_tree_node *p = root;
 	char *s = str;
 	int index;
 	for (int i = 0; i < (int)strlen(s); ++i) {
@@ -90,9 +91,9 @@ int prefix_tree_find(prefix_tree_node root, char *str)
 	}
 	return(0);
 }
-void prefix_tree_delete(prefix_tree_node& root, char *str)
+void prefix_tree_delete(prefix_tree_node *root, char *str)
 {//我们不处理该字符串str不存在的异常情况，认为该字符串str一定存在并且删除
-	prefix_tree_node *p = &root;
+	prefix_tree_node *p = root;
 	char *s = str;
 	int index;
 	for (int i = 0; i < (int)strlen(s); ++i) {
@@ -104,14 +105,14 @@ void prefix_tree_delete(prefix_tree_node& root, char *str)
 		}
 	}
 }
-void prefix_tree_print(prefix_tree_node root)
+void prefix_tree_print(prefix_tree_node *root)
 {
-	prefix_tree_node *p = &root;
+	prefix_tree_node *p = root;
 	if (p->_count)
 		cout << p->_final << endl;
-	for (int i = 0; i < MAX; ++i)
+	for (int i = 0; i < 26; ++i)
 		if (p->_children[i])
-			prefix_tree_print(*(p->_children[i]));
+			prefix_tree_print(p->_children[i]);
 }
 
 

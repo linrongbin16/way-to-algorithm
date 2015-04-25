@@ -1,7 +1,7 @@
 #ifndef DATASTRUCTURE_DISJOINT_SET_H
 #define DATASTRUCTURE_DISJOINT_SET_H 1
 //并查集
-//disjoint_set.cpp
+//disjoint set
 
 //一个集合中的成员分为若干个家族
 //多次声明一对成员属于同一个家族之后
@@ -51,8 +51,10 @@ struct disjoint_set
 	disjoint_set_node _table[MAX];
 	disjoint_set()
 	{
-		for (int i = 0; i < MAX; ++i)
-			_table[i] = disjoint_set_node();
+		for (int i = 0; i < MAX; ++i) {
+			_table[i]._index = 0;
+			_table[i]._father = (disjoint_set_node*)0;
+		}
 	}
 	disjoint_set(const disjoint_set& set)
 	{
@@ -61,11 +63,11 @@ struct disjoint_set
 	}
 };
 
-void disjoint_set_init(disjoint_set& set)
+void disjoint_set_init(disjoint_set *set)
 {//并查集初始化
 	for(int i = 0; i < MAX; ++ i){
-		set._table[i]._index = i;
-		set._table[i]._father = &set._table[i];
+		set->_table[i]._index = i;
+		set->_table[i]._father = &set->_table[i];
 	}
 }
 disjoint_set_node* _disjoint_set_find_father(disjoint_set_node *p)
@@ -79,20 +81,20 @@ disjoint_set_node* _disjoint_set_find_father(disjoint_set_node *p)
 		p->_father = _disjoint_set_find_father(p->_father);
 	return(p->_father);
 }
-void disjoint_set_union(disjoint_set& set, int p1, int p2)
+void disjoint_set_union(disjoint_set *set, int p1, int p2)
 {//将p2的家族合并入p1的家族，最早的祖先节点是p1家族的
 	//pf1是p1的父节点，pf2是p2的父节点
-	disjoint_set_node *pf1 = _disjoint_set_find_father(&set._table[p1]);
-	disjoint_set_node *pf2 = _disjoint_set_find_father(&set._table[p2]);
+	disjoint_set_node *pf1 = _disjoint_set_find_father(&set->_table[p1]);
+	disjoint_set_node *pf2 = _disjoint_set_find_father(&set->_table[p2]);
 	//将pf1设置为pf2的父节点
 	//以后_disjoint_set_find_father操作会
 	//使p2家族中的所有节点的父节点最终都指向p1的父节点
 	pf2->_father = pf1;
 }
-bool disjoint_set_query(disjoint_set& set, int p1, int p2)
+bool disjoint_set_query(disjoint_set *set, int p1, int p2)
 {//查询p1和p2是否属于同一个家族
-	if(_disjoint_set_find_father(&set._table[p1]) ==
-			_disjoint_set_find_father(&set._table[p2]))
+	if(_disjoint_set_find_father(&set->_table[p1]) ==
+			_disjoint_set_find_father(&set->_table[p2]))
 		//如果它们的父节点是同一节点则属同一家族，否则不是
 		return(true);
 	else
