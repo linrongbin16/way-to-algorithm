@@ -15,31 +15,33 @@ int main()
 {
 	//prime hash table
 	{
-	cout << "hash table" << endl;
-	prime_hash_table ht;
-	prime_hash_init(ht, 13);
-	for(int i = 0; i < 30; ++ i)
-		prime_hash_insert(ht, i);
-	prime_hash_print(ht);
-	prime_hash_node *p1 = prime_hash_find(ht, 24);
-	if(p1)
-		cout << "find 24 in hash table: " << p1->_value << endl;
-	else
-		cout << "can't find 24 in hash table" << endl;
-	prime_hash_delete(ht, 24);
-	p1 = prime_hash_find(ht, 24);
-	cout << "after delete 24 from hash table" << endl;
-	if(p1)
-		cout << "find 24 in hash table: " << p1->_value << endl;
-	else
-		cout << "can't find 24 in hash table" << endl;
-	prime_hash_print(ht);
+		cout << "hash table" << endl;
+		prime_hash_table ht;
+		prime_hash_init(ht, 13);
+		for(int i = 0; i < 30; ++ i)
+			prime_hash_insert(ht, i);
+		prime_hash_print(ht);
+		prime_hash_node *p1 = prime_hash_find(ht, 24);
+		if(p1)
+			cout << "find 24 in hash table: " << p1->_value << endl;
+		else
+			cout << "can't find 24 in hash table" << endl;
+		prime_hash_delete(ht, 24);
+		p1 = prime_hash_find(ht, 24);
+		cout << "after delete 24 from hash table" << endl;
+		if(p1)
+			cout << "find 24 in hash table: " << p1->_value << endl;
+		else
+			cout << "can't find 24 in hash table" << endl;
+		prime_hash_print(ht);
 	}
 
 	//bkdr hash
 	{
-	cout << endl << "bkdr hash table" << endl;
-	bkdr_hash_table bt;
+
+		cout << endl << "bkdr hash table" << endl;
+
+		bkdr_hash_table bt;
 	bkdr_hash_init(bt, 31);
 	char s1[] = "hello world";
 	char s2[] = "henno hoood";
