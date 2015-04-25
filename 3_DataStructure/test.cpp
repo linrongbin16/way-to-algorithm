@@ -1,14 +1,15 @@
 //test
 
 #include "0_classic_data_structure_introduction.h"
-#include "1_AVL_tree.h"
-#include "2_red_black_tree.h"
-#include "3_hash_table.h"
+#include "1_hash_table.h"
+#include "2_disjoint_set.h"
+#include "3_binary_index_tree.h"
 #include "4_segment_tree.h"
-#include "5_binary_index_tree.h"
-#include "6_disjoint_set.h"
-#include "7_leftist_tree.h"
-#include "8_suffix_tree.h"
+#include "5_leftist_tree.h"
+#include "6_prefix_tree.h"
+#include "7_suffix_tree.h"
+#include "8_AVL_tree.h"
+#include "9_red_black_tree.h"
 
 int main()
 {
@@ -16,23 +17,23 @@ int main()
 	{
 	cout << "hash table" << endl;
 	prime_hash_table ht;
-	prime_hash_table_init(ht, 13);
+	prime_hash_init(ht, 13);
 	for(int i = 0; i < 30; ++ i)
-		prime_hash_table_insert(ht, i);
-	prime_hash_table_print(ht);
-	prime_hash_node *p1 = prime_hash_table_find(ht, 24);
+		prime_hash_insert(ht, i);
+	prime_hash_print(ht);
+	prime_hash_node *p1 = prime_hash_find(ht, 24);
 	if(p1)
 		cout << "find 24 in hash table: " << p1->_value << endl;
 	else
 		cout << "can't find 24 in hash table" << endl;
-	prime_hash_table_delete(ht, 24);
-	p1 = prime_hash_table_find(ht, 24);
+	prime_hash_delete(ht, 24);
+	p1 = prime_hash_find(ht, 24);
 	cout << "after delete 24 from hash table" << endl;
 	if(p1)
 		cout << "find 24 in hash table: " << p1->_value << endl;
 	else
 		cout << "can't find 24 in hash table" << endl;
-	prime_hash_table_print(ht);
+	prime_hash_print(ht);
 	}
 
 	//bkdr hash
