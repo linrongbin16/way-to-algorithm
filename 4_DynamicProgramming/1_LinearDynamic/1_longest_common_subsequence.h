@@ -1,3 +1,5 @@
+#ifndef DYNAMICPROGRAMMING_LONGEST_COMMON_SUBSEQUENCE_H
+#define DYNAMICPROGRAMMING_LONGEST_COMMON_SUBSEQUENCE_H 1
 //最长公共子序列
 //longest_common_subsequence.cpp
 
@@ -22,7 +24,11 @@
 //这是为了给状态转移方程中的初始状态留出一个位置，请留意这个细节
 //本章的所有算法都会这样处理数组，以后不再特别说明
 
-#include "general_head.h"
+#include <algorithm>
+using std::max;
+#ifndef MAX
+#define MAX 60
+#endif
 
 int longest_common_subsequence(int *s1, int *s2, int n)
 {//序列s1，s2的长度都为n+1，下标从1到n，空出0位置
@@ -39,3 +45,5 @@ int longest_common_subsequence(int *s1, int *s2, int n)
 		}
 	return(f[n][n]);
 }
+
+#endif

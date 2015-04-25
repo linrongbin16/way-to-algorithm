@@ -1,3 +1,5 @@
+#ifndef DYNAMICPROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_H
+#define DYNAMICPROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_H 1
 //最长递增子序列
 //longest_increasing_subsequence.cpp
 
@@ -12,7 +14,12 @@
 //他们的长度再加上元素i自己就是f[k]+1
 //也可能是单独一个元素构成序列，即1
 
-#include "general_head.h"
+
+#include <algorithm>
+using std::max;
+#ifndef MAX
+#define MAX 60
+#endif
 
 int longest_increasing_subsequence1(int *s, int n)
 {//序列s的长度为n+1，下标从1到n，空出0位置
@@ -38,8 +45,8 @@ int longest_increasing_subsequence1(int *s, int n)
 //即第i个元素s[i]更新f[k]的值
 //题目所求即找出s[n]为结尾的序列的递增子序列的长度
 
-//binary_search.cpp
-extern bool binary_search(int *s, int x, int beg, int end, int& idx);
+
+#include "../../1_Sort/4_binary_search.h"
 
 int longest_increasing_subsequence2(int *s, int n)
 {
@@ -56,9 +63,12 @@ int longest_increasing_subsequence2(int *s, int n)
 			//使f[pos]是多个长度相同的子序列中最大元素最大的那个
 			//f数组在[0,len)的范围中自然是不递减的
 			int pos;
-			binary_search(f, s[i], 1, len + 1, pos);
+			binary_search(f, 1, len + 1, s[i], pos);
 			f[pos] = s[i];
 		}
 	}
 	return(len);
 }
+
+
+#endif

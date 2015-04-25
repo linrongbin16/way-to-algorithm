@@ -1,3 +1,5 @@
+#ifndef DYNAMICPROMGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_EXTENSION_H
+#define DYNAMICPROMGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_EXTENSION_H 1
 //最长递增子序列扩展
 //longest_increasing_subsequence_extension.cpp
 
@@ -36,7 +38,12 @@
 //所以在动规结束之后，最后需要遍历一次c数组找出f最大值对应的c
 //全部加起来才是最长子列的个数
 
-#include "general_head.h"
+
+#include <algorithm>
+using std::max;
+#ifndef MAX
+#define MAX 60
+#endif
 
 int longest_increasing_subsequence_extension(int *s, int n, int& m)
 {//序列s长为n+1，下标从1到n，空出0位置
@@ -69,3 +76,6 @@ int longest_increasing_subsequence_extension(int *s, int n, int& m)
 	m = cnt;
 	return(f[n]);
 }
+
+
+#endif

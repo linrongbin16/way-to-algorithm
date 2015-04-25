@@ -1,3 +1,5 @@
+#ifndef DYNAMICPROGRAMMING_BIDIRECTION_SUBSEQUENCE_H
+#define DYNAMICPROGRAMMING_BIDIRECTION_SUBSEQUENCE_H 1
 //双向子序列
 //bidirection_subsequence.cpp
 
@@ -9,22 +11,13 @@
 //枚举s中的每个元素，对其向前向后分别求最长递增和递减子序列的长度
 //然后找出最长的那个即可
 
-#include "general_head.h"
-int longest_increasing_subsequence(int *s, int beg, int end);
-int longest_decreasing_subsequence(int *s, int beg, int end);
 
-int bidirection_subsequence(int *s, int n, int& idx)
-{//序列s长度为n+1，下标从1到n，空出0位置
- //返回序列s的最长双向子序列的长度，以及这个元素的下标idx
-	int length(0);
-	for(int i = 1; i <= n; ++ i){
-		int lft = longest_increasing_subsequence(s, 1, i);
-		int rgt = longest_decreasing_subsequence(s, i, n);
-		if(length < lft + rgt)
-			length = lft + rgt - 1, idx = i;
-	}
-	return(length);
-}
+#include <algorithm>
+using std::max;
+#ifndef MAX
+#define MAX 60
+#endif
+
 int longest_increasing_subsequence(int *s, int beg, int end)
 {//[beg, end]是左闭右闭区间，序列s从beg到end
  //返回序列s在区间[beg, end]中的最长递增子序列的长度
@@ -49,3 +42,19 @@ int longest_decreasing_subsequence(int *s, int beg, int end)
 				f[i] = max(f[i], f[j] + 1);
 	return(f[end]);
 }
+
+int bidirection_subsequence(int *s, int n, int& idx)
+{//序列s长度为n+1，下标从1到n，空出0位置
+ //返回序列s的最长双向子序列的长度，以及这个元素的下标idx
+	int length(0);
+	for(int i = 1; i <= n; ++ i){
+		int lft = longest_increasing_subsequence(s, 1, i);
+		int rgt = longest_decreasing_subsequence(s, i, n);
+		if(length < lft + rgt)
+			length = lft + rgt - 1, idx = i;
+	}
+	return(length);
+}
+
+
+#endif

@@ -1,5 +1,5 @@
 //动态规划介绍
-//dynamic_programming_introduction.cpp
+//dynamic programming introduction
 
 //动态规划介绍：
 //动态规划是在多次决策过程中寻找最优解的解决方法

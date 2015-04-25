@@ -1,11 +1,13 @@
 //test
 
-#include "general_head.h"
-extern int longest_common_subsequence(int *s1, int *s2, int n);
-extern int longest_increasing_subsequence1(int *s, int n);
-extern int longest_increasing_subsequence2(int *s, int n);
-extern int longest_increasing_subsequence_extension(int *s, int n, int& m);
-extern int bidirection_subsequence(int *s, int n, int& idx);
+#include <iostream>
+#include "1_longest_common_subsequence.h"
+#include "2_longest_increasing_subsequence.h"
+#include "3_longest_increasing_subsequence_extension.h"
+#include "4_bidirection_subsequence.h"
+using std::cout;
+using std::endl;
+
 int main()
 {
 	int s1[7] = {0, 1, 1, 5, 4, 9, 7};
