@@ -1,3 +1,5 @@
+#ifndef DYNAMICPROGRAMMING_COMPLETE_PACK_H
+#define DYNAMICPROGRAMMING_COMPLETE_PACK_H 1
 //完全背包
 //complete_pack.cpp
 
@@ -12,21 +14,23 @@
 //w[i]是物品i的重量，v[i]是物品i的价值
 //初始条件：f[i][j]为0，其中0 <= i <= n，0 <= j <= w
 
-#include "general_head.h"
-#include "pack.h"
 
-int complete_pack(object *t, int n, int w) 
+#include "1_01_pack.h"
+
+int complete_pack(_01_pack_object *t, int n, int w) 
 {//物品序列t的数量为n，下标从1到n，空出0位置，背包承重为w
-	int f[OMAX + 1][WMAX + 1];
-	for(int i = 0; i <= n; ++ i)
-		for(int j = 0; j <= w; ++ j)
+	int f[OBJECT_MAX + 1][WEIGHT_MAX + 1];
+	for(int i = 0; i <= n; ++i)
+		for(int j = 0; j <= w; ++j)
 			f[i][j] = 0;
-	for(int i = 1; i <= n; ++ i)
-		for(int j = 0; j <= w; ++ j){
-			int object_cnt = j / t[i].o_weigh;
-			for(int k = 0; k <= object_cnt; ++ k)
+	for(int i = 1; i <= n; ++i)
+		for(int j = 0; j <= w; ++j){
+			int object_cnt = j / t[i]._weight;
+			for(int k = 0; k <= object_cnt; ++k)
 				f[i][j] = max(f[i][j],
-					f[i - 1][j - k * t[i].o_weigh] + k * t[i].o_value);
+					f[i - 1][j - k * t[i]._weight] + k * t[i]._value);
 		}
 	return(f[n][w]);
 }
+
+#endif

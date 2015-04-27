@@ -1,3 +1,5 @@
+#ifndef DYNAMICPROGRAMMING_01_PACK_PATH_H
+#define DYNAMICPROGRAMMING_01_PACK_PATH_H 1
 //01背包路径
 //_01_pack_path.cpp
 
@@ -17,25 +19,27 @@
 //通过这个数组来获得最终某件物品是否被选中
 //如果题目没有给出额外的价值总和这个条件，就无法确定第三个下标k的范围
 
-//1)求最大价值的原始方法
 
-#include "general_head.h"
-#include "pack.h"
+#include <cstring>
+#include "1_01_pack.h"
+#ifndef VALUE_MAX
+#define VALUE_MAX 500
+#endif
 
-int _01_pack_path(object *t, int n, int w, bool *choose) 
+int _01_pack_path(_01_pack_object *t, int n, int w, bool *choose) 
 {//物品序列t的数量为n，下标从1到n，空出0位置，背包承重为w
  //返回背包能装载的最大价值以及物品被选的结果，存储在choose数组
-	int f[OMAX + 1][WMAX + 1];
-	//XMAX是所有物品的价值总和最大值
-	bool path[OMAX + 1][WMAX + 1][XMAX + 1];	
-	for(int i = 0; i <= w; ++ i)
+	int f[OBJECT_MAX + 1][WEIGHT_MAX + 1];
+	//VALUE_MAX是所有物品的价值总和最大值
+	bool path[OBJECT_MAX + 1][WEIGHT_MAX + 1][VALUE_MAX + 1];	
+	for(int i = 0; i <= w; ++i)
 		f[0][i] = 0;
-	for(int i = 1; i <= n; ++ i)
-		for(int j = 0; j <= w; ++ j){
-			int object_cnt = (j / t[i].o_weigh) ? 1 : 0;
+	for(int i = 1; i <= n; ++i)
+		for(int j = 0; j <= w; ++j){
+			int object_cnt = (j / t[i]._weight) ? 1 : 0;
 			int oldf = f[i - 1][j];
-			int newf = f[i - 1][j - object_cnt * t[i].o_weigh]
-				+ object_cnt * t[i].o_value;
+			int newf = f[i - 1][j - object_cnt * t[i]._weight]
+				+ object_cnt * t[i]._value;
 			//对f数组的操作与前一篇中相同
 			//但增加了path数组的判断
 			if(oldf >= newf){
@@ -51,19 +55,22 @@ int _01_pack_path(object *t, int n, int w, bool *choose)
 			}
 		}
 	//通过path求出动规路径
-	memset(choose, 0, (OMAX + 1) * sizeof(bool));
+	memset(choose, 0, (OBJECT_MAX + 1) * sizeof(bool));
 	int value = f[n][w], weight = w;
-	for(int i = n; i >= 1; -- i){
+	for(int i = n; i >= 1; --i){
 		//若第i件物品被选中，重量不大于weight，价值为value
 		//则置choose[i]为true，由于最终动规的最大价值为f[n][w]
 		//因此将weight置为w，value置为f[n][w]，从最后一个物品n开始倒着向前
 		if(path[i][weight][value]){
 			choose[i] = true;
 			//总重量和总价值都减去第i件物品
-			weight -= t[i].o_weigh;
-			value -= t[i].o_value;
+			weight -= t[i]._weight;
+			value -= t[i]._value;
 		}
 	}
 	//第n个物品，第w的重量时的最大价值即为所求
 	return(f[n][w]);
 }
+
+
+#endif

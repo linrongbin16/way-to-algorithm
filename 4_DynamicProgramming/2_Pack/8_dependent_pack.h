@@ -1,3 +1,5 @@
+#ifndef DYNAMICPROGRAMMING_DEPENDENT_PACK_H
+#define DYNAMICPROGRAMMING_DEPENDENT_PACK_H 1
 //依赖背包
 //dependent_pack.cpp
 
@@ -29,4 +31,6 @@
 //物品之间的关系组成了一棵多叉树，就成为了树形动态规划问题
 //动规的具体算法见树形动态规划一节
 
-//int dependent_pack(object *t, int n, int w)
+//int dependent_pack(_01_pack_object *t, int n, int w)
+
+#endif

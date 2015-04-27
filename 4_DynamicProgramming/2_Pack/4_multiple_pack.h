@@ -1,3 +1,5 @@
+#ifndef DYNAMICPROGRAMMING_MULTIPLE_PACK_H
+#define DYNAMICPROGRAMMING_MULTIPLE_PACK_H 1
 //多重背包
 //multiple_pack.cpp
 
@@ -11,22 +13,25 @@
 //w[i]是物品s[i]的重量，v[i]是物品价值，cnt[i]是物品数量
 //初始条件与完全背包一样：f[i][j]为0，其中0 <= i <= n，0 <= j <= w
 
-#include "general_head.h"
-#include "pack.h"
 
-int multiple_pack(object *t, int n, int w) 
+#include <algorithm>
+using std::min;
+#include "1_01_pack.h"
+
+int multiple_pack(_01_pack_object *t, int n, int w) 
 {//物品序列t的数量为n，下标从0到n，空出0位置，背包承重为w
-	int f[OMAX + 1][WMAX + 1];
-	for(int i = 0; i <= n; ++ i)
-		for(int j = 0; j <= w; ++ j)
+	int f[OBJECT_MAX + 1][WEIGHT_MAX + 1];
+	for(int i = 0; i <= n; ++i)
+		for(int j = 0; j <= w; ++j)
 			f[i][j] = 0; 
-	for(int i = 1; i <= n; ++ i)
-		for(int j = 0; j <= w; ++ j){
-			int object_cnt = min((j / t[i].o_weigh),
-					t[i].o_count);
-			for(int k = 0; k <= object_cnt; ++ k)
+	for(int i = 1; i <= n; ++i)
+		for(int j = 0; j <= w; ++j){
+			int object_cnt = min((j / t[i]._weight), t[i]._count);
+			for(int k = 0; k <= object_cnt; ++k)
 				f[i][j] = max(f[i][j],
-					f[i - 1][j - k * t[i].o_weigh] + k * t[i].o_value);
+					f[i - 1][j - k * t[i]._weight] + k * t[i]._value);
 		}
 	return(f[n][w]);
 }
+
+#endif
