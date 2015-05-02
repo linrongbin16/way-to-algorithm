@@ -16,5 +16,6 @@
  void permutation_group(int *, int , int *, int , int *);	//5
  void print_status(int *, int , int );
  void calculus_number_diverse(int argc,char** argv);
+ void catalan(int**a,int* b);
 
  #endif // combination_head_h
