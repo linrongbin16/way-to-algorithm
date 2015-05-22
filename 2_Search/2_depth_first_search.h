@@ -18,8 +18,12 @@
 //prev作出它的其中一种选择并进入下一个成员的递归
 
 
-//brute_force_print(int *s, int beg, int end);
-#include "1_brute_force.h"
+void depth_first_print(int *s, int beg, int end)
+{
+    for (int i = beg; i < end; ++i)
+        cout << s[i] << " ";
+    cout << endl;
+}
 
 void depth_first_search(int *s, int n, int m, int prev/*default=0*/)
 {//序列s拥有n个成员，下标从0到n-1，每个成员有m种选择
@@ -29,8 +33,9 @@ void depth_first_search(int *s, int n, int m, int prev/*default=0*/)
 	if(prev == n){
 		//从0到n-1的每个成员都做出了选择，组成一个排列组合
 		//输出当前排列组合，结束递归返回上层
-		brute_force_print(s, 0, n);
-		//在多数题目中还需要对结果进行剪枝，即去除明显已经不需要继续递归搜索的情况
+		depth_first_print(s, 0, n);
+		//在多数题目中还需要对结果进行剪枝
+        //即去除明显已经不需要继续递归搜索的情况
 		return;
 	}
 

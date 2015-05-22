@@ -1,7 +1,7 @@
 #ifndef DYNAMICPROGRAMMING_LONGEST_COMMON_SUBSEQUENCE_H
 #define DYNAMICPROGRAMMING_LONGEST_COMMON_SUBSEQUENCE_H 1
 //最长公共子序列
-//longest_common_subsequence.cpp
+//longest common subsequence
 
 //求两长度相同的序列s1，s2的最长公共子序列的长度
 //子序列中相邻的两个成员在原序列中可以是不相邻的，但在原序列中的相对顺序不变
@@ -34,11 +34,13 @@ int longest_common_subsequence(int *s1, int *s2, int n)
 {//序列s1，s2的长度都为n+1，下标从1到n，空出0位置
  //返回s1，s2的最长公共子序列的长度
 	int f[MAX + 1][MAX + 1];
-	for(int i = 0; i <= n; ++ i)
-		f[0][i] = 0, f[i][0] = 0;
-	for(int i = 1; i <= n; ++ i)
-		for(int j = 1; j <= n; ++ j){
-			if(s1[i] == s2[j])
+	for (int i = 0; i <= n; ++ i) {
+		f[0][i] = 0;
+        f[i][0] = 0;
+    }
+	for (int i = 1; i <= n; ++ i)
+		for (int j = 1; j <= n; ++ j) {
+			if (s1[i] == s2[j])
 				f[i][j] = f[i - 1][j - 1] + 1;
 			else
 				f[i][j] = max(f[i][j - 1], f[i - 1][j]);

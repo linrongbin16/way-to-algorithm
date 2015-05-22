@@ -1,3 +1,5 @@
+#ifndef SEARCH_BIDIRECTION_BREADTH_SEARCH_H
+#define SEARCH_BIDIRECTION_BREADTH_SEARCH_H 1
 //双向广度搜索
 //bidirection_breadth_search.cpp
 
@@ -201,3 +203,5 @@ void bidirection_breadth_search(bbs_node **s,
 		swap(meet_pos.first, meet_pos.second);
 	bidirection_breadth_search_print_road(meet_pos, s);
 }
+
+#endif

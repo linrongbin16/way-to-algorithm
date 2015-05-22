@@ -1,3 +1,5 @@
+#ifndef SEARCH_A_HEURISTIC_SEARCH_H
+#define SEARCH_A_HEURISTIC_SEARCH_H 1
 //A*启发式搜索算法
 //a_heuristic_search.cpp
 
@@ -279,3 +281,4 @@ void a_heuristic_search(hs_node beg, hs_node end)
 		cout << "no solution" << endl;
 }
 
+#endif

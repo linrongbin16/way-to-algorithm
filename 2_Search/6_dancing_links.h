@@ -1,3 +1,5 @@
+#ifndef SEARCH_DANCING_LINKS_H
+#define SEARCH_DANCING_LINKS_H 1
 //舞蹈链
 //dancing links
 
@@ -62,6 +64,11 @@
 
 #include "general_head.h"
 #include "search.h"
+struct link_node
+{
+
+};
+
 void make_link(int n, int **sub, int m, int *cnt,
 		link_node &head, link_node *nodes);
 bool dance(int r, link_node *head, int n, int *choose);
@@ -192,3 +199,4 @@ void resume(int u)
 		}
 	}
 }
+#endif
