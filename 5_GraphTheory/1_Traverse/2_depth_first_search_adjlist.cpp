@@ -65,5 +65,5 @@ void dfs_visit(graph_list& g, int p, int *visited, int& time)
 			//在有向图中，将当前节点看作子树中的根节点，所有其邻节点看作该节点的孩子
 			//则dfs过程也可以看作对当前节点的子树进行一次遍历
 			dfs_visit(g, g.g_l[p][i].g_idx, visited, time);
-	g.g_l[p][0].g_value = time ++;
+	g.g_l[p][0].g_value = time++;
 }
