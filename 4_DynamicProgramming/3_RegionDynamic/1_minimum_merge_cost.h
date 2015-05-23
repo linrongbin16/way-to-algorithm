@@ -1,5 +1,7 @@
+#ifndef DYNAMICPROGRAMMING_REGIONDYNAMIC_MINIMUM_MERGE_COSE_H
+#define DYNAMICPROGRAMMING_REGIONDYNAMIC_MINIMUM_MERGE_COSE_H 1
 //最小合并代价
-//minimum_merge_cost.cpp
+//minimum merge cost
 
 //给定一个序列，例如5,1,2,3,7,4...，将其进行合并
 //每次只能合并相邻的两个元素，合并之后成为一个新元素，其值为两数之和
@@ -22,7 +24,13 @@
 //初始条件：f[i][i]为0，其他都为INF，1 <= i <= n
 //即i到i的合并代价为0，其他代价为INF
 
-#include "general_head.h"
+#include <climits>
+#ifndef MAX
+#define MAX 60
+#endif
+#ifndef INF
+#define INF INT_MAX
+#endif
 
 int minimum_merge_cost(int *s, int n)
 {//序列s的数量为n，下标从1到n，返回最小合并代价
@@ -51,3 +59,5 @@ int minimum_merge_cost(int *s, int n)
 						f[i][k] + f[k + 1][j] + sum[i][k] + sum[k + 1][j]);
 	return(f[1][n]);
 }
+
+#endif
