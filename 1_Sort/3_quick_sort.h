@@ -3,19 +3,19 @@
 //快速排序
 //quick sort
 
-//用快速排序算法将无序序列s从小到大排序
+//用快速排序算法将未序序列s从小到大排序
 
-//将序列中第一个元素设为基准元素
-//将所有比它小的元素放在基准元素左边，所有比它大的放在右边
-//由此分别得到两段未排序的子序列，再用相同方法递归的处理子序列
-//直到子序列长度为3时，比基准元素小的元素只有1个，比它大的元素也只有1个
+//将s[0]设为哨兵元素
+//将s中其余元素中所有比哨兵小的放s[0]左边 所有比哨兵大的放s[0]右边
+//即可得到两段未排序的子序列 再用相同方法递归的处理子序列
+//直到子序列长度<=3时 直接进行排序 这样的操作时间复杂度视为O(1)
 //即可得到已序序列s
 
 
 int quick_sort_partion(int *s, int beg, int end) 
 {//[beg, end]为左闭右闭区间，序列s下标从beg到end
+    //哨兵pivot
 	int pivot = s[beg];
-	int tmp = s[beg];
 	while(beg < end){
 		while(beg < end && s[end] >= pivot)
 			--end;
@@ -24,7 +24,8 @@ int quick_sort_partion(int *s, int beg, int end)
 			++beg;
 		s[end] = s[beg];
 	}
-	s[beg] = tmp;
+    //此时beg下标为哨兵pivot下标
+	s[beg] = pivot;
 	return(beg);
 }
 

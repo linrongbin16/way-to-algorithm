@@ -4,15 +4,14 @@
 //binary search
 
 //在从小到大排序的序列s中查找元素x是否存在
-//若存在找出元素x的下标，若不存在x则找出比x小且距离最近的元素的下标
 
-//设置low，high，mid三个标志位
-//初始时low是序列s中第一个元素，high是最后一个元素，mid为low和high的中间元素
-//若查找的元素x等于mid元素则返回结果
-//若x < s[mid]则x在low到mid之间，将high更新为mid-1继续新一轮比较
-//若x > s[mid]则x在mid到high之间，将low更新为mid+1继续新一轮比较
-//直到找到x元素为止
-//当low > high时说明排除所有可能后仍没有找到x，说明不存在x返回0
+//序列s已经是升序的
+//直接查看序列s最左最右和中间三个位置处的元素值
+//比较元素x是否和中间元素相等 若相等则该中间元素的位置即为所求
+//否则若x比中间元素小 则x必然在最左元素和中间元素之间 设置新的查找范围
+//若x比中间元素大 则x必然在中间元素和最右元素之间 设置新的查找范围
+//按同样思路继续比较元素x和新的查找范围内的中间元素的值
+//直到找到相等值的元素或者没有新的范围为止 即可得到结果
 
 
 int binary_search(int *s, int beg, int end, int x, int& idx)
@@ -21,19 +20,19 @@ int binary_search(int *s, int beg, int end, int x, int& idx)
  //若查找不成功返回最接近x且比x小的元素下标
 	int low = beg;
 	int high = end - 1;
-	int mid = (beg + end - 1) / 2;
-	while(s[mid] != x && low <= high){
-		if(s[mid] > x)
+    int mid;
+	while(low <= high){
+		mid = (low + high) / 2;
+        if (s[mid] == x) {
+            idx = mid;
+            return(1);
+        }
+        else if(s[mid] > x)
 			high = mid - 1; 
 		else if(s[mid] < x)
 			low = mid + 1;
-		mid = (low + high) / 2;
 	}
-	idx = mid;
-	if(s[mid] == x)
-		return(1);
-	else
-		return(0);
+    return(0);
 }
 
 
