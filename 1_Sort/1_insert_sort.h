@@ -16,10 +16,10 @@
 
 void insert_sort(int *s, int beg, int end) 
 {//[beg, end)为左闭右开区间，序列s下标从beg到end-1
-	for(int i = beg + 1; i < end; ++ i){
+	for(int i = beg + 1; i < end; ++i) {
 		int j = i - 1;
 		while(j >= beg && s[j] > s[i])
-			-- j;
+			--j;
 		//当s[j]小于等于s[i]时
 		//将s[i]插入原s[j + 1]的位置
 		int tmp = s[i];

@@ -21,7 +21,7 @@ int main()
 		for(j = 0; j < 6; ++ j)
 			printf("%d ", s[j]);
 		printf("\n");
-		int idx, x = 3, y = 2;
+		int idx, x = 3;
 		if(binary_search(s, beg, end, x, idx))
 			printf("binary search: %d, yes: %d\n", x, idx);
 		else
