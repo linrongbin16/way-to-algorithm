@@ -15,8 +15,8 @@
 
 
 int binary_search(int *s, int beg, int end, int x, int& idx)
-{//[beg, end)是左闭右开区间，s为已序序列，下标从beg到end-1，查找元素值x
- //idx返回查找的下标，返回int标志查找成功与否
+{//[beg, end)是左闭右开区间 s为已序序列 下标从beg到end-1 查找元素值x
+ //idx返回查找的下标 返回int标志查找成功与否
  //若查找不成功返回最接近x且比x小的元素下标
 	int low = beg;
 	int high = end - 1;

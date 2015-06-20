@@ -12,7 +12,7 @@
 //即可将序列s整个排序
 
 void insert_sort(int *s, int beg, int end) 
-{//[beg, end)为左闭右开区间，序列s下标从beg到end-1
+{//[beg, end)为左闭右开区间 序列s下标从beg到end-1
 	for(int i = beg; i < end - 1; ++i) {
 		int j = i;
         int tmp = s[i + 1];

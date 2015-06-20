@@ -17,7 +17,7 @@
 using std::swap;
 
 void bubble_sort(int *s, int beg, int end) 
-{//[beg, end)为左闭右开区间，序列s下标从beg到end-1
+{//[beg, end)为左闭右开区间 序列s下标从beg到end-1
 	for(int i = beg; i < end - 1; ++i)
 		for(int j = end - 1; j > i; --j)
 			if(s[j] < s[j - 1])

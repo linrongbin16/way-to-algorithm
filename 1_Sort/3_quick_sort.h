@@ -13,7 +13,7 @@
 
 
 int quick_sort_partion(int *s, int beg, int end) 
-{//[beg, end]为左闭右闭区间，序列s下标从beg到end
+{//[beg, end]为左闭右闭区间 序列s下标从beg到end
     //哨兵pivot
 	int pivot = s[beg];
 	while(beg < end){
@@ -30,7 +30,7 @@ int quick_sort_partion(int *s, int beg, int end)
 }
 
 void quick_sort(int *s, int beg, int end) 
-{//[beg, end)为左闭右开区间，序列s下标从beg到end-1
+{//[beg, end)为左闭右开区间 序列s下标从beg到end-1
 	if(beg < end - 1){
 		int mid = quick_sort_partion(s, beg, end - 1);
 		quick_sort(s, beg, mid);
