@@ -8,13 +8,13 @@
 //哈希表
 //一种根据键值直接访问内存存储位置的数据结构
 //精心设计的哈希表效率非常高
-//几乎所有数据结构在查询与插入一个元素时都要与已存储的元素进行至少O(lgn)次比较
+//几乎所有数据结构在查询与插入一个元素时都要与已存储的元素进行至少O(lgN)次比较
 //而哈希表通过设置哈希函数直接跳过这个步骤将操作效率减小至O(1)
 //C++中将哈希表实作为hash_map容器
 //
 //哈希函数
 //从值value到键key的映射函数key=hash(value)
-//存储与查询元素时先用哈希函数计算出值value对应的键key key即为该值的存储位置
+//存储与查询元素时先用哈希函数计算出值value对应的键key 即为该值的存储位置
 //实际的使用中会出现多个值映射出相同的键key即键值冲突
 //键值冲突问题没有办法真正解决
 //但可以通过很多方法来构造不同性能的哈希函数从而缓解键值冲突
@@ -59,13 +59,7 @@ struct prime_hash_table
 	prime_hash_node m_table[MAX];
 	int m_seed;
 	prime_hash_table()
-	{
-		for (int i = 0; i < MAX; ++i) {
-			m_table[i].m_value = 0;
-			m_table[i].m_next = 0;
-		}
-		m_seed = 0;
-	}
+	{ }
 	prime_hash_table(const prime_hash_table& table)
 	{
 		for (int i = 0; i < MAX; ++i)
@@ -140,11 +134,7 @@ struct bkdr_hash_table
 	int m_table[MAX];
 	int m_seed;
 	bkdr_hash_table()
-	{
-		for (int i = 0; i < MAX; ++i)
-			m_table[i] = 0;
-		m_seed = 0;
-	}
+	{ }
 	bkdr_hash_table(const bkdr_hash_table& table)
 	{
 		for (int i = 0; i < MAX; ++i)
