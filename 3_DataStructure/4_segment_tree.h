@@ -28,13 +28,13 @@
 //										 /		\
 //									  [4, 5]	[5, 6]
 //
-//线段范围为[1,n]的线段树深度为lg(N)+1 空间复杂度为O(n)
+//线段范围为[1,n]的线段树深度为lg(N)+1 空间复杂度为O(N)
 //本文中线段树在每个节点上都设置一个标志位cover来标记当前节点代表的区间被染色
 //构造线段树时就生成所有节点 之后的插入删除和统计操作只设置或读取标志位cover
 //每染色一个线段即从线段树的根节点开始遍历 设置被染色的线段区间在线段树中的标志位
 //统计长度时只需遍历线段树 累加被标记的节点的区间长度之和
 //
-//本文引用了“线段树(segment tree)”，作者“Microgoogle”
+//本文引用了"线段树(segment tree)" 作者"Microgoogle"
 
 
 #include <iostream>
@@ -68,7 +68,7 @@ struct segment_tree_node
 
 //线段树的实现使用递归技术
 segment_tree_node* segment_tree_build(int beg, int end)
-{//生成[beg, end]中的所有节点
+{//生成[beg,end]中的所有节点
  //左子树生成根节点从beg到mid的线段区域
  //右子树生成根节点从mid到end的线段区域
  //右子树通常会比左子树高一层
@@ -91,7 +91,7 @@ void segment_tree_insert(segment_tree_node *root, int beg, int end)
 	//mid指代当前节点的区域的中间点
 	int mid = (root->m_beg + root->m_end) / 2;
 	if(beg == root->m_beg && end == root->m_end)
-		//插入区域与当前节点的区域“完全重合”
+		//插入区域与当前节点的区域"完全重合"
 		root->m_cover = 1;
 	else if(end <= mid)
 		//插入区域的右界在当前节点的中间点mid的左边
@@ -104,7 +104,7 @@ void segment_tree_insert(segment_tree_node *root, int beg, int end)
 	else{
 		//插入区域的一部分在当前节点的中间点mid的左边
 		//另一部分在中间点mid的右边
-		//将插入区域从中间点mid分成两个部分，分别继续递归插入
+		//将插入区域从中间点mid分成两个部分 分别继续递归插入
 		segment_tree_insert(root->m_leftchild, beg, mid);
 		segment_tree_insert(root->m_rightchild, mid, end);
 	}
