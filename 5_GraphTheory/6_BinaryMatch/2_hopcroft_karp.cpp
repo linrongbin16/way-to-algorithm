@@ -1,5 +1,5 @@
 //Hopcroft-Karp算法
-//hopcroft_karp.cpp
+//hopcroft_karp
 
 //用Hopcroft-Karp算法求给定二分图的最大匹配
 
