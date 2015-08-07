@@ -1,9 +1,14 @@
 //test
 
-#include "general_head.h"
-extern int minimum_merge_cost(int *s, int n);
-extern int minimum_merge_extension(int *s, int n);
-extern int maximum_binary_tree_merge(int *s, int n);
+#include "1_minimum_merge_cost.h"
+#include "2_minimum_merge_extension.h"
+#include "3_maximum_binary_tree_merge.h"
+#include <iostream>
+#include <string>
+using std::string;
+using std::cout;
+using std::endl;
+
 void print(int *s, int len, string info)
 {
 	cout << info;

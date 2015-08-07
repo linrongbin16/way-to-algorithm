@@ -7,13 +7,13 @@ extern int binary_tree2(tree_node *r, int **f, int resv);	//2
 extern int multi_tree(tree_node *r, int **f, int resv);	//3
 extern void multi_tree_path(tree_node *r, int **f, int resv);	//4
 extern int traverse_tree(tree_node *r, int **fdown, int **fup, int level);	//5
-void init_2f(int **f)
+void init_2f(int f[MAX][MAX])
 {
 	for(int i = 0; i < MAX; ++ i)
 		for(int j = 0; j < MAX; ++ j)
 			f[i][j] = 0;
 }
-void init_3f(int ***f)
+void init_3f(int f[MAX][MAX][MAX])
 {
 	for(int i = 0; i < MAX; ++ i)
 		for(int j = 0; j < MAX; ++ j)
@@ -92,9 +92,7 @@ int main()
 	t[53].t_lc = &t[57]; t[53].t_rc = &t[58]; t[53].t_cnt = 2;
 	t[53].t_child[0] = &t[57]; t[53].t_child[1] = &t[58];
 	t[57].t_fa = &t[53]; t[58].t_fa = &t[53];
-	int **f2 = new int*[MAX];
-	for(int i = 0; i < MAX; ++ i)
-		f2[i] = new int[MAX];
+	int f2[MAX][MAX];
 	init_2f(f2);
 	cout << endl << "binary dynamic 1: ";
 	cout << binary_tree1(&t[44], 5) <<  endl;	//1
@@ -107,9 +105,7 @@ int main()
 	cout << "multi dynamic path:" << endl;
 	multi_tree_path(&t[22], f2, 5);	//4
 	cout << endl;
-	int **f3 = new int*[MAX];
-	for(int i = 0; i < MAX; ++ i)
-		f3[i] = new int[MAX];
+	int f3[MAX][MAX];
 	init_2f(f3);
 	init_2f(f2);
 	cout << "traverse tree: " << traverse_tree(&t[1], f2, f3, 4) << endl;	//5
