@@ -25,6 +25,8 @@
 //即i到i的合并代价为0 其他代价为INF
 
 #include <climits>
+#include <algorithm>
+using std::min;
 #ifndef MAX
 #define MAX 60
 #endif
@@ -55,8 +57,8 @@ int minimum_merge_cost(int *s, int n)
 				//对于第i项f[i][j] 并不直接依赖于前一项f[i-1][j]
 				//而是遍历i <= k < j 枚举每个元素 找出最小代价的
 				//所以在初始化f时大部分都初始化为INF
-				f[i][j] = min(f[i][j],
-						f[i][k] + f[k + 1][j] + sum[i][k] + sum[k + 1][j]);
+				f[i][j] = min( f[i][j],
+						f[i][k] + f[k + 1][j] + sum[i][k] + sum[k + 1][j] );
 	return(f[1][n]);
 }
 
