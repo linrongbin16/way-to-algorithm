@@ -1,5 +1,7 @@
+#ifndef WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_BINARY_TREE_H
+#define WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_BINARY_TREE_H 1
 //二叉树动规
-//binary_tree.cpp
+//binary tree
 
 //一棵二叉树，共n个节点从1到n，根节点为1
 //每个节点上都有一个权值，为方便考虑，所有权值都是正整数
@@ -94,3 +96,5 @@ int binary_tree2(tree_node *r, int **f, int resv)
 	f[r->t_idx][resv] += r->t_value;
 	return(f[r->t_idx][resv]);
 }
+
+#endif
