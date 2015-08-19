@@ -4,15 +4,17 @@
 #include "2_bubble_sort.h"
 #include "3_quick_sort.h"
 #include "4_binary_search.h"
+#include "5_merge_sort.h"
 
 int main()
 {
-	void (*p[3])(int*, int, int);
+	void (*p[4])(int*, int, int);
 	int i;
 	p[0] = insert_sort;
 	p[1] = bubble_sort;
 	p[2] = quick_sort;
-	for(i = 0; i < 3; ++ i){
+	p[3] = division;
+	for(i = 0; i < 4; ++ i){
 		int s[6] = {4, 3, 9, -1, 0, 4};
 		int beg = 0, end = 6;
 		int j;
