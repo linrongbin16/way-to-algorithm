@@ -12,30 +12,73 @@
 //即可得到已序序列s
 
 
-int quick_sort_partion(int *s, int beg, int end) 
-{//[beg, end]为左闭右闭区间 序列s下标从beg到end
+int quick_sort_partion(int *s, int beg, int end)
+{
+    //[beg, end]为左闭右闭区间 序列s下标从beg到end
     //哨兵pivot
-	int pivot = s[beg];
-	while(beg < end){
-		while(beg < end && s[end] >= pivot)
-			--end;
-		s[beg] = s[end];
-		while(beg < end && s[beg] <= pivot)
-			++beg;
-		s[end] = s[beg];
-	}
+    int pivot = s[beg];
+    while(beg < end)
+    {
+        while(beg < end && s[end] >= pivot)
+            --end;
+        s[beg] = s[end];
+        while(beg < end && s[beg] <= pivot)
+            ++beg;
+        s[end] = s[beg];
+    }
     //此时beg下标为哨兵pivot下标
-	s[beg] = pivot;
-	return(beg);
+    s[beg] = pivot;
+    return(beg);
 }
 
-void quick_sort(int *s, int beg, int end) 
-{//[beg, end)为左闭右开区间 序列s下标从beg到end-1
-	if(beg < end - 1){
-		int mid = quick_sort_partion(s, beg, end - 1);
-		quick_sort(s, beg, mid);
-		quick_sort(s, mid + 1, end);
-	}
+void quick_sort(int *s, int beg, int end)
+{
+    //[beg, end)为左闭右开区间 序列s下标从beg到end-1
+    if(beg < end - 1)
+    {
+        int mid = quick_sort_partion(s, beg, end - 1);
+        quick_sort(s, beg, mid);
+        quick_sort(s, mid + 1, end);
+    }
+}
+
+/********method 2*******/
+
+/**
+**设置哨兵i,到from -1,i指向第一个大于当前主元的位置
+**j从from变化到end-1，没遇到一个比主元大的，交换i和j位置，两边右移动
+**最后i+1的位置便是主元应在的位置
+**/
+int partitions_2(int* A,int from,int end)
+{
+    int p=A[end];
+
+    int i=from-1;
+
+    for(int j=from;j<end-1;j++)
+    {
+        if(A[j]<=p)
+        {
+            i++;
+            int temp=A[i];
+            A[i]=A[j];
+            A[j]=temp;
+        }
+    }
+    int temp=A[i+1];
+    A[i+1]=A[end];
+    A[end]=temp;
+
+    return i+1;
+
+}
+void quick_sort_2(int* A,int from,int end)
+{
+    if(from>=end)
+        return ;
+    int mid=partitions_2(A,from,end);
+    quick_sort_2(A,from,mid-1);
+    quick_sort_2(A,mid+1,end);
 }
 
 

@@ -8,26 +8,27 @@
 
 int main()
 {
-	void (*p[4])(int*, int, int);
-	int i;
-	p[0] = insert_sort;
-	p[1] = bubble_sort;
-	p[2] = quick_sort;
-	p[3] = division;
-	for(i = 0; i < 4; ++ i){
-		int s[6] = {4, 3, 9, -1, 0, 4};
-		int beg = 0, end = 6;
-		int j;
-		p[i](s, beg, end);
-		printf("after seach:\n");
-		for(j = 0; j < 6; ++ j)
-			printf("%d ", s[j]);
-		printf("\n");
-		int idx, x = 3;
-		if(binary_search(s, beg, end, x, idx))
-			printf("binary search: %d, yes: %d\n", x, idx);
-		else
-			printf("binary search: %d, no: %d\n", x, idx);
-	}
-	return(0);
+    void (*p[4])(int*, int, int);
+    int i;
+    p[0] = insert_sort;
+    p[1] = bubble_sort;
+    p[2] = quick_sort;
+    p[3] = division;
+    for(i = 0; i < 4; ++ i)
+    {
+        int s[6] = {4, 3, 9, -1, 0, 4};
+        int beg = 0, end = 6;
+        int j;
+        p[i](s, beg, end);
+        printf("after seach:\n");
+        for(j = 0; j < 6; ++ j)
+            printf("%d ", s[j]);
+        printf("\n");
+        int idx, x = 3;
+        if(binary_search(s, beg, end, x, idx))
+            printf("binary search: %d, yes: %d\n", x, idx);
+        else
+            printf("binary search: %d, no: %d\n", x, idx);
+    }
+    return(0);
 }
