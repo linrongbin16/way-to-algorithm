@@ -1,5 +1,8 @@
+#ifndef WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_MULTI2BINARY_H
+#define WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_MULTI2BINARY_H 1
+
 //多叉树转二叉树动规
-//multi2binary.cpp
+//multi to binary
 
 //仍然是同一个多叉树求最大权值的问题
 
@@ -11,4 +14,4 @@
 //对这样的森林中的每个二叉树递归调用二叉树动规的方法
 //就可以求出多叉树的最大权值
 
-//int multi2binary(tree_node *t, int resv)
+#endif

@@ -44,7 +44,7 @@ void depth_search(multi_tree_node *r, int f[MAX][MAX], int *next_resv,
  //将r的孩子树们分配的所有情况中的最大权值挑选出来赋给f[r->m_index][resv]
  //只处理当前r节点 不会处理到下一层的节点
 	//递归结束条件 深度搜索出一种组合后进行计算
-	if(prev == r->m_count){
+	if (prev == r->m_count) {
 		//更新r树的最大权值
 		int sumf = 0;
 		//下一层子树的最大权值又交给另一个递归去做
@@ -55,14 +55,14 @@ void depth_search(multi_tree_node *r, int f[MAX][MAX], int *next_resv,
 	}
 
 	//对r的一个指定孩子prev
-	if(prev == r->m_count - 1){
+	if (prev == r->m_count - 1) {
 		//如果prev是孩子节点中的最后一个 它直接分配到剩余的所有节点
 		next_resv[prev] = left_resv;
 		depth_search(r, f, next_resv, resv, 0, prev + 1);
 	}
-	else{
+	else {
 		//对于当前孩子prev 它可以分配的节点数从 0 到 left_resv
-		for(int i = 0; i <= left_resv; ++ i){
+		for (int i = 0; i <= left_resv; ++ i) {
 			//当前孩子分配 i 个节点
 			next_resv[prev] = i;
 			//下一个孩子 prev+1 只能分配 left_resv-i 个节点
@@ -78,7 +78,7 @@ int multi_tree(multi_tree_node *r, int f[MAX][MAX], int resv)
 	if(resv == 0)
 		return(0);
 	if(f[r->m_index][resv])
-		return(f[r->m_index][resv]);
+		return( f[ r->m_index ][resv] );
 
 	//这个next_resv中存储着r的孩子们分配节点的数量
 	int next_resv[MAX];
