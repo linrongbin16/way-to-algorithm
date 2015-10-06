@@ -5,24 +5,23 @@
 
 //用快速排序算法将未序序列s从小到大排序
 
-//将s[0]设为哨兵元素
+
+//1
+//将s[beg]设为哨兵元素
 //将s中其余元素中所有比哨兵小的放s[0]左边 所有比哨兵大的放s[0]右边
 //即可得到两段未排序的子序列 再用相同方法递归的处理子序列
 //直到子序列长度<=3时 直接进行排序 这样的操作时间复杂度视为O(1)
 //即可得到已序序列s
-
-
-int quick_sort_partion(int *s, int beg, int end)
+int quick_sort_partion1(int s[], int beg, int end)
 {
     //[beg, end]为左闭右闭区间 序列s下标从beg到end
     //哨兵pivot
     int pivot = s[beg];
-    while(beg < end)
-    {
-        while(beg < end && s[end] >= pivot)
+    while (beg < end) {
+        while (beg < end && s[end] >= pivot)
             --end;
         s[beg] = s[end];
-        while(beg < end && s[beg] <= pivot)
+        while (beg < end && s[beg] <= pivot)
             ++beg;
         s[end] = s[beg];
     }
@@ -30,55 +29,42 @@ int quick_sort_partion(int *s, int beg, int end)
     s[beg] = pivot;
     return(beg);
 }
-
-void quick_sort(int *s, int beg, int end)
+void quick_sort1(int s[], int beg, int end)
 {
-    //[beg, end)为左闭右开区间 序列s下标从beg到end-1
-    if(beg < end - 1)
+    //[beg, end]为左闭右开区间 序列s下标从beg到end
+    if(beg < end)
     {
-        int mid = quick_sort_partion(s, beg, end - 1);
-        quick_sort(s, beg, mid);
-        quick_sort(s, mid + 1, end);
+        int mid = quick_sort_partion1(s, beg, end);
+        quick_sort1(s, beg, mid);
+        quick_sort1(s, mid + 1, end);
     }
 }
 
-/********method 2*******/
 
-/**
-**设置哨兵i,到from -1,i指向第一个大于当前主元的位置
-**j从from变化到end-1，没遇到一个比主元大的，交换i和j位置，两边右移动
-**最后i+1的位置便是主元应在的位置
-**/
-int partitions_2(int* A,int from,int end)
+//2
+//设置哨兵为s[end] i初始设置为from-1 指向第一个大于当前主元的位置
+//j从from到end-1 每遇到一个比s[end]大的就交换i和j位置
+//最后i+1的位置便是s[end]应在的位置
+int partition2(int s[], int from, int end)
 {
-    int p=A[end];
-
-    int i=from-1;
-
-    for(int j=from;j<end-1;j++)
-    {
-        if(A[j]<=p)
-        {
-            i++;
-            int temp=A[i];
-            A[i]=A[j];
-            A[j]=temp;
+    int p = s[end];
+    int i = from - 1;
+    for (int j = from; j < end-1; ++j) {
+        if (s[j] <= p) {
+            ++i;
+			swap(s[i], s[j]);
         }
     }
-    int temp=A[i+1];
-    A[i+1]=A[end];
-    A[end]=temp;
-
+	swap(s[i+1], s[end]);
     return i+1;
-
 }
-void quick_sort_2(int* A,int from,int end)
+void quick_sort2(int s[], int from, int end)
 {
-    if(from>=end)
-        return ;
-    int mid=partitions_2(A,from,end);
-    quick_sort_2(A,from,mid-1);
-    quick_sort_2(A,mid+1,end);
+    if(from < end) {
+		int mid = partition2(s, from, end);
+		quick_sort2(s, from, mid-1);
+		quick_sort2(s, mid+1, end);
+	}
 }
 
 

@@ -5,11 +5,11 @@
 
 //八数码问题
 //现有3*3矩阵   2  8  1
-//              3  7  x
-//              6  4  5
+//             3  7  x
+//             6  4  5
 //目标是将其变换为目标状态  1  2  3
-//                          4  5  6
-//                          7  8  x
+//                       4  5  6
+//                       7  8  x
 //每一次只能将x和其上下左右的相邻元素交换一次位置而其他数字不能随意改变位置
 //使用A*启发式搜索算法求出最少交换次数的变化经过(最短路径)
 
@@ -117,28 +117,6 @@ struct hs_node
 	int m_g;
 	hs_node *m_father_node;
 
-	hs_node()
-	{
-		m_status = "";
-		m_h = 0;
-		m_g = 0;
-		m_father_node = (hs_node*)0;
-	}
-	hs_node(const hs_node& node)
-	{
-		m_status = node.m_status;
-		m_h = node.m_h;
-		m_g = node.m_g;
-		m_father_node = node.m_father_node;
-	}
-	hs_node& operator=(const hs_node& node)
-	{
-		m_status = node.m_status;
-		m_h = node.m_h;
-		m_g = node.m_g;
-		m_father_node = node.m_father_node;
-		return(*this);
-	}
 	bool operator==(const hs_node& node)
 	{
 		return(m_status == node.m_status && m_h == node.m_h

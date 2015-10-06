@@ -46,21 +46,21 @@ int maximum_binary_tree_merge(int *s, int n)
 	//初始化
 	//循环时 选择1和n作为根节点时 1的左子树为0 n的右子树为n+1
 	//这两个空子树的加分均为1
-	for(int i = 0; i <= n + 1; ++i)
-		for(int j = 0; j <= n + 1; ++j)
+	for (int i = 0; i <= n + 1; ++i)
+		for (int j = 0; j <= n + 1; ++j)
 			f[i][j] = 1;
-	for(int i = 1; i <= n; ++i)
+	for (int i = 1; i <= n; ++i)
 		f[i][i] = s[i];
-	for(int len = 1; len <= n; ++len)
+	for (int len = 1; len <= n; ++len)
 		//特别之处在于最外面一层循环
 		//len指代i到j之间的距离
-		for(int i = 1; i < n; ++i){
+		for (int i = 1; i < n; ++i) {
 			//i为遍历f的左边界
 			int j = i + len;
 			//j为遍历f的右边界
-			if(j <= n)
+			if (j <= n)
 				//当j>n以后就可以break跳过了
-				for(int k = i; k <= j; ++k)
+				for (int k = i; k <= j; ++k)
 					f[i][j] = max(f[i][j],
 							f[i][k - 1] * f[k + 1][j] + s[k]);
 		}

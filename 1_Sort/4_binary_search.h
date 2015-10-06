@@ -1,6 +1,6 @@
 #ifndef SORT_BINARY_SEARCH_H
 #define SORT_BINARY_SEARCH_H 1
-//二分查找法，也称折半查找法
+//二分查找法 折半查找法
 //binary search
 
 //在从小到大排序的序列s中查找元素x是否存在
@@ -14,19 +14,17 @@
 //直到找到相等值的元素或者没有新的范围为止 即可得到结果
 
 
-int binary_search(int *s, int beg, int end, int x, int& idx)
+int binary_search(int s[], int beg, int end, int x, int &idx)
 {
-    //[beg, end)是左闭右开区间 s为已序序列 下标从beg到end-1 查找元素值x
-//idx返回查找的下标 返回int标志查找成功与否
-//若查找不成功返回最接近x且比x小的元素下标
+	//[beg, end)是左闭右开区间 s为已序序列 下标从beg到end-1 查找元素值x
+	//idx返回查找的下标 返回int标志查找成功与否
+	//若查找不成功返回最接近x且比x小的元素下标
     int low = beg;
     int high = end - 1;
     int mid;
-    while(low <= high)
-    {
+    while(low <= high) {
         mid = (low + high) / 2;
-        if (s[mid] == x)
-        {
+        if (s[mid] == x) {
             idx = mid;
             return(1);
         }
