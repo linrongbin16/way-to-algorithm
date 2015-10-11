@@ -5,6 +5,8 @@
 
 //用快速排序算法将未序序列s从小到大排序
 
+#include <algorithm>
+using std::swap;
 #ifndef MAX
 #define MAX 60
 #endif
@@ -13,8 +15,8 @@
 //将s[beg]设为哨兵元素
 //将s中其余元素中所有比哨兵小的放s[0]左边 所有比哨兵大的放s[0]右边
 //即可得到两段未排序的子序列 再用相同方法递归的处理子序列
-//直到子序列长度<=3时 直接进行排序 这样的操作时间复杂度视为O(1)
 //即可得到已序序列s
+//时间复杂度O(N*logN)
 int partion1(int s[MAX], int beg, int end)
 {
     //[beg, end]为左闭右闭区间 序列s下标从beg到end
@@ -35,8 +37,7 @@ int partion1(int s[MAX], int beg, int end)
 void quick_sort1(int s[MAX], int beg, int end)
 {
     //[beg, end]为左闭右开区间 序列s下标从beg到end
-    if(beg < end)
-    {
+    if (beg < end) {
         int mid = partion1(s, beg, end);
         quick_sort1(s, beg, mid);
         quick_sort1(s, mid + 1, end);
@@ -45,14 +46,15 @@ void quick_sort1(int s[MAX], int beg, int end)
 
 
 //2
-//设置哨兵为s[end] i初始设置为from-1 指向第一个大于当前主元的位置
-//j从from到end-1 每遇到一个比s[end]大的就交换i和j位置
+//设置哨兵为s[end] i初始设置为beg-1 指向第一个大于当前主元的位置
+//j从beg到end-1 每遇到一个比s[end]大的就交换i和j位置
 //最后i+1的位置便是s[end]应在的位置
-int partition2(int s[MAX], int from, int end)
+//时间复杂度O(N*logN)
+int partition2(int s[MAX], int beg, int end)
 {
     int p = s[end];
-    int i = from - 1;
-    for (int j = from; j < end-1; ++j) {
+    int i = beg - 1;
+    for (int j = beg; j < end-1; ++j) {
         if (s[j] <= p) {
             ++i;
 			swap(s[i], s[j]);
@@ -61,11 +63,11 @@ int partition2(int s[MAX], int from, int end)
 	swap(s[i+1], s[end]);
     return i+1;
 }
-void quick_sort2(int s[MAX], int from, int end)
+void quick_sort2(int s[MAX], int beg, int end)
 {
-    if(from < end) {
-		int mid = partition2(s, from, end);
-		quick_sort2(s, from, mid-1);
+    if (beg < end) {
+		int mid = partition2(s, beg, end);
+		quick_sort2(s, beg, mid-1);
 		quick_sort2(s, mid+1, end);
 	}
 }
