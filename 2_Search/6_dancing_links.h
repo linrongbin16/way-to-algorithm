@@ -76,29 +76,6 @@ struct link_node
     int m_right;
     int m_row;
     int m_col;
-
-    link_node() { }
-    link_node(const link_node& node)
-    {
-        m_index = node.m_index;
-        m_up = node.m_up;
-        m_down = node.m_down;
-        m_left = node.m_left;
-        m_right = node.m_right;
-        m_row = node.m_row;
-        m_col = node.m_col;
-    }
-    link_node& operator=(const link_node& node)
-    {
-        m_index = node.m_index;
-        m_up = node.m_up;
-        m_down = node.m_down;
-        m_left = node.m_left;
-        m_right = node.m_right;
-        m_row = node.m_row;
-        m_col = node.m_col;
-        return(*this);
-    }
 };
 
 void make_link(int n, int **sub, int m, int *cnt,

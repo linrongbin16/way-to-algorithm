@@ -12,11 +12,13 @@
 //总是将较小的放在前面
 //最终可得到s从小到达排序
 
-
+#ifndef MAX
+#define MAX 60
+#endif
 #include <algorithm>
 using std::swap;
 
-void bubble_sort(int s[], int beg, int end)
+void bubble_sort(int s[MAX], int beg, int end)
 {
     //[beg, end)为左闭右开区间 序列s下标从beg到end-1
     for (int i = beg; i < end - 1; ++i)

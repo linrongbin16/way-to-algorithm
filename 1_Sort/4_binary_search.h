@@ -13,8 +13,11 @@
 //按同样思路继续比较元素x和新的查找范围内的中间元素的值
 //直到找到相等值的元素或者没有新的范围为止 即可得到结果
 
+#ifndef MAX
+#define MAX 60
+#endif
 
-int binary_search(int s[], int beg, int end, int x, int &idx)
+int binary_search(int s[MAX], int beg, int end, int x, int &idx)
 {
 	//[beg, end)是左闭右开区间 s为已序序列 下标从beg到end-1 查找元素值x
 	//idx返回查找的下标 返回int标志查找成功与否

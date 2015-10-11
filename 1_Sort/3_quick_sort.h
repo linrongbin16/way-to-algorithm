@@ -5,6 +5,9 @@
 
 //用快速排序算法将未序序列s从小到大排序
 
+#ifndef MAX
+#define MAX 60
+#endif
 
 //1
 //将s[beg]设为哨兵元素
@@ -12,7 +15,7 @@
 //即可得到两段未排序的子序列 再用相同方法递归的处理子序列
 //直到子序列长度<=3时 直接进行排序 这样的操作时间复杂度视为O(1)
 //即可得到已序序列s
-int quick_sort_partion1(int s[], int beg, int end)
+int partion1(int s[MAX], int beg, int end)
 {
     //[beg, end]为左闭右闭区间 序列s下标从beg到end
     //哨兵pivot
@@ -29,12 +32,12 @@ int quick_sort_partion1(int s[], int beg, int end)
     s[beg] = pivot;
     return(beg);
 }
-void quick_sort1(int s[], int beg, int end)
+void quick_sort1(int s[MAX], int beg, int end)
 {
     //[beg, end]为左闭右开区间 序列s下标从beg到end
     if(beg < end)
     {
-        int mid = quick_sort_partion1(s, beg, end);
+        int mid = partion1(s, beg, end);
         quick_sort1(s, beg, mid);
         quick_sort1(s, mid + 1, end);
     }
@@ -45,7 +48,7 @@ void quick_sort1(int s[], int beg, int end)
 //设置哨兵为s[end] i初始设置为from-1 指向第一个大于当前主元的位置
 //j从from到end-1 每遇到一个比s[end]大的就交换i和j位置
 //最后i+1的位置便是s[end]应在的位置
-int partition2(int s[], int from, int end)
+int partition2(int s[MAX], int from, int end)
 {
     int p = s[end];
     int i = from - 1;
@@ -58,7 +61,7 @@ int partition2(int s[], int from, int end)
 	swap(s[i+1], s[end]);
     return i+1;
 }
-void quick_sort2(int s[], int from, int end)
+void quick_sort2(int s[MAX], int from, int end)
 {
     if(from < end) {
 		int mid = partition2(s, from, end);

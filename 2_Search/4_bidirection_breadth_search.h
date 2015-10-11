@@ -51,21 +51,6 @@ struct bbs_node
 		m_father_row = father_row;
 		m_father_col = father_col;
     }
-	bbs_node(const bbs_node& node)
-	{
-		m_row = node.m_row;
-		m_col = node.m_col;
-		m_father_row = node.m_father_row;
-		m_father_col = node.m_father_col;
-	}
-	bbs_node& operator=(const bbs_node& node)
-	{
-		m_row = node.m_row;
-		m_col = node.m_col;
-		m_father_row = node.m_father_row;
-		m_father_col = node.m_father_col;
-		return(*this);
-	}
 	bool operator==(const bbs_node& node) const
 	{
 		return(m_row == node.m_row && m_col == node.m_col);

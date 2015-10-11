@@ -56,14 +56,6 @@ struct segment_tree_node
 		m_leftchild = 0;
 		m_rightchild = 0;
 	}
-	segment_tree_node(const segment_tree_node& node)
-	{
-		m_beg = node.m_beg;
-		m_end = node.m_end;
-		m_cover = node.m_cover;
-		m_leftchild = node.m_leftchild;
-		m_rightchild = node.m_rightchild;
-	}
 };
 
 //线段树的实现使用递归技术

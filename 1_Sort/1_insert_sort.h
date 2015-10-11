@@ -12,7 +12,11 @@
 //并将s[j+1]到s[i]统一向后挪动一个位置 其中注意j==-1时的临界情况
 //即可将序列s整个排序
 
-void insert_sort(int s[], int beg, int end)
+#ifndef MAX
+#define MAX 60
+#endif
+
+void insert_sort(int s[MAX], int beg, int end)
 {
     //[beg, end)为左闭右开区间 序列s下标从beg到end-1
     for (int i = beg; i < end - 1; ++i) {

@@ -123,6 +123,7 @@ struct hs_node
 				&& m_g == node.m_g && m_father_node == node.m_father_node);
 	}
 };
+
 bool heuristic_search_compare(hs_node a, hs_node b)
 {
 	return(a.m_g + a.m_h < b.m_g + b.m_h);
