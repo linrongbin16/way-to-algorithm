@@ -29,30 +29,10 @@ struct disjoint_set_node
 {
 	int m_index;
 	disjoint_set_node *m_father;
-	disjoint_set_node()
-	{ }
-	disjoint_set_node(const disjoint_set_node& node)
-	{
-		m_index = node.m_index;
-		m_father = node.m_father;
-	}
-	disjoint_set_node& operator=(const disjoint_set_node& node)
-	{
-		m_index = node.m_index;
-		m_father = node.m_father;
-		return(*this);
-	}
 };
 struct disjoint_set
 {
 	disjoint_set_node m_table[MAX];
-	disjoint_set()
-	{ }
-	disjoint_set(const disjoint_set& set)
-	{
-		for (int i = 0; i < MAX; ++i)
-			m_table[i] = set.m_table[i];
-	}
 };
 
 disjoint_set_node* disjoint_set_find_father(disjoint_set_node *p)

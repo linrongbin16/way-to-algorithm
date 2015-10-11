@@ -42,30 +42,11 @@ struct prime_hash_node
 		m_value = 0;
 		m_next = 0;
 	}
-	prime_hash_node(const prime_hash_node& node)
-	{
-		m_value = node.m_value;
-		m_next = node.m_next;
-	}
-	prime_hash_node& operator=(const prime_hash_node& node)
-	{
-		m_value = node.m_value;
-		m_next = node.m_next;
-		return(*this);
-	}
 };
 struct prime_hash_table
 {
 	prime_hash_node m_table[MAX];
 	int m_seed;
-	prime_hash_table()
-	{ }
-	prime_hash_table(const prime_hash_table& table)
-	{
-		for (int i = 0; i < MAX; ++i)
-			m_table[i] = table.m_table[i];
-		m_seed = table.m_seed;
-	}
 };
 
 int prime_hash(int seed, int value)
@@ -133,14 +114,6 @@ struct bkdr_hash_table
 {
 	int m_table[MAX];
 	int m_seed;
-	bkdr_hash_table()
-	{ }
-	bkdr_hash_table(const bkdr_hash_table& table)
-	{
-		for (int i = 0; i < MAX; ++i)
-			m_table[i] = table.m_table[i];
-		m_seed = table.m_seed;
-	}
 };
 
 int bkdr_hash(int seed, const char *s)

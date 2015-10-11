@@ -5,7 +5,7 @@
 #include "3_breadth_first_search.h"
 #include "4_bidirection_breadth_search.h"
 #include "5_a_heuristic_search.h"
-#include "6_dancing_links.h"
+//#include "6_dancing_links.h"
 #include <algorithm>
 using std::make_pair;
 
@@ -22,9 +22,8 @@ int main()
 	cout << endl << "breadth first search: " << endl;
 	breadth_first_search(4, 5, make_pair(1, 2));	//3
 
-	bbs_node **s2 = new bbs_node*[20];
+	bbs_node s2[MAX][MAX];
 	for(int i = 0; i < 20; ++ i){
-		s2[i] = new bbs_node[17];
 		for(int j = 0; j < 17; ++ j) {
 			s2[i][j].m_row = i;
 			s2[i][j].m_col = j;

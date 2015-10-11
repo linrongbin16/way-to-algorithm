@@ -23,14 +23,14 @@ int main()
 		prime_hash_print(&ht);
 		prime_hash_node *p1 = prime_hash_find(&ht, 24);
 		if(p1)
-			cout << "find 24 in hash table: " << p1->_value << endl;
+			cout << "find 24 in hash table: " << p1->m_value << endl;
 		else
 			cout << "can't find 24 in hash table" << endl;
 		prime_hash_delete(&ht, 24);
 		p1 = prime_hash_find(&ht, 24);
 		cout << "after delete 24 from hash table" << endl;
 		if(p1)
-			cout << "find 24 in hash table: " << p1->_value << endl;
+			cout << "find 24 in hash table: " << p1->m_value << endl;
 		else
 			cout << "can't find 24 in hash table" << endl;
 		prime_hash_print(&ht);
@@ -45,10 +45,10 @@ int main()
 		char s2[] = "henno hoood";
 		char s3[] = "hh you wrong";
 		char s4[] = "that's a test";
-		int h1 = _bkdr_hash(bt._seed, s1);
-		int h2 = _bkdr_hash(bt._seed, s2);
-		int h3 = _bkdr_hash(bt._seed, s3);
-		int h4 = _bkdr_hash(bt._seed, s4);
+		int h1 = bkdr_hash(bt.m_seed, s1);
+		int h2 = bkdr_hash(bt.m_seed, s2);
+		int h3 = bkdr_hash(bt.m_seed, s3);
+		int h4 = bkdr_hash(bt.m_seed, s4);
 		cout << "string 1:" << endl << s1 << endl << "hash value: " << h1 << endl;
 		cout << "string 2:" << endl << s2 << endl << "hash value: " << h2 << endl;
 		cout << "string 3:" << endl << s3 << endl << "hash value: " << h3 << endl;
@@ -116,22 +116,22 @@ int main()
 	cout << endl << "leftist tree" << endl;
 	leftist_tree_node tr[51];
 	for(int i = 0; i < 51; ++ i)
-		tr[i]._index = i;
+		tr[i].m_index = i;
 	//left child: &tr[6];
-	tr[6]._leftchild = &tr[11]; tr[6]._leftchild = &tr[8]; tr[6]._depth = 2;
-	tr[11]._leftchild = &tr[17]; tr[11]._leftchild = &tr[14]; tr[11]._depth = 2;
-	tr[17]._leftchild = &tr[18]; tr[17]._leftchild = &tr[20]; tr[17]._depth = 1;
-	tr[14]._leftchild = &tr[19]; tr[14]._leftchild = &tr[24]; tr[14]._depth = 1;
-	tr[8]._leftchild = &tr[10]; tr[8]._leftchild = &tr[13]; tr[8]._depth = 1;
-	tr[10]._leftchild = &tr[15]; tr[10]._leftchild = &tr[30]; tr[10]._depth = 1;
-	tr[13]._leftchild = &tr[28];
+	tr[6].m_leftchild = &tr[11]; tr[6].m_leftchild = &tr[8]; tr[6].m_depth = 2;
+	tr[11].m_leftchild = &tr[17]; tr[11].m_leftchild = &tr[14]; tr[11].m_depth = 2;
+	tr[17].m_leftchild = &tr[18]; tr[17].m_leftchild = &tr[20]; tr[17].m_depth = 1;
+	tr[14].m_leftchild = &tr[19]; tr[14].m_leftchild = &tr[24]; tr[14].m_depth = 1;
+	tr[8].m_leftchild = &tr[10]; tr[8].m_leftchild = &tr[13]; tr[8].m_depth = 1;
+	tr[10].m_leftchild = &tr[15]; tr[10].m_leftchild = &tr[30]; tr[10].m_depth = 1;
+	tr[13].m_leftchild = &tr[28];
 	//right child: &tr[7];
-	tr[7]._leftchild = &tr[9]; tr[7]._leftchild = &tr[12]; tr[7]._depth = 2;
-	tr[9]._leftchild = &tr[21]; tr[9]._leftchild = &tr[16]; tr[9]._depth = 1;
-	tr[12]._leftchild = &tr[31]; tr[12]._leftchild = &tr[26]; tr[12]._depth = 1;
-	tr[31]._leftchild = &tr[42]; tr[31]._leftchild = &tr[33]; tr[31]._depth = 1;
-	tr[42]._leftchild = &tr[50];
-	tr[26]._leftchild = &tr[27];
+	tr[7].m_leftchild = &tr[9]; tr[7].m_leftchild = &tr[12]; tr[7].m_depth = 2;
+	tr[9].m_leftchild = &tr[21]; tr[9].m_leftchild = &tr[16]; tr[9].m_depth = 1;
+	tr[12].m_leftchild = &tr[31]; tr[12].m_leftchild = &tr[26]; tr[12].m_depth = 1;
+	tr[31].m_leftchild = &tr[42]; tr[31].m_leftchild = &tr[33]; tr[31].m_depth = 1;
+	tr[42].m_leftchild = &tr[50];
+	tr[26].m_leftchild = &tr[27];
 	cout << "tree lt:" << endl;
 	leftist_tree_print(&tr[6]);
 	cout << "tree rt:" << endl;

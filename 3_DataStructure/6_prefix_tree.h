@@ -32,23 +32,6 @@ struct prefix_tree_node
 		for (int i = 0; i < 26; ++i)
 			m_children[i] = 0;
 	}
-	prefix_tree_node(const prefix_tree_node& node)
-	{
-		m_value = node.m_value;
-		m_count = node.m_count;
-		m_final = node.m_final;
-		for (int i = 0; i < 26; ++i)
-			m_children[i] = node.m_children[i];
-	}
-	prefix_tree_node& operator=(const prefix_tree_node& node)
-	{
-		m_value = node.m_value;
-		m_count = node.m_count;
-		m_final = node.m_final;
-		for (int i = 0; i < 26; ++i)
-			m_children[i] = node.m_children[i];
-		return(*this);
-	}
 };
 
 void prefix_tree_init(prefix_tree_node *root) 

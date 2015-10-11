@@ -45,21 +45,6 @@ struct leftist_tree_node
 		m_leftchild = 0;
 		m_rightchild = 0;
 	}
-	leftist_tree_node(const leftist_tree_node& node)
-	{
-		m_index = node.m_index;
-		m_depth = node.m_depth;
-		m_leftchild = node.m_leftchild;
-		m_rightchild = node.m_rightchild;
-	}
-	leftist_tree_node& operator=(const leftist_tree_node& node)
-	{
-		m_index = node.m_index;
-		m_depth = node.m_depth;
-		m_leftchild = node.m_leftchild;
-		m_rightchild = node.m_rightchild;
-		return(*this);
-	}
 };
 
 leftist_tree_node* leftist_tree_merge(leftist_tree_node *a, leftist_tree_node *b)
