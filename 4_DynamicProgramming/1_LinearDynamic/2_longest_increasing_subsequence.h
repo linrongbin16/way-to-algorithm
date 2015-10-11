@@ -23,7 +23,7 @@ using std::max;
 #define MAX 60
 #endif
 
-int longest_increasing_subsequence1(int *s, int n)
+int longest_increasing_subsequence1(int s[MAX], int n)
 {//序列s的长度为n+1 下标从1到n 空出0位置
  //返回s的最长递增子序列的长度
 	int f[MAX + 1];
@@ -47,9 +47,9 @@ int longest_increasing_subsequence1(int *s, int n)
 //题目所求即找出s[n]为结尾的序列的递增子序列的长度
 
 
-#include "../../1_Sort/4_binary_search.h"
+#include "../../1_Sort/1_binary_search.h"
 
-int longest_increasing_subsequence2(int *s, int n)
+int longest_increasing_subsequence2(int s[MAX], int n)
 {
 	int f[MAX + 1], len = 1;
 	f[1] = s[1];

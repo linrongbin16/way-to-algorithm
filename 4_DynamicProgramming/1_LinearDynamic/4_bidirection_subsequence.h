@@ -18,9 +18,10 @@ using std::max;
 #define MAX 60
 #endif
 
-int longest_increasing_subsequence(int *s, int beg, int end)
-{//[beg,end]是左闭右闭区间 序列s从beg到end
- //返回序列s在区间[beg,end]中的最长递增子序列的长度
+int longest_increasing_subsequence(int s[MAX], int beg, int end)
+{
+    //[beg,end]是左闭右闭区间 序列s从beg到end
+    //返回序列s在区间[beg,end]中的最长递增子序列的长度
 	int f[MAX + 1];
 	for(int i = beg; i <= end; ++i)
 		f[i] = 1;
@@ -30,9 +31,10 @@ int longest_increasing_subsequence(int *s, int beg, int end)
 				f[i] = max(f[i], f[j] + 1);
 	return(f[end]);
 }
-int longest_decreasing_subsequence(int *s, int beg, int end)
-{//[beg, end]是左闭右闭区间，序列s从beg到end
- //返回序列s在区间[beg, end]中的最长递减子序列的长度
+int longest_decreasing_subsequence(int s[MAX], int beg, int end)
+{
+    //[beg, end]是左闭右闭区间，序列s从beg到end
+    //返回序列s在区间[beg, end]中的最长递减子序列的长度
 	int f[MAX + 1];
 	for(int i = beg; i <= end; ++i)
 		f[i] = 1;
@@ -43,9 +45,10 @@ int longest_decreasing_subsequence(int *s, int beg, int end)
 	return(f[end]);
 }
 
-int bidirection_subsequence(int *s, int n, int& idx)
-{//序列s长度为n+1，下标从1到n，空出0位置
- //返回序列s的最长双向子序列的长度，以及这个元素的下标idx
+int bidirection_subsequence(int s[MAX], int n, int& idx)
+{
+    //序列s长度为n+1，下标从1到n，空出0位置
+    //返回序列s的最长双向子序列的长度，以及这个元素的下标idx
 	int length = 0;
 	for(int i = 1; i <= n; ++i){
 		int lft = longest_increasing_subsequence(s, 1, i);

@@ -46,9 +46,10 @@ using std::max;
 #define MAX 60
 #endif
 
-int longest_increasing_subsequence_extension(int *s, int n, int& m)
-{//序列s长为n+1 下标从1到n 空出0位置
- //返回序列s的最长子列的长度 和这样的子列的个数m
+int longest_increasing_subsequence_extension(int s[MAX], int n, int& m)
+{
+    //序列s长为n+1 下标从1到n 空出0位置
+    //返回序列s的最长子列的长度 和这样的子列的个数m
 	int f[MAX + 1], c[MAX + 1];
 	for(int i = 1; i <= n; ++i)
 		f[i] = 1, c[i] = 1;

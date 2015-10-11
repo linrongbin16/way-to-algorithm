@@ -30,7 +30,7 @@ using std::max;
 #define MAX 60
 #endif
 
-int longest_common_subsequence(int *s1, int *s2, int n)
+int longest_common_subsequence(int s1[MAX], int *s2, int n)
 {//序列s1和s2的长度都为n+1 下标从1到n 空出0位置
  //返回s1和s2的最长公共子序列的长度
 	int f[MAX + 1][MAX + 1];
