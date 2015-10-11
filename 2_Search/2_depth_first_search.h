@@ -18,19 +18,23 @@
 //prev作出它的其中一种选择并进入下一个成员的递归
 
 
+#ifndef MAX
+#define MAX 60
+#endif
 #include <iostream>
 using std::cout;
 using std::endl;
 
-void depth_first_print(int *s, int beg, int end)
+void depth_first_print(int s[MAX], int beg, int end)
 {
     for (int i = beg; i < end; ++i)
         cout << s[i] << " ";
     cout << endl;
 }
 
-void depth_first_search(int *s, int n, int m, int prev/*default=0*/)
-{//序列s拥有n个成员 下标从0到n-1 每个成员有m种选择
+void depth_first_search(int s[MAX], int n, int m, int prev/*default=0*/)
+{
+    //序列s拥有n个成员 下标从0到n-1 每个成员有m种选择
 	//深度搜索一般都以prev=0开头 这是一个特点
 	//prev指代当前正在做出选择的成员号
 	//1)第一部分 递归终止条件

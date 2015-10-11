@@ -36,19 +36,24 @@
 //每个成员的选择变化一次都是一种新的组合
 
 
+#ifndef MAX
+#define MAX 60
+#endif
 #include <iostream>
 using std::cout;
 using std::endl;
 
-void brute_force_print(int *s, int beg, int end)
-{//[beg, end)是左闭右开区间 序列s下标从beg到end-1
+void brute_force_print(int s[MAX], int beg, int end)
+{
+    //[beg, end)是左闭右开区间 序列s下标从beg到end-1
 	for (int i = beg; i < end; ++i)
 		cout << s[i] << " ";
 	cout << endl;
 }
 
-void brute_force(int *s, int n, int m) 
-{//序列s有n个成员 下标从0到n-1 每个成员s[i]有m种选择
+void brute_force(int s[MAX], int n, int m) 
+{
+    //序列s有n个成员 下标从0到n-1 每个成员s[i]有m种选择
 	for(int i0 = 0; i0 < m; ++ i0)
 		for(int i1 = 0; i1 < m; ++ i1)
 			for(int i2 = 0; i2 < m; ++ i2)

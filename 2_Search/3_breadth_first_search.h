@@ -11,13 +11,12 @@
 //每将一个元素压入队列尾部时就标记该元素已被访问(包括初始时的起点)
 //直到所有节点都被访问过即完成遍历
 
-
+#ifndef MAX
+#define MAX 60
+#endif
 #include <iostream>
 #include <deque>
 #include <cstring>
-#ifndef MAX
-#define MAX 50
-#endif
 using std::cout;
 using std::endl;
 using std::pair;
@@ -28,8 +27,9 @@ void breadth_first_search_print(pair<int, int> p)
 	cout << "(row:" << p.first << ",column:" << p.second << ")" << endl;
 }
 void breadth_first_search(int m, int n, pair<int, int> beg)
-{//矩阵有m行n列 行下标从0到m-1 列下标从0到n-1
- //起点beg的行下标为beg.first(对应m行) 列下标为beg.seocnd(对应n列)
+{
+    //矩阵有m行n列 行下标从0到m-1 列下标从0到n-1
+    //起点beg的行下标为beg.first(对应m行) 列下标为beg.seocnd(对应n列)
 	//visited标记节点是否被访问过
 	int visited[MAX][MAX];
 	memset(visited, 0, MAX * MAX *sizeof(int));

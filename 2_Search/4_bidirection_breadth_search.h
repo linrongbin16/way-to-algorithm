@@ -20,15 +20,14 @@
 //
 //本文引用了"双向广度优先搜索算法框架及八数码问题例程" 作者"~纯净的天空~"
 
-
+#ifndef MAX
+#define MAX 60
+#endif
 #include <algorithm>
 #include <cstring>
 #include <utility>
 #include <deque>
 #include <iostream>
-#ifndef MAX
-#define MAX 50
-#endif
 using std::pair;
 using std::deque;
 using std::find;
@@ -65,7 +64,7 @@ pair<bbs_node, bbs_node> bbs_invalid_pair(bbs_node(-1, -1, -1, -1), bbs_node(-1,
 
 pair<bbs_node, bbs_node> bidirection_breadth_search_expand(
 		deque<bbs_node>& q_expand, deque<bbs_node>& q_exist,
-		bbs_node **s, int m, int n, int **visited, int flag)
+		bbs_node s[MAX][MAX], int m, int n, int visited[MAX][MAX], int flag)
 {//对q_expand队列的头节点的所有邻节点进行扩展
  //在将某个邻节点加入队列q_expand之前 先检查该点是否已经被q_expand队列访问过
  //或者查找该点是否已经存在于q_exist队列中
@@ -122,13 +121,13 @@ pair<bbs_node, bbs_node> bidirection_breadth_search_expand(
 	//若这次扩展中两队列未相遇则返回两个bbs_node(-1, -1, -1, -1)
     return(bbs_invalid_pair);
 }
-void bidirection_breadth_search_print_forward(bbs_node f, bbs_node **s)
+void bidirection_breadth_search_print_forward(bbs_node f, bbs_node s[MAX][MAX])
 {//从点f向终点输出路径
 	cout << " (row:" << f.m_row << ",col:" << f.m_col << ")" << endl;
 	if(f.m_father_row != -1 && f.m_father_col != -1)
 		bidirection_breadth_search_print_forward(s[f.m_father_row][f.m_father_col], s);
 }
-void bidirection_breadth_search_print_backward(bbs_node b, bbs_node **s)
+void bidirection_breadth_search_print_backward(bbs_node b, bbs_node s[MAX][MAX])
 {//从点b向起点反向输出路径
  //注意这里递归的使用 输出的顺序是从起点到终点的顺序
 	if(b.m_father_row != -1 && b.m_father_col != -1)
@@ -136,7 +135,7 @@ void bidirection_breadth_search_print_backward(bbs_node b, bbs_node **s)
 	cout << " (row:" << b.m_row << ",col:" << b.m_col << ")" << endl;
 }
 void bidirection_breadth_search_print_road(
-		pair<bbs_node, bbs_node> meet_pos, bbs_node **s)
+		pair<bbs_node, bbs_node> meet_pos, bbs_node s[MAX][MAX])
 {//meet_pos中是两队列相遇处的两节点
  //其中first是q_beg队列中的节点 second是q_end队列中的节点 这两个点是相邻的
  //输出路径时向后递归逆序输出q_beg的路径 向前顺序输出q_end的路径
@@ -144,19 +143,16 @@ void bidirection_breadth_search_print_road(
 	bidirection_breadth_search_print_forward(s[meet_pos.second.m_row][meet_pos.second.m_col], s);
 }
 
-void bidirection_breadth_search(bbs_node **s,
+void bidirection_breadth_search(bbs_node s[MAX][MAX],
 		int m, int n, bbs_node beg, bbs_node end)
 {//矩阵s有m行n列 行下标从0到m-1 列下标从0到n-1
 	//visit_beg记录beg队列访问过的点
 	//visit_end记录end队列访问过的点
-	int **visit_beg = new int*[MAX];
-	int **visit_end = new int*[MAX];
-	for(int i = 0; i < m; ++ i){
-		visit_beg[i] = new int[MAX];
-		memset(visit_beg[i], 0, MAX * sizeof(int));
-		visit_end[i] = new int[MAX];
-		memset(visit_end[i], 0, MAX * sizeof(int));
-	}
+    int visit_beg[MAX][MAX];
+    int visit_end[MAX][MAX];
+    memset(visit_beg, 0, MAX * MAX * sizeof(int));
+    memset(visit_end, 0, MAX * MAX * sizeof(int));
+
 	//q_beg是从起点bfs的队列
 	//q_end是从终点bfs的队列
 	deque<bbs_node> q_beg, q_end;

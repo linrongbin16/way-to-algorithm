@@ -65,20 +65,23 @@
 //"dancing links算法解Sudoku" 作者"囧囧有神"
 
 
+#ifndef MAX
+#define MAX 60
+#endif
 #include <cstring>
 
 struct link_node
 {
     int m_index;
-    int m_up;
-    int m_down;
-    int m_left;
-    int m_right;
+    struct link_node *m_up;
+    struct link_node *m_down;
+    struct link_node *m_left;
+    struct link_node *m_right;
     int m_row;
     int m_col;
 };
 
-void make_link(int n, int **sub, int m, int *cnt,
+void make_link(int n, int sub[MAX][MAX], int m, int cnt[MAX],
 		link_node &head, link_node *nodes)
 {
 	//初始化矩阵 将节点中无效或表示边界的指针指向自己
@@ -88,28 +91,29 @@ void make_link(int n, int **sub, int m, int *cnt,
 	head.m_index = -1;
 	//总节点数量
 	int total_cnt = n;
-	for(int i = 0; i < m; ++ i)
+    int i, j;
+	for(i = 0; i < m; ++ i)
 		total_cnt += cnt[i];
-	for(int i = 0; i < total_cnt; ++ i){
+	for(i = 0; i < total_cnt; ++ i){
 		nodes[i].m_index = i;
 		nodes[i].m_up = nodes[i].m_down
             = nodes[i].m_left = nodes[i].m_right = &nodes[i];
 	}
-	for(int i = 0; i < n; ++ i){
-		nodes[i].l_row = 0;
-		nodes[i].l_col = i;
+	for(i = 0; i < n; ++ i){
+		nodes[i].m_row = 0;
+		nodes[i].m_col = i;
 	}
 	head.m_left = &nodes[n - 1];
 	nodes[n - 1].m_right = &head;
 	//同一行(子集)的节点左右连接
 	int nodes_cnt = n;
-	for(int i = 0; i < m; ++ i){
-		for(int j = 1; j < cnt[i] - 1; ++ j){
+	for(i = 0; i < m; ++ i){
+		for(j = 1; j < cnt[i] - 1; ++ j){
 			nodes[nodes_cnt + j].m_left = &nodes[nodes_cnt + j - 1];
 			nodes[nodes_cnt + j].m_left->m_right = &nodes[nodes_cnt + j];
 			nodes[nodes_cnt + j].m_right = &nodes[nodes_cnt + j + 1];
 			nodes[nodes_cnt + j].m_right->m_left = &nodes[nodes_cnt + j];
-			nodes[nodes_cnt + j].l_row = i;
+			nodes[nodes_cnt + j].m_row = i;
 		}
 		nodes[nodes_cnt].m_left = &nodes[nodes_cnt + cnt[i] - 1];
 		nodes[nodes_cnt + cnt[i] - 1].m_right = &nodes[nodes_cnt];
@@ -117,8 +121,8 @@ void make_link(int n, int **sub, int m, int *cnt,
 	}
 	nodes_cnt = n;
 	//同一列(头节点)的节点上下连接
-	for(int i = 0; i < m; ++ i){
-		for(int j = 0; j < cnt[i]; ++ j){
+	for(i = 0; i < m; ++ i){
+		for(j = 0; j < cnt[i]; ++ j){
 			//找出下标为sub[i][j]的头节点的尾部
 			//连接子集sub[i]的对应成员
 			link_node *p = &nodes[sub[i][j]];
@@ -126,43 +130,17 @@ void make_link(int n, int **sub, int m, int *cnt,
 				p = p->m_down;
 			p->m_down = &nodes[nodes_cnt + j];
 			nodes[nodes_cnt + j].m_up = p;
-			nodes[nodes_cnt + j].l_col = sub[i][j];
+			nodes[nodes_cnt + j].m_col = sub[i][j];
 		}
 		nodes[sub[i][j]].m_up = &nodes[nodes_cnt + cnt[i] - 1];
 		nodes[nodes_cnt + cnt[i] - 1].m_down = &nodes[sub[i][j]];
 		nodes_cnt += cnt[i];
 	}
 }
-bool dance(int r, int n, link_node &head, link_node *nodes, int *choose)
-{
-	int u = head.m_left->m_index;
-	if(u == head.m_index){
-		return(true);
-	}
-	remove(u);
-	link_node *p1 = &nodes[u];
-	while(p1->m_down->m_index != u){
-		int tmp1 = p1->m_down->m_index;
-		choose[r] = nodes[tmp1].m_up->m_index;
-		link_node *p2 = &nodes[tmp1];
-		while(p2->m_right->m_index != tmp1){
-			int tmp2 = p2->m_right->m_index;
-			remove(nodes[tmp2].l_col);
-		}
-		if(dance(r + 1))
-			return(true);
-		p2 = &nodes[tmp1];
-		while(p2->m_left->m_index != tmp1){
-			int tmp2 = p2->m_left->m_index;
-			resume(nodes[tmp2].l_col);
-		}
-	}
-	resume(u);
-	return(false);
-}
 void remove(int u)
-{//删除节点u
-	nodes[u].m_right->m_left = nodes[u].l_left;
+{
+    //删除节点u
+	nodes[u].m_right->m_left = nodes[u].m_left;
 	nodes[u].m_left->m_right = nodes[u].m_right;
 	link_node *p1 = &nodes[u];
 	while(p1->m_down->m_index != u){
@@ -176,7 +154,8 @@ void remove(int u)
 	}
 }
 void resume(int u)
-{//恢复节点u
+{
+    //恢复节点u
 	nodes[u].m_right->m_left = &nodes[u];
 	nodes[u].m_left->m_right = &nodes[u];
 	link_node *p1 = &nodes[u];
@@ -190,11 +169,39 @@ void resume(int u)
 		}
 	}
 }
+bool dance(int r, int n, link_node &head, link_node nodes[MAX], int choose[MAX])
+{
+	int u = head.m_left->m_index;
+	if(u == head.m_index){
+		return(true);
+	}
+	remove(u);
+	link_node *p1 = &nodes[u];
+	while(p1->m_down->m_index != u){
+		int tmp1 = p1->m_down->m_index;
+		choose[r] = nodes[tmp1].m_up->m_index;
+		link_node *p2 = &nodes[tmp1];
+		while(p2->m_right->m_index != tmp1){
+			int tmp2 = p2->m_right->m_index;
+			remove(nodes[tmp2].m_col);
+		}
+		if(dance(r + 1))
+			return(true);
+		p2 = &nodes[tmp1];
+		while(p2->m_left->m_index != tmp1){
+			int tmp2 = p2->m_left->m_index;
+			resume(nodes[tmp2].m_col);
+		}
+	}
+	resume(u);
+	return(false);
+}
 
-bool dancing_links(int n, int **sub, int m, int *cnt, int *choose)
-{//集合s有n个成员从0到n-1，可选子集sub有m个从0到m-1
- //子集sub[i]包含cnt[i]个成员，sub[i][j]为包含的成员下标号
- //存在解决方案返回真，否则返回否，被选的子集在数组choose中标记1，未选为0
+bool dancing_links(int n, int sub[MAX][MAX], int m, int cnt[MAX], int choose[MAX])
+{
+    //集合s有n个成员从0到n-1，可选子集sub有m个从0到m-1
+    //子集sub[i]包含cnt[i]个成员，sub[i][j]为包含的成员下标号
+    //存在解决方案返回真，否则返回否，被选的子集在数组choose中标记1，未选为0
 	memset(choose, 0, MAX * sizeof(int));
 	//head为头节点，nodes数组为其余所有节点
 	//rows数组为行节点，cols数组为列节点
