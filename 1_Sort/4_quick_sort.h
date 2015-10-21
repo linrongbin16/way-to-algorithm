@@ -46,6 +46,7 @@ void quick_sort1(int s[MAX], int beg, int end)
 
 
 //2
+//TODO: 该算法有错误
 //设置哨兵为s[end] i初始设置为beg-1 指向第一个大于当前主元的位置
 //j从beg到end-1 每遇到一个比s[end]大的就交换i和j位置
 //最后i+1的位置便是s[end]应在的位置

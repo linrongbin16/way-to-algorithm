@@ -1,6 +1,7 @@
 #ifndef SORT_MERGE_H
 #define SORT_MERGE_H 1
 
+//TODO: 该算法有错误
 //归并排序
 //归并排序是建立在归并操作上的一种有效的排序算法
 //该算法是采用分治法(Divide and Conquer)的一个非常典型的应用
