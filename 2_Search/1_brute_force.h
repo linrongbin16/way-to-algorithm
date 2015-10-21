@@ -40,8 +40,7 @@
 #define MAX 60
 #endif
 #include <iostream>
-using std::cout;
-using std::endl;
+using namespace std;
 
 void brute_force_print(int s[MAX], int beg, int end)
 {
