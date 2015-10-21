@@ -43,12 +43,12 @@ void merge(int A[], int p, int q, int r)
     for (j; j<r-q; j++,k++)
         A[k] = A2[j];
 }
-void division(int A[],int l,int r)
+void merge_sort(int A[],int l,int r)
 {
     if(l==r)
         return;
-    division(A,l,(l+r)/2);
-    division(A,(l+r)/2+1,r);
+    merge_sort(A,l,(l+r)/2);
+    merge_sort(A,(l+r)/2+1,r);
     merge(A,l,(l+r)/2,r);
     return ;
 }

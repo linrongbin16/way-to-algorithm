@@ -25,7 +25,7 @@ int binary_search(int s[MAX], int beg, int end, int x, int &idx)
     int low = beg;
     int high = end - 1;
     int mid;
-    while(low <= high) {
+    while (low <= high) {
         mid = (low + high) / 2;
         if (s[mid] == x) {
             idx = mid;
