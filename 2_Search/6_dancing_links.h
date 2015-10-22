@@ -3,6 +3,7 @@
 //舞蹈链
 //dancing links
 
+//TODO: 该算法尚未完成
 //集合s有从0到n-1的n个成员 又有m个子集 每个子集包含集合s上的一些成员
 //比如子集{0 1 3}包含集合s的0 1 3三个成员
 //在m个子集中选择若干集合 使这些集合可以精确覆盖/重复覆盖集合s
@@ -38,7 +39,7 @@
 //	delete column j
 //repeat this recursively on this matrix
 //伪代码的意思大概是在深度搜索的框架下每次对一列进行如下操作
-//找出一行使得m[r c]=1 比如上面的集合s中m[s2 a]=1
+//找出一行使得m[r,c]=1 比如上面的集合s中m[s2,a]=1
 //则将子集s2加入选择的集合中 s2={a d g}中三个成员都已出现 删除这三列
 //并且将包含a d g三个成员的其他子集也删除 即s4 s5 s6
 //即选择了s2子集后 s4 s5 s6这三个子集不能再选否则一个成员会重复出现
@@ -46,7 +47,7 @@
 //   b  c  e  f
 //s1 0  1  1  1
 //s3 1  1  0  1
-//继续在b列中找出一行s3使得m[s3 b]=1 然后b c f出现 s1被删除
+//继续在b列中找出一行s3使得m[s3,b]=1 然后b c f出现 s1被删除
 //此时所有行(子集)都被使用或删除了 即矩阵为空 但是成员e仍然未出现
 //此时选择的子集集合{s2 s3}不符合精确覆盖
 //递归回上一层继续选择 即不选择s2而选择s4 直到得到一个精确覆盖
@@ -82,7 +83,7 @@ struct link_node
 };
 
 void make_link(int n, int sub[MAX][MAX], int m, int cnt[MAX],
-		link_node &head, link_node *nodes)
+		link_node &head, link_node nodes[MAX])
 {
 	//初始化矩阵 将节点中无效或表示边界的指针指向自己
 	//所有节点的上下左右四个方向指针指向自己 从而最终得到一个闭环的矩阵
@@ -92,14 +93,16 @@ void make_link(int n, int sub[MAX][MAX], int m, int cnt[MAX],
 	//总节点数量
 	int total_cnt = n;
     int i, j;
-	for(i = 0; i < m; ++ i)
+	for (i = 0; i < m; ++ i)
 		total_cnt += cnt[i];
-	for(i = 0; i < total_cnt; ++ i){
+	for (i = 0; i < total_cnt; ++ i) {
 		nodes[i].m_index = i;
-		nodes[i].m_up = nodes[i].m_down
-            = nodes[i].m_left = nodes[i].m_right = &nodes[i];
+		nodes[i].m_up = &nodes[i];
+        nodes[i].m_down = &nodes[i];
+        nodes[i].m_left = &nodes[i];
+        nodes[i].m_right = &nodes[i];
 	}
-	for(i = 0; i < n; ++ i){
+	for (i = 0; i < n; ++ i) {
 		nodes[i].m_row = 0;
 		nodes[i].m_col = i;
 	}
@@ -107,8 +110,8 @@ void make_link(int n, int sub[MAX][MAX], int m, int cnt[MAX],
 	nodes[n - 1].m_right = &head;
 	//同一行(子集)的节点左右连接
 	int nodes_cnt = n;
-	for(i = 0; i < m; ++ i){
-		for(j = 1; j < cnt[i] - 1; ++ j){
+	for (i = 0; i < m; ++ i) {
+		for (j = 1; j < cnt[i] - 1; ++ j) {
 			nodes[nodes_cnt + j].m_left = &nodes[nodes_cnt + j - 1];
 			nodes[nodes_cnt + j].m_left->m_right = &nodes[nodes_cnt + j];
 			nodes[nodes_cnt + j].m_right = &nodes[nodes_cnt + j + 1];
@@ -121,8 +124,8 @@ void make_link(int n, int sub[MAX][MAX], int m, int cnt[MAX],
 	}
 	nodes_cnt = n;
 	//同一列(头节点)的节点上下连接
-	for(i = 0; i < m; ++ i){
-		for(j = 0; j < cnt[i]; ++ j){
+	for (i = 0; i < m; ++ i) {
+		for (j = 0; j < cnt[i]; ++ j) {
 			//找出下标为sub[i][j]的头节点的尾部
 			//连接子集sub[i]的对应成员
 			link_node *p = &nodes[sub[i][j]];
@@ -137,32 +140,32 @@ void make_link(int n, int sub[MAX][MAX], int m, int cnt[MAX],
 		nodes_cnt += cnt[i];
 	}
 }
-void remove(int u)
+void remove_node(int u, link_node nodes[MAX])
 {
     //删除节点u
 	nodes[u].m_right->m_left = nodes[u].m_left;
 	nodes[u].m_left->m_right = nodes[u].m_right;
 	link_node *p1 = &nodes[u];
-	while(p1->m_down->m_index != u){
+	while (p1->m_down->m_index != u) {
 		int tmp1 = p1->m_down->m_index;
 		link_node *p2 = &nodes[tmp1];
-		while(p2->m_right->m_index != tmp1){
+		while (p2->m_right->m_index != tmp1) {
 			int tmp2 = p2->m_right->m_index;
 			nodes[tmp2].m_down->m_up = nodes[tmp2].m_up;
 			nodes[tmp2].m_up->m_down = nodes[tmp2].m_down;
 		}
 	}
 }
-void resume(int u)
+void resume_node(int u, link_node nodes[MAX])
 {
     //恢复节点u
 	nodes[u].m_right->m_left = &nodes[u];
 	nodes[u].m_left->m_right = &nodes[u];
 	link_node *p1 = &nodes[u];
-	while(p1->m_up->m_index != u){
+	while (p1->m_up->m_index != u) {
 		int tmp1 = p1->m_up->m_index;
 		link_node *p2 = &nodes[tmp1];
-		while(p2->m_right->m_index != tmp1){
+		while (p2->m_right->m_index != tmp1) {
 			int tmp2 = p2->m_right->m_index;
 			nodes[tmp2].m_down->m_up = &nodes[tmp2];
 			nodes[tmp2].m_up->m_down = &nodes[tmp2];
@@ -172,29 +175,28 @@ void resume(int u)
 bool dance(int r, int n, link_node &head, link_node nodes[MAX], int choose[MAX])
 {
 	int u = head.m_left->m_index;
-	if(u == head.m_index){
-		return(true);
-	}
-	remove(u);
+	if (u == head.m_index)
+        return true;
+	remove_node(u, nodes);
 	link_node *p1 = &nodes[u];
-	while(p1->m_down->m_index != u){
+	while (p1->m_down->m_index != u) {
 		int tmp1 = p1->m_down->m_index;
 		choose[r] = nodes[tmp1].m_up->m_index;
 		link_node *p2 = &nodes[tmp1];
-		while(p2->m_right->m_index != tmp1){
+		while (p2->m_right->m_index != tmp1) {
 			int tmp2 = p2->m_right->m_index;
-			remove(nodes[tmp2].m_col);
+			remove_node(nodes[tmp2].m_col, nodes);
 		}
-		if(dance(r + 1))
-			return(true);
+		if (dance(r + 1, n, head, nodes, choose))
+            return true;
 		p2 = &nodes[tmp1];
-		while(p2->m_left->m_index != tmp1){
+		while (p2->m_left->m_index != tmp1) {
 			int tmp2 = p2->m_left->m_index;
-			resume(nodes[tmp2].m_col);
+			resume_node(nodes[tmp2].m_col, nodes);
 		}
 	}
-	resume(u);
-	return(false);
+	resume_node(u, nodes);
+	return false;
 }
 
 bool dancing_links(int n, int sub[MAX][MAX], int m, int cnt[MAX], int choose[MAX])
@@ -207,7 +209,7 @@ bool dancing_links(int n, int sub[MAX][MAX], int m, int cnt[MAX], int choose[MAX
 	//rows数组为行节点，cols数组为列节点
 	link_node head, nodes[MAX];
 	make_link(n, sub, m, cnt, head, nodes);
-	return(dance(0, head, n, choose));
+	return(dance(0, n, head, nodes, choose));
 }
 
 #endif

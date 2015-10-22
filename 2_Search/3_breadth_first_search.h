@@ -17,12 +17,9 @@
 #include <iostream>
 #include <deque>
 #include <cstring>
-using std::cout;
-using std::endl;
-using std::pair;
-using std::deque;
+using namespace std;
 
-void breadth_first_search_print(pair<int, int> p)
+void breadth_print(pair<int, int> p)
 {
 	cout << "(row:" << p.first << ",column:" << p.second << ")" << endl;
 }
@@ -43,28 +40,28 @@ void breadth_first_search(int m, int n, pair<int, int> beg)
 	//而在后面的双向广度搜索和启发式搜索中会体现出来 所以请记住这个细节
 	q.push_back(beg);
 	visited[beg_row][beg_col] = 1;
-	while(!q.empty()){
+	while (!q.empty()) {
 		pair<int, int> p = q.front();
 		q.pop_front();
 		int p_row = p.first;
 		int p_col = p.second;
 
-		breadth_first_search_print(p);
+		breadth_print(p);
 		//对p点四个方向的邻节点进行考虑
 		//还需判断矩阵越界
-		if(p_row - 1 >= 0 && !visited[p_row - 1][p_col]){
+		if ( p_row - 1 >= 0 && !visited[p_row - 1][p_col] ) {
 			q.push_back(pair<int, int>(p_row - 1, p_col));
 			visited[p_row - 1][p_col] = 1;
 		}
-		if(p_row + 1 < m && !visited[p_row + 1][p_col]){
+		if ( p_row + 1 < m && !visited[p_row + 1][p_col] ) {
 			q.push_back(pair<int, int>(p_row + 1, p_col));
 			visited[p_row + 1][p_col] = 1;
 		}
-		if(p_col - 1 >= 0 && !visited[p_row][p_col - 1]){
+		if ( p_col - 1 >= 0 && !visited[p_row][p_col - 1] ) {
 			q.push_back(pair<int, int>(p_row, p_col - 1));
 			visited[p_row][p_col - 1] = 1; 
 		}
-		if(p_col + 1 < n && !visited[p_row][p_col + 1]){
+		if ( p_col + 1 < n && !visited[p_row][p_col + 1] ) {
 			q.push_back(pair<int, int>(p_row, p_col + 1));
 			visited[p_row][p_col + 1] = 1;
 		}

@@ -22,10 +22,9 @@
 #define MAX 60
 #endif
 #include <iostream>
-using std::cout;
-using std::endl;
+using namespace std;
 
-void depth_first_print(int s[MAX], int beg, int end)
+void depth_print(int s[MAX], int beg, int end)
 {
     for (int i = beg; i < end; ++i)
         cout << s[i] << " ";
@@ -41,7 +40,7 @@ void depth_first_search(int s[MAX], int n, int m, int prev/*default=0*/)
 	if(prev == n){
 		//从0到n-1的每个成员都做出了选择 组成一个排列组合
 		//输出当前排列组合 结束递归返回上层
-		depth_first_print(s, 0, n);
+		depth_print(s, 0, n);
 		//在多数题目中还需要对结果进行剪枝
         //即去除明显已经不需要继续递归搜索的情况
 		return;

@@ -42,7 +42,7 @@
 #include <iostream>
 using namespace std;
 
-void brute_force_print(int s[MAX], int beg, int end)
+void brute_print(int s[MAX], int beg, int end)
 {
     //[beg, end)是左闭右开区间 序列s下标从beg到end-1
 	for (int i = beg; i < end; ++i)
@@ -66,7 +66,7 @@ void brute_force(int s[MAX], int n, int m)
 						s[n - 1] = in_1;
 
 						//将这次选择加入答案集
-						brute_force_print(s, 0, n);
+						brute_print(s, 0, n);
 					}
 }
 
