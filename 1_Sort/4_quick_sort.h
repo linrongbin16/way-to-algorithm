@@ -5,11 +5,11 @@
 
 //用快速排序算法将未序序列s从小到大排序
 
-#include <algorithm>
-using std::swap;
 #ifndef MAX
 #define MAX 60
 #endif
+#include <algorithm>
+using namespace std;
 
 //1
 //将s[beg]设为哨兵元素
@@ -66,6 +66,7 @@ int partition2(int s[MAX], int beg, int end)
 }
 void quick_sort2(int s[MAX], int beg, int end)
 {
+    //[beg, end]为左闭右闭区间
     if (beg < end) {
 		int mid = partition2(s, beg, end);
 		quick_sort2(s, beg, mid-1);
