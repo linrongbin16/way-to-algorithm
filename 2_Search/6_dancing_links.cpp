@@ -44,9 +44,6 @@ int main()
 		cout << choose[i] << ' ';
 	cout << endl;
 
-
-	char a;
-	cin >> a;
 	return(0);
 }
 
