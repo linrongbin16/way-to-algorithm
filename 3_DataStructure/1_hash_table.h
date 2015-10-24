@@ -10,7 +10,6 @@
 //精心设计的哈希表效率非常高
 //几乎所有数据结构在查询与插入一个元素时都要与已存储的元素进行至少O(lgN)次比较
 //而哈希表通过设置哈希函数直接跳过这个步骤将操作效率减小至O(1)
-//C++中将哈希表实作为hash_map容器
 //
 //哈希函数
 //从值value到键key的映射函数key=hash(value)
@@ -24,28 +23,22 @@
 //为了方便本章所有数据结构的实现中均不处理异常
 
 
-#include <iostream>
-using std::cout;
-using std::endl;
 #ifndef MAX
 #define MAX 60
 #endif
+#include <iostream>
+using namespace std;
+
 
 //1)素数取模哈希
 struct prime_hash_node
 {
-	int             m_value;
-	prime_hash_node *m_next;
-
-	prime_hash_node()
-	{
-		m_value = 0;
-		m_next = 0;
-	}
+	int                 m_value;
+	prime_hash_node     *m_next;
 };
 struct prime_hash_table
 {
-	prime_hash_node m_table[MAX];
+	prime_hash_node     m_table[MAX];
 	int m_seed;
 };
 
@@ -72,6 +65,7 @@ void prime_hash_insert(prime_hash_table *table, int value)
 	//直接将该点链入最末位置
 	p->m_next = new prime_hash_node();
 	p->m_next->m_value = value;
+    p->m_next->m_next = 0;
 }
 prime_hash_node* prime_hash_find(prime_hash_table *table, int value)
 {
