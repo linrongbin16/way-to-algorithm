@@ -3,7 +3,6 @@
 //舞蹈链
 //dancing links
 
-//TODO: 该算法尚未完成
 //集合s有从0到n-1的n个成员 又有m个子集 每个子集包含集合s上的一些成员
 //比如子集{0 1 3}包含集合s的0 1 3三个成员
 //在m个子集中选择若干集合 使这些集合可以精确覆盖/重复覆盖集合s
@@ -57,10 +56,9 @@
 //在递归的过程中使用链表这种数据结构来进行删除和添加的操作十分适合X算法
 //舞蹈链算法就是这种使用双向十字链表数据结构实现X算法的
 //我们这里为了方便使用数组下标作为链表节点的指针
-//集合s中每个成员都是一个头节点 每个头节点的邻节点则是矩阵中的1
+//集合s中每个成员都是一个头节点
+//而将之前的矩阵作为双向十字链表中的每个节点
 //每个节点有上下左右四个指针
-//最终将矩阵中为1的元素作为节点 并把第一行的a b c...作为链表的头节点
-//并且在第一行之前还需要一个头节点作为判断矩阵是否为空
 //上下左右四个方向连接成一个十字链表
 //
 //本文引用了"dancing links详解" 作者"sunny606"
@@ -150,7 +148,7 @@ void make_link(int n, int sub[MAX][MAX], int m, int cnt[MAX])
 			up_node[nodes_cnt + j] = p;
 			down_node[nodes_cnt + j] = sub[i][j];
 			up_node[ sub[i][j] ] = nodes_cnt + j;
-			column[nodes_cnt + j] = p;
+			column[nodes_cnt + j] = sub[i][j];
 		}
 		nodes_cnt += cnt[i];
 	}
@@ -162,8 +160,8 @@ void remove_node(int u)
 	right_node[ left_node[u] ] = right_node[u];
 
 	//将节点u所在一列的所有行都remove掉
-	for (int p1 = down_node[u]; down_node[p1] != u; p1 = down_node[p1]) {
-		for (int p2 = right_node[p1]; right_node[p2] != p1; p2 = right_node[p2]) {
+	for (int p1 = down_node[u]; p1 != u; p1 = down_node[p1]) {
+		for (int p2 = right_node[p1]; p2 != p1; p2 = right_node[p2]) {
 			up_node[ down_node[p2] ] = up_node[p2];
 			down_node[ up_node[p2] ] = down_node[p2];
 		}
@@ -176,10 +174,10 @@ void resume_node(int u)
 	right_node[ left_node[u] ] = u;
 
 	//将节点u所在的同一行都恢复
-	for (int p1 = up_node[u]; up_node[p1] != u; p1 = up_node[p1]) {
-		for (int p2 = right_node[p1]; right_node[p2] != p1; p2 = right_node[p2]) {
-			up_node[down_node[p2]] = p2;
-			down_node[up_node[p2]] = p2;
+	for (int p1 = up_node[u]; p1 != u; p1 = up_node[p1]) {
+		for (int p2 = right_node[p1]; p2 != p1; p2 = right_node[p2]) {
+			up_node[ down_node[p2] ] = p2;
+			down_node[ up_node[p2] ] = p2;
 		}
 	}
 }
@@ -197,20 +195,18 @@ bool dance(int r, int choose[MAX])
 	//则remove该节点u
 	remove_node(u);
 
-	for (int p1 = down_node[u]; down_node[p1] != u; p1 = down_node[p1]) {
+	for (int p1 = down_node[u]; p1 != u; p1 = down_node[p1]) {
 		choose[r] = row[p1];
 		//remove掉节点u后 对于和u在同一列的所有节点
 		//也都remove掉包括这些节点的子集
-		for (int p2 = right_node[p1]; right_node[p2] != p1; p2 = right_node[p2]) {
-			remove_node(column[p2]);
-		}
+		for (int p2 = right_node[p1]; p2 != p1; p2 = right_node[p2])
+			remove_node( column[p2] );
 
 		if (dance(r + 1, choose))
 			return true;
 
-		for (int p2 = left_node[p1]; left_node[p2] != p1; p2 = left_node[p2]) {
-			resume_node(column[p2]);
-		}
+		for (int p2 = left_node[p1]; p2 != p1; p2 = left_node[p2])
+			resume_node( column[p2] );
 	}
 
 	resume_node(u);
@@ -224,7 +220,7 @@ bool dancing_links(int n, int sub[MAX][MAX], int m, int cnt[MAX], int choose[MAX
 	//存在解决方案返回真，否则返回否，被选的子集在数组choose中标记1，未选为0
 	memset(choose, 0, MAX * sizeof(int));
 	make_link(n, sub, m, cnt);
-	return(dance(0, choose));
+	return(dance(1, choose));
 }
 
 #endif
