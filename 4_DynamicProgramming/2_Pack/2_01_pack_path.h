@@ -18,15 +18,19 @@
 //通过这个数组来获得最终某件物品是否被选中
 
 
-#include <cstring>
-#include "1_01_pack.h"
+#ifndef MAX
+#define MAX 60
+#endif
 #ifndef VALUE_MAX
 #define VALUE_MAX 500
 #endif
+#include <cstring>
+#include "1_01_pack.h"
 
-int _01_pack_path(_01_pack_object *t, int n, int w, bool *choose)
-{//物品序列t的数量为n 下标从1到n 空出0位置 背包承重为w
- //返回背包能装载的最大价值以及物品被选的结果 存储在choose数组
+int _01_pack_path(_01_pack_object t[MAX], int n, int w, bool choose[MAX])
+{
+    //物品序列t的数量为n 范围是[1,n] 空出0位置 背包承重为w
+    //返回背包能装载的最大价值以及物品被选的结果 存储在choose数组
 	int f[OBJECT_MAX + 1][WEIGHT_MAX + 1];
 	//VALUE_MAX是所有物品的价值总和最大值
 	bool path[OBJECT_MAX + 1][WEIGHT_MAX + 1][VALUE_MAX + 1];
@@ -34,18 +38,18 @@ int _01_pack_path(_01_pack_object *t, int n, int w, bool *choose)
 		f[0][i] = 0;
 	for (int i = 1; i <= n; ++i)
 		for (int j = 0; j <= w; ++j) {
-			int object_cnt = (j / t[i].m_weight) ? 1 : 0;
-			int oldf = f[i - 1][j];
-			int newf = f[i - 1][j - object_cnt * t[i].m_weight] + object_cnt * t[i].m_value;
+			int object_cnt = (j/t[i].m_weight) ? 1 : 0;
+			int oldf = f[i-1][j];
+			int newf = f[i-1][ j-object_cnt*t[i].m_weight ] + object_cnt*t[i].m_value;
 			//对f数组的操作与前一篇中相同
 			//但增加了path数组的判断
-			if(oldf >= newf){
+			if (oldf >= newf) {
 				//只有当出现更高价值的选择时才更新
 				f[i][j] = oldf;
 				//没有选择第i件物品 重量为j 价值为oldf
 				path[i][j][oldf] = false;
 			}
-			else{
+            else {
 				f[i][j] = newf;
 				//选择了第i件物品 重量为j 价值为newf
 				path[i][j][newf] = true;
@@ -54,12 +58,13 @@ int _01_pack_path(_01_pack_object *t, int n, int w, bool *choose)
 	//通过path求出动规路径
     for (int i = 0; i < OBJECT_MAX + 1; ++i)
         choose[i] = false;
-	int value = f[n][w], weight = w;
+	int value = f[n][w];
+    int weight = w;
 	for (int i = n; i >= 1; --i) {
 		//若第i件物品被选中 重量不大于weight 价值为value
 		//则置choose[i]为true 由于最终动规的最大价值为f[n][w]
 		//因此将weight置为w value置为f[n][w] 从最后一个物品n开始倒着向前
-		if(path[i][weight][value]){
+		if ( path[i][weight][value] ) {
 			choose[i] = true;
 			//总重量和总价值都减去第i件物品
 			weight -= t[i].m_weight;
@@ -67,7 +72,7 @@ int _01_pack_path(_01_pack_object *t, int n, int w, bool *choose)
 		}
 	}
 	//第n个物品 第w的重量时的最大价值即为所求
-	return(f[n][w]);
+	return f[n][w];
 }
 
 

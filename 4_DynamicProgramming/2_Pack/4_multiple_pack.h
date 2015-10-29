@@ -14,12 +14,13 @@
 //初始条件与完全背包一样: f[i][j]为0 其中0<=i<=n 0<=j<=w
 
 
-#include <algorithm>
-using std::min;
 #include "1_01_pack.h"
+#include <algorithm>
+using namespace std;
 
 int multiple_pack(_01_pack_object *t, int n, int w) 
-{//物品序列t的数量为n 下标从0到n 空出0位置 背包承重为w
+{
+    //物品序列t的数量为n 范围是[0,n] 空出0位置 背包承重为w
 	int f[OBJECT_MAX + 1][WEIGHT_MAX + 1];
 	for (int i = 0; i <= n; ++i)
 		for (int j = 0; j <= w; ++j)
@@ -28,8 +29,8 @@ int multiple_pack(_01_pack_object *t, int n, int w)
 		for (int j = 0; j <= w; ++j) {
 			int object_cnt = min((j / t[i].m_weight), t[i].m_count);
 			for (int k = 0; k <= object_cnt; ++k)
-				f[i][j] = max(f[i][j],
-					f[i - 1][j - k * t[i].m_weight] + k * t[i].m_value);
+				f[i][j] = max( f[i][j],
+					f[i-1][ j-k*t[i].m_weight ] + k * t[i].m_value);
 		}
 	return(f[n][w]);
 }

@@ -16,14 +16,18 @@
 //由此我们也可以联想到多维背包是使用了更多维度的数组f
 
 
-#include <algorithm>
-using std::swap;
+#ifndef MAX
+#define MAX 60
+#endif
 #ifndef OBJECT_MAX
 #define OBJECT_MAX 100	//物品最大数量
 #endif
 #ifndef WEIGHT_MAX
 #define WEIGHT_MAX 100	//物品最大重量(费用)
 #endif
+#include <algorithm>
+using namespace std;
+
 struct two_dimension_pack_object
 {
 	int m_value;
@@ -38,25 +42,11 @@ struct two_dimension_pack_object
 		m_count = 0;
 		m_weight2 = 0;
 	}
-	two_dimension_pack_object(const two_dimension_pack_object& obj)
-	{
-		m_value = obj.m_value;
-		m_weight = obj.m_weight;
-		m_count = obj.m_count;
-		m_weight2 = obj.m_weight2;
-	}
-	two_dimension_pack_object& operator=(const two_dimension_pack_object& obj)
-	{
-		m_value = obj.m_value;
-		m_weight = obj.m_weight;
-		m_count = obj.m_count;
-		m_weight2 = obj.m_weight2;
-		return(*this);
-	}
 };
 
-int two_dimension_pack(two_dimension_pack_object *t, int n, int w1, int w2) 
-{//物品序列t的数量为n 下标从1到n 空出0位置 背包承重1为w1 承重2为w2
+int two_dimension_pack(two_dimension_pack_object t[MAX], int n, int w1, int w2) 
+{
+    //物品序列t的数量为n 下标从1到n 空出0位置 背包承重1为w1 承重2为w2
 	int f[OBJECT_MAX + 1][WEIGHT_MAX + 1][WEIGHT_MAX + 1];
 	for (int i = 0; i <= w1; ++i)
 		for (int j = 0; j <= w2; ++j)
@@ -65,10 +55,10 @@ int two_dimension_pack(two_dimension_pack_object *t, int n, int w1, int w2)
 		for (int j = 0; j <= w1; ++j)
 			for (int k = 0; k <= w2; ++k) {
 				int object_cnt = ((j / t[i].m_weight) && (k / t[i].m_weight2)) ? 1 : 0;
-				f[i][j][k] = max(f[i - 1][j][k],
-						f[i - 1][j - object_cnt * t[i].m_weight][k - object_cnt * t[i].m_weight2] + object_cnt * t[i].m_value);
+				f[i][j][k] = max( f[i - 1][j][k],
+						f[ i-1 ][ j-object_cnt*t[i].m_weight ][ k-object_cnt*t[i].m_weight2 ] + object_cnt*t[i].m_value );
             }
-	return(f[n][w1][w2]);
+	return f[n][w1][w2];
 }
 
 #endif

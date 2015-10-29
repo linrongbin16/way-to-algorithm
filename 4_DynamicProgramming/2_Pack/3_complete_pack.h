@@ -18,19 +18,20 @@
 #include "1_01_pack.h"
 
 int complete_pack(_01_pack_object *t, int n, int w) 
-{//物品序列t的数量为n 下标从1到n 空出0位置 背包承重为w
+{
+    //物品序列t的数量为n 下标从1到n 空出0位置 背包承重为w
 	int f[OBJECT_MAX + 1][WEIGHT_MAX + 1];
 	for (int i = 0; i <= n; ++i)
 		for (int j = 0; j <= w; ++j)
 			f[i][j] = 0;
 	for (int i = 1; i <= n; ++i)
-		for (int j = 0; j <= w; ++j){
+		for (int j = 0; j <= w; ++j) {
 			int object_cnt = j / t[i].m_weight;
 			for (int k = 0; k <= object_cnt; ++k)
                 f[i][j] = max(f[i][j],
-					f[i - 1][j - k * t[i].m_weight] + k * t[i].m_value);
+					f[ i-1 ][ j-k*t[i].m_weight ] + k * t[i].m_value);
 		}
-	return(f[n][w]);
+	return f[n][w];
 }
 
 #endif
