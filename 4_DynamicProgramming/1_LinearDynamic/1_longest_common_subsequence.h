@@ -7,7 +7,7 @@
 //子序列中相邻的两个成员在原序列中可以是不相邻的 但在原序列中的相对顺序不变
 
 //子序列中相邻的两个成员在原序列中可以是不相邻的 但在原序列中的相对顺序不变
-//这意味着可以出现这样的情况，对于序列s1(1 2 3 4 5)和s2(1 4 0 7 8)
+//这意味着可以出现这样的情况 对于序列s1(1 2 3 4 5)和s2(1 4 0 7 8)
 //它们的最长公共子序列是(1 4) 其中成员1和4在原序列s1中不相邻 但相对顺序不变
 //
 //设置f[i][j]表示s1中前i个元素 s2中前j个元素的最长公共子列长度
@@ -24,15 +24,16 @@
 //这是为了给状态转移方程中的初始状态留出一个位置 请留意这个细节
 //本章的所有算法都会这样处理数组 以后不再特别说明
 
-#include <algorithm>
-using std::max;
 #ifndef MAX
 #define MAX 60
 #endif
+#include <algorithm>
+using namespace std;
 
-int longest_common_subsequence(int s1[MAX], int *s2, int n)
-{//序列s1和s2的长度都为n+1 下标从1到n 空出0位置
- //返回s1和s2的最长公共子序列的长度
+int longest_common_subsequence(int s1[MAX], int s2[MAX], int n)
+{
+    //序列s1和s2的长度都为n+1 范围是[1,n] 空出0位置
+    //返回s1和s2的最长公共子序列的长度
 	int f[MAX + 1][MAX + 1];
 	for (int i = 0; i <= n; ++i) {
 		f[0][i] = 0;
@@ -43,9 +44,9 @@ int longest_common_subsequence(int s1[MAX], int *s2, int n)
 			if (s1[i] == s2[j])
 				f[i][j] = f[i - 1][j - 1] + 1;
 			else
-				f[i][j] = max(f[i][j - 1], f[i - 1][j]);
+				f[i][j] = max( f[i][j - 1], f[i - 1][j] );
 		}
-	return(f[n][n]);
+	return f[n][n];
 }
 
 #endif

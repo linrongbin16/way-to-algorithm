@@ -3,6 +3,7 @@
 //最长递增子序列扩展
 //longest increasing subsequence extension
 
+//TODO: 该算法有错误
 //对最长递增子序列的扩展问题
 //1)求出序列s中的最长递增子序列长度
 //2)求出这样的最长序列有多少个
@@ -40,25 +41,25 @@
 //全部加起来才是最长子列的个数
 
 
-#include <algorithm>
-using std::max;
 #ifndef MAX
 #define MAX 60
 #endif
+#include <algorithm>
+using namespace std;
 
 int longest_increasing_subsequence_extension(int s[MAX], int n, int& m)
 {
-    //序列s长为n+1 下标从1到n 空出0位置
+    //序列s长为n+1 范围是[1,n] 空出0位置
     //返回序列s的最长子列的长度 和这样的子列的个数m
 	int f[MAX + 1], c[MAX + 1];
-	for(int i = 1; i <= n; ++i)
+	for (int i = 1; i <= n; ++i)
 		f[i] = 1, c[i] = 1;
-	for(int i = 2; i <= n; ++i)
+	for (int i = 2; i <= n; ++i)
 		//对于每个i元素 考虑前面的所有元素j
-		for(int j = 1; j < i; ++j)
-			if(s[j] < s[i]){
+		for (int j = 1; j < i; ++j)
+			if (s[j] < s[i]) {
 				//当s[j]<s[i]时 j与i两元素可以组成一个递增子列
-				if(f[j] + 1 > f[i]){
+				if (f[j] + 1 > f[i]) {
 					//若f[j]>=f[i]
 					//新组成的子列长度会是i元素之前最长的
 					//c[i]更新为c[j]
@@ -66,17 +67,17 @@ int longest_increasing_subsequence_extension(int s[MAX], int n, int& m)
 					f[i] = f[j] + 1;
 					c[i] = c[j];
 				}
-				else if(f[j] + 1 == f[i])
+				else if (f[j] + 1 == f[i])
 					//若f[j]比f[i]小1
 					//前面已有新组成的子列的长度
 					c[i] += c[j];
 			}
 	int cnt(0);
-	for(int i = 0; i <= n; ++i)
-		if(f[i] == f[n])
+	for (int i = 0; i <= n; ++i)
+		if (f[i] == f[n])
 			cnt += c[i];
 	m = cnt;
-	return(f[n]);
+	return f[n];
 }
 
 

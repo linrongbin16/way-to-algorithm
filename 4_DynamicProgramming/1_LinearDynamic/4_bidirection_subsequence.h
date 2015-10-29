@@ -3,6 +3,7 @@
 //双向子序列
 //bidirection subsequence
 
+//TODO: 该算法有错误
 //考虑一个序列s和其中某一个元素p
 //从s的起点(左端点)到p存在一个最长递增子序列s1
 //从p到s的终点(右端点)存在一个最长递减子序列s2
@@ -12,11 +13,11 @@
 //然后找出最长的那个即可
 
 
-#include <algorithm>
-using std::max;
 #ifndef MAX
 #define MAX 60
 #endif
+#include <algorithm>
+using namespace std;
 
 int longest_increasing_subsequence(int s[MAX], int beg, int end)
 {
