@@ -45,7 +45,7 @@ void test1()
 	t[50].m_leftchild = &t[55]; t[50].m_rightchild = &t[56];
 	t[53].m_leftchild = &t[57]; t[53].m_rightchild = &t[58];
 
-	cout << endl << "binary dynamic 1: ";
+	cout << endl << "binary tree dynamic 1: ";
 	cout << binary_tree1(&t[44], 5) <<  endl;	//1
 
 }
@@ -84,7 +84,7 @@ void test2()
 
 	int f2[MAX][MAX];
 	init_2f(f2);
-	cout << endl << "binary dynamic 2: ";
+	cout << endl << "binary tree dynamic 2: ";
 	cout << binary_tree2(&t[44], f2, 5) << endl;	//2
 
 }
