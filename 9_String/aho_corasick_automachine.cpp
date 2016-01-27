@@ -587,8 +587,8 @@ int main(int argc,char* argv[])
     wwwwwdlfk;ewlfkdssf'welfkd;fkasdl;wkfdsald;wgkfdsjgfdsafkja;kfd;wfela;kfew;lfk;ewfk;leakf'safe'kwpfkdlfkdsa;'\
     d;flrekfas;dlfke;l;kwalksdkjgfldsajgas.dfefmdscmdlew;l;wafkma/elke/a;elkfelfas.mfdsvmdlkmclkadal;";
     
-    //char needle[][255]= {"he","rekfas;dl", "程阳","hers","kwnewplankdsa"};/*failure*/
-    //char needle[][255]= {"he","wwwwwwwwwwww", "程阳","mfdsv"};/*success*/
+    //char needle[][255]= {"he","rekfas;dl", "出差","hers","kwnewplankdsa"};/*failure*/
+    //char needle[][255]= {"he","wwwwwwwwwwww", "出差","mfdsv"};/*success*/
     char needle[][255]= {"la;kf","fk;ewfk;le","kfas;dl;k","eakf'safe'k","文盲","rekfas;dlf","俄文","英文","fdsald;wgk","he","中文","wwwwwwwwwwww","法文","afkja;kfd;wfe", "ela;kfew;lf","newplanewcy","mfdsv","newccyy","ATATATA","TATAT", "ACGATAT"};/*failure*/
 	//char needle[][255] = { "ATATATA","TATAT", "ACGATAT"};
 	//char needle[][255] = { "announce","annual", "annually" };
