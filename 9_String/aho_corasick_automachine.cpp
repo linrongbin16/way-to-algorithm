@@ -22,7 +22,7 @@ typedef struct node
     struct node 		*failure_node;    	/* The failure node of this node */
 
     short int 			final;         		/* 0: no ; 1: yes, it is a final node */
-    int 				patternNo;     		/*Accept pattern index: just for debugging purpose */
+    int 			patternNo;     		/*Accept pattern index: just for debugging purpose */
 
     /* Outgoing Edges */
     struct ac_edge		*outgoing_edge;		/* Array of outgoing character edges */
