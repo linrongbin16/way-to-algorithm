@@ -110,92 +110,94 @@ using namespace std;
 
 struct hs_node
 {
-	string m_status;	//9 chars
-	int m_h;
-	int m_g;
-	hs_node *m_father_node;
+    string m_status;	//9 chars
+    int m_h;
+    int m_g;
+    hs_node *m_father_node;
 
-	bool operator==(const hs_node& node)
-	{
-		return(m_status == node.m_status && m_h == node.m_h
-				&& m_g == node.m_g && m_father_node == node.m_father_node);
-	}
+    bool operator==(const hs_node& node)
+    {
+        return(m_status == node.m_status && m_h == node.m_h
+               && m_g == node.m_g && m_father_node == node.m_father_node);
+    }
 };
 
 bool heuristic_compare(hs_node a, hs_node b)
 {
-	return(a.m_g + a.m_h < b.m_g + b.m_h);
+    return(a.m_g + a.m_h < b.m_g + b.m_h);
 }
 int x_position(hs_node a, char x)
 {
-	int index;
-	for(index = 0; index < 9; ++index)
-		if(a.m_status[index] == x)
-			break;
-	return(index);
+    int index;
+    for(index = 0; index < 9; ++index)
+        if(a.m_status[index] == x)
+            break;
+    return(index);
 }
 void left_swap(hs_node& a, int pos)
 {
-	swap(a.m_status[pos - 1], a.m_status[pos]);
+    swap(a.m_status[pos - 1], a.m_status[pos]);
 }
 void right_swap(hs_node& a, int pos)
 {
-	swap(a.m_status[pos + 1], a.m_status[pos]);
+    swap(a.m_status[pos + 1], a.m_status[pos]);
 }
 void up_swap(hs_node& a, int pos)
 {
-	swap(a.m_status[pos - 3], a.m_status[pos]);
+    swap(a.m_status[pos - 3], a.m_status[pos]);
 }
 void down_swap(hs_node& a, int pos)
 {
-	swap(a.m_status[pos + 3], a.m_status[pos]);
+    swap(a.m_status[pos + 3], a.m_status[pos]);
 }
 bool left_bound(int pos)
 {
-	return(pos == 0 || pos == 3 || pos == 6);
+    return(pos == 0 || pos == 3 || pos == 6);
 }
 bool right_bound(int pos)
 {
-	return(pos == 2 || pos == 5 || pos == 8);
+    return(pos == 2 || pos == 5 || pos == 8);
 }
 bool up_bound(int pos)
 {
-	return(pos == 0 || pos == 1 || pos == 2);
+    return(pos == 0 || pos == 1 || pos == 2);
 }
 bool down_bound(int pos)
 {
-	return(pos == 6 || pos == 7 || pos == 8);
+    return(pos == 6 || pos == 7 || pos == 8);
 }
 int heuristic_difference(hs_node a, hs_node b)
 {
-	int diff = 0;
-	for(int i = 0; i < 9; ++i)
-		if(a.m_status[i] != b.m_status[i])
-			++diff;
-	return diff;
+    int diff = 0;
+    for(int i = 0; i < 9; ++i)
+        if(a.m_status[i] != b.m_status[i])
+            ++diff;
+    return diff;
 }
 deque<hs_node>::iterator heuristic_minimum(deque<hs_node>& q, hs_node b)
 {
-	deque<hs_node>::iterator res;
-	int minf = INF;
-	for (deque<hs_node>::iterator i = q.begin(); i != q.end(); ++i) {
-		int h = 0;
-		//从q队列中选取差异最小的状态进行下一次搜索
-		for (int j = 0; j < 9; ++j)
-			if (i->m_status[j] != b.m_status[j])
-				++h;
-		if (minf > h + i->m_g) {
-			minf = h + i->m_g;
-            res = i; 
+    deque<hs_node>::iterator res;
+    int minf = INF;
+    for (deque<hs_node>::iterator i = q.begin(); i != q.end(); ++i)
+    {
+        int h = 0;
+        //从q队列中选取差异最小的状态进行下一次搜索
+        for (int j = 0; j < 9; ++j)
+            if (i->m_status[j] != b.m_status[j])
+                ++h;
+        if (minf > h + i->m_g)
+        {
+            minf = h + i->m_g;
+            res = i;
         }
-	}
-	return res;
+    }
+    return res;
 }
 void print_road(hs_node *pre)
 {
-	if(pre->m_father_node != NULL)
-		print_road(pre->m_father_node);
-	cout << "(status:" << pre->m_status << ",length:" << pre->m_g << ")" << endl;
+    if(pre->m_father_node != NULL)
+        print_road(pre->m_father_node);
+    cout << "(status:" << pre->m_status << ",length:" << pre->m_g << ")" << endl;
 }
 
 void a_heuristic_search(hs_node beg, hs_node end)
@@ -203,61 +205,68 @@ void a_heuristic_search(hs_node beg, hs_node end)
     //beg是起始矩阵状态 end是目标矩阵状态
     //返回是否找到最短变化路径
     //若找到则close队列的队尾节点为目标状态 沿节点的父指针回溯找到整条路径
-	deque<hs_node> open;
+    deque<hs_node> open;
     deque<hs_node> close;
     close.clear();
-	//搜索的总体方式采用bfs
-	open.push_back(beg);
-	while (!open.empty()) {
-		//从open队列中选取距离end节点评价值f最小的节点minp进行搜索
-		//这个操作维护open队列的优先级
-		deque<hs_node>::iterator minp = heuristic_minimum(open, end);
-		//若该节点为目标节点则加入close队尾并直接返回
-        if (minp->m_status == end.m_status) {
+    //搜索的总体方式采用bfs
+    open.push_back(beg);
+    while (!open.empty())
+    {
+        //从open队列中选取距离end节点评价值f最小的节点minp进行搜索
+        //这个操作维护open队列的优先级
+        deque<hs_node>::iterator minp = heuristic_minimum(open, end);
+        //若该节点为目标节点则加入close队尾并直接返回
+        if (minp->m_status == end.m_status)
+        {
             close.push_back(*minp);
             print_road(&close.back());
             return;
         }
-		//否则继续搜索 close尾部加入minp open头部删除minp
-		close.push_back(*minp);
-		open.erase(minp);
-	
-		//open继续扩展minp节点的邻节点
-		int pos = x_position(close.back(), 'x');
-		//next是minp节点上下左右四个方向的邻节点 先初始化为minp节点
-		hs_node next[4];
-		for(int i = 0; i < 4; ++i)
-			next[i] = close.back();
+        //否则继续搜索 close尾部加入minp open头部删除minp
+        close.push_back(*minp);
+        open.erase(minp);
 
-		//这里的函数指针纯粹是为了缩短代码
-		//func_bound检测x的交换方向是否越界
-		bool (*func_bound[4])(int);
-		func_bound[0] = left_bound; func_bound[1] = right_bound;
-		func_bound[2] = up_bound; func_bound[3] = down_bound;
-		//func_swap进行x的交换操作
-		void (*func_swap[4])(hs_node&, int);
-		func_swap[0] = left_swap; func_swap[1] = right_swap;
-		func_swap[2] = up_swap; func_swap[3] = down_swap;
-		for (int i = 0; i < 4; ++i)
+        //open继续扩展minp节点的邻节点
+        int pos = x_position(close.back(), 'x');
+        //next是minp节点上下左右四个方向的邻节点 先初始化为minp节点
+        hs_node next[4];
+        for(int i = 0; i < 4; ++i)
+            next[i] = close.back();
+
+        //这里的函数指针纯粹是为了缩短代码
+        //func_bound检测x的交换方向是否越界
+        bool (*func_bound[4])(int);
+        func_bound[0] = left_bound;
+        func_bound[1] = right_bound;
+        func_bound[2] = up_bound;
+        func_bound[3] = down_bound;
+        //func_swap进行x的交换操作
+        void (*func_swap[4])(hs_node&, int);
+        func_swap[0] = left_swap;
+        func_swap[1] = right_swap;
+        func_swap[2] = up_swap;
+        func_swap[3] = down_swap;
+        for (int i = 0; i < 4; ++i)
             //判断x交换的方向是否越界
-			if (!func_bound[i](pos)) {
-				func_swap[i](next[i], pos);
-				//next[i]的父指针指向close的尾部元素
+            if (!func_bound[i](pos))
+            {
+                func_swap[i](next[i], pos);
+                //next[i]的父指针指向close的尾部元素
                 //即刚从open中出队 刚进入close尾部的那个节点
-				next[i].m_father_node = &close.back();
+                next[i].m_father_node = &close.back();
                 //增加该节点的路径长度
-				++next[i].m_g;
+                ++next[i].m_g;
                 //计算该节点到目标节点的距离
-				next[i].m_h = heuristic_difference(next[i], end);
-				//open_it为open迭代器 close_it为close迭代器
-				deque<hs_node>::iterator open_it;
-				deque<hs_node>::iterator close_it;
-				//若close中不存在next[i]这个节点则将新节点插入open队尾
-				if ( (close_it = find(close.begin(), close.end(), next[i])) == close.end() )
-					open.push_back(next[i]);
-			}
-	}
-	//经过这么多状态还没找到那就是没得解了
+                next[i].m_h = heuristic_difference(next[i], end);
+                //open_it为open迭代器 close_it为close迭代器
+                deque<hs_node>::iterator open_it;
+                deque<hs_node>::iterator close_it;
+                //若close中不存在next[i]这个节点则将新节点插入open队尾
+                if ( (close_it = find(close.begin(), close.end(), next[i])) == close.end() )
+                    open.push_back(next[i]);
+            }
+    }
+    //经过这么多状态还没找到那就是没得解了
 }
 
 #endif
