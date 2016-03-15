@@ -22,7 +22,8 @@ int partion1(int s[MAX], int beg, int end)
     //[beg, end]为左闭右闭区间 序列s下标从beg到end
     //哨兵pivot
     int pivot = s[beg];
-    while (beg < end) {
+    while (beg < end)
+    {
         while (beg < end && s[end] >= pivot)
             --end;
         s[beg] = s[end];
@@ -37,7 +38,8 @@ int partion1(int s[MAX], int beg, int end)
 void quick_sort1(int s[MAX], int beg, int end)
 {
     //[beg, end]为左闭右开区间 序列s下标从beg到end
-    if (beg < end) {
+    if (beg < end)
+    {
         int mid = partion1(s, beg, end);
         quick_sort1(s, beg, mid);
         quick_sort1(s, mid + 1, end);
@@ -55,23 +57,26 @@ int partition2(int s[MAX], int beg, int end)
 {
     int p = s[end];
     int i = beg - 1;
-    for (int j = beg; j <= end-1; ++j) {
-        if (s[j] <= p) {
+    for (int j = beg; j <= end-1; ++j)
+    {
+        if (s[j] <= p)
+        {
             ++i;
-			swap(s[i], s[j]);
+            swap(s[i], s[j]);
         }
     }
-	swap(s[i+1], s[end]);
+    swap(s[i+1], s[end]);
     return i+1;
 }
 void quick_sort2(int s[MAX], int beg, int end)
 {
     //[beg, end]为左闭右闭区间
-    if (beg < end) {
-		int mid = partition2(s, beg, end);
-		quick_sort2(s, beg, mid-1);
-		quick_sort2(s, mid+1, end);
-	}
+    if (beg < end)
+    {
+        int mid = partition2(s, beg, end);
+        quick_sort2(s, beg, mid-1);
+        quick_sort2(s, mid+1, end);
+    }
 }
 
 

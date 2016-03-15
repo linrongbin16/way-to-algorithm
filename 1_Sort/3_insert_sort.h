@@ -19,7 +19,8 @@
 void insert_sort(int s[MAX], int beg, int end)
 {
     //[beg, end)为左闭右开区间 序列s下标从beg到end-1
-    for (int i = beg; i < end - 1; ++i) {
+    for (int i = beg; i < end - 1; ++i)
+    {
         int j = i;
         int tmp = s[i + 1];
         //从s[0]到s[i]找到位置j满足s[j-1]<=s[i+1]<=s[j]注意j==-1的临界情况
