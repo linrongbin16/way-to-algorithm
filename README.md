@@ -4,15 +4,25 @@
 
 #### 目录结构
 >	01_Sort 【排序相关算法】
+>
 >	02_Search 【搜索相关算法】
+>
 >	03_DataStructure 【基本的数据结构】
->	04_DynamicProgramming 【】
+>
+>	04_DynamicProgramming 【动态规划算法】
+>
 >	05_GraphTheory 【动态规划】
+>
 >	06_LinearAlgebra 【图论基本算法】
+>
 >	07_Math 【线性代数算法】
+>
 >	08_AnalyticGeometry 【解析几何算法】
+>
 >	09_String 【字符串处理算法】
+>
 >	10_GameTheory 【博弈论算法】
+>
 
 #### 阅读方法                       
 	
