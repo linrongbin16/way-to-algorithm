@@ -52,154 +52,176 @@
 
 #include "general_head.h"
 
-struct ac_node{
-	int a_cnt;
-	ac_node* a_ch[MAX];
-	ac_node *a_fa;
-	ac_node *a_fail;
-	ac_node()
-		: a_cnt(0), a_fa(NULL), a_fail(NULL){
-			for(int i = 0; i < MAX; ++ i)
-				a_ch[i] = NULL;
-	}
+struct ac_node
+{
+    int a_cnt;
+    ac_node* a_ch[MAX];
+    ac_node *a_fa;
+    ac_node *a_fail;
+    ac_node()
+        : a_cnt(0), a_fa(NULL), a_fail(NULL)
+    {
+        for(int i = 0; i < MAX; ++ i)
+            a_ch[i] = NULL;
+    }
 };
 
-struct aho_corasick_automation{
+struct aho_corasick_automation
+{
 private:
-	ac_node a_root;
-	void a_insert(string r){
-		 ac_node *p(&a_root);
-		for(int i = 0; i < (int)r.length(); ++ i){
-			int index = r[i] - 'a';
-			if(p->a_ch[index] == NULL){
-				p->a_ch[index] = new ac_node();
-				//将孩子节点成员中的父节点指针指向自己
-				//加入父节点成员完全是为了输出当前节点所在的字符串
-				p->a_ch[index]->a_fa = p;
-			}
-			p = p->a_ch[index];
-		}
-		++ p->a_cnt;
-	}
-	char a_getchar(ac_node *p){
-		//返回节点p的字母 若为根节点则输出@
-		if(p->a_fa == NULL)
-			return('@');
+    ac_node a_root;
+    void a_insert(string r)
+    {
+        ac_node *p(&a_root);
+        for(int i = 0; i < (int)r.length(); ++ i)
+        {
+            int index = r[i] - 'a';
+            if(p->a_ch[index] == NULL)
+            {
+                p->a_ch[index] = new ac_node();
+                //将孩子节点成员中的父节点指针指向自己
+                //加入父节点成员完全是为了输出当前节点所在的字符串
+                p->a_ch[index]->a_fa = p;
+            }
+            p = p->a_ch[index];
+        }
+        ++ p->a_cnt;
+    }
+    char a_getchar(ac_node *p)
+    {
+        //返回节点p的字母 若为根节点则输出@
+        if(p->a_fa == NULL)
+            return('@');
 
-		ac_node *fa(p->a_fa);
-		for(int i = 0; i < MAX; ++ i)
-			if(fa->a_ch[i] == p)
-				return('a' + i);
-		return('@');
-	}
-	string a_getstring(ac_node *p, string r = ""){
-		//返回以节点p为最后一个字母的字符串
-		//若节点增加字母和字符串成员
-		//插入字符串时在相应节点中进行标记
-		//则可不需要a_getstring和a_getchar函数
+        ac_node *fa(p->a_fa);
+        for(int i = 0; i < MAX; ++ i)
+            if(fa->a_ch[i] == p)
+                return('a' + i);
+        return('@');
+    }
+    string a_getstring(ac_node *p, string r = "")
+    {
+        //返回以节点p为最后一个字母的字符串
+        //若节点增加字母和字符串成员
+        //插入字符串时在相应节点中进行标记
+        //则可不需要a_getstring和a_getchar函数
 
-		//递归终止条件 当节点p是根节点时返回字符串
-		if(p->a_fa == NULL)
-			return(r);
+        //递归终止条件 当节点p是根节点时返回字符串
+        if(p->a_fa == NULL)
+            return(r);
 
-		char ch = a_getchar(p);
-		//继续向上递归求字符串
-		return(a_getstring(p->a_fa, ch + r));
-	}
-	void a_failpath(){
-		//通过bfs给字典树中所有节点建立失败指针
-		queue<ac_node*>	q;
-		//根节点的失败指针为NULL
-		a_root.a_fail = NULL;
-		//根节点的所有孩子节点的失败指针指向根节点
-		for(int i = 0; i < MAX; ++ i)
-			if(a_root.a_ch[i] != NULL){
-				a_root.a_ch[i]->a_fail = &a_root;
-				q.push(a_root.a_ch[i]);
-			}
+        char ch = a_getchar(p);
+        //继续向上递归求字符串
+        return(a_getstring(p->a_fa, ch + r));
+    }
+    void a_failpath()
+    {
+        //通过bfs给字典树中所有节点建立失败指针
+        queue<ac_node*>	q;
+        //根节点的失败指针为NULL
+        a_root.a_fail = NULL;
+        //根节点的所有孩子节点的失败指针指向根节点
+        for(int i = 0; i < MAX; ++ i)
+            if(a_root.a_ch[i] != NULL)
+            {
+                a_root.a_ch[i]->a_fail = &a_root;
+                q.push(a_root.a_ch[i]);
+            }
 
-		while(!q.empty()){
-			ac_node *p = q.front(); q.pop();
-	
-			for(int i = 0; i < MAX; ++ i)
-				if(p->a_ch[i] != NULL){
-					//设置节点p的孩子节点i的失败节点
-					ac_node *f = p->a_fail;
-					//f是节点i的父节点p的失败指针
-					while(f != NULL){
-						if(f->a_ch[i] != NULL){
-							//若f有与节点i字符相同的孩子节点
-							//则节点i的失败指针指向f的这个孩子节点
-							p->a_ch[i]->a_fail = f->a_ch[i];
-							break;
-						}
-						//若f没有这样的孩子节点
-						//递归考察f的失败指针指向的节点
-						f = f->a_fail;
-					}
-					if(f == NULL)
-						//若f为空则节点i的失败指针指向根节点
-						p->a_ch[i]->a_fail = &a_root;
-					q.push(p->a_ch[i]);
-				}
-		}
-	}
+        while(!q.empty())
+        {
+            ac_node *p = q.front();
+            q.pop();
+
+            for(int i = 0; i < MAX; ++ i)
+                if(p->a_ch[i] != NULL)
+                {
+                    //设置节点p的孩子节点i的失败节点
+                    ac_node *f = p->a_fail;
+                    //f是节点i的父节点p的失败指针
+                    while(f != NULL)
+                    {
+                        if(f->a_ch[i] != NULL)
+                        {
+                            //若f有与节点i字符相同的孩子节点
+                            //则节点i的失败指针指向f的这个孩子节点
+                            p->a_ch[i]->a_fail = f->a_ch[i];
+                            break;
+                        }
+                        //若f没有这样的孩子节点
+                        //递归考察f的失败指针指向的节点
+                        f = f->a_fail;
+                    }
+                    if(f == NULL)
+                        //若f为空则节点i的失败指针指向根节点
+                        p->a_ch[i]->a_fail = &a_root;
+                    q.push(p->a_ch[i]);
+                }
+        }
+    }
 public:
-	aho_corasick_automation(){
-	}
-	void a_build(vector<string> r){
-		//建立AC自动机 插入待查寻字符串 建立失败路径
-		for(int i = 0; i < (int)r.size(); ++ i)
-			a_insert(r[i]);
-		a_failpath();
-	}
-	void a_search(string t, multimap<string, int>& pos){
-		//扫描文本t
-		//返回其中出现的字典树中的字符串及其位置 存储于映射表pos中
-		pos.clear();
-		int i(0);
-		ac_node *p(&a_root);
-		while(i < (int)t.length()){
-			int index = t[i] - 'a';
-			while(p->a_ch[index] == NULL && p != &a_root)
-				//若字典树中该节点不存在
-				//则沿着fail指针递归 直到回到根节点
-				p = p->a_fail;
-			if(p->a_ch[index] == NULL)
-				p = &a_root;
-			else{
-				//若点p的孩子节点index存在
-				//即该孩子节点与文本下标i处字符匹配
-				p = p->a_ch[index];
-				ac_node *tmp(p);
-				while(tmp != &a_root){
-					//通过指针tmp找出所有可能与文本下标i处匹配的字符串
-					//因为除了p的孩子节点index 还可能存在其他字符串此时也与i处匹配
-					//
-					//在文档"AC自动机算法详解" 作者"极限定律"中
-					//第一个有问题的地方是: 
-					//原文中该处的判断条件是: 
-					//while(tmp != root && tmp->a_cnt == 0)
-					//(原文与本文中的变量名不一样 但代码的含义没有曲解)
-					//但是经过测试这里tmp->a_cnt == 0的条件恰好应该是相反的
-					//即tmp->a_cnt != 0 也可写作tmp->a_cnt(该值为正时即true)
-					if(tmp->a_cnt){
-						string s(a_getstring(tmp));
-						pos.insert(make_pair(s, i - (int)s.length() + 1));
-						//文档"AC自动机算法详解" 作者"极限定律"中
-						//第二个有问题的地方则是: 
-						//原文中该处有一处操作: 
-						//tmp->a_cnt = 0;
-						//(原文与本文中的变量名不一样 但代码的含义没有曲解)
-						//但我不太明白为何要将字典树中该字符串删除
-						//也可能只求字符串第一次出现的位置
-						//本文的代码中没有删除字符串
-						//测试用例中可以看出本文的代码找出了所有匹配到的字符串位置
-					}
-					tmp = tmp->a_fail;
-				}
-			}
-			++ i;
-		}
-	}
+    aho_corasick_automation()
+    {
+    }
+    void a_build(vector<string> r)
+    {
+        //建立AC自动机 插入待查寻字符串 建立失败路径
+        for(int i = 0; i < (int)r.size(); ++ i)
+            a_insert(r[i]);
+        a_failpath();
+    }
+    void a_search(string t, multimap<string, int>& pos)
+    {
+        //扫描文本t
+        //返回其中出现的字典树中的字符串及其位置 存储于映射表pos中
+        pos.clear();
+        int i(0);
+        ac_node *p(&a_root);
+        while(i < (int)t.length())
+        {
+            int index = t[i] - 'a';
+            while(p->a_ch[index] == NULL && p != &a_root)
+                //若字典树中该节点不存在
+                //则沿着fail指针递归 直到回到根节点
+                p = p->a_fail;
+            if(p->a_ch[index] == NULL)
+                p = &a_root;
+            else
+            {
+                //若点p的孩子节点index存在
+                //即该孩子节点与文本下标i处字符匹配
+                p = p->a_ch[index];
+                ac_node *tmp(p);
+                while(tmp != &a_root)
+                {
+                    //通过指针tmp找出所有可能与文本下标i处匹配的字符串
+                    //因为除了p的孩子节点index 还可能存在其他字符串此时也与i处匹配
+                    //
+                    //在文档"AC自动机算法详解" 作者"极限定律"中
+                    //第一个有问题的地方是:
+                    //原文中该处的判断条件是:
+                    //while(tmp != root && tmp->a_cnt == 0)
+                    //(原文与本文中的变量名不一样 但代码的含义没有曲解)
+                    //但是经过测试这里tmp->a_cnt == 0的条件恰好应该是相反的
+                    //即tmp->a_cnt != 0 也可写作tmp->a_cnt(该值为正时即true)
+                    if(tmp->a_cnt)
+                    {
+                        string s(a_getstring(tmp));
+                        pos.insert(make_pair(s, i - (int)s.length() + 1));
+                        //文档"AC自动机算法详解" 作者"极限定律"中
+                        //第二个有问题的地方则是:
+                        //原文中该处有一处操作:
+                        //tmp->a_cnt = 0;
+                        //(原文与本文中的变量名不一样 但代码的含义没有曲解)
+                        //但我不太明白为何要将字典树中该字符串删除
+                        //也可能只求字符串第一次出现的位置
+                        //本文的代码中没有删除字符串
+                        //测试用例中可以看出本文的代码找出了所有匹配到的字符串位置
+                    }
+                    tmp = tmp->a_fail;
+                }
+            }
+            ++ i;
+        }
+    }
 };

@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-	//segment tree
+    //segment tree
     cout << endl << "segment tree [0, 10]" << endl;
     segment_tree_node *root = segment_tree_build(0, 10);
     segment_tree_insert(root, 2, 4);
@@ -14,6 +14,6 @@ int main()
     segment_tree_insert(root, 5, 7);
     cout << "insert [5, 7], length: " << segment_tree_length(root) << endl;
     segment_tree_print(root);
-	
-	return(0);
+
+    return(0);
 }

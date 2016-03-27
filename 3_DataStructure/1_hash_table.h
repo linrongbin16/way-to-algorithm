@@ -33,111 +33,117 @@ using namespace std;
 //1)素数取模哈希
 struct prime_hash_node
 {
-	int                 m_value;
-	prime_hash_node     *m_next;
+    int                 m_value;
+    prime_hash_node     *m_next;
 };
 struct prime_hash_table
 {
-	prime_hash_node     m_table[MAX];
-	int m_seed;
+    prime_hash_node     m_table[MAX];
+    int m_seed;
 };
 
 int prime_hash(int seed, int value)
 {
-	return(value % seed);
+    return(value % seed);
 }
 void prime_hash_init(prime_hash_table *table, int seed)
 {
-	for (int i = 0; i < MAX; ++i) {
-		table->m_table[i].m_value = 0;
-		table->m_table[i].m_next = 0;
-	}
-	table->m_seed = seed;
+    for (int i = 0; i < MAX; ++i)
+    {
+        table->m_table[i].m_value = 0;
+        table->m_table[i].m_next = 0;
+    }
+    table->m_seed = seed;
 }
 void prime_hash_insert(prime_hash_table *table, int value)
 {
-	//向哈希表中插入值为value的节点
-	//用哈希函数计算出在值value在哈希表中对应的节点下标
-	int idx = prime_hash(table->m_seed, value);
-	prime_hash_node *p = &table->m_table[idx];
-	while(p->m_next != NULL)
-		p = p->m_next;
-	//直接将该点链入最末位置
-	p->m_next = new prime_hash_node();
-	p->m_next->m_value = value;
+    //向哈希表中插入值为value的节点
+    //用哈希函数计算出在值value在哈希表中对应的节点下标
+    int idx = prime_hash(table->m_seed, value);
+    prime_hash_node *p = &table->m_table[idx];
+    while(p->m_next != NULL)
+        p = p->m_next;
+    //直接将该点链入最末位置
+    p->m_next = new prime_hash_node();
+    p->m_next->m_value = value;
     p->m_next->m_next = 0;
 }
 prime_hash_node* prime_hash_find(prime_hash_table *table, int value)
 {
-	int idx = prime_hash(table->m_seed, value);
-	prime_hash_node *p = &table->m_table[idx];
-	while(p->m_next != NULL){
-		if(p->m_next->m_value == value)
-			return(p->m_next);
-		p = p->m_next;
-	}
-	return(0);
+    int idx = prime_hash(table->m_seed, value);
+    prime_hash_node *p = &table->m_table[idx];
+    while(p->m_next != NULL)
+    {
+        if(p->m_next->m_value == value)
+            return(p->m_next);
+        p = p->m_next;
+    }
+    return(0);
 }
 void prime_hash_delete(prime_hash_table *table, int value)
 {
-	//prime_hash_delete函数认为值value一定已经存储于哈希表
-	//而不处理值value不存在的异常情况
-	int idx = prime_hash(table->m_seed, value);
-	prime_hash_node *p = &table->m_table[idx];
-	while(p->m_next->m_value != value)
-		p = p->m_next;
-	prime_hash_node *del = p->m_next;
-	p->m_next = p->m_next->m_next;	//链表中删除p->m_next点
-	delete(del);
+    //prime_hash_delete函数认为值value一定已经存储于哈希表
+    //而不处理值value不存在的异常情况
+    int idx = prime_hash(table->m_seed, value);
+    prime_hash_node *p = &table->m_table[idx];
+    while(p->m_next->m_value != value)
+        p = p->m_next;
+    prime_hash_node *del = p->m_next;
+    p->m_next = p->m_next->m_next;	//链表中删除p->m_next点
+    delete(del);
 }
 void prime_hash_print(prime_hash_table *table)
-{//打印素数取模哈希表
-	for(int i = 0; i < table->m_seed; ++ i){
-		cout << "index " << i << ": ";
-		prime_hash_node *p = &table->m_table[i];
-		while(p->m_next != NULL){
-			cout << p->m_next->m_value << ", ";
-			p = p->m_next;
-		}
-		cout << endl;
-	}
+{
+    //打印素数取模哈希表
+    for(int i = 0; i < table->m_seed; ++ i)
+    {
+        cout << "index " << i << ": ";
+        prime_hash_node *p = &table->m_table[i];
+        while(p->m_next != NULL)
+        {
+            cout << p->m_next->m_value << ", ";
+            p = p->m_next;
+        }
+        cout << endl;
+    }
 }
 
 //2)BKDR哈希
 struct bkdr_hash_table
 {
-	int m_table[MAX];
-	int m_seed;
+    int m_table[MAX];
+    int m_seed;
 };
 
 int bkdr_hash(int seed, const char *s)
 {
-	int hash = 0;
-	while(*s)
-		hash = hash * seed + (*s++);
-	hash = (hash & 0x7FFFFFFF) % MAX;
-	return(hash);
+    int hash = 0;
+    while(*s)
+        hash = hash * seed + (*s++);
+    hash = (hash & 0x7FFFFFFF) % MAX;
+    return(hash);
 }
 void bkdr_hash_init(bkdr_hash_table *table, int seed)
-{//种子可以是31 131 1313 13131 131313...
-	for (int i = 0; i < MAX; ++i)
-		table->m_table[i] = 0;
-	table->m_seed = seed;
+{
+    //种子可以是31 131 1313 13131 131313...
+    for (int i = 0; i < MAX; ++i)
+        table->m_table[i] = 0;
+    table->m_seed = seed;
 }
 void bkdr_hash_insert(bkdr_hash_table *table, const char *s)
 {
-	int index = bkdr_hash(table->m_seed, s);
-	table->m_table[index] = 1;
+    int index = bkdr_hash(table->m_seed, s);
+    table->m_table[index] = 1;
 }
 void bkdr_hash_delete(bkdr_hash_table *table, const char *s)
 {
-	int index = bkdr_hash(table->m_seed, s);
-	table->m_table[index] = 0;
+    int index = bkdr_hash(table->m_seed, s);
+    table->m_table[index] = 0;
 }
 bool bkdr_hash_find(bkdr_hash_table *table, const char *s)
 {
-	int index = bkdr_hash(table->m_seed, s);
-	return(table->m_table[index]);
+    int index = bkdr_hash(table->m_seed, s);
+    return(table->m_table[index]);
 }
 
 #endif

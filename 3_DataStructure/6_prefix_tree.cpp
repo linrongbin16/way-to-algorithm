@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-	//prefix tree
+    //prefix tree
     cout << endl << endl << "prefix tree" << endl;
     prefix_tree_node *pfnode = new prefix_tree_node();
     prefix_tree_init(pfnode);
@@ -43,5 +43,5 @@ int main()
     cout << "find \"" << str8 << "\":" << prefix_tree_find(pfnode, str8) << endl;
     cout << "prefix print:" << endl;
     prefix_tree_print(pfnode);
-	return(0);
+    return(0);
 }

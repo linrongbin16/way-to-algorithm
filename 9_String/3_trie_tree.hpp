@@ -36,44 +36,52 @@
 
 #include "general_head.h"
 
-struct trie_node{
-	int t_cnt;
-	trie_node* t_ch[MAX];
-	trie_node()
-		: t_cnt(0){
-			for(int i = 0; i < MAX; ++ i)
-				t_ch[i] = NULL;
-	}
-}; 
-struct trie_tree{
+struct trie_node
+{
+    int t_cnt;
+    trie_node* t_ch[MAX];
+    trie_node()
+        : t_cnt(0)
+    {
+        for(int i = 0; i < MAX; ++ i)
+            t_ch[i] = NULL;
+    }
+};
+struct trie_tree
+{
 private:
-	trie_node t_root;
+    trie_node t_root;
 public:
-	trie_tree(){
-	}
-	void t_insert(string r){
-		trie_node *p(&t_root);
-		for(int i = 0; i < (int)r.length(); ++ i){
-			//为了方便只插入小写字母a-z
-			//在指针数组中的下标从0到25，也可以动态分配指针空间
-			int index = r[i] - 'a';
-			if(p->t_ch[index] == NULL)
-				p->t_ch[index] = new trie_node();
-			p = p->t_ch[index];
-		}
-		//标记单词中最后一个字母所在的节点
-		++ p->t_cnt;
-	}
-	int t_search(string r){
-		trie_node *p(&t_root);
-		for(int i = 0; i < (int)r.length(); ++ i){
-			int index = r[i] - 'a';
-			if(p->t_ch[index] == NULL)
-				//若中途出现空指针说明该单词未被插入字典树中
-				return(0);
-			p = p->t_ch[index];
-		}
-		//返回该字母所在单词的次数
-		return(p->t_cnt);
-	}
+    trie_tree()
+    {
+    }
+    void t_insert(string r)
+    {
+        trie_node *p(&t_root);
+        for(int i = 0; i < (int)r.length(); ++ i)
+        {
+            //为了方便只插入小写字母a-z
+            //在指针数组中的下标从0到25，也可以动态分配指针空间
+            int index = r[i] - 'a';
+            if(p->t_ch[index] == NULL)
+                p->t_ch[index] = new trie_node();
+            p = p->t_ch[index];
+        }
+        //标记单词中最后一个字母所在的节点
+        ++ p->t_cnt;
+    }
+    int t_search(string r)
+    {
+        trie_node *p(&t_root);
+        for(int i = 0; i < (int)r.length(); ++ i)
+        {
+            int index = r[i] - 'a';
+            if(p->t_ch[index] == NULL)
+                //若中途出现空指针说明该单词未被插入字典树中
+                return(0);
+            p = p->t_ch[index];
+        }
+        //返回该字母所在单词的次数
+        return(p->t_cnt);
+    }
 };

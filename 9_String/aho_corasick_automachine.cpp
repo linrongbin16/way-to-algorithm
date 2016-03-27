@@ -162,7 +162,7 @@ AC_NODE_t * ac_automata_create(char pattern[][255], int patterns_num)
     {
         pCur_node = root;
         for(iChar_index=0; iChar_index<strlen(pattern[iPattern_index]); iChar_index++)
-		{
+        {
             alpha = pattern[iPattern_index][iChar_index];
             pNext_node = node_find_next(pCur_node, alpha);
             if(NULL != pNext_node)
@@ -191,38 +191,38 @@ AC_NODE_t * ac_automata_create(char pattern[][255], int patterns_num)
 
 void ac_insert(AC_NODE_t * pCur_node,AC_NODE_t * parent, AC_NODE_t * root,char edge_ch)
 {
-	AC_NODE_t *pNext_Node;
-	int i = 0;
-	for (i = 0; i < parent->outgoing_num; i++)
-	{
-		if (edge_ch == parent->outgoing_edge[i].alpha)
-			break;
-	}
-	if (i<parent->outgoing_num)
-	{
-		pCur_node->failure_node = parent->outgoing_edge[i].next;
-		return;
-	}
-	pNext_Node = node_find_next(parent->failure_node, edge_ch);
-	if (NULL == pNext_Node)
-	{
-		if (parent->failure_node == root)
-		{
-			pCur_node->failure_node = root;
-			return;
-		}
-		else
-		{
-			parent = parent->failure_node;
-			ac_insert(pCur_node,parent,root,edge_ch);
-			return;
-		}
-	}
-	else
-	{
-		pCur_node->failure_node = pNext_Node;
-		return;
-	}
+    AC_NODE_t *pNext_Node;
+    int i = 0;
+    for (i = 0; i < parent->outgoing_num; i++)
+    {
+        if (edge_ch == parent->outgoing_edge[i].alpha)
+            break;
+    }
+    if (i<parent->outgoing_num)
+    {
+        pCur_node->failure_node = parent->outgoing_edge[i].next;
+        return;
+    }
+    pNext_Node = node_find_next(parent->failure_node, edge_ch);
+    if (NULL == pNext_Node)
+    {
+        if (parent->failure_node == root)
+        {
+            pCur_node->failure_node = root;
+            return;
+        }
+        else
+        {
+            parent = parent->failure_node;
+            ac_insert(pCur_node,parent,root,edge_ch);
+            return;
+        }
+    }
+    else
+    {
+        pCur_node->failure_node = pNext_Node;
+        return;
+    }
 }
 
 /******************************************************************************
@@ -242,7 +242,7 @@ int ac_automata_setfailure(AC_NODE_t * root)
     {
         root->outgoing_edge[i].next->failure_node = root;
     }
-	root->failure_node = root;
+    root->failure_node = root;
     queue_add_leaf_node(root, myqueue);
 
     while(!myqueue.empty())
@@ -252,11 +252,11 @@ int ac_automata_setfailure(AC_NODE_t * root)
         queue_add_leaf_node(parent, myqueue);
         for(i = 0; i < parent->outgoing_num; i++)
         {
-			//if (!edge_ch)
-				edge_ch = parent->outgoing_edge[i].alpha;
+            //if (!edge_ch)
+            edge_ch = parent->outgoing_edge[i].alpha;
 
-			//if(!pCur_node)
-				pCur_node = parent->outgoing_edge[i].next;
+            //if(!pCur_node)
+            pCur_node = parent->outgoing_edge[i].next;
 
             pNext_Node = node_find_next(parent->failure_node, edge_ch);
             if(NULL == pNext_Node)
@@ -264,26 +264,26 @@ int ac_automata_setfailure(AC_NODE_t * root)
                 if(parent->failure_node == root)
                 {
                     pCur_node->failure_node = root;
-					//parent = pCur_node->parent;
+                    //parent = pCur_node->parent;
                 }
                 else
                 {
-					ac_insert(pCur_node, parent->failure_node,root,edge_ch);
+                    ac_insert(pCur_node, parent->failure_node,root,edge_ch);
                 }
             }
             else
             {
                 pCur_node->failure_node = pNext_Node;
             }
-			if (pCur_node->failure_node->final)
-			{
-				pCur_node->final = pCur_node->failure_node->final;
-				pCur_node->patternNo = pCur_node->failure_node->patternNo;
-			}
-			{
-				//pCur_node = NULL;
-				//edge_ch = 0;
-			}
+            if (pCur_node->failure_node->final)
+            {
+                pCur_node->final = pCur_node->failure_node->final;
+                pCur_node->patternNo = pCur_node->failure_node->patternNo;
+            }
+            {
+                //pCur_node = NULL;
+                //edge_ch = 0;
+            }
         }
     }
 
@@ -586,17 +586,17 @@ int main(int argc,char* argv[])
     ja;kfd;wfela;kfew;lfk;ewfk;leahekf'safe'kwnewplankdsa;'d;flrfas;dlwfk;leakf'safe'kwpfkdlfkdsa;'d;flrekfas;dlle;wwwwwwwww\
     wwwwwdlfk;ewlfkdssf'welfkd;fkasdl;wkfdsald;wgkfdsjgfdsafkja;kfd;wfela;kfew;lfk;ewfk;leakf'safe'kwpfkdlfkdsa;'\
     d;flrekfas;dlfke;l;kwalksdkjgfldsajgas.dfefmdscmdlew;l;wafkma/elke/a;elkfelfas.mfdsvmdlkmclkadal;";
-    
+
     //char needle[][255]= {"he","rekfas;dl", "出差","hers","kwnewplankdsa"};/*failure*/
     //char needle[][255]= {"he","wwwwwwwwwwww", "出差","mfdsv"};/*success*/
     char needle[][255]= {"la;kf","fk;ewfk;le","kfas;dl;k","eakf'safe'k","文盲","rekfas;dlf","俄文","英文","fdsald;wgk","he","中文","wwwwwwwwwwww","法文","afkja;kfd;wfe", "ela;kfew;lf","newplanewcy","mfdsv","newccyy","ATATATA","TATAT", "ACGATAT"};/*failure*/
-	//char needle[][255] = { "ATATATA","TATAT", "ACGATAT"};
-	//char needle[][255] = { "announce","annual", "annually" };
+    //char needle[][255] = { "ATATATA","TATAT", "ACGATAT"};
+    //char needle[][255] = { "announce","annual", "annually" };
     /* 1. create ac finite state automata match machine, compute goto and output func*/
     AC_NODE_t *root = ac_automata_create(needle, sizeof(needle)/sizeof(needle[0]));
 
 #if 0
-	ac_automata_display(root);
+    ac_automata_display(root);
 #endif
 
     /* 2. compute failure function*/

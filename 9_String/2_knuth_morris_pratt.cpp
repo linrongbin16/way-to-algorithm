@@ -52,25 +52,29 @@ void compute_prefix_function1(string s, int *next);
 void compute_prefix_function2(string s, int *next);
 
 void knuth_morris_pratt(string s, string t, vector<int>& pos)
-{//字符串s在文本t中进行匹配
- //返回字符串在文本中匹配到的子串的数量和位置 存储于数组pos中
-	pos.clear();
-	int next[MAX];
-	compute_prefix_function2(s, next);
+{
+    //字符串s在文本t中进行匹配
+//返回字符串在文本中匹配到的子串的数量和位置 存储于数组pos中
+    pos.clear();
+    int next[MAX];
+    compute_prefix_function2(s, next);
 
-	int i = 0, j = 0;
-	while(i < (int)t.length()){
-		if(j == -1 || t[i] == s[j]){
-			++i;
-			++j;
-		}
-		else
-			j = next[j];
-		if(j == (int)s.length()){
-			pos.push_back(i - j);
-			j = 0;
-		}
-	}
+    int i = 0, j = 0;
+    while(i < (int)t.length())
+    {
+        if(j == -1 || t[i] == s[j])
+        {
+            ++i;
+            ++j;
+        }
+        else
+            j = next[j];
+        if(j == (int)s.length())
+        {
+            pos.push_back(i - j);
+            j = 0;
+        }
+    }
 }
 
 //1)第一种计算next数组的前缀函数实际上是算法导论中给出的伪代码
@@ -79,32 +83,34 @@ void knuth_morris_pratt(string s, string t, vector<int>& pos)
 
 void compute_prefix_function1(string s, int *next)
 {
-	next[0] = 0;
-	for(int i = 1; i < (int)s.length(); ++i){
-		int k = next[i - 1];
-		while(s[i] != s[k] && k != 0)
-			k = next[k - 1];
-		if(s[i] == s[k])
-			next[i] = k + 1;
-		else
-			next[i] = 0;
-	}
-	//网上的很多文档其实并没有后面这一部分代码 本文加进去是保证next[0]=-1
-	for(int i = (int)s.length(); i >= 1; --i)
-		next[i] = next[i - 1];
-	next[0] = -1;
+    next[0] = 0;
+    for(int i = 1; i < (int)s.length(); ++i)
+    {
+        int k = next[i - 1];
+        while(s[i] != s[k] && k != 0)
+            k = next[k - 1];
+        if(s[i] == s[k])
+            next[i] = k + 1;
+        else
+            next[i] = 0;
+    }
+    //网上的很多文档其实并没有后面这一部分代码 本文加进去是保证next[0]=-1
+    for(int i = (int)s.length(); i >= 1; --i)
+        next[i] = next[i - 1];
+    next[0] = -1;
 }
 
 //2)第二种计算next数组的前缀函数则是网上较为流行的一种方法 推荐使用该方法
 
 void compute_prefix_function2(string s, int *next)
 {
-	int i = 0, j = -1;
-	next[0] = -1;
-	while(i < (int)s.length()){
-		if(j == -1 || s[i] == s[j])
-			next[++i] = ++j;
-		else
-			j = next[j];
-	}
+    int i = 0, j = -1;
+    next[0] = -1;
+    while(i < (int)s.length())
+    {
+        if(j == -1 || s[i] == s[j])
+            next[++i] = ++j;
+        else
+            j = next[j];
+    }
 }

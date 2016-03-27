@@ -21,26 +21,28 @@
 #include "general_head.h"
 
 void naive_string_match(string s, string t, vector<int>& pos)
-{//字符串s在文本t中进行匹配
- //返回字符串在文本中匹配到的子串数量和位置，存储于数组pos中
-	pos.clear();
-	//i是字符串匹配文本的位移
-	int i(0);
-	while(i <= (int)t.length() - (int)s.length()){
-		int q(0);
-		while(q < (int)s.length() && s[q] == t[i + q])
-			++ q;
-		if(q == (int)s.length())
-			pos.push_back(i);
-		++ i;
-		//注意这里不可以出现这样的“优化”：
-		//if(q == (int)s.length()){
-		//	pos.push_back(i);
-		//	i += (int)s.length();//在i处匹配也不能直接跳过字符串长度
-		//						 //在本章测试用例中读者可以进行测试
-		//						 //若这样“优化”会忽略可能出现的匹配位置
-		//}
-		//else
-		//	++ i;
-	}
+{
+    //字符串s在文本t中进行匹配
+//返回字符串在文本中匹配到的子串数量和位置，存储于数组pos中
+    pos.clear();
+    //i是字符串匹配文本的位移
+    int i(0);
+    while(i <= (int)t.length() - (int)s.length())
+    {
+        int q(0);
+        while(q < (int)s.length() && s[q] == t[i + q])
+            ++ q;
+        if(q == (int)s.length())
+            pos.push_back(i);
+        ++ i;
+        //注意这里不可以出现这样的“优化”：
+        //if(q == (int)s.length()){
+        //	pos.push_back(i);
+        //	i += (int)s.length();//在i处匹配也不能直接跳过字符串长度
+        //						 //在本章测试用例中读者可以进行测试
+        //						 //若这样“优化”会忽略可能出现的匹配位置
+        //}
+        //else
+        //	++ i;
+    }
 }

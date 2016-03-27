@@ -48,17 +48,17 @@ using std::endl;
 template <typename T>
 struct TreeNode
 {
-	T data ;/*值*/
-	int hgt;/*以此节点为根的树的高度*/
-	unsigned int freq;/*频率*/
-	TreeNode *lchild, *rchild;/*左右孩子*/
-	TreeNode()
-	{
-		hgt = 0;
-		freq = 1;
-		lchild = NULL;
-		rchild = NULL;
-	}
+    T data ;/*值*/
+    int hgt;/*以此节点为根的树的高度*/
+    unsigned int freq;/*频率*/
+    TreeNode *lchild, *rchild;/*左右孩子*/
+    TreeNode()
+    {
+        hgt = 0;
+        freq = 1;
+        lchild = NULL;
+        rchild = NULL;
+    }
 };
 
 /*AVL树类的属性和方法声明*/
@@ -66,26 +66,26 @@ template <typename T>
 class AVLTree
 {
 private :
-	TreeNode<T> *root;								/*根节点*/
+    TreeNode<T> *root;								/*根节点*/
 
-	void InsertPri(TreeNode<T> * &node, T x);		/*插入x*/
-	TreeNode <T>* FindPri(TreeNode<T> *node ,T x);	/*查找x*/
-	void InSubTree(TreeNode<T> *node);				/*中序遍历*/
-	void DeletePri(TreeNode<T> * &node, T x);		/*删除*/
-	int height(TreeNode<T> *node);					/*树的高度*/
-	void SingRotateLeft(TreeNode<T> * &k2);			/*左左情况下的旋转*/
-	void SingRotateRight(TreeNode<T> * &k2);		/*右右情况的旋转*/
-	void DoubleRotateLR(TreeNode<T> * &k3);			/*左右情况的旋转*/
-	void DoubleRotateRL(TreeNode<T> * &k3);			/*左右情况的旋转*/
-	int Max(int cmpa,int cmpb);						/*求最大值*/
+    void InsertPri(TreeNode<T> * &node, T x);		/*插入x*/
+    TreeNode <T>* FindPri(TreeNode<T> *node ,T x);	/*查找x*/
+    void InSubTree(TreeNode<T> *node);				/*中序遍历*/
+    void DeletePri(TreeNode<T> * &node, T x);		/*删除*/
+    int height(TreeNode<T> *node);					/*树的高度*/
+    void SingRotateLeft(TreeNode<T> * &k2);			/*左左情况下的旋转*/
+    void SingRotateRight(TreeNode<T> * &k2);		/*右右情况的旋转*/
+    void DoubleRotateLR(TreeNode<T> * &k3);			/*左右情况的旋转*/
+    void DoubleRotateRL(TreeNode<T> * &k3);			/*左右情况的旋转*/
+    int Max(int cmpa,int cmpb);						/*求最大值*/
 
 
 public :
-	AVLTree():root(NULL){}
-	void insert(T x);								/*插入接口*/
-	TreeNode<T> * Find(T x);						/*查找接口*/
-	void Delete(T x);								/*删除接口*/
-	void Treversal();								/*遍历接口*/
+    AVLTree():root(NULL) {}
+    void insert(T x);								/*插入接口*/
+    TreeNode<T> * Find(T x);						/*查找接口*/
+    void Delete(T x);								/*删除接口*/
+    void Treversal();								/*遍历接口*/
 };
 
 
@@ -93,14 +93,14 @@ public :
 template <typename T>
 int AVLTree <T>::height(TreeNode<T>* node)
 {
-	return node!=NULL? node->hgt:-1;
+    return node!=NULL? node->hgt:-1;
 }
 
 /*求最大值*/
 template <typename T>
 int AVLTree<T>::Max(int cmpa,int cmpb)
 {
-	return cmpa>cmpb ? cmpa :cmpb;
+    return cmpa>cmpb ? cmpa :cmpb;
 }
 
 /************************************************************************/
@@ -127,29 +127,29 @@ int AVLTree<T>::Max(int cmpa,int cmpb)
 template <typename T>
 void AVLTree<T>::SingRotateLeft(TreeNode<T> * &k2)
 {
-	TreeNode<T> *k1;
+    TreeNode<T> *k1;
 
-	k1=k2->lchild;
-	k2->lchild=k1->rchild;
-	k1->rchild=k2;
+    k1=k2->lchild;
+    k2->lchild=k1->rchild;
+    k1->rchild=k2;
 
-	k2->hgt=Max(height(k2->lchild),height(k2->rchild))+1;
-	k1->hgt=Max(height(k1->lchild),k2->hgt)+1;
-	k2=k1;/*最后一定要更新根节点*/
+    k2->hgt=Max(height(k2->lchild),height(k2->rchild))+1;
+    k1->hgt=Max(height(k1->lchild),k2->hgt)+1;
+    k2=k1;/*最后一定要更新根节点*/
 }
 /*右右旋转*/
 template <typename T>
 void AVLTree<T>::SingRotateRight(TreeNode<T> * &k2)
 {
-	TreeNode<T> *k1;
+    TreeNode<T> *k1;
 
-	k1=k2->rchild;
-	k2->rchild=k1->lchild;
-	k1->lchild=k2;
+    k1=k2->rchild;
+    k2->rchild=k1->lchild;
+    k1->lchild=k2;
 
-	k2->hgt=Max(height(k2->lchild),height(k2->rchild))+1;
-	k1->hgt=Max(height(k1->rchild),k2->hgt)+1;
-	k2=k1;/*最后一定要更新根节点*/
+    k2->hgt=Max(height(k2->lchild),height(k2->rchild))+1;
+    k1->hgt=Max(height(k1->rchild),k2->hgt)+1;
+    k2=k1;/*最后一定要更新根节点*/
 }
 /**************************双旋转(左右情况下的双旋转)************************/
 //************************************************************************
@@ -172,15 +172,15 @@ void AVLTree<T>::SingRotateRight(TreeNode<T> * &k2)
 template <typename T>
 void AVLTree<T>::DoubleRotateLR(TreeNode<T> * &k3)
 {
-	SingRotateRight(k3->lchild);
-	SingRotateLeft(k3);
+    SingRotateRight(k3->lchild);
+    SingRotateLeft(k3);
 }
 /*右左旋转*/
 template <typename T>
 void AVLTree<T>::DoubleRotateRL(TreeNode<T> * &k3)
 {
-	SingRotateLeft(k3->rchild);
-	SingRotateRight(k3);
+    SingRotateLeft(k3->rchild);
+    SingRotateRight(k3);
 }
 /*************************************************************************
  *插入的方法和二叉查找树基本一样，区别是，插入完成后需要从插入的节点开始维护
@@ -191,41 +191,41 @@ void AVLTree<T>::DoubleRotateRL(TreeNode<T> * &k3)
 template <typename T>
 void AVLTree<T>::InsertPri(TreeNode<T>* &node, T x)
 {
-	if(node==NULL)/*如果节点为空,就在此节点处加入x信息*/
-	{
-		node = new TreeNode<T>();
-		node->data = x;
-		return ;
-	}
-	if (node->data>x)/*如果X小于节点的值，就继续再节点的左子树中插入*/
-	{
-		InsertPri(node->lchild,x);
-		if (2==height(node->lchild)-height(node->rchild))
-		{
-			if (x<node->lchild->data)
-			{
-				SingRotateLeft(node);
-			}
-			else
-				DoubleRotateLR(node);
-		}
-	}
-	else if (node->data<x)/*如果X大于节点的值，就继续再节点的右子树中插入*/
-	{
-		InsertPri(node->rchild,x);
-		if (2==height(node->rchild)-height(node->lchild))
-		{
-			if (x>node->rchild->data)
-			{
-				SingRotateRight(node);
-			}
-			else
-				DoubleRotateRL(node);
-		}
-	}
-	else
-		node->freq++;/*如果相等，频率加1*/
-	node->hgt=Max(height(node->lchild),height(node->rchild))+1;
+    if(node==NULL)/*如果节点为空,就在此节点处加入x信息*/
+    {
+        node = new TreeNode<T>();
+        node->data = x;
+        return ;
+    }
+    if (node->data>x)/*如果X小于节点的值，就继续再节点的左子树中插入*/
+    {
+        InsertPri(node->lchild,x);
+        if (2==height(node->lchild)-height(node->rchild))
+        {
+            if (x<node->lchild->data)
+            {
+                SingRotateLeft(node);
+            }
+            else
+                DoubleRotateLR(node);
+        }
+    }
+    else if (node->data<x)/*如果X大于节点的值，就继续再节点的右子树中插入*/
+    {
+        InsertPri(node->rchild,x);
+        if (2==height(node->rchild)-height(node->lchild))
+        {
+            if (x>node->rchild->data)
+            {
+                SingRotateRight(node);
+            }
+            else
+                DoubleRotateRL(node);
+        }
+    }
+    else
+        node->freq++;/*如果相等，频率加1*/
+    node->hgt=Max(height(node->lchild),height(node->rchild))+1;
 }
 
 /************************************************************************/
@@ -235,7 +235,7 @@ void AVLTree<T>::InsertPri(TreeNode<T>* &node, T x)
 template <typename T>
 void AVLTree<T>::insert(T x)
 {
-	InsertPri(root,x);
+    InsertPri(root,x);
 }
 
 /************************************************************************/
@@ -247,20 +247,20 @@ void AVLTree<T>::insert(T x)
 template<typename T>
 TreeNode<T>* AVLTree<T>::FindPri(TreeNode<T> *node ,T x)
 {
-	if(node==NULL)/*如果节点为空说明没找到,返回NULL*/
-		return NULL;
-	if(node->data>x)/*如果x小于节点的值,就继续在节点的左子树中查找x*/
-		return FindPri(node->lchild,x);
-	if (node->data<x)/*如果x大于节点的值,就继续在节点的左子树中查找x*/
-		return FindPri(node->rchild,x);
-	return node;/*如果相等,就找到了此节点*/
+    if(node==NULL)/*如果节点为空说明没找到,返回NULL*/
+        return NULL;
+    if(node->data>x)/*如果x小于节点的值,就继续在节点的左子树中查找x*/
+        return FindPri(node->lchild,x);
+    if (node->data<x)/*如果x大于节点的值,就继续在节点的左子树中查找x*/
+        return FindPri(node->rchild,x);
+    return node;/*如果相等,就找到了此节点*/
 }
 
 /*查找接口*/
 template<typename T>
 TreeNode<T>* AVLTree<T>::Find(T x)
 {
-	return FindPri(root,x);
+    return FindPri(root,x);
 }
 
 /************************************************************************/
@@ -271,96 +271,98 @@ TreeNode<T>* AVLTree<T>::Find(T x)
 template<typename T>
 void AVLTree<T>::DeletePri(TreeNode<T> * &node, T x)
 {
-	if(node==NULL)/*空*/
-		return ;
-	if(x<node->data)
-	{/*如果x小于节点的值,就继续在节点的左子树中删除x，删除完成后，需要调整树，使之保持平衡*/
-		DeletePri(node->lchild,x);
+    if(node==NULL)/*空*/
+        return ;
+    if(x<node->data)
+    {
+        /*如果x小于节点的值,就继续在节点的左子树中删除x，删除完成后，需要调整树，使之保持平衡*/
+        DeletePri(node->lchild,x);
 
-		if (2==height(node->rchild)-height(node->lchild))
-		{
-			if(node->rchild->lchild!=NULL &&
-				(height(node->rchild->lchild)>height(node->rchild->rchild))
-				)
-				DoubleRotateRL(node);
-			else
-				SingRotateRight(node);
-		}
-	}
-	else if (x>node->data)
-	{/*如果大于节点的值,就继续在节点的右子树中删除x，删除完成后，需要调整树，使之保持平衡*/
-		DeletePri(node->rchild,x);
+        if (2==height(node->rchild)-height(node->lchild))
+        {
+            if(node->rchild->lchild!=NULL &&
+                    (height(node->rchild->lchild)>height(node->rchild->rchild))
+              )
+                DoubleRotateRL(node);
+            else
+                SingRotateRight(node);
+        }
+    }
+    else if (x>node->data)
+    {
+        /*如果大于节点的值,就继续在节点的右子树中删除x，删除完成后，需要调整树，使之保持平衡*/
+        DeletePri(node->rchild,x);
 
-		if (2==height(node->lchild)-height(node->rchild))
-		{
-			if(node->rchild->lchild!=NULL &&
-				(height(node->lchild->rchild)>height(node->lchild->lchild))
-				)
-				DoubleRotateLR(node);
-			else
-				SingRotateLeft(node);
-		}
-	}
-	else/*相等，删除，然后调整，使之平衡*/
-	{
-		if (node->lchild && node->rchild)/*此节点有两个儿子*/
-		{
-			TreeNode<T>* temp=node->rchild;/*temp指向节点的右儿子*/
-			while(temp->lchild!=NULL)
-				temp=temp->lchild;/*找到中序遍历的后继节点，必定在最左边那个*/
+        if (2==height(node->lchild)-height(node->rchild))
+        {
+            if(node->rchild->lchild!=NULL &&
+                    (height(node->lchild->rchild)>height(node->lchild->lchild))
+              )
+                DoubleRotateLR(node);
+            else
+                SingRotateLeft(node);
+        }
+    }
+    else/*相等，删除，然后调整，使之平衡*/
+    {
+        if (node->lchild && node->rchild)/*此节点有两个儿子*/
+        {
+            TreeNode<T>* temp=node->rchild;/*temp指向节点的右儿子*/
+            while(temp->lchild!=NULL)
+                temp=temp->lchild;/*找到中序遍历的后继节点，必定在最左边那个*/
 
-			node->data=temp->data;/*调整节点数据信息*/
-			node->freq=temp->freq;
+            node->data=temp->data;/*调整节点数据信息*/
+            node->freq=temp->freq;
 
-			DeletePri(node->rchild,temp->data);/*删除边缘节点*/
-			if (2==height(node->lchild)-height(node->rchild))
-			{
-				if (node->lchild->rchild!=NULL &&
-					(height(node->lchild->rchild)>height(node->lchild->lchild))
-					)
-					DoubleRotateLR(node);
-				else
-					SingRotateLeft(node);
-			}
-		}
-		else/*此节点有1个或0个儿子*/
-		{
-			TreeNode<T> *temp=node;
-			if(node->lchild==NULL)/*有右儿子或者没有儿子*/
-				node=node->rchild;
-			else if(node->rchild==NULL)/*有左儿子*/
-				node=node->lchild;
-			delete(temp);
-			temp=NULL;
-		}
-	}
-	if(node==NULL)
-		return ;
-	node->hgt=Max(height(node->lchild),height(node->rchild))+1;
-	return ;
+            DeletePri(node->rchild,temp->data);/*删除边缘节点*/
+            if (2==height(node->lchild)-height(node->rchild))
+            {
+                if (node->lchild->rchild!=NULL &&
+                        (height(node->lchild->rchild)>height(node->lchild->lchild))
+                   )
+                    DoubleRotateLR(node);
+                else
+                    SingRotateLeft(node);
+            }
+        }
+        else/*此节点有1个或0个儿子*/
+        {
+            TreeNode<T> *temp=node;
+            if(node->lchild==NULL)/*有右儿子或者没有儿子*/
+                node=node->rchild;
+            else if(node->rchild==NULL)/*有左儿子*/
+                node=node->lchild;
+            delete(temp);
+            temp=NULL;
+        }
+    }
+    if(node==NULL)
+        return ;
+    node->hgt=Max(height(node->lchild),height(node->rchild))+1;
+    return ;
 }
 /*删除接口*/
 template<typename T>
 void AVLTree<T>::Delete(T x)
 {
-	DeletePri(root,x);
+    DeletePri(root,x);
 }
 
 /*中序遍历函数*/
 template<typename T>
 void AVLTree<T>::InSubTree(TreeNode<T> *node)
 {
-	if(node==NULL)
-		return ;
-	InSubTree(node->lchild);/*先遍历左子树*/
-	cout<<node->data<<" ";/*输出根节点*/
-	InSubTree(node->rchild);/*再遍历右子树*/
+    if(node==NULL)
+        return ;
+    InSubTree(node->lchild);/*先遍历左子树*/
+    cout<<node->data<<" ";/*输出根节点*/
+    InSubTree(node->rchild);/*再遍历右子树*/
 }
 /*中序遍历接口*/
 template<typename T>
 void AVLTree<T>::Treversal()
 {
-	//cout<<root->data;
-	InSubTree(root);
+    //cout<<root->data;
+    InSubTree(root);
 }
 #endif//avl.h

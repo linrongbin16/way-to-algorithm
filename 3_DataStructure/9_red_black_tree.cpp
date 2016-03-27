@@ -25,5 +25,5 @@ int main()
     p.Insert(37);
     p.InOrderTraverse();
 
-	return(0);
+    return(0);
 }

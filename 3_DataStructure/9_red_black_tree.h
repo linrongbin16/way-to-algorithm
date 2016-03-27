@@ -36,13 +36,13 @@ public:
     bool color;/***节点颜色****/
     Node *leftTree, *rightTree, *parent;/*******左右子树，父节点**********/
 
-    Node(void):value(0),color(RED),leftTree(NULL),rightTree(NULL),parent(NULL){}
-	/**********获取祖父节点************/
+    Node(void):value(0),color(RED),leftTree(NULL),rightTree(NULL),parent(NULL) {}
+    /**********获取祖父节点************/
     Node* grandparent(void)
     {
         return parent==NULL?NULL:parent->parent;
     }
-	/***********获取叔节点***********/
+    /***********获取叔节点***********/
     Node* uncle(void)
     {
         if (grandparent() == NULL)
@@ -54,7 +54,7 @@ public:
         else
             return grandparent()->rightTree;
     }
-	/******获取兄弟节点*********/
+    /******获取兄弟节点*********/
     Node* sibling(void)
     {
         return parent->leftTree==this?parent->rightTree:parent->leftTree;
@@ -78,7 +78,7 @@ private:
     void insert(Node *p, int data);/********插入*********/
     void insert_case(Node *p);/********插入情况***********/
     void DeleteTree(Node *p);/********删除树***********/
-	bool find_data(Node* p,int data);/*********查找节点************/
+    bool find_data(Node* p,int data);/*********查找节点************/
 
 public:
 
@@ -87,7 +87,7 @@ public:
     void InOrderTraverse();/********遍历接口***********/
     void Insert(int x);/********插入接口***********/
     bool Delete(int data);/********删除接口***********/
-	bool Find(int data);/********查找接口***********/
+    bool Find(int data);/********查找接口***********/
 private:
     Node *root, *NIL;
 };
@@ -258,7 +258,8 @@ bool RedBlackTree::delete_child(Node *p, int data)
     else if (p->value == data)/*****找到*******/
     {
         if (p->rightTree == NIL)
-        {/******如果节点右子树空了，这样最多只有一个孩子，否则需要替换节点，再进入单节点删除*******/
+        {
+            /******如果节点右子树空了，这样最多只有一个孩子，否则需要替换节点，再进入单节点删除*******/
             delete_one_child(p);
             return true;
         }
@@ -282,7 +283,8 @@ void RedBlackTree::delete_one_child(Node *p)
 {
     Node *child = p->leftTree == NIL ? p->rightTree : p->leftTree;
     if (p->parent == NULL && p->leftTree == NIL && p->rightTree == NIL)
-    {/****只有根节点*******/
+    {
+        /****只有根节点*******/
         p = NULL;
         root = p;
         return;
@@ -308,7 +310,8 @@ void RedBlackTree::delete_one_child(Node *p)
     child->parent = p->parent;
 
     if (p->color == BLACK)
-    {/*****如果删除的节点是黑节点，需要调整树，如果是红节点，那么子树也是不冲突的，则直接删除即可********/
+    {
+        /*****如果删除的节点是黑节点，需要调整树，如果是红节点，那么子树也是不冲突的，则直接删除即可********/
         if (child->color == RED)/****子树是红节点的话，则直接退换成黑节点，并且性质没有遭到破坏****/
         {
             child->color = BLACK;
@@ -344,20 +347,23 @@ void RedBlackTree::delete_case(Node *p)
     }
     if (p->parent->color == BLACK && p->sibling()->color == BLACK
             && p->sibling()->leftTree->color == BLACK && p->sibling()->rightTree->color == BLACK)
-    {/****情况2.1：父节点黑色，兄弟节点是黑色，而且兄弟有两个黑色的子节点，这样可以染红兄弟，然后调整父节点****/
+    {
+        /****情况2.1：父节点黑色，兄弟节点是黑色，而且兄弟有两个黑色的子节点，这样可以染红兄弟，然后调整父节点****/
         p->sibling()->color = RED;
         delete_case(p->parent);
     }
     else if (p->parent->color == RED && p->sibling()->color == BLACK
              && p->sibling()->leftTree->color == BLACK && p->sibling()->rightTree->color == BLACK)
-    {/****情况2.2：如果兄弟节点是红色的话，而且兄弟有两个黑色的子节点，这样可以染红兄弟，然后调整父节点****/
+    {
+        /****情况2.2：如果兄弟节点是红色的话，而且兄弟有两个黑色的子节点，这样可以染红兄弟，然后调整父节点****/
         p->sibling()->color = RED;
         p->parent->color = BLACK;
     }
     else
     {
         if (p->sibling()->color == BLACK)
-        {/****情况3.1：如果兄弟节点是黑色的话，而且兄弟左孩子红色，右孩子黑色，交换兄弟节点和左孩子颜色变成第第四种情况****/
+        {
+            /****情况3.1：如果兄弟节点是黑色的话，而且兄弟左孩子红色，右孩子黑色，交换兄弟节点和左孩子颜色变成第第四种情况****/
             if (p == p->parent->leftTree && p->sibling()->leftTree->color == RED
                     && p->sibling()->rightTree->color == BLACK)
             {
@@ -367,22 +373,25 @@ void RedBlackTree::delete_case(Node *p)
             }
             else if (p == p->parent->rightTree && p->sibling()->leftTree->color == BLACK
                      && p->sibling()->rightTree->color == RED)
-            {/****情况3.2：如果兄弟节点是黑色的话，而且兄弟左孩子黑色，右孩子红色****/
+            {
+                /****情况3.2：如果兄弟节点是黑色的话，而且兄弟左孩子黑色，右孩子红色****/
                 p->sibling()->color = RED;
                 p->sibling()->rightTree->color = BLACK;
                 rotate_left(p->sibling()->rightTree);
             }
         }
-		/****情况4：如果兄弟节点是黑色的话，而且兄弟对面节点孩子为红色****/
+        /****情况4：如果兄弟节点是黑色的话，而且兄弟对面节点孩子为红色****/
         p->sibling()->color = p->parent->color;
         p->parent->color = BLACK;
         if (p == p->parent->leftTree)
-        {/****情况4.1：节点为左子树，那么兄弟右孩子为红色****/
+        {
+            /****情况4.1：节点为左子树，那么兄弟右孩子为红色****/
             p->sibling()->rightTree->color = BLACK;
             rotate_left(p->sibling());
         }
         else
-        {/****情况4.2：节点为右子树，那么兄弟左孩子为红色****/
+        {
+            /****情况4.2：节点为右子树，那么兄弟左孩子为红色****/
             p->sibling()->leftTree->color = BLACK;
             rotate_right(p->sibling());
         }
@@ -449,7 +458,8 @@ void RedBlackTree::insert_case(Node *p)
     if (p->parent->color == RED)
     {
         if (p->uncle()->color == RED)
-        {/*情形3：父节点和叔节点都是红色，将祖父，父、叔全换色，最后递归处理祖父节点*/
+        {
+            /*情形3：父节点和叔节点都是红色，将祖父，父、叔全换色，最后递归处理祖父节点*/
             p->parent->color = p->uncle()->color = BLACK;
             p->grandparent()->color = RED;
             insert_case(p->grandparent());
@@ -457,36 +467,40 @@ void RedBlackTree::insert_case(Node *p)
         else/*父节点和叔节点都是红色，叔叔节点黑色*/
         {
             if (p->parent->rightTree == p && p->grandparent()->leftTree == p->parent)
-            {/**情形4：p是父节点的右孩子，父节点是祖父节点的左孩子**/
-			/********这种情况先调整父节点，使得其和祖父和父亲均在一条线上，注意，这里旋转后p成新的父节点********/
+            {
+                /**情形4：p是父节点的右孩子，父节点是祖父节点的左孩子**/
+                /********这种情况先调整父节点，使得其和祖父和父亲均在一条线上，注意，这里旋转后p成新的父节点********/
                 rotate_left(p);
                 rotate_right(p);
                 p->color = BLACK;
                 p->leftTree->color = p->rightTree->color = RED;
             }
             else if (p->parent->leftTree == p && p->grandparent()->rightTree == p->parent)
-            {/**情形5：p是父节点的左孩子，父节点是祖父节点的右孩子**/
-			/********这种情况先调整父节点，使得其和祖父和父亲均在一条线上，注意，这里旋转后p成新的父节点********/
+            {
+                /**情形5：p是父节点的左孩子，父节点是祖父节点的右孩子**/
+                /********这种情况先调整父节点，使得其和祖父和父亲均在一条线上，注意，这里旋转后p成新的父节点********/
                 rotate_right(p);
                 rotate_left(p);
                 p->color = BLACK;
                 p->leftTree->color = p->rightTree->color = RED;
             }
             else if (p->parent->leftTree == p && p->grandparent()->leftTree == p->parent)
-            {/**情形5.2：p是父节点的右孩子，父节点是祖父节点的左孩子**/
+            {
+                /**情形5.2：p是父节点的右孩子，父节点是祖父节点的左孩子**/
                 p->parent->color = BLACK;
                 p->grandparent()->color = RED;
                 rotate_right(p->parent);
             }
             else if (p->parent->rightTree == p && p->grandparent()->rightTree == p->parent)
-            {/**情形4.2：p是父节点的右孩子，父节点是祖父节点的左孩子**/
+            {
+                /**情形4.2：p是父节点的右孩子，父节点是祖父节点的左孩子**/
                 p->parent->color = BLACK;
                 p->grandparent()->color = RED;
                 rotate_left(p->parent);
             }
         }
     }
-	/*******最后考虑case2：情况，因为父节点是黑色，所以可以直接退出********/
+    /*******最后考虑case2：情况，因为父节点是黑色，所以可以直接退出********/
 }
 //************************************
 // Method:    DeleteTree
@@ -516,13 +530,13 @@ void RedBlackTree::DeleteTree(Node *p)
 //************************************
 bool RedBlackTree::find_data(Node* p,int data)
 {
-	if(p==NULL||p==NIL)
-		return false;
-	if(data>p->value)
-		return find_data(p->rightTree,data);
-	else if(data<p->value)
-		return find_data(p->leftTree,data);
-	return true;
+    if(p==NULL||p==NIL)
+        return false;
+    if(data>p->value)
+        return find_data(p->rightTree,data);
+    else if(data<p->value)
+        return find_data(p->leftTree,data);
+    return true;
 }
 
 
@@ -611,7 +625,7 @@ bool RedBlackTree::Delete(int data)
 //************************************
 bool RedBlackTree::Find(int data)
 {
-	return find_data(root,data);
+    return find_data(root,data);
 }
 #endif /*redblaock.h*/
 

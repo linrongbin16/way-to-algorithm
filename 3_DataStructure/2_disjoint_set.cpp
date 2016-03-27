@@ -8,7 +8,8 @@ int main()
     disjoint_set_init(&set);
     cout << endl << "disjoint set" << endl;
     cout << "union" << endl;
-    for(int i = 0; i < 10; ++ i){
+    for(int i = 0; i < 10; ++ i)
+    {
         cout << "number " << i << " and " << 3 * i << " is in one set" << endl;
         disjoint_set_union(&set, i, 3 * i);
     }
@@ -25,6 +26,6 @@ int main()
         cout << "number 2 and 21 in one set" << endl;
     else
         cout << "number 2 and 21 not in one set" << endl;
-	
-	return 0;
+
+    return 0;
 }

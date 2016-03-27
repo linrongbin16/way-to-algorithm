@@ -34,74 +34,82 @@ using std::cout;
 using std::endl;
 struct leftist_tree_node
 {
-	int m_index;
-	int m_depth;
-	leftist_tree_node *m_leftchild;
-	leftist_tree_node *m_rightchild;
-	leftist_tree_node()
-	{
-		m_index = 0;
-		m_depth = 0;
-		m_leftchild = 0;
-		m_rightchild = 0;
-	}
+    int m_index;
+    int m_depth;
+    leftist_tree_node *m_leftchild;
+    leftist_tree_node *m_rightchild;
+    leftist_tree_node()
+    {
+        m_index = 0;
+        m_depth = 0;
+        m_leftchild = 0;
+        m_rightchild = 0;
+    }
 };
 
 leftist_tree_node* leftist_tree_merge(leftist_tree_node *a, leftist_tree_node *b)
-{//将以节点a为根的子树与以节点b为根的子树合并
-	if(a == NULL)
-		return(b);
-	if(b == NULL)
-		return(a);
-	if(a->m_index > b->m_index)
-		//总是将键值key较大的子树插入键值key较小的子树中
-		//即可保证左偏树中根节点的键值key总是最小的
-		return(leftist_tree_merge(b, a));
+{
+    //将以节点a为根的子树与以节点b为根的子树合并
+    if(a == NULL)
+        return(b);
+    if(b == NULL)
+        return(a);
+    if(a->m_index > b->m_index)
+        //总是将键值key较大的子树插入键值key较小的子树中
+        //即可保证左偏树中根节点的键值key总是最小的
+        return(leftist_tree_merge(b, a));
 
-	//将节点r插在节点a的右子树上
-	a->m_rightchild = leftist_tree_merge(a->m_rightchild, b);
+    //将节点r插在节点a的右子树上
+    a->m_rightchild = leftist_tree_merge(a->m_rightchild, b);
 
-	//将距离dist较小的孩子子树放在左边
-	//尽量保证左偏树的平衡
-	if(a->m_leftchild == NULL)
-		swap(a->m_leftchild, a->m_rightchild);
-	else{
-		if(a->m_leftchild->m_depth < a->m_rightchild->m_depth)
-			swap(a->m_leftchild, a->m_rightchild);
-		a->m_depth = a->m_rightchild->m_depth + 1;
-	}
-	return(a);
+    //将距离dist较小的孩子子树放在左边
+    //尽量保证左偏树的平衡
+    if(a->m_leftchild == NULL)
+        swap(a->m_leftchild, a->m_rightchild);
+    else
+    {
+        if(a->m_leftchild->m_depth < a->m_rightchild->m_depth)
+            swap(a->m_leftchild, a->m_rightchild);
+        a->m_depth = a->m_rightchild->m_depth + 1;
+    }
+    return(a);
 }
 int leftist_tree_top(leftist_tree_node *root)
-{//root左偏树的根节点
-	return(root->m_index);
+{
+    //root左偏树的根节点
+    return(root->m_index);
 }
 leftist_tree_node* leftist_tree_push(leftist_tree_node *root, int value)
-{//向root左偏树中插入值为value的节点 即为将一个value值的节点与root树合并
-	leftist_tree_node *node = new leftist_tree_node();
-	node->m_index = value;
-	return(leftist_tree_merge(root, node));
+{
+    //向root左偏树中插入值为value的节点 即为将一个value值的节点与root树合并
+    leftist_tree_node *node = new leftist_tree_node();
+    node->m_index = value;
+    return(leftist_tree_merge(root, node));
 }
 leftist_tree_node* leftist_tree_pop(leftist_tree_node *root)
-{//删除根节点 即为将root树的左子树和右子树合并
-	return(leftist_tree_merge(root->m_leftchild, root->m_rightchild));
+{
+    //删除根节点 即为将root树的左子树和右子树合并
+    return(leftist_tree_merge(root->m_leftchild, root->m_rightchild));
 }
 void leftist_tree_print(leftist_tree_node *root)
-{//打印root左偏树
-	if(root == NULL)
-		return;
-	cout << "(node:" << root->m_index << ",dist:" << root->m_depth << ")";
-	if(root->m_leftchild){
-		cout << ", left child(node:" << root->m_leftchild->m_index << ",dist:";
-		cout << root->m_leftchild->m_depth << ")";
-	}
-	if(root->m_rightchild){
-		cout << ", right child(node:" << root->m_rightchild->m_index << ",dist:";
-		cout << root->m_rightchild->m_depth << ")";
-	}
-	cout << endl;
-	leftist_tree_print(root->m_leftchild);
-	leftist_tree_print(root->m_rightchild);
+{
+    //打印root左偏树
+    if(root == NULL)
+        return;
+    cout << "(node:" << root->m_index << ",dist:" << root->m_depth << ")";
+    if(root->m_leftchild)
+    {
+        cout << ", left child(node:" << root->m_leftchild->m_index << ",dist:";
+        cout << root->m_leftchild->m_depth << ")";
+    }
+    if(root->m_rightchild)
+    {
+        cout << ", right child(node:" << root->m_rightchild->m_index << ",dist:";
+        cout << root->m_rightchild->m_depth << ")";
+    }
+    cout << endl;
+    leftist_tree_print(root->m_leftchild);
+    leftist_tree_print(root->m_rightchild);
 }
 
 #endif

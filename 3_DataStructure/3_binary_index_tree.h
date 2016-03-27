@@ -62,41 +62,45 @@
 #endif
 struct binary_index_tree
 {
-	//数组c下标从1开始
-	int m_table[MAX];
+    //数组c下标从1开始
+    int m_table[MAX];
 };
 
 int binary_index_tree_lowbit(int i)
 {
-	//计算2^k = i & (-i)
-	return(i & (-i));
+    //计算2^k = i & (-i)
+    return(i & (-i));
 }
 void binary_index_tree_init(binary_index_tree *tree)
 {
-	memset(tree->m_table, 0, MAX * sizeof(int));
+    memset(tree->m_table, 0, MAX * sizeof(int));
 }
 void binary_index_tree_add(binary_index_tree *tree, int i, int value)
-{//s[i]加value，其中下标i从1开始
-	while(i < MAX){
-		//比如当i=1时，因为c[1]=s[1]故c[1]加value
-		//lowbit(1)=1 i=2 又c[2]=s[1]+s[2] c[2]中包含s[1]，因此c[2]加value
-		//lowbit(2)=2 i=4 又c[4]=s[1]+s[2]+s[3]+s[4] 因此c[4]加value
-		//lowbit(4)=4 i=8 又c[8]中包含s[1] 因此c[8]加value 以此类推
+{
+    //s[i]加value，其中下标i从1开始
+    while(i < MAX)
+    {
+        //比如当i=1时，因为c[1]=s[1]故c[1]加value
+        //lowbit(1)=1 i=2 又c[2]=s[1]+s[2] c[2]中包含s[1]，因此c[2]加value
+        //lowbit(2)=2 i=4 又c[4]=s[1]+s[2]+s[3]+s[4] 因此c[4]加value
+        //lowbit(4)=4 i=8 又c[8]中包含s[1] 因此c[8]加value 以此类推
         //可以看出数组c用于快速记录数组s中某一段的和
         //最终计算数组s中从1到x的和时利用数组c中的值可以进行快速计算
-		tree->m_table[i] += value;
-		i += binary_index_tree_lowbit(i);
-	}
+        tree->m_table[i] += value;
+        i += binary_index_tree_lowbit(i);
+    }
 }
 int binary_index_tree_sum(binary_index_tree *tree, int x)
-{//计算数组s中从1到x的和
-	//与加操作类似，避免了遍历从1到x的累加，从而降低时间复杂度
-	int sum(0);
-	while(x > 0){
-		sum += tree->m_table[x];
-		x -= binary_index_tree_lowbit(x);
-	}
-	return(sum);
+{
+    //计算数组s中从1到x的和
+    //与加操作类似，避免了遍历从1到x的累加，从而降低时间复杂度
+    int sum(0);
+    while(x > 0)
+    {
+        sum += tree->m_table[x];
+        x -= binary_index_tree_lowbit(x);
+    }
+    return(sum);
 }
 
 #endif
