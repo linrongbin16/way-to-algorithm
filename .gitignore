@@ -13,3 +13,5 @@ Makefile
 makefile
 MakeFile
 makeFile
+*.doc
+*.docx
