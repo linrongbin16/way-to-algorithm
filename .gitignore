@@ -9,11 +9,3 @@ tags
 *.gch
 *.exe
 *~
-Makefile
-makefile
-MakeFile
-makeFile
-*.doc
-*.docx
-*.vsd
-*.vsdx
