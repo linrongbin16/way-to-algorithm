@@ -15,3 +15,5 @@ MakeFile
 makeFile
 *.doc
 *.docx
+*.vsd
+*.vsdx
