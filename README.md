@@ -4,12 +4,12 @@
 ========================================
 #### 目录结构
 * Chapter-1 Sort 排序
-* &emsp;&emsp;BinarySearch 二分查找法
-* &emsp;&emsp;InsertSort 插入排序
-* &emsp;&emsp;InsertSort 插入排序
-* &emsp;&emsp;BubbleSort 冒泡排序
-* &emsp;&emsp;QuickSort 快速排序
-* &emsp;&emsp;MergeSort 合并排序
+&emsp;&emsp;BinarySearch 二分查找法</br>
+&emsp;&emsp;InsertSort 插入排序</br>
+&emsp;&emsp;InsertSort 插入排序</br>
+&emsp;&emsp;BubbleSort 冒泡排序</br>
+&emsp;&emsp;QuickSort 快速排序</br>
+&emsp;&emsp;MergeSort 合并排序</br>
 * Chapter-2 Search 搜索
 * &emsp;&emsp;
 * Chapter-3 DataStructure 数据结构
