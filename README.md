@@ -31,12 +31,12 @@
 &emsp;&emsp;RedBlackTree 红黑树</br>
 * Chapter-4 DynamicProgramming 动态规划</br>
 &emsp;&emsp;(1) DynamicProgrammingIntroduction 动态规划介绍</br>
-&emsp;&emsp;LinearDynamic 线性动态规划</br>
+&emsp;&emsp;(2) LinearDynamic 线性动态规划</br>
 &emsp;&emsp;&emsp;&emsp;LongestCommonSubsequence 最长公共子序列</br>
 &emsp;&emsp;&emsp;&emsp;LongestIncreasingSubsequence 最长递增子序列</br>
 &emsp;&emsp;&emsp;&emsp;LongestIncreasingSubsequenceExtension 最长递增子序列扩展</br>
 &emsp;&emsp;&emsp;&emsp;BidirectionSubsequence 双向子序列</br>
-&emsp;&emsp;(2) Pack 背包问题</br>
+&emsp;&emsp;(3) Pack 背包问题</br>
 &emsp;&emsp;&emsp;&emsp;01Pack 01背包</br>
 &emsp;&emsp;&emsp;&emsp;01PackPath 01背包路径</br>
 &emsp;&emsp;&emsp;&emsp;CompletePack 完全背包</br>
@@ -45,11 +45,11 @@
 &emsp;&emsp;&emsp;&emsp;PacketPack 分组背包</br>
 &emsp;&emsp;&emsp;&emsp;GenericItem 泛化物品</br>
 &emsp;&emsp;&emsp;&emsp;DependentPack 依赖背包</br>
-&emsp;&emsp;(3) RegionDynamic 区域动态规划</br>
+&emsp;&emsp;(4) RegionDynamic 区域动态规划</br>
 &emsp;&emsp;&emsp;&emsp;MinimumMergeCost 最小合并代价</br>
 &emsp;&emsp;&emsp;&emsp;MinimumMergeExtension 最小合并扩展</br>
 &emsp;&emsp;&emsp;&emsp;MaximumBinaryTreeMerge 最大二叉树合并</br>
-&emsp;&emsp;(4) TreeDynamic 树形动态规划</br>
+&emsp;&emsp;(5) TreeDynamic 树形动态规划</br>
 &emsp;&emsp;&emsp;&emsp;BinaryTree 二叉树</br>
 &emsp;&emsp;&emsp;&emsp;MultipleTree 多叉树</br>
 &emsp;&emsp;&emsp;&emsp;Multi2BinaryTree 多叉树转二叉树</br>
