@@ -6,9 +6,9 @@ using namespace std;
 
 void AssertNotAscendingOrder(int s[MAX], int n)
 {
-    bool res = true;
-    for (int i = 0; i < n-1; ++i) {
-        if (s[i] > s[i+1]) {
+    bool res = true; 
+    for (int i = 0; i < n - 1; ++i) {
+        if (s[i] > s[i + 1]) {
             res = false;
             break;
         }
@@ -18,8 +18,8 @@ void AssertNotAscendingOrder(int s[MAX], int n)
 void AssertAscendingOrder(int s[MAX], int n)
 {
     bool res = true;
-    for (int i = 0; i < n-1; ++i) {
-        if (s[i] > s[i+1]) {
+    for (int i = 0; i < n - 1; ++i) {
+        if (s[i] > s[i + 1]) {
             res = false;
             break;
         }
@@ -33,7 +33,7 @@ void AssertInsertSort(int s[MAX], int n)
     AssertAscendingOrder(s, n);
 }
 
-int main()
+int main(void)
 {
     int s1[60] = {
         234, 10, -41, 0, 34, 15, 64, 653, -745, 74,
@@ -59,10 +59,10 @@ int main()
         234, 10, -41, 20, 38, 19, 40, 653, -785, 23,
     };
 
-    AssertInsertSort(s1, 0, 60);
-    AssertInsertSort(s2, 0, 20);
-    AssertInsertSort(s3, 0, 2);
-    AssertInsertSort(s4, 0, 50);
+    AssertInsertSort(s1, 60);
+    AssertInsertSort(s2, 20);
+    AssertInsertSort(s3, 2);
+    AssertInsertSort(s4, 50);
 
     return 0;
 }

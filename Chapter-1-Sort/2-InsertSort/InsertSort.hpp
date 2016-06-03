@@ -1,5 +1,5 @@
-#ifndef SORT_INSERT_SORT_HPP
-#define SORT_INSERT_SORT_HPP 1
+#ifndef INSERT_SORT_HPP
+#define INSERT_SORT_HPP 1
 
 #ifndef MAX
 #define MAX 60
@@ -8,13 +8,13 @@
 
 /* ----------------------------------------------------------------------*/
 /**
- * @brief InsertSort 
- * 将无序序列s升序排列
- *
- * @param s[MAX]        无序序列
- * @param beg           序列s的末尾下标加1，即左闭右开区间[beg, end)
- * @param end           序列s的末尾下标加1
- */
+* @brief InsertSort
+* 将无序序列s升序排列
+*
+* @param s[MAX]        无序序列
+* @param beg           序列s的末尾下标加1，即左闭右开区间[beg, end)
+* @param end           序列s的末尾下标加1
+*/
 /* ----------------------------------------------------------------------*/
 void InsertSort(int s[MAX], int beg, int end)
 {
@@ -31,8 +31,8 @@ void InsertSort(int s[MAX], int beg, int end)
         }
         /*i即为p将被插入的位置*/
         /*将i到j-1之间的元素向右移动一位*/
-        for(int k = j; k > i; --k)
-            s[k] = s[k-1];
+        for (int k = j; k > i; --k)
+            s[k] = s[k - 1];
         s[i] = p;
     }
 }
