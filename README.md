@@ -31,30 +31,30 @@
 * Chapter-4 &nbsp; DynamicProgramming &nbsp; 动态规划</br>
 &nbsp;&nbsp; DynamicProgrammingIntroduction &nbsp; 动态规划介绍</br>
 &nbsp;&nbsp; (1) LinearDynamic &nbsp; 线性动态规划</br>
-&nbsp;&nbsp;&emsp; LongestCommonSubsequence &nbsp; 最长公共子序列</br>
-&nbsp;&nbsp;&emsp; LongestIncreasingSubsequence &nbsp; 最长递增子序列</br>
-&nbsp;&nbsp;&emsp; LongestIncreasingSubsequenceExtension &nbsp; 最长递增子序列扩展</br>
-&nbsp;&nbsp;&emsp; BidirectionSubsequence &nbsp; 双向子序列</br>
+&nbsp;&nbsp;&emsp;&emsp; LongestCommonSubsequence &nbsp; 最长公共子序列</br>
+&nbsp;&nbsp;&emsp;&emsp; LongestIncreasingSubsequence &nbsp; 最长递增子序列</br>
+&nbsp;&nbsp;&emsp;&emsp; LongestIncreasingSubsequenceExtension &nbsp; 最长递增子序列扩展</br>
+&nbsp;&nbsp;&emsp;&emsp; BidirectionSubsequence &nbsp; 双向子序列</br>
 &nbsp;&nbsp; (2) Pack &nbsp; 背包问题</br>
-&nbsp;&nbsp;&emsp; 01Pack &nbsp; 01背包</br>
-&nbsp;&nbsp;&emsp; 01PackPath &nbsp; 01背包路径</br>
-&nbsp;&nbsp;&emsp; CompletePack &nbsp; 完全背包</br>
-&nbsp;&nbsp;&emsp; MultiplePack &nbsp; 多重背包</br>
-&nbsp;&nbsp;&emsp; TwoDimensionPack &nbsp; 二维背包</br>
-&nbsp;&nbsp;&emsp; PacketPack &nbsp; 分组背包</br>
-&nbsp;&nbsp;&emsp; GenericItem &nbsp; 泛化物品</br>
-&nbsp;&nbsp;&emsp; DependentPack &nbsp; 依赖背包</br>
+&nbsp;&nbsp;&emsp;&emsp; 01Pack &nbsp; 01背包</br>
+&nbsp;&nbsp;&emsp;&emsp; 01PackPath &nbsp; 01背包路径</br>
+&nbsp;&nbsp;&emsp;&emsp; CompletePack &nbsp; 完全背包</br>
+&nbsp;&nbsp;&emsp;&emsp; MultiplePack &nbsp; 多重背包</br>
+&nbsp;&nbsp;&emsp;&emsp; TwoDimensionPack &nbsp; 二维背包</br>
+&nbsp;&nbsp;&emsp;&emsp; PacketPack &nbsp; 分组背包</br>
+&nbsp;&nbsp;&emsp;&emsp; GenericItem &nbsp; 泛化物品</br>
+&nbsp;&nbsp;&emsp;&emsp; DependentPack &nbsp; 依赖背包</br>
 &nbsp;&nbsp;(3) RegionDynamic &nbsp; 区域动态规划</br>
-&nbsp;&nbsp;&emsp; MinimumMergeCost &nbsp; 最小合并代价</br>
-&nbsp;&nbsp;&emsp; MinimumMergeExtension &nbsp; 最小合并扩展</br>
-&nbsp;&nbsp;&emsp; MaximumBinaryTreeMerge &nbsp; 最大二叉树合并</br>
+&nbsp;&nbsp;&emsp;&emsp; MinimumMergeCost &nbsp; 最小合并代价</br>
+&nbsp;&nbsp;&emsp;&emsp; MinimumMergeExtension &nbsp; 最小合并扩展</br>
+&nbsp;&nbsp;&emsp;&emsp; MaximumBinaryTreeMerge &nbsp; 最大二叉树合并</br>
 &nbsp;&nbsp;(4) TreeDynamic &nbsp; 树形动态规划</br>
-&nbsp;&nbsp;&emsp; BinaryTree &nbsp; 二叉树</br>
-&nbsp;&nbsp;&emsp; MultipleTree &nbsp; 多叉树</br>
-&nbsp;&nbsp;&emsp; Multi2BinaryTree &nbsp; 多叉树转二叉树</br>
-&nbsp;&nbsp;&emsp; MultiTreePath &nbsp; 多叉树路径</br>
-&nbsp;&nbsp;&emsp; LoopMultiTree &nbsp; 带环多叉树</br>
-&nbsp;&nbsp;&emsp; MultipleTraverseTree &nbsp; 多叉树树遍历</br>
+&nbsp;&nbsp;&emsp;&emsp; BinaryTree &nbsp; 二叉树</br>
+&nbsp;&nbsp;&emsp;&emsp; MultipleTree &nbsp; 多叉树</br>
+&nbsp;&nbsp;&emsp;&emsp; Multi2BinaryTree &nbsp; 多叉树转二叉树</br>
+&nbsp;&nbsp;&emsp;&emsp; MultiTreePath &nbsp; 多叉树路径</br>
+&nbsp;&nbsp;&emsp;&emsp; LoopMultiTree &nbsp; 带环多叉树</br>
+&nbsp;&nbsp;&emsp;&emsp; MultipleTraverseTree &nbsp; 多叉树树遍历</br>
 * Chapter-5 &nbsp; GraphTheory &nbsp; 图论</br>
 &nbsp;&nbsp; (1) LinearDynamic &nbsp; 线性动态规划</br>
 * Chapter-6 &nbsp; LinearAlgebra &nbsp; 线性代数</br>
