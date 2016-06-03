@@ -1,4 +1,4 @@
-#include "BinarySearch.h"
+#include "BinarySearch.hpp"
 #include <iostream>
 #include <string>
 #include <cassert>

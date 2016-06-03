@@ -1,16 +1,19 @@
-#ifndef SORT_BINARY_SEARCH_H
-#define SORT_BINARY_SEARCH_H 1
+#ifndef SORT_BINARY_SEARCH_HPP
+#define SORT_BINARY_SEARCH_HPP 1
 
 #ifndef MAX
 #define MAX 60
 #endif
 
 
-// @params s            有序序列
-// @params beg          序列s的起始下标
-// @params end          序列s的末尾下标加1
-// @params index        返回找到的x下标
-// @return              找到x返回true 否则返回false
+/**
+ * 在升序序列s中找出x的位置（下标）
+ * @params s            升序序列
+ * @params beg          序列s的起始下标
+ * @params end          序列s的末尾下标加1，即左闭右开区间[beg, end)
+ * @params index        返回找到的x下标
+ * @return              找到x返回true 否则返回false
+ */
 bool BinarySearch(int s[MAX], int beg, int end, int x, int &index)
 {
     int low = beg;
