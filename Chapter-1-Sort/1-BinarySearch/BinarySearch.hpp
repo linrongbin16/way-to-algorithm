@@ -1,5 +1,5 @@
-#ifndef SORT_BINARY_SEARCH_HPP
-#define SORT_BINARY_SEARCH_HPP 1
+#ifndef BINARY_SEARCH_HPP
+#define BINARY_SEARCH_HPP 1
 
 #ifndef MAX
 #define MAX 60

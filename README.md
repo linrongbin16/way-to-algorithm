@@ -3,22 +3,21 @@
 
 ========================================
 #### 目录结构
-* Chapter-1 Sort 排序</br>
-&emsp;&emsp;BinarySearch 二分查找法</br>
-&emsp;&emsp;InsertSort 插入排序</br>
-&emsp;&emsp;InsertSort 插入排序</br>
-&emsp;&emsp;BubbleSort 冒泡排序</br>
-&emsp;&emsp;QuickSort 快速排序</br>
-&emsp;&emsp;MergeSort 合并排序</br>
-* Chapter-2 Search 搜索</br>
-&emsp;&emsp;AdvancedSearchAlgorithmIntroduction 高级搜索算法介绍</br>
-&emsp;&emsp;BruteForce 暴力枚举</br>
-&emsp;&emsp;DepthFirstSearch 深度优先搜索</br>
-&emsp;&emsp;BreadthFirstSearch 广度优先搜索</br>
-&emsp;&emsp;BidirectionBreadthSearch 双向优先搜索</br>
-&emsp;&emsp;AStarHeuristicSearch A星启发式搜索</br>
-&emsp;&emsp;DancingLinks 舞蹈链</br>
-* Chapter-3 DataStructure 数据结构</br>
+* Chapter-1 &nmsp; Sort &nmsp; 排序</br>
+&emsp;&emsp; BinarySearch &emsp; 二分查找法</br>
+&emsp;&emsp; InsertSort &emsp; 插入排序</br>
+&emsp;&emsp; BubbleSort &emsp; 冒泡排序</br>
+&emsp;&emsp; QuickSort &emsp; 快速排序</br>
+&emsp;&emsp; MergeSort &emsp; 合并排序</br>
+* Chapter-2 &nmsp; Search &nmsp; 搜索</br>
+&emsp;&emsp; AdvancedSearchAlgorithmIntroduction &emsp; 高级搜索算法介绍</br>
+&emsp;&emsp; BruteForce &emsp;&emsp;&emsp; 暴力枚举</br>
+&emsp;&emsp; DepthFirstSearch &emsp;&emsp; 深度优先搜索</br>
+&emsp;&emsp; BreadthFirstSearch &emsp;&emsp; 广度优先搜索</br>
+&emsp;&emsp; BidirectionBreadthSearch &emsp; 双向优先搜索</br>
+&emsp;&emsp; AStarHeuristicSearch &emsp; A星启发式搜索</br>
+&emsp;&emsp; DancingLinks &emsp; 舞蹈链</br>
+* Chapter-3 &nmsp; DataStructure &nmsp; 数据结构</br>
 &emsp;&emsp;ClassicDataStructureIntroduction 经典数据结构介绍</br>
 &emsp;&emsp;HashTable 哈希表</br>
 &emsp;&emsp;DisjointSet 并查集</br>

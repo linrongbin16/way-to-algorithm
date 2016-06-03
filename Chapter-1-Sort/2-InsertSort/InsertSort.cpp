@@ -1,4 +1,4 @@
-#include "InsertSort.h"
+#include "InsertSort.hpp"
 #include <iostream>
 #include <cassert>
 using namespace std;
