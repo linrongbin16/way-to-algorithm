@@ -3,26 +3,16 @@
 
 ========================================
 #### 目录结构
->	01_Sort                 [排序]
->
->	02_Search               [搜索]
->
->	03_DataStructure        [数据结构]
->
->	04_DynamicProgramming   [动态规划]
->
->	05_GraphTheory          [图论]
->
->	06_LinearAlgebra        [线性代数]
->
->	07_Math                 [数学]
->
->	08_AnalyticGeometry     [解析几何]
->
->	09_String               [字符串]
->
->	10_GameTheory           [博弈论]
->
+* Chapter-1 Sort [排序]
+* Chapter-2 Search [搜索]
+* Chapter-3 DataStructure [数据结构]
+* Chapter-4 DynamicProgramming [动态规划]
+* Chapter-5 GraphTheory [图论]
+* Chapter-6 LinearAlgebra [线性代数]
+* Chapter-7 Math [数学]
+* Chapter-8 AnalyticGeometry [解析几何]
+* Chapter-9 String [字符串]
+* Chapter-10 GameTheory [博弈论]
 
 
 ========================================
