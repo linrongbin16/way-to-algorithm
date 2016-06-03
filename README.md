@@ -3,15 +3,25 @@
 ========================================
 #### 目录结构
 >	01_Sort                 [排序]
+>
 >	02_Search               [搜索]
+>
 >	03_DataStructure        [数据结构]
+>
 >	04_DynamicProgramming   [动态规划]
+>
 >	05_GraphTheory          [图论]
+>
 >	06_LinearAlgebra        [线性代数]
+>
 >	07_Math                 [数学]
+>
 >	08_AnalyticGeometry     [解析几何]
+>
 >	09_String               [字符串]
+>
 >	10_GameTheory           [博弈论]
+>
 ========================================
 
 #### 阅读方法
