@@ -3,16 +3,31 @@
 
 ========================================
 #### 目录结构
-* Chapter-1 Sort [排序]
-* Chapter-2 Search [搜索]
-* Chapter-3 DataStructure [数据结构]
-* Chapter-4 DynamicProgramming [动态规划]
-* Chapter-5 GraphTheory [图论]
-* Chapter-6 LinearAlgebra [线性代数]
-* Chapter-7 Math [数学]
-* Chapter-8 AnalyticGeometry [解析几何]
-* Chapter-9 String [字符串]
-* Chapter-10 GameTheory [博弈论]
+* Chapter-1 Sort 排序
+* &emsp;&emsp;BinarySearch 二分查找法
+* &emsp;&emsp;InsertSort 插入排序
+* &emsp;&emsp;InsertSort 插入排序
+* &emsp;&emsp;BubbleSort 冒泡排序
+* &emsp;&emsp;QuickSort 快速排序
+* &emsp;&emsp;MergeSort 合并排序
+* Chapter-2 Search 搜索
+* &emsp;&emsp;
+* Chapter-3 DataStructure 数据结构
+* &emsp;&emsp;
+* Chapter-4 DynamicProgramming 动态规划
+* &emsp;&emsp;
+* Chapter-5 GraphTheory 图论
+* &emsp;&emsp;
+* Chapter-6 LinearAlgebra 线性代数
+* &emsp;&emsp;
+* Chapter-7 Math 数学
+* &emsp;&emsp;
+* Chapter-8 AnalyticGeometry 解析几何
+* &emsp;&emsp;
+* Chapter-9 String 字符串
+* &emsp;&emsp;
+* Chapter-10 GameTheory 博弈论
+* &emsp;&emsp;
 
 
 ========================================
