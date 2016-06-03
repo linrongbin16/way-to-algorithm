@@ -3,39 +3,39 @@
 
 ========================================
 #### 目录结构
-* Chapter-1 &nmsp; Sort &nmsp; 排序</br>
+* Chapter-1 &nbsp; Sort &nbsp; 排序</br>
 &emsp;&emsp; BinarySearch &emsp; 二分查找法</br>
 &emsp;&emsp; InsertSort &emsp; 插入排序</br>
 &emsp;&emsp; BubbleSort &emsp; 冒泡排序</br>
 &emsp;&emsp; QuickSort &emsp; 快速排序</br>
 &emsp;&emsp; MergeSort &emsp; 合并排序</br>
-* Chapter-2 &nmsp; Search &nmsp; 搜索</br>
+* Chapter-2 &nbsp; Search &nbsp; 搜索</br>
 &emsp;&emsp; AdvancedSearchAlgorithmIntroduction &emsp; 高级搜索算法介绍</br>
-&emsp;&emsp; BruteForce &emsp;&emsp;&emsp; 暴力枚举</br>
-&emsp;&emsp; DepthFirstSearch &emsp;&emsp; 深度优先搜索</br>
-&emsp;&emsp; BreadthFirstSearch &emsp;&emsp; 广度优先搜索</br>
+&emsp;&emsp; BruteForce &emsp; 暴力枚举</br>
+&emsp;&emsp; DepthFirstSearch &emsp; 深度优先搜索</br>
+&emsp;&emsp; BreadthFirstSearch &emsp; 广度优先搜索</br>
 &emsp;&emsp; BidirectionBreadthSearch &emsp; 双向优先搜索</br>
 &emsp;&emsp; AStarHeuristicSearch &emsp; A星启发式搜索</br>
 &emsp;&emsp; DancingLinks &emsp; 舞蹈链</br>
-* Chapter-3 &nmsp; DataStructure &nmsp; 数据结构</br>
-&emsp;&emsp;ClassicDataStructureIntroduction 经典数据结构介绍</br>
-&emsp;&emsp;HashTable 哈希表</br>
-&emsp;&emsp;DisjointSet 并查集</br>
-&emsp;&emsp;BinaryIndexTree 树状数组</br>
-&emsp;&emsp;SegmentTree 线段树</br>
-&emsp;&emsp;LeftistTree 左偏树</br>
-&emsp;&emsp;PrefixTree 前缀树</br>
-&emsp;&emsp;SuffixTree 后缀树</br>
-&emsp;&emsp;AVLTree 平衡二叉树</br>
-&emsp;&emsp;RedBlackTree 红黑树</br>
-* Chapter-4 DynamicProgramming 动态规划</br>
-&emsp;&emsp;DynamicProgrammingIntroduction 动态规划介绍</br>
-&emsp;&emsp;(1) LinearDynamic 线性动态规划</br>
-&emsp;&emsp;&emsp;&emsp;LongestCommonSubsequence 最长公共子序列</br>
-&emsp;&emsp;&emsp;&emsp;LongestIncreasingSubsequence 最长递增子序列</br>
-&emsp;&emsp;&emsp;&emsp;LongestIncreasingSubsequenceExtension 最长递增子序列扩展</br>
-&emsp;&emsp;&emsp;&emsp;BidirectionSubsequence 双向子序列</br>
-&emsp;&emsp;(2) Pack 背包问题</br>
+* Chapter-3 &nbsp; DataStructure &nbsp; 数据结构</br>
+&emsp;&emsp; ClassicDataStructureIntroduction &emsp; 经典数据结构介绍</br>
+&emsp;&emsp; HashTable &emsp; 哈希表</br>
+&emsp;&emsp; DisjointSet &emsp; 并查集</br>
+&emsp;&emsp; BinaryIndexTree &emsp; 树状数组</br>
+&emsp;&emsp; SegmentTree &emsp; 线段树</br>
+&emsp;&emsp; LeftistTree &emsp; 左偏树</br>
+&emsp;&emsp; PrefixTree &emsp; 前缀树</br>
+&emsp;&emsp; SuffixTree &emsp; 后缀树</br>
+&emsp;&emsp; AVLTree &emsp; 平衡二叉树</br>
+&emsp;&emsp; RedBlackTree &emsp; 红黑树</br>
+* Chapter-4 &nbsp; DynamicProgramming &nbsp; 动态规划</br>
+&emsp;&emsp; DynamicProgrammingIntroduction &emsp; 动态规划介绍</br>
+&emsp;&emsp; (1) LinearDynamic &emsp; 线性动态规划</br>
+&emsp;&emsp;&emsp;&emsp; LongestCommonSubsequence &emsp; 最长公共子序列</br>
+&emsp;&emsp;&emsp;&emsp; LongestIncreasingSubsequence &emsp; 最长递增子序列</br>
+&emsp;&emsp;&emsp;&emsp; LongestIncreasingSubsequenceExtension &emsp; 最长递增子序列扩展</br>
+&emsp;&emsp;&emsp;&emsp; BidirectionSubsequence &emsp; 双向子序列</br>
+&emsp;&emsp; (2) Pack &emsp; 背包问题</br>
 &emsp;&emsp;&emsp;&emsp;01Pack 01背包</br>
 &emsp;&emsp;&emsp;&emsp;01PackPath 01背包路径</br>
 &emsp;&emsp;&emsp;&emsp;CompletePack 完全背包</br>
