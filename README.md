@@ -36,32 +36,32 @@
 &emsp;&emsp;&emsp;&emsp; LongestIncreasingSubsequenceExtension &emsp; 最长递增子序列扩展</br>
 &emsp;&emsp;&emsp;&emsp; BidirectionSubsequence &emsp; 双向子序列</br>
 &emsp;&emsp; (2) Pack &emsp; 背包问题</br>
-&emsp;&emsp;&emsp;&emsp;01Pack 01背包</br>
-&emsp;&emsp;&emsp;&emsp;01PackPath 01背包路径</br>
-&emsp;&emsp;&emsp;&emsp;CompletePack 完全背包</br>
-&emsp;&emsp;&emsp;&emsp;MultiplePack 多重背包</br>
-&emsp;&emsp;&emsp;&emsp;TwoDimensionPack 二维背包</br>
-&emsp;&emsp;&emsp;&emsp;PacketPack 分组背包</br>
-&emsp;&emsp;&emsp;&emsp;GenericItem 泛化物品</br>
-&emsp;&emsp;&emsp;&emsp;DependentPack 依赖背包</br>
-&emsp;&emsp;(3) RegionDynamic 区域动态规划</br>
-&emsp;&emsp;&emsp;&emsp;MinimumMergeCost 最小合并代价</br>
-&emsp;&emsp;&emsp;&emsp;MinimumMergeExtension 最小合并扩展</br>
-&emsp;&emsp;&emsp;&emsp;MaximumBinaryTreeMerge 最大二叉树合并</br>
-&emsp;&emsp;(4) TreeDynamic 树形动态规划</br>
-&emsp;&emsp;&emsp;&emsp;BinaryTree 二叉树</br>
-&emsp;&emsp;&emsp;&emsp;MultipleTree 多叉树</br>
-&emsp;&emsp;&emsp;&emsp;Multi2BinaryTree 多叉树转二叉树</br>
-&emsp;&emsp;&emsp;&emsp;MultiTreePath 多叉树路径</br>
-&emsp;&emsp;&emsp;&emsp;LoopMultiTree 带环多叉树</br>
-&emsp;&emsp;&emsp;&emsp;MultipleTraverseTree 多叉树树遍历</br>
-* Chapter-5 GraphTheory 图论</br>
-&emsp;&emsp;(1) LinearDynamic 线性动态规划</br>
-* Chapter-6 LinearAlgebra 线性代数</br>
-* Chapter-7 Math 数学</br>
-* Chapter-8 AnalyticGeometry 解析几何</br>
-* Chapter-9 String 字符串</br>
-* Chapter-10 GameTheory 博弈论</br>
+&emsp;&emsp;&emsp;&emsp; 01Pack &emsp; 01背包</br>
+&emsp;&emsp;&emsp;&emsp; 01PackPath &emsp; 01背包路径</br>
+&emsp;&emsp;&emsp;&emsp; CompletePack &emsp; 完全背包</br>
+&emsp;&emsp;&emsp;&emsp; MultiplePack &emsp; 多重背包</br>
+&emsp;&emsp;&emsp;&emsp; TwoDimensionPack &emsp; 二维背包</br>
+&emsp;&emsp;&emsp;&emsp; PacketPack &emsp; 分组背包</br>
+&emsp;&emsp;&emsp;&emsp; GenericItem &emsp; 泛化物品</br>
+&emsp;&emsp;&emsp;&emsp; DependentPack &emsp; 依赖背包</br>
+&emsp;&emsp;(3) RegionDynamic &emsp; 区域动态规划</br>
+&emsp;&emsp;&emsp;&emsp; MinimumMergeCost &emsp; 最小合并代价</br>
+&emsp;&emsp;&emsp;&emsp; MinimumMergeExtension &emsp; 最小合并扩展</br>
+&emsp;&emsp;&emsp;&emsp; MaximumBinaryTreeMerge &emsp; 最大二叉树合并</br>
+&emsp;&emsp;(4) TreeDynamic &emsp; 树形动态规划</br>
+&emsp;&emsp;&emsp;&emsp; BinaryTree &emsp; 二叉树</br>
+&emsp;&emsp;&emsp;&emsp; MultipleTree &emsp; 多叉树</br>
+&emsp;&emsp;&emsp;&emsp; Multi2BinaryTree &emsp; 多叉树转二叉树</br>
+&emsp;&emsp;&emsp;&emsp; MultiTreePath &emsp; 多叉树路径</br>
+&emsp;&emsp;&emsp;&emsp; LoopMultiTree &emsp; 带环多叉树</br>
+&emsp;&emsp;&emsp;&emsp; MultipleTraverseTree &emsp; 多叉树树遍历</br>
+* Chapter-5 &nbsp; GraphTheory &nbsp; 图论</br>
+&emsp;&emsp; (1) LinearDynamic &emsp; 线性动态规划</br>
+* Chapter-6 &nbsp; LinearAlgebra &nbsp; 线性代数</br>
+* Chapter-7 &nbsp; Math &nbsp; 数学</br>
+* Chapter-8 &nbsp; AnalyticGeometry &nbsp; 解析几何</br>
+* Chapter-9 &nbsp; String &nbsp; 字符串</br>
+* Chapter-10 &nbsp; GameTheory &nbsp; 博弈论</br>
 
 
 ========================================
