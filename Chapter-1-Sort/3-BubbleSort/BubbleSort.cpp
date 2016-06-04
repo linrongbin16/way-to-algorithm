@@ -1,4 +1,4 @@
-#include "InsertSort.hpp"
+#include "BubbleSort.hpp"
 #include <iostream>
 #include <cassert>
 #include <cstdlib>
@@ -27,10 +27,10 @@ void AssertAscendingOrder(int s[MAX], int n)
     }
     assert(res && "Array Ascending Fail");
 }
-void AssertInsertSort(int s[MAX], int n)
+void AssertBubbleSort(int s[MAX], int n)
 {
     AssertNotAscendingOrder(s, n);
-    InsertSort(s, 0, n);
+    BubbleSort(s, 0, n);
     AssertAscendingOrder(s, n);
 }
 
@@ -45,7 +45,7 @@ int main(void)
         for (int j = 0; j < MAX; ++j) {
             s[j] = rand() % TEST_MAX;
         }
-        AssertInsertSort(s, MAX);
+        AssertBubbleSort(s, MAX);
     }
 
     return 0;
