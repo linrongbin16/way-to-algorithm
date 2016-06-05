@@ -1,9 +1,5 @@
-﻿#ifndef SORT_QUICK_SORT_H
-#define SORT_QUICK_SORT_H 1
-//快速排序
-//quick sort
-
-//用快速排序算法将未序序列s从小到大排序
+﻿#ifndef QUICK_SORT_HPP
+#define QUICK_SORT_HPP 1
 
 #ifndef MAX
 #define MAX 60
@@ -11,74 +7,54 @@
 #include <algorithm>
 using namespace std;
 
-//1
-//将s[beg]设为哨兵元素
-//将s中其余元素中所有比哨兵小的放s[0]左边 所有比哨兵大的放s[0]右边
-//即可得到两段未排序的子序列 再用相同方法递归的处理子序列
-//即可得到已序序列s
-//时间复杂度O(N*logN)
-int partion1(int s[MAX], int beg, int end)
+
+/* ----------------------------------------------------------------------*/
+/**
+ * @brief Partion 
+ * 以s[start]为中间值，将所有小于等于s[start]的放在左边，
+ * 大于等于[start]的放在右边
+ *
+ * @param s[MAX]        无序序列
+ * @param start         起始下标
+ * @param last
+ * @param start         序列s的起始下标
+ * @param last          序列s的末尾下标，即左闭右闭区间[start, last]
+ * @return              最终s[start]所在下标
+ */
+/* ----------------------------------------------------------------------*/
+int Partion(int s[MAX], int start, int last)
 {
-    //[beg, end]为左闭右闭区间 序列s下标从beg到end
-    //哨兵pivot
-    int pivot = s[beg];
-    while (beg < end)
-    {
-        while (beg < end && s[end] >= pivot)
-            --end;
-        s[beg] = s[end];
-        while (beg < end && s[beg] <= pivot)
-            ++beg;
-        s[end] = s[beg];
+    int p = s[start];
+    while (start < last) {
+        while (start < last && s[last] >= p)
+            --last;
+        s[start] = s[last];
+        while (start < last && s[start] <= p)
+            ++start;
+        s[last] = s[start];
     }
-    //此时beg下标为哨兵pivot下标
-    s[beg] = pivot;
-    return(beg);
-}
-void quick_sort1(int s[MAX], int beg, int end)
-{
-    //[beg, end]为左闭右开区间 序列s下标从beg到end
-    if (beg < end)
-    {
-        int mid = partion1(s, beg, end);
-        quick_sort1(s, beg, mid);
-        quick_sort1(s, mid + 1, end);
-    }
+    s[start] = p;
+    return start;
 }
 
-
-//2
-//TODO: 该算法ok
-//设置哨兵为s[end] i初始设置为beg-1 指向第一个大于当前主元的位置
-//j从beg到end-1 每遇到一个比s[end]大的就交换i和j位置
-//最后i+1的位置便是s[end]应在的位置
-//时间复杂度O(N*logN)
-int partition2(int s[MAX], int beg, int end)
+/* ----------------------------------------------------------------------*/
+/**
+ * @brief QuickSort 
+ * 快速排序
+ *
+ * @param s[MAX]        无序序列
+ * @param beg           序列s的起始下标
+ * @param end           序列s的末尾下标加1，即左闭右开区间[beg, end)
+ */
+/* ----------------------------------------------------------------------*/
+void QuickSort(int s[MAX], int beg, int end)
 {
-    int p = s[end];
-    int i = beg - 1;
-    for (int j = beg; j <= end-1; ++j)
-    {
-        if (s[j] <= p)
-        {
-            ++i;
-            swap(s[i], s[j]);
-        }
-    }
-    swap(s[i+1], s[end]);
-    return i+1;
-}
-void quick_sort2(int s[MAX], int beg, int end)
-{
-    //[beg, end]为左闭右闭区间
-    if (beg < end)
-    {
-        int mid = partition2(s, beg, end);
-        quick_sort2(s, beg, mid-1);
-        quick_sort2(s, mid+1, end);
+    if (beg < end-1) {
+        int mid = Partion(s, beg, end-1);
+        QuickSort(s, beg, mid);
+        QuickSort(s, mid+1, end);
     }
 }
 
 
 #endif
-
