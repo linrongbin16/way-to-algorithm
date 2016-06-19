@@ -53,17 +53,17 @@ void calculus_number_diverse(int argc,char** argv)
     while(cin>>n&&n)
     {
         if(n==0) break;
-        for(i=0;i<=n;i++) /*需要交换数字作为辅助*/
+        for(i=0; i<=n; i++) /*需要交换数字作为辅助*/
         {
             c1[i]=1;
             c2[i]=0;
         }
-        for(i=2;i<=n;i++) /*I*/
+        for(i=2; i<=n; i++) /*I*/
         {
-            for(j=0;j<=n;j++) /*每两个式子相乘*/
-                for(k=0;k+j<=n;k+=i) /*为了提高计算速度，减少不必要计算，将指数大于N的不算了*/
+            for(j=0; j<=n; j++) /*每两个式子相乘*/
+                for(k=0; k+j<=n; k+=i) /*为了提高计算速度，减少不必要计算，将指数大于N的不算了*/
                     c2[k+j]+=c1[j];
-            for(j=0;j<=n;j++)
+            for(j=0; j<=n; j++)
             {
                 c1[j]=c2[j];
                 c2[j]=0;
