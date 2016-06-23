@@ -11,7 +11,7 @@ void Merge(int s[MAX], int start, int mid, int last)
     int t[MAX];
     int i, j, k;
 
-    for (i = start, j = mid, k = start; i <= mid && j <= last; ++k) {
+    for (i = start, j = mid+1, k = start; i <= mid && j <= last; ++k) {
         if (s[i] <= s[j]) {
             t[k] = s[i];
             i++;
@@ -25,21 +25,22 @@ void Merge(int s[MAX], int start, int mid, int last)
     for (; j <= last; ++j, ++k)
         t[k] = s[j];
 
-    /* std::copy(t, t + MAX, s) will also work */
-    for (i = 0; i < MAX; ++i)
+    /* copy(t+start, t +last+1, s) will also work */
+    for (i = start; i <= last; ++i)
         s[i] = t[i];
 }
 
 void MergeSort(int s[MAX], int beg, int end)
 {
-    if (beg >= end-1)
-        return;
-
     int mid = (beg + end-1) / 2;
+
+    if (beg + 2 >= end) {
+        Merge(s, beg, mid, end-1);
+        return;
+    }
     MergeSort(s, beg, mid+1);
     MergeSort(s, mid+1, end);
     Merge(s, beg, mid, end-1);
 }
-
 
 #endif
