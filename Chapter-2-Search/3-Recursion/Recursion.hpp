@@ -1,34 +1,37 @@
 #ifndef RECURSION_HPP
 #define RECURSION_HPP 1
 
-#include <iostream>
+#include <vector>
 using namespace std;
 #ifndef MAX
 #define MAX 60
 #endif
 
 
-void RecursionOutput(int s[MAX], int beg, int end)
-{
-    for (int i = beg; i < end; i++) {
-        cout << s[i] << " ";
-    }
-    cout << endl;
-}
+vector<int*> combinations;
 
-void Recursion(int s[MAX], int n, int m, int prev)
+vector<int*> Recursion(int s[MAX], int n, int m, int prev)
 {
-    /* part 1: recursion end */
+    /* 初始化combinations */
+    if (prev == 0) {
+        combinations.clear();
+    }
+
+    /* 递归终止条件 */
     if (prev == n) {
-        RecursionOutput(s, 0, n);
-        return;
+        int *one = new int[MAX];
+        memcpy(one, s, MAX * sizeof(int));
+        combinations.push_back(one);
+        return vector<int*>();
     }
 
-    /* part 2: m choices of s[prev] */
+    /* 遍历当前成员s[prev] 并递归进入下一个成员 */
     for (int i = 0; i < m; ++i) {
         s[prev] = i;
         Recursion(s, n, m, prev + 1);
     }
+
+    return combinations;
 }
 
 
