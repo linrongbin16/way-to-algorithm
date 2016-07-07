@@ -1,7 +1,6 @@
 #ifndef BREADTH_FIRST_SEARCH_HPP
 #define BREADTH_FIRST_SEARCH_HPP 1
 
-#include <iostream>
 #include <deque>
 #include <vector>
 #include <cstring>
@@ -18,7 +17,7 @@ int visit[MAX][MAX];
 pair<int, int> father[MAX][MAX];
 
 /* 递归生成从beg到end的路径 */
-void BFSPath(pair<int, int> end, deque<pair<int, int> > &path)
+void BFSPath(pair<int, int> end, vector<pair<int, int> > &path)
 {
     if (father[end.first][end.second] != end) {
         BFSPath(father[end.first][end.second], path);
@@ -26,7 +25,7 @@ void BFSPath(pair<int, int> end, deque<pair<int, int> > &path)
     path.push_back(end);
 }
 
-deque<pair<int, int> > BreadthFirstSearch(int m, int n, pair<int, int> beg, pair<int, int> end)
+vector<pair<int, int> > BreadthFirstSearch(int m, int n, pair<int, int> beg, pair<int, int> end)
 {
     memset(visit, 0, MAX * MAX * sizeof(int));
     for (int i = 0; i < MAX; i++)
@@ -43,7 +42,7 @@ deque<pair<int, int> > BreadthFirstSearch(int m, int n, pair<int, int> beg, pair
         pair<int, int> node = que.front();
         que.pop_front();
         if (node == end) {
-            deque<pair<int, int> > path;
+            vector<pair<int, int> > path;
             BFSPath(node, path);
             return path;
         }
@@ -65,7 +64,7 @@ deque<pair<int, int> > BreadthFirstSearch(int m, int n, pair<int, int> beg, pair
         }
     }
 
-    return deque<pair<int, int> >();
+    return vector<pair<int, int> >();
 }
 
 
