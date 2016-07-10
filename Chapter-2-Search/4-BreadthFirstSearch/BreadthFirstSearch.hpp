@@ -3,16 +3,16 @@
 
 #include <deque>
 #include <vector>
-#include <cstring>
 using namespace std;
 #ifndef MAX
 #define MAX 60
 #endif
 
-
 /* 4个方向: 上 下 右 左 */
-const int BFSDirectionN[4] = { 0, 0, 1, -1 };
-const int BFSDirectionM[4] = { 1, -1, 0, 0 };
+/* m行n列二维方格 row范围[0, m) col范围[0, n)*/
+const int direction_col[4] = { 0, 0, 1, -1 };
+const int direction_row[4] = { 1, -1, 0, 0 };
+
 int visit[MAX][MAX];
 pair<int, int> father[MAX][MAX];
 
@@ -34,8 +34,8 @@ vector<pair<int, int> > BreadthFirstSearch(int m, int n, pair<int, int> beg, pai
 
     deque<pair<int, int> > que;
     que.push_back(beg);
-    /* beg.first范围是[0, m) */
-    /* beg.second范围是[0, n) */
+    /* beg.first是row 范围是[0, m) */
+    /* beg.second是col 范围是[0, n) */
     visit[beg.first][beg.second] = 1;
 
     while (!que.empty()) {
@@ -49,17 +49,17 @@ vector<pair<int, int> > BreadthFirstSearch(int m, int n, pair<int, int> beg, pai
 
         /* 上下左右4个方向 */
         for (int i = 0; i < 4; i++) {
-            int neighbor_n = node.first + BFSDirectionN[i];
-            int neighbor_m = node.second + BFSDirectionM[i];
+            int neighbor_row = node.first + direction_row[i];
+            int neighbor_col = node.second + direction_col[i];
             /* 检查边界和是否访问过（即染红） */
-            if (neighbor_m >= 0 && neighbor_m < m && neighbor_n >= 0 && neighbor_n < n
-                && visit[neighbor_n][neighbor_m] == 0) {
+            if (neighbor_row >= 0 && neighbor_row < m && neighbor_col >= 0 && neighbor_col < n
+                && visit[neighbor_row][neighbor_col] == 0) {
                 /* 加入等待队列 */
-                que.push_back(pair<int, int>(neighbor_n, neighbor_m));
+                que.push_back(pair<int, int>(neighbor_row, neighbor_col));
                 /* 染红 */
-                visit[neighbor_n][neighbor_m] = 1;
+                visit[neighbor_row][neighbor_col] = 1;
                 /* 记录父节点 */
-                father[neighbor_n][neighbor_m] = pair<int, int>(node.first, node.second);
+                father[neighbor_row][neighbor_col] = pair<int, int>(node.first, node.second);
             }
         }
     }

@@ -1,4 +1,4 @@
-#include "header.hpp"
+#include "BreadthFirstSearch.hpp"
 #include <cassert>
 using namespace std;
 
@@ -10,10 +10,10 @@ int main()
     for (int i = 1; i < TEST_M_MAX; i++)
         for (int j = 1; j < TEST_N_MAX; j++) {
             pair<int, int> beg(0, 0);
-            pair<int, int> end(j - 1, i - 1);
-            vector<pair<int, int> > path = BreadthFirstSearch(i, j, pair<int, int>(0, 0), pair<int, int>(j - 1, i - 1));
+            pair<int, int> end(i - 1, j - 1);
+            vector<pair<int, int> > path = BreadthFirstSearch(i, j, beg, end);
             /* 保证路径长度为 j-1+i-1+1 */
-            assert(path.size() == ((j - 1) + (i - 1) + 1));
+            assert(path.size() == (i - 1 + j - 1 + 1));
             /* 保证起点和终点位置 */
             assert(path[0] == beg);
             assert(path[path.size() - 1] == end);
@@ -29,6 +29,6 @@ int main()
                         && path[k].second == path[k + 1].second));
             }
         }
+
     return 0;
 }
-
