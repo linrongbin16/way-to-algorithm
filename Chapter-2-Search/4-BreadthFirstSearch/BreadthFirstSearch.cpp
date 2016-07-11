@@ -2,8 +2,9 @@
 #include <cassert>
 using namespace std;
 
-#define TEST_M_MAX 16
-#define TEST_N_MAX 16
+#define TEST_M_MAX MAX
+#define TEST_N_MAX MAX
+
 
 int main()
 {
