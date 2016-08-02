@@ -1,4 +1,4 @@
-#include "AStarSearch.hpp"
+#include "EightFigurePuzzle.hpp"
 #include <cassert>
 using namespace std;
 
@@ -27,12 +27,12 @@ bool IsAdjacentNode(PuNode a, PuNode b)
 
 void UnitTest(PuNode beg, PuNode end)
 {
-    vector<PuNode> path = AStarSearch(beg, end);
+    vector<PuNode> path = EightFigurePuzzle(beg, end);
     assert(path.size() > 0);
     assert(path[0] == beg);
-    assert(path[path.size()-1] == end);
+    assert(path[path.size() - 1] == end);
     for (int i = 0; i < path.size() - 1; i++) {
-        assert(IsAdjacentNode(path[i], path[i+1]));
+        assert(IsAdjacentNode(path[i], path[i + 1]));
     }
 }
 
@@ -126,3 +126,4 @@ int main()
 
     return 0;
 }
+

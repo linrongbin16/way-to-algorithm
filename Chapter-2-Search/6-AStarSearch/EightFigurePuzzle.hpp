@@ -1,5 +1,5 @@
-#ifndef A_STAR_SEARCH_HPP
-#define A_STAR_SEARCH_HPP 1
+#ifndef EIGHT_FIGURE_PUZZLE_HPP
+#define EIGHT_FIGURE_PUZZLE_HPP 1
 
 /* 八数码问题 */
 
@@ -35,13 +35,13 @@ struct PuNode
 };
 
 /*
- 将矩阵
- 0 1 2
- 3 4 5
- 6 7 8
- 表示为char[9]数组
+将矩阵
+0 1 2
+3 4 5
+6 7 8
+表示为char[9]数组
 */
-int direction[4] = { -3, 3, -1, 1 };
+const int direction[4] = { -3, 3, -1, 1 };
 
 int XPosition(PuNode a)
 {
@@ -50,10 +50,6 @@ int XPosition(PuNode a)
         if (a.value[i] == 'x')
             break;
     return i;
-}
-void SwapPosition(PuNode &a, int pos1, int pos2)
-{
-    swap(a.value[pos1], a.value[pos2]);
 }
 bool InsideBoundary(int pos)
 {
@@ -100,7 +96,7 @@ bool QueueContain(deque<PuNode> &que, PuNode a, deque<PuNode>::iterator &out_ite
     return false;
 }
 
-void AStarPath(const deque<PuNode> &closeQue, PuNode beg, PuNode end, vector<PuNode> &path)
+void PuzzlePath(const deque<PuNode> &closeQue, PuNode beg, PuNode end, vector<PuNode> &path)
 {
     deque<PuNode> duePath;
     while (end != beg) {
@@ -119,7 +115,7 @@ void AStarPath(const deque<PuNode> &closeQue, PuNode beg, PuNode end, vector<PuN
     }
 }
 
-vector<PuNode> AStarSearch(PuNode beg, PuNode end)
+vector<PuNode> EightFigurePuzzle(PuNode beg, PuNode end)
 {
     deque<PuNode> openQue;
     deque<PuNode> closeQue;
@@ -130,7 +126,7 @@ vector<PuNode> AStarSearch(PuNode beg, PuNode end)
         if (min_node == end) {
             closeQue.push_back(min_node);
             vector<PuNode> path;
-            AStarPath(closeQue, beg, min_node, path);
+            PuzzlePath(closeQue, beg, min_node, path);
             return path;
         }
 
@@ -146,7 +142,7 @@ vector<PuNode> AStarSearch(PuNode beg, PuNode end)
                 PuNode p;
                 deque<PuNode>::iterator result;
                 memcpy(p.value, min_node.value, 9);
-                SwapPosition(p, x_pos, swap_position);
+                swap(p.value[x_pos], p.value[swap_position]);
                 p.gScore = min_node.gScore + 1;
                 p.hScore = HScoreDiff(p, end);
                 memcpy(p.fatherValue, min_node.value, 9);
