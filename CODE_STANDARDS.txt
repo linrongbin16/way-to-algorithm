@@ -1,0 +1,11 @@
+macro definition 宏定义
+全大写字母加下划线 MACRO_DEFINITION
+
+function name 函数名
+单词首字母大写 FunctionName
+
+local/global variables 局部变量/全局变量
+全小写字母加下划线 local_variable/global_variable
+
+struct/class 结构体/类
+单词首字母大写 MyStruct MyClass

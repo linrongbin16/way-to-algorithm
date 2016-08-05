@@ -1,7 +1,6 @@
 test
 tags
 *.log
-*.txt
 *.out
 *.o
 *.a
