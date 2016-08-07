@@ -10,13 +10,13 @@
 &emsp;&emsp; QuickSort &nbsp; 快速排序</br>
 &emsp;&emsp; MergeSort &nbsp; 合并排序</br>
 * Chapter-2 &nbsp; Search &nbsp; 搜索</br>
-&emsp;&emsp; AdvancedSearchAlgorithmIntroduction &nbsp; 高级搜索算法介绍</br>
+&emsp;&emsp; Intro-AdvancedSearch &nbsp; 高级搜索介绍</br>
 &emsp;&emsp; BinarySearch &nbsp; 二分查找法</br>
 &emsp;&emsp; BruteForce &nbsp; 暴力枚举</br>
-&emsp;&emsp; DepthFirstSearch &nbsp; 深度优先搜索</br>
+&emsp;&emsp; Resursion &nbsp; 递归</br>
 &emsp;&emsp; BreadthFirstSearch &nbsp; 广度优先搜索</br>
 &emsp;&emsp; BidirectionBreadthSearch &nbsp; 双向优先搜索</br>
-&emsp;&emsp; AStarHeuristicSearch &nbsp; A星启发式搜索</br>
+&emsp;&emsp; AStarSearch &nbsp; A*搜索</br>
 &emsp;&emsp; DancingLinks &nbsp; 舞蹈链</br>
 * Chapter-3 &nbsp; DataStructure &nbsp; 数据结构</br>
 &emsp;&emsp; ClassicDataStructureIntroduction &nbsp; 经典数据结构介绍</br>
