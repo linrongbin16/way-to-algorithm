@@ -1,6 +1,6 @@
+#include "DancingLinks.hpp"
 #include <iostream>
 #include <algorithm>
-#include "6_dancing_links.h"
 using namespace std;
 
 int main()

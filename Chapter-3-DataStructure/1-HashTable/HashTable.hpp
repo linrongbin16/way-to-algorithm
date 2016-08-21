@@ -1,37 +1,122 @@
-#ifndef BINARY_SEARCH_HPP
-#define BINARY_SEARCH_HPP 1
+#ifndef HASH_TABLE_HPP
+#define HASH_TABLE_HPP 1
 
 #ifndef MAX
 #define MAX 60
 #endif
+#include <cstring>
+
+struct HashTableNode {
+    void *key;
+    void *value;
+    HashTableNode *next;
+};
+
+struct HashTable {
+    HashTableNode *tab[MAX];
+    unsigned int(*hash)(const void *, int, unsigned int);
+};
 
 
-/**
- * 在升序序列s中找出x的位置（下标）
- * @params s            升序序列
- * @params beg          序列s的起始下标
- * @params end          序列s的末尾下标加1，即左闭右开区间[beg, end)
- * @params index        返回找到的x下标
- * @return              找到x返回true 否则返回false
- */
-bool BinarySearch(int s[MAX], int beg, int end, int x, int &index)
+HashTable *HashTableNew(unsigned int (*hash)(const void *, int, unsigned int))
 {
-    int low = beg;
-    int high = end - 1;
-    int mid;
-    while (low <= high) {
-        mid = (low + high) / 2;
-        if (s[mid] == x) {
-            index = mid;
-            return true; 
-        } else if (s[mid] > x) { 
-            high = mid - 1; 
-        } else if (s[mid] < x) { 
-            low = mid + 1; 
-        }
+    HashTable *t = new HashTable();
+
+    if (t == NULL) {
+        return NULL;
     }
-    return false;
+
+    memset(t->tab, 0, MAX * sizeof(HashTableNode*));
+    t->hash = hash;
+
+    return t;
 }
 
+void HashTableFree(HashTable *t)
+{
+    for (int i = 0; i < MAX; i++) {
+        HashTableNode *p = t->tab[i];
+        while (p) {
+            HashTableNode *q = p->next;
+            delete p;
+            p = q;
+        }
+    }
+    delete t;
+}
+
+int HashTableInsert(HashTable *t, void *key, void *value)
+{
+    HashTableNode *newNode = new HashTableNode();
+    if (newNode == NULL) {
+        return -1;
+    }
+
+    newNode->key = key;
+    newNode->value = value;
+    newNode->next = NULL;
+
+    unsigned int index = t->hash(key, sizeof(key), 0) % MAX;
+    HashTableNode *p = t->tab[index];
+
+    if (p) {
+        HashTableNode *q = p->next;
+
+        while (q) {
+            p = q;
+            q = q->next;
+        }
+
+        p->next = newNode;
+    } else {
+        t->tab[index] = newNode;
+    }
+
+    return 0;
+}
+
+HashTableNode *HashTableFind(HashTable *t, void *key)
+{
+    unsigned int index = t->hash(key, sizeof(key), 0) % MAX;
+    HashTableNode *p = t->tab[index];
+
+    while (p) {
+        if (p->key == key) {
+            return p;
+        }
+        p = p->next;
+    }
+
+    return NULL;
+}
+
+int HashTableRemove(HashTable *t, void *key)
+{
+    unsigned int index = t->hash(key, sizeof(key), 0) % MAX;
+    HashTableNode *p = t->tab[index];
+
+    if (!p) {
+        return -1;
+    }
+
+    if (p->key == key) {
+        t->tab[index] = p->next;
+        delete p;
+        return 0;
+    }
+
+    HashTableNode *q = p->next;
+    while (q && q->key != key) {
+        p = p->next;
+        q = p->next;
+    }
+    if (q && q->key == key) {
+        p->next = q->next;
+        delete q;
+        return 0;
+    }
+
+    return -1;
+}
 
 #endif

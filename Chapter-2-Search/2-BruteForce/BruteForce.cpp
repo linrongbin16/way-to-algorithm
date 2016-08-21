@@ -1,5 +1,6 @@
 #include "BruteForce.hpp"
 #include <cassert>
+#include <cmath>
 using namespace std;
 
 #define TEST_N_MAX 4

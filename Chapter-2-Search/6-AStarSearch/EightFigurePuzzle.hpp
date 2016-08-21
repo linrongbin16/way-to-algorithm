@@ -8,6 +8,7 @@
 #include <vector>
 #include <cstdlib>
 #include <climits>
+#include <cstring>
 using namespace std;
 #ifndef MAX
 #define MAX 60

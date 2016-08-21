@@ -3,6 +3,7 @@
 
 #include <deque>
 #include <vector>
+#include <cstring>
 using namespace std;
 #ifndef MAX
 #define MAX 60
