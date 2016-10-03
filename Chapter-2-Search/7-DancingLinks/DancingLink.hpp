@@ -20,32 +20,57 @@ void MakeLink(int n, int m, int subset[MAX][MAX])
     memset(right_node, 0, MAX * sizeof(int));
     memset(row, 0, MAX * sizeof(int));
     memset(column, 0, MAX * sizeof(int));
-    /* 0为头节点head 集合为[1,n] */
+    for (int i = 1; i <= m; i++)
+        for (int j = 1; j <= n; j++)
+            if (subset[i][j])
+                subset[i][j] += n;
+    /* 0为头节点head */
+    for (int i = 0; i <= n; i++) {
+        up_node[i] = i;
+        down_node[i] = i;
+        left_node[i] = i-1>=0 ? i-1 : n;
+        right_node[i] = i+1<=n ? i+1 : 0;
+        row[i] = 0;
+        column[i] = i;
+    }
     for (int i = 1; i <= m; i++)
         for (int j = 1; j <= n; j++) {
             int index = subset[i][j];
-            if (index) {
-                row[index] = i;
-                column[index] = j;
-            }
-            for (int p = i+1; ; p = p+1 > m? 1 : p+1)
+            int p;
+            if (!index)
+                continue;
+            row[index] = i;
+            column[index] = j;
+            for (p = i + 1; p <= m; p++)
                 if (subset[p][j]) {
                     down_node[index] = subset[p][j];
+                    up_node[ subset[p][j] ] = index;
                     break;
                 }
-            for (int p = i-1; ; p = p-1 <= 0? m : p-1)
+            if (p == m+1) {
+                down_node[index] = j;
+                up_node[j] = index;
+            }
+            for (p = i - 1; p >= 0; p--)
                 if (subset[p][j]) {
                     up_node[index] = subset[p][j];
+                    down_node[ subset[p][j] ] = index;
                     break;
                 }
-            for (int p = j+1; ; p = p+1 > n? 1 : p+1)
+            if (p == -1) {
+                up_node[index] = j;
+                down_node[j] = index;
+            }
+            for (p = j + 1; ; p = p+1>n ? 1 : p + 1)
                 if (subset[i][p]) {
                     right_node[index] = subset[i][p];
+                    left_node[ subset[i][p] ] = index;
                     break;
                 }
-            for (int p = j-1; ; p = p-1 <= 0? n : p-1)
+            for (p = j - 1; ; p = p-1<=0 ? n : p - 1)
                 if (subset[i][p]) {
                     left_node[index] = subset[i][p];
+                    right_node[ subset[i][p] ] = index;
                     break;
                 }
         }
@@ -95,7 +120,7 @@ bool Dance(int r, int cover[MAX])
 
     for (int p1 = down_node[u]; p1 != u; p1 = down_node[p1]) {
         /* 尝试选择u这列中的节点p1 */
-        cover[r] = row[p1];
+        cover[ row[p1] ] = 1;
         /* 删除节点p1所在的子集/行 */
         /* 删除节点p1所在列的每个节点所在的子集/行的所有节点 */
         for (int p2 = right_node[p1]; p2 != p1; p2 = right_node[p2])
@@ -106,6 +131,7 @@ bool Dance(int r, int cover[MAX])
             return true;
 
         /* 若矩阵为空时没有获得精确覆盖方案 说明p1选择失败 恢复所有被删掉的节点 并继续尝试u这列中的下一个节点 */
+        cover[ row[p1] ] = 0;
         for (int p2 = left_node[p1]; p2 != p1; p2 = left_node[p2])
             ResumeNode(column[p2]);
     }
