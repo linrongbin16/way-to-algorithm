@@ -17,25 +17,16 @@ void PrintSet(DisjointSet *s, int n)
 
 void test1()
 {
-    /* test1 */
     DisjointSet *s = DisjointSetNew();
     assert(s);
     DisjointSetUnion(s, 0, 4);
-    PrintSet(s, 10);
     DisjointSetUnion(s, 1, 9);
-    PrintSet(s, 10);
     DisjointSetUnion(s, 0, 2);
-    PrintSet(s, 10);
     DisjointSetUnion(s, 1, 3);
-    PrintSet(s, 10);
     DisjointSetUnion(s, 3, 5);
-    PrintSet(s, 10);
     DisjointSetUnion(s, 6, 8);
-    PrintSet(s, 10);
     DisjointSetUnion(s, 2, 6);
-    PrintSet(s, 10);
     DisjointSetUnion(s, 1, 7);
-    PrintSet(s, 10);
 
     assert(DisjointSetQuery(s, 1, 3));
     assert(DisjointSetQuery(s, 1, 5));
@@ -68,8 +59,33 @@ void test1()
     DisjointSetFree(s);
 }
 
+void test2()
+{
+    DisjointSet *s = DisjointSetNew();
+    assert(s);
+    DisjointSetUnion(s, 1, 2);
+    DisjointSetUnion(s, 1, 3);
+    DisjointSetUnion(s, 0, 4);
+    DisjointSetUnion(s, 4, 5);
+
+    assert(DisjointSetQuery(s, 1, 2));
+    assert(DisjointSetQuery(s, 2, 3));
+    assert(DisjointSetQuery(s, 0, 4));
+    assert(DisjointSetQuery(s, 4, 5));
+
+    assert(!DisjointSetQuery(s, 0, 1));
+    assert(!DisjointSetQuery(s, 0, 2));
+    assert(!DisjointSetQuery(s, 0, 3));
+    assert(!DisjointSetQuery(s, 1, 0));
+    assert(!DisjointSetQuery(s, 1, 4));
+    assert(!DisjointSetQuery(s, 1, 5));
+
+    DisjointSetFree(s);
+}
+
 int main()
 {
     test1();
+    test2();
     return 0;
 }
