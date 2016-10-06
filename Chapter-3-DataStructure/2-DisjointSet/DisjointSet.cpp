@@ -1,6 +1,6 @@
 #include "DisjointSet.hpp"
 #include <iostream>
-#include <cassert>
+#include <assert.h>
 using namespace std;
 
 void PrintSet(DisjointSet *s, int n)

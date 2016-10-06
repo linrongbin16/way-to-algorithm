@@ -1,6 +1,6 @@
 #include "HashTable.hpp"
 #include "MurmurHash2.hpp"
-#include <cassert>
+#include <assert.h>
 
 
 #define TEST_MAX 1024
