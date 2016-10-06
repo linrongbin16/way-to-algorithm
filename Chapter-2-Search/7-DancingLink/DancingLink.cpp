@@ -1,7 +1,7 @@
 #include "DancingLink.hpp"
 #include <iostream>
 #include <algorithm>
-#include <cassert>
+#include <assert.h>
 using namespace std;
 
 int main()

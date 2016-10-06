@@ -1,5 +1,5 @@
 #include "EightFigurePuzzle.hpp"
-#include <cassert>
+#include <assert.h>
 using namespace std;
 
 bool IsAdjacentNode(PuNode a, PuNode b)

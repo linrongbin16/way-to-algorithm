@@ -1,5 +1,5 @@
 #include "BreadthFirstSearch.hpp"
-#include <cassert>
+#include <assert.h>
 using namespace std;
 
 #define TEST_M_MAX MAX

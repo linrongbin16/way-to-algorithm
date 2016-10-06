@@ -1,6 +1,6 @@
 #include "Recursion.hpp"
-#include <cmath>
-#include <cassert>
+#include <math.h>
+#include <assert.h>
 using namespace std;
 
 #define TEST_N_MAX 4

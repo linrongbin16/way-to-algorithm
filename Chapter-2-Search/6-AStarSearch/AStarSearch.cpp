@@ -1,5 +1,5 @@
 #include "AStarSearch.hpp"
-#include <cassert>
+#include <assert.h>
 using namespace std;
 
 bool IsAdjacentNode(pair<int, int> a, pair<int, int> b)

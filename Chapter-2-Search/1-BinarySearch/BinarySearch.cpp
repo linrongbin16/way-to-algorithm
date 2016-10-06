@@ -1,7 +1,7 @@
 #include "BinarySearch.hpp"
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <assert.h>
 using namespace std;
 
 
