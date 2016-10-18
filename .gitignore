@@ -8,3 +8,11 @@ tags
 *.gch
 *.exe
 *~
+*.tlog
+*.lastbuildstate
+*.vs
+*.db
+*.pdb
+*.ilk
+*.obj
+*.idb
