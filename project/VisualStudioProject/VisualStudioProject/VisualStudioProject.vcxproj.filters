@@ -15,13 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Chapter-3-DataStructure\2-DisjointSet\DisjointSet.cpp">
+    <ClCompile Include="test.cpp">
       <Filter>资源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\Chapter-3-DataStructure\2-DisjointSet\DisjointSet.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
