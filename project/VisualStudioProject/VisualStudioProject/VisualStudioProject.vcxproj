@@ -10,9 +10,6 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="test.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8BA73C52-9243-4E31-B65F-726818E54E12}</ProjectGuid>
     <RootNamespace>VisualStudioProject</RootNamespace>
