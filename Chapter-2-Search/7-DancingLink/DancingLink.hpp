@@ -3,7 +3,7 @@
 
 #include <cstring>
 #ifndef MAX
-#define MAX 60
+#define MAX 64
 #endif
 
 /* up_node[i]为节点i上方的邻节点 down_node/left_node/right_node对应分别为下方/左方/右方的邻节点 */

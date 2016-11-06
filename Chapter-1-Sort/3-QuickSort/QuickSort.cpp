@@ -14,7 +14,7 @@ void AssertNotAscendingOrder(int s[MAX], int n)
             break;
         }
     }
-    assert(!res && "Array Not Ascending Fail");
+    assert(!res);
 }
 void AssertAscendingOrder(int s[MAX], int n)
 {
@@ -25,7 +25,7 @@ void AssertAscendingOrder(int s[MAX], int n)
             break;
         }
     }
-    assert(res && "Array Ascending Fail");
+    assert(res);
 }
 void AssertQuickSort(int s[MAX], int n)
 {
@@ -40,9 +40,6 @@ void AssertQuickSort(int s[MAX], int n)
 int main(void)
 {
     int s[MAX];
-
-    int s2[] = {50, 1, 90, 13, 77, 45, 87};
-    AssertQuickSort(s2, 7);
 
     for (int i = 0; i < TEST_MAX; ++i) {
         for (int j = 0; j < MAX; ++j) {

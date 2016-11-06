@@ -3,7 +3,7 @@
 
 #include <cstring>
 #ifndef MAX
-#define MAX 60
+#define MAX 1024
 #endif
 
 struct BinaryIndexTree

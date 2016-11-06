@@ -6,25 +6,25 @@
 #include <cstring>
 using namespace std;
 #ifndef MAX
-#define MAX 60
+#define MAX 64
 #endif
 
 struct BiNode
 {
     int row;
     int col;
-    int fatherRow;
-    int fatherCol;
+    int father_row;
+    int father_col;
 
     BiNode()
     { }
 
-    BiNode(int row_, int col_, int fatherRow_, int fatherCol_)
+    BiNode(int row_, int col_, int father_row_, int father_col_)
     {
         row = row_;
         col = col_;
-        fatherRow = fatherRow_;
-        fatherCol = fatherCol_;
+        father_row = father_row_;
+        father_col = father_col_;
     }
     bool operator==(const BiNode &node_) const
     {
@@ -124,6 +124,5 @@ deque<pair<int, int> > BidirectionalBreadthSearch(int m, int n, pair<int, int> b
 
     return deque<pair<int, int> >();
 }
-
 
 #endif

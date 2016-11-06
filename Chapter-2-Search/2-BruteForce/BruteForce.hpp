@@ -5,7 +5,7 @@
 #include <cstring>
 using namespace std;
 #ifndef MAX
-#define MAX 60
+#define MAX 1024
 #endif
 
 

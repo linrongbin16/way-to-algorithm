@@ -6,7 +6,7 @@
 #include <cstring>
 using namespace std;
 #ifndef MAX
-#define MAX 60
+#define MAX 64
 #endif
 
 /* 4个方向: 上 下 右 左 */
@@ -67,6 +67,5 @@ vector<pair<int, int> > BreadthFirstSearch(int m, int n, pair<int, int> beg, pai
 
     return vector<pair<int, int> >();
 }
-
 
 #endif

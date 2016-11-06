@@ -14,7 +14,7 @@ void AssertNotAscendingOrder(int s[MAX], int n)
                break;
           }
      }
-     assert(!res && "Array Not Ascending Fail");
+     assert(!res);
 }
 void AssertAscendingOrder(int s[MAX], int n)
 {
@@ -25,7 +25,7 @@ void AssertAscendingOrder(int s[MAX], int n)
                break;
           }
      }
-     assert(res && "Array Ascending Fail");
+     assert(res);
 }
 void AssertMergeSort(int s[MAX], int n)
 {

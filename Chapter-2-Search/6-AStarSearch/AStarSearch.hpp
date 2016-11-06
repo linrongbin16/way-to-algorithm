@@ -8,7 +8,7 @@
 #include <climits>
 using namespace std;
 #ifndef MAX
-#define MAX 60
+#define MAX 64
 #endif
 #ifndef INF
 #define INF INT_MAX

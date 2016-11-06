@@ -2,7 +2,7 @@
 #define BINARY_SEARCH_HPP 1
 
 #ifndef MAX
-#define MAX 60
+#define MAX 1024
 #endif
 
 
@@ -23,11 +23,11 @@ bool BinarySearch(int s[MAX], int beg, int end, int x, int &index)
         mid = (low + high) / 2;
         if (s[mid] == x) {
             index = mid;
-            return true; 
-        } else if (s[mid] > x) { 
-            high = mid - 1; 
-        } else if (s[mid] < x) { 
-            low = mid + 1; 
+            return true;
+        } else if (s[mid] > x) {
+            high = mid - 1;
+        } else if (s[mid] < x) {
+            low = mid + 1;
         }
     }
     return false;

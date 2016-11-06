@@ -2,7 +2,7 @@
 #define QUICK_SORT_HPP 1
 
 #ifndef MAX
-#define MAX 60
+#define MAX 1024
 #endif
 #include <algorithm>
 using namespace std;
