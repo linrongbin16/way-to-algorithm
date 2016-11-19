@@ -1,6 +1,6 @@
 #<p align="center">Way to Algorithm</p>
 #<p align="center">算法之路</p>
-
+<p>Basic Computer Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
 ========================================
 #### 目录结构
