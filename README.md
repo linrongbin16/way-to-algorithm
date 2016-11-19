@@ -1,7 +1,7 @@
-#<align="center">Way to Algorithm</br>
-#<align="center">算法之路</br>
+#<p align="center">Way to Algorithm</p>
+#<p align="center">算法之路</p>
 
-Basic Computer Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</br>
+<p>Basic Computer Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 </br>
 目录结构</br>
 * Chapter-1 &nbsp; Sort &nbsp; 排序</br>
