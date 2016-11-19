@@ -13,15 +13,18 @@ int main()
     }
     for (int i = 0; i < MAX; i++) {
         SegmentTreeInit(0, s, 0, MAX-1);
-        int sum = 0;
-        SegmentTreeAdd(0, i, i);
         for (int j = 0; j < MAX; j++) {
-            sum += j;
-            if (j < i) {
-                assert(SegmentTreeQuery(0, 0, j) == sum);
-            } else {
-                assert(SegmentTreeQuery(0, 0, j) == sum + i);
+            int sum = 0;
+            SegmentTreeAdd(0, j, j);
+            for (int k = 0; k < MAX; k++) {
+                sum += k;
+                if (k < j) {
+                    assert(SegmentTreeQuery(0, 0, k) == sum);
+                } else {
+                    assert(SegmentTreeQuery(0, 0, k) == sum + j);
+                }
             }
+            SegmentTreeAdd(0, j, -j);
         }
     }
 
