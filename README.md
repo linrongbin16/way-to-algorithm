@@ -1,9 +1,8 @@
-#<p align="center">Way to Algorithm</p>
-#<p align="center">算法之路</p>
-
-<p>Basic Computer Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
+##<p align="center">Way to Algorithm</p>
+##<p align="center">算法之路</p>
+<p align="center">Basic Computer Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 </br>
-目录结构</br>
+####目录结构</br>
 * Chapter-1 &nbsp; Sort &nbsp; 排序</br>
 &emsp;&emsp; InsertSort &nbsp; 插入排序</br>
 &emsp;&emsp; BubbleSort &nbsp; 冒泡排序</br>
