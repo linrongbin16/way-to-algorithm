@@ -2,9 +2,9 @@
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 </br>
 ####目录结构</br>
-* Chapter-1 &nbsp; Sort &nbsp; 排序</br>
-&emsp;&emsp; InsertSort &nbsp; 插入排序</br>
-&emsp;&emsp; BubbleSort &nbsp; 冒泡排序</br>
+* <p>Chapter-1 Sort - 排序</p>
+<p>|---- InsertSort - 插入排序</p>
+<p>|---- BubbleSort - 冒泡排序</p>
 &emsp;&emsp; QuickSort &nbsp; 快速排序</br>
 &emsp;&emsp; MergeSort &nbsp; 合并排序</br>
 * Chapter-2 &nbsp; Search &nbsp; 搜索</br>
