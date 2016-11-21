@@ -1,6 +1,6 @@
 ##<p align="center">Way to Algorithm - 算法之路</p>
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
-<p align><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/keyboard.jpg" width="2000"/></p>
+<p align><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/keyboard.jpg" /></p>
 
 ####目录结构</p>
 * Chapter-1 - Sort - 排序</p> 
