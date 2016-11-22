@@ -13,32 +13,45 @@
 #define RIGHT_CHILD(x) (2 * (x) + 2)
 #define FATHER(x) (((x) - 1) / 2)
 
-/* 节点i代表的区域范围为[left_node[i], right_node[i]] 该区域的和为sum[i] */
-int left_node[MAX * 3];
-int right_node[MAX * 3];
-int sum[MAX * 3];
+struct SegmentTree {
+    /* 节点i代表的区域范围为[left_node[i], right_node[i]] 该区域的和为sum[i] */
+    int left_node[MAX * 3];
+    int right_node[MAX * 3];
+    int sum[MAX * 3];
+};
 
 /* 将数组s[start, end]初始化为二叉树 根节点root为0 */
-int SegmentTreeInit(int root, int s[MAX], int start, int end)
+static int SegmentTreeInitRec(SegmentTree *t, int root, int s[MAX], int start, int end)
 {
     if (start == end) {
-        left_node[root] = start;
-        right_node[root] = end;
-        sum[root] = s[start];
+        t->left_node[root] = start;
+        t->right_node[root] = end;
+        t->sum[root] = s[start];
         return sum[root];
     }
 
     int mid = (start + end) / 2;
-    int left_sum = SegmentTreeInit( LEFT_CHILD(root), s, start, mid );
-    int right_sum = SegmentTreeInit( RIGHT_CHILD(root), s, mid + 1, end );
+    int left_sum = SegmentTreeInitRec(t, LEFT_CHILD(root), s, start, mid );
+    int right_sum = SegmentTreeInitRec(t, RIGHT_CHILD(root), s, mid + 1, end );
     left_node[root] = start;
     right_node[root] = end;
     sum[root] = left_sum + right_sum;
     return sum[root];
 }
 
+SegmentTree *SegmentTreeNew(int s[MAX], int start, int end)
+{
+    SegmentTree *t = new SegmentTree();
+    if (!t) {
+        return NULL;
+    }
+    SegmentTreeInitRec(t, 0, s, start, end);
+    return t;
+}
+
+
 /* 数组s[index]加v */
-void SegmentTreeAdd(int root, int index, int v)
+static void SegmentTreeAddRec(SegmentTree *t, int root, int index, int v)
 {
     if (left_node[root] > index || right_node[root] < index) {
         return;
@@ -51,24 +64,34 @@ void SegmentTreeAdd(int root, int index, int v)
     if (left_node[root] == right_node[root]) {
         return;
     }
-    SegmentTreeAdd( LEFT_CHILD(root), index, v );
-    SegmentTreeAdd( RIGHT_CHILD(root), index, v );
+    SegmentTreeAddRec(t, LEFT_CHILD(root), index, v);
+    SegmentTreeAddRec(t, RIGHT_CHILD(root), index, v);
+}
+
+void SegmentTreeAdd(SegmentTree *t, int index, int value)
+{
+    SegmentTreeAddRec(t, 0, index, value);
 }
 
 /* 查询数组s[start, end]范围的和 */
-int SegmentTreeQuery(int root, int start, int end)
+int SegmentTreeQueryRec(SegmentTree *t, int root, int start, int end)
 {
     int mid = (left_node[root] + right_node[root]) / 2;
     if (left_node[root] >= start && right_node[root] <= end) {
         return sum[root];
     } else if (end <= mid) {
-        return SegmentTreeQuery( LEFT_CHILD(root), start, end );
+        return SegmentTreeQueryRec(t, LEFT_CHILD(root), start, end );
     } else if (start >= mid + 1) {
-        return SegmentTreeQuery( RIGHT_CHILD(root), start, end );
+        return SegmentTreeQueryRec(t, RIGHT_CHILD(root), start, end );
     } else { 
-        return SegmentTreeQuery( LEFT_CHILD(root), start, mid) 
-            + SegmentTreeQuery( RIGHT_CHILD(root), mid + 1, end);
+        return SegmentTreeQueryRec(t, LEFT_CHILD(root), start, mid) 
+            + SegmentTreeQueryRec(t, RIGHT_CHILD(root), mid + 1, end);
     }
+}
+
+int SegmentTreeQuery(SegmentTree *t, int start, int end)
+{
+    return SegmentTreeQueryRec(t, 0, start, end);
 }
 
 #endif

@@ -12,10 +12,10 @@ struct DisjointSet
     int father[MAX];
 };
 
-int DisjointSetFindFather(DisjointSet *s, int i)
+static int FindFather(DisjointSet *s, int i)
 {
     if (s->father[i] != i)
-        s->father[i] = DisjointSetFindFather(s, s->father[i]);
+        s->father[i] = FindFather(s, s->father[i]);
     return s->father[i];
 }
 
@@ -38,13 +38,13 @@ void DisjointSetFree(DisjointSet *s)
 
 void DisjointSetUnion(DisjointSet *s, int i, int j)
 {
-    int i_father = DisjointSetFindFather(s, i);
-    int j_father = DisjointSetFindFather(s, j);
+    int i_father = FindFather(s, i);
+    int j_father = FindFather(s, j);
     s->father[j] = i_father;
 }
 bool DisjointSetQuery(DisjointSet *s, int i, int j)
 {
-    return DisjointSetFindFather(s, i) == DisjointSetFindFather(s, j);
+    return FindFather(s, i) == FindFather(s, j);
 }
 
 
