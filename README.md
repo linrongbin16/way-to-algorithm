@@ -9,7 +9,6 @@
     * QuickSort - 快速排序</p> 
     * MergeSort - 合并排序</p>
 * Chapter-2 - Search - 搜索</p> 
-    * Introduction-AdvancedSearch - 高级搜索介绍</p>
     * BinarySearch - 二分查找法</p> 
     * BruteForce - 暴力枚举</p> 
     * Resursion - 递归</p> 
@@ -17,6 +16,7 @@
     * BidirectionpeadthSearch - 双向优先搜索</p> 
     * AStarSearch - A*搜索</p> 
     * DancingLinks - 舞蹈链</p>
+    * Introduction-AdvancedSearch - 高级搜索介绍</p>
 * Chapter-3 - DataStructure - 数据结构</p> 
     * Introduction-ClassicDataStructure - 经典数据结构介绍</p> 
     * HashTable - 哈希表</p> 
