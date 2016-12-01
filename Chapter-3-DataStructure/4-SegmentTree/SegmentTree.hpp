@@ -27,16 +27,16 @@ static int SegmentTreeInitRec(SegmentTree *t, int root, int s[MAX], int start, i
         t->left_node[root] = start;
         t->right_node[root] = end;
         t->sum[root] = s[start];
-        return sum[root];
+        return t->sum[root];
     }
 
     int mid = (start + end) / 2;
     int left_sum = SegmentTreeInitRec(t, LEFT_CHILD(root), s, start, mid );
     int right_sum = SegmentTreeInitRec(t, RIGHT_CHILD(root), s, mid + 1, end );
-    left_node[root] = start;
-    right_node[root] = end;
-    sum[root] = left_sum + right_sum;
-    return sum[root];
+    t->left_node[root] = start;
+    t->right_node[root] = end;
+    t->sum[root] = left_sum + right_sum;
+    return t->sum[root];
 }
 
 SegmentTree *SegmentTreeNew(int s[MAX], int start, int end)
@@ -49,19 +49,24 @@ SegmentTree *SegmentTreeNew(int s[MAX], int start, int end)
     return t;
 }
 
+void SegmentTreeFree(SegmentTree *t)
+{
+    delete t;
+}
+
 
 /* 数组s[index]加v */
 static void SegmentTreeAddRec(SegmentTree *t, int root, int index, int v)
 {
-    if (left_node[root] > index || right_node[root] < index) {
+    if (t->left_node[root] > index || t->right_node[root] < index) {
         return;
     }
 
-    assert( left_node[root] <= index );
-    assert( right_node[root] >= index );
-    sum[root] += v;
+    assert( t->left_node[root] <= index );
+    assert( t->right_node[root] >= index );
+    t->sum[root] += v;
 
-    if (left_node[root] == right_node[root]) {
+    if (t->left_node[root] == t->right_node[root]) {
         return;
     }
     SegmentTreeAddRec(t, LEFT_CHILD(root), index, v);
@@ -76,9 +81,9 @@ void SegmentTreeAdd(SegmentTree *t, int index, int value)
 /* 查询数组s[start, end]范围的和 */
 int SegmentTreeQueryRec(SegmentTree *t, int root, int start, int end)
 {
-    int mid = (left_node[root] + right_node[root]) / 2;
-    if (left_node[root] >= start && right_node[root] <= end) {
-        return sum[root];
+    int mid = (t->left_node[root] + t->right_node[root]) / 2;
+    if (t->left_node[root] >= start && t->right_node[root] <= end) {
+        return t->sum[root];
     } else if (end <= mid) {
         return SegmentTreeQueryRec(t, LEFT_CHILD(root), start, end );
     } else if (start >= mid + 1) {

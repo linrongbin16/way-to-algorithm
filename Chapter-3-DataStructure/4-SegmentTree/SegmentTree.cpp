@@ -12,20 +12,21 @@ int main()
         s[i] = i;
     }
     for (int i = 0; i < MAX; i++) {
-        SegmentTreeInit(0, s, 0, MAX-1);
+        SegmentTree *t = SegmentTreeNew(s, 0, MAX-1);
         for (int j = 0; j < MAX; j++) {
             int sum = 0;
-            SegmentTreeAdd(0, j, j);
+            SegmentTreeAdd(t, j, j);
             for (int k = 0; k < MAX; k++) {
                 sum += k;
                 if (k < j) {
-                    assert(SegmentTreeQuery(0, 0, k) == sum);
+                    assert(SegmentTreeQuery(t, 0, k) == sum);
                 } else {
-                    assert(SegmentTreeQuery(0, 0, k) == sum + j);
+                    assert(SegmentTreeQuery(t, 0, k) == sum + j);
                 }
             }
-            SegmentTreeAdd(0, j, -j);
+            SegmentTreeAdd(t, j, -j);
         }
+        SegmentTreeFree(t);
     }
 
     return 0;
