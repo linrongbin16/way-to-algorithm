@@ -13,14 +13,16 @@
 #define RIGHT_CHILD(x) (2 * (x) + 2)
 #define FATHER(x) (((x) - 1) / 2)
 
-/* 节点i的距离为dist[i] */
-int dist[MAX * 3];
+struct LeftistTree {
+    /* 节点i的距离为distance[i] */
+    int distance[MAX * 3];
+};
 
 /* 将数组s[start, end]初始化为二叉树 根节点root为0 */
-int LeftistTreeInit(int root, int s[MAX], int start, int end)
+int LeftistTreeInitRec(LeftistTree *t, int root, int s[MAX], int start, int end)
 {
     if (start == end) {
-        dist[root] = s[start];
+        t->distance[root] = s[start];
         return dist[root];
     }
 
