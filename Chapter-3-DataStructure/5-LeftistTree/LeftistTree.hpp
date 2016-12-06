@@ -1,59 +1,102 @@
 #ifndef LEFTIST_TREE_HPP
 #define LEFTIST_TREE_HPP 1
 
-#include <assert.h>
 #include <algorithm>
+using namespace std;
 #ifndef MAX
 #define MAX 64
 #endif
 
 /* 用数组来代替二叉树的数据结构 */
-/* 节点下标为x的节点 其左右孩子节点的下标为 LEFT_CHILD(x) RIGHT_CHILD(x) 父节点的下标为 FATHER(x) */
-#define LEFT_CHILD(x) (2 * (x) + 1)
-#define RIGHT_CHILD(x) (2 * (x) + 2)
-#define FATHER(x) (((x) - 1) / 2)
+/* 节点下标为x的节点 其左右孩子节点的下标为 LEFT_CHILD(x) RIGHT_CHILD(x) */
+#define LEFT_CHILD(x) ((x)->left)
+#define RIGHT_CHILD(x) ((x)->right)
+
+struct LeftistNode {
+    int value;
+    /* 节点i的距离为distance */
+    int distance;
+    /* 左右孩子节点 父节点 */
+    LeftistNode *left;
+    LeftistNode *right;
+    LeftistTree *tree;
+};
 
 struct LeftistTree {
-    /* 节点i的距离为distance[i] */
-    int distance[MAX * 3];
+    LeftistNode *root;
+    int size;
+    int compare(LeftistNode*, LeftistNode*);
 };
 
 /* 将数组s[start, end]初始化为二叉树 根节点root为0 */
-int LeftistTreeInitRec(LeftistTree *t, int root, int s[MAX], int start, int end)
+LeftistTree *LeftistTreeNew(int (*compare)(LeftistNode*, LeftistNode*))
 {
-    if (start == end) {
-        t->distance[root] = s[start];
-        return dist[root];
-    }
-
-    int mid = (start + end) / 2;
-    int dist = LeftistTreeInit( LEFT_CHILD(root), s, start, mid );
-    int dist = LeftistTreeInit( RIGHT_CHILD(root), s, mid + 1, end );
-    dist[root] = left_sum + right_sum;
-    return dist[root];
+    LeftistTree *t = new LeftistTree();
+    if (!t)
+        return NULL;
+    t->root = NULL;
+    t->size = 0;
+    t->compare = compare;
+    return t;
 }
 
-/* 数组s[index]加v */
-void LeftistTreeAdd(int root, int index, int v)
+void LeftistNodeFree(LeftistNode *e)
 {
-    if (left_node[root] > index || right_node[root] < index) {
+    if (!e)
         return;
-    }
-
-    assert( left_node[root] <= index );
-    assert( right_node[root] >= index );
-    sum[root] += v;
-
-    if (left_node[root] == right_node[root]) {
-        return;
-    }
-    LeftistTreeAdd( LEFT_CHILD(root), index, v );
-    LeftistTreeAdd( RIGHT_CHILD(root), index, v );
+    LeftistNodeFree(e->left);
+    LeftistNodeFree(e->right);
+    free(e);
+}
+void LeftistTreeFree(LeftistTree *t)
+{
+    LeftistNodeFree(t->root);
 }
 
-/* 查询数组s[start, end]范围的和 */
-int LeftistTreeQuery(int root, int start, int end)
+LeftistNode *LeftistNodeMerge(LeftistNode *a, LeftistNode *b)
 {
+    if (!a)
+        return b;
+    if (!b)
+        return a;
+
+    int (*compare)(LeftistNode*, LeftistNode*) = a->tree->compare;
+    if (compare(a, b) > 0) {
+        return LeftistNodeMerge(b, a);
+    }
+
+    a->right = LeftistNodeMerge(a->right, b);
+
+    if (!a->left) {
+        swap(a->left, a->right);
+    } else {
+        if (a->left->distance < a->right->distance)
+            swap(a->left, a->right);
+        a->distance = a->right->distance + 1;
+    }
+
+    return a;
+}
+
+/* 合并 */
+LeftistTree *LeftistTreeMerge(LeftistTree *a, LeftistTree *b)
+{
+    LeftistTree *t = new LeftistTree();
+    if (!t)
+        return NULL;
+    t->compare = a->compare;
+    t->size = a->size + b->size;
+    t->root = LeftistNodeMerge(a->root, b->root);
+    return t;
+}
+
+int LeftistTreePush(LeftistTree *t, int value)
+{
+    LeftistNode *e = new LeftistNode();
+    if (!e)
+    node->m_index = value;
+    return(leftist_tree_merge(root, node));
+
     int mid = (left_node[root] + right_node[root]) / 2;
     if (left_node[root] >= start && right_node[root] <= end) {
         return sum[root];
