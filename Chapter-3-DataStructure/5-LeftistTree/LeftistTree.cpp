@@ -5,29 +5,77 @@ using namespace std;
 
 #define TEST_MAX 1024
 
-int main()
+int Greater(LeftistNode *a, LeftistNode *b)
 {
-    int s[MAX];
-    for (int i = 0; i < MAX; i++) {
-        s[i] = i;
-    }
-    for (int i = 0; i < MAX; i++) {
-        SegmentTreeInit(0, s, 0, MAX-1);
-        for (int j = 0; j < MAX; j++) {
-            int sum = 0;
-            SegmentTreeAdd(0, j, j);
-            for (int k = 0; k < MAX; k++) {
-                sum += k;
-                if (k < j) {
-                    assert(SegmentTreeQuery(0, 0, k) == sum);
-                } else {
-                    assert(SegmentTreeQuery(0, 0, k) == sum + j);
-                }
-            }
-            SegmentTreeAdd(0, j, -j);
-        }
-    }
-
-    return 0;
+	return b->index - a->index;
+}
+int Less(LeftistNode *a, LeftistNode *b)
+{
+	return a->index - b->index;
 }
 
+int main()
+{
+    for (int i = 0; i < MAX; i++) {
+        LeftistTree *t = LeftistTreeNew(Greater);
+        for (int j = 0; j < MAX; j++) {
+			LeftistTreePush(t, j);
+			assert(LeftistTreeTop(t) == j);
+        }
+        for (int j = MAX-1; j >= 0; j--) {
+			assert(LeftistTreeTop(t) == j);
+			LeftistTreePop(t);
+        }
+		LeftistTreeFree(t);
+    }
+
+    for (int i = 0; i < MAX; i++) {
+        LeftistTree *t1 = LeftistTreeNew(Greater);
+        LeftistTree *t2 = LeftistTreeNew(Greater);
+        for (int j = 0; j < MAX; j++) {
+			if (j % 2) {
+				LeftistTreePush(t1, j);
+			} else {
+				LeftistTreePush(t2, j);
+			}
+        }
+		LeftistTree *t = LeftistTreeMerge(t1, t2);
+        for (int j = MAX-1; j >= 0; j--) {
+			assert(LeftistTreeTop(t) == j);
+			LeftistTreePop(t);
+        }
+		LeftistTreeFree(t);
+    }
+
+    for (int i = 0; i < MAX; i++) {
+        LeftistTree *t = LeftistTreeNew(Less);
+        for (int j = 0; j < MAX; j++) {
+			LeftistTreePush(t, j);
+			assert(LeftistTreeTop(t) == 0);
+        }
+        for (int j = 0; j < MAX; j++) {
+			assert(LeftistTreeTop(t) == j);
+			LeftistTreePop(t);
+        }
+		LeftistTreeFree(t);
+    }
+
+    for (int i = 0; i < MAX; i++) {
+        LeftistTree *t1 = LeftistTreeNew(Less);
+        LeftistTree *t2 = LeftistTreeNew(Less);
+        for (int j = 0; j < MAX; j++) {
+			if (j % 2) {
+				LeftistTreePush(t1, j);
+			} else {
+				LeftistTreePush(t2, j);
+			}
+        }
+		LeftistTree *t = LeftistTreeMerge(t1, t2);
+        for (int j = 0; j < MAX; j++) {
+			assert(LeftistTreeTop(t) == j);
+			LeftistTreePop(t);
+        }
+		LeftistTreeFree(t);
+    }
+    return 0;
+}
