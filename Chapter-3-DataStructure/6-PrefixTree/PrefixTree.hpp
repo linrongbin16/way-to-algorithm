@@ -2,6 +2,7 @@
 #define PREFIX_TREE_HPP 1
 
 #include <string.h>
+#include <assert.h>
 #ifndef MAX
 #define MAX 64
 #endif
@@ -47,12 +48,14 @@ void PrefixTreeInsert(PrefixTree *t, const char *word)
         int index = ChildIndex(word[i]);
         if (e->child[index] == NULL) {
             e->child[index] = new PrefixTree();
+            // initialize e->child[index]
+            PrefixTree *he = e->child[index];
+            he->letter = word[i];
+            he->word = NULL;
+            memset(he->child, 0, sizeof(he->child));
         }
         e = e->child[index];
-        e->letter = word[i];
-        e->word = NULL;
-        memset(e->child, 0, sizeof(e->child));
-        if (i == n - 1 && e->word == NULL) {
+        if (i == n - 1) {
             e->word = word;
         }
     }
@@ -63,8 +66,12 @@ int PrefixTreeFind(PrefixTree *t, const char *word)
     int n = strlen(word);
     for (int i = 0; i < n; i++) {
         int index = ChildIndex(word[i]);
+        if (!e)
+            return 0;
         e = e->child[index];
-        if (i == n - 1 && strcmp(e->word, word) == 0)
+        if (!e)
+            return 0;
+        if (i == n - 1 && e->word && strcmp(e->word, word) == 0)
             return 1;
     }
     return 0;
