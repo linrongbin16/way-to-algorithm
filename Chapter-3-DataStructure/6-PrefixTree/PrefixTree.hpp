@@ -29,6 +29,16 @@ PrefixTree *PrefixTreeNew()
     return t;
 }
 
+void PrefixTreeFree(PrefixTree *t)
+{
+    if (!t)
+        return;
+
+    for (int i = 0; i < 26; i++)
+        PrefixTreeFree(t->child[i]);
+    delete t;
+}
+
 void PrefixTreeInsert(PrefixTree *t, const char *word)
 {
     int n = strlen(word);
@@ -61,7 +71,6 @@ int PrefixTreeFind(PrefixTree *t, const char *word)
 }
 void PrefixTreeErase(PrefixTree *t, const char *word)
 {
-    //我们不处理该字符串str不存在的异常情况，认为该字符串str一定存在并且删除
     PrefixTree *e = t;
     int n = strlen(word);
     for (int i = 0; i < n; i++) {
