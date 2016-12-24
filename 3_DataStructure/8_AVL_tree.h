@@ -1,5 +1,7 @@
 ﻿#ifndef DATASTRUCTURE_AVL_TREE_H
 #define DATASTRUCTURE_AVL_TREE_H 1
+
+
 //平衡二叉树
 //avl tree
 
