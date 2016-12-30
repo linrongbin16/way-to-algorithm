@@ -1,5 +1,0 @@
-
-MACRO_DEFINITION: uppercase with underlines
-local_variable/global_variable: lowercase with underlines
-FunctionName: first letter uppercase in word while others lowercase
-MyStruct/MyClass: same as FunctionName
