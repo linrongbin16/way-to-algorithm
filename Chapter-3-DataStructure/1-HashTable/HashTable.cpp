@@ -1,5 +1,4 @@
 #include "HashTable.hpp"
-#include "MurmurHash2.hpp"
 #include <assert.h>
 
 
@@ -7,21 +6,19 @@
 
 int main()
 {
-    HashTable *t = HashTableNew(MurmurHash2);
+    HashTable *t = HashTableNew();
     assert(t);
 
-    int *tab[TEST_MAX];
+    int tab[TEST_MAX];
     for (int i = 0; i < TEST_MAX; i++) {
-        tab[i] = new int(i);
+        tab[i] = i;
     }
     for (int i = 0; i < TEST_MAX; i++) {
         assert(HashTableInsert(t, tab[i], tab[i]) == 0);
     }
     for (int i = 0; i < TEST_MAX; i++) {
-        HashTableNode *p = HashTableFind(t, tab[i]);
-        assert(p);
-        assert((int*)p->key == tab[i]);
-        assert((int*)p->value == tab[i]);
+        int p = HashTableFind(t, tab[i]);
+        assert(p == tab[i]);
     }
     for (int i = 0; i < TEST_MAX; i++) {
         assert(HashTableRemove(t, tab[i]) == 0);

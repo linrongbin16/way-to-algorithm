@@ -4,31 +4,30 @@
 #ifndef MAX
 #define MAX 1024
 #endif
-#include <cstring>
+#include <stdint.h>
+#include <string.h>
+#include <vector>
+using namespace std;
 
 struct HashTableNode {
-    void *key;
-    void *value;
+    int key;
+    int value;
     HashTableNode *next;
 };
 
 struct HashTable {
-    HashTableNode *tab[MAX];
-    unsigned int(*hash)(const void *, int, unsigned int);
+    HashTableNode* tab[MAX];
 };
 
 
-HashTable *HashTableNew(unsigned int (*hash)(const void *, int, unsigned int))
+HashTable *HashTableNew()
 {
     HashTable *t = new HashTable();
 
     if (t == NULL) {
         return NULL;
     }
-
-    memset(t->tab, 0, MAX * sizeof(HashTableNode*));
-    t->hash = hash;
-
+    memset(t->tab, 0, sizeof(t->tab));
     return t;
 }
 
@@ -45,18 +44,29 @@ void HashTableFree(HashTable *t)
     delete t;
 }
 
-int HashTableInsert(HashTable *t, void *key, void *value)
+uint32_t UIntMix(uint32_t key)
 {
-    HashTableNode *newNode = new HashTableNode();
-    if (newNode == NULL) {
+    key += ~(key << 15);
+    key ^=  (key >> 10);
+    key +=  (key << 3);
+    key ^=  (key >> 6);
+    key += ~(key << 11);
+    key ^=  (key >> 16);
+    return key;
+}
+
+int HashTableInsert(HashTable *t, int key, int value)
+{
+    HashTableNode *newnode = new HashTableNode();
+    if (newnode == NULL) {
         return -1;
     }
 
-    newNode->key = key;
-    newNode->value = value;
-    newNode->next = NULL;
+    newnode->key = key;
+    newnode->value = value;
+    newnode->next = NULL;
 
-    unsigned int index = t->hash(key, sizeof(key), 0) % MAX;
+    unsigned int index = UIntMix(key) % MAX;
     HashTableNode *p = t->tab[index];
 
     if (p) {
@@ -67,32 +77,32 @@ int HashTableInsert(HashTable *t, void *key, void *value)
             q = q->next;
         }
 
-        p->next = newNode;
+        p->next = newnode;
     } else {
-        t->tab[index] = newNode;
+        t->tab[index] = newnode;
     }
 
     return 0;
 }
 
-HashTableNode *HashTableFind(HashTable *t, void *key)
+int HashTableFind(HashTable *t, int key)
 {
-    unsigned int index = t->hash(key, sizeof(key), 0) % MAX;
+    unsigned int index = UIntMix(key) % MAX;
     HashTableNode *p = t->tab[index];
 
     while (p) {
         if (p->key == key) {
-            return p;
+            return p->value;
         }
         p = p->next;
     }
 
-    return NULL;
+    return -1;
 }
 
-int HashTableRemove(HashTable *t, void *key)
+int HashTableRemove(HashTable *t, int key)
 {
-    unsigned int index = t->hash(key, sizeof(key), 0) % MAX;
+    unsigned int index = UIntMix(key) % MAX;
     HashTableNode *p = t->tab[index];
 
     if (!p) {
