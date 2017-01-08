@@ -1,8 +1,8 @@
 ﻿#ifndef DATA_STRUCTURE_AVL_TREE_HPP
 #define DATA_STRUCTURE_AVL_TREE_HPP 1
 
-
 #include <algorithm>
+#include <assert.h>
 
 struct AVLTreeNode {
     /* 节点下标号 */
@@ -26,6 +26,7 @@ void RotateRL(AVLTreeNode **e);
 void AVLTreeNodeInsert(AVLTreeNode **e, int index);
 int AVLTreeNodeFind(AVLTreeNode **e, int index);
 void AVLTreeNodeErase(AVLTreeNode **e, int index);
+int AVLTreeNodeDepth(AVLTreeNode *e);
 
 AVLTree* AVLTreeNew()
 {
@@ -65,6 +66,13 @@ void AVLTreeErase(AVLTree *t, int index)
     AVLTreeNodeErase( &(t->root), index);
 }
 
+int AVLTreeDepth(AVLTree *t)
+{
+    if (!t->root)
+        return 0;
+    return t->root->depth;
+}
+
 void AVLTreeNodeFree(AVLTreeNode *e)
 {
     if (!e)
@@ -82,8 +90,8 @@ void RotateLL(AVLTreeNode **e)
     (*e)->left = e1->right;
     e1->right = (*e);
 
-    (*e)->depth = std::max( (*e)->left->depth, (*e)->right->depth ) + 1;
-    e1->depth = std::max( e1->left->depth, (*e)->depth ) + 1;
+    (*e)->depth = std::max( AVLTreeNodeDepth((*e)->left), AVLTreeNodeDepth((*e)->right) ) + 1;
+    e1->depth = std::max( AVLTreeNodeDepth(e1->left), (*e)->depth ) + 1;
     (*e) = e1;
 }
 
@@ -95,8 +103,8 @@ void RotateRR(AVLTreeNode **e)
     (*e)->right = e1->left;
     e1->left = (*e);
 
-    (*e)->depth = std::max( (*e)->left->depth, (*e)->right->depth ) + 1;
-    e1->depth = std::max( e1->right->depth, (*e)->depth ) + 1;
+    (*e)->depth = std::max( AVLTreeNodeDepth((*e)->left) , AVLTreeNodeDepth((*e)->right) ) + 1;
+    e1->depth = std::max( AVLTreeNodeDepth(e1->right), (*e)->depth ) + 1;
     (*e) = e1;
 }
 
@@ -114,17 +122,21 @@ void RotateRL(AVLTreeNode **e)
 
 void AVLTreeNodeInsert(AVLTreeNode **e, int index)
 {
-    /* 如果节点为空 就在此节点处加入x信息 */
-    if ( (*e) == NULL ) {
-        (*e) = new AVLTreeNode();
-        (*e)->index = index;
-        return;
-    }
-
+    assert(e);
+    assert(*e);
     /* 二分插入 */
     if ( (*e)->index > index ) {
-        AVLTreeNodeInsert( &((*e)->left), index );
-        if ( (*e)->left->depth - (*e)->right->depth >= 2 ) {
+        // 若左孩子节点为空节点 创建新的节点
+        if ((*e)->left == NULL) {
+            (*e)->left = new AVLTreeNode();
+            (*e)->left->left = NULL;
+            (*e)->left->right = NULL;
+            (*e)->left->index = index;
+            (*e)->left->depth = 0;
+        } else {
+            AVLTreeNodeInsert( &((*e)->left), index );
+        }
+        if ( AVLTreeNodeDepth((*e)->left) - AVLTreeNodeDepth((*e)->right) >= 2 ) {
             if ( (*e)->left->index > index ) {
                 RotateLL( e );
             } else {
@@ -132,8 +144,17 @@ void AVLTreeNodeInsert(AVLTreeNode **e, int index)
             }
         }
     } else if ( (*e)->index < index ) {
-        AVLTreeNodeInsert( &((*e)->right) , index );
-        if ( (*e)->right->depth - (*e)->left->depth >= 2 ) {
+        // 若右孩子节点为空节点 创建新的节点
+        if ((*e)->right == NULL) {
+            (*e)->right = new AVLTreeNode();
+            (*e)->right->left = NULL;
+            (*e)->right->right = NULL;
+            (*e)->right->index = index;
+            (*e)->right->depth = 0;
+        } else {
+            AVLTreeNodeInsert(&((*e)->right), index);
+        }
+        if ( AVLTreeNodeDepth((*e)->right) - AVLTreeNodeDepth((*e)->left) >= 2 ) {
             if ( (*e)->right->index < index ) {
                 RotateRR( e );
             } else {
@@ -142,11 +163,13 @@ void AVLTreeNodeInsert(AVLTreeNode **e, int index)
         }
     } 
 
-    (*e)->depth = std::max( (*e)->left->depth, (*e)->right->depth ) + 1;
+    (*e)->depth = std::max( AVLTreeNodeDepth((*e)->left), AVLTreeNodeDepth((*e)->right) ) + 1;
 }
 
 int AVLTreeNodeFind(AVLTreeNode **e, int index)
 {
+    if (*e == NULL)
+        return 0;
     /* 二分查找 */
     if ( (*e)->index == index ) {
         return 1;
@@ -162,7 +185,7 @@ void AVLTreeNodeErase(AVLTreeNode **e, int index)
     if ( (*e)->index > index ) {
         AVLTreeNodeErase( &((*e)->left), index );
 
-        if ( (*e)->right->depth - (*e)->left->depth >= 2 ) {
+        if ( AVLTreeNodeDepth((*e)->right) - AVLTreeNodeDepth((*e)->left) >= 2 ) {
             if ( (*e)->right->left != NULL && ((*e)->right->left->depth > (*e)->right->right->depth) ) {
                 RotateRL( e );
             } else {
@@ -172,7 +195,7 @@ void AVLTreeNodeErase(AVLTreeNode **e, int index)
     } else if ( (*e)->index < index ) {
         AVLTreeNodeErase( &((*e)->right), index );
 
-        if ( (*e)->left->depth - (*e)->right->depth >= 2 ) {
+        if ( AVLTreeNodeDepth((*e)->left) - AVLTreeNodeDepth((*e)->right) >= 2 ) {
             if ( (*e)->right->left != NULL && ((*e)->left->right->depth >(*e)->left->left->depth) ) {
                 RotateLR( e );
             } else {
@@ -193,8 +216,8 @@ void AVLTreeNodeErase(AVLTreeNode **e, int index)
 
             /* 删除边缘节点 */
             AVLTreeNodeErase( &((*e)->right), temp->index );
-            if ( (*e)->left->depth - (*e)->right->depth >= 2 ) {
-                if ( (*e)->left->right != NULL && ((*e)->left->right->depth > (*e)->left->left->depth) ) {
+            if ( AVLTreeNodeDepth((*e)->left) - AVLTreeNodeDepth((*e)->right) >= 2 ) {
+                if ( (*e)->left->right != NULL && (AVLTreeNodeDepth((*e)->left->right) > AVLTreeNodeDepth((*e)->left->left) ) ) {
                     RotateLR( e );
                 } else {
                     RotateLL( e );
@@ -212,8 +235,16 @@ void AVLTreeNodeErase(AVLTreeNode **e, int index)
 
     if ( (*e) == NULL)
         return;
-    (*e)->depth = std::max( (*e)->left->depth, (*e)->right->depth ) + 1;
+
+    (*e)->depth = std::max( AVLTreeNodeDepth((*e)->left), AVLTreeNodeDepth((*e)->right)) + 1;
     return;
+}
+
+// 空节点的高度值depth=-1
+// 叶子结点的高度值depth=0
+int AVLTreeNodeDepth(AVLTreeNode *e)
+{
+    return e ? e->depth : -1;
 }
 
 
