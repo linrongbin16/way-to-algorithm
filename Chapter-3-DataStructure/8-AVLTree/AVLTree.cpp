@@ -1,6 +1,7 @@
 #include "AVLTree.hpp"
 #include <assert.h>
 #include <math.h>
+#include <string>
 
 #define TEST_MAX 1024
 
@@ -20,6 +21,7 @@ int main()
     for (int i = 1; i <= TEST_MAX; i++) {
         AVLTreeErase(t, i);
     }
+    std::string a;
 
     AVLTreeFree(t);
     return 0;
