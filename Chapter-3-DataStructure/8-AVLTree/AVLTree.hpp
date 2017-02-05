@@ -1,251 +1,444 @@
-﻿#ifndef DATA_STRUCTURE_AVL_TREE_HPP
-#define DATA_STRUCTURE_AVL_TREE_HPP 1
+﻿#ifndef DATA_STRUCTURE_RED_BLACK_TREE_HPP
+#define DATA_STRUCTURE_RED_BLACK_TREE_HPP 1
 
 #include <algorithm>
-#include <assert.h>
+#include <cassert>
 
-struct AVLTreeNode {
-    /* 节点下标号 */
+#define RED     0
+#define BLACK   1
+
+struct RedBlackTreeNode {
+    /* 节点颜色 */
+    int color;
+    /* 节点值 */
     int index;
-    /* 节点高度值 */
-    int depth;
-    /* 左右孩子节点 */
-    AVLTreeNode *left;
-    AVLTreeNode *right;
+
+    RedBlackTreeNode *left;
+    RedBlackTreeNode *right;
+    RedBlackTreeNode *father;
 };
 
-struct AVLTree {
-    AVLTreeNode *root;
+struct RedBlackTree {
+    RedBlackTreeNode *root;
 };
 
-void AVLTreeNodeFree(AVLTreeNode *e);
-void RotateLL(AVLTreeNode **e);
-void RotateRR(AVLTreeNode **e);
-void RotateLR(AVLTreeNode **e);
-void RotateRL(AVLTreeNode **e);
-void AVLTreeNodeInsert(AVLTreeNode **e, int index);
-int AVLTreeNodeFind(AVLTreeNode **e, int index);
-void AVLTreeNodeErase(AVLTreeNode **e, int index);
-int AVLTreeNodeDepth(AVLTreeNode *e);
+int Color(const RedBlackTreeNode *e);
+int & Color(RedBlackTreeNode *e);
+RedBlackTreeNode* & Previous(RedBlackTreeNode *e);
+RedBlackTreeNode* Previous(const RedBlackTreeNode *e);
+RedBlackTreeNode* & Next(RedBlackTreeNode *e);
+RedBlackTreeNode* Next(const RedBlackTreeNode *e);
+RedBlackTreeNode* & Father(RedBlackTreeNode *e);
+RedBlackTreeNode* Father(const RedBlackTreeNode *e);
+RedBlackTreeNode* & Uncle(RedBlackTreeNode *e);
+RedBlackTreeNode* Uncle(const RedBlackTreeNode *e);
+RedBlackTreeNode* & GrandFather(RedBlackTreeNode *e);
+RedBlackTreeNode* GrandFather(const RedBlackTreeNode *e);
+RedBlackTreeNode* & Brother(RedBlackTreeNode *e);
+RedBlackTreeNode* Brother(const RedBlackTreeNode *e);
+RedBlackTreeNode* & LeftChild(RedBlackTreeNode *e);
+RedBlackTreeNode* LeftChild(const RedBlackTreeNode *e);
+RedBlackTreeNode* & RightChild(RedBlackTreeNode *e);
+RedBlackTreeNode* RightChild(const RedBlackTreeNode *e);
+bool IsLeftChild(RedBlackTreeNode *e);
+bool IsRightChild(RedBlackTreeNode *e);
+int ChildNumber(RedBlackTreeNode *e);
 
-AVLTree* AVLTreeNew()
+void SwapNode(RedBlackTreeNode *a, RedBlackTreeNode *b);
+void SwapColor(RedBlackTreeNode *a, RedBlackTreeNode *b);
+
+void NodeFree(RedBlackTreeNode *e);
+RedBlackTreeNode* NodeFind(RedBlackTree *t, int index, RedBlackTreeNode **father);
+void InsertCase1(RedBlackTree *t, RedBlackTreeNode *e);
+void InsertCase2(RedBlackTree *t, RedBlackTreeNode *e);
+void InsertCase3(RedBlackTree *t, RedBlackTreeNode *e);
+void InsertCase4(RedBlackTree *t, RedBlackTreeNode *e);
+void InsertCase5(RedBlackTree *t, RedBlackTreeNode *e);
+
+void EraseCase0(RedBlackTree *t, RedBlackTreeNode *e);
+void EraseCase0_A(RedBlackTree *t, RedBlackTreeNode *e);
+void EraseCase0_B(RedBlackTree *t, RedBlackTreeNode *e);
+void EraseCase0_C(RedBlackTree *t, RedBlackTreeNode *e);
+void EraseCase1(RedBlackTree *t, RedBlackTreeNode *e);
+void EraseCase2(RedBlackTree *t, RedBlackTreeNode *e);
+void EraseCase3(RedBlackTree *t, RedBlackTreeNode *e);
+void EraseCase4(RedBlackTree *t, RedBlackTreeNode *e);
+void EraseCase5(RedBlackTree *t, RedBlackTreeNode *e);
+void EraseCase6(RedBlackTree *t, RedBlackTreeNode *e);
+
+void RotateLeft(RedBlackTree *t, RedBlackTreeNode *e);
+void RotateRight(RedBlackTree *t, RedBlackTreeNode *e);
+
+
+RedBlackTree* RedBlackTreeNew()
 {
-    AVLTree *t = new AVLTree();
+    RedBlackTree *t = new RedBlackTree();
     if (!t)
         return NULL;
     t->root = NULL;
     return t;
 }
 
-void AVLTreeFree(AVLTree *t)
+void RedBlackTreeFree(RedBlackTree *t)
 {
-    AVLTreeNodeFree(t->root);
+    NodeFree(t->root);
 }
 
-void AVLTreeInsert(AVLTree *t, int index)
+void RedBlackTreeInsert(RedBlackTree *t, int index)
 {
-    if (t->root) {
-        AVLTreeNodeInsert( &(t->root), index);
-        return;
+    RedBlackTreeNode *e = new RedBlackTreeNode();
+    RedBlackTreeNode *father;
+    RedBlackTreeNode *tmp;
+    tmp = NodeFind(t, index, &father);
+    assert(tmp == NULL);
+    e->color = RED;
+    e->index = index;
+    e->left = NULL;
+    e->right = NULL;
+    e->father = father;
+    if (father) {
+        if (index < father->index)
+            father->left = e;
+        else
+            father->right = e;
     }
-
-    t->root = new AVLTreeNode();
-    t->root->left = NULL;
-    t->root->right = NULL;
-    t->root->index = index;
-    t->root->depth = 0;
+    // fix rbtree from e
+    InsertCase1(t, e);
 }
 
-int AVLTreeFind(AVLTree *t, int index)
+int RedBlackTreeFind(RedBlackTree *t, int index)
 {
-    return AVLTreeNodeFind( &(t->root), index);
+    return (NodeFind(t, index, NULL) == NULL)? 0 : 1;
 }
 
-void AVLTreeErase(AVLTree *t, int index)
+void RedBlackTreeErase(RedBlackTree *t, int index)
 {
-    AVLTreeNodeErase( &(t->root), index);
+    RedBlackTreeNode *e = NodeFind(t, index, NULL);
+    assert(e);
+
+    EraseCase0(t, e);
 }
 
-int AVLTreeDepth(AVLTree *t)
-{
-    if (!t->root)
-        return 0;
-    return t->root->depth;
-}
-
-void AVLTreeNodeFree(AVLTreeNode *e)
+void NodeFree(RedBlackTreeNode *e)
 {
     if (!e)
         return;
-    AVLTreeNodeFree(e->left);
-    AVLTreeNodeFree(e->right);
+    NodeFree(e->left);
+    NodeFree(e->right);
     delete e;
 }
 
-void RotateLL(AVLTreeNode **e)
+void RotateLeft(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    AVLTreeNode *e1;
+    RedBlackTreeNode *p = e;
+    RedBlackTreeNode *q = e->right;
+    RedBlackTreeNode *father = e->father;
 
-    e1 = (*e)->left;
-    (*e)->left = e1->right;
-    e1->right = (*e);
-
-    (*e)->depth = std::max( AVLTreeNodeDepth((*e)->left), AVLTreeNodeDepth((*e)->right) ) + 1;
-    e1->depth = std::max( AVLTreeNodeDepth(e1->left), (*e)->depth ) + 1;
-    (*e) = e1;
-}
-
-void RotateRR(AVLTreeNode **e)
-{
-    AVLTreeNode *e1;
-
-    e1 = (*e)->right;
-    (*e)->right = e1->left;
-    e1->left = (*e);
-
-    (*e)->depth = std::max( AVLTreeNodeDepth((*e)->left) , AVLTreeNodeDepth((*e)->right) ) + 1;
-    e1->depth = std::max( AVLTreeNodeDepth(e1->right), (*e)->depth ) + 1;
-    (*e) = e1;
-}
-
-void RotateLR(AVLTreeNode **e)
-{
-    RotateRR( &((*e)->left) );
-    RotateLL( e );
-}
-
-void RotateRL(AVLTreeNode **e)
-{
-    RotateLL( &((*e)->right) );
-    RotateRR( e );
-}
-
-void AVLTreeNodeInsert(AVLTreeNode **e, int index)
-{
-    assert(e);
-    assert(*e);
-    /* 二分插入 */
-    if ( (*e)->index > index ) {
-        // 若左孩子节点为空节点 创建新的节点
-        if ((*e)->left == NULL) {
-            (*e)->left = new AVLTreeNode();
-            (*e)->left->left = NULL;
-            (*e)->left->right = NULL;
-            (*e)->left->index = index;
-            (*e)->left->depth = 0;
-        } else {
-            AVLTreeNodeInsert( &((*e)->left), index );
-        }
-        if ( AVLTreeNodeDepth((*e)->left) - AVLTreeNodeDepth((*e)->right) >= 2 ) {
-            if ( (*e)->left->index > index ) {
-                RotateLL( e );
-            } else {
-                RotateLR( e );
-            }
-        }
-    } else if ( (*e)->index < index ) {
-        // 若右孩子节点为空节点 创建新的节点
-        if ((*e)->right == NULL) {
-            (*e)->right = new AVLTreeNode();
-            (*e)->right->left = NULL;
-            (*e)->right->right = NULL;
-            (*e)->right->index = index;
-            (*e)->right->depth = 0;
-        } else {
-            AVLTreeNodeInsert(&((*e)->right), index);
-        }
-        if ( AVLTreeNodeDepth((*e)->right) - AVLTreeNodeDepth((*e)->left) >= 2 ) {
-            if ( (*e)->right->index < index ) {
-                RotateRR( e );
-            } else {
-                RotateRL( e );
-            }
-        }
-    } 
-
-    (*e)->depth = std::max( AVLTreeNodeDepth((*e)->left), AVLTreeNodeDepth((*e)->right) ) + 1;
-}
-
-int AVLTreeNodeFind(AVLTreeNode **e, int index)
-{
-    if (*e == NULL)
-        return 0;
-    /* 二分查找 */
-    if ( (*e)->index == index ) {
-        return 1;
-    } else if ( (*e)->index > index ) {
-        return AVLTreeNodeFind( &((*e)->left), index );
-    } else { 
-        return AVLTreeNodeFind( &((*e)->right) , index );
-    } 
-}
-
-void AVLTreeNodeErase(AVLTreeNode **e, int index)
-{
-    if ( (*e)->index > index ) {
-        AVLTreeNodeErase( &((*e)->left), index );
-
-        if ( AVLTreeNodeDepth((*e)->right) - AVLTreeNodeDepth((*e)->left) >= 2 ) {
-            if ( (*e)->right->left != NULL && ((*e)->right->left->depth > (*e)->right->right->depth) ) {
-                RotateRL( e );
-            } else {
-                RotateRR( e );
-            }
-        }
-    } else if ( (*e)->index < index ) {
-        AVLTreeNodeErase( &((*e)->right), index );
-
-        if ( AVLTreeNodeDepth((*e)->left) - AVLTreeNodeDepth((*e)->right) >= 2 ) {
-            if ( (*e)->right->left != NULL && ((*e)->left->right->depth >(*e)->left->left->depth) ) {
-                RotateLR( e );
-            } else {
-                RotateLL( e );
-            }
-        }
+    if (father == NULL) {
+        t->root = q;
     } else {
-        /* (*e)->index == index */
-        if ( (*e)->left && (*e)->right ) {
-            AVLTreeNode* temp = (*e)->right;
-
-            /* temp指向节点的右儿子 */
-            /* 找到中序遍历的后继节点 */
-            while ( temp->left != NULL )
-                temp = temp->left;
-
-            (*e)->index = temp->index; /*调整节点数据信息*/
-
-            /* 删除边缘节点 */
-            AVLTreeNodeErase( &((*e)->right), temp->index );
-            if ( AVLTreeNodeDepth((*e)->left) - AVLTreeNodeDepth((*e)->right) >= 2 ) {
-                if ( (*e)->left->right != NULL && (AVLTreeNodeDepth((*e)->left->right) > AVLTreeNodeDepth((*e)->left->left) ) ) {
-                    RotateLR( e );
-                } else {
-                    RotateLL( e );
-                }
-            }
-        } else {
-            AVLTreeNode* temp = (*e);
-            if( (*e)->left == NULL )
-                (*e) = (*e)->right;
-            else if ( (*e)->right == NULL )
-                (*e) = (*e)->left;
-            delete temp;
-        }
+        if (father->left == p)
+            father->left = q;
+        else
+            father->right = q;
     }
 
-    if ( (*e) == NULL)
-        return;
+    q->father = father;
+    p->father = q;
 
-    (*e)->depth = std::max( AVLTreeNodeDepth((*e)->left), AVLTreeNodeDepth((*e)->right)) + 1;
-    return;
+    p->right = q->left;
+    if (q->left)
+        q->left->father = p;
+    q->left = p;
 }
 
-// 空节点的高度值depth=-1
-// 叶子结点的高度值depth=0
-int AVLTreeNodeDepth(AVLTreeNode *e)
+void RotateRight(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    return e ? e->depth : -1;
+    RedBlackTreeNode *p = e;
+    RedBlackTreeNode *q = e->left; /* can't be NULL */
+    RedBlackTreeNode *father = p->father;
+
+    if (p->father == NULL) {
+        t->root = q;
+    }
+    else {
+        if (father->left == p)
+            father->left = q;
+        else
+            father->right = q;
+    }
+    q->father = father;
+    p->father = q;
+
+    p->left = q->right;
+    if (p->left)
+        p->left->father = p;
+    q->right = p;
 }
 
+RedBlackTreeNode* NodeFind(RedBlackTree *t, int index, RedBlackTreeNode **father)
+{
+    RedBlackTreeNode *cur = t->root;
+    while (cur) {
+        if (cur->index == index)
+            return cur;
+        else {
+            if (father != NULL)
+                *father = cur;
+            if (index < cur->index)
+                cur = cur->left;
+            else
+                cur = cur->right;
+        }
+    }
+    return NULL;
+}
+
+void InsertCase1(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (t->root == NULL || e->father == NULL) {
+        assert(t->root == NULL);
+        assert(e->father == NULL);
+        e->color = BLACK;
+        t->root = e;
+    } else {
+        InsertCase2(t, e);
+    }
+}
+
+void InsertCase2(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (e->father->color != BLACK) {
+        InsertCase3(t, e);
+    }
+}
+
+void InsertCase3(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (Color(Father(e)) == RED
+        && Color(Uncle(e)) == RED) {
+        Color(Father(e)) = BLACK;
+        Color(Uncle(e)) = BLACK;
+        Color(GrandFather(e)) = RED;
+        InsertCase1(t, GrandFather(e));
+    } else {
+        InsertCase4(t, e);
+    }
+}
+
+void InsertCase4(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (Color(Father(e)) == RED
+        && Color(Uncle(e)) == BLACK
+        && IsRightChild(e)
+        && IsLeftChild(Father(e))) {
+        RotateLeft(t, e);
+        InsertCase5(t, Father(e));
+    }
+}
+
+void InsertCase5(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (Color(Father(e)) == RED
+        && Color(Uncle(e)) == BLACK
+        && IsLeftChild(e)
+        && IsLeftChild(Father(e))) {
+        RotateRight(t, GrandFather(e));
+        //swap color of Father and GrandFather
+        int tmp_color = Color(Father(e));
+        Color(Father(e)) = Color(GrandFather(e));
+        Color(GrandFather(e)) = tmp_color;
+    }
+}
+
+void EraseCase0(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    int child_number = ChildNumber(e);
+    if (child_number == 0) {
+        // 删除操作 0-a
+        EraseCase0_A(t, e);
+    } else if (child_number == 1) {
+        // 删除操作 0-b
+        EraseCase0_B(t, e);
+    } else if (child_number == 2) {
+        // 删除操作 0-c
+        EraseCase0_C(t, e);
+    }
+}
+
+void EraseCase0_A(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (Father(e)->left == e)
+        Father(e)->left = NULL;
+    else if (Father(e)->right == e)
+        Father(e)->right = NULL;
+    delete e;
+}
+
+void EraseCase0_B(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    RedBlackTreeNode *child = e->left ? e->left : e->right;
+    SwapNode(child, e);
+
+    // now "child" is father of "e", while "e" is child of "child"
+    child->left = child->right = NULL;
+    delete e;
+    EraseCase1(t, child);
+}
+
+void EraseCase0_C(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    RedBlackTreeNode *next = Next(e);
+    e->index = next->index;
+    EraseCase0(t, next);
+}
+
+void EraseCase1(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (t->root != e || e->father != NULL) {
+        assert(t->root != e);
+        assert(e->father != NULL);
+        EraseCase2(t, e);
+    }
+}
+
+void EraseCase2(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (Color(Brother(e)) == RED) {
+        if (IsLeftChild(e)) {
+            RotateLeft(t, e);
+        } else if (IsRightChild(e)) {
+            RotateRight(t, e);
+        }
+        SwapColor(Father(e), Brother(e));
+    } else {
+        EraseCase3(t, e);
+    }
+}
+
+void EraseCase3(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (Color(Father(e)) == BLACK
+        && Color(Brother(e)) == BLACK
+        && Color(LeftChild(Brother(e))) == BLACK
+        && Color(RightChild(Brother(e))) == BLACK) {
+        Color(Brother(e)) = RED;
+        EraseCase1(t, Father(e));
+    } else {
+        EraseCase4(t, e);
+    }
+}
+
+void EraseCase4(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (Color(e) == BLACK
+        && Color(Brother(e)) == BLACK
+        && Color(LeftChild(Brother(e))) == BLACK
+        && Color(RightChild(Brother(e))) == BLACK
+        && Color(Father(e)) == RED) {
+        SwapColor(Father(e), Brother(e));
+    } else {
+        EraseCase5(t, e);
+    }
+}
+
+void EraseCase5(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (IsLeftChild(e)
+        && Color(Brother(e)) == BLACK
+        && Color(LeftChild(Brother(e))) == RED
+        && Color(RightChild(Brother(e))) == BLACK) {
+        RotateRight(t, Brother(e));
+        SwapColor(Brother(e), Father(e));
+        EraseCase6(t, e);
+    }
+}
+
+void EraseCase6(RedBlackTree *t, RedBlackTreeNode *e)
+{
+    if (IsLeftChild(e)
+        && Color(Brother(e)) == BLACK
+        && Color(RightChild(Brother(e))) == RED) {
+        RotateLeft(t, Father(e));
+        SwapColor(Father(e), Father(Father(e)));
+        Color(Brother(e)) = BLACK;
+    }
+}
+
+void SwapNode(RedBlackTreeNode *a, RedBlackTreeNode *b)
+{
+    RedBlackTreeNode tmp_a = *a;
+    RedBlackTreeNode tmp_b = *b;
+
+    /*
+        a_father
+            |
+            a
+           / \
+     a_left   a_right
+        b_father
+            |
+            b
+           / \
+     b_left   b_right
+    */
+
+    if (LeftChild(Father(a)) == a)
+        LeftChild(Father(a)) = b;
+    else if (RightChild(Father(a)) == a)
+        RightChild(Father(a)) = b;
+    Father(a) = Father(b);
+    LeftChild(a) = LeftChild(b);
+    Father(LeftChild(a)) = a;
+    RightChild(a) = RightChild(b);
+    Father(RightChild(a)) = a;
+
+    if (LeftChild(Father(&tmp_b)) == b)
+        LeftChild(Father(&tmp_b)) = a;
+    if (RightChild(Father(&tmp_b)) == b)
+        RightChild(Father(&tmp_b)) = a;
+    Father(b) = Father(&tmp_a);
+    LeftChild(b) = LeftChild(&tmp_b);
+    Father(LeftChild(b)) = b;
+    RightChild(b) = RightChild(&tmp_b);
+    Father(RightChild(b)) = b;
+}
+
+void SwapColor(RedBlackTreeNode *a, RedBlackTreeNode *b)
+{
+    int c = a->color;
+    a->color = b->color;
+    b->color = c;
+}
+
+int Color(const RedBlackTreeNode *e)
+{
+    return (e == NULL) ? BLACK : e->color;
+}
+
+int & Color(RedBlackTreeNode *e)
+{
+    return e->color;
+}
+
+RedBlackTreeNode* Previous(const RedBlackTreeNode *e)
+{
+}
+
+
+RedBlackTreeNode* & Previous(RedBlackTreeNode *e)
+{
+}
+
+RedBlackTreeNode* & Next(RedBlackTreeNode *e);
+RedBlackTreeNode* & Father(RedBlackTreeNode *e);
+RedBlackTreeNode* & Uncle(RedBlackTreeNode *e);
+RedBlackTreeNode* & GrandFather(RedBlackTreeNode *e);
+RedBlackTreeNode* & Brother(RedBlackTreeNode *e);
+RedBlackTreeNode* & LeftChild(RedBlackTreeNode *e);
+RedBlackTreeNode* & RightChild(RedBlackTreeNode *e);
+bool IsLeftChild(RedBlackTreeNode *e);
+bool IsRightChild(RedBlackTreeNode *e);
+int ChildNumber(RedBlackTreeNode *e);
 
 #endif
