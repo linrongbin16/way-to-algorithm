@@ -37,22 +37,22 @@ LeftistTree *LeftistTreeNew(int (*Compare)(LeftistNode *a, LeftistNode *b))
     return t;
 }
 
-void LeftistNodeFree(LeftistNode *e)
+void NodeFree(LeftistNode *e)
 {
     if (!e)
         return;
-    LeftistNodeFree(e->left);
-    LeftistNodeFree(e->right);
+    NodeFree(e->left);
+    NodeFree(e->right);
     delete e;
 }
 
 void LeftistTreeFree(LeftistTree *t)
 {
-    LeftistNodeFree(t->root);
+    NodeFree(t->root);
     delete t;
 }
 
-LeftistNode *LeftistNodeMerge(LeftistNode *a, LeftistNode *b, LeftistTree *t)
+LeftistNode *NodeMerge(LeftistNode *a, LeftistNode *b, LeftistTree *t)
 {
     if (!a && !b) {
         return NULL;
@@ -67,10 +67,10 @@ LeftistNode *LeftistNodeMerge(LeftistNode *a, LeftistNode *b, LeftistTree *t)
     }
 
     if (t->cmp(a, b) > 0) {
-        return LeftistNodeMerge(b, a, t);
+        return NodeMerge(b, a, t);
     }
 
-    a->right = LeftistNodeMerge(a->right, b, t);
+    a->right = NodeMerge(a->right, b, t);
     a->right->tree = t;
 
     if (!a->left) {
@@ -92,7 +92,7 @@ LeftistTree *LeftistTreeMerge(LeftistTree *a, LeftistTree *b)
         return NULL;
     t->cmp = a->cmp;
     t->size = a->size + b->size;
-    t->root = LeftistNodeMerge(a->root, b->root, a);
+    t->root = NodeMerge(a->root, b->root, a);
     return t;
 }
 
@@ -113,7 +113,7 @@ int LeftistTreePush(LeftistTree *t, int index)
     e->right = NULL;
     e->tree = NULL;
 
-    t->root = LeftistNodeMerge(t->root, e, t);
+    t->root = NodeMerge(t->root, e, t);
     t->size += 1;
 
     return 0;
@@ -125,7 +125,7 @@ int LeftistTreePop(LeftistTree *t)
         return -1;
 
     LeftistNode *old = t->root;
-    t->root = LeftistNodeMerge(t->root->left, t->root->right, t);
+    t->root = NodeMerge(t->root->left, t->root->right, t);
     t->size -= 1;
 
     delete old;
