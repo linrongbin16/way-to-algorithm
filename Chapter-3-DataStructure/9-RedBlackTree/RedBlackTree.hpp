@@ -35,7 +35,6 @@ RedBlackTreeNode* Brother(RedBlackTreeNode *e);
 bool IsLeftChild(RedBlackTreeNode *e);
 bool IsRightChild(RedBlackTreeNode *e);
 int ChildNumber(RedBlackTreeNode *e);
-
 void SwapIndex(RedBlackTreeNode *a, RedBlackTreeNode *b);
 void SwapColor(RedBlackTreeNode *a, RedBlackTreeNode *b);
 
