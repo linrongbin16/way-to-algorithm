@@ -4,12 +4,12 @@
 #include <algorithm>
 #include <cassert>
 
-#define RED     0
-#define BLACK   1
+#define RED     'R'
+#define BLACK   'B'
 
 struct RedBlackTreeNode {
     /* 节点颜色 */
-    int color;
+    char color;
     /* 节点值 */
     int index;
 
@@ -22,7 +22,7 @@ struct RedBlackTree {
     RedBlackTreeNode *root;
 };
 
-int Color(RedBlackTreeNode *e);
+char Color(RedBlackTreeNode *e);
 int Index(RedBlackTreeNode *e);
 RedBlackTreeNode* Previous(RedBlackTreeNode *e);
 RedBlackTreeNode* Next(RedBlackTreeNode *e);
@@ -78,7 +78,7 @@ void RedBlackTreeFree(RedBlackTree *t)
 void RedBlackTreeInsert(RedBlackTree *t, int index)
 {
     RedBlackTreeNode *e = new RedBlackTreeNode();
-    RedBlackTreeNode *father;
+    RedBlackTreeNode *father = NULL;
     RedBlackTreeNode *tmp;
     tmp = NodeFind(t, index, &father);
     assert(tmp == NULL);
@@ -138,7 +138,7 @@ void RotateLeft(RedBlackTree *t, RedBlackTreeNode *e)
 
     p->right = Left(q);
     if (Left(q))
-        q->left->father = p;
+        Left(q)->father = p;
     q->left = p;
 }
 
@@ -178,8 +178,10 @@ RedBlackTreeNode* NodeFind(RedBlackTree *t, int index, RedBlackTreeNode **father
                 *father = cur;
             if (index < Index(cur))
                 cur = Left(cur);
-            else
+            else if (index > Index(cur))
                 cur = Right(cur);
+            else if (index == Index(cur))
+                return cur;
         }
     }
     return NULL;
@@ -187,7 +189,7 @@ RedBlackTreeNode* NodeFind(RedBlackTree *t, int index, RedBlackTreeNode **father
 
 void InsertCase1(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (t->root == NULL || Father(e) == NULL) {
+    if (t->root == NULL) {
         assert(t->root == NULL);
         assert(Father(e) == NULL);
         e->color = BLACK;
@@ -206,8 +208,7 @@ void InsertCase2(RedBlackTree *t, RedBlackTreeNode *e)
 
 void InsertCase3(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (Color(Father(e)) == RED
-        && Color(Uncle(e)) == RED) {
+    if (Color(Uncle(e)) == RED) {
         Father(e)->color = BLACK;
         Uncle(e)->color = BLACK;
         GrandFather(e)->color = RED;
@@ -219,24 +220,26 @@ void InsertCase3(RedBlackTree *t, RedBlackTreeNode *e)
 
 void InsertCase4(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (Color(Father(e)) == RED
-        && Color(Uncle(e)) == BLACK
-        && IsRightChild(e)
-        && IsLeftChild(Father(e))) {
-        RotateLeft(t, e);
-        InsertCase5(t, e->father);
+    if (IsRightChild(e) && IsLeftChild(Father(e))) {
+        RotateLeft(t, Father(e));
+        e = Left(e);
+    } else if (IsLeftChild(e) && IsRightChild(Father(e))) {
+        RotateRight(t, Father(e));
+        e = Right(e);
     }
+    InsertCase5(t, e);
 }
 
 void InsertCase5(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (Color(Father(e)) == RED
-        && Color(Uncle(e)) == BLACK
-        && IsLeftChild(e)
-        && IsLeftChild(Father(e))) {
+    Father(e)->color = BLACK;
+    GrandFather(e)->color = RED;
+    if (IsLeftChild(e) && IsLeftChild(Father(e))) {
         RotateRight(t, GrandFather(e));
-        //swap color of Father and GrandFather
-        SwapColor(Father(e), GrandFather(e));
+    } else {
+        assert(IsRightChild(e));
+        assert(IsRightChild(Father(e)));
+        RotateLeft(t, GrandFather(e));
     }
 }
 
@@ -284,7 +287,7 @@ void EraseCase0_C(RedBlackTree *t, RedBlackTreeNode *e)
 
 void EraseCase1(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (t->root != e || Father(e) != NULL) {
+    if (t->root != e) {
         assert(t->root != e);
         assert(Father(e) != NULL);
         EraseCase2(t, e);
@@ -294,23 +297,22 @@ void EraseCase1(RedBlackTree *t, RedBlackTreeNode *e)
 void EraseCase2(RedBlackTree *t, RedBlackTreeNode *e)
 {
     if (Color(Brother(e)) == RED) {
+        Father(e)->color = RED;
+        Brother(e)->color = BLACK;
         if (IsLeftChild(e)) {
-            RotateLeft(t, e);
+            RotateLeft(t, Father(e));
         } else if (IsRightChild(e)) {
-            RotateRight(t, e);
+            RotateRight(t, Father(e));
         }
-        SwapColor(Father(e), Brother(e));
-    } else {
-        EraseCase3(t, e);
+        // SwapColor(Father(e), Brother(e));
     }
+    EraseCase3(t, e);
 }
 
 void EraseCase3(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (Color(Father(e)) == BLACK
-        && Color(Brother(e)) == BLACK
-        && Color(Left(Brother(e))) == BLACK
-        && Color(Right(Brother(e))) == BLACK) {
+    if (Color(Father(e)) == BLACK && Color(Brother(e)) == BLACK
+        && Color(Left(Brother(e))) == BLACK && Color(Right(Brother(e))) == BLACK) {
         Brother(e)->color = RED;
         EraseCase1(t, Father(e));
     } else {
@@ -320,11 +322,8 @@ void EraseCase3(RedBlackTree *t, RedBlackTreeNode *e)
 
 void EraseCase4(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (Color(e) == BLACK
-        && Color(Brother(e)) == BLACK
-        && Color(Left(Brother(e))) == BLACK
-        && Color(Right(Brother(e))) == BLACK
-        && Color(Father(e)) == RED) {
+    if (Color(Brother(e)) == BLACK && Color(Father(e)) == RED
+        && Color(Left(Brother(e))) == BLACK && Color(Right(Brother(e))) == BLACK) {
         SwapColor(Father(e), Brother(e));
     } else {
         EraseCase5(t, e);
@@ -333,24 +332,29 @@ void EraseCase4(RedBlackTree *t, RedBlackTreeNode *e)
 
 void EraseCase5(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (IsLeftChild(e)
-        && Color(Brother(e)) == BLACK
-        && Color(Left(Brother(e))) == RED
-        && Color(Right(Brother(e))) == BLACK) {
+    if (IsLeftChild(e) && Color(Brother(e)) == BLACK
+        && Color(Left(Brother(e))) == RED && Color(Right(Brother(e))) == BLACK) {
+        SwapColor(Brother(e), Left(Brother(e)));
         RotateRight(t, Brother(e));
-        SwapColor(Brother(e), Father(e));
-        EraseCase6(t, e);
+    } else if (IsRightChild(e) && Color(Brother(e)) == BLACK
+        && Color(Right(Brother(e))) == RED && Color(Left(Brother(e))) == BLACK) {
+        SwapColor(Brother(e), Right(Brother(e)));
+        RotateLeft(t, Brother(e));
     }
+    EraseCase6(t, e);
 }
 
 void EraseCase6(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (IsLeftChild(e)
-        && Color(Brother(e)) == BLACK
-        && Color(Right(Brother(e))) == RED) {
+    SwapColor(Brother(e), Father(e));
+    if (IsLeftChild(e)) {
+        assert(Color(Right(Brother(e))) == RED);
+        Right(Brother(e))->color = BLACK;
         RotateLeft(t, Father(e));
-        SwapColor(Father(e), Father(Father(e)));
-        Brother(e)->color = BLACK;
+    } else {
+        assert(Color(Left(Brother(e))) == RED);
+        Left(Brother(e))->color = BLACK;
+        RotateRight(t, Father(e));
     }
 }
 
@@ -368,7 +372,7 @@ void SwapColor(RedBlackTreeNode *a, RedBlackTreeNode *b)
     b->color = c;
 }
 
-int Color(RedBlackTreeNode *e)
+char Color(RedBlackTreeNode *e)
 {
     return e ? e->color : BLACK;
 }
@@ -418,23 +422,23 @@ RedBlackTreeNode* Brother(RedBlackTreeNode *e)
         return NULL;
     if (!e->father)
         return NULL;
-    if (Father(e)->left == e)
-        return Father(e)->right;
-    if (Father(e)->right == e)
-        return Father(e)->left;
+    if (Left(Father(e)) == e)
+        return Right(Father(e));
+    if (Right(Father(e)) == e)
+        return Left(Father(e));
     return NULL;
 }
 bool IsLeftChild(RedBlackTreeNode *e)
 {
     if (!Father(e))
         return false;
-    return Father(e)->left == e;
+    return Left(Father(e)) == e;
 }
 bool IsRightChild(RedBlackTreeNode *e)
 {
     if (!Father(e))
         return false;
-    return Father(e)->right == e;
+    return Right(Father(e)) == e;
 }
 int ChildNumber(RedBlackTreeNode *e)
 {
