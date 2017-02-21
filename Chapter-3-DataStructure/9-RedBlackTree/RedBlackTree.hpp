@@ -201,13 +201,15 @@ void InsertCase1(RedBlackTree *t, RedBlackTreeNode *e)
 
 void InsertCase2(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (Color(Father(e)) != BLACK) {
+    if (Color(Father(e)) == RED) {
         InsertCase3(t, e);
     }
 }
 
 void InsertCase3(RedBlackTree *t, RedBlackTreeNode *e)
 {
+    if (IsLeftChild(Father(e))) {
+    }
     if (Color(Uncle(e)) == RED) {
         Father(e)->color = BLACK;
         Uncle(e)->color = BLACK;
