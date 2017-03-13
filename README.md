@@ -30,7 +30,7 @@
     * RedBlackTree &nbsp; 红黑树</p>
 * Chapter-4 - DynamicProgramming &nbsp; 动态规划</p> 
     * Introduction-DynamicProgramming &nbsp; 动态规划介绍</p> 
-    * LinearDynamic &nbsp; 线性动态规划</p> 
+    * LinearDP &nbsp; 线性动态规划</p> 
         * LongestCommonSubsequence &nbsp; 最长公共子序列</p> 
         * LongestIncreasingSubsequence &nbsp; 最长递增子序列</p> 
         * LongestIncreasingSubsequenceExtension &nbsp; 最长递增子序列扩展</p> 
