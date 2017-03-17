@@ -1,35 +1,31 @@
-#ifndef LONGEST_COMMON_SUBSEQUENCE
-#define LONGEST_COMMON_SUBSEQUENCE
+#ifndef LONGEST_INCREASE_SUBSEQUENCE
+#define LONGEST_INCREASE_SUBSEQUENCE
 
 #ifndef MAX
 #define MAX 1024
 #endif
-#include <vector>
 #include <algorithm>
 using namespace std;
 
 
 // 序列a和b的范围是[1,n]
-int f[MAX][MAX];
+int f[MAX];
 
-int LongestCommonSubsequence(const int a[MAX], const int b[MAX], int n)
+int LongestIncreaseSubsequence(const int s[MAX], int n)
 {
     // 初始化
-    for (int i = 0; i < MAX; i++) {
-        f[i][0] = 0;
-        f[0][i] = 0;
-    }
+    f[0] = 0;
+    for (int i = 1; i < MAX; i++)
+        f[i] = 1;
 
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++) {
-            if (a[i] == b[j])
-                f[i][j] = f[i-1][j-1] + 1;
-            else
-                f[i][j] = max( f[i-1][j], f[i][j-1] );
+        for (int k = 1; k < i; k++) {
+            if (s[i] >= s[k])
+                f[i] = max(f[k]+1, f[i]);
         }
     }
 
-    return f[n][n];
+    return f[n];
 }
 
 
