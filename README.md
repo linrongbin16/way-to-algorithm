@@ -32,8 +32,8 @@
     * Introduction-DynamicProgramming &nbsp; 动态规划介绍</p> 
     * LinearDP &nbsp; 线性动态规划</p> 
         * LongestCommonSubsequence &nbsp; 最长公共子序列</p> 
-        * LongestIncreasingSubsequence &nbsp; 最长递增子序列</p> 
-        * LongestIncreasingSubsequenceExtension &nbsp; 最长递增子序列扩展</p> 
+        * LongestIncreaseSubsequence &nbsp; 最长递增子序列</p> 
+        * LongestIncreaseSubsequenceExtension &nbsp; 最长递增子序列扩展</p> 
         * BidirectionSubsequence &nbsp; 双向子序列</p> 
     * Pack &nbsp; 背包问题</p> 
         * ZeroOnePack &nbsp; 01背包</p> 
