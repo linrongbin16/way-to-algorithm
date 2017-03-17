@@ -1,6 +1,6 @@
 #include "LongestCommonSubsequence.hpp"
 #include <cassert>
-#include <iostream>
+// #include <iostream>
 using namespace std;
 
 #define TEST_MAX 1024
@@ -50,7 +50,7 @@ int main()
     for (int i = 0; i < count; i++) {
         Test & t = test_cases[i];
         int r = LongestCommonSubsequence(t.a, t.b, t.n);
-        cout << i << "," << r << endl;
+        // cout << i << "," << r << endl;
         assert(r == t.result);
     }
 
