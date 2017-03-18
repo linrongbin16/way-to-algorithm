@@ -1,8 +1,9 @@
-##<p align="center">Way to Algorithm - 算法之路</p>
+## <p align="center">Way to Algorithm - 算法之路</p>
 <p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/keyboard.jpg" /></p>
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
-####Content &nbsp; 目录结构</p>
+========================================
+#### Content &nbsp; 目录结构</p>
 * Chapter-1 - Sort &nbsp; 排序</p> 
     * InsertSort &nbsp; 插入排序</p> 
     * BubbleSort &nbsp; 冒泡排序</p> 
