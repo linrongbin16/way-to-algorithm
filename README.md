@@ -32,8 +32,8 @@
     * Introduction-DynamicProgramming &nbsp; 动态规划介绍</p> 
     * LinearDP &nbsp; 线性动态规划</p> 
         * LongestCommonSubsequence &nbsp; 最长公共子序列</p> 
-        * LongestIncreaseSubsequence &nbsp; 最长递增子序列</p> 
-        * LongestIncreaseSubsequenceExtension &nbsp; 最长递增子序列扩展</p> 
+        * LongestIncreasingSubsequence &nbsp; 最长递增子序列</p> 
+        * LongestIncreasingSubsequenceExtension &nbsp; 最长递增子序列扩展</p> 
         * BidirectionSubsequence &nbsp; 双向子序列</p> 
     * Pack &nbsp; 背包问题</p> 
         * ZeroOnePack &nbsp; 01背包</p> 
@@ -184,5 +184,5 @@
 
 ========================================
 #### 参考资料 Reference
-* 算法导论 Introduction to Algorithms </p>
+* 算法导论 Introduction to Algorithms http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf </p>
 * 背包问题九讲 http://love-oriented.com/pack/ </p>

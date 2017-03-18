@@ -1,5 +1,5 @@
-#ifndef LONGEST_INCREASE_SUBSEQUENCE
-#define LONGEST_INCREASE_SUBSEQUENCE
+#ifndef LONGEST_INCREASING_SUBSEQUENCE
+#define LONGEST_INCREASING_SUBSEQUENCE
 
 #ifndef MAX
 #define MAX 1024
@@ -11,7 +11,7 @@ using namespace std;
 // 序列a和b的范围是[1,n]
 int f[MAX];
 
-int LongestIncreaseSubsequence(const int s[MAX], int n)
+int LongestIncreasingSubsequence(const int s[MAX], int n)
 {
     // 初始化
     f[0] = 0;

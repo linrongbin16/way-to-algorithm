@@ -1,4 +1,4 @@
-#include "LongestIncreaseSubsequence.hpp"
+#include "LongestIncreasingSubsequence.hpp"
 #include <cassert>
 // #include <iostream>
 using namespace std;
@@ -30,7 +30,7 @@ int main()
     int count = sizeof(test_cases) / sizeof(LISTest);
     for (int i = 0; i < count; i++) {
         LISTest & t = test_cases[i];
-        int r = LongestIncreaseSubsequence(t.a, t.n);
+        int r = LongestIncreasingSubsequence(t.a, t.n);
         // cout << i << "," << r << endl;
         assert(r == t.result);
     }
