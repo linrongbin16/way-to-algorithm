@@ -15,7 +15,6 @@ int LongestIncreaseSubsequence(const int s[MAX], int n)
 {
     // ≥ı ºªØ
     f[0] = 0;
-    int lis = 1;
 
     for (int i = 1; i <= n; i++) {
         f[i] = 1;
@@ -25,6 +24,10 @@ int LongestIncreaseSubsequence(const int s[MAX], int n)
                 max_length = max(max_length, f[k]);
         }
         f[i] = max_length+1;
+    }
+
+    int lis = 1;
+    for (int i = 1; i <= n; i++) {
         lis = max(lis, f[i]);
     }
 

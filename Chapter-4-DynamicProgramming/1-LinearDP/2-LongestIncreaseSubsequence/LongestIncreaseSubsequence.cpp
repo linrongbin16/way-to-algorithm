@@ -1,6 +1,6 @@
 #include "LongestIncreaseSubsequence.hpp"
 #include <cassert>
-#include <iostream>
+// #include <iostream>
 using namespace std;
 
 #define TEST_MAX 1024
@@ -31,7 +31,7 @@ int main()
     for (int i = 0; i < count; i++) {
         LISTest & t = test_cases[i];
         int r = LongestIncreaseSubsequence(t.a, t.n);
-        cout << i << "," << r << endl;
+        // cout << i << "," << r << endl;
         assert(r == t.result);
     }
 
