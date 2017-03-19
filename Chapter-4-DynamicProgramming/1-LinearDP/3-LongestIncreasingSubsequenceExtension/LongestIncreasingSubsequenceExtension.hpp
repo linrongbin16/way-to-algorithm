@@ -11,7 +11,7 @@ using namespace std;
 // 序列a和b的范围是[1,n]
 int f[MAX], g[MAX];
 
-void LongestIncreasingSubsequenceExtension(const int s[MAX], int n, int &lis, int &count)
+int LongestIncreasingSubsequenceExtension(const int s[MAX], int n, int &count)
 {
     // 初始化
     f[0] = 0;
@@ -30,7 +30,7 @@ void LongestIncreasingSubsequenceExtension(const int s[MAX], int n, int &lis, in
         }
         f[i] = max_length+1;
     }
-    lis = 1;
+    int lis = 1;
     for (int i = 1; i <= n; i++) {
         lis = max(lis, f[i]);
     }
@@ -51,6 +51,8 @@ void LongestIncreasingSubsequenceExtension(const int s[MAX], int n, int &lis, in
     for (int i = 1; i <= n; i++) {
         count = max(count, g[i]);
     }
+
+    return lis;
 }
 
 
