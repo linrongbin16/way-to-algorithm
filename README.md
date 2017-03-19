@@ -36,15 +36,14 @@
         * LongestIncreasingSubsequence &nbsp; 最长递增子序列</p> 
         * LongestIncreasingSubsequenceExtension &nbsp; 最长递增子序列扩展</p> 
         * BidirectionSubsequence &nbsp; 双向子序列</p> 
-    * Pack &nbsp; 背包问题</p> 
-        * ZeroOnePack &nbsp; 01背包</p> 
-        * ZeroOnePackPath &nbsp; 01背包路径</p> 
-        * CompletePack &nbsp; 完全背包</p> 
-        * MultiplePack &nbsp; 多重背包</p> 
-        * TwoDimensionPack &nbsp; 二维背包</p> 
-        * PacketPack &nbsp; 分组背包</p> 
+    * KnapsackDP &nbsp; 背包问题</p> 
+        * ZeroOneKnapsack &nbsp; 01背包</p> 
+        * ZeroOneKnapsackExtension &nbsp; 01背包扩展</p> 
+        * CompleteKnapsack &nbsp; 完全背包</p> 
+        * TwoDimensionKnapsack &nbsp; 二维背包</p> 
+        * GroupKnapsack &nbsp; 分组背包</p> 
         * GenericItem &nbsp; 泛化物品</p> 
-        * DependentPack &nbsp; 依赖背包</p> 
+        * DependentKnapsack &nbsp; 依赖背包</p> 
     * RegionDynamic &nbsp; 区域动态规划</p> 
         * MinimumMergeCost &nbsp; 最小合并代价</p> 
         * MinimumMergeExtension &nbsp; 最小合并扩展</p> 
