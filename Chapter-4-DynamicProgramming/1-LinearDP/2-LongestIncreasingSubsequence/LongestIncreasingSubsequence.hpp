@@ -20,7 +20,7 @@ int LongestIncreasingSubsequence(const int s[MAX], int n)
         f[i] = 1;
         int max_length = 0;
         for (int k = 1; k < i; k++) {
-            if (s[i] >= s[k])
+            if (s[i] > s[k])
                 max_length = max(max_length, f[k]);
         }
         f[i] = max_length+1;
