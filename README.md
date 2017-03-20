@@ -42,8 +42,6 @@
         * CompleteKnapsack &nbsp; 完全背包</p> 
         * TwoDimensionKnapsack &nbsp; 二维背包</p> 
         * GroupKnapsack &nbsp; 分组背包</p> 
-        * GenericItem &nbsp; 泛化物品</p> 
-        * DependentKnapsack &nbsp; 依赖背包</p> 
     * RegionDynamic &nbsp; 区域动态规划</p> 
         * MinimumMergeCost &nbsp; 最小合并代价</p> 
         * MinimumMergeExtension &nbsp; 最小合并扩展</p> 
