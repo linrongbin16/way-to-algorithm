@@ -162,7 +162,7 @@
     * SpragueGrundy &nbsp; SG函数</p>
 
 ========================================
-#### 内容概要
+#### Introduction 内容概要
 这是一本关于大学生计算机算法的基础书籍。之所以称之为“书”而不是“源码”，是因为我发现  </p>
 纯粹的算法源码很难让人学习和理解，我自己在学习的过程中走了不少的弯路。              </p>
 将算法图形化、公式化是最容易让人学习和理解的方式，因此我将这些内容用自己的方式写成  </p>
@@ -181,6 +181,6 @@
 
 
 ========================================
-#### 参考资料 Reference
+#### Reference 参考资料
 * 算法导论 Introduction to Algorithms http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf </p>
 * 背包问题九讲 http://love-oriented.com/pack/ </p>
