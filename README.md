@@ -1,9 +1,10 @@
 ## <p align="center">Way to Algorithm - 算法之路</p>
+========================================
 <p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/keyboard.jpg" /></p>
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
-========================================
 #### Content &nbsp; 目录结构</p>
+========================================
 * Chapter-1 - Sort &nbsp; 排序</p> 
     * InsertSort &nbsp; 插入排序</p> 
     * BubbleSort &nbsp; 冒泡排序</p> 
@@ -161,8 +162,8 @@
     * NimGame &nbsp; 尼姆博弈</p>
     * SpragueGrundy &nbsp; SG函数</p>
 
-========================================
 #### Introduction 内容概要
+========================================
 这是一本关于大学生计算机算法的基础书籍。之所以称之为“书”而不是“源码”，是因为我发现  </p>
 纯粹的算法源码很难让人学习和理解，我自己在学习的过程中走了不少的弯路。              </p>
 将算法图形化、公式化是最容易让人学习和理解的方式，因此我将这些内容用自己的方式写成  </p>
@@ -173,14 +174,13 @@
 我学习和参考了非常多的资料，有很多我都忘记了，记得的我会列在下面的Reference部分。   </p>
 
 
-========================================
 <p align="right">
 <p>西安交通大学计算机系</p>
 <p>林荣彬</p>
 <p>2014年2月16日</p>
 
 
-========================================
 #### Reference 参考资料
+========================================
 * 算法导论 Introduction to Algorithms http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf </p>
 * 背包问题九讲 http://love-oriented.com/pack/ </p>
