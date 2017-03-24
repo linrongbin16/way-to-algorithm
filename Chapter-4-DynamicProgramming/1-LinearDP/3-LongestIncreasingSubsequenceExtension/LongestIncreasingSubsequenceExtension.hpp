@@ -8,11 +8,11 @@
 using namespace std;
 
 
-// 序列a和b的范围是[1,n]
 int f[MAX], g[MAX];
 
-int LongestIncreasingSubsequenceExtension(const int s[MAX], int n, int &count)
+void LongestIncreasingSubsequenceExtension(const int s[MAX], int n, int &list, int &count)
 {
+    // 序列s的范围是[1,n]
     // 初始化
     f[0] = 0;
     g[0] = 0;
