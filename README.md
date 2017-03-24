@@ -1,8 +1,12 @@
+##
+-----------------
 ## <p align="center">Way to Algorithm - 算法之路</p>
 -----------------
 <p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/keyboard.jpg" /></p>
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
+####
+-----------------
 #### <p>Content - 目录结构</p>
 -----------------
 * Chapter-1 - Sort &nbsp; 排序</p> 
@@ -162,6 +166,8 @@
     * NimGame &nbsp; 尼姆博弈</p>
     * SpragueGrundy &nbsp; SG函数</p>
 
+####
+-----------------
 #### <p>Introduction - 内容概要</p>
 -----------------
 这是一本关于大学生计算机算法的基础书籍。之所以称之为“书”而不是“源码”，是因为我发现  </p>
@@ -180,6 +186,8 @@
 <p>2014年2月16日</p>
 
 
+####
+-----------------
 #### <p>Reference - 参考资料</p>
 -----------------
 * 算法导论 Introduction to Algorithms http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf </p>
