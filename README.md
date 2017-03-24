@@ -8,30 +8,30 @@
 -----------------
 #### <p>Content - 目录结构</p>
 * Chapter-1 - Sort &nbsp; 排序</p> 
-    * InsertSort &nbsp; 插入排序</p> 
-    * BubbleSort &nbsp; 冒泡排序</p> 
-    * QuickSort &nbsp; 快速排序</p> 
-    * MergeSort &nbsp; 合并排序</p>
+    * InsertSort &nbsp; 插入排序</br> 
+    * BubbleSort &nbsp; 冒泡排序</br> 
+    * QuickSort &nbsp; 快速排序</br> 
+    * MergeSort &nbsp; 合并排序</br>
 * Chapter-2 - Search &nbsp; 搜索</p> 
-    * BinarySearch &nbsp; 二分查找法</p> 
-    * BruteForce &nbsp; 暴力枚举</p> 
-    * Resursion &nbsp; 递归</p> 
-    * BreadthFirstSearch &nbsp; 广度优先搜索</p> 
-    * BidirectionpeadthSearch &nbsp; 双向优先搜索</p> 
-    * AStarSearch &nbsp; A*搜索</p> 
-    * DancingLinks &nbsp; 舞蹈链</p>
-    * Introduction-AdvancedSearch &nbsp; 高级搜索介绍</p>
+    * BinarySearch &nbsp; 二分查找法</br> 
+    * BruteForce &nbsp; 暴力枚举</br> 
+    * Resursion &nbsp; 递归</br> 
+    * BreadthFirstSearch &nbsp; 广度优先搜索</br> 
+    * BidirectionpeadthSearch &nbsp; 双向优先搜索</br> 
+    * AStarSearch &nbsp; A*搜索</br> 
+    * DancingLinks &nbsp; 舞蹈链</br>
+    * Introduction-AdvancedSearch &nbsp; 高级搜索介绍</br>
 * Chapter-3 - DataStructure &nbsp; 数据结构</p> 
-    * Introduction-ClassicDataStructure &nbsp; 经典数据结构介绍</p> 
-    * HashTable &nbsp; 哈希表</p> 
-    * DisjointSet &nbsp; 并查集</p> 
-    * BinaryIndexTree &nbsp; 树状数组</p> 
-    * SegmentTree &nbsp; 线段树</p> 
-    * LeftistTree &nbsp; 左偏树</p> 
-    * PrefixTree &nbsp; 前缀树</p> 
-    * SuffixTree &nbsp; 后缀树</p> 
-    * AVLTree &nbsp; 平衡二叉树</p> 
-    * RedBlackTree &nbsp; 红黑树</p>
+    * Introduction-ClassicDataStructure &nbsp; 经典数据结构介绍</br> 
+    * HashTable &nbsp; 哈希表</br> 
+    * DisjointSet &nbsp; 并查集</br> 
+    * BinaryIndexTree &nbsp; 树状数组</br> 
+    * SegmentTree &nbsp; 线段树</br> 
+    * LeftistTree &nbsp; 左偏树</br> 
+    * PrefixTree &nbsp; 前缀树</br> 
+    * SuffixTree &nbsp; 后缀树</br> 
+    * AVLTree &nbsp; 平衡二叉树</br> 
+    * RedBlackTree &nbsp; 红黑树</br>
 * Chapter-4 - DynamicProgramming &nbsp; 动态规划</p> 
     * Introduction-DynamicProgramming &nbsp; 动态规划介绍</p> 
     * LinearDP &nbsp; 线性动态规划</p> 
