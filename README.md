@@ -7,12 +7,12 @@
 ####
 -----------------
 #### <p>Content - 目录结构</p>
-* Chapter-1 - Sort &nbsp; 排序</p> 
+* Chapter-1 - Sort &nbsp; 排序</br> 
     * InsertSort &nbsp; 插入排序</br> 
     * BubbleSort &nbsp; 冒泡排序</br> 
     * QuickSort &nbsp; 快速排序</br> 
     * MergeSort &nbsp; 合并排序</br>
-* Chapter-2 - Search &nbsp; 搜索</p> 
+* Chapter-2 - Search &nbsp; 搜索</br> 
     * BinarySearch &nbsp; 二分查找法</br> 
     * BruteForce &nbsp; 暴力枚举</br> 
     * Resursion &nbsp; 递归</br> 
@@ -21,7 +21,7 @@
     * AStarSearch &nbsp; A*搜索</br> 
     * DancingLinks &nbsp; 舞蹈链</br>
     * Introduction-AdvancedSearch &nbsp; 高级搜索介绍</br>
-* Chapter-3 - DataStructure &nbsp; 数据结构</p> 
+* Chapter-3 - DataStructure &nbsp; 数据结构</br> 
     * Introduction-ClassicDataStructure &nbsp; 经典数据结构介绍</br> 
     * HashTable &nbsp; 哈希表</br> 
     * DisjointSet &nbsp; 并查集</br> 
@@ -32,21 +32,21 @@
     * SuffixTree &nbsp; 后缀树</br> 
     * AVLTree &nbsp; 平衡二叉树</br> 
     * RedBlackTree &nbsp; 红黑树</br>
-* Chapter-4 - DynamicProgramming &nbsp; 动态规划</p> 
-    * Introduction-DynamicProgramming &nbsp; 动态规划介绍</p> 
-    * LinearDP &nbsp; 线性动态规划</p> 
-        * LongestCommonSubsequence &nbsp; 最长公共子序列</p> 
-        * LongestIncreasingSubsequence &nbsp; 最长递增子序列</p> 
-        * LongestIncreasingSubsequenceExtension &nbsp; 最长递增子序列扩展</p> 
-        * BidirectionSubsequence &nbsp; 双向子序列</p> 
-    * KnapsackDP &nbsp; 背包问题</p> 
-        * ZeroOneKnapsack &nbsp; 01背包</p> 
-        * ZeroOneKnapsackExtension &nbsp; 01背包扩展</p> 
-        * CompleteKnapsack &nbsp; 完全背包</p> 
-        * TwoDimensionKnapsack &nbsp; 二维背包</p> 
-        * GroupKnapsack &nbsp; 分组背包</p> 
-    * RegionDynamic &nbsp; 区域动态规划</p> 
-        * MinimumMergeCost &nbsp; 最小合并代价</p> 
+* Chapter-4 - DynamicProgramming &nbsp; 动态规划</br> 
+    * Introduction-DynamicProgramming &nbsp; 动态规划介绍</br> 
+    * LinearDP &nbsp; 线性动态规划</br> 
+        * LongestCommonSubsequence &nbsp; 最长公共子序列</br> 
+        * LongestIncreasingSubsequence &nbsp; 最长递增子序列</br> 
+        * LongestIncreasingSubsequenceExtension &nbsp; 最长递增子序列扩展</br> 
+        * BidirectionSubsequence &nbsp; 双向子序列</br> 
+    * KnapsackDP &nbsp; 背包问题</br> 
+        * ZeroOneKnapsack &nbsp; 01背包</br> 
+        * ZeroOneKnapsackExtension &nbsp; 01背包扩展</br> 
+        * CompleteKnapsack &nbsp; 完全背包</br> 
+        * TwoDimensionKnapsack &nbsp; 二维背包</br> 
+        * GroupKnapsack &nbsp; 分组背包</br> 
+    * RegionDynamic &nbsp; 区域动态规划</br> 
+        * MinimumMergeCost &nbsp; 最小合并代价</br> 
         * MinimumMergeExtension &nbsp; 最小合并扩展</p> 
         * MaximumBinaryTreeMerge &nbsp; 最大二叉树合并</p> 
     * TreeDynamic &nbsp; 树形动态规划</p> 
