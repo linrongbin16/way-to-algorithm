@@ -17,7 +17,7 @@
     * BruteForce &nbsp; 暴力枚举</br> 
     * Resursion &nbsp; 递归</br> 
     * BreadthFirstSearch &nbsp; 广度优先搜索</br> 
-    * BidirectionpeadthSearch &nbsp; 双向优先搜索</br> 
+    * BidirectionalBreadthSearch &nbsp; 双向优先搜索</br> 
     * AStarSearch &nbsp; A*搜索</br> 
     * DancingLinks &nbsp; 舞蹈链</br>
     * Introduction-AdvancedSearch &nbsp; 高级搜索介绍</br>
