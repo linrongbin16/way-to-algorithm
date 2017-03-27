@@ -8,6 +8,8 @@
 using namespace std;
 
 
+// TODO: ¸ÃËã·¨´æÔÚbug
+
 int f[MAX], g[MAX];
 
 void LongestIncreasingSubsequenceExtension(const int s[MAX], int n, int &list, int &count)
