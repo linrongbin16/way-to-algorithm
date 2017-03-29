@@ -8,6 +8,8 @@
 #include <algorithm>
 using namespace std;
 
+// TODO: ∏√À„∑®”–bug
+
 
 int f[MAX][MAX];
 bool g[MAX][MAX][MAX];
