@@ -8,6 +8,7 @@
 #include <algorithm>
 using namespace std;
 
+// TODO: fix bug
 
 int f[MAX][MAX][MAX];
 
