@@ -47,76 +47,76 @@
         * GroupKnapsack &nbsp; 分组背包</br> 
     * RegionDynamic &nbsp; 区域动态规划</br> 
         * MinimumMergeCost &nbsp; 最小合并代价</br> 
-        * MinimumMergeExtension &nbsp; 最小合并扩展</p> 
-        * MaximumBinaryTreeMerge &nbsp; 最大二叉树合并</p> 
-    * TreeDynamic &nbsp; 树形动态规划</p> 
-        * BinaryTree &nbsp; 二叉树</p> 
-        * MultipleTree &nbsp; 多叉树</p> 
-        * Multiple2BinaryTree &nbsp; 多叉树转二叉树</p> 
-        * MultipleTreePath &nbsp; 多叉树路径</p> 
-        * LoopedMultipleTree &nbsp; 带环多叉树</p> 
-        * MultipleTreeTraverse &nbsp; 多叉树遍历</p>
-* Chapter-5 - GraphTheory &nbsp; 图论</p>
-    * Traverse &nbsp; 遍历</p>
-        * TraverseTree &nbsp; 遍历树</p>
-        * DepthFirstSearch &nbsp; 深度优先遍历</p>
-        * BreadthFirstSearch &nbsp; 广度优先遍历</p>
-        * TopologicalSort &nbsp; 拓扑排序</p>
-        * EulerLoop &nbsp; 欧拉回路</p>
-        * HamiltonLoop &nbsp; 汉密尔顿回路</p>
-        * Kosaraju &nbsp; Kosaraju算法</p>
-        * 2-Satisfiability &nbsp; 2-SAT问题</p>
-    * Tarjan &nbsp; Tarjan算法</p>
-        * StrongestConnectedComponent &nbsp; 强连通分支</p>
-        * Gabow &nbsp; Gabow算法</p>
-        * Cut &nbsp; 割</p>
-        * DoubleConnectedComponent &nbsp; 双连通分支</p>
-        * LeastCommonAncestor &nbsp; 最近公共祖先</p>
-        * RangeExtremumQuery &nbsp; 区域最值查询</p>
-    * MinimumSpanningTree &nbsp; 最小生成树</p>
-        * Kruskal &nbsp; Kruskal算法</p>
-        * Prim &nbsp; Prim算法</p>
-        * SecondMinimumSpanningTree &nbsp; 次小生成树</p>
-        * DegreeBoundedSpanningTree &nbsp; 度限制生成树</p>
-        * OptimalRatioSpanningTree &nbsp; 最优比率生成树</p>
-    * ShortestPath &nbsp; 最短路径</p>
-        * Relaxation &nbsp; 松弛操作</p>
-        * BellmanFord &nbsp; BellmanFord算法</p>
-        * ShortestPathFasterAlgorithm &nbsp; SPFA最短路径更快算法</p>
-        * Dijkstra &nbsp; Dijkstra算法</p>
-        * Floyd &nbsp; Floyd算法</p>
-        * DifferentConstraints &nbsp; 差分约束</p>
-    * FlowNetwork &nbsp; 网络流</p>
-        * EdmondsKarp &nbsp; EdmondsKarp算法</p>
-        * PushAndRelabel &nbsp; 压入与重标记</p>
-        * Dinic &nbsp; Dinic算法</p>
-        * DistanceLabel &nbsp; 距离标号算法</p>
-        * RelabelToFront &nbsp; 重标记与前移算法</p>
-        * HighestLabelPreflowPush &nbsp; 最高标号预留与推进算法</p>
-        * DistanceLabel_AdjacentListVersion &nbsp; 距离标号算法_邻接表优化版</p>
-        * DistanceLabel_AdjacentListVersion &nbsp; 距离标号算法_邻接表优化版</p>
-        * Summary-Maxflow &nbsp; 最大流算法小结</p>
-        * MinimumCost_Maxflow &nbsp; 最小费用最大流</p>
-        * MultipleSourceSink_Maxflow &nbsp; 多源点、多汇点最大流</p>
-        * Connectivity &nbsp; 连通度</p>
-        * NoSource_NoSink_VolumeBounded_Flow &nbsp; 无源点、无汇点、容量有上下界的流网络</p>
-        * VolumeBounded_Maxflow &nbsp; 容量有上下界的最大流</p>
-        * VolumeBounded_Minflow &nbsp; 容量有上下界的最小流</p>
-    * BinaryMatch &nbsp; 二分匹配</p>
-        * Hungarian &nbsp; 匈牙利算法</p>
-        * HopcroftKarp &nbsp; Hopcroft-Karp算法</p>
-        * Match2Maxflow &nbsp; 二分匹配转最大流</p>
-        * KuhnMunkres &nbsp; Kuhn-Munkres算法</p>
-        * Introduction-Domination_Independent_Covering_Clique &nbsp; 支配集，独立集，覆盖集与团的介绍</p>
-        * WeightedCoveringAndIndependentSet &nbsp; 最小点权覆盖和最大点权独立集</p>
-        * MinimumDisjointPathCovering &nbsp; 最小不相交路径覆盖</p>
-        * MinimumJointPathCovering &nbsp; 最小可相交路径覆盖</p>
-        * Coloring &nbsp; 染色问题</p>
-* Chapter-6 - LinearAlgebra &nbsp; 线性代数</p>
-    * Matrix &nbsp; 矩阵</p>
-        * Strassen &nbsp; Strassen算法</p>
-        * GaussElimination &nbsp; 高斯消元法</p>
-        * LUP &nbsp; LUP分解</p>
+        * MinimumMergeExtension &nbsp; 最小合并扩展</br> 
+        * MaximumBinaryTreeMerge &nbsp; 最大二叉树合并</br> 
+    * TreeDynamic &nbsp; 树形动态规划</br> 
+        * BinaryTree &nbsp; 二叉树</br> 
+        * MultipleTree &nbsp; 多叉树</br> 
+        * Multiple2BinaryTree &nbsp; 多叉树转二叉树</br> 
+        * MultipleTreePath &nbsp; 多叉树路径</br> 
+        * LoopedMultipleTree &nbsp; 带环多叉树</br> 
+        * MultipleTreeTraverse &nbsp; 多叉树遍历</br>
+* Chapter-5 - GraphTheory &nbsp; 图论</br>
+    * Traverse &nbsp; 遍历</br>
+        * TraverseTree &nbsp; 遍历树</br>
+        * DepthFirstSearch &nbsp; 深度优先遍历</br>
+        * BreadthFirstSearch &nbsp; 广度优先遍历</br>
+        * TopologicalSort &nbsp; 拓扑排序</br>
+        * EulerLoop &nbsp; 欧拉回路</br>
+        * HamiltonLoop &nbsp; 汉密尔顿回路</br>
+        * Kosaraju &nbsp; Kosaraju算法</br>
+        * 2-Satisfiability &nbsp; 2-SAT问题</br>
+    * Tarjan &nbsp; Tarjan算法</br>
+        * StrongestConnectedComponent &nbsp; 强连通分支</br>
+        * Gabow &nbsp; Gabow算法</br>
+        * Cut &nbsp; 割</br>
+        * DoubleConnectedComponent &nbsp; 双连通分支</br>
+        * LeastCommonAncestor &nbsp; 最近公共祖先</br>
+        * RangeExtremumQuery &nbsp; 区域最值查询</br>
+    * MinimumSpanningTree &nbsp; 最小生成树</br>
+        * Kruskal &nbsp; Kruskal算法</br>
+        * Prim &nbsp; Prim算法</br>
+        * SecondMinimumSpanningTree &nbsp; 次小生成树</br>
+        * DegreeBoundedSpanningTree &nbsp; 度限制生成树</br>
+        * OptimalRatioSpanningTree &nbsp; 最优比率生成树</br>
+    * ShortestPath &nbsp; 最短路径</br>
+        * Relaxation &nbsp; 松弛操作</br>
+        * BellmanFord &nbsp; BellmanFord算法</br>
+        * ShortestPathFasterAlgorithm &nbsp; SPFA最短路径更快算法</br>
+        * Dijkstra &nbsp; Dijkstra算法</br>
+        * Floyd &nbsp; Floyd算法</br>
+        * DifferentConstraints &nbsp; 差分约束</br>
+    * FlowNetwork &nbsp; 网络流</br>
+        * EdmondsKarp &nbsp; EdmondsKarp算法</br>
+        * PushAndRelabel &nbsp; 压入与重标记</br>
+        * Dinic &nbsp; Dinic算法</br>
+        * DistanceLabel &nbsp; 距离标号算法</br>
+        * RelabelToFront &nbsp; 重标记与前移算法</br>
+        * HighestLabelPreflowPush &nbsp; 最高标号预留与推进算法</br>
+        * DistanceLabel_AdjacentListVersion &nbsp; 距离标号算法_邻接表优化版</br>
+        * DistanceLabel_AdjacentListVersion &nbsp; 距离标号算法_邻接表优化版</br>
+        * Summary-Maxflow &nbsp; 最大流算法小结</br>
+        * MinimumCost_Maxflow &nbsp; 最小费用最大流</br>
+        * MultipleSourceSink_Maxflow &nbsp; 多源点、多汇点最大流</br>
+        * Connectivity &nbsp; 连通度</br>
+        * NoSource_NoSink_VolumeBounded_Flow &nbsp; 无源点、无汇点、容量有上下界的流网络</br>
+        * VolumeBounded_Maxflow &nbsp; 容量有上下界的最大流</br>
+        * VolumeBounded_Minflow &nbsp; 容量有上下界的最小流</br>
+    * BinaryMatch &nbsp; 二分匹配</br>
+        * Hungarian &nbsp; 匈牙利算法</br>
+        * HopcroftKarp &nbsp; Hopcroft-Karp算法</br>
+        * Match2Maxflow &nbsp; 二分匹配转最大流</br>
+        * KuhnMunkres &nbsp; Kuhn-Munkres算法</br>
+        * Introduction-Domination_Independent_Covering_Clique &nbsp; 支配集，独立集，覆盖集与团的介绍</br>
+        * WeightedCoveringAndIndependentSet &nbsp; 最小点权覆盖和最大点权独立集</br>
+        * MinimumDisjointPathCovering &nbsp; 最小不相交路径覆盖</br>
+        * MinimumJointPathCovering &nbsp; 最小可相交路径覆盖</br>
+        * Coloring &nbsp; 染色问题</br>
+* Chapter-6 - LinearAlgebra &nbsp; 线性代数</br>
+    * Matrix &nbsp; 矩阵</br>
+        * Strassen &nbsp; Strassen算法</br>
+        * GaussElimination &nbsp; 高斯消元法</br>
+        * LUP &nbsp; LUP分解</br>
         * InverseMatrix &nbsp; 矩阵求逆</p>
     * LinearProgramming &nbsp; 线性规划</p>
         * Simplex &nbsp; 单纯形算法</p>
@@ -167,10 +167,10 @@
 ####
 -----------------
 #### <p>Introduction - 内容概要</p>
-&nbsp;&nbsp; 这是一本关于大学生计算机算法的书籍。之所以称之为“书”而不是“源码”，是因为我发现单纯的算法源码很难让人学习和理解，我自己在学习的过程中走了不少的弯路。 </p>
-&nbsp;&nbsp; 我认为将算法图形化、公式化是最容易让人学习和理解的方式，因此我将这些内容用自己的方式画出来，并且导出为PDF文件，生成了一个类似于书籍的东西，配合代码将这些公式API化，再加上测试结果，这样讲解的效果我认为是最好的。 </p>
-&nbsp;&nbsp; 本书的每一章专门讲解一类算法问题，其中又划分多个小节，专门讲解某一分支或变种问题。同一章节中各个小节之间会有明显的联系，简单的算法在前面，复杂的算法在后面。每个算法都有讲解、源码和测试三个部分。</p>
-&nbsp;&nbsp; 我学习和参考了非常多的资料，有很多都忘记了，记得的我会列在参考资料中。   </p>
+&nbsp;&nbsp; 这是一本关于大学生计算机算法的书籍。之所以称之为“书”而不是“源码”，是因为我发现单纯的算法源码很难让人学习和理解，我自己在学习的过程中走了不少的弯路。 </br>
+&nbsp;&nbsp; 我认为将算法图形化、公式化是最容易让人学习和理解的方式，因此我将这些内容用自己的方式画出来，并且导出为PDF文件，生成了一个类似于书籍的东西，配合代码将这些公式API化，再加上测试结果，这样讲解的效果我认为是最好的。 </br>
+&nbsp;&nbsp; 本书的每一章专门讲解一类算法问题，其中又划分多个小节，专门讲解某一分支或变种问题。同一章节中各个小节之间会有明显的联系，简单的算法在前面，复杂的算法在后面。每个算法都有讲解、源码和测试三个部分。</br>
+&nbsp;&nbsp; 我学习和参考了非常多的资料，有很多都忘记了，记得的我会列在参考资料中。   </br>
 </br>
 <p align="right">
 西安交通大学计算机系</br>
