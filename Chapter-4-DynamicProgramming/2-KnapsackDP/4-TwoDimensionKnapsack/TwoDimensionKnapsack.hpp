@@ -4,15 +4,14 @@
 #ifndef MAX
 #define MAX 128
 #endif
-#include <vector>
+// #include <iostream>
 #include <algorithm>
 using namespace std;
 
-// TODO: fix bug
 
 int f[MAX][MAX][MAX];
 
-int TwoDimensionKnapsack(int value[MAX], int weight1[MAX], int weight2[MAX], int count, int w1, int w2)
+int TwoDimensionKnapsack(int value[MAX], int weight1[MAX], int weight2[MAX], int n, int w1, int w2)
 {
     // ≥ı ºªØ
     for (int i = 0; i < MAX; i++)
@@ -20,7 +19,7 @@ int TwoDimensionKnapsack(int value[MAX], int weight1[MAX], int weight2[MAX], int
             for (int k = 0; k < MAX; k++)
                 f[i][j][k] = 0;
 
-    for (int i = 1; i <= count; i++) {
+    for (int i = 1; i <= n; i++) {
         for (int j = 0; j <= w1; j++) {
             for (int k = 0; k <= w2; k++) {
                 if (j >= weight1[i] && k >= weight2[i]) {
@@ -32,7 +31,21 @@ int TwoDimensionKnapsack(int value[MAX], int weight1[MAX], int weight2[MAX], int
         }
     }
 
-    return f[count][w1][w2];
+    /*
+    cout << "debug info" << endl;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j <= w1; j++) {
+            for (int k = 0; k <= w2; k++) {
+                cout << "f[" << i << "][" << j << "][" << k << "]: " << f[i][j][k] << " ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+        cout << endl;
+    }
+    */
+
+    return f[n][w1][w2];
 }
 
 
