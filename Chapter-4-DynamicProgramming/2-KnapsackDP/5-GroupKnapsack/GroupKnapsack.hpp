@@ -4,12 +4,12 @@
 #ifndef MAX
 #define MAX 1024
 #endif
+// #include <iostream>
 #include <algorithm>
 using namespace std;
 
-// TODO: fix bug
 
-
+// f[k][j] 前 k 组重量不超过 j 的最大价值
 int f[MAX][MAX];
 
 /**
@@ -43,20 +43,41 @@ int GroupKnapsack(Item group[MAX][MAX], int group_n[MAX], int n, int total_weigh
             f[i][j] = 0;
 
     // 对所有分组进行排序
-    for (int i = 1; i < n; i++)
+    for (int i = 1; i <= n; i++) {
+        group[i];
         sort( (Item*)group[i] + 1, (Item*)group[i] + 1 + group_n[i], ItemCompare );
+        group[i];
+    }
 
+    // 第 k 组物品
     for (int k = 1; k <= n; k++) {
+        // 一组中的第 i 个物品
         for (int i = 1; i <= group_n[k]; i++) {
+            // 重量不超过 j
             for (int j = 0; j <= total_weight; j++) {
+                // 在同一组 k 中的不同物品 i 之间是互斥的
+                // 至多只能选择一个
+                // 选择物品 i 和前一个物品 i-1 之中价值最大的
+                int tmp;
                 if (j >= group[k][i].weight_) {
-                    f[k][j] = max( f[k-1][j], f[k-1][j - group[k][i].weight_ ] + group[k][i].value_ );
+                    tmp = max( f[k-1][j], f[k-1][ j - group[k][i].weight_ ] + group[k][i].value_ );
                 } else {
-                    f[k][j] = f[k-1][j];
+                    tmp = f[k-1][j];
                 }
+                f[k][j] = max( f[k][j], tmp );
             }
         }
     }
+
+    /*
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j <= total_weight; j++) {
+            cout << "f[" << i << "][" << j <<"]: " << f[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl << endl;
+    */
 
     return f[n][total_weight];
 }
