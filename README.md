@@ -117,60 +117,58 @@
         * Strassen &nbsp; Strassen算法</br>
         * GaussElimination &nbsp; 高斯消元法</br>
         * LUP &nbsp; LUP分解</br>
-        * InverseMatrix &nbsp; 矩阵求逆</p>
-    * LinearProgramming &nbsp; 线性规划</p>
-        * Simplex &nbsp; 单纯形算法</p>
-        * Dinkelback &nbsp; Dinkelbach算法</p>
-* Chapter-7 - Calculation &nbsp; 数学计算</p>
-    * BasicCalculate &nbsp; 基础计算</p>
-        * LargeNumber &nbsp; 大数字</p>
-        * DecimalConversion &nbsp; 数字十进制与其他进制转换</p>
-        * Exponentiation &nbsp; 幂运算</p>
-    * CombinatorialMathematics &nbsp; 组合数学</p>
-        * Introduction-CombinatorialMathematics &nbsp; 组合数学介绍</p>
-        * FullPermutaion &nbsp; 全排列</p>
-        * Combination &nbsp; 组合</p>
-        * PermutationGroup &nbsp; 置换群</p>
-        * Catalan &nbsp; 卡特兰数</p>
-    * NumberTheory &nbsp; 数论</p>
-        * Sieve &nbsp; 筛选算法</p>
-        * Euclid &nbsp; Euclid算法</p>
-        * EuclidExtension &nbsp; Euclid扩展</p>
-        * ModularLinearEquation &nbsp; 模线性方程</p>
-        * ChineseRemainerTheorem &nbsp; 中国剩余定理</p>
-        * ModularExponentiation &nbsp; 模幂运算</p>
-* Chapter-8 - AnalyticGeometry &nbsp; 解析几何</p>
-    * VectorAndPolygon &nbsp; 向量与多边形</p>
-        * Cross &nbsp; 叉积</p>
-        * SegmentIntersection &nbsp; 线段相交</p>
-        * PointInConvexPolygon &nbsp; 点在凸多边形内</p>
-        * Sweeping &nbsp; 扫除算法</p>
-        * ConvexPolygonArea &nbsp; 凸多边形面积</p>
-        * ConvexPolygonGravityCenter &nbsp; 凸多边形重心</p>
-        * RayDistinguish &nbsp; 射线判别</p>
-        * RotatingCalipers &nbsp; 旋转卡壳</p>
-    * ConvexHull &nbsp; 凸包</p>
-        * NearestNeighbor &nbsp; 最近点对</p>
-        * GrahamScan &nbsp; Graham扫描</p>
-        * QuickConvexHull &nbsp; 快速凸包算法</p>
-* Chapter-9 - String &nbsp; 字符串</p>
-    * NaiveStringMatch &nbsp; 简单字符串匹配</p>
-    * KnuthMorrisPratt &nbsp; KMP算法</p>
-    * TrieTree &nbsp; 字典树</p>
-    * AhoCorasickAutomation &nbsp; AC自动机</p>
-* Chapter-10 - GameTheory &nbsp; 博弈论</p>
-    * BashGame &nbsp; 巴什博弈</p>
-    * WythoffGame &nbsp; 威佐夫博奕</p>
-    * NimGame &nbsp; 尼姆博弈</p>
-    * SpragueGrundy &nbsp; SG函数</p>
+        * InverseMatrix &nbsp; 矩阵求逆</br>
+    * LinearProgramming &nbsp; 线性规划</br>
+        * Simplex &nbsp; 单纯形算法</br>
+        * Dinkelback &nbsp; Dinkelbach算法</br>
+* Chapter-7 - Calculation &nbsp; 数学计算</br>
+    * BasicCalculate &nbsp; 基础计算</br>
+        * LargeNumber &nbsp; 大数字</br>
+        * DecimalConversion &nbsp; 数字十进制与其他进制转换</br>
+        * Exponentiation &nbsp; 幂运算</br>
+    * CombinatorialMathematics &nbsp; 组合数学</br>
+        * Introduction-CombinatorialMathematics &nbsp; 组合数学介绍</br>
+        * FullPermutaion &nbsp; 全排列</br>
+        * Combination &nbsp; 组合</br>
+        * PermutationGroup &nbsp; 置换群</br>
+        * Catalan &nbsp; 卡特兰数</br>
+    * NumberTheory &nbsp; 数论</br>
+        * Sieve &nbsp; 筛选算法</br>
+        * Euclid &nbsp; Euclid算法</br>
+        * EuclidExtension &nbsp; Euclid扩展</br>
+        * ModularLinearEquation &nbsp; 模线性方程</br>
+        * ChineseRemainerTheorem &nbsp; 中国剩余定理</br>
+        * ModularExponentiation &nbsp; 模幂运算</br>
+* Chapter-8 - AnalyticGeometry &nbsp; 解析几何</br>
+    * VectorAndPolygon &nbsp; 向量与多边形</br>
+        * Cross &nbsp; 叉积</br>
+        * SegmentIntersection &nbsp; 线段相交</br>
+        * PointInConvexPolygon &nbsp; 点在凸多边形内</br>
+        * Sweeping &nbsp; 扫除算法</br>
+        * ConvexPolygonArea &nbsp; 凸多边形面积</br>
+        * ConvexPolygonGravityCenter &nbsp; 凸多边形重心</br>
+        * RayDistinguish &nbsp; 射线判别</br>
+        * RotatingCalipers &nbsp; 旋转卡壳</br>
+    * ConvexHull &nbsp; 凸包</br>
+        * NearestNeighbor &nbsp; 最近点对</br>
+        * GrahamScan &nbsp; Graham扫描</br>
+        * QuickConvexHull &nbsp; 快速凸包算法</br>
+* Chapter-9 - String &nbsp; 字符串</br>
+    * NaiveStringMatch &nbsp; 简单字符串匹配</br>
+    * KnuthMorrisPratt &nbsp; KMP算法</br>
+    * TrieTree &nbsp; 字典树</br>
+    * AhoCorasickAutomation &nbsp; AC自动机</br>
+* Chapter-10 - GameTheory &nbsp; 博弈论</br>
+    * BashGame &nbsp; 巴什博弈</br>
+    * WythoffGame &nbsp; 威佐夫博奕</br>
+    * NimGame &nbsp; 尼姆博弈</br>
+    * SpragueGrundy &nbsp; SG函数</br>
 
 ####
 -----------------
 #### <p>Introduction - 内容概要</p>
-&nbsp;&nbsp; 这是一本关于大学生计算机算法的书籍。之所以称之为“书”而不是“源码”，是因为我发现单纯的算法源码很难让人学习和理解，我自己在学习的过程中走了不少的弯路。 </br>
-&nbsp;&nbsp; 我认为将算法图形化、公式化是最容易让人学习和理解的方式，因此我将这些内容用自己的方式画出来，并且导出为PDF文件，生成了一个类似于书籍的东西，配合代码将这些公式API化，再加上测试结果，这样讲解的效果我认为是最好的。 </br>
-&nbsp;&nbsp; 本书的每一章专门讲解一类算法问题，其中又划分多个小节，专门讲解某一分支或变种问题。同一章节中各个小节之间会有明显的联系，简单的算法在前面，复杂的算法在后面。每个算法都有讲解、源码和测试三个部分。</br>
-&nbsp;&nbsp; 我学习和参考了非常多的资料，有很多都忘记了，记得的我会列在参考资料中。   </br>
+&nbsp;&nbsp;&nbsp;&nbsp;这是一本关于大学生计算机算法的书籍。之所以称之为“书”而不是“源码”，是因为我发现单纯的代码很难让人学习和理解，我自己在学习的过程中走了不少的弯路。我认为将算法图形化、公式化是最容易让人学习和理解的方式，这样可以从数学角度来准确的描述问题和解法。因此我将这些内容用自己的方式画出来，配合代码和测试，希望给出一个比较令人满意的讲解。 </br>
+&nbsp;&nbsp;&nbsp;&nbsp; 本书的每一章专门讲解一类算法问题，其中又划分多个小节，专门讲解其中的一个分支或变种。同一章节中各个小节之间会有明显的联系，基础的算法在前面，变种的、高级的算法在后面。每个算法都有讲解、源码和测试三个部分。在编写的过程中，我学习和参考了非常多的资料，有很多都忘记了，记得的我会列在参考资料中。   </br>
 </br>
 <p align="right">
 西安交通大学计算机系</br>
