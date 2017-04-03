@@ -12,7 +12,7 @@ using namespace std;
 
 int f[MAX][MAX][MAX];
 
-int TwoDimensionKnapsack(const int value[MAX], const int weight1[MAX], const int weight2[MAX], int count, int w1, int w2)
+int TwoDimensionKnapsack(int value[MAX], int weight1[MAX], int weight2[MAX], int count, int w1, int w2)
 {
     // ≥ı ºªØ
     for (int i = 0; i < MAX; i++)

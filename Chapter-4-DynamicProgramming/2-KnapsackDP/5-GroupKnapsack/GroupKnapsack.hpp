@@ -44,9 +44,7 @@ int GroupKnapsack(Item group[MAX][MAX], int group_n[MAX], int n, int total_weigh
 
     // 对所有分组进行排序
     for (int i = 1; i <= n; i++) {
-        group[i];
         sort( (Item*)group[i] + 1, (Item*)group[i] + 1 + group_n[i], ItemCompare );
-        group[i];
     }
 
     // 第 k 组物品

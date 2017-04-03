@@ -14,7 +14,7 @@ using namespace std;
 int f[MAX][MAX];
 bool g[MAX][MAX][MAX];
 
-int ZeroOneKnapsackExtension(const int value[MAX], const int weight[MAX], int count, int total_weight, bool choose[MAX])
+int ZeroOneKnapsackExtension(int value[MAX], int weight[MAX], int count, int total_weight, bool choose[MAX])
 {
     // ≥ı ºªØ
     for (int i = 0; i < MAX; i++) {
