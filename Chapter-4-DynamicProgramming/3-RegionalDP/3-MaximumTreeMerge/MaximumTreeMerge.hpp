@@ -34,12 +34,14 @@ int MaximumTreeMerge(int s[MAX], int n)
         }
     }
 
+    /*
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
             cout << "f[" << i << "][" << j << "]: " << f[i][j] << " ";
         }
         cout << endl;
     }
+    */
 
 
 	return f[1][n];
