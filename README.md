@@ -50,12 +50,11 @@
         * MinimumMergeExtension &nbsp; 最小合并扩展<br/> 
         * MaximumBinaryTreeMerge &nbsp; 最大二叉树合并<br/> 
     * TreeDynamic &nbsp; 树形动态规划<br/> 
-        * BinaryTree &nbsp; 二叉树<br/> 
-        * MultipleTree &nbsp; 多叉树<br/> 
-        * Multiple2BinaryTree &nbsp; 多叉树转二叉树<br/> 
-        * MultipleTreePath &nbsp; 多叉树路径<br/> 
-        * LoopedMultipleTree &nbsp; 带环多叉树<br/> 
-        * MultipleTreeTraverse &nbsp; 多叉树遍历<br/>
+        * BinaryTreeDP &nbsp; 二叉树动规<br/> 
+        * MultipleTreeDP &nbsp; 多叉树动规<br/> 
+        * MultipleTreeExtension &nbsp; 多叉树动规问题扩展<br/> 
+        * LoopedMultipleTreeDP &nbsp; 带环多叉树动规<br/> 
+        * TraverseTreeDP &nbsp; 遍历多叉树动规<br/>
 * Chapter-5 - GraphTheory &nbsp; 图论<br/>
     * Traverse &nbsp; 遍历<br/>
         * TraverseTree &nbsp; 遍历树<br/>
