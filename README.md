@@ -112,13 +112,15 @@
         * MinimumJointPathCovering &nbsp; 最小可相交路径覆盖<br/>
         * Coloring &nbsp; 染色问题<br/>
 * Chapter-6 - BasicCalculation &nbsp; 基本计算<br/>
-    * LargeNumber &nbsp; 大数字计算<br/>
+    * LargeNumberCalculation &nbsp; 大数字计算<br/>
     * DecimalConversion &nbsp; 数字进制转换<br/>
     * Exponentiation &nbsp; 幂运算<br/>
 * Chapter-7 - CombinatorialMathematics &nbsp; 组合数学<br/>
     * Introduction-CombinatorialMathematics &nbsp; 组合数学介绍<br/>
-    * Permutaion &nbsp; 排列<br/>
+    * MathematicalSymbolsList &nbsp; 数学符号表<br/>
+    * Factorial &nbsp; 阶乘<br/>
     * Combination &nbsp; 组合<br/>
+    * Permutaion &nbsp; 排列<br/>
     * FullPermutaion &nbsp; 全排列<br/>
     * PermutationGroup &nbsp; 置换群<br/>
     * Catalan &nbsp; 卡特兰数<br/>
@@ -187,5 +189,7 @@ NEWPLAN <br/>
 ####
 -----------------
 #### <p>Reference - 参考资料</p>
-* 算法导论 Introduction to Algorithms http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf </p>
-* 背包问题九讲 http://love-oriented.com/pack/ </p>
+* 算法导论 &emsp; Introduction to Algorithms &emsp; http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf </p>
+* 背包问题九讲 &emsp; http://love-oriented.com/pack/ </p>
+* USACO &emsp; http://www.usaco.org/ </p>
+* 计算机程序设计艺术 &emsp; The Art of Computer Programming &emsp; http://www-cs-faculty.stanford.edu/~uno/taocp.html &emsp; http://broiler.astrometry.net/~kilian/The_Art_of_Computer_Programming%20-%20Vol%201.pdf
