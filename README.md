@@ -111,7 +111,24 @@
         * MinimumDisjointPathCovering &nbsp; 最小不相交路径覆盖<br/>
         * MinimumJointPathCovering &nbsp; 最小可相交路径覆盖<br/>
         * Coloring &nbsp; 染色问题<br/>
-* Chapter-6 - LinearAlgebra &nbsp; 线性代数<br/>
+* Chapter-6 - BasicCalculation &nbsp; 基本计算<br/>
+    * LargeNumber &nbsp; 大数字计算<br/>
+    * DecimalConversion &nbsp; 数字进制转换<br/>
+    * Exponentiation &nbsp; 幂运算<br/>
+* Chapter-7 - CombinatorialMathematics &nbsp; 组合数学<br/>
+    * Introduction-CombinatorialMathematics &nbsp; 组合数学介绍<br/>
+    * FullPermutaion &nbsp; 全排列<br/>
+    * Combination &nbsp; 组合<br/>
+    * PermutationGroup &nbsp; 置换群<br/>
+    * Catalan &nbsp; 卡特兰数<br/>
+* Chapter-8 - NumberTheory &nbsp; 数论<br/>
+    * Sieve &nbsp; 筛选算法<br/>
+    * Euclid &nbsp; Euclid算法<br/>
+    * EuclidExtension &nbsp; Euclid扩展<br/>
+    * ModularLinearEquation &nbsp; 模线性方程<br/>
+    * ChineseRemainerTheorem &nbsp; 中国剩余定理<br/>
+    * ModularExponentiation &nbsp; 模幂运算<br/>
+* Chapter-9 - LinearAlgebra &nbsp; 线性代数<br/>
     * Matrix &nbsp; 矩阵<br/>
         * Strassen &nbsp; Strassen算法<br/>
         * GaussElimination &nbsp; 高斯消元法<br/>
@@ -120,25 +137,7 @@
     * LinearProgramming &nbsp; 线性规划<br/>
         * Simplex &nbsp; 单纯形算法<br/>
         * Dinkelback &nbsp; Dinkelbach算法<br/>
-* Chapter-7 - Calculation &nbsp; 数学计算<br/>
-    * BasicCalculate &nbsp; 基础计算<br/>
-        * LargeNumber &nbsp; 大数字<br/>
-        * DecimalConversion &nbsp; 数字十进制与其他进制转换<br/>
-        * Exponentiation &nbsp; 幂运算<br/>
-    * CombinatorialMathematics &nbsp; 组合数学<br/>
-        * Introduction-CombinatorialMathematics &nbsp; 组合数学介绍<br/>
-        * FullPermutaion &nbsp; 全排列<br/>
-        * Combination &nbsp; 组合<br/>
-        * PermutationGroup &nbsp; 置换群<br/>
-        * Catalan &nbsp; 卡特兰数<br/>
-    * NumberTheory &nbsp; 数论<br/>
-        * Sieve &nbsp; 筛选算法<br/>
-        * Euclid &nbsp; Euclid算法<br/>
-        * EuclidExtension &nbsp; Euclid扩展<br/>
-        * ModularLinearEquation &nbsp; 模线性方程<br/>
-        * ChineseRemainerTheorem &nbsp; 中国剩余定理<br/>
-        * ModularExponentiation &nbsp; 模幂运算<br/>
-* Chapter-8 - AnalyticGeometry &nbsp; 解析几何<br/>
+* Chapter-10 - AnalyticGeometry &nbsp; 解析几何<br/>
     * VectorAndPolygon &nbsp; 向量与多边形<br/>
         * Cross &nbsp; 叉积<br/>
         * SegmentIntersection &nbsp; 线段相交<br/>
@@ -152,12 +151,12 @@
         * NearestNeighbor &nbsp; 最近点对<br/>
         * GrahamScan &nbsp; Graham扫描<br/>
         * QuickConvexHull &nbsp; 快速凸包算法<br/>
-* Chapter-9 - String &nbsp; 字符串<br/>
+* Chapter-11 - StringMatch &nbsp; 字符串匹配<br/>
     * NaiveStringMatch &nbsp; 简单字符串匹配<br/>
     * KnuthMorrisPratt &nbsp; KMP算法<br/>
     * TrieTree &nbsp; 字典树<br/>
     * AhoCorasickAutomation &nbsp; AC自动机<br/>
-* Chapter-10 - GameTheory &nbsp; 博弈论<br/>
+* Chapter-12 - GameTheory &nbsp; 博弈论<br/>
     * BashGame &nbsp; 巴什博弈<br/>
     * WythoffGame &nbsp; 威佐夫博奕<br/>
     * NimGame &nbsp; 尼姆博弈<br/>
