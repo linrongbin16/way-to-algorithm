@@ -192,4 +192,3 @@ NEWPLAN <br/>
 * 算法导论 &emsp; Introduction to Algorithms &emsp; http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf </p>
 * 背包问题九讲 &emsp; http://love-oriented.com/pack/ </p>
 * USACO &emsp; http://www.usaco.org/ </p>
-* 计算机程序设计艺术 &emsp; The Art of Computer Programming &emsp; http://www-cs-faculty.stanford.edu/~uno/taocp.html &emsp; http://broiler.astrometry.net/~kilian/The_Art_of_Computer_Programming%20-%20Vol%201.pdf
