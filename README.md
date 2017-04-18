@@ -193,3 +193,4 @@ NEWPLAN <br/>
 * 背包问题九讲 &emsp; http://love-oriented.com/pack/ <br/>
 * USACO &emsp; http://www.usaco.org/ <br/>
 * StackOverflow &emsp; http://stackoverflow.com/ <br/>
+* Wikipedia &emsp; https://www.wikipedia.org/
