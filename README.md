@@ -117,7 +117,6 @@
     * Exponentiation &nbsp; 幂运算<br/>
 * Chapter-7 - CombinatorialMathematics &nbsp; 组合数学<br/>
     * Introduction-CombinatorialMathematics &nbsp; 组合数学介绍<br/>
-    * MathematicalSymbolsList &nbsp; 数学符号表<br/>
     * Factorial &nbsp; 阶乘<br/>
     * Combination &nbsp; 组合<br/>
     * Permutaion &nbsp; 排列<br/>
