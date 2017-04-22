@@ -1,6 +1,7 @@
 #ifndef FULL_PERMUTATION_HPP
 #define FULL_PERMUTATION_HPP
 
+#include <iostream>
 #include <cassert>
 #include <algorithm>
 #include <vector>
@@ -20,17 +21,22 @@ vector<vector<int>> FullPermutation(int s[MAX], int n)
 
     if (n == 1) {
         perm.push_back(A);
-        return perm;
-    }
-
-    for (int i = 1; i <= n; i++) {
-        for (int j = 0; j < n-1; j++) {
-            std::swap(A[j], A[j+1]);
-            perm.push_back(A);
+    } else {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < n-1; j++) {
+                std::swap(A[j], A[j+1]);
+                perm.push_back(A);
+            }
         }
     }
 
-    assert(perm.size() == n * (n-1));
+    cout << endl;
+    for (int i = 0; i < perm.size(); i++) {
+        for (int j = 0; j < perm[i].size(); j++)
+            cout << perm[i][j] << " ";
+        cout << endl;
+    }
+
     return perm;
 }
 

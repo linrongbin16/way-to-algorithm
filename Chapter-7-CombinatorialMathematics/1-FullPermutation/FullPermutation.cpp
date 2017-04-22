@@ -1,8 +1,18 @@
 #include "FullPermutation.hpp"
 #include <cassert>
 #include <unordered_set>
+#include <iostream>
 
 #define TEST_MAX 32
+
+int FullPermutationCount(int n)
+{
+    int count = 1;
+    for (int i = 1; i <= n; i++) {
+        count *= i;
+    }
+    return count;
+}
 
 int main()
 {
@@ -18,10 +28,8 @@ int main()
         }
 
         vector<vector<int>> result = FullPermutation(s, n);
-        if (n == 1) 
-            assert(result.size() == 1);
-        else
-            assert(result.size() == n * (n-1));
+        cout << "n: " << n << ", result.size: " << result.size() << ", count: " << FullPermutationCount(n) << endl;
+        assert( result.size() == FullPermutationCount(n) );
         for (int i = 0; i < result.size(); i++) {
             unordered_set<int> rs;
             for (int j = 0; j < result[i].size(); j++)
