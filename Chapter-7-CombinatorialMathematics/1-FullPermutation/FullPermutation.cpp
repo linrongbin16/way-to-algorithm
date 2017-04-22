@@ -1,9 +1,9 @@
 #include "FullPermutation.hpp"
 #include <cassert>
 #include <unordered_set>
-#include <iostream>
+// #include <iostream>
 
-#define TEST_MAX 32
+#define TEST_MAX 8
 
 int FullPermutationCount(int n)
 {
@@ -28,7 +28,7 @@ int main()
         }
 
         vector<vector<int>> result = FullPermutation(s, n);
-        cout << "n: " << n << ", result.size: " << result.size() << ", count: " << FullPermutationCount(n) << endl;
+        // cout << "n: " << n << ", result.size: " << result.size() << ", count: " << FullPermutationCount(n) << endl;
         assert( result.size() == FullPermutationCount(n) );
         for (int i = 0; i < result.size(); i++) {
             unordered_set<int> rs;

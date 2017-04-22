@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-#define TEST_MAX 10
+#define TEST_MAX 8
 
 int PermutationCount(int n, int m)
 {

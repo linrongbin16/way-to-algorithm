@@ -1,7 +1,7 @@
 #ifndef PERMUTATION_HPP
 #define PERMUTATION_HPP
 
-#include <iostream>
+// #include <iostream>
 #include <cassert>
 #include <algorithm>
 #include <vector>
@@ -43,12 +43,15 @@ vector<vector<int>> Permutation(int s[MAX], int n, int m)
         MergePermutation(perm, fperm);
     }
 
+    /*
     cout << endl; 
     for (int i = 0; i < perm.size(); i++) {
         for (int j = 0; j < perm[i].size(); j++)
             cout << perm[i][j] << " ";
         cout << endl; 
     }
+    */
+    
 
     return perm;
 }

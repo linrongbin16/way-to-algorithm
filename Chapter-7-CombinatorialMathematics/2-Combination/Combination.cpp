@@ -45,9 +45,9 @@ int main()
             int count = CombinationCount(n, m);
             // cout << "n: " << n << ", m: " << m << ", result.size: " << result.size() << ", count: " << count << endl;
             assert( result.size() == count );
+            AssertDifference(result);
             for (int i = 0; i < result.size(); i++) {
                 assert( result[i].size() == m );
-                AssertDifference(result);
             }
         }
     }
