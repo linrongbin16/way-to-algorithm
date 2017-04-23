@@ -1,0 +1,62 @@
+h1 {
+    font-family: Combria Math, Computer Modern, Sans-serif, 宋体;
+    font-size: 24px;
+    text-align: center;
+}
+h2 {
+    font-family: Combria Math, Computer Modern, Sans-serif, 宋体;
+    font-size: 23px;
+    text-align: center;
+}
+h3 {
+    font-family: Combria Math, Computer Modern, Sans-serif, 宋体;
+    font-size: 22px;
+    padding: 20px;
+}
+h4 {
+    font-family: Combria Math, Computer Modern, Sans-serif, 宋体;
+    font-size: 21px;
+    padding: 20px;
+}
+h5 {
+    font-family: Combria Math, Computer Modern, Sans-serif, 宋体;
+    font-size: 20px;
+    padding: 20px;
+}
+h6 {
+    font-family: Combria math, Computer Modern, Sans-serif, 宋体;
+    font-size: 18px;
+    padding: 20px;
+}
+
+img {
+    align: middle;
+    width: 40;
+    height: auto;
+    text-align: center;
+}
+
+p {
+    font-family: Combria math, Computer Modern, 宋体;
+    font-size: 18px;
+    padding: 20px;
+}
+
+#document {
+    font-family: Combria math, Computer Modern, 宋体;
+    font-size: 18px;
+    padding: 20px;
+}
+
+#formula {
+    font-family: Combria math, Computer Modern, 宋体;
+    font-size: 18px;
+    text-align: center;
+}
+
+#image {
+    align: middle;
+    width: 40;
+    height: auto;
+    text-align: center;
+}
