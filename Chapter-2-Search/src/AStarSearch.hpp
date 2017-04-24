@@ -1,11 +1,14 @@
-#ifndef A_STAR_SEARCH_HPP
-#define A_STAR_SEARCH_HPP 1
+#ifndef EIGHT_FIGURE_PUZZLE_HPP
+#define EIGHT_FIGURE_PUZZLE_HPP 1
+
+/* 八数码问题 */
 
 #include <algorithm>
 #include <deque>
 #include <vector>
 #include <cstdlib>
 #include <climits>
+#include <cstring>
 using namespace std;
 #ifndef MAX
 #define MAX 64
@@ -14,59 +17,93 @@ using namespace std;
 #define INF INT_MAX
 #endif
 
-/* 4个方向 上下左右 */
-const int direction_col[4] = { 0, 0, 1, -1 };
-const int direction_row[4] = { 1, -1, 0, 0 };
 
-int g_score[MAX][MAX];
-pair<int, int> father[MAX][MAX];
-
-int HScoreDiff(pair<int, int> a, pair<int, int> b)
+struct PuNode
 {
-    return abs(a.first - b.first) + abs(a.second - b.second);
+    char value[9];
+    int hScore;
+    int gScore;
+    char fatherValue[9];
+
+    bool operator==(const PuNode &node_) const
+    {
+        return memcmp(value, node_.value, 9) == 0;
+    }
+    bool operator!=(const PuNode &node_) const
+    {
+        return memcmp(value, node_.value, 9) != 0;
+    }
+};
+
+/*
+将矩阵
+0 1 2
+3 4 5
+6 7 8
+表示为char[9]数组
+*/
+const int direction[4] = { -3, 3, -1, 1 };
+
+int XPosition(PuNode a)
+{
+    int i;
+    for (i = 0; i < 9; i++)
+        if (a.value[i] == 'x')
+            break;
+    return i;
 }
-pair<int, int> OpenQueueMinimum(deque<pair<int, int> > &openQue, pair<int, int> a)
+bool InsideBoundary(int pos)
 {
-    pair<int, int> res;
+    return pos >= 0 && pos < 9;
+}
+int HScoreDiff(PuNode a, PuNode b)
+{
+    int diff = 0;
+    for (int i = 0; i < 9; ++i)
+        if (a.value[i] != b.value[i])
+            ++diff;
+    return diff;
+}
+PuNode OpenQueueMinimum(deque<PuNode> &openQue, PuNode a)
+{
+    PuNode res;
     int minf = INF;
     for (int i = 0; i < openQue.size(); i++) {
-        int row = openQue[i].first;
-        int col = openQue[i].second;
         int h = HScoreDiff(openQue[i], a);
-        if (minf > h + g_score[row][col]) {
-            minf = h + g_score[row][col];
+        if (minf > h + openQue[i].gScore) {
+            minf = h + openQue[i].gScore;
             res = openQue[i];
         }
     }
     return res;
 }
-void OpenQueueErase(deque<pair<int, int> > &openQue, pair<int, int> a)
+void OpenQueueErase(deque<PuNode> &openQue, PuNode a)
 {
-    for (deque<pair<int, int> >::iterator i = openQue.begin(); i != openQue.end(); i++) {
+    for (deque<PuNode>::iterator i = openQue.begin(); i != openQue.end(); i++) {
         if (a == *i) {
             openQue.erase(i);
             break;
         }
     }
 }
-bool QueueContain(deque<pair<int, int> > &que, pair<int, int> a)
+bool QueueContain(deque<PuNode> &que, PuNode a, deque<PuNode>::iterator &out_iter)
 {
-    for (deque<pair<int, int> >::iterator i = que.begin(); i != que.end(); i++) {
+    for (deque<PuNode>::iterator i = que.begin(); i != que.end(); i++) {
         if (a == *i) {
+            out_iter = i;
             return true;
         }
     }
     return false;
 }
 
-void AStarPath(const deque<pair<int, int> > &closeQue, 
-    pair<int, int> beg, pair<int, int> end, vector<pair<int, int> > &path)
+void PuzzlePath(const deque<PuNode> &closeQue, PuNode beg, PuNode end, vector<PuNode> &path)
 {
-    deque<pair<int, int> > duePath;
+    deque<PuNode> duePath;
     while (end != beg) {
         duePath.push_front(end);
         for (int i = 0; i < closeQue.size(); i++) {
-            if (closeQue[i] == father[end.first][end.second]) {
+            if (memcmp(closeQue[i].value, end.fatherValue, 9) == 0) {
                 end = closeQue[i];
                 break;
             }
@@ -79,61 +116,58 @@ void AStarPath(const deque<pair<int, int> > &closeQue,
     }
 }
 
-vector<pair<int, int> > AStarSearch(int m, int n, pair<int, int> beg, pair<int, int> end)
+vector<PuNode> EightFigurePuzzle(PuNode beg, PuNode end)
 {
-    deque<pair<int, int> > openQue;
-    deque<pair<int, int> > closeQue;
-    /* beg.first 是row 范围[0, m-1] */
-    /* beg.second 是col 范围[0, n-1] */
+    deque<PuNode> openQue;
+    deque<PuNode> closeQue;
     openQue.push_back(beg);
     while (!openQue.empty()) {
-        pair<int, int> min_node = OpenQueueMinimum(openQue, end);
+        PuNode min_node = OpenQueueMinimum(openQue, end);
 
         if (min_node == end) {
             closeQue.push_back(min_node);
-            vector<pair<int, int> > path;
-            AStarPath(closeQue, beg, min_node, path);
+            vector<PuNode> path;
+            PuzzlePath(closeQue, beg, min_node, path);
             return path;
         }
 
         closeQue.push_back(min_node);
         OpenQueueErase(openQue, min_node);
 
-        /* min_node 考虑上下左右4个方向 */
+        int x_pos = XPosition(min_node);
+
+        /* min_node中x与上下左右4个方向的数字交换位置 */
         for (int i = 0; i < 4; i++) {
-            int row = min_node.first + direction_row[i];
-            int col = min_node.second + direction_col[i];
-            pair<int, int> p = pair<int, int>(row, col);
-            if (row >= 0 && row < m && col >= 0 && col < n) {
-                /* p点的g值和h值 */
-                int g = g_score[min_node.first][min_node.second] + 1;
-                int h = HScoreDiff(p, end);
-                /* p的父节点为min_node */
-                //father[p.first][p.second] = min_node;
+            int swap_position = x_pos + direction[i];
+            if (InsideBoundary(swap_position)) {
+                PuNode p;
+                deque<PuNode>::iterator result;
+                memcpy(p.value, min_node.value, 9);
+                swap(p.value[x_pos], p.value[swap_position]);
+                p.gScore = min_node.gScore + 1;
+                p.hScore = HScoreDiff(p, end);
+                memcpy(p.fatherValue, min_node.value, 9);
 
                 /* 若close队列中已经存在p点 跳过 */
-                if (QueueContain(closeQue, p))
+                if (QueueContain(closeQue, p, result))
                     continue;
                 /* 若close队列中不存在p点 open队列中存在p点 更新路径 */
-                if (QueueContain(openQue, p)) {
-                    /* 更新p的父节点和g值 获得更短路径 */
-                    if (g < g_score[p.first][p.second]) {
-                        father[p.first][p.second] = min_node;
-                        g_score[p.first][p.second] = g;
+                if (QueueContain(openQue, p, result)) {
+                    /* 更新父节点和g值 获得更短路径 */
+                    if (p.gScore < result->gScore) {
+                        memcpy(result->fatherValue, min_node.value, 9);
+                        result->gScore = p.gScore;
                     }
                 }
                 else {
                     /* 若close队列中不存在p点 open队列中不存在p点 加入open队列 */
                     openQue.push_back(p);
-                    /* p的父节点为min_node */
-                    father[p.first][p.second] = min_node;
-                    g_score[p.first][p.second] = g;
                 }
             }
         }
     }
 
-    return vector<pair<int, int> >();
+    return vector<PuNode>();
 }
 
 #endif
