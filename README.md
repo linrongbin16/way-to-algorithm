@@ -10,15 +10,15 @@
     2. [BubbleSort - 冒泡排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/BubbleSort.md)
     3. [QuickSort - 快速排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/QuickSort.md)
     4. [MergeSort - 合并排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/MergeSort.md)
-2. Chapter-2 - Search - 搜索
-    1. BinarySearch - 二分查找法
-    2. BruteForce - 暴力枚举
-    3. Resursion - 递归
-    4. BreadthFirstSearch - 广度优先搜索
-    5. BidirectionalBreadthSearch - 双向广度搜索
-    6. AStarSearch - A*搜索
-    7. DancingLinks - 舞蹈链
-    8. Introduction-AdvancedSearchAlgorithm - 高级搜索算法介绍
+2. [Chapter-2 - Search - 搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/README.md)
+    1. [BinarySearch - 二分查找法 折半查找法](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Sort/BinarySearch.md)
+    2. [BruteForce - 暴力枚举](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Sort/BruteForce.md)
+    3. [Recursion - 递归](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Sort/Recursion.md)
+    4. [BreadthFirstSearch - 广度优先搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Sort/BreadthFirstSearch.md)
+    5. [BidirectionalBreadthSearch - 双向广度搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Sort/BidirectionalBreadthSearch.md)
+    6. [AStarSearch - A*搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Sort/AStarSearch.md)
+    7. [DancingLinks - 舞蹈链](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Sort/DancingLinks.md)
+    8. [Introduction-AdvancedSearchAlgorithm - 高级搜索算法介绍](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Sort/Introduction-AdvancedSearchAlgorithm.md)
 3. Chapter-3 - DataStructure - 数据结构
     1. Introduction-ClassicDataStructure - 经典数据结构介绍
     2. HashTable - 哈希表
