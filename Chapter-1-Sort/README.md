@@ -6,3 +6,6 @@
 2. BubbleSort - 冒泡排序
 3. QuickSort - 快速排序
 4. MergeSort - 合并排序
+
+----------
+[回到目录](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/README.md)
