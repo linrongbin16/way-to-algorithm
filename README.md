@@ -162,7 +162,6 @@
     * SpragueGrundy - SG函数
 
 ----------
-
 #### Introduction - 内容概要
 &emsp;&emsp;这是一本关于大学生计算机算法的书籍。之所以称之为“书”而不是“源码”，是因为我发现单纯的代码很难让人学习和理解，我自己在学习的过程中走了不少的弯路。我认为将算法图形化、公式化是最容易让人学习和理解的方式，这样可以从数学角度来准确的描述问题和解法。因此我将这些内容用自己的方式画出来，配合代码和测试，希望给出一个比较令人满意的讲解。
 &emsp;&emsp;本书的每一章专门讲解一类算法问题，其中又划分多个小节，专门讲解其中的一个分支或变种。同一章节中各个小节之间会有明显的联系，基础的算法在前面，变种的、高级的算法在后面。每个算法都有讲解、源码和测试三个部分。在编写的过程中，我学习和参考了非常多的资料，有很多都忘记了，记得的我会列在参考资料中。   <br/>
@@ -180,10 +179,9 @@
 </p>
 
 ----------
-
 #### Reference - 参考资料
-* 算法导论 &emsp; Introduction to Algorithms &emsp; http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf
-* 背包问题九讲 &emsp; http://love-oriented.com/pack/
-* USACO &emsp; http://www.usaco.org/
-* StackOverflow &emsp; http://stackoverflow.com/
-* Wikipedia &emsp; https://www.wikipedia.org/
+* [算法导论 - Introduction to Algorithms](http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf)
+* [背包问题九讲](http://love-oriented.com/pack/)
+* [USACO](http://www.usaco.org/)
+* [StackOverflow](http://stackoverflow.com/)
+* [Wikipedia](https://www.wikipedia.org/)
