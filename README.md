@@ -6,19 +6,19 @@
 ----------
 #### Content - 目录结构
 1. Chapter-1 - Sort - 排序
-    1. InsertSort - 插入排序
-    2. BubbleSort - 冒泡排序
-    3. QuickSort - 快速排序
-    4. MergeSort - 合并排序
+    * InsertSort - 插入排序
+    * BubbleSort - 冒泡排序
+    * QuickSort - 快速排序
+    * MergeSort - 合并排序
 2. Chapter-2 - Search - 搜索
-    1. BinarySearch - 二分查找法
-    2. BruteForce - 暴力枚举
-    3. Resursion - 递归
-    4. BreadthFirstSearch - 广度优先搜索
-    5. BidirectionalBreadthSearch - 双向优先搜索
-    6. AStarSearch - A*搜索
-    7. DancingLinks - 舞蹈链
-    8. Introduction-AdvancedSearch - 高级搜索介绍
+    ** BinarySearch - 二分查找法
+    ** BruteForce - 暴力枚举
+    ** Resursion - 递归
+    ** BreadthFirstSearch - 广度优先搜索
+    ** BidirectionalBreadthSearch - 双向优先搜索
+    ** AStarSearch - A*搜索
+    ** DancingLinks - 舞蹈链
+    ** Introduction-AdvancedSearch - 高级搜索介绍
 3. Chapter-3 - DataStructure - 数据结构
     * Introduction-ClassicDataStructure - 经典数据结构介绍
     * HashTable - 哈希表
