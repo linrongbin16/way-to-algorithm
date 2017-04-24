@@ -1,6 +1,8 @@
 ----------
-## <p align="center">Insert Sort</p>
-## <p align="center">插入排序</p>
+<p align="center">
+## Insert Sort<br/>
+## 插入排序<br/>
+</p>
 
 ----------
 #### 问题：
