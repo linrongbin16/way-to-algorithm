@@ -172,8 +172,8 @@
 <br/>
 <br/>
 作者：
-* NEWPLAN
-* 林荣彬
+NEWPLAN
+林荣彬
 
 <p align="right">
 西安交通大学计算机系<br/>
