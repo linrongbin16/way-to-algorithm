@@ -8,4 +8,4 @@
 4. [MergeSort - 合并排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/MergeSort.md)
 
 ----------
-[回到目录](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/README.md)
+[回到上一级目录](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/README.md)

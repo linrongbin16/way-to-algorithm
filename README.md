@@ -4,7 +4,7 @@
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
 ----------
-#### Content - 目录结构
+#### Content - 目录
 1. [Chapter-1 - Sort - 排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/README.md)
     1. [InsertSort - 插入排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/InsertSort.md)
     2. [BubbleSort - 冒泡排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/BubbleSort.md)
@@ -15,10 +15,10 @@
     2. BruteForce - 暴力枚举
     3. Resursion - 递归
     4. BreadthFirstSearch - 广度优先搜索
-    5. BidirectionalBreadthSearch - 双向优先搜索
+    5. BidirectionalBreadthSearch - 双向广度搜索
     6. AStarSearch - A*搜索
     7. DancingLinks - 舞蹈链
-    8. Introduction-AdvancedSearch - 高级搜索介绍
+    8. Introduction-AdvancedSearchAlgorithm - 高级搜索算法介绍
 3. Chapter-3 - DataStructure - 数据结构
     1. Introduction-ClassicDataStructure - 经典数据结构介绍
     2. HashTable - 哈希表
@@ -166,15 +166,12 @@
 
 ----------
 #### Introduction - 内容概要
-&emsp;&emsp;这是一本关于大学生计算机算法的书籍。之所以称之为“书”而不是“源码”，是因为我发现单纯的代码很难让人学习和理解，我自己在学习的过程中走了不少的弯路。我认为将算法图形化、公式化是最容易让人学习和理解的方式，这样可以从数学角度来准确的描述问题和解法。因此我将这些内容用自己的方式画出来，配合代码和测试，希望给出一个比较令人满意的讲解。
-&emsp;&emsp;本书的每一章专门讲解一类算法问题，其中又划分多个小节，专门讲解其中的一个分支或变种。同一章节中各个小节之间会有明显的联系，基础的算法在前面，变种的、高级的算法在后面。每个算法都有讲解、源码和测试三个部分。在编写的过程中，我学习和参考了非常多的资料，有很多都忘记了，记得的我会列在参考资料中。
-&emsp;&emsp;后来NEWPLAN同学参加到这本书籍的编写中，他添加了很多内容，我们也欢迎更多的同学来一起丰富这些资料，不过有的时候我会调整一下代码规范，这是为了方便阅读。
+&emsp;&emsp;这是一本关于大学生计算机算法的书籍。之所以称之为“书”而不是“源码”，是因为我发现单纯的代码很难让人学习和理解，我自己在学习的过程中走了不少的弯路。我认为将算法图形化、公式化是最容易让人学习和理解的方式，这样可以从数学角度来准确的描述问题和解法。因此我将这些内容用自己的方式画出来，配合代码和测试，希望给出一个比较令人满意的讲解。<br/>
+&emsp;&emsp;本书的每一章专门讲解一类算法问题，其中又划分多个小节，专门讲解其中的一个分支或变种。同一章节中各个小节之间会有明显的联系，基础的算法在前面，变种的、高级的算法在后面。每个算法都有讲解、源码和测试三个部分。在编写的过程中，我学习和参考了非常多的资料，有很多都忘记了，记得的我会列在参考资料中。<br/>
+&emsp;&emsp;后来NEWPLAN同学参加到这本书籍的编写中，他添加了很多内容，我们也欢迎更多的同学来一起丰富这些资料，不过有的时候我会调整一下代码规范，这是为了方便阅读。<br/>
 <br/>
 <br/>
-作者：
-NEWPLAN
-林荣彬
-
+作者：NEWPLAN，林荣彬<br/>
 <p align="right">
 西安交通大学计算机系<br/>
 林荣彬<br/>
