@@ -1,7 +1,7 @@
 ----------
-<p align="center">
-## Insert Sort<br/>
-## 插入排序<br/>
+## <p align="center">
+Insert Sort<br/>
+插入排序<br/>
 </p>
 
 ----------
