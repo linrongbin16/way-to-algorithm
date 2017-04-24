@@ -1,14 +1,9 @@
-
 ----------
-
 ## <p align="center">Way to Algorithm - 算法之路</p>
-
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/keyboard.jpg" /></p>
-
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/res/keyboard.jpg" /></p>
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
 ----------
-
 #### Content - 目录结构
 * Chapter-1 - Sort - 排序
     * InsertSort - 插入排序
@@ -174,21 +169,21 @@
 &emsp;&emsp;后来NEWPLAN同学参加到这本书籍的编写中，他添加了很多内容，我们也欢迎更多的同学来一起丰富这些资料，不过有的时候我会调整一下代码规范，这是为了方便阅读。 <br/>
 <br/>
 <br/>
-作者： <br/>
-NEWPLAN <br/>
-林荣彬 <br/>
+作者：
+* NEWPLAN
+* 林荣彬
 
 <p align="right">
-西安交通大学计算机系<br/>
-林荣彬<br/>
-2014年2月16日<br/>
+* 西安交通大学计算机系
+* 林荣彬
+* 2014年2月16日
 </p>
 
 ----------
 
 #### Reference - 参考资料
-* 算法导论 &emsp; Introduction to Algorithms &emsp; http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf <br/>
-* 背包问题九讲 &emsp; http://love-oriented.com/pack/ <br/>
-* USACO &emsp; http://www.usaco.org/ <br/>
-* StackOverflow &emsp; http://stackoverflow.com/ <br/>
+* 算法导论 &emsp; Introduction to Algorithms &emsp; http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf
+* 背包问题九讲 &emsp; http://love-oriented.com/pack/
+* USACO &emsp; http://www.usaco.org/
+* StackOverflow &emsp; http://stackoverflow.com/
 * Wikipedia &emsp; https://www.wikipedia.org/
