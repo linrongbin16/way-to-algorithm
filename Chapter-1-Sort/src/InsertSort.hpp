@@ -6,16 +6,12 @@
 #endif
 
 
-/* ----------------------------------------------------------------------*/
 /**
-* @brief InsertSort
-* 将无序序列s升序排列
-*
-* @param s[MAX]        无序序列
-* @param beg           序列s的起始下标
-* @param end           序列s的末尾下标加1，即左闭右开区间[beg, end)
+* @brief InsertSort 插入排序
+* @param s[MAX]     无序序列
+* @param beg        序列s的起始下标
+* @param end        序列s为左闭右开区间[beg, end)
 */
-/* ----------------------------------------------------------------------*/
 void InsertSort(int s[MAX], int beg, int end)
 {
     for (int j = beg+1; j < end; ++j) {
