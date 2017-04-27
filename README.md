@@ -18,18 +18,16 @@
     5. [BidirectionalBreadthSearch - 双向广度搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/BidirectionalBreadthSearch.md)
     6. [AStarSearch - A*搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/AStarSearch.md)
     7. [DancingLinks - 舞蹈链](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/DancingLinks.md)
-    8. [Introduction-AdvancedSearchAlgorithm - 高级搜索算法介绍](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/Introduction-AdvancedSearchAlgorithm.md)
-3. Chapter-3 - DataStructure - 数据结构
-    1. Introduction-ClassicDataStructure - 经典数据结构介绍
-    2. HashTable - 哈希表
-    3. DisjointSet - 并查集
-    4. BinaryIndexTree - 树状数组
-    5. SegmentTree - 线段树
-    6. LeftistTree - 左偏树
-    7. PrefixTree - 前缀树
-    8. SuffixTree - 后缀树
-    9. AVLTree - 平衡二叉树
-    10. RedBlackTree - 红黑树
+3. [Chapter-3 - DataStructure - 数据结构](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/README.md)
+    1. HashTable - 哈希表
+    2. DisjointSet - 并查集
+    3. BinaryIndexTree - 树状数组
+    4. SegmentTree - 线段树
+    5. LeftistTree - 左偏树
+    6. PrefixTree - 前缀树
+    7. SuffixTree - 后缀树
+    8. AVLTree - 平衡二叉树
+    9. RedBlackTree - 红黑树
 4. Chapter-4 - DynamicProgramming - 动态规划
     0. Introduction-DynamicProgramming - 动态规划介绍
     1. LinearDP - 线性动态规划

@@ -2,8 +2,7 @@
 #include <assert.h>
 using namespace std;
 
-#define TEST_M_MAX MAX
-#define TEST_N_MAX MAX
+#define TEST_M_MAX MAX 1024
 
 int main()
 {
@@ -29,6 +28,10 @@ int main()
                         && path[k].second == path[k + 1].second));
             }
         }
-
     return 0;
 }
+
+
+#include <vector>
+
+std::vector<int> vec;
