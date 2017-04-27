@@ -19,15 +19,14 @@
     6. [AStarSearch - A*搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/AStarSearch.md)
     7. [DancingLinks - 舞蹈链](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/DancingLinks.md)
 3. [Chapter-3 - DataStructure - 数据结构](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/README.md)
-    1. [HashMap - 哈希表](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/HashMap.md)
-    2. [DisjointSet - 并查集](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/DisjointSet.md)
-    3. [BinaryIndexTree - 树状数组](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/BinaryIndexTree.md)
-    4. [SegmentTree - 线段树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/SegmentTree.md)
-    5. [LeftistTree - 左偏树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/LeftistTree.md)
-    6. [PrefixTree - 前缀树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/PrefixTree.md)
-    7. [SuffixTree - 后缀树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/SuffixTree.md) TODO
-    8. [AVLTree - 平衡二叉树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/AVLTree.md)
-    9. [RedBlackTree - 红黑树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/RedBlackTree.md) TODO
+    1. [DisjointSet - 并查集](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/DisjointSet.md)
+    2. [BinaryIndexTree - 树状数组](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/BinaryIndexTree.md)
+    3. [SegmentTree - 线段树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/SegmentTree.md)
+    4. [LeftistTree - 左偏树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/LeftistTree.md)
+    5. [PrefixTree - 前缀树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/PrefixTree.md)
+    6. [SuffixTree - 后缀树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/SuffixTree.md) TODO
+    7. [AVLTree - 平衡二叉树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/AVLTree.md)
+    8. [RedBlackTree - 红黑树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-Search/RedBlackTree.md) TODO
 4. Chapter-4 - DynamicProgramming - 动态规划
     0. Introduction-DynamicProgramming - 动态规划介绍
     1. LinearDP - 线性动态规划
