@@ -5,32 +5,16 @@
 
 
 ----------
-
-|       | ASCII         | HTML  |
----------------------------------
-| sigle | 'funny'       | ok    |
----------------------------------
-
->comment
-
-```
-source code
-```
-
-this is some testing $formular$
-$$
-formular
-$$
-
-
 #### Content - 目录
+
 [Introduction - 简介](https://zhaochenyou.github.io/Way-to-Algorithm/Introduction/)
-1. [Chapter-1 - Sort - 排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/)
+Chapter - 章节
+1. [Sort - 排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/)
     1. [InsertSort - 插入排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/InsertSort/)
     2. [BubbleSort - 冒泡排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/BubbleSort/)
     3. [QuickSort - 快速排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/QuickSort/)
     4. [MergeSort - 合并排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/MergeSort/)
-2. [Chapter-2 - Search - 搜索](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/)
+2. [Search - 搜索](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/)
     1. [BinarySearch - 二分查找法 折半查找法](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/BinarySearch/)
     2. [BruteForce - 暴力枚举](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/BruteForce/)
     3. [Recursion - 递归](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/Recursion/)
@@ -38,7 +22,7 @@ $$
     5. [BidirectionalBreadthSearch - 双向广度搜索](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/BidirectionalBreadthSearch/)
     6. [AStarSearch - A*搜索](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/AStarSearch/)
     7. [DancingLinks - 舞蹈链](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/DancingLinks/)
-3. [Chapter-3 - DataStructure - 数据结构](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/)
+3. [DataStructure - 数据结构](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/)
     1. [DisjointSet - 并查集](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/DisjointSet)
     2. [BinaryIndexTree - 树状数组](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/BinaryIndexTree/)
     3. [SegmentTree - 线段树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/SegmentTree/)
@@ -47,7 +31,7 @@ $$
     6. [SuffixTree - 后缀树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/SuffixTree/) TODO
     7. [AVLTree - 平衡二叉树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/AVLTree/)
     8. [RedBlackTree - 红黑树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/RedBlackTree/) TODO
-4. Chapter-4 - DynamicProgramming - 动态规划
+4. [DynamicProgramming - 动态规划](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/)
     0. Introduction-DynamicProgramming - 动态规划介绍
     1. LinearDP - 线性动态规划
         1. LongestCommonSubsequence - 最长公共子序列
@@ -70,7 +54,7 @@ $$
         3. MultipleTreeExtension - 多叉树动规问题扩展
         4. LoopedMultipleTreeDP - 带环多叉树动规
         5. TraverseTreeDP - 遍历多叉树动规
-5. Chapter-5 - GraphTheory - 图论
+5. [GraphTheory - 图论](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-5/)
     1. Traverse - 遍历
         1. PreorderTraverseBinaryTree - 先序遍历二叉树
         2. InorderTraverseBinaryTree - 中序遍历二叉树
@@ -129,25 +113,25 @@ $$
         7. MinimumDisjointPathCovering - 最小不相交路径覆盖
         8. MinimumJointPathCovering - 最小可相交路径覆盖
         9. Coloring - 染色问题
-6. Chapter-6 - BasicCalculation - 基本计算
+6. [BasicCalculation - 基本计算](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-6/)
     1. LargeNumberCalculation - 大数字计算
     2. DecimalConversion - 数字进制转换
     3. Exponentiation - 幂运算
-7. Chapter-7 - CombinatorialMathematics - 组合数学
+7. [CombinatorialMathematics - 组合数学](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-7/)
     1. Introduction-CombinatorialMathematics - 组合数学介绍
     2. FullPermutaion - 全排列
     3. Combination - 组合
     4. Permutaion - 排列
     5. PermutationGroup - 置换群
     6. Catalan - 卡特兰数
-8. Chapter-8 - NumberTheory - 数论
+8. [NumberTheory - 数论](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-8/)
     1. Sieve - 筛选算法
     2. Euclid - Euclid算法
     3. EuclidExtension - Euclid扩展
     4. ModularLinearEquation - 模线性方程
     5. ChineseRemainerTheorem - 中国剩余定理
     6. ModularExponentiation - 模幂运算
-9. Chapter-9 - LinearAlgebra - 线性代数
+9. [LinearAlgebra - 线性代数](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-9/)
     1. Matrix - 矩阵
         1. Strassen - Strassen算法
         2. GaussElimination - 高斯消元法
@@ -156,7 +140,7 @@ $$
     2. LinearProgramming - 线性规划
         1. Simplex - 单纯形算法
         2. Dinkelback - Dinkelbach算法
-10. Chapter-10 - AnalyticGeometry - 解析几何
+10. [AnalyticGeometry - 解析几何](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-10/)
     1. VectorAndPolygon - 向量与多边形
         1. Cross - 叉积
         2. SegmentIntersection - 线段相交
@@ -170,12 +154,12 @@ $$
         1. NearestNeighbor - 最近点对
         2. GrahamScan - Graham扫描
         3. QuickConvexHull - 快速凸包算法
-11. Chapter-11 - StringMatch - 字符串匹配
+11. [TextMatch - 文本匹配](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-11/)
     1. NaiveStringMatch - 简单字符串匹配
     2. KnuthMorrisPratt - KMP算法
     3. TrieTree - 字典树
     4. AhoCorasickAutomation - AC自动机
-12. Chapter-12 - GameTheory - 博弈论
+12. [GameTheory - 博弈论](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-12/)
     1. BashGame - 巴什博弈
     2. WythoffGame - 威佐夫博奕
     3. NimGame - 尼姆博弈
