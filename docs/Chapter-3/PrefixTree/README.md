@@ -8,5 +8,3 @@
 ----------
 <p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/PrefixTree.png" /></p>
 
-
-
