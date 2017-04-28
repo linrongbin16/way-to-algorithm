@@ -6,4 +6,4 @@
 [test cases](https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/src/BinarySearch.cpp)
 
 ----------
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/BinarySearch-1.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/BinarySearch.png" /></p>

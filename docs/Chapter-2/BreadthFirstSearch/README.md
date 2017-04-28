@@ -6,4 +6,4 @@
 [test cases](https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/src/BreadthFirstSearch.cpp)
 
 ----------
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/BreadthFirstSearch-1.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/BreadthFirstSearch.png" /></p>
