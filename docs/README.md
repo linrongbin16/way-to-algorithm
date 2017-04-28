@@ -5,7 +5,7 @@
 
 ----------
 #### Content - 目录
-* [Introduction - 简介](https://zhaochenyou.github.io/Way-to-Algorithm/Introduction/)
+[Introduction - 简介](https://zhaochenyou.github.io/Way-to-Algorithm/Introduction/)
 1. [Chapter-1 - Sort - 排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/)
     1. [InsertSort - 插入排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/InsertSort/)
     2. [BubbleSort - 冒泡排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/BubbleSort/)
