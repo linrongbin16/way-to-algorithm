@@ -6,5 +6,5 @@
 [test cases](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2/src/Recursion.cpp)
 
 ----------
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/Recursion1.png" /></p>
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/Recursion2.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/Recursion-1.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/Recursion-2.png" /></p>

@@ -6,6 +6,6 @@
 [test cases](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2/src/BidirectionalBreadthSearch.cpp)
 
 ----------
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/BidirectionalBreadthSearch1.png" /></p>
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/BidirectionalBreadthSearch2.png" /></p>
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/BidirectionalBreadthSearch3.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/BidirectionalBreadthSearch-1.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/BidirectionalBreadthSearch-2.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-2/res/BidirectionalBreadthSearch-3.png" /></p>
