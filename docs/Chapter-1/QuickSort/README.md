@@ -6,5 +6,5 @@
 [test cases](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1/src/QuickSort.cpp)
 
 ----------
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-1/res/QuickSort.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-1/res/QuickSort-1.png" /></p>
 

@@ -6,4 +6,4 @@
 [test cases](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1/src/InsertSort.cpp)
 
 ----------
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-1/res/InsertSort.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-1/res/InsertSort-1.png" /></p>
