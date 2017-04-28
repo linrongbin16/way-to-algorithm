@@ -3,7 +3,26 @@
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 <p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/res/keyboard.jpg" /></p>
 
+
 ----------
+
+|       | ASCII         | HTML  |
+---------------------------------
+| sigle | 'funny'       | ok    |
+---------------------------------
+
+>comment
+
+```
+source code
+```
+
+this is some testing $formular$
+$$
+formular
+$$
+
+
 #### Content - 目录
 [Introduction - 简介](https://zhaochenyou.github.io/Way-to-Algorithm/Introduction/)
 1. [Chapter-1 - Sort - 排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/)
