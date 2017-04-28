@@ -5,28 +5,28 @@
 
 ----------
 #### Content - 目录
-1. [Chapter-1 - Sort - 排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/README.md)
-    1. [InsertSort - 插入排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/InsertSort.md)
-    2. [BubbleSort - 冒泡排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/BubbleSort.md)
-    3. [QuickSort - 快速排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/QuickSort.md)
-    4. [MergeSort - 合并排序](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1-Sort/MergeSort.md)
-2. [Chapter-2 - Search - 搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/README.md)
-    1. [BinarySearch - 二分查找法 折半查找法](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/BinarySearch.md)
-    2. [BruteForce - 暴力枚举](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/BruteForce.md)
-    3. [Recursion - 递归](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/Recursion.md)
-    4. [BreadthFirstSearch - 广度优先搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/BreadthFirstSearch.md)
-    5. [BidirectionalBreadthSearch - 双向广度搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/BidirectionalBreadthSearch.md)
-    6. [AStarSearch - A*搜索](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/AStarSearch.md)
-    7. [DancingLinks - 舞蹈链](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-2-Search/DancingLinks.md)
-3. [Chapter-3 - DataStructure - 数据结构](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/README.md)
-    1. [DisjointSet - 并查集](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/DisjointSet.md)
-    2. [BinaryIndexTree - 树状数组](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/BinaryIndexTree.md)
-    3. [SegmentTree - 线段树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/SegmentTree.md)
-    4. [LeftistTree - 左偏树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/LeftistTree.md)
-    5. [PrefixTree - 前缀树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/PrefixTree.md)
-    6. [SuffixTree - 后缀树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/SuffixTree.md) TODO
-    7. [AVLTree - 平衡二叉树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/AVLTree.md)
-    8. [RedBlackTree - 红黑树](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3-DataStructure/RedBlackTree.md) TODO
+1. [Chapter-1 - Sort - 排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/)
+    1. [InsertSort - 插入排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/InsertSort/)
+    2. [BubbleSort - 冒泡排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/BubbleSort/)
+    3. [QuickSort - 快速排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/QuickSort/)
+    4. [MergeSort - 合并排序](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/MergeSort/)
+2. [Chapter-2 - Search - 搜索](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/)
+    1. [BinarySearch - 二分查找法 折半查找法](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/BinarySearch/)
+    2. [BruteForce - 暴力枚举](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/BruteForce/)
+    3. [Recursion - 递归](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/Recursion/)
+    4. [BreadthFirstSearch - 广度优先搜索](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/BreadthFirstSearch/)
+    5. [BidirectionalBreadthSearch - 双向广度搜索](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/BidirectionalBreadthSearch/)
+    6. [AStarSearch - A*搜索](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/AStarSearch/)
+    7. [DancingLinks - 舞蹈链](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-2/DancingLinks/)
+3. [Chapter-3 - DataStructure - 数据结构](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/)
+    1. [DisjointSet - 并查集](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/DisjointSet)
+    2. [BinaryIndexTree - 树状数组](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/BinaryIndexTree/)
+    3. [SegmentTree - 线段树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/SegmentTree/)
+    4. [LeftistTree - 左偏树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/LeftistTree/)
+    5. [PrefixTree - 前缀树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/PrefixTree/)
+    6. [SuffixTree - 后缀树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/SuffixTree/) TODO
+    7. [AVLTree - 平衡二叉树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/AVLTree/)
+    8. [RedBlackTree - 红黑树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/RedBlackTree/) TODO
 4. Chapter-4 - DynamicProgramming - 动态规划
     0. Introduction-DynamicProgramming - 动态规划介绍
     1. LinearDP - 线性动态规划
