@@ -6,4 +6,8 @@
 [test cases](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-3/src/AVLTree.cpp)
 
 ----------
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/AVLTree.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/AVLTree_1.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/AVLTree_2.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/AVLTree_3.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/AVLTree_4.png" /></p>
+<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/AVLTree_5.png" /></p>

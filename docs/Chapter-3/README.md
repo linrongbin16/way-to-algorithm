@@ -6,7 +6,7 @@
 3. [SegmentTree - 线段树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/SegmentTree/)
 4. [LeftistTree - 左偏树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/LeftistTree/)
 5. [PrefixTree - 前缀树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/PrefixTree/)
-6. [SuffixTree - 后缀树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/SuffixTree/)
+6. SuffixTree - 后缀树 TODO
 7. [AVLTree - AVL平衡树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/AVLTree/)
 8. [RedBlackTree - 红黑树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/RedBlackTree/)
 
