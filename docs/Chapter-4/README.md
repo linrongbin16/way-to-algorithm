@@ -7,12 +7,12 @@
     2. [LongestIncreasingSubsequence - 最长递增子序列](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/LongestIncreasingSubsequence/)
     3. [LongestIncreasingSubsequenceExtension - 最长递增子序列扩展](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/LongestIncreasingSubsequenceExtension/)
     4. [BidirectionSubsequence - 双向子序列](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/BidirectionSubsequence/)
-2. Knapsack - 背包问题
-    1. [ZeroOneKnapsack - 01背包](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/Knapsack/ZeroOneKnapsack/)
-    2. [ZeroOneKnapsackExtension - 01背包扩展](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/Knapsack/ZeroOneKnapsackExtension/)
-    3. [CompleteKnapsack - 完全背包](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/Knapsack/CompleteKnapsack/)
-    4. [TwoDimensionKnapsack - 二维背包](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/Knapsack/TwoDimensionKnapsack/)
-    5. [GroupKnapsack - 分组背包](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/Knapsack/GroupKnapsack/)
+2. KnapsackDP - 背包问题
+    1. [ZeroOneKnapsack - 01背包](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/ZeroOneKnapsack/)
+    2. [ZeroOneKnapsackExtension - 01背包扩展](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/ZeroOneKnapsackExtension/)
+    3. [CompleteKnapsack - 完全背包](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/CompleteKnapsack/)
+    4. [TwoDimensionKnapsack - 二维背包](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/TwoDimensionKnapsack/)
+    5. [GroupKnapsack - 分组背包](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/GroupKnapsack/)
 3. RegionDP - 区域动态规划
     1. [MinimumMergeCost - 最小合并代价](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/RegionDP/MinimumMergeCost/)
     2. [MinimumMergeCostExtension - 最小合并扩展](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/RegionDP/MinimumMergeCostExtension/)
