@@ -6,7 +6,7 @@
     1. [LongestCommonSubsequence - 最长公共子序列](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/LongestCommonSubsequence/)
     2. [LongestIncreasingSubsequence - 最长递增子序列](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/LongestIncreasingSubsequence/)
     3. [LongestIncreasingSubsequenceExtension - 最长递增子序列扩展](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/LongestIncreasingSubsequenceExtension/)
-    4. [BidirectionSubsequence - 双向子序列](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/BidirectionSubsequence/)
+    4. [BidirectionalSubsequence - 双向子序列](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/BidirectionalSubsequence/)
 2. KnapsackDP - 背包问题
     1. [ZeroOneKnapsack - 01背包](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/ZeroOneKnapsack/)
     2. [ZeroOneKnapsackExtension - 01背包扩展](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/ZeroOneKnapsackExtension/)

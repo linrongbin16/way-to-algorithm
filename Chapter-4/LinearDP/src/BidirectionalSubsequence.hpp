@@ -44,7 +44,7 @@ void LongestDecreasingSubsequence(const int s[MAX], int n)
     }
 }
 
-int BidirectionalIncreasingDecreasingSubsequence(const int s[MAX], int n)
+int BidirectionalSubsequence(const int s[MAX], int n)
 {
     LongestIncreasingSubsequence(s, n);
     LongestDecreasingSubsequence(s, n);
