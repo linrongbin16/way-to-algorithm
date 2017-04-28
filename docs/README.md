@@ -34,6 +34,7 @@ Chapter - 章节
     7. [AVLTree - 平衡二叉树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/AVLTree/)
     8. [RedBlackTree - 红黑树](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/RedBlackTree/)
 4. [DynamicProgramming - 动态规划](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/)
+
     [Introduction-DynamicProgramming - 动态规划介绍](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/Introduction-DynamicProgramming/)
 
     1. [LinearDP - 线性动态规划](https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/)
