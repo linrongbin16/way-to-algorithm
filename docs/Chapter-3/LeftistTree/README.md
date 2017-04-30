@@ -13,4 +13,3 @@
 <p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/LeftistTree_页面_5.png" /></p>
 <p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/LeftistTree_页面_6.png" /></p>
 <p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/LeftistTree_页面_7.png" /></p>
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-3/res/LeftistTree_页面_8.png" /></p>
