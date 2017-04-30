@@ -5,7 +5,7 @@
 * 阅读地址更新到：https://zhaochenyou.github.io/Way-to-Algorithm/
 
 
-\(n=x\)
+$$n=x$$
 \[n==1\]
 
 </html>
