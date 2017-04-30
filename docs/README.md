@@ -3,13 +3,6 @@
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 <p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/res/keyboard.jpg" /></p>
 
-
-$$n=x$$
-$n==x$
-
-\(n=y\)
-\[n=y\]
-
 ----------
 #### Content - 目录
 
