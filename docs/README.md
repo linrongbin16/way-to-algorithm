@@ -4,6 +4,12 @@
 <p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/res/keyboard.jpg" /></p>
 
 
+$$n=x$$
+$n==x$
+
+\(n=y\)
+\[n=y\]
+
 ----------
 #### Content - 目录
 
