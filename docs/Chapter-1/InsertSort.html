@@ -2,49 +2,50 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="res/style.css" />
+    <link rel="stylesheet" type="text/css" href="../res/style.css" />
     <link rel="stylesheet" type="text/css" href="../../res/style.css" />
-    <link rel="alternate stylesheet" type="text/css" href="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/docs/res/style.css" />
     <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 <body>
+<div id="box">
+<div id="left_box"></div>
+<div id="center_box">
 
 <hr>
-
 <ol>
-    <a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-1/">Upper Folder - 上一级目录</a><br>
-    <a href="https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1/src/BubbleSort.hpp">Source Code</a><br>
-    <a href="https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/Chapter-1/src/BubbleSort.cpp">Test Code</a><br>
+    <a href="index.html">Upper Folder - 上一级目录</a><br>
+    <a href="https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Chapter-1/InsertSort.hpp">Source Code - 源码</a><br>
+    <a href="https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Chapter-1/InsertSort.cpp">Test Code - 测试</a><br>
 </ol>
 
 <hr>
 
-<h1>Bubble Sort</h1>
-<h1>冒泡排序</h1>
+<h1>Insert Sort</h1>
+<h1>插入排序</h1>
 
 <br>
 <br>
 
 问题：<br>
-&emsp;&emsp;用冒泡排序对长度为\(n\)的无序序列\(s\)进行排序。<br>
-<br>
+&emsp;&emsp;用插入排序对长度为\(n\)的无序序列\(s\)进行排序。<br>
+
 解法：<br>
-&emsp;&emsp;本问题对无序序列\(s\)升序排序，排序后\(s\)是从小到大的。<br>
-&emsp;&emsp;将长度为\(n\)的序列\(s\)分为\(left\)和\(right\)两个部分，其中\(left\)是无序部分，范围为\(s[0,k]\)，\(right\)是有序部分，范围为\(s[k+1,n-1]\)，其中\(0 \lt k \le n\)。初始时\(left\)范围为\(s[0,n-1]\)，\(right\)为空。<br>
-&emsp;&emsp;\(left\)从左边第一个元素\(s[i]\)（初始时\(i = 0\)）开始向右遍历，依次对\(s[i]\)和\(s[i+1]\)进行比较，若\(s[i] \gt s[i+1]\)则交换两个元素，直到\(i = k\)为止，完成一次遍历操作。每次遍历会将\(left\)中的最大元素移动到\(s[0,k]\)的最右边，之后就可以将\(left\)的范围缩小为\(s[0,k-1]\)，\(right\)的范围扩大为\(s[k,n-1]\)。<br>
-&emsp;&emsp;例如对于下图中的数组\(s\)，\(left\)为\(s[0,5]\)，\(right\)为\(s[6,n-1]\)。从\(i = 0\)开始向右遍历，依次比较\(s[i]\)和\(s[i+1]\)，若\(s[i] \gt s[i+1]\)则交换两个元素，直到\(i = 5\)。<br>
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-1/res/BubbleSort1.png" /></p>
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-1/res/BubbleSort2.png" /></p>
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-1/res/BubbleSort3.png" /></p>
-<p align="center"> \(.....\) </p>
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-1/res/BubbleSort4.png" /></p>
-&emsp;&emsp;然后将\(left\)中的最大值\(s[5]=57\)合并到\(right\)部分中，再进行新一轮的遍历交换操作。<br>
-<p align="center"><img src="https://github.com/zhaochenyou/Way-to-Algorithm/raw/master/Chapter-1/res/BubbleSort5.png" /></p>
-&emsp;&emsp;重复上面的遍历交换操作，直到\(left\)部分为空，\(right\)部分即为已序数组，算法结束。对于长度为\(n\)的序列\(s\)，每一轮将\(left\)中的最大值移动到\(right\)，时间复杂度为\(O(n)\)，总共需要\(n\)轮，该算法的时间复杂度为\(O(n^2)\)。<br>
+&emsp;&emsp;本问题对无序序列\(s\)进行升序排序，排序后\(s\)是从小到大的。<br>
+&emsp;&emsp;将长度为\(n\)的序列\(s\)分为左右两个部分\(left\)和\(right\)，\(left\)是已序的，范围为\(s[0,k]\)，\(right\)是未序的，范围为\(s[k+1,n-1]\)，其中\(0 \le k \lt n\)。对\(right\)中最左边的元素\(x = s[k+1]\)，在\(left\)部分中找到一个位置\(i\)，满足\(s[i-1] \le x \le s[i]\)，也就是说\(x\)可以夹在\(s[i-1]\)和\(s[i]\)之间。为了满足\(left\)的有序性，将\(left\)中\(s[i,k]\)部分的元素向右移动一个位置到\(s[i+1,k+1]\)，将x放置在原\(s[i]\)的位置即可。<br>
+&emsp;&emsp;例如下图中，\(left\)部分为\(s[0,5]\)，\(right\)部分为\(s[6,n-1]\)，\(right\)最左边的首部元素\(x = s[6] = 41\)，在\(left\)部分中合适的插入位置为\(i = 3\)（\(s[2] \le x \le s[3]\)）。<br>
+<p align="center"><img src="res/InsertSort1.png" /></p>
+&emsp;&emsp;将\(s[3,5]\)向右移动一位到\(s[4,6]\)，将原\(x\)移动到\(s[3]\)，就完成了一次插入。<br>
+<p align="center"><img src="res/InsertSort2.png" /></p>
+&emsp;&emsp;对于长度为\(n\)的数组\(s\)，将\(left\)初始化为\(s[0,0]\)，\(right\)初始化为\(s[1,n-1]\)。重复上面的插入操作，直到\(right\)为空，这时\(left\)部分即为已序的结果，算法结束。对长度为\(n\)的序列\(s\)，每一轮将\(right\)中一个元素插入\(left\)中的时间为\(O(n)\)，总共需要\(n\)轮操作，该算法的时间复杂度为\(O(n^2)\)。<br>
+
 
 
 
 <hr>
-
+</div>
+<div id="right_box"></div>
+</div>
 </body>
 </html>
