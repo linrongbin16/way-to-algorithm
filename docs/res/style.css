@@ -27,10 +27,11 @@ body {
 
 div {
     position:absolute;/*或fixed*/
-    left:50%;
+    left: 20px;
+    right: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left:-20%;
+    margin-left: 20px;
     font-family: Cambria,Calibri,"Arial","Microsoft YaHei","黑体","宋体",sans-serif;
     font-size: 18px;
 }
