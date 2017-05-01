@@ -1,45 +1,36 @@
 h1 {
     text-align: center;
     font-family: Cambria,Calibri,"Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-    font-size: 28px;
+    font-size: 34px;
 }
 
 h2 {
     text-align: center;
     font-family: Cambria,Calibri,"Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 h3 {
     text-align: left;
     font-family: Cambria,Calibri,"Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-    font-size: 22px;
+    font-size: 26px;
 }
 
 h4 {
     text-align: left;
     font-family: Cambria,Calibri,"Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-    font-size: 20px;
+    font-size: 24px;
+}
+
+p {
+    text-indent: 25px;
 }
 
 body {
-}
-
-div {
-    position:absolute;/*或fixed*/
-    left: 20px;
-    right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
     font-family: Cambria,Calibri,"Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-    font-size: 18px;
-}
-
-p.center {
-    text-align: center;
-}
-
-p.normal {
-    text-indent: 25px;
+    font-size: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+    min-width: 600px;
+    max-width: 1024px;
 }
