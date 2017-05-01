@@ -173,25 +173,3 @@ Chapter - 章节
 * [USACO](http://www.usaco.org/)
 * [StackOverflow](http://stackoverflow.com/)
 * [Wikipedia](https://www.wikipedia.org/)
-
-
-
-google charts
-
-inline math<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" style="border:none;"> formula
-
-center
-
-<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" style="center">
-
-forkosh
-
-<img src="http://www.forkosh.com/mathtex.cgi? \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}">
-
-
-mathjax not working
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
-</script>
-$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
-\\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\\)
