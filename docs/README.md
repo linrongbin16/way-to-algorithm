@@ -9,20 +9,20 @@
 <h2 align="center">Way to Algorithm - 算法之路</h2>
 <p align="center"><img src="res/keyboard.jpg" /></p>
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
-<p align="center"><a href="https://github.com/zhaochenyou/Way-to-Algorithm">Github Repository</a></p>
+<p align="center"><a href="https://github.com/zhaochenyou/Way-to-Algorithm/">Github Repository</a></p>
 
 --------
 #### Content - 目录
 
-[Introduction - 简介](https://zhaochenyou.github.io/Way-to-Algorithm/Introduction.md)
+[Introduction - 简介](Introduction/)
 
 Chapter - 章节
 
-1. [Sort - 排序](Chapter-1/README.md)
-    1. [InsertSort - 插入排序](Chapter-1/InsertSort.md)
-    2. [BubbleSort - 冒泡排序](Chapter-1/BubbleSort.md)
-    3. [QuickSort - 快速排序](Chapter-1/QuickSort.md)
-    4. [MergeSort - 合并排序](Chapter-1/MergeSort.md)
+1. [Sort - 排序](Chapter-1/)
+    1. [InsertSort - 插入排序](Chapter-1/InsertSort/)
+    2. [BubbleSort - 冒泡排序](Chapter-1/BubbleSort/)
+    3. [QuickSort - 快速排序](Chapter-1/QuickSort/)
+    4. [MergeSort - 合并排序](Chapter-1/MergeSort/)
 
     <li><a href="Chapter-2/index.html">Search - 搜索</a><br>
     <ol>
