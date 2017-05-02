@@ -91,7 +91,7 @@ int(123495786)
 &emsp;&emsp;本问题中A搜索的时间复杂度为\(O(9^9)\)。 <br>
 </div>
 
-
+<br>
 八数码问题： <br>
 * [http://www.d.umn.edu/~jrichar4/8puz.html](http://www.d.umn.edu/~jrichar4/8puz.html)
 * [https://www.cs.princeton.edu/courses/archive/fall12/cos226/assignments/8puzzle.html](https://www.cs.princeton.edu/courses/archive/fall12/cos226/assignments/8puzzle.html)
