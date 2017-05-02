@@ -18,7 +18,7 @@
 &emsp;&emsp;求\(s\)的所有排列组合。（与本节的&lt;BruteForce&gt;问题一样） <br>
 <br>
 解法： <br>
-&emsp;&emsp;本节中BruteForce存在一个问题，在BruteForce函数的代码中，外围for循环的数量是固定的。在&lt;Brute Force&gt;的代码中for循环的数量无法改变。因此我们用递归方程来解决这个问题。 <br>
+&emsp;&emsp;&lt;BruteForce&gt;存在一个问题，外围for循环的数量是固定的，无法改变。因此我们用递归方程来解决这个问题。 <br>
 &emsp;&emsp;第1轮操作中，将序列\(s\)初始化为长度为1的数组\(s = [x_1]\)。对于唯一的元素\(x_1\)它有\(m\)种选择： <br>
 \[
 [1_1] \\
