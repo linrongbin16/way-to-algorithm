@@ -3,7 +3,7 @@
 
 
 --------
-[Star Github Repository](https://github.com/zhaochenyou/Way-to-Algorithm/)
+[Star Our Github Repository](https://github.com/zhaochenyou/Way-to-Algorithm/)
 
 --------
 <h2 align="center">Way to Algorithm - 算法之路</h2>
