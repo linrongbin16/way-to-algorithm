@@ -7,8 +7,8 @@
 
 
 --------
-# Insert Sort
-# 插入排序
+<h1 align="center"> Insert Sort </h1>
+<h1 align="center"> 插入排序 </h1>
 
 <br>
 <br>

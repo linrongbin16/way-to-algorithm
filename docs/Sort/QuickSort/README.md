@@ -7,8 +7,9 @@
 
 
 --------
-<h1>Quick Sort</h1>
-<h1>快速排序</h1>
+<h1 align="center"> Quick Sort </h1>
+<h1 align="center"> 快速排序 </h1>
+
 <br>
 <br>
 

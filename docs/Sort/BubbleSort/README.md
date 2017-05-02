@@ -7,8 +7,8 @@
 
 
 --------
-# Bubble Sort
-# 冒泡排序
+<h1 align="center"> Bubble Sort </h1>
+<h1 align="center"> 冒泡排序 </h1>
 
 <br>
 <br>

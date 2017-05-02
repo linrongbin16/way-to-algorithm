@@ -7,8 +7,8 @@
 
 
 --------
-# Merge Sort
-# 归并排序
+<h1 align="center"> Merge Sort </h1>
+<h1 align="center"> 归并排序 </h1>
 
 <br>
 <br>
