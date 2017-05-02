@@ -13,19 +13,17 @@
 <br>
 
 问题：<br>
-&emsp;&emsp;对于\\(3 \times 3\\)的矩阵 <br>
-\\[
-\begin{bmatrix}
-2 & 8 & 1 \\\\
-3 & 7 & x \\\\
+&emsp;&emsp;对于\\(3 \times 3\\)的矩阵
+\\begin{bmatrix}
+2 & 8 & 1 \\
+3 & 7 & x \\
 6 & 4 & 5
-\end{bmatrix}
-\\]
-&emsp;&emsp;\\(x\\)点可以与上下左右的相邻点交换位置，除此之外不能随意改变位置，将该矩阵变成 <br>
+\\end{bmatrix}
+&emsp;&emsp;\\(x\\)点可以与上下左右的相邻点交换位置，除此之外不能随意改变位置，将该矩阵变成
 \\[
 \begin{bmatrix}
-1 & 2 & 3 \\\\
-4 & 5 & 6 \\\\
+1 & 2 & 3 \\
+4 & 5 & 6 \\
 7 & 8 & x
 \end{bmatrix}
 \\]
