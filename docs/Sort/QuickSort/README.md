@@ -16,11 +16,8 @@
 问题： <br>
 &emsp;&emsp;用快速排序对长度为\\(n\\)的无序序列\\(s\\)进行排序。 <br>
 
-<br>
-
 解法： <br>
 &emsp;&emsp;本问题对无序序列\\(s\\)进行升序排序，排序后\\(s\\)是从小到大的。 <br>
-
 &emsp;&emsp;将长度为\\(n\\)的序列\\(s\\)，选取最左边的值作为\\(mid\\)，将剩余部分分为\\(left\\)和\\(right\\)两个部分，\\(left\\)和\\(right\\)是无序的，且\\(left\\)中的所有元素\\(\forall x \le mid\\)（其中\\(x \epsilon left\\)），\\(right\\)中的所有元素\\(\forall y \le mid\\)（其中\\(y \epsilon right\\)）。 <br>
 &emsp;&emsp;初始时\\(left\\)和\\(right\\)两个部分都是空的，分别从数组\\(s\\)的左右两边向中间推进。例如下图中的数组： <br>
 <p align="center"><img src="../res/QuickSort1.png" /></p>
