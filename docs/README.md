@@ -11,8 +11,8 @@
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 <p align="center"><a href="https://github.com/zhaochenyou/Way-to-Algorithm/">Github Repository</a></p>
 
-\(x = y\)
-\[x \neq y\]
+\\(x = y\\)
+\\[x \neq y\\]
 
 --------
 #### Content - 目录
