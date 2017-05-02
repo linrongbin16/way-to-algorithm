@@ -25,7 +25,7 @@
 解法： <br>
 &emsp;&emsp;通过for循环枚举出序列\(s\)中的所有可能。 <br>
 &emsp;&emsp;例如对于序列\([S_1,S_2,S_3,S_4]\)，其中每个元素的取值范围是\([0,m]\)。如果把该序列看作一个正整数，从0000依次数到9999即为全部的排列组合。 <br>
-<p align="center"><code>
+<code style="display: block; white-space: pre-wrap;">
 void BruteForce(int s[4], int m) {
     for (int i = 0; i < m; i++)
         for (int j = 0; j < m; j++)
@@ -38,7 +38,7 @@ void BruteForce(int s[4], int m) {
                     Output(s);
                 }
 }
-</code></p>
+</code>
 &emsp;&emsp;对于成员数量为\(n\)，每个成员有\(m\)种值的序列\(s\)，遍历所有排列组合的时间复杂度\(O(n^m)\)。 <br>
 </div>
 
