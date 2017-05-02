@@ -4,15 +4,13 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
+--------
+[Star Github Repository](https://github.com/zhaochenyou/Way-to-Algorithm/)
 
 --------
 <h2 align="center">Way to Algorithm - 算法之路</h2>
 <p align="center"><img src="res/keyboard.jpg" /></p>
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
-<p align="center"><a href="https://github.com/zhaochenyou/Way-to-Algorithm/">Github Repository</a></p>
-
-\\(x = y\\)
-\\[x \neq y\\]
 
 --------
 #### Content - 目录
@@ -21,254 +19,178 @@
 
 Chapter - 章节
 
-1. [Sort - 排序](Chapter-1/)
-    1. [InsertSort - 插入排序](Chapter-1/InsertSort/)
-    2. [BubbleSort - 冒泡排序](Chapter-1/BubbleSort/)
-    3. [QuickSort - 快速排序](Chapter-1/QuickSort/)
-    4. [MergeSort - 合并排序](Chapter-1/MergeSort/)
+1. [Sort - 排序](Sort/)
+    1. [InsertSort - 插入排序](Sort/InsertSort/)
+    2. [BubbleSort - 冒泡排序](Sort/BubbleSort/)
+    3. [QuickSort - 快速排序](Sort/QuickSort/)
+    4. [MergeSort - 合并排序](Sort/MergeSort/)
 
-    <li><a href="Chapter-2/index.html">Search - 搜索</a><br>
-    <ol>
-        <li><a href="Chapter-2/BinarySearch.html">BinarySearch - 二分查找法 折半查找法</a></li>
-        <li><a href="Chapter-2/BruteForce.html">BruteForce - 暴力枚举</a></li>
-        <li><a href="Chapter-2/Recursion.html">Recursion - 递归</a></li>
-        <li><a href="Chapter-2/BreadthFirstSearch.html">BreadthFirstSearch - 广度优先搜索</a></li>
-        <li><a href="Chapter-2/BidirectionalBreadthSearch.html">BidirectionalBreadthSearch - 双向广度搜索</a></li>
-        <li><a href="Chapter-2/AStarSearch.html">AStarSearch - A*搜索</a></li>
-        <li><a href="Chapter-2/DancingLinks.html">DancingLinks - 舞蹈链</a></li>
-    </ol>
-    </li>
+2. [Search - 搜索](Search/)
+    1. [BinarySearch - 二分查找法 折半查找法](Search/BinarySearch/)
+    2. [BruteForce - 暴力枚举](Search/BruteForce/)
+    3. [Recursion - 递归](Search/Recursion/)
+    4. [BreadthFirstSearch - 广度优先搜索](Search/BreadthFirstSearch/)
+    5. [BidirectionalBreadthSearch - 双向广度搜索](Search/BidirectionalBreadthSearch/)
+    6. [AStarSearch - A*搜索](Search/AStarSearch/)
+    7. [DancingLinks - 舞蹈链](Search/DancingLinks/)
 
-    <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/">DataStructure - 数据结构</a><br>
-    <ol>
-        <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/DisjointSet">DisjointSet - 并查集</a></li>
-        <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/BinaryIndexTree/">BinaryIndexTree - 树状数组</a></li>
-        <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/SegmentTree/">SegmentTree - 线段树</a></li>
-        <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/LeftistTree/">LeftistTree - 左偏树</a></li>
-        <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/PrefixTree/">PrefixTree - 前缀树</a></li>
-        <li>SuffixTree - 后缀树 //TODO</li>
-        <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/AVLTree/">AVLTree - 平衡二叉树</a></li>
-        <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-3/RedBlackTree/">RedBlackTree - 红黑树</a></li>
-    </ol>
-    </li>
-    <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/">DynamicProgramming - 动态规划</a> <br>
-    <ol>
-        <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/Introduction-DynamicProgramming/">Introduction-DynamicProgramming - 动态规划介绍</a></li>
-        <li>LinearDP - 线性动态规划 
-        <ol>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/LongestCommonSubsequence/">LongestCommonSubsequence - 最长公共子序列</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/LongestIncreasingSubsequence/">LongestIncreasingSubsequence - 最长递增子序列</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/LongestIncreasingSubsequenceExtension/">LongestIncreasingSubsequenceExtension - 最长递增子序列扩展</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/LinearDP/BidirectionSubsequence/">BidirectionSubsequence - 双向子序列</a></li>
-        </ol>
-        </li>
-        <li>KnapsackDP - 背包问题 <br>
-        <ol>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/ZeroOneKnapsack/">ZeroOneKnapsack - 01背包</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/ZeroOneKnapsackExtension/">ZeroOneKnapsackExtension - 01背包扩展</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/CompleteKnapsack/">CompleteKnapsack - 完全背包</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/TwoDimensionKnapsack/">TwoDimensionKnapsack - 二维背包</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/KnapsackDP/GroupKnapsack/">GroupKnapsack - 分组背包</a></li>
-        </ol>
-        </li>
-        <li>RegionDP - 区域动态规划 <br>
-        <ol>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/RegionDP/MinimumMergeCost/">MinimumMergeCost - 最小合并代价</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/RegionDP/MinimumMergeCostExtension/">MinimumMergeCostExtension - 最小合并扩展</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/RegionDP/MaximumBinaryTreeMerge/">MaximumBinaryTreeMerge - 最大二叉树合并</a></li>
-        </ol>
-        </li>
-        <li>TreeDP - 树形动态规划 <br>
-        <ol>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/TreeDP/BinaryTreeDP/">BinaryTreeDP - 二叉树动规</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/TreeDP/MultipleTreeDP/">MultipleTreeDP - 多叉树动规</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/TreeDP/MultipleTreeDPExtension/">MultipleTreeDPExtension - 多叉树动规问题扩展</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/TreeDP/LoopedMultipleTreeDP/">LoopedMultipleTreeDP - 带环多叉树动规</a></li>
-            <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-4/TreeDP/TraverseTreeDP/">TraverseTreeDP - 遍历多叉树动规</a></li>
-        </ol>
-        </li>
-    </ol>
-    </li>
-    <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-5/">GraphTheory - 图论</a> <br>
-    <ol>
-        <li>Traverse - 遍历 <br>
-        <ol>
-            <li>PreorderTraverseBinaryTree - 先序遍历二叉树</li>
-            <li>InorderTraverseBinaryTree - 中序遍历二叉树</li>
-            <li>PostorderTraverseBinaryTree - 后先序遍历二叉树</li>
-            <li>LevelorderTraverseBinaryTree - 层序遍历二叉树</li>
-            <li>DepthFirstSearch - 深度优先遍历</li>
-            <li>BreadthFirstSearch - 广度优先遍历</li>
-            <li>TopologicalSort - 拓扑排序</li>
-            <li>EulerLoop - 欧拉回路</li>
-            <li>HamiltonLoop - 汉密尔顿回路</li>
-            <li>Kosaraju - Kosaraju算法</li>
-            <li>2-Satisfiability - 2-SAT问题</li>
-        </ol>
-        </li>
-        <li>Tarjan - Tarjan算法 <br>
-        <ol>
-            <li>StrongestConnectedComponent - 强连通分支</li>
-            <li>Gabow - Gabow算法</li>
-            <li>Cut - 割</li>
-            <li>DoubleConnectedComponent - 双连通分支</li>
-            <li>LeastCommonAncestor - 最近公共祖先</li>
-            <li>RangeExtremumQuery - 区域最值查询</li>
-        </ol>
-        </li>
-        <li>MinimumSpanningTree - 最小生成树 <br>
-        <ol>
-            <li>Kruskal - Kruskal算法</li>
-            <li>Prim - Prim算法</li>
-            <li>SecondMinimumSpanningTree - 次小生成树</li>
-            <li>DegreeBoundedSpanningTree - 度限制生成树</li>
-            <li>OptimalRatioSpanningTree - 最优比率生成树</li>
-        </ol>
-        </li>
-        <li>ShortestPath - 最短路径 <br>
-        <ol>
-            <li>Relaxation - 松弛操作</li>
-            <li>BellmanFord - BellmanFord算法</li>
-            <li>ShortestPathFasterAlgorithm - SPFA最短路径更快算法</li>
-            <li>Dijkstra - Dijkstra算法</li>
-            <li>Floyd - Floyd算法</li>
-            <li>DifferentConstraints - 差分约束</li>
-        </ol>
-        </li>
-        <li>FlowNetwork - 网络流 <br>
-        <ol>
-            <li>EdmondsKarp - EdmondsKarp算法</li>
-            <li>PushAndRelabel - 压入与重标记</li>
-            <li>Dinic - Dinic算法</li>
-            <li>DistanceLabel - 距离标号算法</li>
-            <li>RelabelToFront - 重标记与前移算法</li>
-            <li>HighestLabelPreflowPush - 最高标号预留与推进算法</li>
-            <li>DistanceLabel_AdjacentListVersion - 距离标号算法_邻接表优化版</li>
-            <li>DistanceLabel_AdjacentListVersion - 距离标号算法_邻接表优化版</li>
-            <li>Summary-Maxflow - 最大流算法小结</li>
-            <li>MinimumCost_Maxflow - 最小费用最大流</li>
-            <li>MultipleSourceSink_Maxflow - 多源点、多汇点最大流</li>
-            <li>Connectivity - 连通度</li>
-            <li>NoSource_NoSink_VolumeBounded_Flow - 无源点、无汇点、容量有上下界的流网络</li>
-            <li>VolumeBounded_Maxflow - 容量有上下界的最大流</li>
-            <li>VolumeBounded_Minflow - 容量有上下界的最小流</li>
-        </ol>
-        </li>
-        <li>BinaryMatch - 二分匹配 <br>
-        <ol>
-            <li>Hungarian - 匈牙利算法</li>
-            <li>HopcroftKarp - Hopcroft-Karp算法</li>
-            <li>Match2Maxflow - 二分匹配转最大流</li>
-            <li>KuhnMunkres - Kuhn-Munkres算法</li>
-            <li>Introduction-Domination_Independent_Covering_Clique - 支配集，独立集，覆盖集与团的介绍</li>
-            <li>WeightedCoveringAndIndependentSet - 最小点权覆盖和最大点权独立集</li>
-            <li>MinimumDisjointPathCovering - 最小不相交路径覆盖</li>
-            <li>MinimumJointPathCovering - 最小可相交路径覆盖</li>
-            <li>Coloring - 染色问题</li>
-        </ol>
-        </li>
-    </ol>
-    </li>
-    <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-6/">BasicCalculation - 基本计算</a> <br>
-    <ol>
-        <li>LargeNumberCalculation - 大数字计算</li>
-        <li>DecimalConversion - 数字进制转换</li>
-        <li>Exponentiation - 幂运算</li>
-    </ol>
-    </li>
+3. [DataStructure - 数据结构](DataStructure/)
+    1. [DisjointSet - 并查集](DataStructure/DisjointSet/)
+    2. [BinaryIndexTree - 树状数组](DataStructure/BinaryIndexTree/)
+    3. [SegmentTree - 线段树](DataStructure/SegmentTree/)
+    4. [LeftistTree - 左偏树](DataStructure/LeftistTree/)
+    5. [PrefixTree - 前缀树](DataStructure/PrefixTree/)
+    6. [SuffixTree - 后缀树](DataStructure/SuffixTree/)
+    7. [AVLTree - AVL树](DataStructure/AVLTree/)
+    8. [RedBlackTree - 红黑树](DataStructure/RedBlackTree/)
 
-    <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-7/">CombinatorialMathematics - 组合数学</a> <br>
-    <ol>
-        <li>Introduction-CombinatorialMathematics - 组合数学介绍</li>
-        <li>FullPermutaion - 全排列</li>
-        <li>Combination - 组合</li>
-        <li>Permutaion - 排列</li>
-        <li>PermutationGroup - 置换群</li>
-        <li>Catalan - 卡特兰数</li>
-    </ol>
-    </li>
+4. [DynamicProgramming - 动态规划](DynamicProgramming/)
+    0. [Introduction-DynamicProgramming - 动态规划介绍](DynamicProgramming/Introduction/)
+    1. [LinearDP - 线性动规](DynamicProgramming/LinearDP/)
+        1. [LongestCommonSubsequence - 最长公共子序列](DynamicProgramming/LinearDP/LongestCommonSubsequence/)
+        2. [LongestIncreasingSubsequence - 最长递增子序列](DynamicProgramming/LinearDP/LongestIncreasingSubsequece/)
+        3. [LongestIncreasingSubsequenceExtension - 最长递增子序列扩展](DynamicProgramming/LinearDP/LongestIncreasingSubsequeceExtension/)
+        4. [BidirectionalSubsequence - 双向子序列](DynamicProgramming/LinearDP/BidirectionalSubsequence/)
+    2. [KnapsackDP - 背包问题](DynamicProgramming/KnapsackDP/)
+        1. [ZeroOneKnapsack - 01背包](DynamicProgramming/KnapsackDP/ZeroOneKnapsack/)
+        2. [ZeroOneKnapsackExtension - 01背包扩展](DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension/)
+        3. [CompleteKnapsack - 完全背包](DynamicProgramming/KnapsackDP/CompleteKnapsack/)
+        4. [TwoDimensionKnapsack - 二维背包](DynamicProgramming/KnapsackDP/TwoDimensionKnapsack/)
+        5. [GroupKnapsack - 分组背包](DynamicProgramming/KnapsackDP/GroupKnapsack/)
+    3. [RegionalDP - 区域动规](DynamicProgramming/RegionalDP/)
+        1. [MinimumMergeCost - 最小合并代价](DynamicProgramming/RegionalDP/MinimumMergeCost/)
+        2. [MinimumMergeCostExtension - 最小合并代价扩展](DynamicProgramming/RegionalDP/MinimumMergeCostExtension/)
+        3. [MaximumBinaryTreeMerge - 最大二叉树合并](DynamicProgramming/RegionalDP/MaximumBinaryTreeMerge/)
+    4. [TreeDP - 树形动规](DynamicProgramming/TreeDP/)
+        1. [BinaryTreeDP - 二叉树动规](DynamicProgramming/TreeDP/BinaryTreeDP/)
+        2. [MultipleTreeDP - 多叉树动规](DynamicProgramming/TreeDP/MultipleTreeDP/)
+        3. [MultipleTreeDPExtension - 多叉树动规扩展](DynamicProgramming/TreeDP/MultipleTreeDPExtension/)
+        4. [LoopedMultipleTreeDP - 带环多叉树动规](DynamicProgramming/TreeDP/LoopedMultipleTreeDP/)
+        5. [TraverseTreeDP - 遍历多叉树动规](DynamicProgramming/TreeDP/TraverseTreeDP/)
 
-    <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-8/">NumberTheory - 数论</a> <br>
-    <ol>
-        <li>Sieve - 筛选算法</li>
-        <li>Euclid - Euclid算法</li>
-        <li>EuclidExtension - Euclid扩展</li>
-        <li>ModularLinearEquation - 模线性方程</li>
-        <li>ChineseRemainerTheorem - 中国剩余定理</li>
-        <li>ModularExponentiation - 模幂运算</li>
-    </ol>
-    </li>
+5. [GraphTheory - 图论](GraphTheory/)
+    1. [Traverse - 遍历](GraphTheory/Traverse/)
+        1. [PreorderTraverse - 先序遍历](GraphTheory/Traverse/PreorderTraverse/)
+        2. [InorderTraverse - 中序遍历](GraphTheory/Traverse/InorderTraverse/)
+        3. [PostorderTraverse - 后序遍历](GraphTheory/Traverse/PostorderTraverse/)
+        4. [LevelorderTraverse - 层序遍历](GraphTheory/Traverse/LevelorderTraverse/)
+        5. [DepthFirstSearch - 深度优先搜索](GraphTheory/Traverse/DepthFirstSearch/)
+        6. [BreadthFirstSearch - 广度优先搜索](GraphTheory/Traverse/BreadthFirstSearch/)
+        7. [TopologicalSort - 拓扑排序](GraphTheory/Traverse/TopologicalSort/)
+        8. [EulerLoop - 欧拉回路](GraphTheory/Traverse/EulerLoop/)
+        9. [HamiltonLoop - 汉密尔顿回路](GraphTheory/Traverse/HamiltonLoop/)
+        10. [Kosaraju - Kosaraju算法](GraphTheory/Traverse/Kosaraju/)
+        11. [2-Satisfiability - 2-SAT问题](GraphTheory/Traverse/2-Satisfiability/)
+    2. [Tarjan - Tarjan算法](GraphTheory/Tarjan/)
+        1. [StrongestConnectedComponent - 强联通分支](GraphTheory/Tarjan/StrongestConnectedComponent/)
+        2. [Gabow - Gabow算法](GraphTheory/Tarjan/Gabow/)
+        3. [Cut - 割](GraphTheory/Tarjan/Cut/)
+        4. [DoubleConnectedComponent - 双联通分支](GraphTheory/Tarjan/DoubleConnectedComponent/)
+        5. [LeastCommonAncestor - 最近公共祖先](GraphTheory/Tarjan/LeastCommonAncestor/)
+        6. [RangeExtremumQuery - 区域最值查询](GraphTheory/Tarjan/RangeExtremumQuery/)
+    3. [MinimumSpanningTree - 最小生成树](GraphTheory/MinimumSpanningTree/)
+        1. [Kruskal - Kruskal算法](GraphTheory/MinimumSpanningTree/Kruskal/)
+        2. [Prim - Prim算法](GraphTheory/MinimumSpanningTree/Prim/)
+        3. [SecondMinimumSpanningTree - 次小生成树](GraphTheory/MinimumSpanningTree/SecondMinimumSpanningTree/)
+        4. [OptimalRatioSpanningTree - 最优比率生成树](GraphTheory/MinimumSpanningTree/OptimalRatioSpanningTree/)
+    4. [ShortestPath - 最短路径](GraphTheory/ShortestPath/)
+        1. [Relaxation - 松弛操作](GraphTheory/ShortestPath/Relaxation/)
+        2. [BellmanFord - BellmanFord算法](GraphTheory/ShortestPath/BellmanFord/)
+        3. [ShortestPathFasterAlgorithm - 最短路径更快算法（SPFA）](GraphTheory/ShortestPath/ShortestPathFasterAlgorithm/)
+        4. [Dijkstra - Dijkstra算法](GraphTheory/ShortestPath/Dijkstra/)
+        5. [Floyd - Floyd算法](GraphTheory/ShortestPath/Floyd/)
+        6. [DifferentConstraints - 差分约束](GraphTheory/ShortestPath/DifferentConstraints/)
+    5. [FlowNetwork - 网络流](GraphTheory/FlowNetwork/)
+        1. [EdmondsKarp - EdmondsKarp算法](GraphTheory/FlowNetwork/EdmondsKarp/)
+        2. [PushAndRelabel - 压入与重标记](GraphTheory/FlowNetwork/PushAndRelabel/)
+        3. [Dinic - Dinic算法](GraphTheory/FlowNetwork/Dinic/)
+        4. [DistanceLabel - 距离标号算法](GraphTheory/FlowNetwork/DistanceLabel/)
+        5. [RelabelToFront - 重标记与前移算法](GraphTheory/FlowNetwork/RelabelToFront/)
+        6. [HighestLabelPreflowPush - 最高标号预留与推进算法](GraphTheory/FlowNetwork/HighestLabelPreflowPush/)
+        7. [DistanceLabel_AdjacentListVersion - 距离标号算法-邻接表优化版](GraphTheory/FlowNetwork/DistanceLabel_AdjacentListVersion/)
+        8. [Summary-Maxflow - 最大流算法小结](GraphTheory/FlowNetwork/Summary-Maxflow/)
+        9. [MinimumCost_Maxflow - 最小费用最大流](GraphTheory/FlowNetwork/MinimumCost_Maxflow/)
+        10. [MultipleSourceMultipleSink_Maxflow - 多源点、多汇点最大流](GraphTheory/FlowNetwork/MultipleSourceMultipleSink_Maxflow/)
+        11. [Connectivity - 连通度](GraphTheory/FlowNetwork/Connectivity/)
+        12. [NoSourceNoSink_VolumeBounded_Flow - 无源点、无汇点、容量有上下界的流网络](GraphTheory/FlowNetwork/NoSourceNoSink_VolumeBounded_Flow/)
+        13. [VolumeBounded_Maxflow - 容量有上下界的最大流](GraphTheory/FlowNetwork/VolumeBounded_Maxflow/)
+        14. [VolumeBounded_Minflow - 容量有上下界的最小流](GraphTheory/FlowNetwork/VolumeBounded_Minflow/)
+    6. [BinaryMatch - 二分匹配](GraphTheory/BinaryMatch/)
+        1. [Hungarian - 匈牙利算法](GraphTheory/BinaryMatch/Hungarian/)
+        2. [HopcroftKarp - Hopcroft-Karp算法](GraphTheory/BinaryMatch/HopcroftKarp/)
+        3. [MatchToMaxflow - 二分匹配转化为最大流](GraphTheory/BinaryMatch/MatchToMaxflow/)
+        4. [KuhnMunkres - Kuhn-Munkres算法](GraphTheory/BinaryMatch/KuhnMunkres/)
+        5. [Introduction-Domination_Independent_Covering_Clique - 支配集、独立集、覆盖集、团的介绍](GraphTheory/BinaryMatch/Introduction-Domination_Independent_Covering_Clique/)
+        6. [WeightedCoveringAndIndependentSet - 最小点权覆盖和最大点权独立集](GraphTheory/BinaryMatch/WeightedCoveringAndIndependentSet/)
+        7. [MinimumDisjointPathCovering - 最小不相交路径覆盖](GraphTheory/BinaryMatch/MinimumDisjointPathCovering/)
+        8. [MinimumJointPathCovering - 最小可相交路径覆盖](GraphTheory/BinaryMatch/MinimumJointPathCovering/)
+        9. [Coloring - 染色问题](GraphTheory/BinaryMatch/Coloring/)
 
-    <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-9/">LinearAlgebra - 线性代数</a> <br>
-    <ol>
-        <li>Matrix - 矩阵 <br>
-        <ol>
-            <li>Strassen - Strassen算法</li>
-            <li>GaussElimination - 高斯消元法</li>
-            <li>LUP - LUP分解</li>
-            <li>InverseMatrix - 矩阵求逆</li>
-        </ol>
-        </li>
-        <li>LinearProgramming - 线性规划 <br>
-        <ol>
-            <li>Simplex - 单纯形算法</li>
-            <li>Dinkelback - Dinkelbach算法</li>
-        </ol>
-        </li>
-    </ol>
-    </li>
+6. [Calculation - 计算](Calculation/)
+    1. [LargeNumber - 大数字](Calculation/LargeNumber/)
+    2. [DecimalConversion - 进制转换](Calculation/DecimalConversion/)
+    3. [Exponentiation - 幂运算](Calculation/Exponentiation/)
 
-    <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-10/">AnalyticGeometry - 解析几何</a> <br>
-    <ol>
-        <li>VectorAndPolygon - 向量与多边形 <br>
-        <ol>
-            <li>Cross - 叉积</li>
-            <li>SegmentIntersection - 线段相交</li>
-            <li>PointInConvexPolygon - 点在凸多边形内</li>
-            <li>Sweeping - 扫除算法</li>
-            <li>ConvexPolygonArea - 凸多边形面积</li>
-            <li>ConvexPolygonGravityCenter - 凸多边形重心</li>
-            <li>RayDistinguish - 射线判别</li>
-            <li>RotatingCalipers - 旋转卡壳</li>
-        </ol>
-        </li>
-        <li>ConvexHull - 凸包 <br>
-        <ol>
-            <li>NearestNeighbor - 最近点对</li>
-            <li>GrahamScan - Graham扫描</li>
-            <li>QuickConvexHull - 快速凸包算法</li>
-        </ol>
-        </li>
-    </ol>
-    </li>
+7. [CombinatorialMathematics - 组合数学](CombinationMathematics/)
+    1. [Introduction-CombinatorialMathematics - 组合数学介绍](CombinationMathematics/Introduction-CombinatorialMathematics/)
+    2. [FullPermutation - 全排列](CombinationMathematics/FullPermutation/)
+    3. [Combination - 组合](CombinationMathematics/Combination/)
+    4. [Permutation - 排列](CombinationMathematics/Permutation/)
+    5. [PermutationGroup - 置换群](CombinationMathematics/PermutationGroup/)
+    6. [Catalan - 卡特兰数](CombinationMathematics/Catalan/)
 
-    <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-11/">TextMatch - 文本匹配</a> <br>
-    <ol>
-        <li>NaiveStringMatch - 简单字符串匹配</li>
-        <li>KnuthMorrisPratt - KMP算法</li>
-        <li>TrieTree - 字典树</li>
-        <li>AhoCorasickAutomation - AC自动机</li>
-    </ol>
-    </li>
-    <li><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Chapter-12/">GameTheory - 博弈论</a> <br>
-    <ol>
-        <li>BashGame - 巴什博弈</li>
-        <li>WythoffGame - 威佐夫博奕</li>
-        <li>NimGame - 尼姆博弈</li>
-        <li>SpragueGrundy - SG函数</li>
-    </ol>
-    </li>
+8. [NumberTheory - 数论](NumberTheory/)
+    1. [Sieve - 筛选算法](NumberTheory/Sieve/)
+    2. [Euclid - 欧几里得](NumberTheory/Euclid/)
+    3. [EuclidExtension - 欧几里得扩展](NumberTheory/EuclidExtension/)
+    4. [ModularLinearEquation - 模线性方程](NumberTheory/ModularLinearEquation/)
+    5. [ChineseRemainerTheorem - 中国剩余定理](NumberTheory/ChineseRemainerTheorem/)
+    6. [ModularExponentiation - 模幂运算](NumberTheory/ModularExponentiation/)
 
-</ol>
+9. [LinearAlgebra - 线性代数](LinearAlgebra/)
+    1. [Matrix - 矩阵](LinearAlgebra/Matrix/)
+        1. [Strassen - Strassen算法](LinearAlgebra/Matrix/Strassen/)
+        2. [GaussElimination - 高斯消元法](LinearAlgebra/Matrix/GaussElimination/)
+        3. [LUP - LUP分解](LinearAlgebra/Matrix/LUP/)
+        4. [InverseMatrix - 矩阵求逆](LinearAlgebra/Matrix/InverseMatrix/)
+    2. [LinearProgramming - 线性规划](LinearAlgebra/LinearProgramming/)
+        1. [Simplex - 单纯形算法](LinearAlgebra/LinearProgramming/Simplex/)
+        2. [Dinkelback - Dinkelback算法](LinearAlgebra/LinearProgramming/Dinkelback/)
 
-<hr>
-<h4>Reference - 参考资料</h4>
-<ul>
-    <li><a href="http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf">算法导论 - Introduction to Algorithms</a></li>
-    <li><a href="http://love-oriented.com/pack/">背包问题九讲</a></li>
-    <li><a href="http://www.usaco.org/">USACO</a></li>
-    <li><a href="http://stackoverflow.com/">StackOverflow</a></li>
-    <li><a href="https://www.wikipedia.org/">Wikipedia</a></li>
-</ul>
+10. [AnalyticGeometry - 解析几何](AnalyticGeometry/)
+    1. [Polygon - 多边形](AnalyticGeometry/Polygon/)
+        1. [Cross - 叉积](AnalyticGeometry/Polygon/Cross/)
+        2. [SegmentIntersection - 线段相交](AnalyticGeometry/Polygon/SegmentIntersection/)
+        3. [PointInConvexPolygon - 点在多边形内](AnalyticGeometry/Polygon/PointInConvexPolygon/)
+        4. [Sweeping - 扫除算法](AnalyticGeometry/Polygon/Sweeping/)
+        5. [ConvexPolygonArea - 凸多边形面积](AnalyticGeometry/Polygon/ConvexPolygonArea/)
+        6. [ConvexPolygonGravityCenter - 凸多边形重心](AnalyticGeometry/Polygon/ConvexPolygonGravityCenter/)
+        7. [RayDistinguish - 射线判别](AnalyticGeometry/Polygon/RayDistinguish/)
+        8. [RotatingCalipers - 旋转卡壳](AnalyticGeometry/Polygon/RotatingCalipers/)
+    2. [ConvexHull - 凸包](AnalyticGeometry/ConvexHull/)
+        1. [NearestNeighbor - 最近点对](AnalyticGeometry/ConvexHull/NearestNeighbor/)
+        2. [GrahamScan - Graham扫描算法](AnalyticGeometry/ConvexHull/GrahamScan/)
+        3. [QuickConvexHull - 快速凸包算法](AnalyticGeometry/ConvexHull/QuickConvexHull/)
 
-<hr>
+11. [TextMatch - 文本匹配](TextMatch/)
+    1. [NaiveMatch - 简单匹配](TextMatch/NaiveMatch/)
+    2. [KMPMatch - KMP匹配](TextMatch/KMPMatch/)
+    3. [TrieTree - 字典树](TextMatch/TrieTree/)
+    4. [AhoCorasickAutomation - AC自动机](TextMatch/AhoCorasickAutomation/)
+
+12. [GameTheory - 博弈论](GameTheory/)
+    1. [BashGame - 巴什博弈](TextMatch/BashGame/)
+    2. [WythoffGame - 威佐夫博弈](TextMatch/WythoffGame/)
+    3. [NimGame - 尼姆博弈](TextMatch/NimGame/)
+    4. [SpragueGrundy - SG函数](TextMatch/SpragueGrundy/)
+
+
+--------
+#### Reference - 参考资料
+[算法导论 - Introduction to Algorithms](http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf)
+[背包问题九讲](http://love-oriented.com/pack/)
+[USACO](http://www.usaco.org/)
+[StackOverflow](http://stackoverflow.com/)
+[Wikipedia](https://www.wikipedia.org/)
+
+--------
