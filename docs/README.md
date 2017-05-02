@@ -5,13 +5,15 @@
 --------
 [Star Our Github Repository](https://github.com/zhaochenyou/Way-to-Algorithm/)
 
+
 --------
 <h2 align="center">Way to Algorithm - 算法之路</h2>
 <p align="center"><img src="res/keyboard.jpg" /></p>
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
+
 --------
-#### Content - 目录
+<h2 align="center"> Content - 目录 </h2>
 
 [Introduction - 简介](Introduction/)
 
@@ -184,11 +186,12 @@ Chapter - 章节
 
 
 --------
-#### Reference - 参考资料
-[算法导论 - Introduction to Algorithms](http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf)
-[背包问题九讲](http://love-oriented.com/pack/)
-[USACO](http://www.usaco.org/)
-[StackOverflow](http://stackoverflow.com/)
-[Wikipedia](https://www.wikipedia.org/)
+<h2 align="center"> Reference - 参考资料 </h2>
+* [算法导论 - Introduction to Algorithms](http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf)
+* [背包问题九讲](http://love-oriented.com/pack/)
+* [USACO](http://www.usaco.org/)
+* [StackOverflow](http://stackoverflow.com/)
+* [Wikipedia](https://www.wikipedia.org/)
+
 
 --------
