@@ -3,6 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../../res/style.css" />
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<div id="myfonts">
 
 --------
 [Star Github Repository](https://github.com/zhaochenyou/Way-to-Algorithm/)
@@ -194,3 +195,5 @@ Chapter - 章节
 [Wikipedia](https://www.wikipedia.org/)
 
 --------
+
+</div>
