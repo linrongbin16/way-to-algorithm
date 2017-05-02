@@ -28,19 +28,3 @@ body {
     font-family: Cambria,Calibri,"Arial","Microsoft YaHei","黑体","宋体",sans-serif;
     font-size: 20px;
 }
-
-#box {
-    width: 100%;
-    display: flex;
-    margin: 10px;
-}
-#left_box,#right_box {
-    min-width: 15%;
-    max-width: 15%;
-    margin: 10px;
-}
-#center_box {
-    flex: 1;
-    width: 100%;
-    margin: 10px;
-}
