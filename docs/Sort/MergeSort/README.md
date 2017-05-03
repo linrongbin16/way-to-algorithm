@@ -5,9 +5,9 @@
 --------
 [Upper Folder - 上一级目录](../)
 
-[Source Code - 源码](https://zhaochenyou@github.com/Way-to-Algorithm/blob/master/src/Sort/MergeSort.hpp)
+[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Sort/MergeSort.hpp)
 
-[Test Code - 测试](https://zhaochenyou@github.com/Way-to-Algorithm/blob/master/src/Sort/MergeSort.cpp)
+[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Sort/MergeSort.cpp)
 
 
 --------
