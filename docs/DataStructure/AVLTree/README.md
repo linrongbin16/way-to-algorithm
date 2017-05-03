@@ -5,96 +5,49 @@
 --------
 [Upper Folder - 上一级目录](../)
 
+[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/AVLTree.hpp)
+
+[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/AVLTree.cpp)
+
 
 --------
 
 <div>
-<h1 align="center"> A Star Search </h1>
-<h1 align="center"> A搜索 </h1>
+<h1 align="center">AVL Tree</h1>
+<h1 align="center">AVL二叉树</h1>
 <br>
-问题：<br>
-&emsp;&emsp;对于\(3 \times 3\)的矩阵
-\[\begin{bmatrix}
-2 & 8 & 1 \\
-3 & 7 & x \\
-6 & 4 & 5
-\end{bmatrix}\]
-&emsp;&emsp;\(x\)点可以与上下左右的相邻点交换位置，除此之外不能随意改变位置，将该矩阵变成
-\[\begin{bmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & x
-\end{bmatrix}\]
-&emsp;&emsp;求最少变换次数以及变化经过，若将矩阵的初始状态看作起点\(beg\)，最终状态看作终点\(end\)，即搜索\(beg\)到\(end\)的最短路径。 <br>
-&emsp;&emsp;本问题的原型是“八数码问题”。 <br>
-<br>
-解法： <br>
-&emsp;&emsp;与之前问题不同，本问题将每种矩阵状态看作一个节点，是一种时间上的状态搜索。本文用A搜索来解决该问题，A*算法是一种启发式搜索，与DFS和BFS这种无差别搜索不同，A*算法设置一个评价函数\(f(x)\)来计算节点\(x\)的搜索代价（到目标的距离），优先搜索那些离目标最近的点，从而提高搜索效率。 <br>
-&emsp;&emsp;A算法的评价函数\(f(x) = g(x) + h(x)\)，其中\(x\)是节点，\(f(x)\)表示\(x\)点到\(end\)的评价距离，\(g(x)\)表示从\(beg\)节点到\(x\)节点的实际最短距离，\(h(x)\)表示从\(x\)点到\(end\)节点的估算距离。在A*算法的等待队列中，总是优先选取\(f(x)\)最小的点进行搜索。 <br>
-&emsp;&emsp;在本问题中矩阵节点\(x\)的估算距离为\(x\)与\(end\)在对应位置\([i,j]\)（其中\(i,j \epsilon [1,3]\)）上不同数字的数量之和： <br>
-\[\begin{equation}
-h(x) = \sum_{i=1}^3 \sum_{j=1}^3 k_{i,j}
-\end{equation} \quad \quad
-k_{i,j} =
-\begin{cases}
-1 & { x_{i,j} = end_{i,j} }, \\
-0 & { x_{i,j} \neq end_{i,j} }.
-\end{cases}
-\]
-&emsp;&emsp;对于下面的矩阵，\(h(a) = 6\)，\(h(b) = 7\)： <br>
-\[
-a
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & x
-\end{bmatrix}
-\quad
-b
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & x & 5 \\
-7 & 8 & 6
-\end{bmatrix}
-\quad
-c
-\begin{bmatrix}
-1 & x & 3 \\
-5 & 2 & 6 \\
-4 & 7 & 8
-\end{bmatrix}
-\]
-&emsp;&emsp;与之前的问题不同，本问题中的节点是一种矩阵状态。之前的解法中我们用染色的方式来标记节点是否被访问过，编码实现时可以用数组下标来标记节点\(i\)的颜色。而矩阵状态是无法作为数组下标的，不过我们可以用哈希表来记录矩阵状态\(x\)是否被访问过，以及从\(beg\)节点到达\(x\)的节点距离。矩阵可以通过下面这两种方式分别映射为字符串或数字（string和int都可以作为哈希表键值）： <br>
-\[
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & x & 5 \\
-7 & 8 & 6
-\end{bmatrix}
-\Rightarrow
-string('1234x5786')
-\quad
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & x & 5 \\
-7 & 8 & 6
-\end{bmatrix}
-\Rightarrow
-int(123495786)
-\]
-&emsp;&emsp;设置open表、close表和g分数表。g分数表是一个哈希表\(x \Rightarrow g(x)\)，用来存储每个节点的实际距离\(g(x)\)。open表是一个优先队列，与之前搜索算法中的队列功能相同，用于管理等待访问的节点，但是我们需要从open表中总是优先取出可能离\(end\)最近的节点，因此其优先级为评价距离\(f(x)\)。close表是一个节点\(x\)的集合，用于查询所有已经访问过的节点。 <br>
-&emsp;&emsp;初始时我们将\(beg\)节点插入open表和close表中，令\(g(beg) = 0\)。 <br>
-&emsp;&emsp;每一次搜索中，从open表中取出评价距离\(f\)最小的节点\(node\)，若\(node = end\)则算法结束；否则将\(node\)插入close表中（也可称为染色，染色的、属于close表中的节点都是不能再被访问的），该矩阵中的\('x'\)与上下左右四个数字交换位置，得到新的四个节点\(e_1\)、\(e_2\)、\(e_3\)、\(e_4\)，若他们不在close表中，将其插入open表和close表中。 <br>
-&emsp;&emsp;在维护open中节点的优先级时需要使用\(g(x)\)，因为\(f(x) = g(x) + h(x)\)。 <br>
-<p align="center"><img src="../res/AStarSearch1.png" /></p>
-&emsp;&emsp;当搜索到open表中没有节点可以访问时，则说明\(beg\)节点永远无法到达\(end\)节点，两个矩阵状态无法转换。更复杂一些的情况，在\(beg\)可以到达end的基础上，需要求出从\(beg\)到\(end\)的路径，这时我们可以把close表改为哈希表\(x \Rightarrow from(x)\)，用来存储节节点\(x\)及其父节点\(from\)，最后从\(end\)节点反向，通过查找close表就可以找到一条反向的路径。 <br>
-&emsp;&emsp;本问题中A搜索的时间复杂度为\(O(9^9)\)。 <br>
+描述： <br>
+&emsp;&emsp;AVL树是最早发明的一种自平衡二叉查找树，树中的任何节点的左右两个子树的高度最大差别为\(1\)，因此也称为高度平衡树。AVL树的查找、插入、删除操作的平均时间复杂度都是\(O(log_2⁡n)\)，AVL树高度为\(O(log_2⁡n)\)。 <br>
+&emsp;&emsp;为了保持树的左右子树的平衡，避免一侧过长或过短，AVL树会对LL（左左）、RR（右右）、LR（左右）、RL（右左）四种情况进行调整： <br>
+<p align="center"><img src="../res/AVLTree1.png" /></p>
+<p align="center"><img src="../res/AVLTree2.png" /></p>
+<p align="center"><img src="../res/AVLTree3.png" /></p>
+<p align="center"><img src="../res/AVLTree4.png" /></p>
+&emsp;&emsp;上面四种情况包含了所有从不平衡转化为平衡的步骤，其中单向右旋平衡处理LL，单向左旋平衡处理RR，双向旋转（先左后右）平衡处理LR，双向旋转（先右后左）平衡处理RL。 <br>
+&emsp;&emsp;这四种操作既能够平衡左右子树的高度，还能够保持树的有序性。即平衡后的树的左子树中所有节点仍然小于（或大于）树的根节点，而右子树中所有节点仍然大于（或小于）树的根节点。 <br>
+&emsp;&emsp;AVL树的每个节点都有一个高度值\(depth\)，树的平衡因子为\(balanceFactor = leftTree.depth - rightTree.depth\)，即左右子树的深度之差。当一个节点的\(| balanceFactor | \le 1\)时该子树平衡；当\(| balanceFactor | \le 2\)时该子树不平衡。 <br>
+&emsp;&emsp;将空节点的高度值视作\(- 1\)，一个节点的高度值为\(depth_{node} = max⁡(depth_{node.leftChild},depth_{node.rightChild}) + 1\)。上面LL、RR、LR和RL四种操作，都会将其节点\(1\)的高度值减\(2\)，其余节点的高度值都不变。 <br>
+&emsp;&emsp;对于下面这个AVL树，每个节点中上面的数字是节点下标号，下面的数字是该节点的高度值\(depth\)。将节点\(18\)插入下面的AVL树： <br>
+<p align="center"><img src="../res/AVLTree5.png" /></p>
+&emsp;&emsp;\((1)\)从根节点开始，将节点\(18\)与节点\(10\)比较，有\(18 \lt 10\)，因此把节点\(18\)插入节点\(10\)的右子树； <br>
+&emsp;&emsp;\((2)\)将节点\(18\)与节点\(15\)比较，有\(18 \gt 15\)，因此把节点\(18\)插入节点\(15\)的右子树； <br>
+&emsp;&emsp;\((3)\)将节点\(18\)与节点\(19\)比较，有\(18 \lt 19\)，因此把节点\(18\)插入节点\(19\)的左子树； <br>
+&emsp;&emsp;\((4)\)将节点\(18\)与节点\(16\)比较，有\(18 \gt 16\)，因此把节点\(18\)插入节点\(16\)的右子树； <br>
+&emsp;&emsp;\((5)\)将节点\(18\)与节点\(17\)比较，有\(18 \gt 17\)，因此把节点\(18\)插入节点\(17\)的右子树，节点\(17\)的右孩子节点为空，因此节点\(18\)成为节点\(17\)的右孩子节点； <br>
+&emsp;&emsp;然后从节点\(18\)开始，向上依次更新所有节点的高度值，若新的高度值不满足AVL树的平衡性，则进行旋转操作： <br>
+&emsp;&emsp;\((6)\)节点\(18\)为叶子节点，因此高度值为\(0\)； <br>
+<p align="center"><img src="../res/AVLTree6.png" /></p>
+&emsp;&emsp;\((7)\)节点\(17\)的平衡因子为\(balanceFactor_{17} = |depth_{nil} - depth_{18}| = |- 1 - 0| = 1\)，不需要旋转，高度值更新为\(depth_{17} = max⁡(depth_{17.leftChild},depth_{17.rightChild}) + 1 = max⁡(-1,0) + 1 = 1\)； <br>
+<p align="center"><img src="../res/AVLTree7.png" /></p>
+&emsp;&emsp;\((8)\)节点\(16\)的平衡因子为\(balanceFactor_{16} = |depth_{nil} - depth_{17} | = |- 1 - 1| = 2\)，高度值更新为\(depth_{16} = max⁡(depth_{16.leftChild},depth_{16.rightChild}) + 1 = max⁡(-1,1) + 1 = 2\)，由于节点\(16\)的平衡因子超过\(1\)，需要进行RR操作，旋转后节点\(16\)的高度值减\(2\)； <br>
+<p align="center"><img src="../res/AVLTree8.png" /></p>
+&emsp;&emsp;\((9)\)节点\(19\)的平衡因子为\(balanceFactor_{19} = |depth_{17} - depth_{20}| = |1 - 0| = 1\)，高度值更新为\(depth_{19} = max⁡(depth_{19.leftChild},depth_{19.rightChild}) + 1 = max⁡(1,0) + 1 = 2\)； <br>
+<p align="center"><img src="../res/AVLTree9.png" /></p>
+&emsp;&emsp;\((10)\)节点\(15\)的平衡因子为\(balanceFactor_{15} = |depth_{13} - depth_{19}| = |1 - 2| = 1\)，高度值更新为\(depth_{15} = max⁡(depth_{15.leftChild},depth_{15.rightChild}) + 1 = max⁡(1,2) + 1 = 3\)； <br>
+<p align="center"><img src="../res/AVLTree10.png" /></p>
+&emsp;&emsp;\((11)\)节点\(10\)的平衡因子为\(balanceFactor_{10} = |depth_{5} - depth_{15}| = |2 - 3| = 1\)，高度值更新为\(depth_{10} = max⁡(depth_{10.leftChild},depth_{10.rightChild}) + 1 = max⁡(2,3) + 1 = 4\)； <br>
+<p align="center"><img src="../res/AVLTree11.png" /></p>
 </div>
-
-<br>
-八数码问题： <br>
-* [http://www.d.umn.edu/~jrichar4/8puz.html](http://www.d.umn.edu/~jrichar4/8puz.html)
-* [https://www.cs.princeton.edu/courses/archive/fall12/cos226/assignments/8puzzle.html](https://www.cs.princeton.edu/courses/archive/fall12/cos226/assignments/8puzzle.html)
 
 
 --------
