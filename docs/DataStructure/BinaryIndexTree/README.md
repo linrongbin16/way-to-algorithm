@@ -13,92 +13,50 @@
 --------
 
 <div>
-<h1 align="center">Binary Index Tree</h1>
-<h1 align="center"> A搜索 </h1>
+<h1 align="center">Binary Index Tree(Fenwick Tree)</h1>
+<h1 align="center">树状数组</h1>
 <br>
-问题：<br>
-&emsp;&emsp;对于\(3 \times 3\)的矩阵
-\[\begin{bmatrix}
-2 & 8 & 1 \\
-3 & 7 & x \\
-6 & 4 & 5
-\end{bmatrix}\]
-&emsp;&emsp;\(x\)点可以与上下左右的相邻点交换位置，除此之外不能随意改变位置，将该矩阵变成
-\[\begin{bmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & x
-\end{bmatrix}\]
-&emsp;&emsp;求最少变换次数以及变化经过，若将矩阵的初始状态看作起点\(beg\)，最终状态看作终点\(end\)，即搜索\(beg\)到\(end\)的最短路径。 <br>
-&emsp;&emsp;本问题的原型是“八数码问题”。 <br>
-<br>
-解法： <br>
-&emsp;&emsp;与之前问题不同，本问题将每种矩阵状态看作一个节点，是一种时间上的状态搜索。本文用A搜索来解决该问题，A*算法是一种启发式搜索，与DFS和BFS这种无差别搜索不同，A*算法设置一个评价函数\(f(x)\)来计算节点\(x\)的搜索代价（到目标的距离），优先搜索那些离目标最近的点，从而提高搜索效率。 <br>
-&emsp;&emsp;A算法的评价函数\(f(x) = g(x) + h(x)\)，其中\(x\)是节点，\(f(x)\)表示\(x\)点到\(end\)的评价距离，\(g(x)\)表示从\(beg\)节点到\(x\)节点的实际最短距离，\(h(x)\)表示从\(x\)点到\(end\)节点的估算距离。在A*算法的等待队列中，总是优先选取\(f(x)\)最小的点进行搜索。 <br>
-&emsp;&emsp;在本问题中矩阵节点\(x\)的估算距离为\(x\)与\(end\)在对应位置\([i,j]\)（其中\(i,j \epsilon [1,3]\)）上不同数字的数量之和： <br>
-\[\begin{equation}
-h(x) = \sum_{i=1}^3 \sum_{j=1}^3 k_{i,j}
-\end{equation} \quad \quad
-k_{i,j} =
-\begin{cases}
-1 & { x_{i,j} = end_{i,j} }, \\
-0 & { x_{i,j} \neq end_{i,j} }.
-\end{cases}
-\]
-&emsp;&emsp;对于下面的矩阵，\(h(a) = 6\)，\(h(b) = 7\)： <br>
-\[
-a
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & x
-\end{bmatrix}
-\quad
-b
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & x & 5 \\
-7 & 8 & 6
-\end{bmatrix}
-\quad
-c
-\begin{bmatrix}
-1 & x & 3 \\
-5 & 2 & 6 \\
-4 & 7 & 8
-\end{bmatrix}
-\]
-&emsp;&emsp;与之前的问题不同，本问题中的节点是一种矩阵状态。之前的解法中我们用染色的方式来标记节点是否被访问过，编码实现时可以用数组下标来标记节点\(i\)的颜色。而矩阵状态是无法作为数组下标的，不过我们可以用哈希表来记录矩阵状态\(x\)是否被访问过，以及从\(beg\)节点到达\(x\)的节点距离。矩阵可以通过下面这两种方式分别映射为字符串或数字（string和int都可以作为哈希表键值）： <br>
-\[
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & x & 5 \\
-7 & 8 & 6
-\end{bmatrix}
-\Rightarrow
-string('1234x5786')
-\quad
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & x & 5 \\
-7 & 8 & 6
-\end{bmatrix}
-\Rightarrow
-int(123495786)
-\]
-&emsp;&emsp;设置open表、close表和g分数表。g分数表是一个哈希表\(x \Rightarrow g(x)\)，用来存储每个节点的实际距离\(g(x)\)。open表是一个优先队列，与之前搜索算法中的队列功能相同，用于管理等待访问的节点，但是我们需要从open表中总是优先取出可能离\(end\)最近的节点，因此其优先级为评价距离\(f(x)\)。close表是一个节点\(x\)的集合，用于查询所有已经访问过的节点。 <br>
-&emsp;&emsp;初始时我们将\(beg\)节点插入open表和close表中，令\(g(beg) = 0\)。 <br>
-&emsp;&emsp;每一次搜索中，从open表中取出评价距离\(f\)最小的节点\(node\)，若\(node = end\)则算法结束；否则将\(node\)插入close表中（也可称为染色，染色的、属于close表中的节点都是不能再被访问的），该矩阵中的\('x'\)与上下左右四个数字交换位置，得到新的四个节点\(e_1\)、\(e_2\)、\(e_3\)、\(e_4\)，若他们不在close表中，将其插入open表和close表中。 <br>
-&emsp;&emsp;在维护open中节点的优先级时需要使用\(g(x)\)，因为\(f(x) = g(x) + h(x)\)。 <br>
-<p align="center"><img src="../res/AStarSearch1.png" /></p>
-&emsp;&emsp;当搜索到open表中没有节点可以访问时，则说明\(beg\)节点永远无法到达\(end\)节点，两个矩阵状态无法转换。更复杂一些的情况，在\(beg\)可以到达end的基础上，需要求出从\(beg\)到\(end\)的路径，这时我们可以把close表改为哈希表\(x \Rightarrow from(x)\)，用来存储节节点\(x\)及其父节点\(from\)，最后从\(end\)节点反向，通过查找close表就可以找到一条反向的路径。 <br>
-&emsp;&emsp;本问题中A搜索的时间复杂度为\(O(9^9)\)。 <br>
+描述： <br>
+&emsp;&emsp;对于包含\(n\)个数字的数组\(s\)，修改其中若干成员\(s[i]\)（其中\(1 \le i \le n\)）后，求数组\(s\)在区间\([p,q]\)（其中\(1 \le p \le q \le n\)）上的所有成员之和。一般是在修改了成员之后，求和时遍历区间\([p,q]\)相加求该区间的和。修改成员\(s[i]\)（其中\(1 \le i \le n\)）的时间复杂度为\(O(1)\)，求\(s[p,q]\)区间的和的时间复杂度为\(O(n)\)。 <br>
+&emsp;&emsp;而树状数组可以更快的进行区间求和，将该问题转化为前缀和，即\(s[p,q] = s[1,q] - s[1,q]\)。类似所有整数都可以表示成\(2\)的幂和，也可以把一串序列表示成一系列子序列的和。其中，子序列的个数是其二进制表示中\(1\)的个数，并且子序列代表的\(s[i]\)的个数也是\(2\)的幂。 <br>
+\((1)\)LowBit函数 <br>
+&emsp;&emsp;函数\(LowBit\)用于计算一个数字的二进制形式下最低位的\(1\)代表的十进制的值。比如\(34_{10} = 10,0010_2\)最低位的\(1\)代表的十进制值为\(2_{10}\)，\(12_{10} = 1100_{2}\)最低位的\(1\)代表的十进制值为\(4_{10}\)，\(8_{10} = 1000_2\)最低位的\(1\)代表的十进制值为\(8_{10}\)，则有\(LowBit(34) = 2\)，\(LowBit(12) = 4\)，\(LowBit(8) = 8\)。 <br>
+&emsp;&emsp;在C/C++中由于补码的原因，\(LowBit\)函数实现如下： <br>
+<code style="display: block; white-space: pre-wrap;">
+int LowBit(int x) { return x & (x ^ (x-1)); } <br>
+</code>
+&emsp;&emsp;或者利用计算机补码的特性，写成： <br>
+<code style="display: block; white-space: pre-wrap;">
+int LowBit(int x) { return x & (-x); } <br>
+</code>
+&emsp;&emsp;内存中的数字按照补码存储（正整数的补码与原码相同，负整数的补码是原码取反加一，并且最高位\(bit\)设置为\(1\)）。比如： <br>
+&emsp;&emsp;\(34_{10} = 0010,0010_{2}\)，则\(- 34_{10} = 1101,1110_{2}\)； <br>
+&emsp;&emsp;\(12_{10} = 0000,1100_{2}\)，则\(- 12_{10} = 1111,0100_{2}\)； <br>
+&emsp;&emsp;\(8_{10} = 0000,1000_{2}\)，则\(- 8_{10} = 1111,1000_{2}\)。 <br>
+&emsp;&emsp;对于非负整数x，x与-x进行位与操作，即可得到x中最低位的1所代表的十进制的值。比如： <br>
+&emsp;&emsp;\(34_{10} & (- 34_{10}) = 0010,0010_{2} & 1101,1110_{2} = 10_{2} = 2_{10}\)； <br>
+&emsp;&emsp;\(12_{10} &(- 12_{10}) = 0000,1100_{2} & 1111,0100_{2} = 100_{2} = 4_{10}\)； <br>
+&emsp;&emsp;\(8_{10} &(- 8_{10}) = 0000,1000_{2} & 1111,1000_{2} = 1000_2 = 8_{10}\)。 <br>
+&emsp;&emsp;额外需要注意的是，CPU架构中大端模式（Big-Endian）和小端模式（Little-Endian）的区别并不会影响该计算。因为大端和小端影响的是数据在内存中存放的顺序，当数据被CPU加载到寄存器中时，所有的位操作都是在寄存器上进行的，不会影响位操作，因此位操作可以从纯数学计算的角度来看。 <br>
+\((2)\)维护\(s\)前缀和的数组\(bit\) <br>
+&emsp;&emsp;对于长度为\(n\)的数组\(s\)（该算法需要数组下标从\(1\)开始，因此数组\(s\)的范围为\([1,n]\)），数组\(bit\)中的元素\(bit[i] = \sum_{j = i-LowBit(i)+1}^{i}s[j]\)。比如： <br>
+&emsp;&emsp;\(bit[1] = \sum_{j = 1-1+1}^{1}s[j] = s[1]\)； <br>
+&emsp;&emsp;\(bit[2] = \sum_{j = 2-2+1}^{2}s[j] = s[1]+s[2]\)； <br>
+&emsp;&emsp;\(bit[3] = \sum_{j = 3-1+1}^{3}s[j] = s[3]\)； <br>
+&emsp;&emsp;\(bit[4] = \sum_{j = 4-4+1}^{4}s[j] = s[1]+s[2]+s[3]+s[4]\)； <br>
+&emsp;&emsp;\(bit[5] = \sum_{j = 5-1+1}^{5}s[j] = s[5]\)； <br>
+&emsp;&emsp;\(bit[6] = \sum_{j = 6-2+1}^{6}s[j] = s[5]+s[6]\)； <br>
+&emsp;&emsp;\(bit[7] = \sum_{j = 7-1+1}^{7}s[j] = s[7]\)； <br>
+&emsp;&emsp;\(bit[8] = \sum_{j = 8-8+1}^{8}s[j] = s[1]+s[2]+s[3]+s[4]+s[5]+s[6]+s[7]+s[8]\)； <br>
+&emsp;&emsp;\(bit[9] = \sum_{j = 9-9+1}^{9}s[j] = s[9]\)； <br>
+&emsp;&emsp;在数组\(bit\)的基础上，求数组\(s\)中\([0,p]\)的和，只需累加所有\(bit[i]\)，其中初始时\(i = p\)，每累加一次\(bit[i]\)，\(i\)值减去\(LowBit(i)\)，直到\(i \le 0\)。（这里我暂时也没找到更好的讲解方法，解释的不是很清晰） <br>
+&emsp;&emsp;对于长度为\(n\)的数组\(s\)，构造树状数组的时间复杂度为\(O(n \cdot log_2⁡n)\)，查询区域和的时间复杂度为\(O(log_2 n)\)，修改数组\(s\)中一个值的时间复杂度为\(O(log_2⁡n)\)，空间复杂度为\(O(n)\)。 <br>
 </div>
 
 <br>
-八数码问题： <br>
-* [http://www.d.umn.edu/~jrichar4/8puz.html](http://www.d.umn.edu/~jrichar4/8puz.html)
-* [https://www.cs.princeton.edu/courses/archive/fall12/cos226/assignments/8puzzle.html](https://www.cs.princeton.edu/courses/archive/fall12/cos226/assignments/8puzzle.html)
+树状数组（Fenwick tree）：
+* [https://en.wikipedia.org/wiki/Fenwick_tree](https://en.wikipedia.org/wiki/Fenwick_tree)
+* [http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.14.8917](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.14.8917)
 
 
 --------
