@@ -41,8 +41,8 @@ h(x) = \sum_{i=1}^3 \sum_{j=1}^3 k_{i,j}
 \end{equation} \quad \quad
 k_{i,j} =
 \begin{cases}
-1 & { x_{i,j} = end_{i,j} }, \\
-0 & { x_{i,j} \neq end_{i,j} }.
+1 & { x_{i,j} = end_{i,j} } \\
+0 & { x_{i,j} \neq end_{i,j} }
 \end{cases}
 \]
 &emsp;&emsp;对于下面的矩阵，\(h(a) = 6\)，\(h(b) = 7\)： <br>
