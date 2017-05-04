@@ -38,7 +38,7 @@ Chapter - 章节
     1. [DisjointSet - 并查集](DataStructure/DisjointSet/)
     2. [BinaryIndexTree - 树状数组](DataStructure/BinaryIndexTree/)
     3. [SegmentTree - 线段树](DataStructure/SegmentTree/)
-    4. [LeftistTree - 左偏树](DataStructure/LeftistTree/)
+    4. [LeftistTree(LeftistHeap) - 左偏树（左偏堆）](DataStructure/LeftistTree/)
     5. [PrefixTree - 前缀树](DataStructure/PrefixTree/)
     6. [SuffixTree - 后缀树](DataStructure/SuffixTree/)
     7. [AVLTree - AVL树](DataStructure/AVLTree/)
