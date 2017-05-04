@@ -3,7 +3,7 @@
 
 
 --------
-[Upper Folder - 上一级目录](../)
+[Upper Folder - 上一级目录](../../)
 
 [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/GroupKnapsack.hpp)
 
