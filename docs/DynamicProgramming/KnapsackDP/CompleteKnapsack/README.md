@@ -24,12 +24,12 @@
 \[
 f(i,j) =
 \begin{cases}
-0 & (初始化) \quad i \in [0,n],j \in [0,t] \\
-max(f(i-1,j),f(i-1,j-k \times w_i) + k \times v_i) & \quad i,j \gt 0且k \geq 0,j \geq k \times w_i)
+0 & (初始化)i \in [0,n],j \in [0,t] \\
+max(f(i-1,j),f(i-1,j-k \times w_i) + k \times v_i) & i,j \gt 0且k \geq 0,j \geq k \times w_i)
 \end{cases}
 \]
 &emsp;&emsp;\((1)\)将\(f(i,j)\)全部初始化为\(0\)； <br>
-&emsp;&emsp;\((2)\)对于第\(i\)件珠宝\(s_i\)，背包的剩余重量（还能装载的重量）为\(w\)，可以装进\(k\)个该珠宝（其中\(k \geq 0\)，且\(w \geq k \times w_i\)），那么背包的价值增大\(k \times v_i\)，剩余重量减小\(k \times w_i\)，即\(f(i,j) = f(i-1,j-k \times w_i) + k \times v_i\)；若不装入背包，则一切维持不变，即\(f(i,j) = f(i-1,j)\)。选择这两种情形中的最大值； <br>
+&emsp;&emsp;\((2)\)对于第\(i\)件珠宝\(s_i\)，背包的剩余重量（还能装载的重量）为\(W\)，可以装进\(k\)个该珠宝（其中\(k \geq 0\)，且\(W \geq k \times w_i\)），那么背包的价值增大\(k \times v_i\)，剩余重量减小\(k \times w_i\)，即\(f(i,j) = f(i-1,j-k \times w_i) + k \times v_i\)；若不装入背包，则一切维持不变，即\(f(i,j) = f(i-1,j)\)。选择这两种情形中的最大值； <br>
 &emsp;&emsp;\(f(n,t)\)即为\(n\)个珠宝中重量不超过\(t\)的最大价值。该算法的时间复杂度是\(O(n \times t^2)\)，因为状态转移方程中的参数\(k\)的规模与背包最大重量\(t\)线性相关。 <br>
 </div>
 
