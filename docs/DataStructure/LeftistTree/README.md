@@ -5,9 +5,9 @@
 --------
 [Upper Folder - 上一级目录](../)
 
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/DisjointSet.hpp)
+[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/LeftistTree.hpp)
 
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/DisjointSet.cpp)
+[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/LeftistTree.cpp)
 
 
 --------
