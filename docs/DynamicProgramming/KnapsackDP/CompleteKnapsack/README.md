@@ -25,7 +25,7 @@
 f(i,j) =
 \begin{cases}
 0 & (初始化)i \in [0,n],j \in [0,t] \\
-max(f(i-1,j),f(i-1,j-k \times w_i) + k \times v_i) & i,j \gt 0且k \geq 0,j \geq k \times w_i)
+max(f(i-1,j),f(i-1,j-k \times w_i) + k \times v_i) & i,j \gt 0且k \geq 0,j \geq k \times w_i
 \end{cases}
 \]
 &emsp;&emsp;\((1)\)将\(f(i,j)\)全部初始化为\(0\)； <br>
