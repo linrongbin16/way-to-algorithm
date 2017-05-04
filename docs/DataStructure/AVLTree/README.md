@@ -41,12 +41,13 @@
 <p align="center"><img src="../res/AVLTree7.png" /></p>
 &emsp;&emsp;\((8)\)节点\(16\)的平衡因子为\(balanceFactor_{16} = |depth_{nil} - depth_{17} | = |- 1 - 1| = 2\)，高度值更新为\(depth_{16} = max⁡(depth_{16.leftChild},depth_{16.rightChild}) + 1 = max⁡(-1,1) + 1 = 2\)，由于节点\(16\)的平衡因子超过\(1\)，需要进行RR操作，旋转后节点\(16\)的高度值减\(2\)； <br>
 <p align="center"><img src="../res/AVLTree8.png" /></p>
-&emsp;&emsp;\((9)\)节点\(19\)的平衡因子为\(balanceFactor_{19} = |depth_{17} - depth_{20}| = |1 - 0| = 1\)，高度值更新为\(depth_{19} = max⁡(depth_{19.leftChild},depth_{19.rightChild}) + 1 = max⁡(1,0) + 1 = 2\)； <br>
 <p align="center"><img src="../res/AVLTree9.png" /></p>
-&emsp;&emsp;\((10)\)节点\(15\)的平衡因子为\(balanceFactor_{15} = |depth_{13} - depth_{19}| = |1 - 2| = 1\)，高度值更新为\(depth_{15} = max⁡(depth_{15.leftChild},depth_{15.rightChild}) + 1 = max⁡(1,2) + 1 = 3\)； <br>
+&emsp;&emsp;\((9)\)节点\(19\)的平衡因子为\(balanceFactor_{19} = |depth_{17} - depth_{20}| = |1 - 0| = 1\)，高度值更新为\(depth_{19} = max⁡(depth_{19.leftChild},depth_{19.rightChild}) + 1 = max⁡(1,0) + 1 = 2\)； <br>
 <p align="center"><img src="../res/AVLTree10.png" /></p>
-&emsp;&emsp;\((11)\)节点\(10\)的平衡因子为\(balanceFactor_{10} = |depth_{5} - depth_{15}| = |2 - 3| = 1\)，高度值更新为\(depth_{10} = max⁡(depth_{10.leftChild},depth_{10.rightChild}) + 1 = max⁡(2,3) + 1 = 4\)； <br>
+&emsp;&emsp;\((10)\)节点\(15\)的平衡因子为\(balanceFactor_{15} = |depth_{13} - depth_{19}| = |1 - 2| = 1\)，高度值更新为\(depth_{15} = max⁡(depth_{15.leftChild},depth_{15.rightChild}) + 1 = max⁡(1,2) + 1 = 3\)； <br>
 <p align="center"><img src="../res/AVLTree11.png" /></p>
+&emsp;&emsp;\((11)\)节点\(10\)的平衡因子为\(balanceFactor_{10} = |depth_{5} - depth_{15}| = |2 - 3| = 1\)，高度值更新为\(depth_{10} = max⁡(depth_{10.leftChild},depth_{10.rightChild}) + 1 = max⁡(2,3) + 1 = 4\)； <br>
+<p align="center"><img src="../res/AVLTree12.png" /></p>
 </div>
 
 
