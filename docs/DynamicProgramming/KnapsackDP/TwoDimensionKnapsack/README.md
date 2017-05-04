@@ -27,7 +27,7 @@ f(i,j,k) =
 \begin{cases}
 0 & (初始化)i = 0 \\
 f(i-1,j,k) & i,j,k \gt 0 \\
-max{f(i-1,j,k),f(i-1,j-w1_i,k-w2_i)+v_i} & i,j,k \gt 0,j \geq w1_i,k \geq w2_i
+max{f(i-1,j,k),f(i-1,j-w1_i,k-w2_i)+v_i} & i,j,k \gt 0,j \geq w1_i且k \geq w2_i
 \end{cases}
 \]
 &emsp;&emsp;用数组中的下标\(0\)来存储初始的固定值，背包中没有放入任何珠宝时，\(f(0,j) = 0\)； <br>

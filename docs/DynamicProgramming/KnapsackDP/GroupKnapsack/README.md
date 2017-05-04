@@ -27,7 +27,7 @@ f(i,j) =
 \begin{cases}
 0 & (初始化)i = 0 \\
 f(i-1,j) & i,j \gt 0 \\
-max(f(i-1,j),f(i-1,j - w_k ) + v_k) & i,j \gt 0,k \in [1,group_i],j \geq w_k
+max(f(i-1,j),f(i-1,j - w_k ) + v_k) & i,j \gt 0且k \in [1,group_i],j \geq w_k
 \end{cases}
 \]
 &emsp;&emsp;\((1)\)用数组中的下标\(0\)来存储初始的固定值，背包中没有放入任何珠宝时，\(f(0,j) = 0\)； <br>
