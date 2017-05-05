@@ -1,4 +1,4 @@
-#include "BidirectionalSubsequence.hpp"
+#include "BidirectionalIncreasingDecreasingSubsequence.hpp"
 #include <cassert>
 // #include <iostream>
 using namespace std;
@@ -30,7 +30,7 @@ int main()
     int count = sizeof(test_cases) / sizeof(BISTest);
     for (int i = 0; i < count; i++) {
         BISTest & t = test_cases[i];
-        int r = BidirectionalSubsequence(t.a, t.n);
+        int r = BidirectionalIncreasingDecreasingSubsequence(t.a, t.n);
         // cout << i << "," << r << endl;
         assert(r == t.result);
     }

@@ -1,5 +1,5 @@
-#ifndef LONGEST_INCREASING_SUBSEQUENCE_EXTENSION
-#define LONGEST_INCREASING_SUBSEQUENCE_EXTENSION
+#ifndef BIDIRECTIONAL_INCREASING_DECREASING_SUBSEQUENCE_HPP
+#define BIDIRECTIONAL_INCREASING_DECREASING_SUBSEQUENCE_HPP
 
 #ifndef MAX
 #define MAX 1024
@@ -44,7 +44,7 @@ void LongestDecreasingSubsequence(const int s[MAX], int n)
     }
 }
 
-int BidirectionalSubsequence(const int s[MAX], int n)
+int BidirectionalIncreasingDecreasingSubsequence(const int s[MAX], int n)
 {
     LongestIncreasingSubsequence(s, n);
     LongestDecreasingSubsequence(s, n);
