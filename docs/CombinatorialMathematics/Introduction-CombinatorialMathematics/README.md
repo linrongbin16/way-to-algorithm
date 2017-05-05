@@ -51,8 +51,10 @@ n! =
 &emsp;&emsp;阶乘的递归定义为：
 \[
 n! =
+\begin{cases}
 1 & n = 0 \\
 (n-1)! \times n & \forall n \gt 0
+\end{cases}
 \]
 <br>
 组合： <br>
