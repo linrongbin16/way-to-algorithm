@@ -26,8 +26,8 @@
 \[
 f(i,j) =
 \begin{cases}
-0 & (初始化)i,j \in [0,2n],i = j
-+\infty & (初始化)i,j \in [0,2n],i \neq j
+0 & (初始化)i,j \in [0,2n],i = j \\
++\infty & (初始化)i,j \in [0,2n],i \neq j \\
 min \{f(i,k)+f(k+1,j)+sum(i,k)+sum(k+1,j) \} & i,j \in [0,2n],i \leq k \leq j
 \end{cases}
 \]
