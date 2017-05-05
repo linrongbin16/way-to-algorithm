@@ -27,14 +27,14 @@
 &emsp;&emsp;若集合\(X\)中的所有元素都是由两个数字组成的序列，即序偶\((a,b)\)。其中第一个元素\(a\)来自拥有\(p\)个元素的集合\(A\)，第二个元素\(b\)来自拥有\(q\)个元素的集合\(B\)。则集合\(X\)的元素数量为\(\mid X \mid = p \times q\)。 <br>
 <br>
 减法原理： <br>
-&emsp;&emsp;设集合\(Y\)包含集合\(X\)，集合\(X\)在\(Y\)中的补集为\(X^'\)，则\( \mid X \mid = \mid Y \mid - \mid X^' \mid \)。 <br>
+&emsp;&emsp;设集合\(Y\)包含集合\(X\)，集合\(X\)在\(Y\)中的补集为\(X'\)，则\( \mid X \mid = \mid Y \mid - \mid X' \mid \)。 <br>
 <br>
 除法原理： <br>
 &emsp;&emsp;集合\(X\)被划分为\(p\)个部分，每个部分的元素数量都为\(q\)，则\( \mid X \mid = p \times q\)。 <br>
 <br>
 阶乘： <br>
 \[
-n \neq
+n! =
 \begin{cases}
 1 & n = 0 \\
 1 \times 2 \times 3 \times \cdots \times n & \forall n \gt 0
@@ -42,7 +42,7 @@ n \neq
 \]
 &emsp;&emsp;也可以写作：
 \[
-n \neq
+n! =
 \begin{cases}
 1 & n = 0 \\
 \prod_{k = 1}^n k & \forall n \gt 0
@@ -50,7 +50,7 @@ n \neq
 \]
 &emsp;&emsp;阶乘的递归定义为：
 \[
-n \neq
+n! =
 1 & n = 0 \\
 (n-1)! \times n & \forall n \gt 0
 \]
@@ -59,7 +59,7 @@ n \neq
 &emsp;&emsp;在拥有\(n\)个不同元素（没有两两相同的元素）的集合\(A\)中，任意选出\(m\)个元素（\(m \leq n\)，\(m\)和\(n\)都是自然数，即正整数）组成另一个集合\(B\)，称\(B\)为\(A\)的一个子集。集合没有顺序的概念，对于集合\(A\)中的任意元素（\( \forall x \in A\)），都有\(x \in B\)，同时集合\(B\)中的任意元素（\( \forall y \in B\)），都有\(y \in A\)，则集合\(A\)和\(B\)是相同的。比如集合\(s_1 = {1,2,3}\)、\(s_2 = {3,2,1}\)是相同的两个集合。 <br>
 &emsp;&emsp;从\(n\)个元素的集合中任意取出\(m\)个元素能够组成的不同集合的数量为： <br>
 \[
-C_m^n = 
+C_m^n =
 \bigl(
 \begin{smallmatrix}
 n \\
