@@ -1,4 +1,4 @@
-#include "MaximumTreeMerge.hpp"
+#include "MaximumBinaryTreeMerge.hpp"
 #include <cassert>
 #include <iostream>
 using namespace std;
@@ -21,7 +21,7 @@ int main()
     int count = sizeof(test_cases) / sizeof(TMTest);
     for (int i = 0; i < count; i++) {
         TMTest & t = test_cases[i];
-        int r = MaximumTreeMerge(t.s, t.n);
+        int r = MaximumBinaryTreeMerge(t.s, t.n);
         cout << i << ": " << r << endl;
         assert(r == t.result);
     }

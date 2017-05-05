@@ -1,5 +1,5 @@
-#ifndef MAXIMUM_TREE_MERGE
-#define MAXIMUM_TREE_MERGE
+#ifndef MAXIMUM_BINARY_TREE_MERGE
+#define MAXIMUM_BINARY_TREE_MERGE
 
 #ifndef MAX
 #define MAX 1024
@@ -11,7 +11,7 @@ using namespace std;
 // f[i][j]表示节点[i,j]的树的最大合并价值
 int f[MAX][MAX];
 
-int MaximumTreeMerge(int s[MAX], int n)
+int MaximumBinaryTreeMerge(int s[MAX], int n)
 {
     //序列s的数量为n 范围是[1,n] 返回最小合并代价
     for (int i = 0; i < MAX; i++)

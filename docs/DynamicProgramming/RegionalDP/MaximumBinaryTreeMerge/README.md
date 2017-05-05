@@ -13,7 +13,7 @@
 --------
 
 <div>
-<h1 align="center">Maximum Tree Merge </h1>
+<h1 align="center">Maximum Binary Tree Merge </h1>
 <h1 align="center">最大二叉树合并 </h1>
 <br>
 问题： <br>
