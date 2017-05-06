@@ -10,7 +10,7 @@
 #### Chapter-5 - Graph Theory - 图论
 
 1. Traverse - 遍历
-    0. [KnowledgePoint - 知识要点](Traverse/PreorderTraverse/)
+    0. [KnowledgePoint - 知识要点](Traverse/KnowledgePoint/)
     1. [PreorderTraverse - 先序遍历](Traverse/PreorderTraverse/)
     2. [InorderTraverse - 中序遍历](Traverse/InorderTraverse/)
     3. [PostorderTraverse - 后序遍历](Traverse/PostorderTraverse/)

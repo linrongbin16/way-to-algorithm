@@ -8,7 +8,7 @@
 
 --------
 #### Chapter-7 - Combination Mathematics - 组合数学
-1. [Introduction-CombinatorialMathematics - 组合数学介绍](Introduction-CombinatorialMathematics/)
+1. [KnowledgePoint - 知识要点](KnowledgePoint/)
 2. [FullPermutation - 全排列](FullPermutation/)
 3. [Combination - 组合](Combination/)
 4. [Permutation - 排列](Permutation/)
