@@ -23,11 +23,11 @@
 解法： <br>
 &emsp;&emsp;设\(f(i,j)\)为背包中放入前\(i\)组物品，重量不大于\(j\)的最大价值，其中\(i \in [1,m]\)，\(j \in [0,t]\)。第\(i\)组中有\(group_{i}\)个珠宝，其中某珠宝\(k\)的价值是\(v_k\)，重量是\(w_k\)。则有如下状态转移方程： <br>
 \[
-f(i,j) = 
+f(i,j) =
 \begin{cases}
 0 & (初始化)i = 0 \\
 f(i-1,j) & i,j \gt 0 \\
-max(f(i-1,j),f(i-1,j - w_k ) + v_k) & i,j \gt 0且k \in [1,group_i],j \geq w_k
+max(f(i-1,j),f(i-1,j - w_k ) + v_k) & i,j \gt 0,k \in [1,group_i],j \geq w_k
 \end{cases}
 \]
 &emsp;&emsp;\((1)\)用数组中的下标\(0\)来存储初始的固定值，背包中没有放入任何珠宝时，\(f(0,j) = 0\)； <br>
