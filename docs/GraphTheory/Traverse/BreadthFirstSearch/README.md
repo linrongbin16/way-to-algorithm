@@ -5,26 +5,38 @@
 --------
 [Upper Folder - 上一级目录](../../)
 
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/PostorderTraverse.hpp)
+[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/BreadthFirstSearch.hpp)
 
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/PostorderTraverse.cpp)
+[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/BreadthFirstSearch.cpp)
 
 
 --------
 
 <div>
-<h1 align="center">Levelorder Traverse</h1>
-<h1 align="center">层序遍历</h1>
+<h1 align="center">Breadth First Search</h1>
+<h1 align="center">广度优先搜索</h1>
 <br>
 问题： <br>
-&emsp;&emsp;用层序遍历的方式来遍历二叉树。 <br>
+&emsp;&emsp;用广度优先搜索从图\(G\)的节点\(beg\)开始，遍历图\(G\)中的所有节点。 <br>
 <br>
 解法： <br>
-&emsp;&emsp;从二叉树根节点\(root\)开始，递归的对二叉树上的每个节点\(i\)，总是优先访问节点\(i\)以及与\(i\)处于同一高度的节点，然后再访问\(i\)以及与\(i\)处于同一高度的节点的孩子节点们。如图： <br>
-<p align="center"><img src="../res/LevelorderTraverse1.png" /></p>
-&emsp;&emsp;先序遍历、中序遍历和后序遍历都可以比较容易的用递归来实现，而层序遍历是无法用递归函数来实现的。我们可以借助队列来实现层序遍历。初始时将二叉树的根节点\(root\)放入队列中，之后每次从队列中取出一个节点进行访问，并将该节点的左右孩子节点放入队列，直到队列为空，算法结束。在这个过程中，队列对所有节点的访问顺序进行控制，在上图中，保证对于节点\(1\)，总是先访问它的孩子节点\(2\)和\(3\)，然后再访问\(2\)和\(3\)各自的孩子节点\(4, 5, 6, 7\)。<br>
-&emsp;&emsp;层序遍历的时间复杂度是\(O(n)\)。 <br>
+&emsp;&emsp;在图\(G\)中，假设节点\(i\)的邻节点集合为\(V_i\)，类似于二叉树的先序遍历，对于图中的任意节点\(i\)，总是优先访问节点\(i\)本身，然后访问该节点的邻节点集合\(V_i\)中的所有节点，访问结束之后，再继续递归的对所有邻节点重复该遍历操作，直到没有更多的节点可以搜索，算法结束。 <br>
+&emsp;&emsp;在整个遍历过程中，为了避免重复的访问一个节点，在访问了某个节点\(i\)之后，我们将它染成红色（实际编码中，可以设置一个数组\(visited\)，通过\(visited_i = true \mid false\)来标记某个节点\(i\)时候被访问过）。下面演示从无向图\(G\)中的节点\(0\)开始进行广度优先搜索过程： <br>
+<p align="center"><img src="../res/BreadthFirstSearch1.png" /></p>
+&emsp;&emsp;\((1)\)访问节点\(0\)本身，将它染成红色，继续遍历其邻节点\( \{1, 5\} \)； <br>
+<p align="center"><img src="../res/BreadthFirstSearch2.png" /></p>
+&emsp;&emsp;\((2)\)访问节点\(1\)本身，将它染成红色，继续遍历其邻节点\( \{0, 2, 3\} \)（由于节点\(0\)已经为红色，因此不再考虑该节点）； <br>
+<p align="center"><img src="../res/BreadthFirstSearch3.png" /></p>
+&emsp;&emsp;\((3)\)访问节点\(2\)本身，将它染成红色，继续遍历其邻节点\( \{1, 3, 5\} \)（由于节点\(1\)已经为红色，因此不再考虑该节点）； <br>
+<p align="center"><img src="../res/BreadthFirstSearch4.png" /></p>
+&emsp;&emsp;\((4)\)访问节点\(3\)本身，将它染成红色，继续遍历其邻节点\( \{2, 4\} \)（由于节点\(2\)已经为红色，因此不再考虑该节点）； <br>
+<p align="center"><img src="../res/BreadthFirstSearch5.png" /></p>
+&emsp;&emsp;\((5)\)之后的所有节点都已经被访问过，只要返回递归即可，算法结束； <br>
+&emsp;&emsp;广度优先搜索的时间复杂度是\(O(n)\)。 <br>
 </div>
+<br>
+广度优先搜索：
+* [https://en.wikipedia.org/wiki/Breadth-first_search](https://en.wikipedia.org/wiki/Breadth-first_search)
 
 
 --------
