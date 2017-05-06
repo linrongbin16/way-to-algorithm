@@ -66,7 +66,7 @@ Chapter - 章节
         2. [MultipleTreeDP - 多叉树动规](DynamicProgramming/TreeDP/MultipleTreeDP/)
         3. [MultipleTreeDPExtension - 多叉树动规扩展](DynamicProgramming/TreeDP/MultipleTreeDPExtension/)
         4. [LoopedMultipleTreeDP - 带环多叉树动规](DynamicProgramming/TreeDP/LoopedMultipleTreeDP/)
-        5. [TraverseTreeDP - 遍历多叉树动规](DynamicProgramming/TreeDP/TraverseTreeDP/)
+        5. [TraverseBinaryTreeDP - 遍历二叉树动规](DynamicProgramming/TreeDP/TraverseBinaryTreeDP/)
 
 5. [GraphTheory - 图论](GraphTheory/)
     1. [Traverse - 遍历](GraphTheory/Traverse/)

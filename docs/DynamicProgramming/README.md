@@ -30,7 +30,7 @@
     2. [MultipleTreeDP - 多叉树动规](TreeDP/MultipleTreeDP/)
     3. [MultipleTreeDPExtension - 多叉树动规问题扩展](TreeDP/MultipleTreeDPExtension/)
     4. [LoopedMultipleTreeDP - 带环多叉树动规](TreeDP/LoopedMultipleTreeDP/)
-    5. [TraverseTreeDP - 遍历多叉树动规](TreeDP/TraverseTreeDP/)
+    5. [TraverseBinaryTreeDP - 遍历二叉树动规](TreeDP/TraverseBinaryTreeDP/)
 
 
 --------

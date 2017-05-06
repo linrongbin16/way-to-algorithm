@@ -5,9 +5,9 @@
 --------
 [Upper Folder - 上一级目录](../../)
 
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/LongestIncreasingSubsequence.hpp)
+[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.hpp)
 
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/LongestIncreasingSubsequence.cpp)
+[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.cpp)
 
 
 --------

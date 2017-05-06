@@ -5,9 +5,9 @@
 --------
 [Upper Folder - 上一级目录](../../)
 
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/ZeroOneKnapsack.hpp)
+[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/KnapsackDP/ZeroOneKnapsack.hpp)
 
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/ZeroOneKnapsack.cpp)
+[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/KnapsackDP/ZeroOneKnapsack.cpp)
 
 
 --------
