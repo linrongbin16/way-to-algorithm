@@ -45,23 +45,23 @@ Chapter - 章节
     8. [RedBlackTree - 红黑树](DataStructure/RedBlackTree/)
 
 4. [DynamicProgramming - 动态规划](DynamicProgramming/)
-    0. [Introduction-DynamicProgramming - 动态规划介绍](DynamicProgramming/Introduction/)
-    1. [LinearDP - 线性动规](DynamicProgramming/LinearDP/)
+    0. [KnowledgePoint - 知识要点](DynamicProgramming/KnowledgePoint/)
+    1. LinearDP - 线性动规
         1. [LongestCommonSubsequence - 最长公共子序列](DynamicProgramming/LinearDP/LongestCommonSubsequence/)
         2. [LongestIncreasingSubsequence - 最长递增子序列](DynamicProgramming/LinearDP/LongestIncreasingSubsequece/)
         3. [LongestIncreasingSubsequenceExtension - 最长递增子序列扩展](DynamicProgramming/LinearDP/LongestIncreasingSubsequeceExtension/)
         4. [BidirectionalSubsequence - 双向子序列](DynamicProgramming/LinearDP/BidirectionalSubsequence/)
-    2. [KnapsackDP - 背包问题](DynamicProgramming/KnapsackDP/)
+    2. KnapsackDP - 背包问题
         1. [ZeroOneKnapsack - 01背包](DynamicProgramming/KnapsackDP/ZeroOneKnapsack/)
         2. [ZeroOneKnapsackExtension - 01背包扩展](DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension/)
         3. [CompleteKnapsack - 完全背包](DynamicProgramming/KnapsackDP/CompleteKnapsack/)
         4. [TwoDimensionKnapsack - 二维背包](DynamicProgramming/KnapsackDP/TwoDimensionKnapsack/)
         5. [GroupKnapsack - 分组背包](DynamicProgramming/KnapsackDP/GroupKnapsack/)
-    3. [RegionalDP - 区域动规](DynamicProgramming/RegionalDP/)
+    3. RegionalDP - 区域动规
         1. [MinimumMergeCost - 最小合并代价](DynamicProgramming/RegionalDP/MinimumMergeCost/)
         2. [MinimumMergeCostExtension - 最小合并代价扩展](DynamicProgramming/RegionalDP/MinimumMergeCostExtension/)
         3. [MaximumBinaryTreeMerge - 最大二叉树合并](DynamicProgramming/RegionalDP/MaximumBinaryTreeMerge/)
-    4. [TreeDP - 树形动规](DynamicProgramming/TreeDP/)
+    4. TreeDP - 树形动规
         1. [BinaryTreeDP - 二叉树动规](DynamicProgramming/TreeDP/BinaryTreeDP/)
         2. [MultipleTreeDP - 多叉树动规](DynamicProgramming/TreeDP/MultipleTreeDP/)
         3. [MultipleTreeDPExtension - 多叉树动规扩展](DynamicProgramming/TreeDP/MultipleTreeDPExtension/)
@@ -69,7 +69,7 @@ Chapter - 章节
         5. [TraverseBinaryTreeDP - 遍历二叉树动规](DynamicProgramming/TreeDP/TraverseBinaryTreeDP/)
 
 5. [GraphTheory - 图论](GraphTheory/)
-    1. [Traverse - 遍历](GraphTheory/Traverse/)
+    1. Traverse - 遍历
         1. [PreorderTraverse - 先序遍历](GraphTheory/Traverse/PreorderTraverse/)
         2. [InorderTraverse - 中序遍历](GraphTheory/Traverse/InorderTraverse/)
         3. [PostorderTraverse - 后序遍历](GraphTheory/Traverse/PostorderTraverse/)
@@ -81,26 +81,26 @@ Chapter - 章节
         9. [HamiltonLoop - 汉密尔顿回路](GraphTheory/Traverse/HamiltonLoop/)
         10. [Kosaraju - Kosaraju算法](GraphTheory/Traverse/Kosaraju/)
         11. [2-Satisfiability - 2-SAT问题](GraphTheory/Traverse/2-Satisfiability/)
-    2. [Tarjan - Tarjan算法](GraphTheory/Tarjan/)
+    2. Tarjan - Tarjan算法
         1. [StrongestConnectedComponent - 强联通分支](GraphTheory/Tarjan/StrongestConnectedComponent/)
         2. [Gabow - Gabow算法](GraphTheory/Tarjan/Gabow/)
         3. [Cut - 割](GraphTheory/Tarjan/Cut/)
         4. [DoubleConnectedComponent - 双联通分支](GraphTheory/Tarjan/DoubleConnectedComponent/)
         5. [LeastCommonAncestor - 最近公共祖先](GraphTheory/Tarjan/LeastCommonAncestor/)
         6. [RangeExtremumQuery - 区域最值查询](GraphTheory/Tarjan/RangeExtremumQuery/)
-    3. [MinimumSpanningTree - 最小生成树](GraphTheory/MinimumSpanningTree/)
+    3. MinimumSpanningTree - 最小生成树
         1. [Kruskal - Kruskal算法](GraphTheory/MinimumSpanningTree/Kruskal/)
         2. [Prim - Prim算法](GraphTheory/MinimumSpanningTree/Prim/)
         3. [SecondMinimumSpanningTree - 次小生成树](GraphTheory/MinimumSpanningTree/SecondMinimumSpanningTree/)
         4. [OptimalRatioSpanningTree - 最优比率生成树](GraphTheory/MinimumSpanningTree/OptimalRatioSpanningTree/)
-    4. [ShortestPath - 最短路径](GraphTheory/ShortestPath/)
+    4. ShortestPath - 最短路径
         1. [Relaxation - 松弛操作](GraphTheory/ShortestPath/Relaxation/)
         2. [BellmanFord - BellmanFord算法](GraphTheory/ShortestPath/BellmanFord/)
         3. [ShortestPathFasterAlgorithm - 最短路径更快算法（SPFA）](GraphTheory/ShortestPath/ShortestPathFasterAlgorithm/)
         4. [Dijkstra - Dijkstra算法](GraphTheory/ShortestPath/Dijkstra/)
         5. [Floyd - Floyd算法](GraphTheory/ShortestPath/Floyd/)
         6. [DifferentConstraints - 差分约束](GraphTheory/ShortestPath/DifferentConstraints/)
-    5. [FlowNetwork - 网络流](GraphTheory/FlowNetwork/)
+    5. FlowNetwork - 网络流
         1. [EdmondsKarp - EdmondsKarp算法](GraphTheory/FlowNetwork/EdmondsKarp/)
         2. [PushAndRelabel - 压入与重标记](GraphTheory/FlowNetwork/PushAndRelabel/)
         3. [Dinic - Dinic算法](GraphTheory/FlowNetwork/Dinic/)
@@ -115,7 +115,7 @@ Chapter - 章节
         12. [NoSourceNoSink_VolumeBounded_Flow - 无源点、无汇点、容量有上下界的流网络](GraphTheory/FlowNetwork/NoSourceNoSink_VolumeBounded_Flow/)
         13. [VolumeBounded_Maxflow - 容量有上下界的最大流](GraphTheory/FlowNetwork/VolumeBounded_Maxflow/)
         14. [VolumeBounded_Minflow - 容量有上下界的最小流](GraphTheory/FlowNetwork/VolumeBounded_Minflow/)
-    6. [BinaryMatch - 二分匹配](GraphTheory/BinaryMatch/)
+    6. BinaryMatch - 二分匹配
         1. [Hungarian - 匈牙利算法](GraphTheory/BinaryMatch/Hungarian/)
         2. [HopcroftKarp - Hopcroft-Karp算法](GraphTheory/BinaryMatch/HopcroftKarp/)
         3. [MatchToMaxflow - 二分匹配转化为最大流](GraphTheory/BinaryMatch/MatchToMaxflow/)
@@ -132,7 +132,7 @@ Chapter - 章节
     3. [Exponentiation - 幂运算](Calculation/Exponentiation/)
 
 7. [CombinatorialMathematics - 组合数学](CombinatorialMathematics/)
-    1. [Introduction-CombinatorialMathematics - 组合数学介绍](CombinatorialMathematics/Introduction-CombinatorialMathematics/)
+    1. [KnowledgePoint - 知识要点](CombinatorialMathematics/KnowledgePoint/)
     2. [FullPermutation - 全排列](CombinatorialMathematics/FullPermutation/)
     3. [Combination - 组合](CombinatorialMathematics/Combination/)
     4. [Permutation - 排列](CombinatorialMathematics/Permutation/)

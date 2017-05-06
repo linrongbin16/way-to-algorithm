@@ -9,8 +9,8 @@
 --------
 
 <div>
-<h1 align="center">Introduction – Combinatorial Mathematics</h1>
-<h1 align="center">组合数学介绍</h1>
+<h1 align="center">Knowledge Point</h1>
+<h1 align="center">知识要点</h1>
 <br>
 集合划分： <br>
 &emsp;&emsp;集合\(X\)的划分是\(X\)的非空子集的集合，使得每一个\(X\)的元素都只包含在这些子集的其中一个内。 <br>

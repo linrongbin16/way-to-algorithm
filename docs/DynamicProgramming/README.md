@@ -9,7 +9,7 @@
 --------
 #### Chapter-4 - Dynamic Programming - 动态规划
 
-0. [Introduction-DynamicProgramming - 动态规划介绍](Introduction-DynamicProgramming/)
+0. [KnowledgePoint - 知识要点](KnowledgePoint/)
 1. LinearDP - 线性动态规划
     1. [LongestCommonSubsequence - 最长公共子序列](LinearDP/LongestCommonSubsequence/)
     2. [LongestIncreasingSubsequence - 最长递增子序列](LinearDP/LongestIncreasingSubsequence/)

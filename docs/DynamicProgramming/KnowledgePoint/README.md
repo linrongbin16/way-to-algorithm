@@ -9,8 +9,8 @@
 --------
 
 <div>
-<h1 align="center">Introduction - Dynamic Programming</h1>
-<h1 align="center">动态规划介绍</h1>
+<h1 align="center">Knowledge Point</h1>
+<h1 align="center">知识要点</h1>
 <br>
 &emsp;&emsp;动态规划（Dynamic Programming，DP）是运筹学（线性规划、网络流等问题也属于运筹学）中的一个问题分支，用于求解最优解。 <br>
 &emsp;&emsp;DP模型基本上是一种递归方程，把问题的各阶段联系起来，保证每个阶段的最优可行解对于整个问题既是最优的也是可行的。一般来说递归方程的结构对于初学者并不“合乎逻辑”，“难以理解”，最好的做法是做一些适当的计算来理解方程的正确性。运筹学中将动态规划问题分为确定性动态规划和随机性动态规划。在我们的大学生计算机算法中，只考虑确定性动态规划问题。 <br>
