@@ -24,14 +24,14 @@
 &emsp;&emsp;在整个遍历过程中，为了避免重复的访问一个节点，在访问了某个节点\(i\)之后，我们将它染成红色（实际编码中，可以设置一个数组\(visited\)，通过\(visited_i = true \mid false\)来标记某个节点\(i\)时候被访问过）。下面演示从无向图\(G\)中的节点\(0\)开始进行广度优先搜索过程： <br>
 <p align="center"><img src="../res/BreadthFirstSearch1.png" /></p>
 &emsp;&emsp;\((1)\)访问节点\(0\)本身，将它染成红色，继续遍历其邻节点\( \{1, 5\} \)； <br>
-<p align="center"><img src="../res/BreadthFirstSearch2.png" /></p>
 &emsp;&emsp;\((2)\)访问节点\(1\)本身，将它染成红色，继续遍历其邻节点\( \{0, 2, 3\} \)（由于节点\(0\)已经为红色，因此不再考虑该节点）； <br>
-<p align="center"><img src="../res/BreadthFirstSearch3.png" /></p>
+<p align="center"><img src="../res/BreadthFirstSearch2.png" /></p>
 &emsp;&emsp;\((3)\)访问节点\(2\)本身，将它染成红色，继续遍历其邻节点\( \{1, 3, 5\} \)（由于节点\(1\)已经为红色，因此不再考虑该节点）； <br>
-<p align="center"><img src="../res/BreadthFirstSearch4.png" /></p>
+<p align="center"><img src="../res/BreadthFirstSearch3.png" /></p>
 &emsp;&emsp;\((4)\)访问节点\(3\)本身，将它染成红色，继续遍历其邻节点\( \{2, 4\} \)（由于节点\(2\)已经为红色，因此不再考虑该节点）； <br>
-<p align="center"><img src="../res/BreadthFirstSearch5.png" /></p>
+<p align="center"><img src="../res/BreadthFirstSearch4.png" /></p>
 &emsp;&emsp;\((5)\)之后的所有节点都已经被访问过，只要返回递归即可，算法结束； <br>
+<p align="center"><img src="../res/BreadthFirstSearch5.png" /></p>
 &emsp;&emsp;广度优先搜索的时间复杂度是\(O(n)\)。 <br>
 </div>
 <br>
