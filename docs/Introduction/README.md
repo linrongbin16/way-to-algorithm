@@ -13,18 +13,17 @@
 &emsp;&emsp;本书的每一章专门讲解一类算法问题，其中又划分多个小节，专门讲解其中的一个分支或变种。同一章节中各个小节之间会有明显的联系，基础的算法在前面，变种的、高级的算法在后面。每个算法都有讲解、源码和测试三个部分。在编写的过程中，我学习和参考了非常多的资料，有很多都忘记了，记得的我会列在参考资料中。<br>
 &emsp;&emsp;后来NEWPLAN同学参加到这本书籍的编写中，他添加了很多内容，我们也欢迎更多的同学来一起丰富这些资料，不过有的时候我会调整一下代码规范，这是为了方便阅读。<br>
 
-blog site：<br>
+Reading Address - 阅读地址：<br>
 <a href="https://zhaochenyou.github.io/Way-to-Algorithm/">Way-to-Algorithm 算法之路</a><br>
 
-star our repository：<br>
+Star Our Github Repository - 关注我们的Github项目：<br>
 <a href="https://github.com/zhaochenyou/Way-to-Algorithm/">Star Our Github Repository</a><br>
 
-commitors：<br>
+Commitors - 贡献者：<br>
 NEWPLAN@github.com<br>
 zhaochenyou@github.com<br>
 
 <br>
-
 <p align="right">
 西安交通大学计算机系<br>
 林荣彬<br>
