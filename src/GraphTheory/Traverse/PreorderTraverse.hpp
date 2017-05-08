@@ -1,5 +1,5 @@
-#ifndef PREORDER_TRAVERSE_BINARY_TREE_HPP
-#define PREORDER_TRAVERSE_BINARY_TREE_HPP
+#ifndef PREORDER_TRAVERSE_HPP
+#define PREORDER_TRAVERSE_HPP
 
 #include <iostream>
 #include <vector>
@@ -11,7 +11,7 @@ using namespace std;
 
 // tree[i]的左孩子节点为tree[i*2+1] 右孩子节点为tree[i*2+2]
 
-void PreorderTraverse(int index, int tree[MAX], int n, vector<int> & seq)
+void PreorderTraverseImpl(int index, int tree[MAX], int n, vector<int> & seq)
 {
     if (index > n) {
         return;
@@ -21,11 +21,11 @@ void PreorderTraverse(int index, int tree[MAX], int n, vector<int> & seq)
     PreorderTraverse(index * 2 + 2, tree, n, seq);
 }
 
-vector<int> PreorderTraverseBinaryTree(int tree[MAX], int n)
+vector<int> PreorderTraverse(int tree[MAX], int n)
 {
-    vector<int> traverse_seq;
-    PreorderTraverse(0, tree, n, traverse_seq);
-    return traverse_seq;
+    vector<int> seq;
+    PreorderTraverse(0, tree, n, seq);
+    return seq;
 }
 
 

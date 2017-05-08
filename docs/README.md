@@ -81,7 +81,7 @@ Chapter - 章节
         8. [EulerLoop - 欧拉回路](GraphTheory/Traverse/EulerLoop/)
         9. [HamiltonLoop - 汉密尔顿回路](GraphTheory/Traverse/HamiltonLoop/)
         10. [Kosaraju - Kosaraju算法](GraphTheory/Traverse/Kosaraju/)
-        11. [2-Satisfiability - 2-SAT问题](GraphTheory/Traverse/2-Satisfiability/)
+        11. [TwoSatisfiability - 2-SAT问题](GraphTheory/Traverse/TwoSatisfiability/)
     2. Tarjan - Tarjan算法
         1. [StrongestConnectedComponent - 强联通分支](GraphTheory/Tarjan/StrongestConnectedComponent/)
         2. [Gabow - Gabow算法](GraphTheory/Tarjan/Gabow/)

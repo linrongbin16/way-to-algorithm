@@ -21,7 +21,7 @@
     8. [EulerLoop - 欧拉回路](Traverse/EulerLoop/)
     9. [HamiltonLoop - 汉密尔顿回路](Traverse/HamiltonLoop/)
     10. [Kosaraju - Kosaraju算法](Traverse/Kosaraju/)
-    11. [2-Satisfiability - 2-SAT问题](Traverse/2-Satisfiability/)
+    11. [TwoSatisfiability - 2-SAT问题](Traverse/TwoSatisfiability/)
 2. Tarjan - Tarjan算法
     1. [StrongestConnectedComponent - 强联通分支](Tarjan/StrongestConnectedComponent/)
     2. [Gabow - Gabow算法](Tarjan/Gabow/)
