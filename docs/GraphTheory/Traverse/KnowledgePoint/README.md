@@ -13,7 +13,8 @@
 <h1 align="center">知识要点</h1>
 <br>
 图： <br>
-&emsp;&emsp;图\(G = \lt V,E \gt \)是由节点集合\(V\)和边集合\(E\)组成的数据结构，每条边\(e\)的两端是\(2\)个节点，每个节点\(v\)至少连接\(2\)条边。 <br>
+&emsp;&emsp;图\(G = \lt V,E \gt \)是由节点集合\(V\)和边集合\(E\)组成的数据结构。下图中的都是图： <br>
+<p align="center"><img src="../res/KnowledgePoint4.png" /></p>
 <br>
 无向边： <br>
 &emsp;&emsp;若无向边\(e\)的两端点是\(u\)和\(v\)，则可以从\(u\)出发到达\(v\)，也可以从\(v\)出发到达\(u\)。 <br>
