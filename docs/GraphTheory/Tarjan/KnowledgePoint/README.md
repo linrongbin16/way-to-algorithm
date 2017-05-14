@@ -12,25 +12,22 @@
 <h1 align="center">Knowledge Point</h1>
 <h1 align="center">知识要点</h1>
 <br>
-子图： <br>
+子图（Subgraph）： <br>
 &emsp;&emsp;一个所有顶点和边都属于图\(G\)的图，称为\(G\)的子图。 <br>
 <br>
-生成子图： <br>
-&emsp;&emsp;包含图\(G\)的所有顶点的子图称为\(G\)的生成子图。 <br>
-<br>
-连通： <br>
+连通（Connectivity）： <br>
 &emsp;&emsp;若图\(G = \lt V,E \gt \)中从顶点\(v_i\)到另一顶点\(v_j\)有路径相连，并且从\(v_j\)也可以移动到\(v_i\)，则称\(v_i\)和\(v_j\)是连通的（在无向图中，若\(v_i\)可以到达\(v_j\)，则显然\(v_j\)也可以到达\(v_i\)）。 <br>
 <br>
-连通图： <br>
+连通图（Connected Graph）： <br>
 &emsp;&emsp;若图\(G = \lt V,E \gt \)中从任意两个顶点\(v_i\)和\(v_j\)都是连通的，则称图\(G\)是连通图。 <br>
 <br>
-极大连通子图： <br>
+极大连通子图（Strong Components）： <br>
 &emsp;&emsp;若图\(G = \lt V,E \gt \)中从任意两个顶点\(v_i\)和\(v_j\)都是连通的，则称图\(G\)是连通图。 <br>
 &emsp;&emsp; <br>
-连通分量： <br>
+连通分量（Connected Component）： <br>
 &emsp;&emsp;无向图\(G\)的一个极大连通子图若无向边\(e\)的两端点是\(u\)和\(v\)，则可以从\(u\)出发到达\(v\)，也可以从\(v\)出发到达\(u\)。 <br>
 <br>
-有向边： <br>
+强连通分量（Strongly connected component）： <br>
 &emsp;&emsp;若有向边\(e\)从\(u\)指向\(v\)，则只能从\(u\)出发到达\(v\)，而不能反向。无向边也可以看作相同两个端点之间的两条反向有向边的叠加。 <br>
 <br>
 出度： <br>
