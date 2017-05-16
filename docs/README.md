@@ -79,7 +79,6 @@ Chapter - 章节
         6. [BreadthFirstSearch - 广度优先搜索](GraphTheory/Traverse/BreadthFirstSearch/)
         7. [TopologicalSort - 拓扑排序](GraphTheory/Traverse/TopologicalSort/)
         8. [EulerLoop - 欧拉回路](GraphTheory/Traverse/EulerLoop/)
-        9. [HamiltonLoop - 汉密尔顿回路](GraphTheory/Traverse/HamiltonLoop/)
     2. Connectivity - 连通
         0. [KnowledgePoint - 知识要点](GraphTheory/Connectivity/KnowledgePoint)
         1. [Tarjan - Tarjan算法](GraphTheory/Connectivity/Tarjan/)

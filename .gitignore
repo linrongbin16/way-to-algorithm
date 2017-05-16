@@ -21,3 +21,11 @@ Way-to-Algorithm
 *.pdf
 .idea
 *.idea
+*.cmake
+makefile
+*.filters
+*.vcxproj
+*.sln
+CMakeFiles
+*.stamp
+*.depend

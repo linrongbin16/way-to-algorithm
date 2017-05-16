@@ -13,8 +13,14 @@
 <h1 align="center">知识要点</h1>
 <br>
 图： <br>
-&emsp;&emsp;图\(G = \lt V,E \gt \)是由节点集合\(V\)和边集合\(E\)组成的数据结构。下图中的都是图： <br>
+&emsp;&emsp;图\(G = \lt V,E \gt \)是由顶点集合\(V\)和边集合\(E\)组成的数据结构。一个边为连接两个顶点的曲线，若两个顶点\(u\)和\(v\)为一条边的两个端点，则称\(u\)和\(v\)相邻。下图中演示了若干个图： <br>
 <p align="center"><img src="../res/KnowledgePoint4.png" /></p>
+<br>
+子图（Subgraph）： <br>
+&emsp;&emsp;一个所有顶点和边都属于图\(G\)的图，称为\(G\)的子图。 <br>
+<br>
+完全图（Complete Graph）： <br>
+&emsp;&emsp;所有顶点两两相邻的图称为完全图。 <br>
 <br>
 无向边： <br>
 &emsp;&emsp;若无向边\(e\)的两端点是\(u\)和\(v\)，则可以从\(u\)出发到达\(v\)，也可以从\(v\)出发到达\(u\)。 <br>
@@ -69,9 +75,21 @@ B =
 欧拉回路（Eulerian Cycle）： <br>
 &emsp;&emsp;若图\(G\)中存在欧拉路经，且该路径为一个回路，则称该路径为欧拉回路。有向图\(DG\)的任意顶点\(v_i\)满足\(degree_{in} = degree_{out}\)，出度等于入度，则该有向图\(DG\)中存在欧拉回路。无向图\(UG\)的任意顶点\(v_i\)满足读数为偶数，则该无向图\(DG\)中存在欧拉回路。 <br>
 <br>
+欧拉图（Eulerian Diagram）： <br>
+&emsp;&emsp;拥有欧拉回路的图\(G\)称为欧拉图。 <br>
+<br>
 汉密尔顿路径（Hamilton Path）： <br>
 &emsp;&emsp;图\(G\)中存在这样的一条路径，经过每个顶点一次且仅一次（同一条边可以经过多次），可以遍历图中的所有顶点，则这条路径称为汉密尔顿路径。 <br>
+<br>
+汉密尔顿回路（Hamilton Cycle）： <br>
+&emsp;&emsp;图\(G\)中存在汉密尔顿路径，且该路径为一个回路，则称该路径为汉密尔顿回路。 <br>
+<br>
+汉密尔顿图（Hamilton Diagram）： <br>
+&emsp;&emsp;拥有汉密尔顿回路的图\(G\)称为汉密尔顿图。完全图必然是汉密尔顿图。 <br>
 </div>
+<br>
+图论术语：
+* [https://zh.wikipedia.org/wiki/%E5%9B%BE%E8%AE%BA%E6%9C%AF%E8%AF%AD](https://zh.wikipedia.org/wiki/%E5%9B%BE%E8%AE%BA%E6%9C%AF%E8%AF%AD)
 
 
 --------

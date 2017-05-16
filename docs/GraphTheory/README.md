@@ -19,7 +19,6 @@
     6. [BreadthFirstSearch - 广度优先搜索](Traverse/BreadthFirstSearch/)
     7. [TopologicalSort - 拓扑排序](Traverse/TopologicalSort/)
     8. [EulerLoop - 欧拉回路](Traverse/EulerLoop/)
-    9. [HamiltonLoop - 汉密尔顿回路](Traverse/HamiltonLoop/)
 2. Connectivity - 连通
     0. [KnowledgePoint - 知识要点](Connectivity/KnowledgePoint)
     1. [Tarjan - Tarjan算法](Connectivity/Tarjan/)

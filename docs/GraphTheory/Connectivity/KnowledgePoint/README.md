@@ -12,9 +12,6 @@
 <h1 align="center">Knowledge Point</h1>
 <h1 align="center">知识要点</h1>
 <br>
-子图（Subgraph）： <br>
-&emsp;&emsp;一个所有顶点和边都属于图\(G\)的图，称为\(G\)的子图。 <br>
-<br>
 连通（Connectivity）： <br>
 &emsp;&emsp;若图\(G\)中从顶点\(v_i\)到另一顶点\(v_j\)有路径相连，并且从\(v_j\)也可以移动到\(v_i\)，则称\(v_i\)和\(v_j\)是连通的（在无向图中，若\(v_i\)可以到达\(v_j\)，则显然\(v_j\)也可以到达\(v_i\)）。 <br>
 <br>

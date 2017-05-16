@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.4)
+
+project(WayToAlgorithm CXX)
+
+add_executable(BidirectionalIncreasingDecreasingSubsequence.exe BidirectionalIncreasingDecreasingSubsequence.cpp)
+add_executable(LongestCommonSubsequence.exe LongestCommonSubsequence.cpp)
+add_executable(LongestIncreasingSubsequence.exe LongestIncreasingSubsequence.cpp)
+add_executable(LongestIncreasingSubsequenceExtension.exe LongestIncreasingSubsequenceExtension.cpp)
