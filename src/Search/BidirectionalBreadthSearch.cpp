@@ -2,14 +2,15 @@
 #include <assert.h>
 using namespace std;
 
-#define TEST_M_MAX MAX 1024
+#define TEST_M_MAX MAX
+#define TEST_N_MAX MAX
 
 int main()
 {
     for (int i = 1; i < TEST_M_MAX; i++)
         for (int j = 1; j < TEST_N_MAX; j++) {
-            pair<int, int> beg(0, 0);
-            pair<int, int> end(i - 1, j - 1);
+            pair<int, int> beg_node(0, 0);
+            pair<int, int> end_node(i - 1, j - 1);
             deque<pair<int, int> > path = BidirectionalBreadthSearch(i, j, beg, end);
             /* 保证路径长度为 j-1+i-1+1 */
             assert(path.size() == (i - 1 + j - 1 + 1));
