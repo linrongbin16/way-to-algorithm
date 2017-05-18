@@ -30,3 +30,5 @@ CMakeFiles
 *.stamp
 *.depend
 CMakeCache.txt
+cmake-build-debug
+*.pyc

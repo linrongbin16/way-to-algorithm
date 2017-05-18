@@ -1,4 +1,4 @@
-#include "EightFigurePuzzle.hpp"
+#include "AStarSearch.hpp"
 #include <assert.h>
 using namespace std;
 
