@@ -2,79 +2,69 @@
 #include <assert.h>
 using namespace std;
 
-bool IsAdjacentNode(PuNode a, PuNode b)
+struct Test {
+    string beg_;
+    string end_;
+} test_cases[] = {
+    { "1348x5726", "1238x4765" },
+    { "2317x8654", "1238x4765" },
+    { "2318x4765", "1238x4765" },
+};
+
+void AssertXCount(string a)
 {
-    int diff = 0;
-    int pos1, pos2;
-    for (int i = 0; i < 9; i++)
-        if (a.value[i] != b.value[i]) {
-            diff += 1;
-            if (diff == 1)
-                pos1 = i;
-            else
-                pos2 = i;
-        }
-    if (diff != 2)
-        return false;
-
-    if (a.value[pos1] != 'x' && a.value[pos2] != 'x')
-        return false;
-    if (b.value[pos1] != 'x' && b.value[pos2] != 'x')
-        return false;
-
-    return a.value[pos1] == b.value[pos2] && a.value[pos2] == b.value[pos1];
+    int xcount = 0;
+    assert(a.length() == 9);
+    for (int i = 0; i < a.length(); i++) {
+        if (a[i] == 'x')
+            xcount++;
+    }
+    assert(xcount == 1);
 }
 
-void UnitTest(PuNode beg, PuNode end)
+void AssertIsAdjacent(string a, string b)
 {
-    vector<PuNode> path = EightFigurePuzzle(beg, end);
-    assert(path.size() > 0);
-    assert(path[0] == beg);
-    assert(path[path.size() - 1] == end);
-    for (int i = 0; i < path.size() - 1; i++) {
-        assert(IsAdjacentNode(path[i], path[i + 1]));
+    static int dir[4] = { -3, 3, -1, 1 };
+    AssertXCount(a);
+    AssertXCount(b);
+
+    int xpos = -1;
+    for (int i = 0; i < 9; i++) {
+        if (a[i] == 'x') {
+            xpos = i;
+            break;
+        }
+    }
+    for (int i = 0; i < 4; i++) {
+        if (i + dir[i] < 0 || i + dir[i] >= 9) {
+            continue;
+        }
+        if (b[i + dir[i]] == 'x') {
+            return;
+        }
+    }
+    assert(false);
+}
+
+void AssertPath(vector<string> path)
+{
+    if (path.size() == 1)
+        return;
+    for (int i = 0; i < path.size()-1; i++) {
+        AssertIsAdjacent(path[i], path[i+1]);
     }
 }
 
 int main()
 {
-    PuNode beg, end;
-
-    /* case 1:
-    beg      end
-    1 3 4    1 2 3
-    8 x 5    8 x 4
-    7 2 6    7 6 5
-    */
-    memset(&beg, 0, sizeof(beg));
-    memset(&end, 0, sizeof(end));
-    memcpy(beg.value, "1348x5726", 9);
-    memcpy(end.value, "1238x4765", 9);
-    UnitTest(beg, end);
-
-    /* case 2:
-    beg      end
-    2 3 1    1 2 3
-    7 x 8    8 x 4
-    6 5 4    7 6 5
-    */
-    memset(&beg, 0, sizeof(beg));
-    memset(&end, 0, sizeof(end));
-    memcpy(beg.value, "2317x8654", 9);
-    memcpy(end.value, "1238x4765", 9);
-    UnitTest(beg, end);
-
-    /* case 3:
-    beg      end
-    2 3 1    1 2 3
-    8 x 4    8 x 4
-    7 6 5    7 6 5
-    */
-    memset(&beg, 0, sizeof(beg));
-    memset(&end, 0, sizeof(end));
-    memcpy(beg.value, "2318x4765", 9);
-    memcpy(end.value, "1238x4765", 9);
-    UnitTest(beg, end);
+    for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
+        Test & t = test_cases[i];
+        vector<string> path = AStarSearch(t.beg_, t.end_);
+        assert(path.size() > 0);
+        assert(path.front() == t.beg_);
+        assert(path.back() == t.beg_);
+        AssertPath(path);
+    }
 
     /* case 4:
     beg      end

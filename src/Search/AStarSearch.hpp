@@ -1,8 +1,6 @@
 #ifndef EIGHT_FIGURE_PUZZLE_HPP
 #define EIGHT_FIGURE_PUZZLE_HPP 1
 
-/* 八数码问题 */
-
 #include <algorithm>
 #include <deque>
 #include <vector>
@@ -10,37 +8,32 @@
 #include <cstring>
 #include <unordered_map>
 #include <unordered_set>
+#include <utility>
 using namespace std;
 #ifndef MAX
 #define MAX 1024
 #endif
 
 
-/*
-将矩阵
-0 1 2
-3 4 5
-6 7 8
-表示为char[9]数组
-*/
-
 int direction[4] = { -3, 3, -1, 1 };
+
 
 int ScoreH(string a, string end)
 {
     int diff = 0;
     for (int i = 0; i < 9; ++i)
-        if (a[i] != b[i])
+        if (a[i] != end[i])
             ++diff;
     return diff;
 }
+
 string OpenPop(deque<string> & open, string end_node, unordered_map<string, int> & score_g)
 {
     string res;
     int f = INT_MAX;
-    deque<string>::iterator i;
-    for (i = open.begin(); i != open.end(); i++) {
-        int h = ScoreH(open[i], end_node);
+    auto i = open.begin();
+    for (; i != open.end(); i++) {
+        int h = ScoreH(*i, end_node);
         if (f > h + score_g[ *i ]) {
             f = h + score_g[ *i ];
             res = *i;
@@ -49,9 +42,10 @@ string OpenPop(deque<string> & open, string end_node, unordered_map<string, int>
     open.erase(i);
     return res;
 }
+
 void OpenErase(deque<string> & open, string node)
 {
-    for (deque<string>::iterator i = open.begin(); i != open.end(); i++) {
+    for (auto i = open.begin(); i != open.end(); i++) {
         if (node == *i) {
             open.erase(i);
             break;
@@ -70,22 +64,21 @@ string Neighbor(string node, int dir)
     if (npos < 0 || npos >= 9)
         return "";
 
-    swap(node[xpos], node[npox]);
+    swap(node[xpos], node[npos]);
     return node;
 }
 
 void FindPath(vector<string> & path, unordered_map<string, string> & close, string end_node)
 {
     string node = end_node;
-    string from = close.end();
     path.push_back(node);
 
     while (true) {
-        from = close[node];
+        auto from = close.find(node);
         if (from == close.end())
             break;
-        path.push_back(from);
-        node = from;
+        path.push_back(from->second);
+        node = from->second;
     }
 }
 
@@ -93,7 +86,7 @@ vector<string> AStarSearch(string beg, string end)
 {
     unordered_map<string, int> score_g;
     deque<string> open;
-    unordered_set<string, string> close;
+    unordered_map<string, string> close;
     vector<string> path;
 
     open.push_back(beg);
@@ -101,7 +94,6 @@ vector<string> AStarSearch(string beg, string end)
 
     while (!open.empty()) {
         string node = OpenPop(open, end, score_g);
-
         if (node == end) {
             FindPath(path, close, end);
             return path;
