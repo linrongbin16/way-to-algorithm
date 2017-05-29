@@ -63,7 +63,7 @@ void BidirectionalPath(Position beg_father[MAX][MAX], Position end_father[MAX][M
 
 /**
  * BidirectionalBreadthSearch 双向广度搜索
- * @param m
+ * @param m     
  * @param n
  * @param beg
  * @param end

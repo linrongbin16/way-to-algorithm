@@ -9,6 +9,7 @@
 --------
 #### Chapter-2 - Search - 搜索
 
+0. [KnowledgePoint - 知识要点](KnowledgePoint/)
 1. [BinarySearch - 二分查找法（折半查找法）](BinarySearch/)
 2. [BruteForce - 暴力枚举](BruteForce/)
 3. [Recursion - 递归](Recursion/)
