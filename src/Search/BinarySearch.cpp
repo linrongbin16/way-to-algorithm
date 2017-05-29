@@ -1,7 +1,7 @@
 #include "BinarySearch.hpp"
 #include <iostream>
 #include <string>
-#include <assert.h>
+#include <cassert>
 using namespace std;
 
 
@@ -16,18 +16,16 @@ auto main() -> int
             s[j] = j;
         for (int j = -TEST_MAX; j < 0; ++j) {
             auto r = BinarySearch(s, 0, i, j);
-            assert(get<0>(r));
-            assert(get<1>(r) == j);
+            assert(not get<0>(r));
         }
         for (int j = 0; j < i; ++j) {
             auto r = BinarySearch(s, 0, i, j);
             assert(get<0>(r));
             assert(get<1>(r) == j);
         }
-        for (int j = i; j < 2 * TEST_MAX; ++j) {
+        for (int j = i; j < TEST_MAX; ++j) {
             auto r = BinarySearch(s, 0, i, j);
-            assert(get<0>(r));
-            assert(get<1>(r) == j);
+            assert(not get<0>(r));
         }
     }
 

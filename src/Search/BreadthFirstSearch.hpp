@@ -13,6 +13,8 @@ struct Position {
     int row;
     int col;
 
+    Position() : row(0), col(0) {}
+    Position(int r, int c) : row(r), col(c) {}
     bool operator==( const Position & other) { return row == other.row and col == other.col; }
     bool operator!=( const Position & other) { return not (*this == other); }
 };
@@ -22,58 +24,61 @@ struct Position {
 const int direction_col[4] = { 0, 0, 1, -1 };
 const int direction_row[4] = { 1, -1, 0, 0 };
 
-int visit[MAX][MAX];
-Position father[MAX][MAX];
-
 /* 递归生成从beg到end的路径 */
-auto BFSPath(Position end, vector<Position> &path) -> void
+auto BFSPath(Position father[MAX][MAX], Position end, vector<Position> &path) -> void
 {
     if (father[end.row][end.col] != end) {
-        BFSPath(father[end.row][end.col], path);
+        BFSPath(father, father[end.row][end.col], path);
     }
     path.push_back(end);
 }
 
-auto BreadthFirstSearch(int m, int n, pair<int, int> beg, pair<int, int> end) -> vector<pair<int, int>>
+auto BreadthFirstSearch(int m, int n, Position beg, Position end) -> vector<Position>
 {
+    Position father[MAX][MAX];
+    int visit[MAX][MAX];
+
     memset(visit, 0, MAX * MAX * sizeof(int));
     for (int i = 0; i < MAX; i++)
         for (int j = 0; j < MAX; j++)
-            father[i][j] = pair<int, int>(i, j);
+            father[i][j] = Position(i, j);
 
-    deque<pair<int, int> > que;
+    deque<Position> que;
     que.push_back(beg);
     /* beg.first是row 范围是[0, m) */
     /* beg.second是col 范围是[0, n) */
-    visit[beg.first][beg.second] = 1;
+    visit[beg.row][beg.col] = 1;
 
     while (!que.empty()) {
-        pair<int, int> node = que.front();
+        Position node = que.front();
         que.pop_front();
         if (node == end) {
-            vector<pair<int, int> > path;
-            BFSPath(node, path);
+            vector<Position> path;
+            BFSPath(father, node, path);
             return path;
         }
 
         /* 上下左右4个方向 */
         for (int i = 0; i < 4; i++) {
-            int neighbor_row = node.first + direction_row[i];
-            int neighbor_col = node.second + direction_col[i];
-            /* 检查边界和是否访问过（即染红） */
-            if (neighbor_row >= 0 and neighbor_row < m and neighbor_col >= 0 and neighbor_col < n
-                and visit[neighbor_row][neighbor_col] == 0) {
+            int neighbor_row = node.row + direction_row[i];
+            int neighbor_col = node.col + direction_col[i];
+            /* 检查边界和是否访问过/染红 */
+            if (neighbor_row >= 0
+                and neighbor_row < m
+                and neighbor_col >= 0
+                and neighbor_col < n
+                and not visit[neighbor_row][neighbor_col]) {
                 /* 加入等待队列 */
-                que.push_back(pair<int, int>(neighbor_row, neighbor_col));
+                que.push_back(Position(neighbor_row, neighbor_col));
                 /* 染红 */
                 visit[neighbor_row][neighbor_col] = 1;
                 /* 记录父节点 */
-                father[neighbor_row][neighbor_col] = pair<int, int>(node.first, node.second);
+                father[neighbor_row][neighbor_col] = Position(node.row, node.col);
             }
         }
     }
 
-    return vector<pair<int, int> >();
+    return vector<Position>();
 }
 
 #endif
