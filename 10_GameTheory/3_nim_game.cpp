@@ -55,7 +55,7 @@ bool nim_game(int *a, int n, int& idx, int& get)
 		return(false);
 
 	for(int i = 0; i < n; ++ i)
-		if((k ^ a[i]) > 0 && (k ^ a[i]) < a[i]){
+		if((k ^ a[i]) > 0 and (k ^ a[i]) < a[i]){
 			//异或运算必须加括号以保证优先级
 			//异或值必须大于0，以保证取的物品数不为负数
 			//异或值必须小于a[i]，以保证取物品之后该堆物品数不会变成负数

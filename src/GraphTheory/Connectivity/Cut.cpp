@@ -80,8 +80,8 @@ void dfs_cut(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
 				//判断根节点的子树个数并累加标记到root_son上
 				++ root_son;
 			//判断割点
-			if((p == root && root_son >= 2) ||
-					(p != root && dfn[p] <= low[g.g_l[p][i].g_idx]))
+			if((p == root and root_son >= 2) or
+					(p != root and dfn[p] <= low[g.g_l[p][i].g_idx]))
 				//若节点p为根节点且节点p有至少2个子树
 				//或着若节点p不为根节点且满足dfn[p] <= dfn[i.g_idx]
 				g.g_l[p][0].g_value = 1;
@@ -90,7 +90,7 @@ void dfs_cut(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
 				//若满足dfn[p] < low[i.g_idx]则边(p, i.g_idx)是割边
 				cut_edge.push_back(make_pair(p, g.g_l[p][i].g_idx));
 		}
-		else if(g.g_l[p][i].g_idx != father && visited[g.g_l[p][i].g_idx] == 1)
+		else if(g.g_l[p][i].g_idx != father and visited[g.g_l[p][i].g_idx] == 1)
 			low[p] = min(low[p], dfn[g.g_l[p][i].g_idx]);
 	}
 	//visited值为2指代该节点已经确定

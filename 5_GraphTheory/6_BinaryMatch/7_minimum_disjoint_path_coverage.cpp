@@ -40,6 +40,6 @@ void construct_b(graph_matrix g, bipartite& b)
 	b.b_xn = b.b_yn = g.g_cnt;
 	for(int i = 0; i < g.g_cnt; ++ i)
 		for(int j = 0; j < g.g_cnt; ++ j)
-			if(i != j && g.g_m[i][j] != INF)
+			if(i != j and g.g_m[i][j] != INF)
 				b.b_g[i][j] = g.g_m[i][j];
 }

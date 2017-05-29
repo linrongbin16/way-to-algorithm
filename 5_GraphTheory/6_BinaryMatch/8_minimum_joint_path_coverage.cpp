@@ -29,7 +29,7 @@ int minimum_joint_path_covering(graph_matrix g)
 	floyd(f);
 	for(int i = 0; i < f.g_cnt; ++ i)
 		for(int j = 0; j < f.g_cnt; ++ j)
-			if(i != j && f.g_m[i][j] != INF)
+			if(i != j and f.g_m[i][j] != INF)
 				g.g_m[i][j] = 1;
 	return(minimum_disjoint_path_covering(g));
 }

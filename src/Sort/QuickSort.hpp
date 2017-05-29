@@ -22,10 +22,10 @@ auto Partion(int s[MAX], int low, int high) -> int
 {
     int p = s[low];
     while (low < high) {
-        while (low < high && s[high] >= p)
+        while (low < high and s[high] >= p)
             --high;
         s[low] = s[high];
-        while (low < high && s[low] <= p)
+        while (low < high and s[low] <= p)
             ++low;
         s[high] = s[low];
     }

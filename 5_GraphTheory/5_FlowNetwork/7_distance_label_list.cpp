@@ -105,7 +105,7 @@ int find_allow_edge(int u, edge_list residue, int *d,
 {
 	for(int i = current[u]; i != -1; i = residue.e_l[i].e_next){
 		int v = residue.e_l[i].e_end;
-		if(residue.e_l[i].e_value > 0 && d[u] == d[v] + 1){
+		if(residue.e_l[i].e_value > 0 and d[u] == d[v] + 1){
 			path[v] = u;
 			current[u] = i;
 			augment[v] = min(augment[u], (int)residue.e_l[i].e_value);
@@ -119,7 +119,7 @@ int relabel(int u, edge_list residue, int *d, int *head, int *current)
 	int min_dist(INF);
 	for(int i = head[u]; i != -1; i = residue.e_l[i].e_next){
 		int v = residue.e_l[i].e_end;
-		if(residue.e_l[i].e_value > 0 && d[v] + 1 < min_dist){
+		if(residue.e_l[i].e_value > 0 and d[v] + 1 < min_dist){
 			min_dist = d[v] + 1;
 			current[u] = i;
 		}

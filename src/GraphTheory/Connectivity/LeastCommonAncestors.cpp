@@ -63,13 +63,13 @@ void dfs_lca(graph_list g, int p, map<pair<int, int>, int>& query,
 	for(map<pair<int, int>, int>::iterator it = query.begin();
 			it != query.end(); ++ it){
 		//查询所有与节点p相关的节点对
-		if(p == it->first.first && visited[it->first.second]){
+		if(p == it->first.first and visited[it->first.second]){
 			//若有与节点p相关的查询，且另一个节点second已被访问
 			tree_node *fa = find_father(&tree[it->first.second]);
 			//则节点p与另一个节点second的最近公共祖先是second的并查集父节点
 			it->second = fa->t_idx;
 		}
-		if(p == it->first.second && visited[it->first.first]){
+		if(p == it->first.second and visited[it->first.first]){
 			tree_node *fa = find_father(&tree[it->first.first]);
 			it->second = fa->t_idx;
 		}

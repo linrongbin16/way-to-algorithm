@@ -73,7 +73,7 @@ bool sweeping(segment *l, int n)
 			//考虑左端点p和它之上的点above
 			if(pos != T.begin())
 				above = -- pos;
-			if(above != T.end() && 
+			if(above != T.end() and
 					segments_intersection(l[(above->second).n_idx], 
 						l[((++ pos)->second).n_idx]))
 				//若T中pos所在的线段上有线段，并且pos和above所在的两线段相交
@@ -81,9 +81,9 @@ bool sweeping(segment *l, int n)
 
 			//考虑左端点p和它之下的点below
 			pos = find_node(T, p);
-			if(pos != T.end() && pos != (-- T.end()))
+			if(pos != T.end() and pos != (-- T.end()))
 				below = ++ pos;
-			if(below != T.end() && 
+			if(below != T.end() and
 					segments_intersection(l[(below->second).n_idx], 
 						l[((-- pos)->second).n_idx]))
 				//若T中pos所在的线段下有线段，并且pos与below所在的两线段相交
@@ -102,10 +102,10 @@ bool sweeping(segment *l, int n)
 
 			pos = find_node(T, l[p.n_idx].s_lt);
 			//若p所在线段的左端点pos之下有线段below
-			if(pos != T.end() && pos != (-- T.end()))
+			if(pos != T.end() and pos != (-- T.end()))
 				below = ++ pos;
 
-			if((above != T.end() && below != T.end()) &&
+			if((above != T.end() and below != T.end()) and
 					segments_intersection(l[(above->second).n_idx], 
 						l[(below->second).n_idx]))
 				//若pos上下都有线段，且above与below两线段相交
@@ -136,7 +136,7 @@ multimap<double, node, less<double> >::iterator find_node(
 {//找出扫除线的节点p的迭代器
 	for(multimap<double, node, less<double> >::iterator it = t.begin();
 			it != t.end(); ++ it)
-		if(it->first == p.n_y && it->second == p)
+		if(it->first == p.n_y and it->second == p)
 			//迭代器的键值y坐标相等，所映射的点的xy坐标也相等
 			return(it);
 	return(t.end());

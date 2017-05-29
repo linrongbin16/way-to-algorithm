@@ -30,7 +30,7 @@ int hopcroft_karp(bipartite b, int *xmatch, int *ymatch)
 		memset(visited, 0, MAX * sizeof(int));
 		for(int i = 0; i < b.b_xn; ++ i)
 			//通过dfs使用增广轨得到新匹配
-			if(xmatch[i] == -1 && dfs_path(b, visited, i, xmatch, ymatch,
+			if(xmatch[i] == -1 and dfs_path(b, visited, i, xmatch, ymatch,
 						xdist, ydist, dist))
 				++ max_match;
 	}
@@ -54,7 +54,7 @@ bool bfs_path(bipartite b, int *visited, int *xmatch, int *ymatch,
 			break;
 
 		for(int i = 0; i < b.b_yn; ++ i)
-			if(b.b_g[p][i] && ydist[i] == -1){
+			if(b.b_g[p][i] and ydist[i] == -1){
 				ydist[i] = xdist[p] + 1;
 				if(ymatch[i] == -1)
 					dist = ydist[i];
@@ -70,13 +70,13 @@ int dfs_path(bipartite b, int *visited, int p, int *xmatch, int *ymatch,
 		int *xdist, int *ydist, int dist)
 {
 	for(int i = 0; i < b.b_yn; ++ i)
-		if(!visited[i] && b.b_g[p][i] && ydist[i] == xdist[p] + 1){
+		if(!visited[i] and b.b_g[p][i] and ydist[i] == xdist[p] + 1){
 			visited[i] = 1;
 			//bfs用于减少dfs中多余的重复遍历，跳过dist
-			if(ymatch[i] != -1 && ydist[i] == dist)
+			if(ymatch[i] != -1 and ydist[i] == dist)
 				continue;
 
-			if(ymatch[i] == -1 ||
+			if(ymatch[i] == -1 or
 					dfs_path(b, visited, ymatch[i], xmatch, ymatch,
 						xdist, ydist, dist)){
 				xmatch[p] = i;

@@ -49,7 +49,7 @@ bool spfa(graph_matrix g, int beg, int *distance, int *path)
 	while(!q.empty()){
 		int p = q.front(); q.pop_front();
 		for(int i = 0; i < g.g_cnt; ++ i)
-			if(p != i && distance[p] + g.g_m[p][i] < distance[i]){
+			if(p != i and distance[p] + g.g_m[p][i] < distance[i]){
 				//松弛操作
 				distance[i] = distance[p] + g.g_m[p][i];
 				path[i] = p;

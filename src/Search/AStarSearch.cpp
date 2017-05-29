@@ -36,7 +36,7 @@ void AssertIsAdjacent(string a, string b)
         }
     }
     for (int i = 0; i < 4; i++) {
-        if (i + dir[i] < 0 || i + dir[i] >= 9) {
+        if (i + dir[i] < 0 or i + dir[i] >= 9) {
             continue;
         }
         if (b[i + dir[i]] == 'x') {

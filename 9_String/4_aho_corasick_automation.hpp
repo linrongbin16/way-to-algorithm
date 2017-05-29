@@ -180,7 +180,7 @@ public:
         while(i < (int)t.length())
         {
             int index = t[i] - 'a';
-            while(p->a_ch[index] == NULL && p != &a_root)
+            while(p->a_ch[index] == NULL and p != &a_root)
                 //若字典树中该节点不存在
                 //则沿着fail指针递归 直到回到根节点
                 p = p->a_fail;
@@ -192,7 +192,7 @@ public:
                 //即该孩子节点与文本下标i处字符匹配
                 p = p->a_ch[index];
                 ac_node *tmp(p);
-                while(tmp != &a_root)
+                http://store.steampowered.com/app/252490/Rust/?snr=1_4_4__128              while(tmp != &a_root)
                 {
                     //通过指针tmp找出所有可能与文本下标i处匹配的字符串
                     //因为除了p的孩子节点index 还可能存在其他字符串此时也与i处匹配
@@ -200,7 +200,7 @@ public:
                     //在文档"AC自动机算法详解" 作者"极限定律"中
                     //第一个有问题的地方是:
                     //原文中该处的判断条件是:
-                    //while(tmp != root && tmp->a_cnt == 0)
+                    //while(tmp != root and tmp->a_cnt == 0)
                     //(原文与本文中的变量名不一样 但代码的含义没有曲解)
                     //但是经过测试这里tmp->a_cnt == 0的条件恰好应该是相反的
                     //即tmp->a_cnt != 0 也可写作tmp->a_cnt(该值为正时即true)

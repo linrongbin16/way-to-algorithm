@@ -43,7 +43,7 @@ int main()
 		int a[105][105];    //大数卡特兰数
 		int b[105];         //卡特兰数的长度
 		catalan(a,b);
-		while(scanf("%d",&n)&&n)
+		while(scanf("%d",&n)andn)
 		{
 			for(i=b[n]-1;i>=0;i--)
 				printf("%d",a[n][i]);

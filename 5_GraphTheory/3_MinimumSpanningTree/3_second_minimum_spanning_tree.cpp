@@ -85,8 +85,8 @@ void bfs_visit(edge_list e, int **max_edge, int n, int beg)
 		int p = q.front(); q.pop();
 		//找出p的未被遍历过的在生成树中的邻边
 		for(int i = 0; i < (int)e.e_l.size(); ++ i){
-			if(e.e_l[i].e_join && !visit_edge[i] &&
-					(e.e_l[i].e_beg == p || e.e_l[i].e_end == p)){
+			if(e.e_l[i].e_join and !visit_edge[i] and
+					(e.e_l[i].e_beg == p or e.e_l[i].e_end == p)){
 				//考虑当前p的邻边
 				//对于边e[i]，p可能是其起点e_beg，也可能是终点e_end
 				if(e.e_l[i].e_beg == p){

@@ -50,7 +50,7 @@ int c1[N],c2[N];
 void calculus_number_diverse(int argc,char** argv)
 {
     int n,i,j,k;
-    while(cin>>n&&n)
+    while(cin>>nandn)
     {
         if(n==0) break;
         for(i=0; i<=n; i++) /*需要交换数字作为辅助*/

@@ -99,10 +99,10 @@ int dfs_path1(bipartite b, int *visited, int p, int *xmatch, int *ymatch)
 {//从p节点进入递归时visited是初始状态 之后的递归visited记录访问状态
 	for(int i = 0; i < b.b_yn; ++i)
 		//考虑X中节点p在Y集合中的所有可能的邻节点i
-		if(!visited[i] && b.b_g[p][i]){
+		if(!visited[i] and b.b_g[p][i]){
 			//若Y集合中的节点i是X集合中节点p的邻节点 且节点i未被访问
 			visited[i] = 1;
-			if(ymatch[i] == -1 ||
+			if(ymatch[i] == -1 or
 					dfs_path1(b, visited, ymatch[i], xmatch, ymatch)){
 				//若Y中的节点i未匹配 则直接匹配该节点 若i已匹配 则进行如下判断
 				//从该节点i的匹配节点ymatch[i]开始进行下一轮递归的dfs
@@ -166,9 +166,9 @@ int hungarian1(bipartite b, int *xmatch, int *ymatch)
 int dfs_path2(bipartite b, int *visited, int p, int *ymatch)
 {
 	for (int i = 0; i < b.b_yn; ++i)
-		if (!visited[i] && b.b_g[p][i]) {
+		if (!visited[i] and b.b_g[p][i]) {
 			visited[i] = 1;
-			if (ymatch[i] == -1 ||
+			if (ymatch[i] == -1 or
 					dfs_path2(b, visited, ymatch[i], ymatch)) {
 				//没有xmatch数组只设置ymatch即可
 				ymatch[i] = p;

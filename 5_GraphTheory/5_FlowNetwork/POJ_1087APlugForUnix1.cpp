@@ -119,7 +119,7 @@ int distance_label()
 int find_allow(int u)
 {
 	for(int i = 0; i < name_cnt; ++ i)
-		if(g[u][i] > 0 && d[u] == d[i] + 1)
+		if(g[u][i] > 0 and d[u] == d[i] + 1)
 			return(i);
 	return(-1);
 }
@@ -144,7 +144,7 @@ void bfs()
 	while(!q.empty()){
 		int p = q.front(); q.pop();
 		for(int i = 0; i < name_cnt; ++ i)
-			if(d[i] >= name_cnt && g[i][p] > 0){
+			if(d[i] >= name_cnt and g[i][p] > 0){
 				d[i] = d[p] + 1;
 				q.push(i);
 				++ d_num[d[i]];

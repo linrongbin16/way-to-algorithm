@@ -46,7 +46,7 @@ void sieve3(int n, int *prime)
 	for(int i = 2; i < n; ++ i){
 		if(!not_prime[i])
 			prime[cnt ++] = i;
-		for(int j = 0; j < cnt && i * prime[j] < n; ++ j){
+		for(int j = 0; j < cnt and i * prime[j] < n; ++ j){
 			not_prime[i * prime[j]] = 1;
 			if(!(i % prime[j]))
 				break;

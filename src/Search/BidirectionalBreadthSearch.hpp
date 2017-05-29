@@ -28,11 +28,11 @@ struct BiNode
     }
     bool operator==(const BiNode &node_) const
     {
-        return row == node_.row && col == node_.col;
+        return row == node_.row and col == node_.col;
     }
     bool operator!=(const BiNode &node_) const
     {
-        return row != node_.row || col != node_.col;
+        return row != node_.row or col != node_.col;
     }
 };
 
@@ -94,8 +94,8 @@ deque<pair<int, int> > BidirectionalBreadthSearch(int m, int n, pair<int, int> b
         for (int i = 0; i < 4; i++) {
             int neighbor_row = beg_node.first + direction_row[i];
             int neighbor_col = beg_node.second + direction_col[i];
-            if (neighbor_row >= 0 && neighbor_row < m && neighbor_col >= 0 && neighbor_col < n
-                && beg_visit[neighbor_row][neighbor_col] == 0) {
+            if (neighbor_row >= 0 and neighbor_row < m and neighbor_col >= 0 and neighbor_col < n
+                and beg_visit[neighbor_row][neighbor_col] == 0) {
                 beg_que.push_back(pair<int, int>(neighbor_row, neighbor_col));
                 beg_visit[neighbor_row][neighbor_col] = 1;
                 beg_father[neighbor_row][neighbor_col] = pair<int, int>(beg_node.first, beg_node.second);
@@ -113,8 +113,8 @@ deque<pair<int, int> > BidirectionalBreadthSearch(int m, int n, pair<int, int> b
         for (int i = 0; i < 4; i++) {
             int neighbor_row = end_node.first + direction_row[i];
             int neighbor_col = end_node.second + direction_col[i];
-            if (neighbor_row >= 0 && neighbor_row < m && neighbor_col >= 0 && neighbor_col < n
-                && end_visit[neighbor_row][neighbor_col] == 0) {
+            if (neighbor_row >= 0 and neighbor_row < m and neighbor_col >= 0 and neighbor_col < n
+                and end_visit[neighbor_row][neighbor_col] == 0) {
                 end_que.push_back(pair<int, int>(neighbor_row, neighbor_col));
                 end_visit[neighbor_row][neighbor_col] = 1;
                 end_father[neighbor_row][neighbor_col] = pair<int, int>(end_node.first, end_node.second);

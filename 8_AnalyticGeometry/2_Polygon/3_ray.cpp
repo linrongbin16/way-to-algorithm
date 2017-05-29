@@ -81,7 +81,7 @@ int ray(node *s, int n, node p)
 		if(i == n - 1)
 			l.s_rt = s[0];
 		
-		if(node2segment_distance(l, p) == 0 && on_segment(l, p))
+		if(node2segment_distance(l, p) == 0 and on_segment(l, p))
 			//计算点p到该边所在直线的距离，若为0则点p在该边所在直线上
 			//再判断点p是否在该边的区域内，若在则点p在该边上
 			return(1);
@@ -105,7 +105,7 @@ bool faraway(node *s, int n, node p)
 		y_min = min(y_min, s[i].n_y);
 		y_max = max(y_max, s[i].n_y);
 	}
-	if(p.n_x < x_min || p.n_x > x_max || p.n_y < y_min || p.n_y > y_max)
+	if(p.n_x < x_min or p.n_x > x_max or p.n_y < y_min or p.n_y > y_max)
 		return(true);
 	else
 		return(false);

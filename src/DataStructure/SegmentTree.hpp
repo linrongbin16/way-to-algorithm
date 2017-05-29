@@ -7,20 +7,20 @@
 #define MAX 64
 #endif
 
-/* ÓÃÊý×éÀ´´úÌæ¶þ²æÊ÷µÄÊý¾Ý½á¹¹ */
-/* ½ÚµãÏÂ±êÎªxµÄ½Úµã Æä×óÓÒº¢×Ó½ÚµãµÄÏÂ±êÎª LEFT_CHILD(x) RIGHT_CHILD(x) ¸¸½ÚµãµÄÏÂ±êÎª FATHER(x) */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½á¹¹ */
+/* ï¿½Úµï¿½ï¿½Â±ï¿½Îªxï¿½Ä½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Òºï¿½ï¿½Ó½Úµï¿½ï¿½ï¿½Â±ï¿½Îª LEFT_CHILD(x) RIGHT_CHILD(x) ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½Â±ï¿½Îª FATHER(x) */
 #define LEFT_CHILD(x) (2 * (x) + 1)
 #define RIGHT_CHILD(x) (2 * (x) + 2)
 #define FATHER(x) (((x) - 1) / 2)
 
 struct SegmentTree {
-    /* ½Úµãi´ú±íµÄÇøÓò·¶Î§Îª[left_node[i], right_node[i]] ¸ÃÇøÓòµÄºÍÎªsum[i] */
+    /* ï¿½Úµï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§Îª[left_node[i], right_node[i]] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äºï¿½Îªsum[i] */
     int left_node[MAX * 3];
     int right_node[MAX * 3];
     int sum[MAX * 3];
 };
 
-/* ½«Êý×és[start, end]³õÊ¼»¯Îª¶þ²æÊ÷ ¸ù½ÚµãrootÎª0 */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s[start, end]ï¿½ï¿½Ê¼ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½rootÎª0 */
 static int SegmentTreeInitRec(SegmentTree *t, int root, int s[MAX], int start, int end)
 {
     if (start == end) {
@@ -55,10 +55,10 @@ void SegmentTreeFree(SegmentTree *t)
 }
 
 
-/* Êý×és[index]¼Óv */
+/* ï¿½ï¿½ï¿½ï¿½s[index]ï¿½ï¿½v */
 static void SegmentTreeAddRec(SegmentTree *t, int root, int index, int v)
 {
-    if (t->left_node[root] > index || t->right_node[root] < index) {
+    if (t->left_node[root] > index or t->right_node[root] < index) {
         return;
     }
 
@@ -78,11 +78,11 @@ void SegmentTreeAdd(SegmentTree *t, int index, int value)
     SegmentTreeAddRec(t, 0, index, value);
 }
 
-/* ²éÑ¯Êý×és[start, end]·¶Î§µÄºÍ */
+/* ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½s[start, end]ï¿½ï¿½Î§ï¿½Äºï¿½ */
 int SegmentTreeQueryRec(SegmentTree *t, int root, int start, int end)
 {
     int mid = (t->left_node[root] + t->right_node[root]) / 2;
-    if (t->left_node[root] >= start && t->right_node[root] <= end) {
+    if (t->left_node[root] >= start and t->right_node[root] <= end) {
         return t->sum[root];
     } else if (end <= mid) {
         return SegmentTreeQueryRec(t, LEFT_CHILD(root), start, end );

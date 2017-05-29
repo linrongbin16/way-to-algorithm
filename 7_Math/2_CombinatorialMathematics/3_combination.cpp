@@ -104,7 +104,7 @@ void combination3(int *s, int n, int m)
 bool next_combination(int *s, int n)
 {
 	for(int i = 0; i < n - 1; ++ i)
-		if(s[i] == 1 && s[i + 1] == 0){
+		if(s[i] == 1 and s[i + 1] == 0){
 			//在s序列中找到“10”组合s[i]和s[i+1]两成员
 			swap(s[i], s[i + 1]);
 			int cnt(0);

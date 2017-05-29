@@ -102,9 +102,9 @@ void dfs_dcc(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
 				do{
 					tmp_edge = stk.top(); stk.pop();
 					tmp.push_back(tmp_edge);
-				}while(!((tmp_edge.first == p &&
+				}while(!((tmp_edge.first == p and
 								tmp_edge.second == g.g_l[p][i].g_idx)
-							|| (tmp_edge.first == g.g_l[p][i].g_idx &&
+							or (tmp_edge.first == g.g_l[p][i].g_idx and
 								tmp_edge.second == p)));
 				//直到出栈的边是e(p, i.g_idx)为止
 				//tmp是一个点双连通分支

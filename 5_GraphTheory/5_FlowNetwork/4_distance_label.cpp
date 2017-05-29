@@ -171,7 +171,7 @@ void construct_d(graph_matrix residue,
 		int p = q.front(); q.pop();
 		//找出节点p的入弧边，即以p为入度的边
 		for(int i = 0; i < residue.g_cnt; ++ i)
-			if(d[i] >= residue.g_cnt && residue.g_m[i][p] > 0){
+			if(d[i] >= residue.g_cnt and residue.g_m[i][p] > 0){
 				d[i] = d[p] + 1;
 				q.push(i);
 				//与节点i的距离标号相等的节点数加1
@@ -183,7 +183,7 @@ int find_allow_edge(int u, graph_matrix residue, int *d)
 {//找出节点u的容许边
  //该边满足条件：是u的出弧边，且d[u]==d[v]+1，其中v为该出弧边的另一端点
 	for(int i = 0; i < (int)residue.g_cnt; ++ i)
-		if(residue.g_m[u][i] > 0 && d[u] == d[i] + 1)
+		if(residue.g_m[u][i] > 0 and d[u] == d[i] + 1)
 			return(i);
 	return(-1);
 }

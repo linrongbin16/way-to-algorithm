@@ -66,7 +66,7 @@ int main()
     subset[6][2] = 16; subset[6][7] = 17;
 
     assert(DancingLink(n, m, subset, cover));
-    assert(!cover[1] && cover[2] && !cover[3] && cover[4] && !cover[5] && cover[6]);
+    assert(!cover[1] and cover[2] and !cover[3] and cover[4] and !cover[5] and cover[6]);
 
     n = 7;
     m = 6;
@@ -79,7 +79,7 @@ int main()
     subset[6][4] = 14; subset[6][5] = 15; subset[6][7] = 16;
 
     assert(DancingLink(n, m, subset, cover));
-    assert(cover[1] && !cover[2] && !cover[3] && cover[4] && cover[5] && !cover[6]);
+    assert(cover[1] and !cover[2] and !cover[3] and cover[4] and cover[5] and !cover[6]);
 
     n = 4;
     m = 5;
@@ -91,7 +91,7 @@ int main()
     subset[5][2] = 9; subset[5][4] = 10;
 
     assert(DancingLink(n, m, subset, cover));
-    assert(!cover[1] && cover[2] && !cover[3] && cover[4] && !cover[5]);
+    assert(!cover[1] and cover[2] and !cover[3] and cover[4] and !cover[5]);
 
     n = 11;
     m = 8;
@@ -106,6 +106,6 @@ int main()
     subset[8][1] = 14;
 
     assert(DancingLink(n, m, subset, cover));
-    assert(cover[1] && cover[2] && cover[3] && !cover[4] && !cover[5] && cover[6] && !cover[7] && cover[8]);
+    assert(cover[1] and cover[2] and cover[3] and !cover[4] and !cover[5] and cover[6] and !cover[7] and cover[8]);
     return 0;
 }

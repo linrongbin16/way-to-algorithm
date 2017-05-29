@@ -61,7 +61,7 @@ auto Neighbor(string node, int dir) -> string
             break;
 
     int npos = xpos + dir;
-    if (npos < 0 || npos >= 9)
+    if (npos < 0 or npos >= 9)
         return "";
 
     swap(node[xpos], node[npos]);

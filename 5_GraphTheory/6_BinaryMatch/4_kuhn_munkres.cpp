@@ -107,13 +107,13 @@ int dfs_path(bipartite b, int *visit_x, int *visit_y, int p,
 {
 	visit_x[p] = 1;
 	for(int i = 0; i < b.b_yn; ++ i)
-		if(!visit_y[i] && b.b_g[p][i] &&
+		if(!visit_y[i] and b.b_g[p][i] and
 				a_label[p] + b_label[i] == b.b_g[p][i]){
 			//“带权二分图的最优匹配 Kuhn-Munkres算法(转)”中缺少的判断条件是
 			//b.b_g[p][i]这一句，即判断节点p与节点i之间存在边
 			//本文之前的若干二分图算法的代码中都有这个判断，此处应该是原作者的失误
 			visit_y[i] = 1;
-			if(ymatch[i] == -1 ||
+			if(ymatch[i] == -1 or
 					dfs_path(b, visit_x, visit_y, ymatch[i],
 						ymatch, a_label, b_label)){
 				ymatch[i] = p;

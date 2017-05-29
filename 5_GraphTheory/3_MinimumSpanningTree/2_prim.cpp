@@ -51,7 +51,7 @@ int min_distance(int *visited, edge_list e, int beg, int end)
 		if(visited[i])
 			for(int j = 0; j < (int)e.e_l.size(); ++ j)
 				//遍历边集
-				if(e.e_l[j].e_beg == i && !visited[e.e_l[j].e_end])
+				if(e.e_l[j].e_beg == i and !visited[e.e_l[j].e_end])
 					//所有从生成树节点向外发射的边中
 					//即所有边的起始点beg在visited中
 					//而终止点end不在visited中

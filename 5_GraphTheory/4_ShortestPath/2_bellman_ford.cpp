@@ -62,7 +62,7 @@ bool bellman_ford(graph_matrix g, edge_list e, int beg, int *distance, int *path
 	for(int i = 0; i < (int)e.e_l.size(); ++ i)
 		if(distance[e.e_l[i].e_beg] > 
 					distance[e.e_l[i].e_end] + 
-					g.g_m[e.e_l[i].e_end][e.e_l[i].e_beg] ||
+					g.g_m[e.e_l[i].e_end][e.e_l[i].e_beg] or
 					distance[e.e_l[i].e_end] >
 					distance[e.e_l[i].e_beg] +
 					g.g_m[e.e_l[i].e_beg][e.e_l[i].e_end])

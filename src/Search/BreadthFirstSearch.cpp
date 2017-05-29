@@ -21,13 +21,13 @@ int main()
             for (int k = 0; k < path.size() - 1; k++) {
                 /* 保证路径中相邻两点在二维方格中也是相邻点 */
                 assert((path[k].first == path[k + 1].first
-                    && path[k].second == path[k + 1].second + 1)
-                    || (path[k].first == path[k + 1].first
-                        && path[k].second == path[k + 1].second - 1)
-                    || (path[k].first == path[k + 1].first + 1
-                        && path[k].second == path[k + 1].second)
-                    || (path[k].first == path[k + 1].first - 1
-                        && path[k].second == path[k + 1].second));
+                    and path[k].second == path[k + 1].second + 1)
+                    or (path[k].first == path[k + 1].first
+                        and path[k].second == path[k + 1].second - 1)
+                    or (path[k].first == path[k + 1].first + 1
+                        and path[k].second == path[k + 1].second)
+                    or (path[k].first == path[k + 1].first - 1
+                        and path[k].second == path[k + 1].second));
             }
         }
 

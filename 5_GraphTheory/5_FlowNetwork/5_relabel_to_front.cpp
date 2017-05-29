@@ -120,8 +120,8 @@ int discharge(graph_list& residue, int beg, int end,
 		//遍历节点p的邻节点，对其所有容许边进行最大程度的压入
 		//u是p节点的一条容许边上对应邻节点的下标号
 		int u = residue.g_l[p][i].g_idx;
-		if(excess[p] > 0 &&
-			residue.g_l[p][i].g_value > 0 &&
+		if(excess[p] > 0 and
+			residue.g_l[p][i].g_value > 0 and
 			d[p] == d[u] + 1){
 			//从p到u是p的一条容许边，且p点有余流
 			//这次压入的流是上二者中较小者
@@ -182,8 +182,8 @@ void construct_d(graph_list residue, int beg, int end, int *d)
 		//找出节点p的入弧边，即以p为入度的边
 		for(int i = 0; i < (int)residue.g_l.size(); ++ i)
 			for(int j = 1; j < (int)residue.g_l[i].size(); ++ j)
-				if(d[i] >= (int)residue.g_l.size() &&
-					residue.g_l[i][j].g_idx == p &&
+				if(d[i] >= (int)residue.g_l.size() and
+					residue.g_l[i][j].g_idx == p and
 					residue.g_l[i][j].g_value > 0){
 					d[i] = d[p] + 1;
 					q.push(i);

@@ -9,19 +9,27 @@ using namespace std;
 #define MAX 64
 #endif
 
+struct Position {
+    int row;
+    int col;
+
+    bool operator==( const Position & other) { return row == other.row and col == other.col; }
+    bool operator!=( const Position & other) { return not (*this == other); }
+};
+
 /* 4个方向: 上 下 右 左 */
 /* m行n列二维方格 row范围[0, m) col范围[0, n)*/
 const int direction_col[4] = { 0, 0, 1, -1 };
 const int direction_row[4] = { 1, -1, 0, 0 };
 
 int visit[MAX][MAX];
-pair<int, int> father[MAX][MAX];
+Position father[MAX][MAX];
 
 /* 递归生成从beg到end的路径 */
-auto BFSPath(pair<int, int> end, vector<pair<int, int> > &path) -> void
+auto BFSPath(Position end, vector<Position> &path) -> void
 {
-    if (father[end.first][end.second] != end) {
-        BFSPath(father[end.first][end.second], path);
+    if (father[end.row][end.col] != end) {
+        BFSPath(father[end.row][end.col], path);
     }
     path.push_back(end);
 }
@@ -53,8 +61,8 @@ auto BreadthFirstSearch(int m, int n, pair<int, int> beg, pair<int, int> end) ->
             int neighbor_row = node.first + direction_row[i];
             int neighbor_col = node.second + direction_col[i];
             /* 检查边界和是否访问过（即染红） */
-            if (neighbor_row >= 0 && neighbor_row < m && neighbor_col >= 0 && neighbor_col < n
-                && visit[neighbor_row][neighbor_col] == 0) {
+            if (neighbor_row >= 0 and neighbor_row < m and neighbor_col >= 0 and neighbor_col < n
+                and visit[neighbor_row][neighbor_col] == 0) {
                 /* 加入等待队列 */
                 que.push_back(pair<int, int>(neighbor_row, neighbor_col));
                 /* 染红 */

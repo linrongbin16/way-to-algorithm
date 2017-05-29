@@ -30,7 +30,7 @@ void naive_string_match(string s, string t, vector<int>& pos)
     while(i <= (int)t.length() - (int)s.length())
     {
         int q(0);
-        while(q < (int)s.length() && s[q] == t[i + q])
+        while(q < (int)s.length() and s[q] == t[i + q])
             ++ q;
         if(q == (int)s.length())
             pos.push_back(i);

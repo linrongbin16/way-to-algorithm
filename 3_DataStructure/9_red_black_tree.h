@@ -1,17 +1,17 @@
 #ifndef DATASTRUCTURE_RED_BLACK_TREE_H
 #define DATASTRUCTURE_RED_BLACK_TREE_H 1
 /*****************************************************************************
- * ºìºÚÉ«£º
- * »òÕßÊÇÒ»¿Å¿ÕÊ÷£¬»òÕßÊÇÒ»¿Å¶þ²æÊ÷£¬Âú×ãÒÔÏÂÐÔÖÊ
- *1.½Úµã·Çºì¼´ºÚ¡£
- *2.¸ù½ÚµãÊÇºÚÉ«¡£
- *3.ËùÓÐNULL½áµã³ÆÎªÒ¶×Ó½Úµã£¬ÇÒÈÏÎªÑÕÉ«ÎªºÚ¡£
- *4.ËùÓÐºì½ÚµãµÄ×Ó½Úµã¶¼ÎªºÚÉ«¡£
- *5.´ÓÈÎÒ»½Úµãµ½ÆäÒ¶×Ó½ÚµãµÄËùÓÐÂ·¾¶ÉÏ¶¼°üº¬ÏàÍ¬ÊýÄ¿µÄºÚ½Úµã¡£
+ * ï¿½ï¿½ï¿½É«ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Å¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ *1.ï¿½Úµï¿½Çºì¼´ï¿½Ú¡ï¿½
+ *2.ï¿½ï¿½ï¿½Úµï¿½ï¿½Çºï¿½É«ï¿½ï¿½
+ *3.ï¿½ï¿½ï¿½ï¿½NULLï¿½ï¿½ï¿½ï¿½ÎªÒ¶ï¿½Ó½Úµã£¬ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½É«Îªï¿½Ú¡ï¿½
+ *4.ï¿½ï¿½ï¿½Ðºï¿½Úµï¿½ï¿½ï¿½Ó½Úµã¶¼Îªï¿½ï¿½É«ï¿½ï¿½
+ *5.ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Úµãµ½ï¿½ï¿½Ò¶ï¿½Ó½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½Ä¿ï¿½ÄºÚ½Úµã¡£
  *
- *ºìºÚÊ÷¾ßÓÐ½ÏºÃµÄ×ÔÆ½ºâÐÔ£¬ÐÔÄÜÓÅÓÚBST£¬µ«ÊÇµÍÓÚAVL£¬ÔÚlinuxÖÐÓÃÓÚÄÚ´æ¹ÜÀí
+ *ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð½ÏºÃµï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½BSTï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½AVLï¿½ï¿½ï¿½ï¿½linuxï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½
  *
- *Òò´ËºìºÚÉ«ÔÚ²åÈë½Úµã±ØÈ»ÊÇºì½Úµã£¬ÒòÎªºÚ½Úµã»áÆÆ»µÐÔÖÊ5£¬µ«ÊÇ»á³öÏÖÏÂÁÐÎÊÌâ
+ *ï¿½ï¿½Ëºï¿½ï¿½É«ï¿½Ú²ï¿½ï¿½ï¿½Úµï¿½ï¿½È»ï¿½Çºï¿½Úµã£¬ï¿½ï¿½Îªï¿½Ú½Úµï¿½ï¿½ï¿½Æ»ï¿½ï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½ï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *****************************************************************************/
 
 #include <iostream>
@@ -28,21 +28,21 @@ using std::swap;
 #define RED 0
 #endif
 
-/**************Ã¿¸ö½ÚµãµÄÐÅÏ¢***********************/
+/**************Ã¿ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Ï¢***********************/
 class Node
 {
 public:
-    int value;/******½Úµã´æ·ÅµÄÖµ******/
-    bool color;/***½ÚµãÑÕÉ«****/
-    Node *leftTree, *rightTree, *parent;/*******×óÓÒ×ÓÊ÷£¬¸¸½Úµã**********/
+    int value;/******ï¿½Úµï¿½ï¿½Åµï¿½Öµ******/
+    bool color;/***ï¿½Úµï¿½ï¿½ï¿½É«****/
+    Node *leftTree, *rightTree, *parent;/*******ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½**********/
 
     Node(void):value(0),color(RED),leftTree(NULL),rightTree(NULL),parent(NULL) {}
-    /**********»ñÈ¡×æ¸¸½Úµã************/
+    /**********ï¿½ï¿½È¡ï¿½æ¸¸ï¿½Úµï¿½************/
     Node* grandparent(void)
     {
         return parent==NULL?NULL:parent->parent;
     }
-    /***********»ñÈ¡Êå½Úµã***********/
+    /***********ï¿½ï¿½È¡ï¿½ï¿½Úµï¿½***********/
     Node* uncle(void)
     {
         if (grandparent() == NULL)
@@ -54,7 +54,7 @@ public:
         else
             return grandparent()->rightTree;
     }
-    /******»ñÈ¡ÐÖµÜ½Úµã*********/
+    /******ï¿½ï¿½È¡ï¿½ÖµÜ½Úµï¿½*********/
     Node* sibling(void)
     {
         return parent->leftTree==this?parent->rightTree:parent->leftTree;
@@ -62,32 +62,32 @@ public:
 
 };
 
-/******************ºìºÚÉ«Àà*********************/
+/******************ï¿½ï¿½ï¿½É«ï¿½ï¿½*********************/
 class RedBlackTree
 {
 private:
 
-    void rotate_right(Node *p);/*******ÓÒÐý********/
-    void rotate_left(Node *p);/*******×óÐý********/
-    void inorder(Node *p);/********ÏÈÐò±éÀú***********/
-    string outputColor(bool color);/********Êä³öÑÕÉ«**********/
-    Node* getSmallestChild(Node *p);/**********»ñÈ¡×îÐ¡×ÓÊ÷***********/
-    bool delete_child(Node *p, int data);/*********É¾³ý×ÓÊ÷************/
-    void delete_one_child(Node *p);/*********É¾³ýÒ»¸öº¢×Ó************/
-    void delete_case(Node *p);/*********É¾³ýÇé¿ö************/
-    void insert(Node *p, int data);/********²åÈë*********/
-    void insert_case(Node *p);/********²åÈëÇé¿ö***********/
-    void DeleteTree(Node *p);/********É¾³ýÊ÷***********/
-    bool find_data(Node* p,int data);/*********²éÕÒ½Úµã************/
+    void rotate_right(Node *p);/*******ï¿½ï¿½ï¿½ï¿½********/
+    void rotate_left(Node *p);/*******ï¿½ï¿½ï¿½ï¿½********/
+    void inorder(Node *p);/********ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½***********/
+    string outputColor(bool color);/********ï¿½ï¿½ï¿½ï¿½ï¿½É«**********/
+    Node* getSmallestChild(Node *p);/**********ï¿½ï¿½È¡ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½***********/
+    bool delete_child(Node *p, int data);/*********É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½************/
+    void delete_one_child(Node *p);/*********É¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½************/
+    void delete_case(Node *p);/*********É¾ï¿½ï¿½ï¿½ï¿½ï¿½************/
+    void insert(Node *p, int data);/********ï¿½ï¿½ï¿½ï¿½*********/
+    void insert_case(Node *p);/********ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½***********/
+    void DeleteTree(Node *p);/********É¾ï¿½ï¿½ï¿½ï¿½***********/
+    bool find_data(Node* p,int data);/*********ï¿½ï¿½ï¿½Ò½Úµï¿½************/
 
 public:
 
-    RedBlackTree(void);/********¹¹Ôì½Ó¿Ú***********/
-    ~RedBlackTree();/********Ïú»Ù½Ó¿Ú***********/
-    void InOrderTraverse();/********±éÀú½Ó¿Ú***********/
-    void Insert(int x);/********²åÈë½Ó¿Ú***********/
-    bool Delete(int data);/********É¾³ý½Ó¿Ú***********/
-    bool Find(int data);/********²éÕÒ½Ó¿Ú***********/
+    RedBlackTree(void);/********ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½***********/
+    ~RedBlackTree();/********ï¿½ï¿½ï¿½Ù½Ó¿ï¿½***********/
+    void InOrderTraverse();/********ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½***********/
+    void Insert(int x);/********ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½***********/
+    bool Delete(int data);/********É¾ï¿½ï¿½ï¿½Ó¿ï¿½***********/
+    bool Find(int data);/********ï¿½ï¿½ï¿½Ò½Ó¿ï¿½***********/
 private:
     Node *root, *NIL;
 };
@@ -97,7 +97,7 @@ private:
 // FullName:  RedBlackTree::rotate_right
 // Access:    private
 // Returns:   void
-// Qualifier: ÓÒÐý×ª
+// Qualifier: ï¿½ï¿½ï¿½ï¿½×ª
 // Parameter: Node * p
 //*******************************************************************
 //*******************GP********************GP************************
@@ -125,7 +125,7 @@ void RedBlackTree::rotate_right(Node *p)
         root = p;
     p->parent = gp;
 
-    if (gp != NULL)/******ÅÐ¶Á¸¸½ÚµãÓë×æ¸¸½ÚµãµÄ¹ØÏµ£¬´Ó¶øÐÞ¸´¹ØÏµ********/
+    if (gp != NULL)/******ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½æ¸¸ï¿½Úµï¿½Ä¹ï¿½Ïµï¿½ï¿½ï¿½Ó¶ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½Ïµ********/
     {
         if (gp->leftTree == fa)
             gp->leftTree = p;
@@ -138,7 +138,7 @@ void RedBlackTree::rotate_right(Node *p)
 // FullName:  RedBlackTree::rotate_left
 // Access:    private
 // Returns:   void
-// Qualifier: ×óÐý
+// Qualifier: ï¿½ï¿½ï¿½ï¿½
 // Parameter: Node * p
 //*******************************************************************
 //*******************************************************************
@@ -172,7 +172,7 @@ void RedBlackTree::rotate_left(Node *p)
         root = p;
     p->parent = gp;
 
-    if (gp != NULL)/******ÅÐ¶Á¸¸½ÚµãÓë×æ¸¸½ÚµãµÄ¹ØÏµ£¬´Ó¶øÐÞ¸´¹ØÏµ********/
+    if (gp != NULL)/******ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½æ¸¸ï¿½Úµï¿½Ä¹ï¿½Ïµï¿½ï¿½ï¿½Ó¶ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½Ïµ********/
     {
         if (gp->leftTree == fa)
             gp->leftTree = p;
@@ -185,7 +185,7 @@ void RedBlackTree::rotate_left(Node *p)
 // FullName:  RedBlackTree::inorder
 // Access:    private
 // Returns:   void
-// Qualifier: ÖÐÐò±éÀú½Úµã
+// Qualifier: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
 // Parameter: Node * p
 //************************************
 void RedBlackTree::inorder(Node *p)
@@ -207,7 +207,7 @@ void RedBlackTree::inorder(Node *p)
 // FullName:  RedBlackTree::outputColor
 // Access:    private
 // Returns:   std::string
-// Qualifier: Êä³öÑÕÉ«
+// Qualifier: ï¿½ï¿½ï¿½ï¿½ï¿½É«
 // Parameter: bool color
 //************************************
 string RedBlackTree::outputColor(bool color)
@@ -219,7 +219,7 @@ string RedBlackTree::outputColor(bool color)
 // FullName:  RedBlackTree::getSmallestChild
 // Access:    private
 // Returns:   Node*
-// Qualifier: »ñÈ¡×îÐ¡º¢×Ó
+// Qualifier: ï¿½ï¿½È¡ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
 // Parameter: Node * p
 //************************************
 Node* RedBlackTree::getSmallestChild(Node* p)
@@ -233,21 +233,21 @@ Node* RedBlackTree::getSmallestChild(Node* p)
 // FullName:  RedBlackTree::delete_child
 // Access:    private
 // Returns:   bool
-// Qualifier: É¾³ýº¢×Ó
+// Qualifier: É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameter: Node * p
 // Parameter: int data
 //************************************
 bool RedBlackTree::delete_child(Node *p, int data)
 {
-    if (p->value > data)/*****ÔÚ×ó±ß*******/
+    if (p->value > data)/*****ï¿½ï¿½ï¿½ï¿½ï¿½*******/
     {
-        if (p->leftTree == NIL)/*****Ã»ÓÐÕÒµ½ÔªËØ*******/
+        if (p->leftTree == NIL)/*****Ã»ï¿½ï¿½ï¿½Òµï¿½Ôªï¿½ï¿½*******/
         {
             return false;
         }
         return delete_child(p->leftTree, data);
     }
-    else if (p->value < data)/*****ÔÚÓÒ±ß*******/
+    else if (p->value < data)/*****ï¿½ï¿½ï¿½Ò±ï¿½*******/
     {
         if (p->rightTree == NIL)
         {
@@ -255,15 +255,15 @@ bool RedBlackTree::delete_child(Node *p, int data)
         }
         return delete_child(p->rightTree, data);
     }
-    else if (p->value == data)/*****ÕÒµ½*******/
+    else if (p->value == data)/*****ï¿½Òµï¿½*******/
     {
         if (p->rightTree == NIL)
         {
-            /******Èç¹û½ÚµãÓÒ×ÓÊ÷¿ÕÁË£¬ÕâÑù×î¶àÖ»ÓÐÒ»¸öº¢×Ó£¬·ñÔòÐèÒªÌæ»»½Úµã£¬ÔÙ½øÈëµ¥½ÚµãÉ¾³ý*******/
+            /******ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½æ»»ï¿½Úµã£¬ï¿½Ù½ï¿½ï¿½ëµ¥ï¿½Úµï¿½É¾ï¿½ï¿½*******/
             delete_one_child(p);
             return true;
         }
-        Node *smallest = getSmallestChild(p->rightTree);/*ÕÒ´òºó¼Ì½Úµã£¬È»ºó½»»»£¬ºóÉ¾³ý*/
+        Node *smallest = getSmallestChild(p->rightTree);/*ï¿½Ò´ï¿½ï¿½Ì½Úµã£¬È»ï¿½ó½»»ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½*/
         swap(p->value, smallest->value);
         delete_one_child(smallest);
 
@@ -276,30 +276,30 @@ bool RedBlackTree::delete_child(Node *p, int data)
 // FullName:  RedBlackTree::delete_one_child
 // Access:    private
 // Returns:   void
-// Qualifier: É¾³ý×î¶àÖ»ÓÐÒ»¸öº¢×ÓµÄ½Úµã
+// Qualifier: É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ½Úµï¿½
 // Parameter: Node * p
 //************************************
 void RedBlackTree::delete_one_child(Node *p)
 {
     Node *child = p->leftTree == NIL ? p->rightTree : p->leftTree;
-    if (p->parent == NULL && p->leftTree == NIL && p->rightTree == NIL)
+    if (p->parent == NULL and p->leftTree == NIL and p->rightTree == NIL)
     {
-        /****Ö»ÓÐ¸ù½Úµã*******/
+        /****Ö»ï¿½Ð¸ï¿½ï¿½Úµï¿½*******/
         p = NULL;
         root = p;
         return;
     }
 
-    if (p->parent == NULL)/****¸ù½Úµã****/
+    if (p->parent == NULL)/****ï¿½ï¿½ï¿½Úµï¿½****/
     {
         delete  p;
-        child->parent = NULL;/**ÖØÖÃ¸ù½Úµã*/
+        child->parent = NULL;/**ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½Úµï¿½*/
         root = child;
         root->color = BLACK;
         return;
     }
 
-    if (p->parent->leftTree == p)/**Ìæ»»µô¸Ã½Úµã**/
+    if (p->parent->leftTree == p)/**ï¿½æ»»ï¿½ï¿½ï¿½Ã½Úµï¿½**/
     {
         p->parent->leftTree = child;
     }
@@ -311,12 +311,12 @@ void RedBlackTree::delete_one_child(Node *p)
 
     if (p->color == BLACK)
     {
-        /*****Èç¹ûÉ¾³ýµÄ½ÚµãÊÇºÚ½Úµã£¬ÐèÒªµ÷ÕûÊ÷£¬Èç¹ûÊÇºì½Úµã£¬ÄÇÃ´×ÓÊ÷Ò²ÊÇ²»³åÍ»µÄ£¬ÔòÖ±½ÓÉ¾³ý¼´¿É********/
-        if (child->color == RED)/****×ÓÊ÷ÊÇºì½ÚµãµÄ»°£¬ÔòÖ±½ÓÍË»»³ÉºÚ½Úµã£¬²¢ÇÒÐÔÖÊÃ»ÓÐÔâµ½ÆÆ»µ****/
+        /*****ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½Ä½Úµï¿½ï¿½ÇºÚ½Úµã£¬ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çºï¿½Úµã£¬ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½Ò²ï¿½Ç²ï¿½ï¿½ï¿½Í»ï¿½Ä£ï¿½ï¿½ï¿½Ö±ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½********/
+        if (child->color == RED)/****ï¿½ï¿½ï¿½ï¿½ï¿½Çºï¿½Úµï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ÉºÚ½Úµã£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½âµ½ï¿½Æ»ï¿½****/
         {
             child->color = BLACK;
         }
-        else/*******·ñÔòÐèÒªµ÷ÕûÐÔÖÊ*******/
+        else/*******ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*******/
             delete_case(child);
     }
     delete p;
@@ -326,17 +326,17 @@ void RedBlackTree::delete_one_child(Node *p)
 // FullName:  RedBlackTree::delete_case
 // Access:    private
 // Returns:   void
-// Qualifier: É¾³ýÇé¿ö
+// Qualifier: É¾ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameter: Node * p
 //************************************
 void RedBlackTree::delete_case(Node *p)
 {
-    if (p->parent == NULL)/***Îª¸ù½Úµã£¬Ö±½ÓÈ¾ºÚÉ«***/
+    if (p->parent == NULL)/***Îªï¿½ï¿½ï¿½Úµã£¬Ö±ï¿½ï¿½È¾ï¿½ï¿½É«***/
     {
         p->color = BLACK;
         return;
     }
-    if (p->sibling()->color == RED)/****Çé¿ö1£ºÈç¹ûÐÖµÜ½ÚµãÊÇºìÉ«µÄ»°£¬µ÷ÕûÑÕÉ«ºóÐý×ª£¬×îºó°´ÕÕ2,3,4´¦Àí****/
+    if (p->sibling()->color == RED)/****ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÜ½Úµï¿½ï¿½Çºï¿½É«ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2,3,4ï¿½ï¿½ï¿½ï¿½****/
     {
         p->parent->color = RED;
         p->sibling()->color = BLACK;
@@ -345,17 +345,17 @@ void RedBlackTree::delete_case(Node *p)
         else
             rotate_right(p->sibling());
     }
-    if (p->parent->color == BLACK && p->sibling()->color == BLACK
-            && p->sibling()->leftTree->color == BLACK && p->sibling()->rightTree->color == BLACK)
+    if (p->parent->color == BLACK and p->sibling()->color == BLACK
+            and p->sibling()->leftTree->color == BLACK and p->sibling()->rightTree->color == BLACK)
     {
-        /****Çé¿ö2.1£º¸¸½ÚµãºÚÉ«£¬ÐÖµÜ½ÚµãÊÇºÚÉ«£¬¶øÇÒÐÖµÜÓÐÁ½¸öºÚÉ«µÄ×Ó½Úµã£¬ÕâÑù¿ÉÒÔÈ¾ºìÐÖµÜ£¬È»ºóµ÷Õû¸¸½Úµã****/
+        /****ï¿½ï¿½ï¿½2.1ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½É«ï¿½ï¿½ï¿½ÖµÜ½Úµï¿½ï¿½Çºï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½Ó½Úµã£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾ï¿½ï¿½ï¿½ÖµÜ£ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½****/
         p->sibling()->color = RED;
         delete_case(p->parent);
     }
-    else if (p->parent->color == RED && p->sibling()->color == BLACK
-             && p->sibling()->leftTree->color == BLACK && p->sibling()->rightTree->color == BLACK)
+    else if (p->parent->color == RED and p->sibling()->color == BLACK
+             and p->sibling()->leftTree->color == BLACK and p->sibling()->rightTree->color == BLACK)
     {
-        /****Çé¿ö2.2£ºÈç¹ûÐÖµÜ½ÚµãÊÇºìÉ«µÄ»°£¬¶øÇÒÐÖµÜÓÐÁ½¸öºÚÉ«µÄ×Ó½Úµã£¬ÕâÑù¿ÉÒÔÈ¾ºìÐÖµÜ£¬È»ºóµ÷Õû¸¸½Úµã****/
+        /****ï¿½ï¿½ï¿½2.2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÜ½Úµï¿½ï¿½Çºï¿½É«ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½Ó½Úµã£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾ï¿½ï¿½ï¿½ÖµÜ£ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½****/
         p->sibling()->color = RED;
         p->parent->color = BLACK;
     }
@@ -363,35 +363,35 @@ void RedBlackTree::delete_case(Node *p)
     {
         if (p->sibling()->color == BLACK)
         {
-            /****Çé¿ö3.1£ºÈç¹ûÐÖµÜ½ÚµãÊÇºÚÉ«µÄ»°£¬¶øÇÒÐÖµÜ×óº¢×ÓºìÉ«£¬ÓÒº¢×ÓºÚÉ«£¬½»»»ÐÖµÜ½ÚµãºÍ×óº¢×ÓÑÕÉ«±ä³ÉµÚµÚËÄÖÖÇé¿ö****/
-            if (p == p->parent->leftTree && p->sibling()->leftTree->color == RED
-                    && p->sibling()->rightTree->color == BLACK)
+            /****ï¿½ï¿½ï¿½3.1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÜ½Úµï¿½ï¿½Çºï¿½É«ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Óºï¿½É«ï¿½ï¿½ï¿½Òºï¿½ï¿½Óºï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÜ½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ÉµÚµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½****/
+            if (p == p->parent->leftTree and p->sibling()->leftTree->color == RED
+                    and p->sibling()->rightTree->color == BLACK)
             {
                 p->sibling()->color = RED;
                 p->sibling()->leftTree->color = BLACK;
                 rotate_right(p->sibling()->leftTree);
             }
-            else if (p == p->parent->rightTree && p->sibling()->leftTree->color == BLACK
-                     && p->sibling()->rightTree->color == RED)
+            else if (p == p->parent->rightTree and p->sibling()->leftTree->color == BLACK
+                     and p->sibling()->rightTree->color == RED)
             {
-                /****Çé¿ö3.2£ºÈç¹ûÐÖµÜ½ÚµãÊÇºÚÉ«µÄ»°£¬¶øÇÒÐÖµÜ×óº¢×ÓºÚÉ«£¬ÓÒº¢×ÓºìÉ«****/
+                /****ï¿½ï¿½ï¿½3.2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÜ½Úµï¿½ï¿½Çºï¿½É«ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Óºï¿½É«ï¿½ï¿½ï¿½Òºï¿½ï¿½Óºï¿½É«****/
                 p->sibling()->color = RED;
                 p->sibling()->rightTree->color = BLACK;
                 rotate_left(p->sibling()->rightTree);
             }
         }
-        /****Çé¿ö4£ºÈç¹ûÐÖµÜ½ÚµãÊÇºÚÉ«µÄ»°£¬¶øÇÒÐÖµÜ¶ÔÃæ½Úµãº¢×ÓÎªºìÉ«****/
+        /****ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÜ½Úµï¿½ï¿½Çºï¿½É«ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÜ¶ï¿½ï¿½ï¿½Úµãº¢ï¿½ï¿½Îªï¿½ï¿½É«****/
         p->sibling()->color = p->parent->color;
         p->parent->color = BLACK;
         if (p == p->parent->leftTree)
         {
-            /****Çé¿ö4.1£º½ÚµãÎª×ó×ÓÊ÷£¬ÄÇÃ´ÐÖµÜÓÒº¢×ÓÎªºìÉ«****/
+            /****ï¿½ï¿½ï¿½4.1ï¿½ï¿½ï¿½Úµï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½Öµï¿½ï¿½Òºï¿½ï¿½ï¿½Îªï¿½ï¿½É«****/
             p->sibling()->rightTree->color = BLACK;
             rotate_left(p->sibling());
         }
         else
         {
-            /****Çé¿ö4.2£º½ÚµãÎªÓÒ×ÓÊ÷£¬ÄÇÃ´ÐÖµÜ×óº¢×ÓÎªºìÉ«****/
+            /****ï¿½ï¿½ï¿½4.2ï¿½ï¿½ï¿½Úµï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½É«****/
             p->sibling()->leftTree->color = BLACK;
             rotate_right(p->sibling());
         }
@@ -403,13 +403,13 @@ void RedBlackTree::delete_case(Node *p)
 // FullName:  RedBlackTree::insert
 // Access:    private
 // Returns:   void
-// Qualifier: ²åÈëÊý¾Ý
+// Qualifier: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameter: Node * p
 // Parameter: int data
 //************************************
 void RedBlackTree::insert(Node *p, int data)
 {
-    if (p->value >= data)/**²åÈëÊý¾Ý±ÈdataÐ¡£¨º¬µÈÓÚ£©µÄ»°£¬½øÈë×ó±ß£¬·ñÔò½øÈëÓÒ±ß**/
+    if (p->value >= data)/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý±ï¿½dataÐ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò±ï¿½**/
     {
         if (p->leftTree != NIL)
             insert(p->leftTree, data);
@@ -444,12 +444,12 @@ void RedBlackTree::insert(Node *p, int data)
 // FullName:  RedBlackTree::insert_case
 // Access:    private
 // Returns:   void
-// Qualifier: ²åÈëÇé¿ö£¬Ò»¹²ÓÐÎåÖÖÇé¿ö
+// Qualifier: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // Parameter: Node * p
 //************************************
 void RedBlackTree::insert_case(Node *p)
 {
-    if (p->parent == NULL)/****ÇéÐÎ1£ºÖ±½ÓÈ¾ºÚÉ«*****/
+    if (p->parent == NULL)/****ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Ö±ï¿½ï¿½È¾ï¿½ï¿½É«*****/
     {
         root = p;
         p->color = BLACK;
@@ -459,60 +459,60 @@ void RedBlackTree::insert_case(Node *p)
     {
         if (p->uncle()->color == RED)
         {
-            /*ÇéÐÎ3£º¸¸½ÚµãºÍÊå½Úµã¶¼ÊÇºìÉ«£¬½«×æ¸¸£¬¸¸¡¢ÊåÈ«»»É«£¬×îºóµÝ¹é´¦Àí×æ¸¸½Úµã*/
+            /*ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Úµã¶¼ï¿½Çºï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½æ¸¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½Ý¹é´¦ï¿½ï¿½ï¿½æ¸¸ï¿½Úµï¿½*/
             p->parent->color = p->uncle()->color = BLACK;
             p->grandparent()->color = RED;
             insert_case(p->grandparent());
         }
-        else/*¸¸½ÚµãºÍÊå½Úµã¶¼ÊÇºìÉ«£¬ÊåÊå½ÚµãºÚÉ«*/
+        else/*ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Úµã¶¼ï¿½Çºï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½É«*/
         {
-            if (p->parent->rightTree == p && p->grandparent()->leftTree == p->parent)
+            if (p->parent->rightTree == p and p->grandparent()->leftTree == p->parent)
             {
-                /**ÇéÐÎ4£ºpÊÇ¸¸½ÚµãµÄÓÒº¢×Ó£¬¸¸½ÚµãÊÇ×æ¸¸½ÚµãµÄ×óº¢×Ó**/
-                /********ÕâÖÖÇé¿öÏÈµ÷Õû¸¸½Úµã£¬Ê¹µÃÆäºÍ×æ¸¸ºÍ¸¸Ç×¾ùÔÚÒ»ÌõÏßÉÏ£¬×¢Òâ£¬ÕâÀïÐý×ªºóp³ÉÐÂµÄ¸¸½Úµã********/
+                /**ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½pï¿½Ç¸ï¿½ï¿½Úµï¿½ï¿½ï¿½Òºï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½æ¸¸ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½**/
+                /********ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã£¬Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¸¸ï¿½Í¸ï¿½ï¿½×¾ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½×¢ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½pï¿½ï¿½ï¿½ÂµÄ¸ï¿½ï¿½Úµï¿½********/
                 rotate_left(p);
                 rotate_right(p);
                 p->color = BLACK;
                 p->leftTree->color = p->rightTree->color = RED;
             }
-            else if (p->parent->leftTree == p && p->grandparent()->rightTree == p->parent)
+            else if (p->parent->leftTree == p and p->grandparent()->rightTree == p->parent)
             {
-                /**ÇéÐÎ5£ºpÊÇ¸¸½ÚµãµÄ×óº¢×Ó£¬¸¸½ÚµãÊÇ×æ¸¸½ÚµãµÄÓÒº¢×Ó**/
-                /********ÕâÖÖÇé¿öÏÈµ÷Õû¸¸½Úµã£¬Ê¹µÃÆäºÍ×æ¸¸ºÍ¸¸Ç×¾ùÔÚÒ»ÌõÏßÉÏ£¬×¢Òâ£¬ÕâÀïÐý×ªºóp³ÉÐÂµÄ¸¸½Úµã********/
+                /**ï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½pï¿½Ç¸ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½æ¸¸ï¿½Úµï¿½ï¿½ï¿½Òºï¿½ï¿½ï¿½**/
+                /********ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã£¬Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¸¸ï¿½Í¸ï¿½ï¿½×¾ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½×¢ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½pï¿½ï¿½ï¿½ÂµÄ¸ï¿½ï¿½Úµï¿½********/
                 rotate_right(p);
                 rotate_left(p);
                 p->color = BLACK;
                 p->leftTree->color = p->rightTree->color = RED;
             }
-            else if (p->parent->leftTree == p && p->grandparent()->leftTree == p->parent)
+            else if (p->parent->leftTree == p and p->grandparent()->leftTree == p->parent)
             {
-                /**ÇéÐÎ5.2£ºpÊÇ¸¸½ÚµãµÄÓÒº¢×Ó£¬¸¸½ÚµãÊÇ×æ¸¸½ÚµãµÄ×óº¢×Ó**/
+                /**ï¿½ï¿½ï¿½ï¿½5.2ï¿½ï¿½pï¿½Ç¸ï¿½ï¿½Úµï¿½ï¿½ï¿½Òºï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½æ¸¸ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½**/
                 p->parent->color = BLACK;
                 p->grandparent()->color = RED;
                 rotate_right(p->parent);
             }
-            else if (p->parent->rightTree == p && p->grandparent()->rightTree == p->parent)
+            else if (p->parent->rightTree == p and p->grandparent()->rightTree == p->parent)
             {
-                /**ÇéÐÎ4.2£ºpÊÇ¸¸½ÚµãµÄÓÒº¢×Ó£¬¸¸½ÚµãÊÇ×æ¸¸½ÚµãµÄ×óº¢×Ó**/
+                /**ï¿½ï¿½ï¿½ï¿½4.2ï¿½ï¿½pï¿½Ç¸ï¿½ï¿½Úµï¿½ï¿½ï¿½Òºï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½æ¸¸ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½**/
                 p->parent->color = BLACK;
                 p->grandparent()->color = RED;
                 rotate_left(p->parent);
             }
         }
     }
-    /*******×îºó¿¼ÂÇcase2£ºÇé¿ö£¬ÒòÎª¸¸½ÚµãÊÇºÚÉ«£¬ËùÒÔ¿ÉÒÔÖ±½ÓÍË³ö********/
+    /*******ï¿½ï¿½ï¿½ï¿½ï¿½case2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Úµï¿½ï¿½Çºï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ë³ï¿½********/
 }
 //************************************
 // Method:    DeleteTree
 // FullName:  RedBlackTree::DeleteTree
 // Access:    private
 // Returns:   void
-// Qualifier: É¾³ýÊ÷
+// Qualifier: É¾ï¿½ï¿½ï¿½ï¿½
 // Parameter: Node * p
 //************************************
 void RedBlackTree::DeleteTree(Node *p)
 {
-    if (!p || p == NIL)
+    if (!p or p == NIL)
     {
         return;
     }
@@ -525,12 +525,12 @@ void RedBlackTree::DeleteTree(Node *p)
 // FullName:  RedBlackTree::find_data
 // Access:    public
 // Returns:   bool
-// Qualifier: ²éÕÒÖµ
+// Qualifier: ï¿½ï¿½ï¿½ï¿½Öµ
 // Parameter: int data
 //************************************
 bool RedBlackTree::find_data(Node* p,int data)
 {
-    if(p==NULL||p==NIL)
+    if(p==NULLorp==NIL)
         return false;
     if(data>p->value)
         return find_data(p->rightTree,data);
@@ -540,14 +540,14 @@ bool RedBlackTree::find_data(Node* p,int data)
 }
 
 
-/**************************************½Ó¿Ú²¿·Ö********************************/
+/**************************************ï¿½Ó¿Ú²ï¿½ï¿½ï¿½********************************/
 
 //************************************
 // Method:    RedBlackTree
 // FullName:  RedBlackTree::RedBlackTree
 // Access:    public
 // Returns:
-// Qualifier: ³õÊ¼»¯
+// Qualifier: ï¿½ï¿½Ê¼ï¿½ï¿½
 // Parameter: void
 //************************************
 RedBlackTree::RedBlackTree(void)
@@ -569,7 +569,7 @@ RedBlackTree::~RedBlackTree(void)
 // FullName:  RedBlackTree::inorder
 // Access:    public
 // Returns:   void
-// Qualifier: ±éÀú½Úµã
+// Qualifier: ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
 // Parameter: void
 //************************************
 void RedBlackTree::InOrderTraverse(void)
@@ -584,7 +584,7 @@ void RedBlackTree::InOrderTraverse(void)
 // FullName:  RedBlackTree::insert
 // Access:    public
 // Returns:   void
-// Qualifier: ²åÈëÖµ
+// Qualifier: ï¿½ï¿½ï¿½ï¿½Öµ
 // Parameter: int x
 //************************************
 void RedBlackTree::Insert(int x)
@@ -607,7 +607,7 @@ void RedBlackTree::Insert(int x)
 // FullName:  RedBlackTree::delete_value
 // Access:    public
 // Returns:   bool
-// Qualifier: É¾³ýÖµ
+// Qualifier: É¾ï¿½ï¿½Öµ
 // Parameter: int data
 //************************************
 bool RedBlackTree::Delete(int data)
@@ -620,7 +620,7 @@ bool RedBlackTree::Delete(int data)
 // FullName:  RedBlackTree::Find
 // Access:    public
 // Returns:   bool
-// Qualifier: ²éÕÒÖµ
+// Qualifier: ï¿½ï¿½ï¿½ï¿½Öµ
 // Parameter: int data
 //************************************
 bool RedBlackTree::Find(int data)

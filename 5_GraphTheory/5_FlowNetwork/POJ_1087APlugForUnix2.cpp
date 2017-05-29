@@ -151,7 +151,7 @@ int find_allow(int index)
 {
 	for(int i = cur[index]; i != -1; i = edge[i].next){
 		int v = edge[i].v;
-		if(edge[i].w > 0 && d[index] == d[v] + 1){
+		if(edge[i].w > 0 and d[index] == d[v] + 1){
 			path[v] = index;
 			cur[index] = i;
 			aug[v] = min(aug[index], edge[i].w);
@@ -165,7 +165,7 @@ int relabel(int index)
 	int min_dist(k + 2);
 	for (int i = head[index]; i != -1; i = edge[i].next){
 		int v = edge[i].v;
-		if (edge[i].w > 0 && d[v] < min_dist)
+		if (edge[i].w > 0 and d[v] < min_dist)
 		{
 			min_dist = d[v];
 			cur[index] = i; // 修改标号的同时修改当前弧

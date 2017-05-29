@@ -186,7 +186,7 @@ void NodeErase(AVLTreeNode **e, int index)
         NodeErase( &((*e)->left), index );
 
         if ( NodeDepth((*e)->right) - NodeDepth((*e)->left) >= 2 ) {
-            if ( (*e)->right->left != NULL && ((*e)->right->left->depth > (*e)->right->right->depth) ) {
+            if ( (*e)->right->left != NULL and ((*e)->right->left->depth > (*e)->right->right->depth) ) {
                 RotateRL( e );
             } else {
                 RotateRR( e );
@@ -196,7 +196,7 @@ void NodeErase(AVLTreeNode **e, int index)
         NodeErase( &((*e)->right), index );
 
         if ( NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2 ) {
-            if ( (*e)->right->left != NULL && ((*e)->left->right->depth >(*e)->left->left->depth) ) {
+            if ( (*e)->right->left != NULL and ((*e)->left->right->depth >(*e)->left->left->depth) ) {
                 RotateLR( e );
             } else {
                 RotateLL( e );
@@ -204,7 +204,7 @@ void NodeErase(AVLTreeNode **e, int index)
         }
     } else {
         /* (*e)->index == index */
-        if ( (*e)->left && (*e)->right ) {
+        if ( (*e)->left and (*e)->right ) {
             AVLTreeNode* temp = (*e)->right;
 
             /* temp指向节点的右儿子 */
@@ -217,7 +217,7 @@ void NodeErase(AVLTreeNode **e, int index)
             /* 删除边缘节点 */
             NodeErase( &((*e)->right), temp->index );
             if ( NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2 ) {
-                if ( (*e)->left->right != NULL && (NodeDepth((*e)->left->right) > NodeDepth((*e)->left->left) ) ) {
+                if ( (*e)->left->right != NULL and (NodeDepth((*e)->left->right) > NodeDepth((*e)->left->left) ) ) {
                     RotateLR( e );
                 } else {
                     RotateLL( e );

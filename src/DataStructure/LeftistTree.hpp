@@ -10,9 +10,9 @@ using namespace std;
 struct LeftistTree;
 
 struct LeftistNode {
-    /* ½ÚµãÏÂ±êºÅ */
+    /* ï¿½Úµï¿½ï¿½Â±ï¿½ï¿½ */
     int index;
-    /* ½ÚµãiµÄ¾àÀëÎªdistance[i] */
+    /* ï¿½Úµï¿½iï¿½Ä¾ï¿½ï¿½ï¿½Îªdistance[i] */
     int distance;
     LeftistNode *left;
     LeftistNode *right;
@@ -54,7 +54,7 @@ void LeftistTreeFree(LeftistTree *t)
 
 LeftistNode *NodeMerge(LeftistNode *a, LeftistNode *b, LeftistTree *t)
 {
-    if (!a && !b) {
+    if (!a and !b) {
         return NULL;
     }
     if (!a) {
@@ -84,7 +84,7 @@ LeftistNode *NodeMerge(LeftistNode *a, LeftistNode *b, LeftistTree *t)
     return a;
 }
 
-/* ºÏ²¢ */
+/* ï¿½Ï²ï¿½ */
 LeftistTree *LeftistTreeMerge(LeftistTree *a, LeftistTree *b)
 {
     LeftistTree *t = new LeftistTree();

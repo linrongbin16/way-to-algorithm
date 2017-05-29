@@ -20,9 +20,9 @@ auto InsertSort(int s[MAX], int beg, int end) -> void
         /*s[0]到s[j]找到i，满足s[i-1]<=p<=s[i]*/
         /*注意i=beg时不存在s[i-1]的情况 */
         for (i = beg; i < j; ++i) {
-            if (i == beg && p <= s[i])
+            if (i == beg and p <= s[i])
                 break;
-            else if (i > beg && s[i-1] <= p && p <= s[i])
+            else if (i > beg and s[i-1] <= p and p <= s[i])
                 break;
         }
         /*i即为p将被插入的位置*/

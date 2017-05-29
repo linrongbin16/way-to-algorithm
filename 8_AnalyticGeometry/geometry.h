@@ -23,8 +23,8 @@ struct node{
 		: n_x(cr.n_x), n_y(cr.n_y), n_idx(cr.n_idx), n_lt(cr.n_lt){
 	}
 	bool operator==(const node& cr) const{
-		return(n_x == cr.n_x && n_y == cr.n_y &&
-				n_idx == cr.n_idx && n_lt == cr.n_lt);
+		return(n_x == cr.n_x and n_y == cr.n_y and
+				n_idx == cr.n_idx and n_lt == cr.n_lt);
 	}
 	void n_print(){
 		cout << "node (x:" << n_x << ",y:" << n_y << ")";

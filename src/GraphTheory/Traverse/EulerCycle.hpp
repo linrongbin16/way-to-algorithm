@@ -103,7 +103,7 @@ int max_degree(graph_matrix g, int *degree, int beg)
 		if(i == beg)
 			continue;
 		//在beg相邻节点中找出最大度数节点
-		if(g.g_m[beg][i] && d_max < degree[i])
+		if(g.g_m[beg][i] and d_max < degree[i])
 			d_max = degree[i], index = i;
 	}
 	return(index);

@@ -458,7 +458,7 @@ bool select_pivot(double *c, int *non_basic, int mn, int& pivot)
 	double tmp(0.0);
 	bool p_flag(false);
 	for(int i = 0; i < mn; ++ i)
-		if(non_basic[i] == 1 && tmp < c[i]){
+		if(non_basic[i] == 1 and tmp < c[i]){
 			tmp = c[i];
 			pivot = i;
 			p_flag = true;

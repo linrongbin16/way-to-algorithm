@@ -62,7 +62,7 @@ void knuth_morris_pratt(string s, string t, vector<int>& pos)
     int i = 0, j = 0;
     while(i < (int)t.length())
     {
-        if(j == -1 || t[i] == s[j])
+        if(j == -1 or t[i] == s[j])
         {
             ++i;
             ++j;
@@ -87,7 +87,7 @@ void compute_prefix_function1(string s, int *next)
     for(int i = 1; i < (int)s.length(); ++i)
     {
         int k = next[i - 1];
-        while(s[i] != s[k] && k != 0)
+        while(s[i] != s[k] and k != 0)
             k = next[k - 1];
         if(s[i] == s[k])
             next[i] = k + 1;
@@ -108,7 +108,7 @@ void compute_prefix_function2(string s, int *next)
     next[0] = -1;
     while(i < (int)s.length())
     {
-        if(j == -1 || s[i] == s[j])
+        if(j == -1 or s[i] == s[j])
             next[++i] = ++j;
         else
             j = next[j];

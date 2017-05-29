@@ -11,7 +11,7 @@ auto Merge(int s[MAX], int start, int mid, int last) -> void
     int t[MAX];
     int i, j, k;
 
-    for (i = start, j = mid+1, k = start; i <= mid && j <= last; ++k) {
+    for (i = start, j = mid+1, k = start; i <= mid and j <= last; ++k) {
         if (s[i] <= s[j]) {
             t[k] = s[i];
             i++;

@@ -71,7 +71,7 @@ int PrefixTreeFind(PrefixTree *t, const char *word)
         e = e->child[index];
         if (!e)
             return 0;
-        if (i == n - 1 && e->word && strcmp(e->word, word) == 0)
+        if (i == n - 1 and e->word and strcmp(e->word, word) == 0)
             return 1;
     }
     return 0;

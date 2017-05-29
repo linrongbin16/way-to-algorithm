@@ -149,7 +149,7 @@ int bfs_path(graph_matrix residue, int beg, int end, int *path)
 		if(p == end)
 			break;
 		for(int i = 0; i < residue.g_cnt; ++ i)
-			if(i != beg && path[i] == -1 && residue.g_m[p][i]){
+			if(i != beg and path[i] == -1 and residue.g_m[p][i]){
 				//bfs的条件是本次访问的节点不是源点，尚未被访问，且有运输能力的边
 				q.push(i);
 				path[i] = p;

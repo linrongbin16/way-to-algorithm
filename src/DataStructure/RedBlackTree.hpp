@@ -224,10 +224,10 @@ void InsertCase3(RedBlackTree *t, RedBlackTreeNode *e)
 
 void InsertCase4(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (IsRightChild(e) && IsLeftChild(Father(e))) {
+    if (IsRightChild(e) and IsLeftChild(Father(e))) {
         RotateLeft(t, Father(e));
         e = Left(e);
-    } else if (IsLeftChild(e) && IsRightChild(Father(e))) {
+    } else if (IsLeftChild(e) and IsRightChild(Father(e))) {
         RotateRight(t, Father(e));
         e = Right(e);
     }
@@ -238,7 +238,7 @@ void InsertCase5(RedBlackTree *t, RedBlackTreeNode *e)
 {
     Father(e)->color = BLACK;
     GrandFather(e)->color = RED;
-    if (IsLeftChild(e) && IsLeftChild(Father(e))) {
+    if (IsLeftChild(e) and IsLeftChild(Father(e))) {
         RotateRight(t, GrandFather(e));
     } else {
         assert(IsRightChild(e));
@@ -315,8 +315,8 @@ void EraseCase2(RedBlackTree *t, RedBlackTreeNode *e)
 
 void EraseCase3(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (Color(Father(e)) == BLACK && Color(Brother(e)) == BLACK
-        && Color(Left(Brother(e))) == BLACK && Color(Right(Brother(e))) == BLACK) {
+    if (Color(Father(e)) == BLACK and Color(Brother(e)) == BLACK
+        and Color(Left(Brother(e))) == BLACK and Color(Right(Brother(e))) == BLACK) {
         Brother(e)->color = RED;
         EraseCase1(t, Father(e));
     } else {
@@ -326,8 +326,8 @@ void EraseCase3(RedBlackTree *t, RedBlackTreeNode *e)
 
 void EraseCase4(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (Color(Brother(e)) == BLACK && Color(Father(e)) == RED
-        && Color(Left(Brother(e))) == BLACK && Color(Right(Brother(e))) == BLACK) {
+    if (Color(Brother(e)) == BLACK and Color(Father(e)) == RED
+        and Color(Left(Brother(e))) == BLACK and Color(Right(Brother(e))) == BLACK) {
         SwapColor(Father(e), Brother(e));
     } else {
         EraseCase5(t, e);
@@ -336,12 +336,12 @@ void EraseCase4(RedBlackTree *t, RedBlackTreeNode *e)
 
 void EraseCase5(RedBlackTree *t, RedBlackTreeNode *e)
 {
-    if (IsLeftChild(e) && Color(Brother(e)) == BLACK
-        && Color(Left(Brother(e))) == RED && Color(Right(Brother(e))) == BLACK) {
+    if (IsLeftChild(e) and Color(Brother(e)) == BLACK
+        and Color(Left(Brother(e))) == RED and Color(Right(Brother(e))) == BLACK) {
         SwapColor(Brother(e), Left(Brother(e)));
         RotateRight(t, Brother(e));
-    } else if (IsRightChild(e) && Color(Brother(e)) == BLACK
-        && Color(Right(Brother(e))) == RED && Color(Left(Brother(e))) == BLACK) {
+    } else if (IsRightChild(e) and Color(Brother(e)) == BLACK
+        and Color(Right(Brother(e))) == RED and Color(Left(Brother(e))) == BLACK) {
         SwapColor(Brother(e), Right(Brother(e)));
         RotateLeft(t, Brother(e));
     }
