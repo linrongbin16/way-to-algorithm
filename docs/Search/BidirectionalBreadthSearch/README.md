@@ -21,7 +21,7 @@
 <br>
 解法： <br>
 &emsp;&emsp;双向广度优先搜索是在广度优先搜索基础上的一个变种，搜索速度更快。该算法从\(beg\)和\(end\)两个点开始，同时进行广度优先搜索，两边的点在某一处相遇，即可得到一条从\(beg\)到\(end\)的路径。 <br>
-&emsp;&emsp;初始时将\(beg\)和\(end\)分别加入两个队列\(begqueue\)和\(endqueue\)中。每次从\(begqueue\)或\(endqueue\)队列中取出头节点\(x\)进行访问，访问后将\(x\)染成红色（\(x \in begqueue\)）或绿色（\(x \in endqueue\)）。若\(x\)取出后发现其已被一个队列染色过，而又将染成另一种颜色，则说明两个队列在此处相遇，算法结束。 <br>
+&emsp;&emsp;初始时将\(beg\)和\(end\)分别加入两个队列\(begqueue\)和\(endqueue\)中。每次分别从\(begqueue\)和\(endqueue\)队列中取出节点\(x\)和\(y\)进行访问，在节点加入\(begqueue\)之前将其染成红色，加入\(endqueue\)之前其染成绿色。若\(x\)取出后发现已被染成绿色，说明\(x\)被\(endqueue\)访问过，或\(y\)取出后发现其已被染成红色，说明\(y\)被\(begqueue\)访问过。说明两个队列在此处相遇，算法结束。 <br>
 &emsp;&emsp;在下面这个\(m = 4\)，\(n = 5\)的二维方格\(s\)中，从\(beg = [0,1]\)移动到\(end = [3,4]\)的过程如下： <br>
 <p align="center"><img src="../res/BidirectionalBreadthSearch1.png" /></p>
 <p align="center"><img src="../res/BidirectionalBreadthSearch2.png" /></p>
