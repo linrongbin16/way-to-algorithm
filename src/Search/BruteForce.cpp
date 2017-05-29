@@ -11,7 +11,7 @@ int main()
     int s[TEST_N_MAX];
     for (int i = 1; i < TEST_M_MAX; i++) {
         vector<vector<int>> result = BruteForce(s, TEST_N_MAX, i);
-        assert(result.size() == pow(i, TEST_N_MAX));
+        assert( (double)result.size() == pow<double>(i, TEST_N_MAX));
         vector<int> s0;
         int sum0;
         s0 = result[0];

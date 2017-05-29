@@ -6,8 +6,8 @@
 #include <iostream>
 using namespace std;
 
-#define TEST_N_MAX 4
-#define TEST_M_MAX 4
+#define TEST_N_MAX 8
+#define TEST_M_MAX 8
 
 auto VectorToString(const vector<int> & v) -> string
 {

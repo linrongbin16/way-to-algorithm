@@ -18,7 +18,7 @@ auto ArrayToVector(int s[MAX], int n) -> vector<int>
 
 auto BruteForce(int s[MAX], int n, int m) -> vector<vector<int>>
 {
-    vector<vector<int>> combinations;
+    vector<vector<int>> comb;
     for (int i_0 = 0; i_0 < m; i_0++)
         for (int i_1 = 0; i_1 < m; i_1++)
             for (int i_2 = 0; i_2 < m; i_2++)
@@ -29,10 +29,10 @@ auto BruteForce(int s[MAX], int n, int m) -> vector<vector<int>>
                     s[2] = i_2;
                     /* ... */
                     s[n - 1] = i_n_1;
-                    combinations.push_back( ArrayToVector(s, n) );
+                    comb.push_back( ArrayToVector(s, n) );
                 }
 
-    return combinations;
+    return comb;
 }
 
 
