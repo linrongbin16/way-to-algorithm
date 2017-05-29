@@ -10,29 +10,42 @@ using namespace std;
 #endif
 
 struct Position {
-    int row;
     int col;
+    int row;
 
-    Position() : row(0), col(0) {}
-    Position(int r, int c) : row(r), col(c) {}
-    bool operator==( const Position & other) { return row == other.row and col == other.col; }
+    Position() : col(0), row(0) {}
+    Position(int c, int r) : col(c), row(r) {}
+    bool operator==( const Position & other) { return col == other.col and row == other.row; }
     bool operator!=( const Position & other) { return not (*this == other); }
 };
 
 /* 4个方向: 上 下 右 左 */
-/* m行n列二维方格 row范围[0, m) col范围[0, n)*/
+/* m列n行二维方格 col范围[0, m) row范围[0, n) */
 const int direction_col[4] = { 0, 0, 1, -1 };
 const int direction_row[4] = { 1, -1, 0, 0 };
 
 /* 递归生成从beg到end的路径 */
 auto BFSPath(Position father[MAX][MAX], Position end, vector<Position> &path) -> void
 {
-    if (father[end.row][end.col] != end) {
-        BFSPath(father, father[end.row][end.col], path);
+    if (father[end.col][end.row] != end) {
+        BFSPath(father, father[end.col][end.row], path);
     }
     path.push_back(end);
 }
 
+bool InRange(int pos, int range)
+{
+    return pos >= 0 and pos < range;
+}
+
+/**
+ * BreadthFirstSearch 广度优先搜索
+ * @param m     列col
+ * @param n     行row
+ * @param beg   起点座标
+ * @param end   终点座标
+ * @return      从beg到end的搜索路径
+ */
 auto BreadthFirstSearch(int m, int n, Position beg, Position end) -> vector<Position>
 {
     Position father[MAX][MAX];
@@ -45,9 +58,9 @@ auto BreadthFirstSearch(int m, int n, Position beg, Position end) -> vector<Posi
 
     deque<Position> que;
     que.push_back(beg);
-    /* beg.first是row 范围是[0, m) */
-    /* beg.second是col 范围是[0, n) */
-    visit[beg.row][beg.col] = 1;
+    /* beg.col 范围是[0, m) */
+    /* beg.row 范围是[0, n) */
+    visit[beg.col][beg.row] = 1;
 
     while (!que.empty()) {
         Position node = que.front();
@@ -60,20 +73,16 @@ auto BreadthFirstSearch(int m, int n, Position beg, Position end) -> vector<Posi
 
         /* 上下左右4个方向 */
         for (int i = 0; i < 4; i++) {
-            int neighbor_row = node.row + direction_row[i];
             int neighbor_col = node.col + direction_col[i];
+            int neighbor_row = node.row + direction_row[i];
             /* 检查边界和是否访问过/染红 */
-            if (neighbor_row >= 0
-                and neighbor_row < m
-                and neighbor_col >= 0
-                and neighbor_col < n
-                and not visit[neighbor_row][neighbor_col]) {
+            if (InRange(neighbor_col, m) and InRange(neighbor_row, n) and not visit[neighbor_col][neighbor_row]) {
                 /* 加入等待队列 */
-                que.push_back(Position(neighbor_row, neighbor_col));
+                que.push_back(Position(neighbor_col, neighbor_row));
                 /* 染红 */
-                visit[neighbor_row][neighbor_col] = 1;
+                visit[neighbor_col][neighbor_row] = 1;
                 /* 记录父节点 */
-                father[neighbor_row][neighbor_col] = Position(node.row, node.col);
+                father[neighbor_col][neighbor_row] = Position(node.col, node.row);
             }
         }
     }

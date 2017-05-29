@@ -11,63 +11,75 @@ using namespace std;
 
 struct Position
 {
-    int row;
     int col;
+    int row;
 
-    Position() : row(0), col(0) {}
-    Position(int row_, int col_) : row(row_), col(col_) {}
-    bool operator==(const Position & other) { return row == other.row and col == other.col; }
-    bool operator!=(const Position & other) { return row != other.row or col != other.col; }
+    Position() : col(0), row(0) {}
+    Position(int c, int r) : col(c), row(r) {}
+    bool operator==(const Position & other) { return col == other.col and row == other.row; }
+    bool operator!=(const Position & other) { return not (*this == other); }
 };
 
+/*
 struct PathPosition {
     Position current;
     Position father;
 
     PathPosition() : current(), father() {}
-    PathPosition(int row_, int col_, int father_row_, int father_col_)
-            : current(row_, col_), father(father_row_, father_col_) {}
+    PathPosition(int c, int r, int father_c, int father_r)
+            : current(c, r), father(father_c, father_r) {}
     PathPosition(const Position & current_, const Position & father_)
             : current(current_), father(father_) {}
 
     bool operator==(const PathPosition & other) { return current == other.current; }
     bool operator!=(const PathPosition & other) { return current != other.current; }
 };
+*/
 
-const Position invalid_position(-1, -1, -1, -1);
-const pair<Position, Position> invalid_pair(invalid_position, invalid_position);
+// const Position invalid_position(-1, -1);
+// const pair<Position, Position> invalid_pair(invalid_position, invalid_position);
 
 /* 4个方向: 上 下 右 左 */
-/* m行n列二维方格 row范围[0, m) col范围[0, n)*/
-const int direction_row[4] = { 0, 0, 1, -1 };
+/* m行n列二维方格 col范围[0, m) row范围[0, n)*/
 const int direction_col[4] = { 1, -1, 0, 0 };
+const int direction_row[4] = { 0, 0, 1, -1 };
 
-void BidirectionalPath(Position beg_father[MAX][MAX], Position end_father[MAX][MAX],
-                       Position beg, Position end, Position meet_pos, deque<Position> & path)
+auto BidirectionalPath(Position beg_father[MAX][MAX],
+                       Position end_father[MAX][MAX],
+                       Position beg, Position end, Position meet_pos) -> deque<Position>
 {
+    deque<Position> path;
     Position t = meet_pos;
+
     while (t != beg) {
         path.push_front(t);
-        t = beg_father[t.row][t.col];
+        t = beg_father[t.col][t.row];
     }
     path.push_front(beg);
-    t = end_father[meet_pos.row][meet_pos.col];
+    t = end_father[meet_pos.col][meet_pos.row];
     while (t != end) {
         path.push_back(t);
-        t = end_father[t.row][t.col];
+        t = end_father[t.col][t.row];
     }
     if (path.back() != end) {
         path.push_back(end);
     }
+
+    return path;
+}
+
+bool InRange(int pos, int range)
+{
+    return pos >= 0 and pos < range;
 }
 
 /**
  * BidirectionalBreadthSearch 双向广度搜索
- * @param m     
- * @param n
- * @param beg
- * @param end
- * @return
+ * @param m     列col
+ * @param n     行row
+ * @param beg   起点座标
+ * @param end   终点座标
+ * @return      从起点到终点的座标路径
  */
 auto BidirectionalBreadthSearch(int m, int n, Position beg, Position end) -> deque<Position>
 {
@@ -86,51 +98,49 @@ auto BidirectionalBreadthSearch(int m, int n, Position beg, Position end) -> deq
     deque<Position> beg_que, end_que;
     beg_que.push_back(beg);
     end_que.push_back(end);
-    /* x.row是row 范围是[0, m) */
-    /* x.col是col 范围是[0, n) */
-    beg_visit[beg.row][beg.col] = 1;
-    end_visit[end.row][end.col] = 1;
+    /* x.col 范围是[0, m) */
+    /* x.row 范围是[0, n) */
+    beg_visit[beg.col][beg.row] = 1;
+    end_visit[end.col][end.row] = 1;
+
     while (true) {
         /* 先扩展beg_que */
-        pair<int, int> beg_node = beg_que.front();
+        Position beg_node = beg_que.front();
         beg_que.pop_front();
-        if (end_visit[beg_node.row][beg_node.col] == 1) {
-            deque<pair<int, int> > path;
-            BidirectionalPath(beg, end, beg_node, path);
+        if (end_visit[beg_node.col][beg_node.row]) {
+            deque<Position> path = BidirectionalPath(beg_father, end_father, beg, end, beg_node);
             return path;
         }
         for (int i = 0; i < 4; i++) {
-            int neighbor_row = beg_node.row + direction_row[i];
             int neighbor_col = beg_node.col + direction_col[i];
-            if (neighbor_row >= 0 and neighbor_row < m and neighbor_col >= 0 and neighbor_col < n
-                and beg_visit[neighbor_row][neighbor_col] == 0) {
-                beg_que.push_back(pair<int, int>(neighbor_row, neighbor_col));
-                beg_visit[neighbor_row][neighbor_col] = 1;
-                beg_father[neighbor_row][neighbor_col] = pair<int, int>(beg_node.row, beg_node.col);
+            int neighbor_row = beg_node.row + direction_row[i];
+
+            if (InRange(neighbor_col, m) and InRange(neighbor_row, n) and beg_visit[neighbor_row][neighbor_col] == 0) {
+                beg_que.push_back( Position(neighbor_row, neighbor_col) );
+                beg_visit[neighbor_col][neighbor_row] = 1;
+                beg_father[neighbor_col][neighbor_row] = Position(beg_node.col, beg_node.row);
             }
         }
 
         /* 后扩展end_que */
-        pair<int, int> end_node = end_que.front();
+        Position end_node = end_que.front();
         end_que.pop_front();
-        if (beg_visit[end_node.row][end_node.col] == 1) {
-            deque<pair<int, int> > path;
-            BidirectionalPath(beg, end, end_node, path);
+        if (beg_visit[end_node.col][end_node.row]) {
+            deque<Position> path = BidirectionalPath(beg_father, end_father, beg, end, end_node);
             return path;
         }
         for (int i = 0; i < 4; i++) {
-            int neighbor_row = end_node.row + direction_row[i];
             int neighbor_col = end_node.col + direction_col[i];
-            if (neighbor_row >= 0 and neighbor_row < m and neighbor_col >= 0 and neighbor_col < n
-                and end_visit[neighbor_row][neighbor_col] == 0) {
-                end_que.push_back(pair<int, int>(neighbor_row, neighbor_col));
-                end_visit[neighbor_row][neighbor_col] = 1;
-                end_father[neighbor_row][neighbor_col] = pair<int, int>(end_node.row, end_node.col);
+            int neighbor_row = end_node.row + direction_row[i];
+            if (InRange(neighbor_col, m) and InRange(neighbor_row, n) and not end_visit[neighbor_col][neighbor_row] ) {
+                end_que.push_back(Position(neighbor_col, neighbor_row));
+                end_visit[neighbor_col][neighbor_row] = 1;
+                end_father[neighbor_col][neighbor_row] = Position(end_node.col, end_node.row);
             }
         }
     }
 
-    return deque<pair<int, int> >();
+    return deque<Position>();
 }
 
 #endif
