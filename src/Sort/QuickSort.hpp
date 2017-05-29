@@ -18,7 +18,7 @@ using namespace std;
  * @param high      序列s的末尾下标，即左闭右闭区间[low, high]
  * @return          最终s[low]所在下标
  */
-int Partion(int s[MAX], int low, int high)
+auto Partion(int s[MAX], int low, int high) -> int
 {
     int p = s[low];
     while (low < high) {
@@ -39,7 +39,7 @@ int Partion(int s[MAX], int low, int high)
  * @param beg       序列s的起始下标
  * @param end       序列s的末尾下标加1，即左闭右开区间[beg, end)
  */
-void QuickSort(int s[MAX], int beg, int end)
+auto QuickSort(int s[MAX], int beg, int end) -> void
 {
     if (beg < end-1) {
         int mid = Partion(s, beg, end-1);

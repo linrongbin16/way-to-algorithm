@@ -26,7 +26,7 @@ Chapter - 章节
     4. [MergeSort - 合并排序](Sort/MergeSort/)
 
 2. [Search - 搜索](Search/)
-    1. [BinarySearch - 二分查找法 折半查找法](Search/BinarySearch/)
+    1. [BinarySearch - 二分查找法（折半查找法）](Search/BinarySearch/)
     2. [BruteForce - 暴力枚举](Search/BruteForce/)
     3. [Recursion - 递归](Search/Recursion/)
     4. [BreadthFirstSearch - 广度优先搜索](Search/BreadthFirstSearch/)

@@ -5,7 +5,7 @@ using namespace std;
 #define TEST_M_MAX MAX
 #define TEST_N_MAX MAX
 
-int main()
+auto main() -> int
 {
     for (int i = 1; i < TEST_M_MAX; i++)
         for (int j = 1; j < TEST_N_MAX; j++) {
@@ -31,8 +31,3 @@ int main()
         }
     return 0;
 }
-
-
-#include <vector>
-
-std::vector<int> vec;

@@ -6,7 +6,7 @@
 #endif
 
 
-void Merge(int s[MAX], int start, int mid, int last)
+auto Merge(int s[MAX], int start, int mid, int last) -> void
 {
     int t[MAX];
     int i, j, k;

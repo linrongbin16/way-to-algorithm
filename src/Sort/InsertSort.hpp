@@ -12,7 +12,7 @@
 * @param beg        序列s的起始下标
 * @param end        序列s为左闭右开区间[beg, end)
 */
-void InsertSort(int s[MAX], int beg, int end)
+auto InsertSort(int s[MAX], int beg, int end) -> void
 {
     for (int j = beg+1; j < end; ++j) {
         int i;

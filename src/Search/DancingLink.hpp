@@ -6,12 +6,12 @@
 #define MAX 64
 #endif
 
-/* up_node[i]为节点i上方的邻节点 down_node/left_node/right_node对应分别为下方/左方/右方的邻节点 */
+/* up_node[i]/down_node[i]/left_node[i]/right_node[i] 对应分别为节点i上方/下方/左方/右方的邻节点 */
 int up_node[MAX], down_node[MAX], left_node[MAX], right_node[MAX];
-/* row[i] column[i]为节点i的行号和列号 */
+/* row[i] column[i] 为节点i的行号和列号 */
 int row[MAX], column[MAX];
 
-void MakeLink(int n, int m, int subset[MAX][MAX])
+auto MakeLink(int subset[MAX][MAX], int n, int m) -> void
 {
     /* 初始化矩阵 */
     memset(up_node, 0, MAX * sizeof(int));
@@ -20,16 +20,18 @@ void MakeLink(int n, int m, int subset[MAX][MAX])
     memset(right_node, 0, MAX * sizeof(int));
     memset(row, 0, MAX * sizeof(int));
     memset(column, 0, MAX * sizeof(int));
+
     for (int i = 1; i <= m; i++)
         for (int j = 1; j <= n; j++)
             if (subset[i][j])
                 subset[i][j] += n;
+
     /* 0为头节点head */
     for (int i = 0; i <= n; i++) {
         up_node[i] = i;
         down_node[i] = i;
-        left_node[i] = i-1>=0 ? i-1 : n;
-        right_node[i] = i+1<=n ? i+1 : 0;
+        left_node[i] = (i-1 >= 0) ? (i-1) : n;
+        right_node[i] = (i+1 <= n) ? (i+1) : 0;
         row[i] = 0;
         column[i] = i;
     }
@@ -75,7 +77,7 @@ void MakeLink(int n, int m, int subset[MAX][MAX])
                 }
         }
 }
-void RemoveNode(int u)
+auto RemoveNode(int u) -> void
 {
     /* 删除节点u */
     left_node[right_node[u]] = left_node[u];
@@ -90,7 +92,7 @@ void RemoveNode(int u)
         }
     }
 }
-void ResumeNode(int u)
+auto ResumeNode(int u) -> void
 {
     /* 恢复节点u */
     left_node[right_node[u]] = u;
@@ -106,7 +108,7 @@ void ResumeNode(int u)
     }
 }
 
-bool Dance(int r, int cover[MAX])
+auto Dance(int r, int cover[MAX]) -> bool
 {
     /* 0节点即为head节点 */
     /* 选择head节点右边的第1个节点u */
@@ -138,17 +140,18 @@ bool Dance(int r, int cover[MAX])
 
     /* 没有精确覆盖 恢复节点u 以及u所在列的每个节点所在的子集/行的所有节点*/
     ResumeNode(u);
+
     return false;
 }
 
-bool DancingLink(int n, int m, int subset[MAX][MAX], int cover[MAX])
+auto DancingLink(int n, int m, int subset[MAX][MAX], int cover[MAX]) -> bool
 {
     /* 集合s有n个成员[1,n] 子集subset有m个[1,m] */
     /* subset[i][j]=7 表示子集j包含成员i 节点的下标号为7 */
     /* subset[i][j]=0 表示子集j不包含成员i */
     /* 存在精确覆盖返回true并将所选的子集结果存储在cover数组中 不存在则返回false */
     memset(cover, 0, MAX * sizeof(int));
-    MakeLink(n, m, subset);
+    MakeLink(subset, n, m);
     return Dance(1, cover);
 }
 

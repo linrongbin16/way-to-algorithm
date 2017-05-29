@@ -8,10 +8,17 @@ using namespace std;
 #define MAX 1024
 #endif
 
-
-vector<int*> BruteForce(int s[MAX], int n, int m)
+auto ArrayToVector(int s[MAX], int n) -> vector<int>
 {
-    vector<int*> combinations;
+    vector<int> ret;
+    for (int i = 0; i < n; i++)
+        ret.push_back(s[i]);
+    return ret;
+}
+
+auto BruteForce(int s[MAX], int n, int m) -> vector<vector<int>>
+{
+    vector<vector<int>> combinations;
     for (int i_0 = 0; i_0 < m; i_0++)
         for (int i_1 = 0; i_1 < m; i_1++)
             for (int i_2 = 0; i_2 < m; i_2++)
@@ -22,9 +29,7 @@ vector<int*> BruteForce(int s[MAX], int n, int m)
                     s[2] = i_2;
                     /* ... */
                     s[n - 1] = i_n_1;
-                    int *r = new int[MAX];
-                    memcpy(r, s, MAX * sizeof(int));
-                    combinations.push_back(r);
+                    combinations.push_back( ArrayToVector(s, n) );
                 }
 
     return combinations;

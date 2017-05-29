@@ -14,7 +14,7 @@
 
 <div>
 <h1 align="center">Binary Search</h1>
-<h1 align="center">二分查找法 折半查找法</h1>
+<h1 align="center">二分查找法（折半查找法）</h1>
 <br>
 问题： <br>
 &emsp;&emsp;在长度为\(n\)的有序序列\(s\)中查找元素\(x\)的位置。 <br>

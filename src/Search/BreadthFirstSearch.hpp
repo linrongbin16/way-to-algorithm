@@ -18,7 +18,7 @@ int visit[MAX][MAX];
 pair<int, int> father[MAX][MAX];
 
 /* 递归生成从beg到end的路径 */
-void BFSPath(pair<int, int> end, vector<pair<int, int> > &path)
+auto BFSPath(pair<int, int> end, vector<pair<int, int> > &path) -> void
 {
     if (father[end.first][end.second] != end) {
         BFSPath(father[end.first][end.second], path);
@@ -26,7 +26,7 @@ void BFSPath(pair<int, int> end, vector<pair<int, int> > &path)
     path.push_back(end);
 }
 
-vector<pair<int, int> > BreadthFirstSearch(int m, int n, pair<int, int> beg, pair<int, int> end)
+auto BreadthFirstSearch(int m, int n, pair<int, int> beg, pair<int, int> end) -> vector<pair<int, int>>
 {
     memset(visit, 0, MAX * MAX * sizeof(int));
     for (int i = 0; i < MAX; i++)

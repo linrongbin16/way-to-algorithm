@@ -9,7 +9,7 @@
 --------
 #### Chapter-2 - Search - 搜索
 
-1. [BinarySearch - 二分查找法](BinarySearch/)
+1. [BinarySearch - 二分查找法（折半查找法）](BinarySearch/)
 2. [BruteForce - 暴力枚举](BruteForce/)
 3. [Recursion - 递归](Recursion/)
 4. [BreadthFirstSearch - 广度优先搜索](BreadthFirstSearch/)

@@ -18,7 +18,7 @@ using namespace std;
 int direction[4] = { -3, 3, -1, 1 };
 
 
-int ScoreH(string a, string end)
+auto ScoreH(string a, string end) -> int
 {
     int diff = 0;
     for (int i = 0; i < 9; ++i)
@@ -27,7 +27,7 @@ int ScoreH(string a, string end)
     return diff;
 }
 
-string OpenPop(deque<string> & open, string end_node, unordered_map<string, int> & score_g)
+auto OpenPop(deque<string> & open, string end_node, unordered_map<string, int> & score_g) -> string
 {
     string res;
     int f = INT_MAX;
@@ -43,7 +43,7 @@ string OpenPop(deque<string> & open, string end_node, unordered_map<string, int>
     return res;
 }
 
-void OpenErase(deque<string> & open, string node)
+auto OpenErase(deque<string> & open, string node) -> void
 {
     for (auto i = open.begin(); i != open.end(); i++) {
         if (node == *i) {
@@ -53,7 +53,7 @@ void OpenErase(deque<string> & open, string node)
     }
 }
 
-string Neighbor(string node, int dir)
+auto Neighbor(string node, int dir) -> string
 {
     int xpos;
     for (xpos = 0; xpos < 9; xpos++)
@@ -68,7 +68,7 @@ string Neighbor(string node, int dir)
     return node;
 }
 
-void FindPath(vector<string> & path, unordered_map<string, string> & close, string end_node)
+auto FindPath(vector<string> & path, unordered_map<string, string> & close, string end_node) -> void
 {
     string node = end_node;
     path.push_back(node);
@@ -82,7 +82,7 @@ void FindPath(vector<string> & path, unordered_map<string, string> & close, stri
     }
 }
 
-vector<string> AStarSearch(string beg, string end)
+auto AStarSearch(string beg, string end) -> vector<string>
 {
     unordered_map<string, int> score_g;
     deque<string> open;

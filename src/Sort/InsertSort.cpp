@@ -1,11 +1,11 @@
 #include "InsertSort.hpp"
 #include <iostream>
-#include <assert.h>
-#include <stdlib.h>
+#include <cassert>
+#include <cstdlib>
 using namespace std;
 
 
-void AssertNotAscendingOrder(int s[MAX], int n)
+auto AssertNotAscendingOrder(int s[MAX], int n) -> void
 {
     bool res = true;
     for (int i = 0; i < n-1; ++i) {
@@ -16,7 +16,7 @@ void AssertNotAscendingOrder(int s[MAX], int n)
     }
     assert(!res);
 }
-void AssertAscendingOrder(int s[MAX], int n)
+auto AssertAscendingOrder(int s[MAX], int n) -> void
 {
     bool res = true;
     for (int i = 0; i < n-1; ++i) {
@@ -27,7 +27,7 @@ void AssertAscendingOrder(int s[MAX], int n)
     }
     assert(res);
 }
-void AssertInsertSort(int s[MAX], int n)
+auto AssertInsertSort(int s[MAX], int n) -> void
 {
     AssertNotAscendingOrder(s, n);
     InsertSort(s, 0, n);
@@ -37,7 +37,7 @@ void AssertInsertSort(int s[MAX], int n)
 
 #define TEST_MAX 1024
 
-int main(void)
+auto main(void) -> int
 {
     int s[MAX];
 
@@ -47,6 +47,5 @@ int main(void)
         }
         AssertInsertSort(s, MAX);
     }
-
     return 0;
 }

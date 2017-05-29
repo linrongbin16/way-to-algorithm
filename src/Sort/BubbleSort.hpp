@@ -14,7 +14,8 @@ using namespace std;
  * @param beg       序列s的起始下标
  * @param end       序列s是左闭右开区间[beg, end)
  */
-void BubbleSort(int s[MAX], int beg, int end)
+
+auto BubbleSort(int s[MAX], int beg, int end) -> void
 {
     for (int i = end-1; i >= beg; --i)
         for (int j = beg; j < i; ++j)
