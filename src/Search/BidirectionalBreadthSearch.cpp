@@ -1,5 +1,6 @@
 #include "BidirectionalBreadthSearch.hpp"
-#include <assert.h>
+#include <cassert>
+#include <iostream>
 using namespace std;
 
 #define TEST_M_MAX MAX
@@ -18,7 +19,7 @@ auto AssertAdjacent(const Position & a, const Position & b) -> void
 auto main() -> int
 {
     for (int i = 1; i < TEST_M_MAX; i++)
-        for (int j = 1; j < TEST_N_MAX; j++) {
+        for (int j = 6; j < TEST_N_MAX; j++) {
             Position beg_pos(0, 0);
             Position end_pos(i - 1, j - 1);
             deque<Position> path = BidirectionalBreadthSearch(i, j, beg_pos, end_pos);
