@@ -1,14 +1,10 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../../)
-
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.hpp)
-
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.cpp)
-
+* [Upper Folder - 上一级目录](../../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.cpp)
 
 --------
 
@@ -48,10 +44,10 @@ g[i]+g[k] & i \gt 0,s[i] \gt s[k],f[k]+1 = f[i],k \in [1,i)
 </div>
 <br>
 Buy Low, Buy Lower：
+
 * [http://intercontineo.com/article/6713331759/](http://intercontineo.com/article/6713331759/)
 * [http://jackneus.com/programming-archives/buy-low-buy-lower/](http://jackneus.com/programming-archives/buy-low-buy-lower/)
 * [http://poj.org/problem?id=1952](http://poj.org/problem?id=1952)
-
 
 --------
 --------

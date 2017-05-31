@@ -1,14 +1,10 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../)
-
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BreadthFirstSearch.hpp)
-
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BreadthFirstSearch.cpp)
-
+* [Upper Folder - 上一级目录](../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BreadthFirstSearch.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BreadthFirstSearch.cpp)
 
 --------
 
@@ -51,7 +47,6 @@
 &emsp;&emsp;上列图中的队列\(queue\)中，左边为头部，右边为尾部，新访问的节点插入队列尾部，每次从队列中取出头节点\(e\)。如果需要额外的获取从\(beg\)点到\(end\)点的完整路径，需要在遍历时标记每个节点的上一个点，即“父节点”，最终可以从\(end\)通过父节点指针逆向的找到一条回到\(beg\)点的路径。 <br>
 &emsp;&emsp;该算法下时间复杂度为\(O(m \times n)\)。 <br>
 </div>
-
 
 --------
 --------

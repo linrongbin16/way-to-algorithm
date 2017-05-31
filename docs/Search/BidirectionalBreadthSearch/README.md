@@ -1,14 +1,10 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../)
-
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BidirectionalBreadthSearch.hpp)
-
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BidirectionalBreadthSearch.cpp)
-
+* [Upper Folder - 上一级目录](../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BidirectionalBreadthSearch.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BidirectionalBreadthSearch.cpp)
 
 --------
 
@@ -43,7 +39,6 @@
 <p align="center"><img src="../res/BidirectionalBreadthSearch9.png" /></p>
 &emsp;&emsp;双向广度搜索的时间复杂度与广度优先搜索一样，也是\(O(m \times n)\)。 <br>
 </div>
-
 
 --------
 --------

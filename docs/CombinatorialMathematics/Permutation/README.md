@@ -1,14 +1,10 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../)
-
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/FullPermutation.hpp)
-
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/FullPermutation.cpp)
-
+* [Upper Folder - 上一级目录](../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/FullPermutation.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/FullPermutation.cpp)
 
 --------
 
@@ -25,7 +21,6 @@
 &emsp;&emsp;对其中的每个组合都进行全排列。其中\([1,2,3]\)的全排列为：\([1,2,3]\)、\([2,1,3]\)、\([2,3,1]\)、\([3,2,1]\)、\([3,1,2]\)、\([1,3,2]\)。类似的对其他组合也进行全排列，得到的所有排列即为从\(A = [1,2,3,4,5]\)中取出\(3\)个元素得到的所有排列。 <br>
 &emsp;&emsp;该算法的时间复杂度为\(P_m^n = \frac{n!}{(n-m)!}\)。 <br>
 </div>
-
 
 --------
 --------

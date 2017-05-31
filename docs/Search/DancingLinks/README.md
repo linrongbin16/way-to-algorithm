@@ -1,14 +1,10 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../)
-
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/DancingLinks.hpp)
-
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/DancingLinks.cpp)
-
+* [Upper Folder - 上一级目录](../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/DancingLinks.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/DancingLinks.cpp)
 
 --------
 
@@ -52,7 +48,6 @@
 &emsp;&emsp;\((4)\)这时矩阵\(d\)为空，所选子集为\(\{ sub_1 \}\)，覆盖的成员为\(\{ 1,3,5,6 \}\)，没有完全覆盖，因此选择错误，恢复\(\{ 1,3,5,6 \}\)列的所有元素，然后继续尝试第\(1\)列（节点\(1\)）的下一个节点\([2,1]\)，直到找到精确覆盖； <br>
 &emsp;&emsp;舞蹈链算法的时间复杂度与递归的时间复杂度一样，为\(O(n^m)\)。 <br>
 </div>
-
 
 --------
 --------

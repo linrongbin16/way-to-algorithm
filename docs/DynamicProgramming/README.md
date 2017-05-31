@@ -1,10 +1,5 @@
-<script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
 --------
-[Upper Folder - 上一级目录](../)
-
+* [Upper Folder - 上一级目录](../)
 
 --------
 #### Chapter-4 - Dynamic Programming - 动态规划
@@ -31,7 +26,6 @@
     3. [MultipleTreeDPExtension - 多叉树动规问题扩展](TreeDP/MultipleTreeDPExtension/)
     4. [LoopedMultipleTreeDP - 带环多叉树动规](TreeDP/LoopedMultipleTreeDP/)
     5. [TraverseBinaryTreeDP - 遍历二叉树动规](TreeDP/TraverseBinaryTreeDP/)
-
 
 --------
 --------

@@ -1,10 +1,5 @@
-<script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
 --------
-[Upper Folder - 上一级目录](../)
-
+* [Upper Folder - 上一级目录](../)
 
 --------
 #### Chapter-5 - Graph Theory - 图论
@@ -66,7 +61,6 @@
     7. [MinimumDisjointPathCovering - 最小不相交路径覆盖](BinaryMatch/MinimumDisjointPathCovering/)
     8. [MinimumJointPathCovering - 最小可相交路径覆盖](BinaryMatch/MinimumJointPathCovering/)
     9. [Coloring - 染色问题](BinaryMatch/Coloring/)
-
 
 --------
 --------

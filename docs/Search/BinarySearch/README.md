@@ -1,14 +1,10 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../)
-
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BinarySearch.hpp)
-
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BinarySearch.cpp)
-
+* [Upper Folder - 上一级目录](../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BinarySearch.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BinarySearch.cpp)
 
 --------
 
@@ -31,7 +27,6 @@
 <p align="center"><img src="../res/BinarySearch3.png" /></p>
 &emsp;&emsp;对于长度为\(n\)的序列\(s\)，每次计算\(mid\)的时间看作\(O(1)\)。在最好情况下1次查找就可以找到；在最坏情况下需要\(log_2⁡n\)次才能找到\(x\)。该算法的时间复杂度为\(O(log_2⁡n)\)。 <br>
 </div>
-
 
 --------
 --------

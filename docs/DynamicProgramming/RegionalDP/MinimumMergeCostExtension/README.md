@@ -1,14 +1,10 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../../)
-
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCostExtenion.hpp)
-
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCostExtenion.cpp)
-
+* [Upper Folder - 上一级目录](../../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCostExtenion.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCostExtenion.cpp)
 
 --------
 
@@ -36,7 +32,6 @@ min \{f(i,k)+f(k+1,j)+sum(i,k)+sum(k+1,j) \} & i,j \in [0,2n],i \leq k \leq j
 &emsp;&emsp;\((3)\)假设将\(s[i,k]\)和\(s[k+1,j]\)这两个区域的元素合并。合并\(s[i,k]\)和\(s[k+1,j]\)的过程中，已知\(s[i,k]\)范围的总和为\(sum(i,k)\)，消耗的代价为\(f(i,k)\)，\(s[k+1,j]\)范围的总和为\(sum(k+1,j)\)，消耗的代价为\(f(k+1,j)\)。因为\(k \in [i,j]\)，因此\(f(i,j) = min \{ f(i,k)+f(k+1,j)+sum(i,k)+sum(k+1,j) \}\)，选择该范围中所有结果的最小值即可； <br>
 &emsp;&emsp;\(f(0,2n)\)即为序列\(s\)的最小合并代价。该算法的时间复杂度是\(O(n^2)\)。 <br>
 </div>
-
 
 --------
 --------

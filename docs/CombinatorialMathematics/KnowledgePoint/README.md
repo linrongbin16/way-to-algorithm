@@ -1,10 +1,8 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../)
-
+* [Upper Folder - 上一级目录](../)
 
 --------
 
@@ -84,8 +82,8 @@ P_m^n = \frac{n!}{(n-m)!}
 </div>
 <br>
 数学符号表： <br>
-* [https://en.wikipedia.org/wiki/List_of_mathematical_symbols](https://en.wikipedia.org/wiki/List_of_mathematical_symbols)
 
+* [https://en.wikipedia.org/wiki/List_of_mathematical_symbols](https://en.wikipedia.org/wiki/List_of_mathematical_symbols)
 
 --------
 --------

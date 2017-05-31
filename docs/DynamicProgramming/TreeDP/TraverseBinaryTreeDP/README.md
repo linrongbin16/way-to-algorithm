@@ -1,14 +1,10 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../../)
-
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.hpp)
-
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.cpp)
-
+* [Upper Folder - 上一级目录](../../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.cpp)
 
 --------
 
@@ -39,6 +35,7 @@
 </div>
 <br>
 USACO Mar 2008 “Cow Travelling”（游荡的奶牛）：
+
 * [http://train.usaco.org/TESTDATA/MAR08.ctravel.htm](http://train.usaco.org/TESTDATA/MAR08.ctravel.htm)
 
 --------

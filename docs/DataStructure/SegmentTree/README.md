@@ -1,14 +1,10 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../)
-
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/SegmentTree.hpp)
-
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/SegmentTree.cpp)
-
+* [Upper Folder - 上一级目录](../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/SegmentTree.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/SegmentTree.cpp)
 
 --------
 
@@ -26,7 +22,6 @@
 &emsp;&emsp;查询操作：从根节点向下依次查询所有子节点，若节点属于被查询的区域则直接返回；若节点中只有一部分区域匹配则继续查询其左右子节点。最终将所有匹配到的区域的和加起来即为查询区域的和。该操作的时间复杂度为\(O(log_2⁡n)\)。 <br>
 &emsp;&emsp;实际编代码的时候，对于长度为\(n\)的数组\(s[0,n-1]\)，为了方便我们用数组\(t\)来表示二叉树（而不是真的写一个拥有两个指针的结构体），下标为\(i\)的左孩子节点下标为\(2i+1\)，右孩子节点下标为\(2i+2\)。\(t[0]\)为二叉树的根节点，代表\(s[0,n-1]\)区域的和；其左孩子为\(t[1]\)，表示\(s[0, \frac{n}{2}]\)区域之和；右孩子为\(t[2]\)，表示\(s[ \frac{n}{2}+1,n-1]\)区域之和；以此类推。 <br>
 </div>
-
 
 --------
 --------

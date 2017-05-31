@@ -1,10 +1,8 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../../)
-
+* [Upper Folder - 上一级目录](../../)
 
 --------
 
@@ -30,7 +28,6 @@
 强连通分量（Strongly Connected Component）： <br>
 &emsp;&emsp;有向图\(G\)的一个极大连通子图，强连通分量中的任意节点\(v_i\)可以到达任意节点\(v_j\)，且\(v_j\)也可以到达\(v_i\)。求强连通分量的算法有双向遍历后取交集、Tarjan算法、Kosaraju算法、Gabow算法 <br>
 </div>
-
 
 --------
 --------

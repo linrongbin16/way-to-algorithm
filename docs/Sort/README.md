@@ -1,5 +1,5 @@
 --------
-[Upper Folder - 上一级目录](../)
+* [Upper Folder - 上一级目录](../)
 
 --------
 #### Chapter-1 Sort 排序

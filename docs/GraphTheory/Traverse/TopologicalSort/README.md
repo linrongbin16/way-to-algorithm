@@ -1,14 +1,10 @@
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-
 --------
-[Upper Folder - 上一级目录](../../)
-
-[Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/TopologicalSort.hpp)
-
-[Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/TopologicalSort.cpp)
-
+* [Upper Folder - 上一级目录](../../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/TopologicalSort.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/TopologicalSort.cpp)
 
 --------
 
@@ -29,7 +25,6 @@
 &emsp;&emsp;对图中的所有节点依次进行DFS，节点\(0 - 7\)到终点的距离依次为\(8, 6, 3, 4, 2, 7, 1, 1\)。因此按照距离排序后，有向图G的拓扑排序为[0, 5, 1, 3, 2, 4, 6, 7]。<br>
 &emsp;&emsp;拓扑先序遍历的时间复杂度是\(O(n)\)。 <br>
 </div>
-
 
 --------
 --------
