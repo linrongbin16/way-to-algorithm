@@ -1,3 +1,6 @@
+<script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 --------
 [Upper Folder - 上一级目录](../)
 
@@ -5,9 +8,7 @@
 
 [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.cpp)
 
-
 --------
-
 
 <div>
 <h1 align="center"> Bubble Sort </h1>
@@ -30,7 +31,6 @@
 <p align="center"><img src="../res/BubbleSort5.png" /></p>
 &emsp;&emsp;重复上面的遍历交换操作，直到\(left\)部分为空，\(right\)部分即为已序数组，算法结束。对于长度为\(n\)的序列\(s\)，每一轮将\(left\)中的最大值移动到\(right\)，时间复杂度为\(O(n)\)，总共需要\(n\)轮，该算法的时间复杂度为\(O(n^2)\)。<br>
 </div>
-
 
 --------
 --------
