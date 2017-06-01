@@ -5,7 +5,7 @@
 #### Chapter-3 - DataStructure - 数据结构
 
 1. [DisjointSet - 并查集](DisjointSet/)
-2. [BinaryIndexTree - 树状数组](BinaryIndexTree/)
+2. [FenwickTree(BinaryIndexTree) - 树状数组](FenwickTree/)
 3. [SegmentTree - 线段树](SegmentTree/)
 4. [LeftistTree(LeftistHeap) - 左偏树（左偏堆）](LeftistTree/)
 5. [PrefixTree - 前缀树](PrefixTree/)
