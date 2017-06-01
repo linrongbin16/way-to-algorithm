@@ -1,4 +1,4 @@
-#include "BinaryIndexTree.hpp"
+#include "FenwickTree.hpp"
 #include <iostream>
 #include <assert.h>
 using namespace std;
@@ -8,13 +8,13 @@ using namespace std;
 int main()
 {
     for (int i = 0; i < TEST_MAX; i++) {
-        BinaryIndexTree *t = BinaryIndexTreeNew();
+        FenwickTree *t = FenwickTreeNew();
         assert(t);
         int sum = 0;
         for (int j = 1; j < MAX; j++) {
-            BinaryIndexTreeAdd(t, j, i);
+            FenwickTreeAdd(t, j, i);
             sum += i;
-            assert(BinaryIndexTreeSum(t, MAX-1) == sum);
+            assert(FenwickTreeSum(t, MAX-1) == sum);
         }
     }
 

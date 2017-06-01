@@ -4,6 +4,12 @@
 #include <cstdlib>
 using namespace std;
 
+struct Test {
+    int a;
+    int b;
+    int c;
+};
+
 
 auto AssertNotAscendingOrder(int s[MAX], int n) -> void
 {
@@ -47,5 +53,6 @@ auto main(void) -> int
         }
         AssertBubbleSort(s, MAX);
     }
+
     return 0;
 }

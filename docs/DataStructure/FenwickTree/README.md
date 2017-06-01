@@ -3,13 +3,13 @@
 
 --------
 * [Upper Folder - 上一级目录](../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/BinaryIndexTree.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/BinaryIndexTree.cpp)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/Fenwick.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/Fenwick.cpp)
 
 --------
 
 <div>
-<h1 align="center">Binary Index Tree(Fenwick Tree)</h1>
+<h1 align="center">Fenwick Tree(Binary Index Tree)</h1>
 <h1 align="center">树状数组</h1>
 <br>
 描述： <br>

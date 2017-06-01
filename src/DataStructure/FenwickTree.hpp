@@ -1,12 +1,12 @@
-#ifndef BINARY_INDEX_TREE_HPP
-#define BINARY_INDEX_TREE_HPP 1
+#ifndef FENWICK_TREE_HPP
+#define FENWICK_TREE_HPP 1
 
 #include <cstring>
 #ifndef MAX
 #define MAX 1024
 #endif
 
-struct BinaryIndexTree
+struct FenwickTree
 {
     /* 数组下标从1开始 */
     int bit[MAX];
@@ -17,9 +17,9 @@ int LowBit(int i)
     return i & (-i);
 }
 
-BinaryIndexTree *BinaryIndexTreeNew()
+FenwickTree *FenwickTreeNew()
 {
-    BinaryIndexTree *t = new BinaryIndexTree();
+    FenwickTree *t = new FenwickTree();
     if (!t) {
         return NULL;
     }
@@ -28,9 +28,9 @@ BinaryIndexTree *BinaryIndexTreeNew()
     return t;
 }
 
-BinaryIndexTree *BinaryIndexTreeNewFromArray(int s[MAX])
+FenwickTree *FenwickTreeNewFromArray(int s[MAX])
 {
-    BinaryIndexTree *t = new BinaryIndexTree();
+    FenwickTree *t = new FenwickTree();
     if (!t) {
         return NULL;
     }
@@ -46,18 +46,18 @@ BinaryIndexTree *BinaryIndexTreeNewFromArray(int s[MAX])
     return t;
 }
 
-void BinaryIndexTreeFree(BinaryIndexTree *t)
+void FenwickTreeFree(FenwickTree *t)
 {
     delete t;
 }
 
-void BinaryIndexTreeAdd(BinaryIndexTree *t, int i, int v)
+void FenwickTreeAdd(FenwickTree *t, int i, int v)
 {
     for (int j = i; j < MAX; j += LowBit(j)) {
         t->bit[j] += v;
     }
 }
-int BinaryIndexTreeSum(BinaryIndexTree *t, int i)
+int FenwickTreeSum(FenwickTree *t, int i)
 {
     int sum = 0;
     for (int j = i; j > 0; j -= LowBit(j)) {
