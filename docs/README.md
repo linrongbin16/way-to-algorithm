@@ -1,10 +1,10 @@
 --------
-<h2>Way to Algorithm - 算法之路</h2>
+### Way to Algorithm - 算法之路
 <p><img src="res/keyboard.jpg" /></p>
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
 --------
-<h2 align="center"> Content - 目录 </h2>
+### Content - 目录
 
 [Introduction - 简介](Introduction/)
 
@@ -179,7 +179,7 @@ Chapter - 章节
 
 
 --------
-<h2 align="center"> Reference - 参考资料 </h2>
+### Reference - 参考资料
 
 * [算法导论 - Introduction to Algorithms](http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf)
 * [背包问题九讲](http://love-oriented.com/pack/)
