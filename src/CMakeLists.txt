@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.4)
 
-add_compile_options(-std=c++1z)
-
 add_subdirectory(Sort)
 add_subdirectory(Search)
 add_subdirectory(DataStructure)
