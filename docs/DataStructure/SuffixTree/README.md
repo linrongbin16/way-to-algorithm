@@ -5,10 +5,9 @@
 
 --------
 
+### Suffix Tree
+### 后缀树
 <div>
-<h1 align="center">Suffix Tree</h1>
-<h1 align="center">后缀树</h1>
-<br>
 </div>
 
 --------

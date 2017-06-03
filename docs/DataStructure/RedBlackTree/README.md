@@ -5,10 +5,9 @@
 
 --------
 
+### Red Black Tree
+### 红黑树
 <div>
-<h1 align="center">Red Black Tree</h1>
-<h1 align="center">红黑树</h1>
-<br>
 </div>
 
 --------

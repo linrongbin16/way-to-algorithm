@@ -16,22 +16,22 @@
 <p id="i">当声明\(2\)个成员\(x_i\)和\(x_j\)（\(x_i \le x_j\)）属于同一家庭，直接令\(x_i\)的节点祖先为\(x_j\)的父亲（也可以反过来），即\(father[x_j] = ancestor[x_i]\)。这样的操作会使元素\(x_j\)的最接近祖先节点，从而缩短了递归向上查找的路径长度，因此该操作也称为压缩路径。 </p>
 <p id="i">下面对上图中的集合\(s\)进行具体演示： </p>
 <p id="i">\((1)\)声明\(0\)和\(4\)属于同一家庭，比较\(0\)和\(4\)的祖宗节点，设置\(father[4] = ancestor[0] = 0\)，本文中我们取左节点的祖宗节点作为右节点的父节点； </p>
-<p align="center"><img src="../res/DisjointSet2.png" /></p>
-&emsp;&emsp;\((2)\)声明\(1\)和\(9\)节点属于同一家庭，设置\(father[9] = ancestor[1] = 1\)； <br>
-<p align="center"><img src="../res/DisjointSet3.png" /></p>
-&emsp;&emsp;\((3)\)声明\(0\)和\(2\)节点属于同一家庭，设置\(father[2] = ancestor[0] = 0\)； <br>
-<p align="center"><img src="../res/DisjointSet4.png" /></p>
-&emsp;&emsp;\((4)\)声明\(1\)和\(3\)节点属于同一家庭，设置\(father[3] = ancestor[1] = 1\)； <br>
-<p align="center"><img src="../res/DisjointSet5.png" /></p>
-&emsp;&emsp;\((5)\)声明\(3\)和\(5\)节点属于同一家庭，设置\(father[5] = ancestor[3] = 1\)； <br>
-<p align="center"><img src="../res/DisjointSet6.png" /></p>
-&emsp;&emsp;\((6)\)声明\(6\)和\(8\)节点属于同一家庭，设置\(father[8] = ancestor[6] = 6\)； <br>
-<p align="center"><img src="../res/DisjointSet7.png" /></p>
-&emsp;&emsp;\((7)\)声明\(2\)和\(6\)节点属于同一家庭，设置\(father[6] = ancestor[2] = 0\)； <br>
-<p align="center"><img src="../res/DisjointSet8.png" /></p>
-&emsp;&emsp;\((8)\)声明\(1\)和\(7\)节点属于同一家庭，设置\(father[7] = ancestor[1] = 1\)； <br>
-<p align="center"><img src="../res/DisjointSet9.png" /></p>
-&emsp;&emsp;合并两节点\(x\)和\(y\)时，根据固定规则设置\(father[y] = ancestor[x]\)（或者相反）；查询节点\(x\)的祖宗节点时，若\(father[x] \neq ancestor[x]\)则设置\(father[x] = ancestor[x]\)。并查集的分类、查询操作的时间复杂度接近\(O(1)\)。 <br>
+<p id="c"><img src="../res/DisjointSet2.png" /></p>
+<p id="i">\((2)\)声明\(1\)和\(9\)节点属于同一家庭，设置\(father[9] = ancestor[1] = 1\)； </p>
+<p id="c"><img src="../res/DisjointSet3.png" /></p>
+<p id="i">\((3)\)声明\(0\)和\(2\)节点属于同一家庭，设置\(father[2] = ancestor[0] = 0\)； </p>
+<p id="c"><img src="../res/DisjointSet4.png" /></p>
+<p id="i">\((4)\)声明\(1\)和\(3\)节点属于同一家庭，设置\(father[3] = ancestor[1] = 1\)； </p>
+<p id="c"><img src="../res/DisjointSet5.png" /></p>
+<p id="i">\((5)\)声明\(3\)和\(5\)节点属于同一家庭，设置\(father[5] = ancestor[3] = 1\)； </p>
+<p id="c"><img src="../res/DisjointSet6.png" /></p>
+<p id="i">\((6)\)声明\(6\)和\(8\)节点属于同一家庭，设置\(father[8] = ancestor[6] = 6\)； </p>
+<p id="c"><img src="../res/DisjointSet7.png" /></p>
+<p id="i">\((7)\)声明\(2\)和\(6\)节点属于同一家庭，设置\(father[6] = ancestor[2] = 0\)； </p>
+<p id="c"><img src="../res/DisjointSet8.png" /></p>
+<p id="i">\((8)\)声明\(1\)和\(7\)节点属于同一家庭，设置\(father[7] = ancestor[1] = 1\)； </p>
+<p id="c"><img src="../res/DisjointSet9.png" /></p>
+<p id="i">合并两节点\(x\)和\(y\)时，根据固定规则设置\(father[y] = ancestor[x]\)（或者相反）；查询节点\(x\)的祖宗节点时，若\(father[x] \neq ancestor[x]\)则设置\(father[x] = ancestor[x]\)。并查集的分类、查询操作的时间复杂度接近\(O(1)\)。 </p>
 </div>
 
 --------
