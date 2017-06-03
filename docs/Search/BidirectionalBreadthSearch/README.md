@@ -14,14 +14,14 @@
 <p id="mi">双向广度优先搜索是在广度优先搜索基础上的一个变种，搜索速度更快。该算法从\(beg\)和\(end\)两个点开始，同时进行广度优先搜索，两边的点在某一处相遇，即可得到一条从\(beg\)到\(end\)的路径。 </p>
 <p id="mi">初始时将\(beg\)和\(end\)分别加入两个队列\(begqueue\)和\(endqueue\)中。每次分别从\(begqueue\)和\(endqueue\)队列中取出节点\(x\)和\(y\)进行访问，在节点加入\(begqueue\)之前将其染成红色，加入\(endqueue\)之前其染成绿色。若\(x\)取出后发现已被染成绿色，说明\(x\)被\(endqueue\)访问过，或\(y\)取出后发现其已被染成红色，说明\(y\)被\(begqueue\)访问过。说明两个队列在此处相遇，算法结束。 </p>
 <p id="mi">在下面这个\(m = 4\)，\(n = 5\)的二维方格\(s\)中，从\(beg = [0,1]\)移动到\(end = [3,4]\)的过程如下： </p>
-<p id="mc"><img src="../res/BidirectionalBreadthSearch1.png" /></p>
+<img id="mc" src="../res/BidirectionalBreadthSearch1.png" />
 <p id="mi">\((1)\)初始时，将\(beg = [0,1]\)染红并加入\(begqueue\)中，将\(end = [3,4]\)染绿并加入\(endqueue\)； </p>
-<p align="center"><img src="../res/BidirectionalBreadthSearch2.png" /></p>
-&emsp;&emsp;\((2)\)从\(begqueue\)中取出头节点\([0,1]\)，将其四周未被染色的邻节点\([0,0]\)、\([1,1]\)、\([0,2]\)染红并加入\(begqueue\)中。从\(endqueue\)中取出头节点\([3,4]\)，将其四周未被染色的邻节点\([2,4]\)、\([3,3]\)染红并加入\(endqueue\)中； <br>
-<p align="center"><img src="../res/BidirectionalBreadthSearch3.png" /></p>
-&emsp;&emsp;\((3)\)从\(begqueue\)中取出头节点\([0,0]\)，将其四周未被染色的邻节点\([1,0]\)染红并加入\(begqueue\)中。从\(endqueue\)中取出头节点\([2,4]\)，将其四周未被染色的邻节点\([1,4]\)、\([2,3]\)染红并加入\(endqueue\)中； <br>
-<p align="center"><img src="../res/BidirectionalBreadthSearch4.png" /></p>
-&emsp;&emsp;\((4)\)从\(begqueue\)中取出头节点\([1,1]\)，将其四周未被染色的邻节点\([2,1]\)、\([1,2]\)染红并加入\(begqueue\)中。从\(endqueue\)中取出头节点\([3,3]\)，将其四周未被染色的邻节点\([3,2]\)染红并加入\(endqueue\)中； <br>
+<img id="mc" src="../res/BidirectionalBreadthSearch2.png" />
+<p id="mi">\((2)\)从\(begqueue\)中取出头节点\([0,1]\)，将其四周未被染色的邻节点\([0,0]\)、\([1,1]\)、\([0,2]\)染红并加入\(begqueue\)中。从\(endqueue\)中取出头节点\([3,4]\)，将其四周未被染色的邻节点\([2,4]\)、\([3,3]\)染红并加入\(endqueue\)中； </p>
+<img id="mc" src="../res/BidirectionalBreadthSearch3.png" />
+<p id="mi">\((3)\)从\(begqueue\)中取出头节点\([0,0]\)，将其四周未被染色的邻节点\([1,0]\)染红并加入\(begqueue\)中。从\(endqueue\)中取出头节点\([2,4]\)，将其四周未被染色的邻节点\([1,4]\)、\([2,3]\)染红并加入\(endqueue\)中； </p>
+<img id="mc" src="../res/BidirectionalBreadthSearch4.png" />
+<p id="mi">\((4)\)从\(begqueue\)中取出头节点\([1,1]\)，将其四周未被染色的邻节点\([2,1]\)、\([1,2]\)染红并加入\(begqueue\)中。从\(endqueue\)中取出头节点\([3,3]\)，将其四周未被染色的邻节点\([3,2]\)染红并加入\(endqueue\)中； </p>
 <p align="center"><img src="../res/BidirectionalBreadthSearch5.png" /></p>
 &emsp;&emsp;\((5)\)从\(begqueue\)中取出头节点\([0,2]\)，将其四周未被染色的邻节点\([0,3]\)染红并加入\(begqueue\)中。从\(endqueue\)中取出头节点\([1,4]\)，将其四周未被染色的邻节点\([1,3]\)、\([0,4]\)染红并加入\(endqueue\)中； <br>
 <p align="center"><img src="../res/BidirectionalBreadthSearch6.png" /></p>
