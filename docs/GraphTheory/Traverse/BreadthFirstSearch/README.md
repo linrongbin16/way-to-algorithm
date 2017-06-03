@@ -22,7 +22,6 @@
 <p id="i">\((4)\)访问节点\(3\)本身，将它染成红色，继续遍历其邻节点\( \{2, 4\} \)（由于节点\(2\)已经为红色，因此不再考虑该节点）； </p>
 <p id="c"><img src="../res/BreadthFirstSearch4.png" /></p>
 <p id="i">\((5)\)之后的所有节点都已经被访问过，只要返回递归即可，算法结束； </p>
-<p id="c"><img src="../res/BreadthFirstSearch5.png" /></p>
 <p id="i">广度优先搜索的时间复杂度是\(O(n)\)。 </p>
 </div>
 <br>
