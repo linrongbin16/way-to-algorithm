@@ -4,7 +4,7 @@
 <p id="c">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
 --------
-<h2 id="mc">Content - 目录</h2>
+<h2 id="c">Content - 目录</h2>
 
 [Introduction - 简介](Introduction/)
 
