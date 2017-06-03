@@ -1,7 +1,7 @@
 --------
-<h2 align="center">Way to Algorithm - 算法之路</h2>
-<p id="make_center"><img src="res/keyboard.jpg" alt="" /></p>
-<p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
+<h2 id="my_center">Way to Algorithm - 算法之路</h2>
+<p id="my_center"><img src="res/keyboard.jpg" alt="" /></p>
+<p id="my_center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
 --------
 <h2 align="center">Content - 目录</h2>
@@ -166,7 +166,7 @@ Chapter - 章节
     4. [SpragueGrundy - SG函数](TextMatch/SpragueGrundy/)
 
 --------
-<h2 align="center">Reference - 参考资料</h2>
+<h2 id="my_center">Reference - 参考资料</h2>
 
 * [算法导论 - Introduction to Algorithms](http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf)
 * [背包问题九讲](http://love-oriented.com/pack/)
