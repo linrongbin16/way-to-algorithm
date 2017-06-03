@@ -41,6 +41,7 @@
 <p id="i">重复上述操作，即可得到长度为\(n\)的数组\(A = [a_0,a_1,a_2, \cdots ,a_{n-1}]\)的全排列。该算法的时间复杂度为\(O(n!)\)。 </p>
 </div>
 
+<br>
 StackOverflow上关于全排列的问题：
 * http://stackoverflow.com/questions/9878846/listing-all-permutations-of-a-given-set-of-values
 

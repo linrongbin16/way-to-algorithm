@@ -76,6 +76,8 @@ P_m^n = \frac{n!}{(n-m)!}
 \]
 <p id="i">也写作：\(A_m^n = \frac{n!}{(n-m)!} \)，维基百科中特别提到中国大陆教材中写做\(A_n^m\)。特别的当\(m = n\)时，\(P_m^n\)称为全排列，\(P_m^n = 1 \times 2 \times 3 \times \cdots \times n = n!\)。 </p>
 </div>
+
+<br>
 数学符号表：
 * https://en.wikipedia.org/wiki/List_of_mathematical_symbols
 

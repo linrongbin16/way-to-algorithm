@@ -58,6 +58,7 @@
 <p id="i">重复上述的操作，直到选取\(m\)个元素，即可得到所有的组合，算法结束。然后根据\(s\)的全排列生成集合\(A\)的所有组合即可。该算法时间复杂度为\(C_m^n = \frac{n!}{m! \cdot (n-m)!} \)。 </p>
 </div>
 
+<br>
 StackOverflow上关于组合产生算法的问题：
 * http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n
 
