@@ -1,6 +1,6 @@
 --------
 <h2 align="center">Way to Algorithm - 算法之路</h2>
-<p><img src="res/keyboard.jpg" alt="" /></p>
+![](res/keyboard.jpg)
 <p align="center">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 
 --------
