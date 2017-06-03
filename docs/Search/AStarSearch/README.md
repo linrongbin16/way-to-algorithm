@@ -85,7 +85,7 @@ int(123495786)
 <p id="mi">当搜索到open表中没有节点可以访问时，则说明\(beg\)节点永远无法到达\(end\)节点，两个矩阵状态无法转换。更复杂一些的情况，在\(beg\)可以到达end的基础上，需要求出从\(beg\)到\(end\)的路径，这时我们可以把close表改为哈希表\(x \Rightarrow from(x)\)，用来存储节节点\(x\)及其父节点\(from\)，最后从\(end\)节点反向，通过查找close表就可以找到一条反向的路径。 </p>
 <p id="mi">本问题中A搜索的时间复杂度为\(O(9^9)\)。 </p>
 </div>
-八数码问题： <br>
+八数码问题：
 * http://www.d.umn.edu/~jrichar4/8puz.html
 * https://www.cs.princeton.edu/courses/archive/fall12/cos226/assignments/8puzzle.html
 
