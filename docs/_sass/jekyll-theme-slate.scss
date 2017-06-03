@@ -171,6 +171,16 @@ pre, code {
   -webkit-border-radius: 2px;
 }
 
+#make_center {
+  vertical-align: middle;
+  text-align: center;
+  }
+
+#make_indent {
+  text-indent: 2em;
+}
+
+
 pre {
   padding: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,.1);
