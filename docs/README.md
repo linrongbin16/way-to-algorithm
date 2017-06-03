@@ -9,13 +9,11 @@
 [Introduction - 简介](Introduction/)
 
 Chapter - 章节
-
 1. [Sort - 排序](Sort/)
     1. [InsertSort - 插入排序](Sort/InsertSort/)
     2. [BubbleSort - 冒泡排序](Sort/BubbleSort/)
     3. [QuickSort - 快速排序](Sort/QuickSort/)
     4. [MergeSort - 合并排序](Sort/MergeSort/)
-
 2. [Search - 搜索](Search/)
     0. [KnowledgePoint - 知识要点](Search/KnowledgePoint/)
     1. [BinarySearch - 二分查找法（折半查找法）](Search/BinarySearch/)
@@ -25,7 +23,6 @@ Chapter - 章节
     5. [BidirectionalBreadthSearch - 双向广度搜索](Search/BidirectionalBreadthSearch/)
     6. [AStarSearch - A*搜索](Search/AStarSearch/)
     7. [DancingLinks - 舞蹈链](Search/DancingLinks/)
-
 3. [DataStructure - 数据结构](DataStructure/)
     1. [DisjointSet - 并查集](DataStructure/DisjointSet/)
     2. [FenwickTree(BinaryIndexTree) - 树状数组](DataStructure/FenwickTree/)
@@ -35,7 +32,6 @@ Chapter - 章节
     6. [SuffixTree - 后缀树](DataStructure/SuffixTree/)
     7. [AVLTree - AVL树](DataStructure/AVLTree/)
     8. [RedBlackTree - 红黑树](DataStructure/RedBlackTree/)
-
 4. [DynamicProgramming - 动态规划](DynamicProgramming/)
     0. [KnowledgePoint - 知识要点](DynamicProgramming/KnowledgePoint/)
     1. LinearDP - 线性动规
@@ -59,7 +55,6 @@ Chapter - 章节
         3. [MultipleTreeDPExtension - 多叉树动规扩展](DynamicProgramming/TreeDP/MultipleTreeDPExtension/)
         4. [LoopedMultipleTreeDP - 带环多叉树动规](DynamicProgramming/TreeDP/LoopedMultipleTreeDP/)
         5. [TraverseBinaryTreeDP - 遍历二叉树动规](DynamicProgramming/TreeDP/TraverseBinaryTreeDP/)
-
 5. [GraphTheory - 图论](GraphTheory/)
     1. Traverse - 遍历
         0. [KnowledgePoint - 知识要点](GraphTheory/Traverse/KnowledgePoint/)
@@ -118,12 +113,10 @@ Chapter - 章节
         7. [MinimumDisjointPathCovering - 最小不相交路径覆盖](GraphTheory/BinaryMatch/MinimumDisjointPathCovering/)
         8. [MinimumJointPathCovering - 最小可相交路径覆盖](GraphTheory/BinaryMatch/MinimumJointPathCovering/)
         9. [Coloring - 染色问题](GraphTheory/BinaryMatch/Coloring/)
-
 6. [Calculation - 计算](Calculation/)
     1. [LargeNumber - 大数字](Calculation/LargeNumber/)
     2. [DecimalConversion - 进制转换](Calculation/DecimalConversion/)
     3. [Exponentiation - 幂运算](Calculation/Exponentiation/)
-
 7. [CombinatorialMathematics - 组合数学](CombinatorialMathematics/)
     1. [KnowledgePoint - 知识要点](CombinatorialMathematics/KnowledgePoint/)
     2. [FullPermutation - 全排列](CombinatorialMathematics/FullPermutation/)
@@ -131,7 +124,6 @@ Chapter - 章节
     4. [Permutation - 排列](CombinatorialMathematics/Permutation/)
     5. [PermutationGroup - 置换群](CombinatorialMathematics/PermutationGroup/)
     6. [Catalan - 卡特兰数](CombinatorialMathematics/Catalan/)
-
 8. [NumberTheory - 数论](NumberTheory/)
     1. [Sieve - 筛选算法](NumberTheory/Sieve/)
     2. [Euclid - 欧几里得](NumberTheory/Euclid/)
@@ -139,7 +131,6 @@ Chapter - 章节
     4. [ModularLinearEquation - 模线性方程](NumberTheory/ModularLinearEquation/)
     5. [ChineseRemainerTheorem - 中国剩余定理](NumberTheory/ChineseRemainerTheorem/)
     6. [ModularExponentiation - 模幂运算](NumberTheory/ModularExponentiation/)
-
 9. [LinearAlgebra - 线性代数](LinearAlgebra/)
     1. [Matrix - 矩阵](LinearAlgebra/Matrix/)
         1. [Strassen - Strassen算法](LinearAlgebra/Matrix/Strassen/)
@@ -149,7 +140,6 @@ Chapter - 章节
     2. [LinearProgramming - 线性规划](LinearAlgebra/LinearProgramming/)
         1. [Simplex - 单纯形算法](LinearAlgebra/LinearProgramming/Simplex/)
         2. [Dinkelback - Dinkelback算法](LinearAlgebra/LinearProgramming/Dinkelback/)
-
 10. [AnalyticGeometry - 解析几何](AnalyticGeometry/)
     1. [Polygon - 多边形](AnalyticGeometry/Polygon/)
         1. [Cross - 叉积](AnalyticGeometry/Polygon/Cross/)
@@ -164,19 +154,16 @@ Chapter - 章节
         1. [NearestNeighbor - 最近点对](AnalyticGeometry/ConvexHull/NearestNeighbor/)
         2. [GrahamScan - Graham扫描算法](AnalyticGeometry/ConvexHull/GrahamScan/)
         3. [QuickConvexHull - 快速凸包算法](AnalyticGeometry/ConvexHull/QuickConvexHull/)
-
 11. [TextMatch - 文本匹配](TextMatch/)
     1. [NaiveMatch - 简单匹配](TextMatch/NaiveMatch/)
     2. [KMPMatch - KMP匹配](TextMatch/KMPMatch/)
     3. [TrieTree - 字典树](TextMatch/TrieTree/)
     4. [AhoCorasickAutomation - AC自动机](TextMatch/AhoCorasickAutomation/)
-
 12. [GameTheory - 博弈论](GameTheory/)
     1. [BashGame - 巴什博弈](TextMatch/BashGame/)
     2. [WythoffGame - 威佐夫博弈](TextMatch/WythoffGame/)
     3. [NimGame - 尼姆博弈](TextMatch/NimGame/)
     4. [SpragueGrundy - SG函数](TextMatch/SpragueGrundy/)
-
 
 --------
 <h2 align="center">Reference - 参考资料</h2>
