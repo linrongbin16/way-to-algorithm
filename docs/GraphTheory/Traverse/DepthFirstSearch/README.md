@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/DepthFirstSearch.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/DepthFirstSearch.cpp)
@@ -37,6 +36,3 @@
 <br>
 深度优先搜索：
 * https://en.wikipedia.org/wiki/Depth-first_search
-
---------
---------

@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.cpp)
@@ -24,6 +23,3 @@
 <p id="c"><img src="../res/BubbleSort5.png" /></p>
 <p id="i">重复上面的遍历交换操作，直到\(left\)部分为空，\(right\)部分即为已序数组，算法结束。对于长度为\(n\)的序列\(s\)，每一轮将\(left\)中的最大值移动到\(right\)，时间复杂度为\(O(n)\)，总共需要\(n\)轮，该算法的时间复杂度为\(O(n^2)\)。</p>
 </div>
-
---------
---------

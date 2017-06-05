@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../)
 
 --------
@@ -30,6 +29,3 @@
 运筹学：
 * https://en.wikipedia.org/wiki/Operations_research
 * https://book.douban.com/subject/4747771/
-
---------
---------

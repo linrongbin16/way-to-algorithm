@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BidirectionalBreadthSearch.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BidirectionalBreadthSearch.cpp)
@@ -34,6 +33,3 @@
 <p id="c"><img src="../res/BidirectionalBreadthSearch9.png" /></p>
 <p id="i">双向广度搜索的时间复杂度与广度优先搜索一样，也是\(O(m \times n)\)。 </p>
 </div>
-
---------
---------

@@ -1,8 +1,6 @@
---------
 * [Upper Folder - 上一级目录](../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Sort/MergeSort.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Sort/MergeSort.cpp)
-
 
 --------
 
@@ -18,7 +16,3 @@
 <p id="i">递归的将\(left[0,k]\)和\(right[k+1,n-1]\)分别拆分为更小的\(left\)和\(right\)两部分，假定子部分也是升序的，重复上述操作即可得到有序的\(left[0,k]\)和\(right[k+1,n-1]\)。这样递归下去，当某个部分的长度等于1时，可以看作长度为1的有序部分，递归结束。</p>
 <p id="i">对于长度\(n\)的序列\(s\)，每一轮放置所需要的时间为\(O(n)\)，总共需要\(log_{2}n\)轮，该算法的时间复杂度为\(O(n \cdot log_{2}⁡n)\)。</p>
 </div>
-
-
---------
---------

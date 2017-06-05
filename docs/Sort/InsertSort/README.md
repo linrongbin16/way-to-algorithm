@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Sort/InsertSort.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Sort/InsertSort.cpp)
@@ -19,6 +18,3 @@
 <p id="c"><img src="../res/InsertSort2.png" /></p>
 <p id="i">对于长度为\(n\)的数组\(s\)，将\(left\)初始化为\(s[0,0]\)，\(right\)初始化为\(s[1,n-1]\)。重复上面的插入操作，直到\(right\)为空，这时\(left\)部分即为已序的结果，算法结束。对长度为\(n\)的序列\(s\)，每一轮将\(right\)中一个元素插入\(left\)中的时间为\(O(n)\)，总共需要\(n\)轮操作，该算法的时间复杂度为\(O(n^2)\)。</p>
 </div>
-
---------
---------

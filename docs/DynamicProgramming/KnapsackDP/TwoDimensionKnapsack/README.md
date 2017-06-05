@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/KnapsackDP/TwoDimensionKnapsack.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/KnapsackDP/TwoDimensionKnapsack.cpp)
@@ -25,6 +24,3 @@ max{f(i-1,j,k),f(i-1,j-w1_i,k-w2_i)+v_i} & i,j,k \gt 0,j \geq w1_i,k \geq w2_i
 <p id="i">对于第\(i\)件珠宝\(s_i\)，背包的剩余重量\(1\)（还能装载的重量）为\(w1\)，剩余重量\(2\)为\(w2\)，若\(w1 \geq k \times w1_i\)，\(w2 \geq k \times w2_i\)，那么可以装进\(1\)个珠宝\(s_i\)，背包的价值增大\(v_i\)，剩余重量\(1\)减小\(w1_i\)，剩余重量\(2\)减小\(w2_i\)。即\(f(i,j,k) = f(i-1,j-w1_i,k-w2_i)+v_i\)；若不装入背包，则一切维持不变，即\(f(i,j,k) = f(i-1,j,k)\)。选择这两种情形中的最大值； </p>
 <p id="i">\(f(n,t1,t2)\)即为\(n\)个珠宝中重量\(1\)不超\(t1\)，重量\(2\)不超过\(t2\)的最大价值。该算法的时间复杂度是\(O(n \times t1 \times t2)\)。 </p>
 </div>
-
---------
---------

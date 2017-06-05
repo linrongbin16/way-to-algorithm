@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/TopologicalSort.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/TopologicalSort.cpp)
@@ -21,6 +20,3 @@
 <p id="i">对图中的所有节点依次进行DFS，节点\(0 - 7\)到终点的距离依次为\(8, 6, 3, 4, 2, 7, 1, 1\)。因此按照距离排序后，有向图G的拓扑排序为[0, 5, 1, 3, 2, 4, 6, 7]。</p>
 <p id="i">拓扑先序遍历的时间复杂度是\(O(n)\)。 </p>
 </div>
-
---------
---------

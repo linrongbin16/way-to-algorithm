@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/Recursion.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/Recursion.cpp)
@@ -32,6 +31,3 @@
 <p id="i">实际编写代码中，在递归方程中传入一个参数\(prev \in [0,n)\)，\(prev\)从\(0\)开始，序列\(s\)中的成员\(x_{prev}\)可以取值\(i \in [1,m]\)，然后\(prev = prev+1\)，继续考虑序列\(s\)中的下一个成员\(x_{prev+1}\)。这样直到当\(n\)个成员都选择了一个值时，即产生序列\(s\)的一种排列组合。通过递归可以退回上一个函数栈，从而让每个成员\(x_{prev}\)都可以重新选择。 </p>
 <p id="i">对于成员数量为\(n\)，每个成员有\(m\)种值的序列\(s\)，遍历所有排列组合的时间复杂度\(O(m^n)\)。 </p>
 </div>
-
---------
---------

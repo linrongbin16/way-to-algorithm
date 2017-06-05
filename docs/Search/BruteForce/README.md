@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BruteForce.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/Search/BruteForce.cpp)
@@ -19,7 +18,8 @@
 解法：
 <p id="i">通过for循环枚举出序列\(s\)中的所有可能。 </p>
 <p id="i">例如对于序列\([s_1,s_2,s_3,s_4]\)，其中每个元素的取值范围是\([0,m]\)。如果把该序列看作一个正整数，从0000依次数到9999即为全部的排列组合。 </p>
-<code>
+</div>
+```c++
 void BruteForce(int s[4], int m) {
     for (int i = 0; i < m; i++)
         for (int j = 0; j < m; j++)
@@ -32,9 +32,7 @@ void BruteForce(int s[4], int m) {
                     Output(s);
                 }
 }
-</code>
+```
+<div>
 <p id="i">对于成员数量为\(n\)，每个成员有\(m\)种值的序列\(s\)，遍历所有排列组合的时间复杂度\(O(n^m)\)。 </p>
 </div>
-
---------
---------

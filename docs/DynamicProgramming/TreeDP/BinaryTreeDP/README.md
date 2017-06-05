@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/BinaryTreeDP.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/BinaryTreeDP.cpp)
@@ -30,6 +29,3 @@ max⁡\{f(leftChild_i,k)+f(rightChild_i,j-1-k)+v_i \} & i,j \in [0,n),i \neq j
 <p id="i">\((2)\)对于该二叉树的左右子树，其根节点分别为\(leftChild_i\)和\(rightChild_i\)，若左子树包含\(k\)个节点（其中\(0 \lt k \lt j-1\)），最大权值为\(f(leftChild_i,k)\)，则右子树包含\(j-1-k\)个节点，最大权值为\(f(rightChild_i,j-1-k)\)。因此选取所有\(k\)的选择中最大的权值即可，即\(f(i,j) = max⁡\{f(leftChild_i,k)+f(rightChild_i,j-1-k)+v_i \}\)； </p>
 <p id="i">最终在\(f(i,m)\)中选择权值最大的作为最终的最大权值（其中\(i \in [0,n)\)）。该算法的时间复杂度是\(O(n^2)\)。 </p>
 </div>
-
---------
---------

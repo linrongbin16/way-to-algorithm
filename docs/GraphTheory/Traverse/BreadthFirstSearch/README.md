@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/BreadthFirstSearch.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/BreadthFirstSearch.cpp)
@@ -24,9 +23,7 @@
 <p id="i">\((5)\)之后的所有节点都已经被访问过，只要返回递归即可，算法结束； </p>
 <p id="i">广度优先搜索的时间复杂度是\(O(n)\)。 </p>
 </div>
+
 <br>
 广度优先搜索：
 * https://en.wikipedia.org/wiki/Breadth-first_search
-
---------
---------

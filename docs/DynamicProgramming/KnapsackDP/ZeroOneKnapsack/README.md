@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/KnapsackDP/ZeroOneKnapsack.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/KnapsackDP/ZeroOneKnapsack.cpp)
@@ -24,6 +23,3 @@ max(f(i-1,j),f(i-1,j-w_i)+v_i) & i,j \gt 0,j \geq w_i
 <p id="i">\((2)\)对于第\(i\)件珠宝\(s_i\)，若背包中还能够装载的重量大于\(w_i\)，那么装入背包，则价值增大\(v_i\)，剩余重量（还能装载的重量）减小\(w_i\)，即\(f(i,j) = f(i-1,j-w_i)+v_i\)；若不装入背包，则一切维持不变，即\(f(i,j) = f(i-1,j)\)。选择这两种情形中的最大值； </p>
 <p id="i">\(f(n,t)\)即为\(n\)个珠宝中重量不超过\(t\)的最大价值。该算法的时间复杂度是\(O(n \times t)\)。 </p>
 </div>
-
---------
---------

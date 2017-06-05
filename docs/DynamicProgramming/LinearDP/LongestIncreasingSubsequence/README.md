@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.cpp)
@@ -26,6 +25,3 @@ max \{ f(k)+1 \} & i \gt 0,s[i] \gt s[k],k \in [1,i)
 <p id="i">\((3)\)对于序列\(s\)中第\(i\)个数字\(s[i]\)，若\(s[i] \gt s[k]\)（其中\(k \in [1,i)\)）则\(s[i]\)与\(s[1,k]\)之间的部分可以组成一个更长的递增子序列，因此\(f(i) = f(k)+1\)，\(k\)需要遍历\(s[1,i-1]\)中的所有可能的子序列； </p>
 <p id="i">最后返回\(max⁡\{f(i)\} \)（\(i \in [1,n]\)），即\(f(i)\)中的最大值。该算法的时间复杂度是\(O(n^2)\)。 </p>
 </div>
-
---------
---------

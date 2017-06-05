@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/PostorderTraverse.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/PostorderTraverse.cpp)
@@ -15,6 +14,3 @@
 <p id="c"><img src="../res/PostorderTraverse1.png" /></p>
 <p id="i">后序遍历的时间复杂度是\(O(n)\)。 </p>
 </div>
-
---------
---------

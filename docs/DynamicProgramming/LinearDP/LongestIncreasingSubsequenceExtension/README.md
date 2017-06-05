@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.cpp)
@@ -43,6 +42,3 @@ Buy Low, Buy Lower：
 * http://intercontineo.com/article/6713331759/
 * http://jackneus.com/programming-archives/buy-low-buy-lower/
 * http://poj.org/problem?id=1952
-
---------
---------

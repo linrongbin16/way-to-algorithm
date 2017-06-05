@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/EulerCycle.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/EulerCycle.cpp)
@@ -40,6 +39,3 @@ g =
 有向图\(DG\)的欧拉回路解法： </p>
 <p id="i">有向图也可以用Fleury算法来进行求解，唯一的不同就是不能随意选择任意节点作为起始点，因为有向图中的欧拉回路与无向图不一样。有向图的欧拉回路起点满足\(degree_{out} = degree_{in} + 1\)，终点满足\(degree_{in} = degree_{out} + 1\)。因此需要遍历有向图\(DG\)找出欧拉回路的起点，再应用Fleury算法。 </p>
 </div>
-
---------
---------

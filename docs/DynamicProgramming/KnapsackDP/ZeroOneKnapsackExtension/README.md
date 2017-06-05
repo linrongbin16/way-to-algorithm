@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension.cpp)
@@ -24,6 +23,3 @@ max(f(i-1,j),f(i-1,j-w_i)+v_i) & i,j \gt 0,j \geq w_i
 <p id="i">已知当前背包的总价值为\(v\)，总重量为\(t\)。逆向的从最后一个珠宝\(n\)开始，对于第\(i\)件珠宝，若\(g(i,t,v) = true\)则说明珠宝\(i\)被装入了背包，那么\(v = v-v_i\)，\(t = t-w_i\)，然后继续考虑下一件珠宝\(i-1\)。 </p>
 <p id="i">该算法的时间复杂度是\(O(n \times t)\)。 </p>
 </div>
-
---------
---------

@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/PreorderTraverse.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/PreorderTraverse.cpp)
@@ -15,6 +14,3 @@
 <p id="c"><img src="../res/PreorderTraverse1.png" /></p>
 <p id="i">先序遍历的时间复杂度是\(O(n)\)。 </p>
 </div>
-
---------
---------

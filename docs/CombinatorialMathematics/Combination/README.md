@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/FullPermutation.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/FullPermutation.cpp)
@@ -75,6 +74,3 @@ Buckles - Algorithm 515: Generation of a Vector from the Lexicographical Index:
 
 Remark on algorithm 515: Generation of a vector from the lexicographical index combinations:
 * http://dl.acm.org/citation.cfm?id=1236470
-
---------
---------

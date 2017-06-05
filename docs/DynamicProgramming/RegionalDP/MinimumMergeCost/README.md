@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCost.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCost.cpp)
@@ -31,6 +30,3 @@ min \{⁡f(i,k)+f(k+1,j)+sum(i,k)+sum(k+1,j) \} & i,j,k \in [1,n],i \leq k \leq 
 <br>
 石子合并：
 * http://acm.nyist.edu.cn/JudgeOnline/problem.php?pid=737
-
---------
---------

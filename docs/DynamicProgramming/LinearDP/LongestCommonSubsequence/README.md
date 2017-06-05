@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestCommonSubsequence.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestCommonSubsequence.cpp)
@@ -26,6 +25,3 @@ max(f(i,j-1),f(i-1,j)) & i,j \gt 0,i,j \in [1,n],s_1 [i] \neq s_2 [j]
 <p id="i">\((3)\)若\(s_1 [i] \neq s_2 [j]\)，则两个序列的这个部分不是公共的，所以\(f(i,j)\)仍然保持之前的值，为了获取最大值我们会在\(f(i,j-1)\)和\(f(i-1,j)\)中选取最大的那个； </p>
 <p id="i">\(f(n,n)\)即为序列\(s_1\)和\(s_2\)的最长公共子序列的长度值。遍历该算法的时间复杂度是\(O(n^2)\)。 </p>
 </div>
-
---------
---------

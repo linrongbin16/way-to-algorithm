@@ -1,4 +1,3 @@
---------
 * [Upper Folder - 上一级目录](../../)
 * [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/KnapsackDP/GroupKnapsack.hpp)
 * [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DynamicProgramming/KnapsackDP/GroupKnapsack.cpp)
@@ -25,6 +24,3 @@ max(f(i-1,j),f(i-1,j - w_k ) + v_k) & i,j \gt 0,k \in [1,group_i],j \geq w_k
 <p id="i">\((2)\)对于第\(i\)组珠宝，背包的剩余重量（还能装载的重量）为\(w\)，在第\(i\)组珠宝中选择某个珠宝\(k\)，若\(w \geq w_k\)，那么可以装进珠宝\(k\)，背包的价值增大\(v_k\)，剩余重量减小\(w_k\)，即\(f(i,j) = f(i-1,j - w_k) + v_k\)；若不装入背包，则一切维持不变，即\(f(i,j) = f(i-1,j)\)。选择这两种情形中的最大值； </p>
 <p id="i">\(f(m,t)\)即为\(m\)组珠宝中重量不超过\(t\)的最大价值。该算法的时间复杂度是\(O(n \times t)\)。 </p>
 </div>
-
---------
---------
