@@ -1,5 +1,5 @@
 <h2 id="c">[Way to Algorithm - 算法之路](https://zhaochenyou.github.io/Way-to-Algorithm/)</h2>
-<p id="c"><img src="res/keyboard.jpg" alt="tree/master/docs/res/keyboard.jpg" /></p>
+<p id="c"><img src="res/keyboard.jpg" alt="https://github.com/zhaochenyou/Way-to-Algorithm/tree/master/docs/res/keyboard.jpg" /></p>
 <p id="c">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
 <p id="c"> https://zhaochenyou.github.io/Way-to-Algorithm/ </p>
 
