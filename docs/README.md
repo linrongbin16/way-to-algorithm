@@ -1,9 +1,10 @@
---------
-<h2 id="c">Way to Algorithm - 算法之路</h2>
+<h2 id="c">[Way to Algorithm - 算法之路](https://zhaochenyou.github.io/Way-to-Algorithm/)</h2>
 <p id="c"><img src="res/keyboard.jpg" alt="docs/res/keyboard.jpg" /></p>
 <p id="c">Computer Basic Algorithm Tutorial and Source Code - 计算机基础算法教程与源码</p>
+<p id="c"> https://zhaochenyou.github.io/Way-to-Algorithm/ </p>
 
 --------
+
 <h2 id="c">Content - 目录</h2>
 
 [Introduction - 简介](Introduction/)
@@ -166,6 +167,7 @@ Chapter - 章节
     4. [SpragueGrundy - SG函数](TextMatch/SpragueGrundy/)
 
 --------
+
 <h2 id="c">Reference - 参考资料</h2>
 
 * [算法导论 - Introduction to Algorithms](http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf)
@@ -173,6 +175,3 @@ Chapter - 章节
 * [USACO](http://www.usaco.org/)
 * [StackOverflow](http://stackoverflow.com/)
 * [Wikipedia](https://www.wikipedia.org/)
-
---------
---------
