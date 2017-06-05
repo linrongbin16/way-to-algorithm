@@ -18,5 +18,4 @@
  void calculus_number_diverse(int argc,char** argv);
  void catalan(int**a,int* b);
 
-#endif // combination_head_h
-
+ #endif // combination_head_h
