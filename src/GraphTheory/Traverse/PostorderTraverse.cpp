@@ -1,12 +1,13 @@
 #include "PostorderTraverse.hpp"
+#include <vector>
+#include <cassert>
+using namespace std;
 
 struct Test {
-    int tree[MAX];
     int n;
     vector<int> result;
-} test_cases = {
+} test_cases[] = {
     {
-        { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
         10,
         { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
     },
@@ -23,7 +24,7 @@ int main()
 {
     for (int i = 0; i < sizeof(test_cases)/sizeof(Test); i++) {
         Test & t = test_cases[i];
-        vector<int> r = PostorderTraverse(t.tree, t.n);
+        vector<int> r = PostorderTraverse(t.n);
         AssertEqual(r, t.result);
     }
     return 0;

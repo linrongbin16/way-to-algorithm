@@ -4,17 +4,14 @@
 using namespace std;
 
 struct Test {
-    int tree[MAX];
     int n;
     vector<int> result;
 } test_cases[] = {
     {
-        { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
         10,
         { 1, 2, 4, 8, 9, 5, 10, 3, 6, 7 },
     },
     {
-        { 1, 2, 3, 4, 5, 6 },
         6,
         { 1, 2, 4, 5, 3, 6 },
     },
@@ -41,7 +38,7 @@ int main()
 {
     for (int i = 0; i < sizeof(test_cases)/sizeof(Test); i++) {
         Test & t = test_cases[i];
-        vector<int> r = PreorderTraverse(t.tree, t.n);
+        vector<int> r = PreorderTraverse(t.n);
         AssertEqual(r, t.result);
     }
     return 0;

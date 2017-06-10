@@ -32,3 +32,4 @@ CMakeFiles
 CMakeCache.txt
 cmake-build-debug
 *.pyc
+*.cbp

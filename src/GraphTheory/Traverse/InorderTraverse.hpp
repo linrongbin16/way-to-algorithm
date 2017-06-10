@@ -1,5 +1,5 @@
-#ifndef PREORDER_TRAVERSE_HPP
-#define PREORDER_TRAVERSE_HPP
+#ifndef INORDER_TRAVERSE_HPP
+#define INORDER_TRAVERSE_HPP
 
 #include <iostream>
 #include <vector>
@@ -9,22 +9,22 @@ using namespace std;
 #endif
 
 
-// tree[i]的左孩子节点为tree[i*2+1] 右孩子节点为tree[i*2+2]
-
-void InorderTraverseImpl(int index, int tree[MAX], int n, vector<int> & seq)
+auto InorderImpl(int index, int n, vector<int> & seq) -> void
 {
-    if (index > n) {
+    if (index < 0 or index >= n) {
         return;
     }
-    seq.push_back(tree[index]);
-    InorderTraverseImpl(index * 2 + 1, tree, n, seq);
-    InorderTraverseImpl(index * 2 + 2, tree, n, seq);
+    if (index >= 0 and index < n) InorderImpl(index * 2 + 1, n, seq);
+    seq.push_back(index);
+    if (index >= 0 and index < n) InorderImpl(index * 2 + 2, n, seq);
 }
 
-vector<int> InorderTraverse(int tree[MAX], int n)
+/* 节点i的左孩子节点为i*2+1 右孩子节点为i*2+2 */
+/* 根节点为0 */
+auto InorderTraverse(int n) -> vector<int>
 {
     vector<int> seq;
-    InorderTraverseImpl(0, tree, n, seq);
+    InorderImpl(0, n, seq);
     return seq;
 }
 
