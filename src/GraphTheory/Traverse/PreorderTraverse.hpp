@@ -9,25 +9,20 @@ using namespace std;
 #endif
 
 
-// tree[i]的左孩子节点为tree[i*2+1] 右孩子节点为tree[i*2+2]
-
-void PreorderTraverseImpl(int index, int tree[MAX], int n, vector<int> & seq)
+/* tree[i]的左孩子节点为tree[i*2+1] 右孩子节点为tree[i*2+2] */
+auto PreorderImpl(int index, int tree[MAX], int n, vector<int> & seq) -> void
 {
-    if (index > n) {
-        return;
-    }
+    if (index < 0 or index > n) return;
     seq.push_back(tree[index]);
-    PreorderTraverse(index * 2 + 1, tree, n, seq);
-    PreorderTraverse(index * 2 + 2, tree, n, seq);
+    if (index >= 0 and index < n) PreorderImpl(index * 2 + 1, tree, n, seq);
+    if (index >= 0 and index < n) PreorderImpl(index * 2 + 2, tree, n, seq);
 }
 
-vector<int> PreorderTraverse(int tree[MAX], int n)
+auto PreorderTraverse(int tree[MAX], int n) -> vector<int>
 {
     vector<int> seq;
-    PreorderTraverse(0, tree, n, seq);
+    PreorderImpl(0, tree, n, seq);
     return seq;
 }
-
-
 
 #endif

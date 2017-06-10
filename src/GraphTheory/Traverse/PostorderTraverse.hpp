@@ -1,5 +1,5 @@
-#ifndef PREORDER_TRAVERSE_HPP
-#define PREORDER_TRAVERSE_HPP
+#ifndef POSTORDER_TRAVERSE_HPP
+#define POSTORDER_TRAVERSE_HPP
 
 #include <iostream>
 #include <vector>
@@ -9,25 +9,20 @@ using namespace std;
 #endif
 
 
-// tree[i]的左孩子节点为tree[i*2+1] 右孩子节点为tree[i*2+2]
-
-void PreorderTraverseImpl(int index, int tree[MAX], int n, vector<int> & seq)
+/* tree[i]的左孩子节点为tree[i*2+1] 右孩子节点为tree[i*2+2] */
+auto PostorderTraverseImpl(int index, int tree[MAX], int n, vector<int> & seq) -> void
 {
-    if (index > n) {
-        return;
-    }
+    if (index < 0 or index > n) return;
+    if (index >= 0 and index < n) PostorderTraverseImpl(index * 2 + 1, tree, n, seq);
+    if (index >= 0 and index < n) PostorderTraverseImpl(index * 2 + 2, tree, n, seq);
     seq.push_back(tree[index]);
-    PreorderTraverseImpl(index * 2 + 1, tree, n, seq);
-    PreorderTraverseImpl(index * 2 + 2, tree, n, seq);
 }
 
-vector<int> PreorderTraverse(int tree[MAX], int n)
+auto PostorderTraverse(int tree[MAX], int n) -> vector<int>
 {
     vector<int> seq;
-    PreorderTraverse(0, tree, n, seq);
+    PostorderTraverseImpl(0, tree, n, seq);
     return seq;
 }
-
-
 
 #endif
