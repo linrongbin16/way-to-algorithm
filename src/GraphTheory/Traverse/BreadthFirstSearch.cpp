@@ -1,30 +1,40 @@
-//广度优先搜索图
-//breadth_first_search_adjlist.cpp
+#include "BreadthFirstSearch.hpp"
+#include <cassert>
 
-//在给定的邻接表和给定的起点beg上广度优先搜索图
+struct Test {
+    int g[MAX][MAX];
+    int n;
+    int beg;
+    vector<int> result;
+} test_cases[] = {
+    {
+        {
+            { 0, 1, 0, 0, 1, 1 },
+            { 1, 0, 1, 1, 0, 1 },
+            { 0, 1, 0, 1, 0, 1 },
+            { 0, 1, 1, 0, 1, 0 },
+            { 1, 0, 0, 1, 0, 1 },
+            { 1, 1, 1, 0, 0, 0 },
+        },
+        6, 0,
+        { 0, 1, 4, 5, 2, 3 },
+    },
 
-//使用队列从起点beg开始扩展邻节点
+};
 
-#include "general_head.h"
-#include "graph.h"
-//traverse_tree.cpp
-extern void print_node(graph_node *p);
+void AssertEqual(const vector<int> & a, const vector<int> & b)
+{
+    assert(a.size() == b.size());
+    for (int i = 0; i < a.size(); i++)
+        assert(a[i] == b[i]);
+}
 
-void breadth_first_search_adjlist(graph_list g, int beg)
-{//图G有g_l.size()个节点，下标从0到g_l.size()-1
-	//本文的技术可以参考第1章中的广搜
-	queue<int> q;
-	int visited[MAX];
-	memset(visited, 0, MAX * sizeof(int));
-	q.push(beg);
-	visited[beg] = 1;
-	while(!q.empty()){
-		int p = q.front(); q.pop();
-		print_node(&g.g_l[p][0]);
-		for(int i = 1; i < (int)g.g_l[p].size(); ++ i)
-			if(!visited[g.g_l[p][i].g_idx]){
-				q.push(g.g_l[p][i].g_idx);
-				visited[g.g_l[p][i].g_idx] = 1;
-			}
-	}
+int main()
+{
+    for (int i = 0; i < sizeof(test_cases)/sizeof(Test); i++) {
+        Test & t = test_cases[i];
+        vector<int> r = BreadthFirstSearch(t.g, t.n, t.beg);
+        AssertEqual(r, t.result);
+    }
+    return 0;
 }
