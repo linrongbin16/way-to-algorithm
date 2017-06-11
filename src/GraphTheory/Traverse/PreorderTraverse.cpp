@@ -9,25 +9,16 @@ struct Test {
 } test_cases[] = {
     {
         10,
-        { 1, 2, 4, 8, 9, 5, 10, 3, 6, 7 },
+        { 0, 1, 3, 7, 8, 4, 9, 2, 5, 6 },
     },
     {
         6,
-        { 1, 2, 4, 5, 3, 6 },
+        { 0, 1, 3, 4, 2, 5 },
     },
 };
 
 void AssertEqual(const vector<int> & a, const vector<int> & b)
 {
-    cout << "a: ";
-    for (int i = 0; i < a.size(); i++)
-        cout << a[i] << " ";
-    cout << endl;
-    cout << "b: ";
-    for (int i = 0; i < a.size(); i++)
-        cout << b[i] << " ";
-    cout << endl;
-    cout << endl;
     assert(a.size() == b.size());
     for (int i = 0; i < a.size(); i++) {
         assert(a[i] == b[i]);

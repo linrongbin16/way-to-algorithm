@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(WayToAlgorithm CXX)
-
 # add_executable(GraphTheory-BreadthFirstSearch.exe BreadthFirstSearch.hpp BreadthFirstSearch.cpp)
 # add_executable(GraphTheory-DepthFirstSearch.exe DepthFirstSearch.hpp DepthFirstSearch.cpp)
 # add_executable(GraphTheory-EulerCycle.exe EulerCycle.hpp EulerCycle.cpp)
