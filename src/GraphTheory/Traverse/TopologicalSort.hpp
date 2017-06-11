@@ -1,23 +1,35 @@
 #ifndef TOPOLOGICAL_SORT_HPP
 #define TOPOLOGICAL_SORT_HPP 1
 
+#include <algorithm>
 #include <deque>
 #include <vector>
+#include <cstring>
 using namespace std;
 #ifndef MAX
 #define MAX 128
 #endif
-#include "DepthFirstSearch.hpp"
+
 
 struct TopoNode {
-    int index;
-    int depth;
-    TopoNode() : index(0), depth(0) {}
+    int index;  // 节点下标
+    int distance;  // 节点的DFS长度
+    TopoNode() : index(0), distance(0) {}
+    TopoNode(int i, int d) : index(i), distance(d) {}
 };
 
 bool TopoComp(const TopoNode & a, const TopoNode & b)
 {
-    return a.depth > b.depth;
+    return a.distance > b.distance;
+}
+
+auto DFSDistance(int g[MAX][MAX], int n, int p, int visited[MAX], int & dist) -> void
+{
+    visited[p] = 1;
+    for (int i = 0; i < n; i++)
+        if (i != p and g[p][i] and not visited[i])
+            DFSDistance(g, n, i, visited, dist);
+    dist++;
 }
 
 /**
@@ -29,18 +41,21 @@ bool TopoComp(const TopoNode & a, const TopoNode & b)
 */
 auto TopologicalSort(int g[MAX][MAX], int n) -> vector<TopoNode>
 {
-    vector<TopoNode> sequence;
+    vector<TopoNode> sequence(n);
     int visited[MAX];
-    int time = 0;
-    memset(visited, 0, sizeof(visited));
     for (int i = 0; i < n; ++ i)
         sequence[i].index = i;
 
-    // dfs[i]所代表的节点 其到达DFS终点的距离为i
-    vector<int> dfs = DepthFirstSearch(g, n);
     for (int i = 0; i < n; i++) {
-        sequence[ dfs[n-i-1] ].depth = i;
+        int dist = 0;
+        // 重置visited 让任意节点i可以尽可能深的进行DFS
+        memset(visited, 0, sizeof(visited));
+        DFSDistance(g, n, i, visited, dist);
+        sequence[i].distance = dist;
     }
     sort(sequence.begin(), sequence.end(), TopoComp);
     return sequence;
 }
+
+
+#endif

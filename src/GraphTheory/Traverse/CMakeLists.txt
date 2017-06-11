@@ -7,4 +7,4 @@ add_executable(GraphTheory-PreorderTraverse.exe PreorderTraverse.hpp PreorderTra
 add_executable(GraphTheory-BreadthFirstSearch.exe BreadthFirstSearch.hpp BreadthFirstSearch.cpp)
 add_executable(GraphTheory-DepthFirstSearch.exe DepthFirstSearch.hpp DepthFirstSearch.cpp)
 # add_executable(GraphTheory-EulerCycle.exe EulerCycle.hpp EulerCycle.cpp)
-# add_executable(GraphTheory-TopologicalSort.exe TopologicalSort.hpp TopologicalSort.cpp)
+add_executable(GraphTheory-TopologicalSort.exe TopologicalSort.hpp TopologicalSort.cpp)

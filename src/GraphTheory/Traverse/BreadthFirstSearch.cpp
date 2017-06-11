@@ -4,7 +4,6 @@
 struct Test {
     int g[MAX][MAX];
     int n;
-    int beg;
     vector<int> result;
 } test_cases[] = {
     {
@@ -16,10 +15,23 @@ struct Test {
             { 1, 0, 0, 1, 0, 1 },
             { 1, 1, 1, 0, 0, 0 },
         },
-        6, 0,
+        6,
         { 0, 1, 4, 5, 2, 3 },
     },
-
+    {
+        {
+            { 0, 1, 0, 0, 0, 0, 1, 0 },
+            { 1, 0, 1, 0, 1, 0, 0, 1 },
+            { 0, 1, 0, 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 1, 1, 0, 0 },
+            { 0, 1, 0, 1, 0, 0, 0, 0 },
+            { 0, 0, 0, 1, 0, 0, 1, 1 },
+            { 1, 0, 0, 0, 0, 1, 0, 1 },
+            { 0, 1, 0, 0, 0, 1, 1, 0 },
+        },
+        8,
+        { 0, 1, 6, 2, 4, 7, 5, 3 },
+    },
 };
 
 void AssertEqual(const vector<int> & a, const vector<int> & b)
@@ -33,7 +45,7 @@ int main()
 {
     for (int i = 0; i < sizeof(test_cases)/sizeof(Test); i++) {
         Test & t = test_cases[i];
-        vector<int> r = BreadthFirstSearch(t.g, t.n, t.beg);
+        vector<int> r = BreadthFirstSearch(t.g, t.n);
         AssertEqual(r, t.result);
     }
     return 0;
