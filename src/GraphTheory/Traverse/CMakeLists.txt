@@ -5,6 +5,6 @@ add_executable(GraphTheory-LevelorderTraverse.exe LevelorderTraverse.hpp Levelor
 add_executable(GraphTheory-PostorderTraverse.exe PostorderTraverse.hpp PostorderTraverse.cpp)
 add_executable(GraphTheory-PreorderTraverse.exe PreorderTraverse.hpp PreorderTraverse.cpp)
 add_executable(GraphTheory-BreadthFirstSearch.exe BreadthFirstSearch.hpp BreadthFirstSearch.cpp)
-# add_executable(GraphTheory-DepthFirstSearch.exe DepthFirstSearch.hpp DepthFirstSearch.cpp)
+add_executable(GraphTheory-DepthFirstSearch.exe DepthFirstSearch.hpp DepthFirstSearch.cpp)
 # add_executable(GraphTheory-EulerCycle.exe EulerCycle.hpp EulerCycle.cpp)
 # add_executable(GraphTheory-TopologicalSort.exe TopologicalSort.hpp TopologicalSort.cpp)

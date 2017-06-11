@@ -12,12 +12,12 @@ void DFSImpl(int g[MAX][MAX], int n, int p, int visited[MAX], vector<int> & sequ
 {
     visited[p] = 1;
     sequence.push_back(p);
-    for (int i = 1; i < n; i++)
+    for (int i = 0; i < n; i++)
 		if(i != p and g[p][i] and not visited[i])
 			DFSImpl(g, n, i, visited, sequence);
 }
 
-auto DepthFirstSearch(int g[MAX][MAX], int n, int beg) -> vector<int>
+auto DepthFirstSearch(int g[MAX][MAX], int n) -> vector<int>
 {
     int visited[MAX];
     vector<int> sequence;
