@@ -6,7 +6,7 @@ using namespace std;
 struct Test {
     int g[MAX][MAX];
     int n;
-    vector<TopoNode> result;
+    vector<int> result;
 } test_cases[] = {
     {
         {
@@ -20,7 +20,7 @@ struct Test {
             { 0, 0, 0, 0, 0, 0, 0, 0 },
         },
         8,
-        { { 0, 8 }, { 5, 7 }, { 1, 6 }, { 3, 5 }, { 2, 4 }, { 4, 3 }, { 6, 1 }, { 7, 1 } },
+        { 0, 5, 1, 3, 2, 4, 6, 7 },
     },
     {
         {
@@ -35,7 +35,7 @@ struct Test {
             { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, // 8
         },
         9,
-        { { 0, 9 }, { 3, 6 }, { 1, 5 }, { 4, 5 }, { 2, 4 }, { 5, 3 }, { 6, 3 }, { 7, 2 }, { 8, 1 } },
+        { 0, 3, 1, 4, 2, 5, 6, 7, 8 },
     },
     {
             {
@@ -47,17 +47,16 @@ struct Test {
                     { 0, 0, 0, 1, 1, 0 }, // 5
             },
             6,
-            { { 5, 6 }, { 4, 5 }, { 0, 4 }, { 1, 4 }, { 2, 4 }, { 3, 4 } },
+            { 5, 4, 0, 1, 2, 3 },
     },
 };
 
 
-void AssertEqual(const vector<TopoNode> & a, const vector<TopoNode> & b)
+void AssertEqual(const vector<int> & a, const vector<int> & b)
 {
     assert(a.size() == b.size());
     for (int i = 0; i < a.size(); i++) {
-        assert(a[i].index == b[i].index);
-        assert(a[i].distance == b[i].distance);
+        assert(a[i] == b[i]);
     }
 }
 
@@ -65,7 +64,7 @@ int main()
 {
     for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
         Test & t = test_cases[i];
-        vector<TopoNode> r = TopologicalSort(t.g, t.n);
+        vector<int> r = TopologicalSort(t.g, t.n);
         AssertEqual(r, t.result);
     }
     return 0;

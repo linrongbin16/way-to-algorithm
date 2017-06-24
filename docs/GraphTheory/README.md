@@ -10,8 +10,8 @@
     2. [InorderTraverse - 中序遍历](Traverse/InorderTraverse/)
     3. [PostorderTraverse - 后序遍历](Traverse/PostorderTraverse/)
     4. [LevelorderTraverse - 层序遍历](Traverse/LevelorderTraverse/)
-    5. [DepthFirstSearch - 深度优先搜索](Traverse/DepthFirstSearch/)
-    6. [BreadthFirstSearch - 广度优先搜索](Traverse/BreadthFirstSearch/)
+    5. [DepthFirstSearch(DFS) - 深度优先搜索](Traverse/DepthFirstSearch/)
+    6. [BreadthFirstSearch(BFS) - 广度优先搜索](Traverse/BreadthFirstSearch/)
     7. [TopologicalSort - 拓扑排序](Traverse/TopologicalSort/)
     8. [EulerCycle - 欧拉回路](Traverse/EulerCycle/)
 2. Connectivity - 连通

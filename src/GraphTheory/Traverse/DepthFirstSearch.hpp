@@ -3,29 +3,33 @@
 
 #include <vector>
 #include <cstring>
+#include <tuple>
 using namespace std;
 #ifndef MAX
 #define MAX 128
 #endif
 
-void DFSImpl(int g[MAX][MAX], int n, int p, int visited[MAX], vector<int> & sequence)
+auto DFS(int g[MAX][MAX], int n, int begin, int visited[MAX], vector<int> & out_sequence) -> void
 {
-    visited[p] = 1;
-    sequence.push_back(p);
+    visited[begin] = 1;
+    out_sequence.push_back(begin);
     for (int i = 0; i < n; i++)
-        if(i != p and g[p][i] and not visited[i])
-            DFSImpl(g, n, i, visited, sequence);
+        if(i != begin and g[begin][i] and not visited[i])
+            DFS(g, n, i, visited, out_sequence);
 }
 
 auto DepthFirstSearch(int g[MAX][MAX], int n) -> vector<int>
 {
     int visited[MAX];
+    // 将遍历到的节点加入sequence中
     vector<int> sequence;
-    memset(visited, 0, sizeof(visited));
 
+    // DFS from i-node
+    memset(visited, 0, sizeof(visited));
     for (int i = 0; i < n; ++ i)
-        if (not visited[i])
-            DFSImpl(g, n, i, visited, sequence);
+        if (not visited[i]) {
+            DFS(g, n, i, visited, sequence);
+        }
 
     return sequence;
 }
