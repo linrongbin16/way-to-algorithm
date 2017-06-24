@@ -12,8 +12,8 @@
 解法：
 <p id="i">首先求出有向图\(G\)的逆图\(G'\)，然后对\(G'\)进行拓扑排序。按照拓扑排序中节点顺序，依次对每个节点进行深度优先搜索。每一次深度优先搜索的过程中，遍历到的所有节点属于同一个强连通分支。 </p>
 <p id="i">对于有向图\(G\)来说，其逆图\(G'\)为：</p>
-<p id="c"><img src="../res/Kosaraju1.png" /></p>
-<p id="c"><img src="../res/Kosaraju2.png" /></p>
+<p id="c"><img src="../res/Kosaraju1.svg" /></p>
+<p id="c"><img src="../res/Kosaraju2.svg" /></p>
 <p id="i">用矩阵可以表示为：</p>
 \[
 G =
