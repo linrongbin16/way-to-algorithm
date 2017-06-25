@@ -9,7 +9,7 @@
 <div>
 问题：
 <p id="i">;在&lt;Minimum Merge Cost&gt;问题的基础上进行变化，序列\(s\)是头尾相接的，仍然求最小合并代价。下图演示了一个合并过程： </p>
-<p id="c"><img src="../res/MinimumMergeCostExtension1.png" /></p>
+<p id="c"><img src="../res/MinimumMergeCostExtension1.svg" /></p>
 解法：
 <p id="i">;本问题与&lt;Minimum Merge Cost&gt;问题的核心区别在于序列是首尾相接的，取巧的办法就是把长度为\(n\)的序列\(s\)扩展为原始的\(2\)倍长度，多出的部分用\(s\)再填充一遍，则有\(s[j] = s[i]\)，其中\(i \in [1,n]\)，\(j \in [n+1,2n]\)且\(j = i+n\)，在\(s[n]\)和\(s[n+1]\)两个相邻元素的位置可以模拟出首尾相接的效果。而状态转移方程完全不变，只需要把算法的范围调整为\([0,2n]\)即可。 </p>
 <p id="i">;设\(sum(i,j)\)为序列中区域\(s[i,j]\)的所有元素之和，设\(f(i,j)\)为合并区域\(s[i,j]\)产生的最小代价，其中\(i,j \in [1,2n]\)且\(i \leq j\)。因此有如下状态转移方程： </p>

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 MinimumMergeCostExtension1.svg 页-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="12.2939in" height="3.4445in"
+		viewBox="0 0 885.159 248.004" xml:space="preserve" color-interpolation-filters="sRGB" class="st10">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st3 {fill:#000000;font-family:Cambria Math;font-size:1.5em}
+		.st4 {fill:#4bacc6;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st5 {fill:#ffffff}
+		.st6 {stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st7 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st8 {fill:#ffffff;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24;visibility:hidden}
+		.st9 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st10 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>页-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="shape1365-1" v:mID="1365" v:groupContext="shape" transform="translate(0.375,-2.75244)">
+			<title>圆形.1365</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 125.57 A122.438 122.438 0 0 1 244.88 125.57 A122.438 122.438 0 0 1 0 125.57 Z" class="st1"/>
+		</g>
+		<g id="shape1366-3" v:mID="1366" v:groupContext="shape" transform="translate(34.9965,-37.374)">
+			<title>圆形.1366</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 160.19 A87.8169 87.8169 0 0 1 175.63 160.19 A87.8169 87.8169 0 0 1 0 160.19 Z" class="st1"/>
+		</g>
+		<g id="shape1380-5" v:mID="1380" v:groupContext="shape" transform="translate(-52.5521,-52.5521) rotate(-45)">
+			<title>第 1 层扇环</title>
+			<desc>1</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1278624110668):1"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.0715" cy="209.039" width="21.94" height="29.6036" transform="rotate(67.5)"/>
+			<path d="M81.21 248 L122.44 248 A122.438 122.438 -180 0 0 86.58 161.43 L57.42 190.58 A81.2061 81.2061 0 0 1 81.21 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="224.143" y="-17.7149" width="9.9668" height="21.5999" transform="rotate(67.5)"
+					class="st2"/>
+			<text x="224.14" y="-1.51" transform="rotate(67.5)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
+		<g id="shape1381-9" v:mID="1381" v:groupContext="shape" transform="translate(122.813,-125.191)">
+			<title>第 1 层扇环.1381</title>
+			<desc>2</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1296672610668):1"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="92.3412" cy="204.945" width="21.94" height="29.6036" transform="rotate(65)"/>
+			<path d="M81.34 248 L122.44 248 A122.496 122.496 -180 0 0 78.68 154.19 L52.27 185.69 A81.3741 81.3741 0 0 1 81.34 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="219.785" y="-7.87585" width="9.9668" height="21.5999" transform="rotate(65)"
+					class="st2"/>
+			<text x="219.78" y="8.32" transform="rotate(65)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
+		<g id="shape1382-13" v:mID="1382" v:groupContext="shape" transform="translate(298.179,-52.5521) rotate(45)">
+			<title>第 1 层扇环.1382</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1267190710668):1"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="92.245" cy="204.99" width="21.94" height="29.6036" transform="rotate(-115)"/>
+			<path d="M81.12 248 L122.44 248 A122.496 122.496 -180 0 0 78.68 154.19 L52.13 185.85 A81.1617 81.1617 0 0 1 81.12 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="-229.752" y="-13.8298" width="9.9668" height="21.5999" transform="rotate(-115)"
+					class="st2"/>
+			<text x="-229.75" y="2.37" transform="rotate(-115)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape1383-17" v:mID="1383" v:groupContext="shape" transform="translate(370.818,122.813) rotate(90)">
+			<title>第 1 层扇环.1383</title>
+			<desc>4</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1296672610668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="92.3412" cy="204.945" width="21.94" height="29.6036" transform="rotate(-115)"/>
+			<path d="M81.34 248 L122.44 248 A122.496 122.496 -180 0 0 78.68 154.19 L52.27 185.69 A81.3741 81.3741 0 0 1 81.34 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="-229.752" y="-13.7237" width="9.9668" height="21.5999" transform="rotate(-115)"
+					class="st2"/>
+			<text x="-229.75" y="2.48" transform="rotate(-115)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+		<g id="shape1384-21" v:mID="1384" v:groupContext="shape" transform="translate(279.849,314.767) rotate(140.714)">
+			<title>第 1 层扇环.1384</title>
+			<desc>5</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1272603110668):1"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="89.8846" cy="200.212" width="21.94" height="29.6036" transform="rotate(-118)"/>
+			<path d="M81.16 248 L122.44 248 A120.719 120.719 -180 0 0 69.27 147.05 L45.92 181.08 A80.0229 80.0229 0 0 1 81.16 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="-223.958" y="-25.4301" width="9.9668" height="21.5999" transform="rotate(-118)"
+					class="st2"/>
+			<text x="-223.96" y="-9.23" transform="rotate(-118)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+		<g id="shape1385-25" v:mID="1385" v:groupContext="shape" transform="translate(122.813,370.818) rotate(180)">
+			<title>第 1 层扇环.1385</title>
+			<desc>6</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1296672610668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.4682" cy="209.837" width="21.94" height="29.6036" transform="rotate(248)"/>
+			<path d="M81.34 248 L122.44 248 A123.905 123.905 -180 0 0 87.65 162.51 L58.22 191.21 A82.3104 82.3104 0 0 1 81.34 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="-234.929" y="-1.81656" width="9.9668" height="21.5999" transform="rotate(-112)"
+					class="st2"/>
+			<text x="-234.93" y="14.38" transform="rotate(-112)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
+		<g id="shape1386-29" v:mID="1386" v:groupContext="shape" transform="translate(-52.5521,298.179) rotate(-135)">
+			<title>第 1 层扇环.1386</title>
+			<desc>7</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1256055210668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="93.9964" cy="209.07" width="21.94" height="29.6036" transform="rotate(67.5)"/>
+			<path d="M81.04 248 L122.44 248 A122.438 122.438 -180 0 0 86.58 161.43 L57.31 190.7 A81.0436 81.0436 0 0 1 81.04 248 Z"
+					class="st1"/>
+			<rect v:rectContext="textBkgnd" x="224.143" y="-17.6336" width="9.9668" height="21.5999" transform="rotate(67.5)"
+					class="st2"/>
+			<text x="224.14" y="-1.43" transform="rotate(67.5)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>7</text>		</g>
+		<g id="shape1387-33" v:mID="1387" v:groupContext="shape" transform="translate(-125.191,122.813) rotate(-90)">
+			<title>第 1 层扇环.1387</title>
+			<desc>8</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1296672610668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.1315" cy="209.014" width="21.94" height="29.6036" transform="rotate(67.5)"/>
+			<path d="M81.34 248 L122.44 248 A122.438 122.438 -180 0 0 86.58 161.43 L57.51 190.49 A81.336 81.336 0 0 1 81.34 248 Z"
+					class="st1"/>
+			<rect v:rectContext="textBkgnd" x="224.143" y="-17.7799" width="9.9668" height="21.5999" transform="rotate(67.5)"
+					class="st2"/>
+			<text x="224.14" y="-1.58" transform="rotate(67.5)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>8</text>		</g>
+		<g id="shape1388-37" v:mID="1388" v:groupContext="shape" transform="translate(290.423,-1.56372)">
+			<title>圆形.1388</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 125.57 A122.438 122.438 0 0 1 244.88 125.57 A122.438 122.438 0 0 1 0 125.57 Z" class="st1"/>
+		</g>
+		<g id="shape1389-39" v:mID="1389" v:groupContext="shape" transform="translate(325.045,-36.1853)">
+			<title>圆形.1389</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 160.19 A87.8169 87.8169 0 0 1 175.63 160.19 A87.8169 87.8169 0 0 1 0 160.19 Z" class="st1"/>
+		</g>
+		<g id="shape1390-41" v:mID="1390" v:groupContext="shape" transform="translate(391.19,-123.053) rotate(-5.01311)">
+			<title>第 1 层扇环.1390</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1278624110668):1"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="75.0712" cy="179.214" width="21.94" height="29.6036" transform="rotate(47.5)"/>
+			<path d="M81.21 248 L122.44 248 A122.412 122.412 -180 0 0 10.7 126.03 L7.1 167.11 A81.1885 81.1885 0 0 1 81.21 248 Z"
+					class="st4"/>
+			<rect v:rectContext="textBkgnd" x="177.864" y="54.9272" width="9.9668" height="21.5999" transform="rotate(47.5)"
+					class="st2"/>
+			<text x="177.86" y="71.13" transform="rotate(47.5)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape1392-45" v:mID="1392" v:groupContext="shape" transform="translate(588.227,-51.3634) rotate(45)">
+			<title>第 1 层扇环.1392</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1267190710668):1"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="92.245" cy="204.99" width="21.94" height="29.6036" transform="rotate(-115)"/>
+			<path d="M81.12 248 L122.44 248 A122.496 122.496 -180 0 0 78.68 154.19 L52.13 185.85 A81.1617 81.1617 0 0 1 81.12 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="-229.752" y="-13.8298" width="9.9668" height="21.5999" transform="rotate(-115)"
+					class="st2"/>
+			<text x="-229.75" y="2.37" transform="rotate(-115)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape1393-49" v:mID="1393" v:groupContext="shape" transform="translate(660.866,124.002) rotate(90)">
+			<title>第 1 层扇环.1393</title>
+			<desc>4</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1296672610668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="92.3412" cy="204.945" width="21.94" height="29.6036" transform="rotate(-115)"/>
+			<path d="M81.34 248 L122.44 248 A122.496 122.496 -180 0 0 78.68 154.19 L52.27 185.69 A81.3741 81.3741 0 0 1 81.34 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="-229.752" y="-13.7237" width="9.9668" height="21.5999" transform="rotate(-115)"
+					class="st2"/>
+			<text x="-229.75" y="2.48" transform="rotate(-115)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+		<g id="shape1394-53" v:mID="1394" v:groupContext="shape" transform="translate(569.897,315.955) rotate(140.714)">
+			<title>第 1 层扇环.1394</title>
+			<desc>5</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1272603110668):1"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="89.8846" cy="200.212" width="21.94" height="29.6036" transform="rotate(-118)"/>
+			<path d="M81.16 248 L122.44 248 A120.719 120.719 -180 0 0 69.27 147.05 L45.92 181.08 A80.0229 80.0229 0 0 1 81.16 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="-223.958" y="-25.4301" width="9.9668" height="21.5999" transform="rotate(-118)"
+					class="st2"/>
+			<text x="-223.96" y="-9.23" transform="rotate(-118)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+		<g id="shape1395-57" v:mID="1395" v:groupContext="shape" transform="translate(412.862,372.006) rotate(180)">
+			<title>第 1 层扇环.1395</title>
+			<desc>6</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1296672610668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.4682" cy="209.837" width="21.94" height="29.6036" transform="rotate(248)"/>
+			<path d="M81.34 248 L122.44 248 A123.905 123.905 -180 0 0 87.65 162.51 L58.22 191.21 A82.3104 82.3104 0 0 1 81.34 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="-234.929" y="-1.81656" width="9.9668" height="21.5999" transform="rotate(-112)"
+					class="st2"/>
+			<text x="-234.93" y="14.38" transform="rotate(-112)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
+		<g id="shape1396-61" v:mID="1396" v:groupContext="shape" transform="translate(237.496,299.368) rotate(-135)">
+			<title>第 1 层扇环.1396</title>
+			<desc>7</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1256055210668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="93.9964" cy="209.07" width="21.94" height="29.6036" transform="rotate(67.5)"/>
+			<path d="M81.04 248 L122.44 248 A122.438 122.438 -180 0 0 86.58 161.43 L57.31 190.7 A81.0436 81.0436 0 0 1 81.04 248 Z"
+					class="st1"/>
+			<rect v:rectContext="textBkgnd" x="224.143" y="-17.6336" width="9.9668" height="21.5999" transform="rotate(67.5)"
+					class="st2"/>
+			<text x="224.14" y="-1.43" transform="rotate(67.5)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>7</text>		</g>
+		<g id="shape1397-65" v:mID="1397" v:groupContext="shape" transform="translate(164.857,124.002) rotate(-90)">
+			<title>第 1 层扇环.1397</title>
+			<desc>8</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1296672610668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.1315" cy="209.014" width="21.94" height="29.6036" transform="rotate(67.5)"/>
+			<path d="M81.34 248 L122.44 248 A122.438 122.438 -180 0 0 86.58 161.43 L57.51 190.49 A81.336 81.336 0 0 1 81.34 248 Z"
+					class="st1"/>
+			<rect v:rectContext="textBkgnd" x="224.143" y="-17.7799" width="9.9668" height="21.5999" transform="rotate(67.5)"
+					class="st2"/>
+			<text x="224.14" y="-1.58" transform="rotate(67.5)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>8</text>		</g>
+		<g id="shape1398-69" v:mID="1398" v:groupContext="shape" transform="translate(575.717,-0.375)">
+			<title>圆形.1398</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 125.57 A122.438 122.438 0 0 1 244.88 125.57 A122.438 122.438 0 0 1 0 125.57 Z" class="st1"/>
+		</g>
+		<g id="shape1399-71" v:mID="1399" v:groupContext="shape" transform="translate(610.338,-34.9965)">
+			<title>圆形.1399</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 160.19 A87.8169 87.8169 0 0 1 175.63 160.19 A87.8169 87.8169 0 0 1 0 160.19 Z" class="st1"/>
+		</g>
+		<g id="shape1400-73" v:mID="1400" v:groupContext="shape" transform="translate(676.483,-121.865) rotate(-5.01311)">
+			<title>第 1 层扇环.1400</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1278624110668):1"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="75.0712" cy="179.214" width="21.94" height="29.6036" transform="rotate(47.5)"/>
+			<path d="M81.21 248 L122.44 248 A122.412 122.412 -180 0 0 10.7 126.03 L7.1 167.11 A81.1885 81.1885 0 0 1 81.21 248 Z"
+					class="st1"/>
+			<rect v:rectContext="textBkgnd" x="177.864" y="54.9272" width="9.9668" height="21.5999" transform="rotate(47.5)"
+					class="st2"/>
+			<text x="177.86" y="71.13" transform="rotate(47.5)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape1401-77" v:mID="1401" v:groupContext="shape" transform="translate(873.521,-50.1746) rotate(45)">
+			<title>第 1 层扇环.1401</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1267190710668):1"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="92.245" cy="204.99" width="21.94" height="29.6036" transform="rotate(-115)"/>
+			<path d="M81.12 248 L122.44 248 A122.496 122.496 -180 0 0 78.68 154.19 L52.13 185.85 A81.1617 81.1617 0 0 1 81.12 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="-229.752" y="-13.8298" width="9.9668" height="21.5999" transform="rotate(-115)"
+					class="st2"/>
+			<text x="-229.75" y="2.37" transform="rotate(-115)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape1402-81" v:mID="1402" v:groupContext="shape" transform="translate(946.159,125.191) rotate(90)">
+			<title>第 1 层扇环.1402</title>
+			<desc>4</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1296672610668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="92.3412" cy="204.945" width="21.94" height="29.6036" transform="rotate(-115)"/>
+			<path d="M81.34 248 L122.44 248 A122.496 122.496 -180 0 0 78.68 154.19 L52.27 185.69 A81.3741 81.3741 0 0 1 81.34 248
+						 Z" class="st1"/>
+			<rect v:rectContext="textBkgnd" x="-229.752" y="-13.7237" width="9.9668" height="21.5999" transform="rotate(-115)"
+					class="st2"/>
+			<text x="-229.75" y="2.48" transform="rotate(-115)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+		<g id="shape1403-85" v:mID="1403" v:groupContext="shape" transform="translate(698.155,373.195) rotate(180)">
+			<title>第 1 层扇环.1403</title>
+			<desc>11</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1272603110668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="71.9839" cy="176.02" width="31.91" height="29.6036" transform="rotate(225)"/>
+			<path d="M81.16 248 L122.44 248 A122.438 122.438 -180 0 0 -0 125.57 L0 166.84 A81.1627 81.1627 0 0 1 81.16 248 Z"
+					class="st4"/>
+			<rect v:rectContext="textBkgnd" x="-185.332" y="-84.3647" width="19.9336" height="21.5999" transform="rotate(-135)"
+					class="st2"/>
+			<text x="-185.33" y="-68.16" transform="rotate(-135)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>11</text>		</g>
+		<g id="shape1405-89" v:mID="1405" v:groupContext="shape" transform="translate(522.79,300.556) rotate(-135)">
+			<title>第 1 层扇环.1405</title>
+			<desc>7</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1256055210668):1"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="93.9964" cy="209.07" width="21.94" height="29.6036" transform="rotate(67.5)"/>
+			<path d="M81.04 248 L122.44 248 A122.438 122.438 -180 0 0 86.58 161.43 L57.31 190.7 A81.0436 81.0436 0 0 1 81.04 248 Z"
+					class="st1"/>
+			<rect v:rectContext="textBkgnd" x="224.143" y="-17.6336" width="9.9668" height="21.5999" transform="rotate(67.5)"
+					class="st2"/>
+			<text x="224.14" y="-1.43" transform="rotate(67.5)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>7</text>		</g>
+		<g id="shape1406-93" v:mID="1406" v:groupContext="shape" transform="translate(450.151,125.191) rotate(-90)">
+			<title>第 1 层扇环.1406</title>
+			<desc>8</desc>
+			<v:userDefs>
+				<v:ud v:nameU="ControlX" v:val="VT0(1.1811023622047):24"/>
+				<v:ud v:nameU="Scale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="AntiScale" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ControlX" v:prompt="" v:val="VT0(1.1296672610668):24"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.1315" cy="209.014" width="21.94" height="29.6036" transform="rotate(67.5)"/>
+			<path d="M81.34 248 L122.44 248 A122.438 122.438 -180 0 0 86.58 161.43 L57.51 190.49 A81.336 81.336 0 0 1 81.34 248 Z"
+					class="st1"/>
+			<rect v:rectContext="textBkgnd" x="224.143" y="-17.7799" width="9.9668" height="21.5999" transform="rotate(67.5)"
+					class="st2"/>
+			<text x="224.14" y="-1.58" transform="rotate(67.5)" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>8</text>		</g>
+		<g id="group1407-97" transform="translate(257.139,-100.228)" v:mID="1407" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>一维单向箭头.1407</title>
+			<g id="shape1408-98" v:mID="1408" v:groupContext="shape">
+				<title>工作表.1408</title>
+				<path d="M0 236.12 L16.46 236.12 L16.46 248 L24.69 224.23 L16.46 200.46 L16.46 212.34 L0 212.34 L0 236.12 Z"
+						class="st5"/>
+				<path d="M0 236.12 L16.46 236.12 L16.46 248 L24.69 224.23 L16.46 200.46 L16.46 212.34 L0 212.34" class="st6"/>
+			</g>
+			<g id="shape1409-101" v:mID="1409" v:groupContext="shape">
+				<title>工作表.1409</title>
+				<path d="M0 236.12 L16.46 236.12 L16.46 248 L24.69 224.23 L16.46 200.46 L16.46 212.34 L0 212.34 L0 236.12"
+						class="st7"/>
+			</g>
+			<g id="shape1410-104" v:mID="1410" v:groupContext="shape" transform="translate(-0.316554,-12.0885)">
+				<title>工作表.1410</title>
+				<rect x="0" y="224.632" width="0.139349" height="23.3719" class="st8"/>
+			</g>
+		</g>
+		<g id="group1420-106" transform="translate(544.81,-100.228)" v:mID="1420" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>一维单向箭头.1420</title>
+			<g id="shape1421-107" v:mID="1421" v:groupContext="shape">
+				<title>工作表.1421</title>
+				<path d="M0 236.12 L14.26 236.12 L14.26 248 L21.4 224.23 L14.26 200.46 L14.26 212.34 L0 212.34 L0 236.12 Z"
+						class="st5"/>
+				<path d="M0 236.12 L14.26 236.12 L14.26 248 L21.4 224.23 L14.26 200.46 L14.26 212.34 L0 212.34" class="st6"/>
+			</g>
+			<g id="shape1422-110" v:mID="1422" v:groupContext="shape">
+				<title>工作表.1422</title>
+				<path d="M0 236.12 L14.26 236.12 L14.26 248 L21.4 224.23 L14.26 200.46 L14.26 212.34 L0 212.34 L0 236.12"
+						class="st7"/>
+			</g>
+			<g id="shape1423-113" v:mID="1423" v:groupContext="shape" transform="translate(-0.274357,-12.0885)">
+				<title>工作表.1423</title>
+				<rect x="0" y="224.632" width="0.120774" height="23.3719" class="st8"/>
+			</g>
+		</g>
+		<g id="shape1424-115" v:mID="1424" v:groupContext="shape" transform="translate(825.348,-112.115)">
+			<title>工作表.1424</title>
+			<desc>......</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="29.7181" cy="230.173" width="59.44" height="35.6617"/>
+			<rect x="0" y="212.343" width="59.4361" height="35.6617" class="st9"/>
+			<text x="18.64" y="235.57" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>......</text>		</g>
+	</g>
+</svg>
