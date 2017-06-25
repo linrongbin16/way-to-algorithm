@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 EulerCycle3.svg 页-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="2.58275in" height="3.04569in"
+		viewBox="0 0 185.958 219.289" xml:space="preserve" color-interpolation-filters="sRGB" class="st4">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {fill:#000000;font-family:Cambria Math;font-size:1.5em}
+		.st3 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st4 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>页-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="shape1915-1" v:mID="1915" v:groupContext="shape" transform="translate(65.8907,-184.261)">
+			<title>圆形.1915</title>
+			<desc>0</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="17.3268" cy="201.963" width="34.66" height="34.6535"/>
+			<path d="M0 201.96 A17.3268 17.3268 0 0 1 34.65 201.96 A17.3268 17.3268 0 1 1 0 201.96 Z" class="st1"/>
+			<text x="12.34" y="207.36" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0</text>		</g>
+		<g id="shape1916-4" v:mID="1916" v:groupContext="shape" transform="translate(0.375,-111.942)">
+			<title>圆形.1916</title>
+			<desc>1</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="17.3268" cy="201.963" width="34.66" height="34.6535"/>
+			<path d="M0 201.96 A17.3268 17.3268 0 0 1 34.65 201.96 A17.3268 17.3268 0 1 1 0 201.96 Z" class="st1"/>
+			<text x="12.34" y="207.36" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
+		<g id="shape1917-7" v:mID="1917" v:groupContext="shape" transform="translate(150.93,-135.34)">
+			<title>圆形.1917</title>
+			<desc>5</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="17.3268" cy="201.963" width="34.66" height="34.6535"/>
+			<path d="M0 201.96 A17.3268 17.3268 0 0 1 34.65 201.96 A17.3268 17.3268 0 1 1 0 201.96 Z" class="st3"/>
+			<text x="12.34" y="207.36" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+		<g id="shape1918-10" v:mID="1918" v:groupContext="shape" transform="translate(27.9414,-18.4813)">
+			<title>圆形.1918</title>
+			<desc>2</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="17.3268" cy="201.963" width="34.66" height="34.6535"/>
+			<path d="M0 201.96 A17.3268 17.3268 0 0 1 34.65 201.96 A17.3268 17.3268 0 1 1 0 201.96 Z" class="st3"/>
+			<text x="12.34" y="207.36" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
+		<g id="shape1919-13" v:mID="1919" v:groupContext="shape" transform="translate(81.1392,-91.4984)">
+			<title>圆形.1919</title>
+			<desc>3</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="17.3268" cy="201.963" width="34.66" height="34.6535"/>
+			<path d="M0 201.96 A17.3268 17.3268 0 0 1 34.65 201.96 A17.3268 17.3268 0 1 1 0 201.96 Z" class="st3"/>
+			<text x="12.34" y="207.36" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+		<g id="shape1920-16" v:mID="1920" v:groupContext="shape" transform="translate(150.93,-47.8671)">
+			<title>圆形.1920</title>
+			<desc>4</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="17.3268" cy="201.963" width="34.66" height="34.6535"/>
+			<path d="M0 201.96 A17.3268 17.3268 0 0 1 34.65 201.96 A17.3268 17.3268 0 1 1 0 201.96 Z" class="st3"/>
+			<text x="12.34" y="207.36" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+		<g id="shape1921-19" v:mID="1921" v:groupContext="shape" transform="translate(101.642,-0.375)">
+			<title>圆形.1921</title>
+			<desc>6</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="17.3268" cy="201.963" width="34.66" height="34.6535"/>
+			<path d="M0 201.96 A17.3268 17.3268 0 0 1 34.65 201.96 A17.3268 17.3268 0 1 1 0 201.96 Z" class="st3"/>
+			<text x="12.34" y="207.36" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>6</text>		</g>
+		<g id="shape1922-22" v:mID="1922" v:groupContext="shape" transform="translate(-123.174,-75.1024) rotate(-45)">
+			<title>二维双向箭头.1922</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M2.66 211.31 L2.66 208.65 L0 213.97 L2.66 219.29 L2.66 216.63 L60.28 216.63 L60.28 219.29 L62.94 213.97 L60.28
+						 208.65 L60.28 211.31 L2.66 211.31 Z" class="st3"/>
+		</g>
+		<g id="shape1923-24" v:mID="1923" v:groupContext="shape" transform="translate(204.788,-158.189) rotate(30)">
+			<title>二维双向箭头.1923</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M2.66 211.31 L2.66 208.65 L0 213.97 L2.66 219.29 L2.66 216.63 L60.28 216.63 L60.28 219.29 L62.94 213.97 L60.28
+						 208.65 L60.28 211.31 L2.66 211.31 Z" class="st3"/>
+		</g>
+		<g id="shape1924-26" v:mID="1924" v:groupContext="shape" transform="translate(230.566,50.6149) rotate(75)">
+			<title>二维双向箭头.1924</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M2.66 211.31 L2.66 208.65 L0 213.97 L2.66 219.29 L2.66 216.63 L60.28 216.63 L60.28 219.29 L62.94 213.97 L60.28
+						 208.65 L60.28 211.31 L2.66 211.31 Z" class="st3"/>
+		</g>
+		<g id="shape1925-28" v:mID="1925" v:groupContext="shape" transform="translate(89.4421,-109.089) rotate(15)">
+			<title>二维双向箭头.1925</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M2.66 211.31 L2.66 208.65 L0 213.97 L2.66 219.29 L2.66 216.63 L45.7 216.63 L45.7 219.29 L48.36 213.97 L45.7
+						 208.65 L45.7 211.31 L2.66 211.31 Z" class="st3"/>
+		</g>
+		<g id="shape1926-30" v:mID="1926" v:groupContext="shape" transform="translate(382.225,84.4498) rotate(90)">
+			<title>二维双向箭头.1926</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M2.66 211.31 L2.66 208.65 L0 213.97 L2.66 219.29 L2.66 216.63 L49.37 216.63 L49.37 219.29 L52.03 213.97 L49.37
+						 208.65 L49.37 211.31 L2.66 211.31 Z" class="st3"/>
+		</g>
+		<g id="shape1927-32" v:mID="1927" v:groupContext="shape" transform="translate(45.7341,332.336) rotate(-150)">
+			<title>二维双向箭头.1927</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M2.66 211.31 L2.66 208.65 L0 213.97 L2.66 219.29 L2.66 216.63 L46.09 216.63 L46.09 219.29 L48.75 213.97 L46.09
+						 208.65 L46.09 211.31 L2.66 211.31 Z" class="st3"/>
+		</g>
+		<g id="shape1928-34" v:mID="1928" v:groupContext="shape" transform="translate(117.313,-17.9659) rotate(15)">
+			<title>二维双向箭头.1928</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M2.66 211.31 L2.66 208.65 L0 213.97 L2.66 219.29 L2.66 216.63 L38.47 216.63 L38.47 219.29 L41.13 213.97 L38.47
+						 208.65 L38.47 211.31 L2.66 211.31 Z" class="st3"/>
+		</g>
+		<g id="shape1992-36" v:mID="1992" v:groupContext="shape" transform="translate(305.513,72.5549) rotate(75)">
+			<title>二维双向箭头.1992</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M2.66 211.31 L2.66 208.65 L0 213.97 L2.66 219.29 L2.66 216.63 L56.05 216.63 L56.05 219.29 L58.71 213.97 L56.05
+						 208.65 L56.05 211.31 L2.66 211.31 Z" class="st3"/>
+		</g>
+	</g>
+</svg>
