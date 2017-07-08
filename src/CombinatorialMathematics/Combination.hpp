@@ -44,7 +44,7 @@ void MakeChoice(vector<int> & choose, int prev, int prev_one, int s[MAX], int n,
 
 vector<unordered_set<int>> Combination(int s[MAX], int n, int m)
 {
-    // 初始化 choose=[0, 0, 0, ..., 0]
+    // 初始化choose=[0, 0, 0, ..., 0]
     vector<int> choose;
     for (int i = 0; i < n; i++) {
         choose.push_back(0);
