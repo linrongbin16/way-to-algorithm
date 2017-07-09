@@ -68,8 +68,8 @@
             8. [EulerCycle - 欧拉回路](GraphTheory/Traverse/EulerCycle/)
         2. Connectivity - 连通
             0. [KnowledgePoint - 知识要点](GraphTheory/Connectivity/KnowledgePoint)
-            1. [Tarjan - Tarjan算法](GraphTheory/Connectivity/Tarjan/)
-            2. [Kosaraju - Kosaraju算法](GraphTheory/Connectivity/Kosaraju/)
+            1. [Kosaraju - Kosaraju算法](GraphTheory/Connectivity/Kosaraju/)
+            2. [Tarjan - Tarjan算法](GraphTheory/Connectivity/Tarjan/)
             3. [Gabow - Gabow算法](GraphTheory/Connectivity/Gabow/)
             4. [TwoSatisfiability - 2-SAT问题](GraphTheory/Connectivity/TwoSatisfiability/)
             5. [Cut - 割](GraphTheory/Connectivity/Cut/)
