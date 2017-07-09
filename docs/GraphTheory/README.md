@@ -14,7 +14,19 @@
     6. [BreadthFirstSearch(BFS) - 广度优先搜索](Traverse/BreadthFirstSearch/)
     7. [TopologicalSort - 拓扑排序](Traverse/TopologicalSort/)
     8. [EulerCycle - 欧拉回路](Traverse/EulerCycle/)
-2. Connectivity - 连通
+2. MinimumSpanningTree - 最小生成树
+    1. [Kruskal - Kruskal算法](MinimumSpanningTree/Kruskal/)
+    2. [Prim - Prim算法](MinimumSpanningTree/Prim/)
+    3. [SecondMinimumSpanningTree - 次小生成树](MinimumSpanningTree/SecondMinimumSpanningTree/)
+    4. [OptimalRatioSpanningTree - 最优比率生成树](MinimumSpanningTree/OptimalRatioSpanningTree/)
+3. ShortestPath - 最短路径
+    1. [Relaxation - 松弛操作](ShortestPath/Relaxation/)
+    2. [BellmanFord - BellmanFord算法](ShortestPath/BellmanFord/)
+    3. [ShortestPathFasterAlgorithm - 最短路径更快算法（SPFA）](ShortestPath/ShortestPathFasterAlgorithm/)
+    4. [Dijkstra - Dijkstra算法](ShortestPath/Dijkstra/)
+    5. [Floyd - Floyd算法](ShortestPath/Floyd/)
+    6. [DifferentConstraints - 差分约束](ShortestPath/DifferentConstraints/)
+4. Connectivity - 连通
     0. [KnowledgePoint - 知识要点](Connectivity/KnowledgePoint)
     1. [Kosaraju - Kosaraju算法](Connectivity/Kosaraju/)
     2. [Tarjan - Tarjan算法](Connectivity/Tarjan/)
@@ -24,18 +36,6 @@
     6. [DoubleConnectedComponent - 双联通分支](Connectivity/DoubleConnectedComponent/)
     7. [LeastCommonAncestor - 最近公共祖先](Connectivity/LeastCommonAncestor/)
     8. [RangeExtremumQuery - 区域最值查询](Connectivity/RangeExtremumQuery/)
-3. MinimumSpanningTree - 最小生成树
-    1. [Kruskal - Kruskal算法](MinimumSpanningTree/Kruskal/)
-    2. [Prim - Prim算法](MinimumSpanningTree/Prim/)
-    3. [SecondMinimumSpanningTree - 次小生成树](MinimumSpanningTree/SecondMinimumSpanningTree/)
-    4. [OptimalRatioSpanningTree - 最优比率生成树](MinimumSpanningTree/OptimalRatioSpanningTree/)
-4. ShortestPath - 最短路径
-    1. [Relaxation - 松弛操作](ShortestPath/Relaxation/)
-    2. [BellmanFord - BellmanFord算法](ShortestPath/BellmanFord/)
-    3. [ShortestPathFasterAlgorithm - 最短路径更快算法（SPFA）](ShortestPath/ShortestPathFasterAlgorithm/)
-    4. [Dijkstra - Dijkstra算法](ShortestPath/Dijkstra/)
-    5. [Floyd - Floyd算法](ShortestPath/Floyd/)
-    6. [DifferentConstraints - 差分约束](ShortestPath/DifferentConstraints/)
 5. FlowNetwork - 网络流
     1. [EdmondsKarp - EdmondsKarp算法](FlowNetwork/EdmondsKarp/)
     2. [PushAndRelabel - 压入与重标记](FlowNetwork/PushAndRelabel/)
