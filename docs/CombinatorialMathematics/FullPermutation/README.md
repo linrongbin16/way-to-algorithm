@@ -42,7 +42,10 @@
 
 <br>
 StackOverflow上关于全排列的问题：
-* http://stackoverflow.com/questions/9878846/listing-all-permutations-of-a-given-set-of-values
+* [http://stackoverflow.com/questions/9878846/listing-all-permutations-of-a-given-set-of-values](http://stackoverflow.com/questions/9878846/listing-all-permutations-of-a-given-set-of-values)
 
 Steinhaus-Johnson-Trotter算法：
-* https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm
+* [https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm](https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm)
+
+Online Judge：
+* [leetcode-46](https://leetcode.com/problems/permutations/#/description) [leetcode46.hpp](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/attachment/leetcode46.hpp)
