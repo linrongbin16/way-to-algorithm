@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- 由 Microsoft Visio, SVG Export 生成 InsertSort2.svg 页-1 -->
+<!-- 由 Microsoft Visio, SVG Export 生成 InsertSort1.svg 页-1 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
 		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="6.02483in" height="1.7938in"
 		viewBox="0 0 433.788 129.153" xml:space="preserve" color-interpolation-filters="sRGB" class="st7">
@@ -9,8 +9,8 @@
 	<style type="text/css">
 	<![CDATA[
 		.st1 {fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st2 {fill:#000000;font-family:Cambria Math;font-size:1.5em}
-		.st3 {fill:url(#ptrn2-22);shape-rendering:crispEdges;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {fill:#000000;font-family:Cambria;font-size:1.5em}
+		.st3 {fill:url(#ptrn2-4294967295);shape-rendering:crispEdges;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st4 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st5 {marker-end:url(#mrkr4-44);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.237638}
 		.st6 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.086174404659928}
@@ -19,10 +19,10 @@
 	</style>
 
 	<defs id="Patterns_And_Gradients">
-		<pattern id="ptrn2-22" v:fillPattern="2" v:foreground="#c05046" v:background="#ffffff" patternUnits="userSpaceOnUse"
-				width="6" height="6" viewBox="0 0 64 64">
+		<pattern id="ptrn2-4294967295" v:fillPattern="2" v:foreground="#c05046" v:background="#ffffff"
+				patternUnits="userSpaceOnUse" width="6" height="6" viewBox="0 0 64 64">
 			<image x="0" y="0" width="64" height="64" image-rendering="optimizeSpeed"
-					xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABBSURBVChTY3h/+cJ/bAAkfjQ+9D8DlI8CYJIgGkMBsiQIoChAlwQBuAJskiAAVoBLEgTAvsAlCQIM+CTfX77wHwDM5+wx2/JOOQAAAABJRU5ErkJggg=="/>
+					xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAABBSURBVChTY3h/+cJ/bAAkfjQ+9D8DlI8CYJIgGkMBsiQIoChAlwQBuAJskiAAVoBLEgTAvsAlCQIM+CTfX77wHwDM5+wx2/JOOQAAAABJRU5ErkJggg=="/>
 		</pattern>
 	</defs>
 	<defs id="Markers">
@@ -146,9 +146,9 @@
 			<v:textRect cx="12.017" cy="116.684" width="24.04" height="24.9388"/>
 			<rect x="0" y="104.215" width="24.0339" height="24.9388" class="st4"/>
 			<text x="7.67" y="122.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>x</text>		</g>
-		<g id="shape119-39" v:mID="119" v:groupContext="shape" v:layerMember="0" transform="translate(281.98,-42.0378)">
+		<g id="shape119-39" v:mID="119" v:groupContext="shape" v:layerMember="0" transform="translate(281.98,-27.8646)">
 			<title>动态连接线</title>
-			<path d="M0 136.24 L0 147.29 L-129.98 147.29 L-129.98 141.76" class="st5"/>
+			<path d="M0 122.07 L0 133.12 L-129.98 133.12 L-129.98 127.58" class="st5"/>
 		</g>
 		<g id="shape149-45" v:mID="149" v:groupContext="shape" transform="translate(198.334,-103.84)">
 			<title>工作表.149</title>
