@@ -42,3 +42,7 @@
 <p id="i"><a href="https://zhaochenyou.github.io/Way-to-Algorithm/Search/Recursion">Recursion</a>可以解决这个问题。所求的组合是长度为\(m\)的数组\(S\)，其中每个元素\(i\)可以选择的值为集合\(A\)中的任意一个元素。因此我们只需要递归的对每个元素i选择一个值，然后递归下去对元素i+1设置一个值，直到将数组中所有元素都选择了一个值，即可得到一个组合。 </p>
 <p id="i">所求组合的数量为\(m\)，集合\(A\)的成员有\(n\)个，该算法的时间复杂度\(O(m^n)\)。 </p>
 </div>
+
+Online Judge:
+* [leetcode-40](https://leetcode.com/problems/combination-sum/)
+* [leetcode-40 source.hpp](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/attachment/leetcode-40.hpp)
