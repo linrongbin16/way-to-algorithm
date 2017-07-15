@@ -9,7 +9,7 @@
 	<style type="text/css">
 	<![CDATA[
 		.st1 {fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st2 {fill:#000000;font-family:Cambria Math;font-size:1.5em}
+		.st2 {fill:#000000;font-family:Calibri;font-size:1.5em}
 		.st3 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st4 {fill:#ffffff}
 		.st5 {stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
@@ -32,7 +32,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="17.3268" cy="202.683" width="34.66" height="34.6535"/>
 			<path d="M0 202.68 A17.3268 17.3268 0 0 1 34.65 202.68 A17.3268 17.3268 0 1 1 0 202.68 Z" class="st1"/>
-			<text x="12.34" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0</text>		</g>
+			<text x="12.77" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>0</text>		</g>
 		<g id="shape1457-4" v:mID="1457" v:groupContext="shape" transform="translate(0.375,-112.662)">
 			<title>圆形.1485</title>
 			<desc>1</desc>
@@ -42,7 +42,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="17.3268" cy="202.683" width="34.66" height="34.6535"/>
 			<path d="M0 202.68 A17.3268 17.3268 0 0 1 34.65 202.68 A17.3268 17.3268 0 1 1 0 202.68 Z" class="st1"/>
-			<text x="12.34" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
+			<text x="12.77" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>1</text>		</g>
 		<g id="shape1458-7" v:mID="1458" v:groupContext="shape" transform="translate(172.969,-137.076)">
 			<title>圆形.1486</title>
 			<desc>5</desc>
@@ -52,7 +52,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="17.3268" cy="202.683" width="34.66" height="34.6535"/>
 			<path d="M0 202.68 A17.3268 17.3268 0 0 1 34.65 202.68 A17.3268 17.3268 0 1 1 0 202.68 Z" class="st3"/>
-			<text x="12.34" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
+			<text x="12.77" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>5</text>		</g>
 		<g id="shape1459-10" v:mID="1459" v:groupContext="shape" transform="translate(25.4831,-12.6013)">
 			<title>圆形.1487</title>
 			<desc>2</desc>
@@ -62,7 +62,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="17.3268" cy="202.683" width="34.66" height="34.6535"/>
 			<path d="M0 202.68 A17.3268 17.3268 0 0 1 34.65 202.68 A17.3268 17.3268 0 1 1 0 202.68 Z" class="st3"/>
-			<text x="12.34" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
+			<text x="12.77" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>2</text>		</g>
 		<g id="shape1460-13" v:mID="1460" v:groupContext="shape" transform="translate(127.53,-0.375)">
 			<title>圆形.1488</title>
 			<desc>3</desc>
@@ -72,7 +72,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="17.3268" cy="202.683" width="34.66" height="34.6535"/>
 			<path d="M0 202.68 A17.3268 17.3268 0 0 1 34.65 202.68 A17.3268 17.3268 0 1 1 0 202.68 Z" class="st3"/>
-			<text x="12.34" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
+			<text x="12.77" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>3</text>		</g>
 		<g id="shape1461-16" v:mID="1461" v:groupContext="shape" transform="translate(206.9,-41.5855)">
 			<title>圆形.1489</title>
 			<desc>4</desc>
@@ -82,7 +82,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="17.3268" cy="202.683" width="34.66" height="34.6535"/>
 			<path d="M0 202.68 A17.3268 17.3268 0 0 1 34.65 202.68 A17.3268 17.3268 0 1 1 0 202.68 Z" class="st3"/>
-			<text x="12.34" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
+			<text x="12.77" y="208.08" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>4</text>		</g>
 		<g id="group1507-19" transform="translate(222.757,181.74) rotate(135)" v:mID="1507" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
