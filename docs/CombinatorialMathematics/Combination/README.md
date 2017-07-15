@@ -59,18 +59,18 @@
 
 <br>
 StackOverflow上关于组合产生算法的问题：
-* http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n
+* [http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n](http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n)
 
 二项式系数：
-* https://en.wikipedia.org/wiki/Binomial_coefficient
+* [https://en.wikipedia.org/wiki/Binomial_coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient)
 
 Chase’s Twiddle - Algorithm 382: Combinations of M out of N Objects:
-* http://dl.acm.org/citation.cfm?id=362502
-* http://www.netlib.no/netlib/toms/382
+* [http://dl.acm.org/citation.cfm?id=362502](http://dl.acm.org/citation.cfm?id=362502)
+* [http://www.netlib.no/netlib/toms/382](http://www.netlib.no/netlib/toms/382)
 
 Buckles - Algorithm 515: Generation of a Vector from the Lexicographical Index:
-* http://dl.acm.org/citation.cfm?id=355739
-* https://www.researchgate.net/profile/Bill_Buckles/publication/220492658_Algorithm_515_Generation_of_a_Vector_from_the_Lexicographical_Index_G6/links/5716d7ad08ae497c1a5706ec.pdf
+* [http://dl.acm.org/citation.cfm?id=355739](http://dl.acm.org/citation.cfm?id=355739)
+* [https://www.researchgate.net/profile/Bill_Buckles/publication/220492658_Algorithm_515_Generation_of_a_Vector_from_the_Lexicographical_Index_G6/links/5716d7ad08ae497c1a5706ec.pdf](https://www.researchgate.net/profile/Bill_Buckles/publication/220492658_Algorithm_515_Generation_of_a_Vector_from_the_Lexicographical_Index_G6/links/5716d7ad08ae497c1a5706ec.pdf)
 
 Remark on algorithm 515: Generation of a vector from the lexicographical index combinations:
-* http://dl.acm.org/citation.cfm?id=1236470
+* [http://dl.acm.org/citation.cfm?id=1236470](http://dl.acm.org/citation.cfm?id=1236470)

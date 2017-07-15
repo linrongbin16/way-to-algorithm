@@ -78,4 +78,4 @@ P_m^n = \frac{n!}{(n-m)!}
 
 <br>
 数学符号表：
-* https://en.wikipedia.org/wiki/List_of_mathematical_symbols
+* [https://en.wikipedia.org/wiki/List_of_mathematical_symbols](https://en.wikipedia.org/wiki/List_of_mathematical_symbols)

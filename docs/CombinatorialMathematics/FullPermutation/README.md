@@ -48,4 +48,5 @@ Steinhaus-Johnson-Trotter算法：
 * [https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm](https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm)
 
 Online Judge：
-* [leetcode-46](https://leetcode.com/problems/permutations/#/description) [leetcode46.hpp](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/attachment/leetcode46.hpp)
+* [leetcode-46](https://leetcode.com/problems/permutations/#/description) 
+* [leetcode-46 source.hpp](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/attachment/leetcode46.hpp)
