@@ -4,29 +4,26 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
-#ifndef MAX
-#define MAX 64
-#endif
 
-auto Backtrack(vector<vector<int>> &comb, vector<int> &tmp, const vector<int> &nums, int remain, int start) -> void {
-    if (remain < 0)
-        return;
-    if (remain == 0) {
+auto Recursion(vector<int> &tmp, const vector<int> &candidates, int prev, vector<vector<int>> &comb) -> void
+{
+    /* 递归终止条件 */
+    if (prev == tmp.size()) {
         comb.push_back(tmp);
         return;
     }
-    for (int i = start; i < nums.size(); i++) {
-        tmp.push_back(nums[i]);
-        Backtrack(comb, tmp, nums, remain - nums[i], i);
-        tmp.erase(tmp.end()-1);
+
+    /* 遍历当前成员s[prev] 并递归进入下一个成员 */
+    for (int i = 0; i < candidates.size(); ++i) {
+        tmp[prev] = candidates[i];
+        Recursion(tmp, candidates, prev + 1, comb);
     }
 }
 
-auto DuplicableCombination(vector<int> &candidates, int target) -> vector<vector<int>> {
+auto DuplicableCombination(vector<int> &candidates, int n) -> vector<vector<int>> {
     vector<vector<int>> comb;
-    sort(candidates.begin(), candidates.end());
-    vector<int> tmp;
-    Backtrack(comb, tmp, candidates, target, 0);
+    vector<int> tmp(n, 0);
+    Recursion(tmp, candidates, 0, comb);
     return comb;
 }
 
