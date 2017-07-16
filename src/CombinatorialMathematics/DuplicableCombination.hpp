@@ -8,7 +8,7 @@ using namespace std;
 #define MAX 64
 #endif
 
-void backtrack(vector<vector<int>> &comb, vector<int> &tmp, int nums[MAX], int remain, int start) {
+auto Backtrack(vector<vector<int>> &comb, vector<int> &tmp, const vector<int> &nums, int remain, int start) -> void {
     if (remain < 0)
         return;
     if (remain == 0) {
@@ -17,16 +17,16 @@ void backtrack(vector<vector<int>> &comb, vector<int> &tmp, int nums[MAX], int r
     }
     for (int i = start; i < nums.size(); i++) {
         tmp.push_back(nums[i]);
-        backtrack(comb, tmp, nums, remain - nums[i], i);
+        Backtrack(comb, tmp, nums, remain - nums[i], i);
         tmp.erase(tmp.end()-1);
     }
 }
 
-vector<vector<int>> DuplicableCombination(int candidates[MAX], int target) {
+auto DuplicableCombination(vector<int> &candidates, int target) -> vector<vector<int>> {
     vector<vector<int>> comb;
-    std::sort(candidates.begin(), candidates.end());
+    sort(candidates.begin(), candidates.end());
     vector<int> tmp;
-    backtrack(comb, tmp, candidates, target, 0);
+    Backtrack(comb, tmp, candidates, target, 0);
     return comb;
 }
 

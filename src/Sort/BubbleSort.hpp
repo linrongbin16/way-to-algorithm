@@ -1,9 +1,7 @@
-﻿#ifndef BUBBLE_SORT_H
-#define BUBBLE_SORT_H 1
+﻿#ifndef SORT_BUBBLE_SORT_H
+#define SORT_BUBBLE_SORT_H 1
 
-#ifndef MAX
-#define MAX 1024
-#endif
+#include <vector>
 #include <algorithm>
 using namespace std;
 
@@ -15,7 +13,7 @@ using namespace std;
  * @param end       序列s是左闭右开区间[beg, end)
  */
 
-auto BubbleSort(int s[MAX], int beg, int end) -> void
+auto BubbleSort(vector<int> &s, int beg, int end) -> void
 {
     for (int i = end-1; i >= beg; --i)
         for (int j = beg; j < i; ++j)

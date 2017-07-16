@@ -5,7 +5,9 @@
 using namespace std;
 
 
-auto AssertNotAscendingOrder(int s[MAX], int n) -> void
+#define MAX 64
+
+auto AssertNotAscendingOrder(vector<int> &s, int n) -> void
 {
     bool res = true;
     for (int i = 0; i < n - 1; ++i) {
@@ -16,7 +18,7 @@ auto AssertNotAscendingOrder(int s[MAX], int n) -> void
     }
     assert(!res);
 }
-auto AssertAscendingOrder(int s[MAX], int n) -> void
+auto AssertAscendingOrder(vector<int> &s, int n) -> void
 {
     bool res = true;
     for (int i = 0; i < n - 1; ++i) {
@@ -27,7 +29,7 @@ auto AssertAscendingOrder(int s[MAX], int n) -> void
     }
     assert(res);
 }
-auto AssertQuickSort(int s[MAX], int n) -> void
+auto AssertQuickSort(vector<int> &s, int n) -> void
 {
     AssertNotAscendingOrder(s, n);
     QuickSort(s, 0, n);
@@ -39,7 +41,7 @@ auto AssertQuickSort(int s[MAX], int n) -> void
 
 auto main(void) -> int
 {
-    int s[MAX];
+    vector<int> s(MAX, 0);
 
     for (int i = 0; i < TEST_MAX; ++i) {
         for (int j = 0; j < MAX; ++j) {

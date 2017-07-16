@@ -1,14 +1,13 @@
-﻿#ifndef SORT_MERGE_HPP
-#define SORT_MERGE_HPP 1
+﻿#ifndef SORT_MERGE_SORT_HPP
+#define SORT_MERGE_SORT_HPP 1
 
-#ifndef MAX
-#define MAX 1024
-#endif
+#include <vector>
+using namespace std;
 
-
-auto Merge(int s[MAX], int start, int mid, int last) -> void
+auto Merge(vector<int> &s, int start, int mid, int last) -> void
 {
-    int t[MAX];
+    vector<int> t;
+    t.resize(s.size());
     int i, j, k;
 
     for (i = start, j = mid+1, k = start; i <= mid and j <= last; ++k) {
@@ -36,7 +35,7 @@ auto Merge(int s[MAX], int start, int mid, int last) -> void
 * @param beg        序列s的起始下标
 * @param end        序列s为左闭右开区间[beg, end)
 */
-void MergeSort(int s[MAX], int beg, int end)
+auto MergeSort(vector<int> &s, int beg, int end) -> void
 {
     int mid = (beg + end-1) / 2;
 
@@ -48,5 +47,6 @@ void MergeSort(int s[MAX], int beg, int end)
     MergeSort(s, mid+1, end);
     Merge(s, beg, mid, end-1);
 }
+
 
 #endif

@@ -1,10 +1,8 @@
-#ifndef INSERT_SORT_HPP
-#define INSERT_SORT_HPP 1
+#ifndef SORT_INSERT_SORT_HPP
+#define SORT_INSERT_SORT_HPP 1
 
-#ifndef MAX
-#define MAX 1024
-#endif
-
+#include <vector>
+using namespace std;
 
 /**
 * @brief InsertSort 插入排序
@@ -12,7 +10,7 @@
 * @param beg        序列s的起始下标
 * @param end        序列s为左闭右开区间[beg, end)
 */
-auto InsertSort(int s[MAX], int beg, int end) -> void
+auto InsertSort(vector<int> &s, int beg, int end) -> void
 {
     for (int j = beg+1; j < end; ++j) {
         int i;

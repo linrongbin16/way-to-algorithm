@@ -24,7 +24,7 @@ auto ArrayToVector(int s[MAX], int n) -> vector<int>
  * @param prev  上一个选择过的成员下标
  * @param comb  所有选择的集合
 */
-auto Recursion(int s[MAX], int n, int m, int prev, vector<vector<int>> & comb) -> void
+auto Recursion(int s[MAX], int n, int m, int prev, vector<vector<int>> &comb) -> void
 {
     /* 递归终止条件 */
     if (prev == n) {

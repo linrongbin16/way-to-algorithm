@@ -1,9 +1,7 @@
-﻿#ifndef QUICK_SORT_HPP
-#define QUICK_SORT_HPP 1
+﻿#ifndef SORT_QUICK_SORT_HPP
+#define SORT_QUICK_SORT_HPP 1
 
-#ifndef MAX
-#define MAX 1024
-#endif
+#include <vector>
 #include <algorithm>
 using namespace std;
 
@@ -18,7 +16,7 @@ using namespace std;
  * @param high      序列s的末尾下标，即左闭右闭区间[low, high]
  * @return          最终s[low]所在下标
  */
-auto Partion(int s[MAX], int low, int high) -> int
+auto Partion(vector<int> &s, int low, int high) -> int
 {
     int p = s[low];
     while (low < high) {
@@ -39,7 +37,7 @@ auto Partion(int s[MAX], int low, int high) -> int
  * @param beg       序列s的起始下标
  * @param end       序列s的末尾下标加1，即左闭右开区间[beg, end)
  */
-auto QuickSort(int s[MAX], int beg, int end) -> void
+auto QuickSort(vector<int> &s, int beg, int end) -> void
 {
     if (beg < end-1) {
         int mid = Partion(s, beg, end-1);
