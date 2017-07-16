@@ -48,7 +48,10 @@ auto AssertArrayEqual(int s1[MAX], int n1, int s2[MAX], int n2) -> void
 
 int main()
 {
+    int n, m;
+    int subset[MAX][MAX];
     int cover[MAX];
+
     for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
         Test & t = test_cases[i];
         assert(DancingLink(t.n, t.m, t.subset, cover));

@@ -3,8 +3,8 @@
 using namespace std;
 
 struct Test {
-    string beg_;
-    string end_;
+    string begin;
+    string end;
 } test_cases[] = {
     { "1348x5726", "1238x4765" },
     { "2317x8654", "1238x4765" },

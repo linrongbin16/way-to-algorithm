@@ -3,8 +3,8 @@
 #include <iostream>
 using namespace std;
 
-#define TEST_M_MAX MAX
-#define TEST_N_MAX MAX
+#define TEST_M_MAX 16
+#define TEST_N_MAX 16
 
 
 auto AssertAdjacent(const Position & a, const Position & b) -> void

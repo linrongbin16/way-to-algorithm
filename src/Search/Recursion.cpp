@@ -9,43 +9,32 @@ using namespace std;
 #define TEST_N_MAX 8
 #define TEST_M_MAX 8
 
-auto VectorToString(const vector<int> & v) -> string
-{
-    string s;
-    for (int i = 0; i < v.size(); i++) {
-        s += to_string(v[i]);
-    }
-    return s;
-}
 
-auto AssertUnique(const vector<string> & v) -> void
+auto AssertUnique(const vector<vector<int>> & v) -> void
 {
     unordered_set<string> uniques;
+    vector<string> v2;
     for (int i = 0; i < v.size(); i++) {
-        assert(uniques.find(v[i]) == uniques.end());
-        uniques.insert(v[i]);
+        string tmp;
+        for (int j = 0; j < v[i].size(); j++) {
+            tmp.append(to_string(v[i][j]));
+        }
+        v2.push_back(tmp);
+    }
+    for (int i = 0; i < v2.size(); i++) {
+        assert(uniques.find(v2[i]) == uniques.end());
+        uniques.insert(v2[i]);
     }
 }
 
-auto main() -> int
-{
-    int s[MAX];
-
+auto main() -> int {
     for (int i = 1; i < TEST_N_MAX; i++)
         for (int j = 1; j < TEST_M_MAX; j++) {
+            vector<int> s(i, 0);
             vector<vector<int>> result;
-            Recursion(s, i, j, 0, result);
+            Recursion(s, j, 0, result);
             assert( (double)result.size() == std::pow<double>(j, i) );
-            vector<string> r;
-            for (int k = 0; k < result.size(); k++) {
-                for (int p = 0; p < result[k].size(); p++) {
-                    assert(result[k][p] >= 0);
-                    assert(result[k][p] <= j);
-                }
-                string tmp = VectorToString(result[k]);
-                r.push_back(tmp);
-            }
-            AssertUnique(r);
+            AssertUnique(result);
         }
     return 0;
 }
