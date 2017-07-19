@@ -1,5 +1,7 @@
 test
 tags
+tags.lock
+tags.temp
 *.log
 *.out
 *.o
@@ -33,3 +35,4 @@ CMakeCache.txt
 cmake-build-debug
 *.pyc
 *.cbp
+
