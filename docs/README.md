@@ -67,11 +67,13 @@
         7. [TopologicalSort - 拓扑排序](GraphTheory/Traverse/TopologicalSort/)
         8. [EulerCycle - 欧拉回路](GraphTheory/Traverse/EulerCycle/)
     2. MinimumSpanningTree - 最小生成树
+        0. [KnowledgePoint - 知识要点](GraphTheory/MinimumSpanning/KnowledgePoint/)
         1. [Kruskal - Kruskal算法](GraphTheory/MinimumSpanningTree/Kruskal/)
         2. [Prim - Prim算法](GraphTheory/MinimumSpanningTree/Prim/)
         3. [SecondMinimumSpanningTree - 次小生成树](GraphTheory/MinimumSpanningTree/SecondMinimumSpanningTree/)
         4. [OptimalRatioSpanningTree - 最优比率生成树](GraphTheory/MinimumSpanningTree/OptimalRatioSpanningTree/)
     3. ShortestPath - 最短路径
+        0. [KnowledgePoint - 知识要点](GraphTheory/ShortestPath/KnowledgePoint/)
         1. [Relaxation - 松弛操作](GraphTheory/ShortestPath/Relaxation/)
         2. [BellmanFord - BellmanFord算法](GraphTheory/ShortestPath/BellmanFord/)
         3. [ShortestPathFasterAlgorithm - 最短路径更快算法（SPFA）](GraphTheory/ShortestPath/ShortestPathFasterAlgorithm/)
