@@ -1,3 +1,9 @@
 {
-    "plugins": ["mathjax"]
+    "plugins": ["mathjax"],
+    "plugins": ["autocover"],
+    "pluginsConfig": {
+        "autocover": {
+            // Configuration for autocover (see below)
+        }
+    }
 }
