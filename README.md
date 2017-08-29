@@ -2,7 +2,7 @@
 
 ---
 
-[https://zhaochenyou.github.io/Way-to-Algorithm\](https://zhaochenyou.github.io/Way-to-Algorithm\)
+[https://zhaochenyou.github.io/Way-to-Algorithm](https://zhaochenyou.github.io/Way-to-Algorithm\)
 
 ![](/docs/res/keyboard.jpg)
 
