@@ -36,3 +36,5 @@ cmake-build-debug
 *.pyc
 *.cbp
 
+node_modules
+_book
