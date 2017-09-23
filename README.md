@@ -14,5 +14,5 @@
 
 ### Reading Address - 阅读地址
 
-* [gitbook/zhaochenyou/Way-to-Algorithm](https://gitbook.com/zhaochenyou/Way-to-Algorithm/)
-* [github.com/zhaochenyou/Way-to-Algorithm](https://github.com/zhaochenyou/Way-to-Algorithm/)
+* [gitbook.com - zhaochenyou/Way-to-Algorithm](https://www.gitbook.com/read/book/zhaochenyou/way-to-algorithm)
+* [github.com - zhaochenyou/Way-to-Algorithm](https://github.com/zhaochenyou/Way-to-Algorithm/)
