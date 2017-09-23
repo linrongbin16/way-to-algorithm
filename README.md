@@ -1,20 +1,18 @@
-#### Way to Algorithm
-#### 算法之路
+# Way to Algorithm - 算法之路
 
-这是一本关于大学生计算机算法的书籍。之所以称之为“书”而不是“源码”，是因为我发现单纯的代码很难让人学习和理解，我自己在学习的过程中走了不少的弯路。我认为将算法图形化、公式化是最容易让人学习和理解的方式，这样可以从数学角度来准确的描述问题和解法。因此我将这些内容用自己的方式画出来，配合代码和测试，希望给出一个比较令人满意的讲解。
+--------
 
-本书的每一章专门讲解一类算法问题，其中又划分多个小节，专门讲解其中的一个分支或变种。同一章节中各个小节之间会有明显的联系，基础的算法在前面，变种的、高级的算法在后面。每个算法都有讲解、源码和测试三个部分。在编写的过程中，我学习和参考了非常多的资料，有很多都忘记了，记得的我会列在参考资料中。
+### Introduction - 简介
 
-后来NEWPLAN同学参加到这本书籍的编写中，他添加了很多内容，我们也欢迎更多的同学来一起丰富这些资料。
+本书围绕大学生计算机算法教程与源码，收集和整理了比较常见的计算机算法与数据结构。
 
-* 阅读地址：[Way-to-Algorithm](https://zhaochenyou.github.io/Way-to-Algorithm/)
+其中借鉴了一些经典的算法书籍，和互联网上的资料，结合自己的理解写成。
 
-* 关注我们的Github项目：[Way-to-Algorithm](https://github.com/zhaochenyou/Way-to-Algorithm/)
+由于个人经验有限，难免存在一些疏漏和错误的地方，还请斧正。
 
-* 贡献者：[NEWPLAN@github.com](mailto:NEWPLAN@github.com) , [zhaochenyou@github.com](mailto:zhaochenyou@github.com)
+--------
 
+### Reading Address - 阅读地址
 
-
-西安交通大学计算机系
-林荣彬
-2014年2月16日
+* [gitbook/zhaochenyou/Way-to-Algorithm](https://gitbook.com/zhaochenyou/Way-to-Algorithm/)
+* [github.com/zhaochenyou/Way-to-Algorithm](https://github.com/zhaochenyou/Way-to-Algorithm/)
