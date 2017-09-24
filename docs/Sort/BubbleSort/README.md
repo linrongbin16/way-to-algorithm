@@ -15,26 +15,17 @@ $$ left $$从左边第一个元素$$ s[i] $$（初始时$$ i = 0 $$）开始向�
 
 例如对于下图中的数组$$ s $$，$$ left $$为$$ s[0,5] $$，$$ right $$为$$ s[6,n-1] $$。从$$ i = 0 $$开始向右遍历，依次比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，直到$$ i = 5 $$。
 
-$$
-
-\begin{vmatrix}
-0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \cdots & n-1     \\
-\textcolor{blue}{23} & 57 & 45 & 3 & 33 & 7 & \textcolor{red}{72} & 74 & \cdots & 90     \\
-\end{vmatrix}
-
-$$
-
-![BubbleSort1.svg]("../res/BubbleSort1.svg")
-![BubbleSort2.svg]("../res/BubbleSort2.svg")
-![BubbleSort3.svg]("../res/BubbleSort3.svg")
+![BubbleSort1.svg](../res/BubbleSort1.svg)
+![BubbleSort2.svg](../res/BubbleSort2.svg)
+![BubbleSort3.svg](../res/BubbleSort3.svg)
 
 $$ \cdots \cdots $$
 
-![BubbleSort4.svg]("../res/BubbleSort4.svg")
+![BubbleSort4.svg](../res/BubbleSort4.svg)
 
 然后将$$ left $$中的最大值$$ s[5] = 57 $$合并到$$ right $$部分中，再进行新一轮的遍历交换操作。
 
-![BubbleSort5.svg]("../res/BubbleSort5.svg")
+![BubbleSort5.svg](../res/BubbleSort5.svg)
 
 重复上面的遍历交换操作，从$$ i = 0 $$开始向右遍历。这样直到$$ left $$部分为空，$$ right $$部分即为已序数组，算法结束。对于长度为$$ n $$的序列$$ s $$，每一轮将$$ left $$中的最大值移动到$$ right $$，时间复杂度为$$ O(n) $$，总共需要$$ n $$轮，该算法的时间复杂度为$$ O(n^2) $$。
 
