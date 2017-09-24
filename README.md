@@ -14,13 +14,13 @@
 由于个人经验有限，难免存在一些疏漏和错误的地方，还请指正。
 
 
-### Reading Address - 阅读地址
+### Reading - 阅读
 
 * [gitbook.com - zhaochenyou/Way-to-Algorithm](https://zhaochenyou.gitbooks.io/way-to-algorithm/content/)
 * [github.com - zhaochenyou/Way-to-Algorithm](https://github.com/zhaochenyou/Way-to-Algorithm/)
 
 
-### Reference - 参考引用
+### Reference - 参考
 
 * [算法导论 - Introduction to Algorithms](http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf)
 * [背包问题九讲](http://love-oriented.com/pack/)
