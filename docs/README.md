@@ -13,7 +13,7 @@
     * [Recursion 递归](docs/Search/Recursion/README.md)
     * [BreadthFirstSearch 广度优先搜索](docs/Search/BreadthFirstSearch.md)
     * [BidirectionalBreadthSearch 双向广度搜索](docs/Search/BidirectionalBreadthSearch.md)
-    * [AStarSearch A*搜索](docs/Search/AStarSearch.md)
+    * [AStarSearch A\*搜索](docs/Search/AStarSearch.md)
     * [DancingLinks 舞蹈链](docs/Search/DancingLinks.md)
 * [Chapter-3 DataStructure 第3章 数据结构](docs/DataStructure/README.md)
     * [DisjointSet 并查集](docs/DataStructure/DisjointSet.md)
