@@ -1,6 +1,7 @@
 # Way to Algorithm - 算法之路
 
-![keyboard.jpg](https://raw.githubusercontent.com/zhaochenyou/Way-to-Algorithm/master/docs/res/keyboard.jpg)
+![keyboard1.jpg](https://raw.githubusercontent.com/zhaochenyou/Way-to-Algorithm/master/docs/res/keyboard.jpg)
+![keyboard2.jpg](docs/res/keyboard.jpg)
 
 #### Algorithm Tutorial and Source Code - 算法教程与源码
 
