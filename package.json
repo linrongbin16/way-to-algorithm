@@ -1,0 +1,6 @@
+{
+    "dependencies":
+    {
+        "mathjax-node": "latest"
+    }
+}
