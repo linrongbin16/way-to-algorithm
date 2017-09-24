@@ -10,7 +10,7 @@
 
 #### 阅读地址
 
-* [gitbook/zhaochenyou/Way-to-Algorithm](https://zhaochenyou.github.io/Way-to-Algorithm/)
+* [gitbook.com/zhaochenyou/Way-to-Algorithm](https://zhaochenyou.github.io/Way-to-Algorithm/)
 
 #### Github项目
 
