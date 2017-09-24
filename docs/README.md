@@ -162,14 +162,3 @@
     * [WythoffGame 威佐夫博弈](docs/GameTheory/WythoffGame.md)
     * [NimGame 尼姆博弈](docs/GameTheory/NimGame.md)
     * [SpragueGrundy SG函数](docs/GameTheory/SpragueGrundy.md)
-
---------
-
-# Reference
-
-* [算法导论 - Introduction to Algorithms](http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf)
-* [背包问题九讲](http://love-oriented.com/pack/)
-* [USACO](http://www.usaco.org/)
-* [StackOverflow](http://stackoverflow.com/)
-* [Wikipedia](https://www.wikipedia.org/)
-* [leetcode](https://leetcode.com)
