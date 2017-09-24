@@ -5,7 +5,8 @@
     "plugins": [
         "mathjax",
         "include-codeblock",
-        "ace"
+        "ace",
+        "splitter"
     ],
     "pluginsConfig": {
         "include-codeblock": {
