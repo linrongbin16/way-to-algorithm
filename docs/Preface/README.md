@@ -8,11 +8,6 @@
 
 --------
 
-#### 阅读
-
-* [github.com - zhaochenyou/Way-to-Algorithm](https://github.com/zhaochenyou/Way-to-Algorithm/)
-* [gitbook.com - zhaochenyou/Way-to-Algorithm](https://zhaochenyou.gitbooks.io/way-to-algorithm/content/)
-
 #### 贡献者
 
 * NEWPLAN@github.com
