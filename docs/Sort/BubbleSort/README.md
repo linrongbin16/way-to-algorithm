@@ -34,8 +34,8 @@ $$ \cdots \cdots $$
 
 #### 源码
 
-[import](../../../src/Sort/BubbleSort.hpp)
+[import, lang:"c_cpp"](../../../src/Sort/BubbleSort.hpp)
 
 #### 测试
 
-[import](../../../src/Sort/BubbleSort.cpp)
+[import, lang:"c_cpp"](../../../src/Sort/BubbleSort.cpp)
