@@ -1,5 +1,5 @@
 ﻿#ifndef SORT_MERGE_SORT_HPP
-#define SORT_MERGE_SORT_HPP 1
+#define SORT_MERGE_SORT_HPP
 
 #include <vector>
 using namespace std;

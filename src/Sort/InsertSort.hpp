@@ -1,5 +1,5 @@
 #ifndef SORT_INSERT_SORT_HPP
-#define SORT_INSERT_SORT_HPP 1
+#define SORT_INSERT_SORT_HPP
 
 #include <vector>
 using namespace std;

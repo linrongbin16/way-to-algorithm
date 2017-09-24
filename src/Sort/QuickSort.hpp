@@ -1,5 +1,5 @@
 ﻿#ifndef SORT_QUICK_SORT_HPP
-#define SORT_QUICK_SORT_HPP 1
+#define SORT_QUICK_SORT_HPP
 
 #include <vector>
 #include <algorithm>

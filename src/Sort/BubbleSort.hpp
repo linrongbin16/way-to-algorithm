@@ -1,5 +1,5 @@
 ﻿#ifndef SORT_BUBBLE_SORT_H
-#define SORT_BUBBLE_SORT_H 1
+#define SORT_BUBBLE_SORT_H
 
 #include <vector>
 #include <algorithm>
