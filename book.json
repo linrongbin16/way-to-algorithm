@@ -1,3 +1,9 @@
 {
-    "plugins": ["mathjax"]
+    "title": "Way to Algorithm - 算法之路",
+    "description": "Algorithm Tutorial and Source Code - 算法教程与源码",
+    "language": "zh-hans",
+    "plugins": [
+        "mathjax",
+        "include-codeblock"
+    ]
 }
