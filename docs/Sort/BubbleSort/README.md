@@ -33,8 +33,8 @@ $$ \cdots \cdots $$
 
 ### 源码
 
-[import](https://raw.githubusercontent.com/zhaochenyou/Way-to-Algorithm/master/src/Sort/BubbleSort.hpp)
+[import](../../../src/Sort/BubbleSort.hpp)
 
 ### 测试
 
-[import](https://raw.githubusercontent.com/zhaochenyou/Way-to-Algorithm/master/src/Sort/BubbleSort.cpp)
+[import](../../../src/Sort/BubbleSort.cpp)
