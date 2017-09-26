@@ -22,50 +22,51 @@ $$ (2) $$从$$ queue $$中取出头节点$$ [0,1] $$，因$$ [0,1] \neq end $$�
 
 ![BreadthFirstSearch3.svg](../res/BreadthFirstSearch3.svg)
 
-\((3)\)从\(queue\)中取出头节点\([0,0]\)，因\([0,0] \neq end\)，将其四周未被染红的节点\([1,0]\)染红并加入\(queue\)；</p>
+$$ (3) $$从$$ queue $$中取出头节点$$ [0,0] $$，因$$ [0,0] \neq end $$，将其四周未被染红的节点$$ [1,0] $$染红并加入$$ queue $$；
 
-<img src="../res/BreadthFirstSearch4.svg" /></p>
+![BreadthFirstSearch4.svg](../res/BreadthFirstSearch4.svg)
 
-<img src="../res/BreadthFirstSearch5.svg" /></p>
+![BreadthFirstSearch5.svg](../res/BreadthFirstSearch5.svg)
 
-<img src="../res/BreadthFirstSearch6.svg" /></p>
+![BreadthFirstSearch6.svg](../res/BreadthFirstSearch6.svg)
 
-<img src="../res/BreadthFirstSearch7.svg" /></p>
+![BreadthFirstSearch7.svg](../res/BreadthFirstSearch7.svg)
 
-<img src="../res/BreadthFirstSearch8.svg" /></p>
+![BreadthFirstSearch8.svg](../res/BreadthFirstSearch8.svg)
 
-<img src="../res/BreadthFirstSearch9.svg" /></p>
+![BreadthFirstSearch9.svg](../res/BreadthFirstSearch9.svg)
 
-<img src="../res/BreadthFirstSearch10.svg" /></p>
+![BreadthFirstSearch10.svg](../res/BreadthFirstSearch10.svg)
 
-<img src="../res/BreadthFirstSearch11.svg" /></p>
+![BreadthFirstSearch11.svg](../res/BreadthFirstSearch11.svg)
 
-<img src="../res/BreadthFirstSearch12.svg" /></p>
+![BreadthFirstSearch12.svg](../res/BreadthFirstSearch12.svg)
 
-\((4)\)从\(queue\)中取出头节点\([3,1]\)，因\([3,1] \neq end\)，其四周的节点都已经被染红，因此不做任何操作； </p>
+$$ (4) $$从$$ queue $$中取出头节点$$ [3,1] $$，因$$ [3,1] \neq end $$，其四周的节点都已经被染红，因此不做任何操作；
 
-<img src="../res/BreadthFirstSearch13.svg" /></p>
+![BreadthFirstSearch13.svg](../res/BreadthFirstSearch13.svg)
 
-<img src="../res/BreadthFirstSearch14.svg" /></p>
+![BreadthFirstSearch14.svg](../res/BreadthFirstSearch14.svg)
 
-<img src="../res/BreadthFirstSearch15.svg" /></p>
+![BreadthFirstSearch15.svg](../res/BreadthFirstSearch15.svg)
 
-<img src="../res/BreadthFirstSearch16.svg" /></p>
+![BreadthFirstSearch16.svg](../res/BreadthFirstSearch16.svg)
 
-<img src="../res/BreadthFirstSearch17.svg" /></p>
+![BreadthFirstSearch17.svg](../res/BreadthFirstSearch17.svg)
 
-<img src="../res/BreadthFirstSearch18.svg" /></p>
+![BreadthFirstSearch18.svg](../res/BreadthFirstSearch18.svg)
 
-<img src="../res/BreadthFirstSearch19.svg" /></p>
+![BreadthFirstSearch19.svg](../res/BreadthFirstSearch19.svg)
 
-<img src="../res/BreadthFirstSearch20.svg" /></p>
+![BreadthFirstSearch20.svg](../res/BreadthFirstSearch20.svg)
 
-<img src="../res/BreadthFirstSearch21.svg" /></p>
+![BreadthFirstSearch21.svg](../res/BreadthFirstSearch21.svg)
 
-\((5)\)从\(queue\)中取出头节点\([3,4]\)，因\([3,4] = end\)，算法结束； </p>
+$$ (5) $$从$$ queue $$中取出头节点$$ [3,4] $$，因$$ [3,4] = end $$，算法结束；
 
-上列图中的队列\(queue\)中，左边为头部，右边为尾部，新访问的节点插入队列尾部，每次从队列中取出头节点\(e\)。如果需要额外的获取从\(beg\)点到\(end\)点的完整路径，需要在遍历时标记每个节点的上一个点，即“父节点”，最终可以从\(end\)通过父节点指针逆向的找到一条回到\(beg\)点的路径。 </p>
-该算法下时间复杂度为\(O(m \times n)\)。 </p>
+上列图中的队列$$ queue $$中，左边为头部，右边为尾部，新访问的节点插入队列尾部，每次从队列中取出头节点$$ e $$。如果需要额外的获取从$$ beg $$点到$$ end $$点的完整路径，需要在遍历时标记每个节点的上一个点，即“父节点”，最终可以从$$ end $$通过父节点指针逆向的找到一条回到$$ beg $$点的路径。
+
+该算法下时间复杂度为$$ O(m \times n) $$。
 
 --------
 
