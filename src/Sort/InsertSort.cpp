@@ -1,52 +1,50 @@
+// Copyright 2017 zhaochenyou16@gmail.com
+
 #include "InsertSort.hpp"
 #include <iostream>
 #include <cassert>
 #include <cstdlib>
 using namespace std;
 
+#define TEST_MAX 1024
 #define MAX 64
 
-auto AssertNotAscendingOrder(vector<int> &s, int n) -> void
-{
-    bool res = true;
-    for (int i = 0; i < n-1; ++i) {
-        if (s[i] > s[i+1]) {
-            res = false;
-            break;
-        }
+auto AssertNotAscendingOrder(const vector<int> &s, int n) -> void {
+  bool res = true;
+  for (int i = 0; i < n-1; ++i) {
+    if (s[i] > s[i+1]) {
+      res = false;
+      break;
     }
-    assert(!res);
-}
-auto AssertAscendingOrder(vector<int> &s, int n) -> void
-{
-    bool res = true;
-    for (int i = 0; i < n-1; ++i) {
-        if (s[i] > s[i+1]) {
-            res = false;
-            break;
-        }
-    }
-    assert(res);
-}
-auto AssertInsertSort(vector<int> &s, int n) -> void
-{
-    AssertNotAscendingOrder(s, n);
-    InsertSort(s, 0, n);
-    AssertAscendingOrder(s, n);
+  }
+  assert(!res);
 }
 
-
-#define TEST_MAX 1024
-
-auto main(void) -> int
-{
-    vector<int> s(MAX, 0);
-
-    for (int i = 0; i < TEST_MAX; ++i) {
-        for (int j = 0; j < MAX; ++j) {
-            s[j] = rand() % TEST_MAX;
-        }
-        AssertInsertSort(s, MAX);
+auto AssertAscendingOrder(const vector<int> &s, int n) -> void {
+  bool res = true;
+  for (int i = 0; i < n-1; ++i) {
+    if (s[i] > s[i+1]) {
+      res = false;
+      break;
     }
-    return 0;
+  }
+  assert(res);
+}
+
+auto AssertInsertSort(const vector<int> &s, int n) -> void {
+  AssertNotAscendingOrder(s, n);
+  InsertSort(s, 0, n);
+  AssertAscendingOrder(s, n);
+}
+
+
+auto main(void) -> int {
+  vector<int> s(MAX, 0);
+  for (int i = 0; i < TEST_MAX; ++i) {
+    for (int j = 0; j < MAX; ++j) {
+      s[j] = rand() % TEST_MAX;
+    }
+    AssertInsertSort(s, MAX);
+  }
+  return 0;
 }

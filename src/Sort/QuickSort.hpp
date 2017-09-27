@@ -1,5 +1,7 @@
-﻿#ifndef SORT_QUICK_SORT_HPP
-#define SORT_QUICK_SORT_HPP
+﻿// Copyright 2017 zhaochenyou16@gmail.com
+
+#ifndef SRC_SORT_QUICKSORT_HPP_
+#define SRC_SORT_QUICKSORT_HPP_
 
 #include <vector>
 #include <algorithm>
@@ -16,19 +18,18 @@ using namespace std;
  * @param high      序列s的末尾下标，即左闭右闭区间[low, high]
  * @return          最终s[low]所在下标
  */
-auto Partion(vector<int> &s, int low, int high) -> int
-{
-    int p = s[low];
-    while (low < high) {
-        while (low < high and s[high] >= p)
-            --high;
-        s[low] = s[high];
-        while (low < high and s[low] <= p)
-            ++low;
-        s[high] = s[low];
-    }
-    s[low] = p;
-    return low;
+auto Partion(vector<int> &s, int low, int high) -> int {
+  int p = s[low];
+  while (low < high) {
+    while (low < high and s[high] >= p)
+      --high;
+    s[low] = s[high];
+    while (low < high and s[low] <= p)
+      ++low;
+    s[high] = s[low];
+  }
+  s[low] = p;
+  return low;
 }
 
 /**
@@ -37,14 +38,13 @@ auto Partion(vector<int> &s, int low, int high) -> int
  * @param beg       序列s的起始下标
  * @param end       序列s的末尾下标加1，即左闭右开区间[beg, end)
  */
-auto QuickSort(vector<int> &s, int beg, int end) -> void
-{
-    if (beg < end-1) {
-        int mid = Partion(s, beg, end-1);
-        QuickSort(s, beg, mid);
-        QuickSort(s, mid+1, end);
-    }
+auto QuickSort(vector<int> &s, int beg, int end) -> void {
+  if (beg < end-1) {
+    int mid = Partion(s, beg, end-1);
+    QuickSort(s, beg, mid);
+    QuickSort(s, mid+1, end);
+  }
 }
 
 
-#endif
+#endif  // SRC_SORT_QUICKSORT_HPP_
