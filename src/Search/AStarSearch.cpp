@@ -47,7 +47,7 @@ auto AssertIsAdjacent(string a, string b) -> void {
   assert(false);
 }
 
-auto AssertPath(vector<string> path) -> void {
+auto AssertPath(const vector<string> &path) -> void {
   if (path.size() == 1)
     return;
   for (int i = 0; i < path.size()-1; i++) {
@@ -58,10 +58,10 @@ auto AssertPath(vector<string> path) -> void {
 auto main() -> int {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test & t = test_cases[i];
-    vector<string> path = AStarSearch(t.beg_, t.end_);
+    vector<string> path = AStarSearch(t.beg, t.end);
     assert(path.size() > 0);
-    assert(path.front() == t.beg_);
-    assert(path.back() == t.beg_);
+    assert(path.front() == t.beg);
+    assert(path.back() == t.beg);
     AssertPath(path);
   }
 

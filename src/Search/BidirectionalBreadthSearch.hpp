@@ -8,6 +8,7 @@
 #include <cstring>
 #include <queue>
 #include <cassert>
+#include <vector>
 using namespace std;
 
 struct Position {
@@ -15,8 +16,12 @@ struct Position {
   int row;
   Position() : col(0), row(0) {}
   Position(int c, int r) : col(c), row(r) {}
-  bool operator==(const Position & other) { return col == other.col and row == other.row; }
-  bool operator!=(const Position & other) { return not (*this == other); }
+  bool operator==(const Position & other) {
+    return col == other.col and row == other.row;
+  }
+  bool operator!=(const Position & other) {
+    return col != other.col or row != other.row;
+  }
 };
 
 /* 4个方向：上下右左 */
@@ -24,13 +29,11 @@ struct Position {
 const int direction_col[4] = { 1, -1, 0, 0 };
 const int direction_row[4] = { 0, 0, 1, -1 };
 
-auto BidirectionalPath(
-    vector<vector<Position>> beg_father,
-    vector<vector<Position>> end_father,
-    Position beg,
-    Position end,
-    Position meet_pos) -> deque<Position> {
-
+auto BidirectionalPath(const vector<vector<Position>> &beg_father,
+                        const vector<vector<Position>> &end_father,
+                        Position beg,
+                        Position end,
+                        Position meet_pos) -> deque<Position> {
   deque<Position> path;
   Position t = meet_pos;
   while (t != beg) {
@@ -61,7 +64,10 @@ auto InRange(int pos, int range) -> bool {
  * @param end   终点座标
  * @return      从起点到终点的座标路径
  */
-auto BidirectionalBreadthSearch(int m, int n, Position beg, Position end) -> deque<Position> {
+auto BidirectionalBreadthSearch(int m,
+                                int n,
+                                Position beg,
+                                Position end) -> deque<Position> {
   vector<vector<int>> beg_visit, end_visit;
   vector<vector<Position>> beg_father, end_father;
 
@@ -98,25 +104,29 @@ auto BidirectionalBreadthSearch(int m, int n, Position beg, Position end) -> deq
       int neighbor_col = beg_node.col + direction_col[i];
       int neighbor_row = beg_node.row + direction_row[i];
 
-      // 点<neighbor_col, neighbor_row>是beg_node的邻节点 并且它已经被end_visit访问过
+      // 点<neighbor_col, neighbor_row>是beg_node的邻节点
+      // 并且它已经被end_visit访问过
       // 因此beg_que和end_que在此处相遇
       if (InRange(neighbor_col, m)
-          and InRange(neighbor_row, n)
-          and not beg_visit[neighbor_col][neighbor_row]
-          and end_visit[neighbor_col][neighbor_row]) {
-
+                  and InRange(neighbor_row, n)
+                  and not beg_visit[neighbor_col][neighbor_row]
+                  and end_visit[neighbor_col][neighbor_row]) {
         beg_father[neighbor_col][neighbor_row] = Position(beg_node.col, beg_node.row);
-        deque<Position> path = BidirectionalPath(beg_father, end_father, beg, end, Position(neighbor_col, neighbor_row));
+        deque<Position> path = BidirectionalPath(beg_father,
+                                                  end_father,
+                                                  beg,
+                                                  end,
+                                                  Position(neighbor_col, neighbor_row));
         return path;
       } else if (InRange(neighbor_col, m)
-          and InRange(neighbor_row, n)
-          and not beg_visit[neighbor_col][neighbor_row]
-          and not end_visit[neighbor_col][neighbor_row]) {
-
+                          and InRange(neighbor_row, n)
+                          and not beg_visit[neighbor_col][neighbor_row]
+                          and not end_visit[neighbor_col][neighbor_row]) {
         // 点<neighbor_col, neighbor_row>尚未被beg_que和end_que访问过
-        beg_que.push_back( Position(neighbor_col, neighbor_row) );
+        beg_que.push_back(Position(neighbor_col, neighbor_row));
         beg_visit[neighbor_col][neighbor_row] = 1;
-        beg_father[neighbor_col][neighbor_row] = Position(beg_node.col, beg_node.row);
+        beg_father[neighbor_col][neighbor_row] = Position(beg_node.col,
+                                                          beg_node.row);
       }
     }
 
@@ -127,25 +137,29 @@ auto BidirectionalBreadthSearch(int m, int n, Position beg, Position end) -> deq
       int neighbor_col = end_node.col + direction_col[i];
       int neighbor_row = end_node.row + direction_row[i];
 
-      // 点<neighbor_col, neighbor_row>是end_node的邻节点 并且它已经被beg_visit访问过
+      // 点<neighbor_col, neighbor_row>是end_node的邻节点
+      // 并且它已经被beg_visit访问过
       // 因此beg_que和end_que在此处相遇
       if (InRange(neighbor_col, m)
-          and InRange(neighbor_row, n)
-          and not end_visit[neighbor_col][neighbor_row]
-          and beg_visit[neighbor_col][neighbor_row]) {
-
+                  and InRange(neighbor_row, n)
+                  and not end_visit[neighbor_col][neighbor_row]
+                  and beg_visit[neighbor_col][neighbor_row]) {
         end_father[neighbor_col][neighbor_row] = Position(end_node.col, end_node.row);
-        deque<Position> path = BidirectionalPath(beg_father, end_father, beg, end, Position(neighbor_col, neighbor_row));
+        deque<Position> path = BidirectionalPath(beg_father,
+                                                  end_father,
+                                                  beg,
+                                                  end,
+                                                  Position(neighbor_col, neighbor_row));
         return path;
       } else if (InRange(neighbor_col, m)
-          and InRange(neighbor_row, n)
-          and not end_visit[neighbor_col][neighbor_row]
-          and not beg_visit[neighbor_col][neighbor_row]) {
-
+                          and InRange(neighbor_row, n)
+                          and not end_visit[neighbor_col][neighbor_row]
+                          and not beg_visit[neighbor_col][neighbor_row]) {
         // 点 <neighbor_col, neighbor_row> 尚未被 beg_que 和 end_que 访问过
-        end_que.push_back( Position(neighbor_col, neighbor_row) );
+        end_que.push_back(Position(neighbor_col, neighbor_row));
         end_visit[neighbor_col][neighbor_row] = 1;
-        end_father[neighbor_col][neighbor_row] = Position(end_node.col, end_node.row);
+        end_father[neighbor_col][neighbor_row] = Position(end_node.col,
+                                                          end_node.row);
       }
     }
   }

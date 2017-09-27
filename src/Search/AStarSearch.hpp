@@ -30,7 +30,9 @@ auto ScoreH(string a, string end) -> int {
   return diff;
 }
 
-auto OpenPop(deque<string> &open, string end_node, unordered_map<string, int> &score_g) -> string {
+auto OpenPop(deque<string> &open,
+              string end_node,
+              unordered_map<string, int> &score_g) -> string {
   string res;
   int f = INT_MAX;
   auto i = open.begin();
@@ -67,7 +69,9 @@ auto Neighbor(string node, int dir) -> string {
   return node;
 }
 
-auto FindPath(vector<string> &path, unordered_map<string, string> &close, string end_node) -> void {
+auto FindPath(vector<string> &path,
+              unordered_map<string, string> &close,
+              string end_node) -> void {
   string node = end_node;
   path.push_back(node);
 

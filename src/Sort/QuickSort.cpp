@@ -9,7 +9,8 @@ using namespace std;
 #define TEST_MAX 1024
 #define MAX 64
 
-auto AssertNotAscendingOrder(vector<int> &s, int n) -> void {
+auto AssertNotAscendingOrder(vector<int> &s,
+                              int n) -> void {
   bool res = true;
   for (int i = 0; i < n - 1; ++i) {
     if (s[i] > s[i + 1]) {
@@ -20,7 +21,8 @@ auto AssertNotAscendingOrder(vector<int> &s, int n) -> void {
   assert(!res);
 }
 
-auto AssertAscendingOrder(vector<int> &s, int n) -> void {
+auto AssertAscendingOrder(vector<int> &s,
+                          int n) -> void {
   bool res = true;
   for (int i = 0; i < n - 1; ++i) {
     if (s[i] > s[i + 1]) {
@@ -31,7 +33,8 @@ auto AssertAscendingOrder(vector<int> &s, int n) -> void {
   assert(res);
 }
 
-auto AssertQuickSort(vector<int> &s, int n) -> void {
+auto AssertQuickSort(vector<int> &s,
+                      int n) -> void {
   AssertNotAscendingOrder(s, n);
   QuickSort(s, 0, n);
   AssertAscendingOrder(s, n);
