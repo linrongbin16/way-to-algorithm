@@ -16,7 +16,10 @@ using namespace std;
  * @param end       序列s是左闭右开区间[beg, end)
  */
 
-auto BubbleSort(vector<int> &s, int beg, int end) -> void {
+auto BubbleSort(
+    vector<int> &s,
+    int beg,
+    int end) -> void {
   for (int i = end-1; i >= beg; --i)
     for (int j = beg; j < i; ++j)
       if (s[j] > s[j+1])
