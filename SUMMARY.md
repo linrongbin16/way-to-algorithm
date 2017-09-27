@@ -10,7 +10,7 @@ bui# Summary
 * [Chapter-2 Search 第2章 搜索](docs/Search/README.md)
     * [KnowledgePoint 知识要点](docs/Search/KnowledgePoint/README.md)
     * [BinarySearch 二分查找法（折半查找法）](docs/Search/BinarySearch/README.md)
-    * [BruteForce 暴力枚举](docs/Search/BruteForce/README)
+    * [BruteForce 暴力枚举](docs/Search/BruteForce/README.md)
     * [Recursion 递归](docs/Search/Recursion/README.md)
     * [BreadthFirstSearch 广度优先搜索](docs/Search/BreadthFirstSearch/README.md)
     * [BidirectionalBreadthSearch 双向广度搜索](docs/Search/BidirectionalBreadthSearch/README.md)
