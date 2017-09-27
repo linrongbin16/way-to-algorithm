@@ -1,5 +1,7 @@
-#ifndef BINARY_SEARCH_HPP
-#define BINARY_SEARCH_HPP 1
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#ifndef SRC_SEARCH_BINARYSEARCH_HPP_
+#define SRC_SEARCH_BINARYSEARCH_HPP_
 
 #include <tuple>
 using namespace std;
@@ -16,25 +18,24 @@ using namespace std;
  * @params index        返回找到的x下标
  * @return              找到x返回true 否则返回false
  */
-auto BinarySearch(int s[MAX], int beg, int end, int x) -> tuple<bool, int>
-{
-    int low = beg;
-    int high = end - 1;
-    int mid;
-    int index;
-    while (low <= high) {
-        mid = (low + high) / 2;
-        if (s[mid] == x) {
-            index = mid;
-            return make_tuple(true, index);
-        } else if (s[mid] > x) {
-            high = mid - 1;
-        } else if (s[mid] < x) {
-            low = mid + 1;
-        }
+auto BinarySearch(int s[MAX], int beg, int end, int x) -> tuple<bool, int> {
+  int low = beg;
+  int high = end - 1;
+  int mid;
+  int index;
+  while (low <= high) {
+    mid = (low + high) / 2;
+    if (s[mid] == x) {
+      index = mid;
+      return make_tuple(true, index);
+    } else if (s[mid] > x) {
+      high = mid - 1;
+    } else if (s[mid] < x) {
+      low = mid + 1;
     }
-    return make_tuple(false, -1);
+  }
+  return make_tuple(false, -1);
 }
 
 
-#endif
+#endif  // SRC_SEARCH_BINARYSEARCH_HPP_
