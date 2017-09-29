@@ -1,4 +1,4 @@
-# BinarySearch - 二分查找法（折半查找法）
+# Binary Search - 二分查找法（折半查找法）
 
 --------
 
