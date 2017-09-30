@@ -20,27 +20,27 @@ $$ (1) $$ 声明$$ 0 $$和$$ 4 $$属于同一家庭，比较$$ 0 $$和$$ 4 $$的
 
 ![DisjointSet2.svg](../res/DisjointSet2.svg)
 
-\((2)\)声明\(1\)和\(9\)节点属于同一家庭，设置\(father[9] = ancestor[1] = 1\)； </p>
+$$ (2) $$ 声明$$ 1 $$和$$ 9 $$节点属于同一家庭，设置$$ father[9] = ancestor[1] = 1 $$；
 
-<img src="../res/DisjointSet3.svg" /></p>
+![DisjointSet3.svg](../res/DisjointSet3.svg)
 
-\((3)\)声明\(0\)和\(2\)节点属于同一家庭，设置\(father[2] = ancestor[0] = 0\)； </p>
+$$ (3) $$ 声明$$ 0 $$和$$ 2 $$节点属于同一家庭，设置$$ father[2] = ancestor[0] = 0 $$；
 
-<img src="../res/DisjointSet4.svg" /></p>
+![DisjointSet4.svg](../res/DisjointSet4.svg)
 
-\((4)\)声明\(1\)和\(3\)节点属于同一家庭，设置\(father[3] = ancestor[1] = 1\)； </p>
+$$ (4) $$ 声明$$ 1 $$和$$ 3 $$节点属于同一家庭，设置$$ father[3] = ancestor[1] = 1 $$；
 
-<img src="../res/DisjointSet5.svg" /></p>
+![DisjointSet5.svg](../res/DisjointSet5.svg)
 
-\((5)\)声明\(3\)和\(5\)节点属于同一家庭，设置\(father[5] = ancestor[3] = 1\)； </p>
+$$ (5) $$ 声明$$ 3 $$和$$ 5 $$节点属于同一家庭，设置$$ father[5] = ancestor[3] = 1 $$；
 
-<img src="../res/DisjointSet6.svg" /></p>
+![DisjointSet6.svg](../res/DisjointSet6.svg)
 
-\((6)\)声明\(6\)和\(8\)节点属于同一家庭，设置\(father[8] = ancestor[6] = 6\)； </p>
+$$ (6) $$ 声明$$ 6 $$和$$ 8 $$节点属于同一家庭，设置$$ father[8] = ancestor[6] = 6 $$；
 
-<img src="../res/DisjointSet7.svg" /></p>
+![DisjointSet7.svg](../res/DisjointSet7.svg)
 
-\((7)\)声明\(2\)和\(6\)节点属于同一家庭，设置\(father[6] = ancestor[2] = 0\)； </p>
+$$ (7) $$ 声明$$ 2 $$和$$ 6 $$节点属于同一家庭，设置$$ father[6] = ancestor[2] = 0 $$；
 
 <img src="../res/DisjointSet8.svg" /></p>
 
