@@ -42,11 +42,13 @@ $$ (6) $$ 声明$$ 6 $$和$$ 8 $$节点属于同一家庭，设置$$ father[8] =
 
 $$ (7) $$ 声明$$ 2 $$和$$ 6 $$节点属于同一家庭，设置$$ father[6] = ancestor[2] = 0 $$；
 
-<img src="../res/DisjointSet8.svg" /></p>
+![DisjointSet8.svg](../res/DisjointSet8.svg)
 
-\((8)\)声明\(1\)和\(7\)节点属于同一家庭，设置\(father[7] = ancestor[1] = 1\)； </p>
-<img src="../res/DisjointSet9.svg" /></p>
-合并两节点\(x\)和\(y\)时，根据固定规则设置\(father[y] = ancestor[x]\)（或者相反）；查询节点\(x\)的祖宗节点时，若\(father[x] \neq ancestor[x]\)则设置\(father[x] = ancestor[x]\)。并查集的分类、查询操作的时间复杂度接近\(O(1)\)。 </p>
+$$ (8) $$ 声明$$ 1 $$和$$ 7 $$节点属于同一家庭，设置$$ father[7] = ancestor[1] = 1 $$；
+
+![DisjointSet9.svg](../res/DisjointSet9.svg)
+
+合并两节点$$ x $$和$$ y $$时，根据固定规则设置$$ father[y] = ancestor[x] $$（或者相反）；查询节点$$ x $$的祖宗节点时，若$$ father[x] \neq ancestor[x] $$则设置$$ father[x] = ancestor[x] $$。并查集的分类、查询操作的时间复杂度接近$$ O(1) $$。
 
 --------
 
