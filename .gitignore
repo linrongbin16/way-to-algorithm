@@ -38,3 +38,5 @@ cmake-build-debug
 
 node_modules
 _book
+package-lock.json
+.DS_Store
