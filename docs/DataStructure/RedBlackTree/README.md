@@ -1,14 +1,15 @@
---------
-* [Upper Folder - 上一级目录](../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/RedBlackTree.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/RedBlackTree.cpp)
+# Red Black Tree - 红黑树
 
 --------
 
-### Red Black Tree
-### 红黑树
-<div>
-</div>
+#### 描述
 
 --------
---------
+
+#### 源码
+
+[import, lang:"c_cpp"](../../../src/DataStructure/RedBlackTree.hpp)
+
+#### 测试
+
+[import, lang:"c_cpp"](../../../src/DataStructure/RedBlackTree.cpp)

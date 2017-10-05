@@ -1,15 +1,15 @@
---------
-* [Upper Folder - 上一级目录](../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/SuffixTree.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/DataStructure/SuffixTree.cpp)
+# Suffix Tree - 后缀树
 
 --------
 
-### Suffix Tree
-### 后缀树
-<div>
-</div>
+#### 描述
 
 --------
---------
 
+#### 源码
+
+[import, lang:"c_cpp"](../../../src/DataStructure/SuffixTree.hpp)
+
+#### 测试
+
+[import, lang:"c_cpp"](../../../src/DataStructure/SuffixTree.cpp)
