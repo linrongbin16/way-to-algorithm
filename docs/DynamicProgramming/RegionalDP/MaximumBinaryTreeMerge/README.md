@@ -43,8 +43,8 @@ $$ f(1,n) $$即为二叉树的最大合并价值。该算法的时间复杂度�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DynamicProgramming/RegionalDP/MaximumBinaryTreeMerge.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/RegionalDP/MaximumBinaryTreeMerge.hpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/DynamicProgramming/RegionalDP/MaximumBinaryTreeMerge.cpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/RegionalDP/MaximumBinaryTreeMerge.cpp)

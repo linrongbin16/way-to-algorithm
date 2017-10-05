@@ -1,6 +1,5 @@
 {
-    "dependencies":
-    {
+    "dependencies": {
         "mathjax-node": "latest"
     }
 }

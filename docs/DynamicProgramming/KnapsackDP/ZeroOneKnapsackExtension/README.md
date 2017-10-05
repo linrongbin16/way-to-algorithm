@@ -29,8 +29,8 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension.hpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension.cpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension.cpp)

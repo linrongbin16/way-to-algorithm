@@ -42,8 +42,8 @@ $$ (2) $$ 对于该二叉树的左右子树，其根节点分别为$$ leftChild_
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DynamicProgramming/TreeDP/BinaryTreeDP.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/BinaryTreeDP.hpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/DynamicProgramming/TreeDP/BinaryTreeDP.cpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/BinaryTreeDP.cpp)
