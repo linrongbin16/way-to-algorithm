@@ -6,15 +6,13 @@
 #define MAX 1024
 #endif
 
-struct FenwickTree
-{
-    /* 数组下标从1开始 */
-    int bit[MAX];
+struct FenwickTree {
+  /*数组下标从1开始*/
+  int bit[MAX];
 };
 
-int LowBit(int i)
-{
-    return i & (-i);
+int LowBit(int i) {
+  return i & (-i);
 }
 
 FenwickTree *FenwickTreeNew()
