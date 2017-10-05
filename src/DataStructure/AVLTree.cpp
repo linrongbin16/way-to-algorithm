@@ -12,7 +12,6 @@ auto main() -> int {
 
   for (int i = 1; i <= TEST_MAX; i++) {
     AVLTreeInsert(t, i);
-    /*AVL树的高度不大于log(N)*/
     assert( pow(2, AVLTreeDepth(t)) <= i );
   }
   assert( pow(2, AVLTreeDepth(t)) <= TEST_MAX );
