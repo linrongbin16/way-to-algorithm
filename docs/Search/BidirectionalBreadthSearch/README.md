@@ -16,31 +16,31 @@
 
 ![BidirectionalBreadthSearch1.svg](../res/BidirectionalBreadthSearch1.svg)
 
-$$ (1) $$ 初始时，将$$ beg = [0,1] $$染红并加入$$ begqueue $$中，将$$ end = [3,4] $$染绿并加入$$ endqueue $$；
+$$ (1) $$初始时，将$$ beg = [0,1] $$染红并加入$$ begqueue $$中，将$$ end = [3,4] $$染绿并加入$$ endqueue $$；
 
 ![BidirectionalBreadthSearch2.svg](../res/BidirectionalBreadthSearch2.svg)
 
-$$ (2) $$ 从$$ begqueue $$中取出头节点$$ [0,1] $$，将其四周未被染色的邻节点$$ [0,0] $$、$$ [1,1] $$、$$ [0,2] $$染红并加入$$ begqueue $$中。从$$ endqueue $$中取出头节点$$ [3,4] $$，将其四周未被染色的邻节点$$ [2,4] $$、$$ [3,3] $$染红并加入$$ endqueue $$中；
+$$ (2) $$从$$ begqueue $$中取出头节点$$ [0,1] $$，将其四周未被染色的邻节点$$ [0,0] $$、$$ [1,1] $$、$$ [0,2] $$染红并加入$$ begqueue $$中。从$$ endqueue $$中取出头节点$$ [3,4] $$，将其四周未被染色的邻节点$$ [2,4] $$、$$ [3,3] $$染红并加入$$ endqueue $$中；
 
 ![BidirectionalBreadthSearch3.svg](../res/BidirectionalBreadthSearch3.svg)
 
-$$ (3) $$ 从$$ begqueue $$中取出头节点$$ [0,0] $$，将其四周未被染色的邻节点$$ [1,0] $$染红并加入$$ begqueue $$中。从$$ endqueue $$中取出头节点$$ [2,4] $$，将其四周未被染色的邻节点$$ [1,4] $$、$$ [2,3] $$染红并加入$$ endqueue $$中；
+$$ (3) $$从$$ begqueue $$中取出头节点$$ [0,0] $$，将其四周未被染色的邻节点$$ [1,0] $$染红并加入$$ begqueue $$中。从$$ endqueue $$中取出头节点$$ [2,4] $$，将其四周未被染色的邻节点$$ [1,4] $$、$$ [2,3] $$染红并加入$$ endqueue $$中；
 
 ![BidirectionalBreadthSearch4.svg](../res/BidirectionalBreadthSearch4.svg)
 
-$$ (4) $$ 从$$ begqueue $$中取出头节点$$ [1,1] $$，将其四周未被染色的邻节点$$ [2,1] $$、$$ [1,2] $$染红并加入$$ begqueue $$中。从$$ endqueue $$中取出头节点$$ [3,3] $$，将其四周未被染色的邻节点$$ [3,2] $$染红并加入$$ endqueue $$中；
+$$ (4) $$从$$ begqueue $$中取出头节点$$ [1,1] $$，将其四周未被染色的邻节点$$ [2,1] $$、$$ [1,2] $$染红并加入$$ begqueue $$中。从$$ endqueue $$中取出头节点$$ [3,3] $$，将其四周未被染色的邻节点$$ [3,2] $$染红并加入$$ endqueue $$中；
 
 ![BidirectionalBreadthSearch5.svg](../res/BidirectionalBreadthSearch5.svg)
 
-$$ (5) $$ 从$$ begqueue $$中取出头节点$$ [0,2] $$，将其四周未被染色的邻节点$$ [0,3] $$染红并加入$$ begqueue $$中。从$$ endqueue $$中取出头节点$$ [1,4] $$，将其四周未被染色的邻节点$$ [1,3] $$、$$ [0,4] $$染红并加入$$ endqueue $$中；
+$$ (5) $$从$$ begqueue $$中取出头节点$$ [0,2] $$，将其四周未被染色的邻节点$$ [0,3] $$染红并加入$$ begqueue $$中。从$$ endqueue $$中取出头节点$$ [1,4] $$，将其四周未被染色的邻节点$$ [1,3] $$、$$ [0,4] $$染红并加入$$ endqueue $$中；
 
 ![BidirectionalBreadthSearch6.svg](../res/BidirectionalBreadthSearch6.svg)
 
-$$ (6) $$ 从$$ begqueue $$中取出头节点$$ [1,0] $$，将其四周未被染色的邻节点$$ [2,0] $$染红并加入$$ begqueue $$中。从$$ endqueue $$中取出头节点$$ [2,3] $$，将其四周未被染色的邻节点$$ [2,2] $$染红并加入$$ endqueue $$中；
+$$ (6) $$从$$ begqueue $$中取出头节点$$ [1,0] $$，将其四周未被染色的邻节点$$ [2,0] $$染红并加入$$ begqueue $$中。从$$ endqueue $$中取出头节点$$ [2,3] $$，将其四周未被染色的邻节点$$ [2,2] $$染红并加入$$ endqueue $$中；
 
 ![BidirectionalBreadthSearch7.svg](../res/BidirectionalBreadthSearch7.svg)
 
-$$ (7) $$ 从$$ begqueue $$中取出头节点$$ [2,1] $$，将其邻节点$$ [2,2] $$已经被染绿，说明该节点已经被加入$$ endqueue $$中，或已经被$$ endqueue $$访问过了。因此$$ [2,2] $$为$$ begqueue $$和$$ endqueue $$相遇的位置，算法结束；
+$$ (7) $$从$$ begqueue $$中取出头节点$$ [2,1] $$，将其邻节点$$ [2,2] $$已经被染绿，说明该节点已经被加入$$ endqueue $$中，或已经被$$ endqueue $$访问过了。因此$$ [2,2] $$为$$ begqueue $$和$$ endqueue $$相遇的位置，算法结束；
 
 对于二维方格$$ s $$，广度优先搜索从$$ beg $$点遍历到$$ end $$点的过程一般是从$$ beg $$向四周发散开，一直到达$$ end $$点：
 

@@ -84,7 +84,7 @@ $$
 \end{bmatrix}
 
 \Rightarrow
-string('1234x5786')
+string("1234x5786")
 \quad
 \begin{bmatrix}
 1 & 2 & 3 \\
