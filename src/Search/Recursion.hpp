@@ -1,7 +1,7 @@
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SRC_SEARCH_RECURSION_HPP_
-#define SRC_SEARCH_RECURSION_HPP_
+#ifndef SEARCH_RECURSION_HPP_
+#define SEARCH_RECURSION_HPP_
 
 #include <vector>
 #include <cstring>

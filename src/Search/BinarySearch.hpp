@@ -1,7 +1,7 @@
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SRC_SEARCH_BINARYSEARCH_HPP_
-#define SRC_SEARCH_BINARYSEARCH_HPP_
+#ifndef SEARCH_BINARYSEARCH_HPP_
+#define SEARCH_BINARYSEARCH_HPP_
 
 #include <tuple>
 using namespace std;

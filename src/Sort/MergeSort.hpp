@@ -1,7 +1,7 @@
 ﻿// Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SRC_SORT_MERGESORT_HPP_
-#define SRC_SORT_MERGESORT_HPP_
+#ifndef SORT_MERGESORT_HPP_
+#define SORT_MERGESORT_HPP_
 
 #include <vector>
 using namespace std;

@@ -1,7 +1,7 @@
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SRC_SEARCH_DANCINGLINK_HPP_
-#define SRC_SEARCH_DANCINGLINK_HPP_
+#ifndef SEARCH_DANCINGLINK_HPP_
+#define SEARCH_DANCINGLINK_HPP_
 
 #include <cstring>
 #ifndef MAX

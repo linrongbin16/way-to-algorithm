@@ -1,7 +1,7 @@
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SRC_SEARCH_EIGHTFIGUREPUZZLE_HPP_
-#define SRC_SEARCH_EIGHTFIGUREPUZZLE_HPP_
+#ifndef SEARCH_EIGHTFIGUREPUZZLE_HPP_
+#define SEARCH_EIGHTFIGUREPUZZLE_HPP_
 
 #include <algorithm>
 #include <deque>

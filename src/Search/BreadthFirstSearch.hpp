@@ -1,7 +1,7 @@
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SRC_SEARCH_BREADTHFIRSTSEARCH_HPP_
-#define SRC_SEARCH_BREADTHFIRSTSEARCH_HPP_
+#ifndef SEARCH_BREADTHFIRSTSEARCH_HPP_
+#define SEARCH_BREADTHFIRSTSEARCH_HPP_
 
 #include <deque>
 #include <vector>

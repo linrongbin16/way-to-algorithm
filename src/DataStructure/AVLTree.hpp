@@ -1,7 +1,7 @@
 ﻿// Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SRC_DATASTRUCTURE_AVLTREE_HPP_
-#define SRC_DATASTRUCTURE_AVLTREE_HPP_
+#ifndef DATASTRUCTURE_AVLTREE_HPP_
+#define DATASTRUCTURE_AVLTREE_HPP_
 
 #include <algorithm>
 #include <assert.h>

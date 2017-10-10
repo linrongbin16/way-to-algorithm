@@ -1,7 +1,7 @@
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SRC_SEARCH_BRUTEFORCE_HPP_
-#define SRC_SEARCH_BRUTEFORCE_HPP_
+#ifndef SEARCH_BRUTEFORCE_HPP_
+#define SEARCH_BRUTEFORCE_HPP_
 
 #include <vector>
 #include <cstring>
