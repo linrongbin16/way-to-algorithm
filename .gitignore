@@ -40,3 +40,6 @@ node_modules
 _book
 package-lock.json
 .DS_Store
+*.DS_Store
+_DS_Store
+DS_Store
