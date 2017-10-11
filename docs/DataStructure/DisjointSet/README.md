@@ -16,35 +16,35 @@
 
 下面对上图中的集合$$ s $$进行具体演示：
 
-$$ (1) $$ 声明$$ 0 $$和$$ 4 $$属于同一家庭，比较$$ 0 $$和$$ 4 $$的祖宗节点，设置$$ father[4] = ancestor[0] = 0 $$，本文中我们取左节点的祖宗节点作为右节点的父节点；
+$$ (1) $$声明$$ 0 $$和$$ 4 $$属于同一家庭，比较$$ 0 $$和$$ 4 $$的祖宗节点，设置$$ father[4] = ancestor[0] = 0 $$，本文中我们取左节点的祖宗节点作为右节点的父节点；
 
 ![DisjointSet2.svg](../res/DisjointSet2.svg)
 
-$$ (2) $$ 声明$$ 1 $$和$$ 9 $$节点属于同一家庭，设置$$ father[9] = ancestor[1] = 1 $$；
+$$ (2) $$声明$$ 1 $$和$$ 9 $$节点属于同一家庭，设置$$ father[9] = ancestor[1] = 1 $$；
 
 ![DisjointSet3.svg](../res/DisjointSet3.svg)
 
-$$ (3) $$ 声明$$ 0 $$和$$ 2 $$节点属于同一家庭，设置$$ father[2] = ancestor[0] = 0 $$；
+$$ (3) $$声明$$ 0 $$和$$ 2 $$节点属于同一家庭，设置$$ father[2] = ancestor[0] = 0 $$；
 
 ![DisjointSet4.svg](../res/DisjointSet4.svg)
 
-$$ (4) $$ 声明$$ 1 $$和$$ 3 $$节点属于同一家庭，设置$$ father[3] = ancestor[1] = 1 $$；
+$$ (4) $$声明$$ 1 $$和$$ 3 $$节点属于同一家庭，设置$$ father[3] = ancestor[1] = 1 $$；
 
 ![DisjointSet5.svg](../res/DisjointSet5.svg)
 
-$$ (5) $$ 声明$$ 3 $$和$$ 5 $$节点属于同一家庭，设置$$ father[5] = ancestor[3] = 1 $$；
+$$ (5) $$声明$$ 3 $$和$$ 5 $$节点属于同一家庭，设置$$ father[5] = ancestor[3] = 1 $$；
 
 ![DisjointSet6.svg](../res/DisjointSet6.svg)
 
-$$ (6) $$ 声明$$ 6 $$和$$ 8 $$节点属于同一家庭，设置$$ father[8] = ancestor[6] = 6 $$；
+$$ (6) $$声明$$ 6 $$和$$ 8 $$节点属于同一家庭，设置$$ father[8] = ancestor[6] = 6 $$；
 
 ![DisjointSet7.svg](../res/DisjointSet7.svg)
 
-$$ (7) $$ 声明$$ 2 $$和$$ 6 $$节点属于同一家庭，设置$$ father[6] = ancestor[2] = 0 $$；
+$$ (7) $$声明$$ 2 $$和$$ 6 $$节点属于同一家庭，设置$$ father[6] = ancestor[2] = 0 $$；
 
 ![DisjointSet8.svg](../res/DisjointSet8.svg)
 
-$$ (8) $$ 声明$$ 1 $$和$$ 7 $$节点属于同一家庭，设置$$ father[7] = ancestor[1] = 1 $$；
+$$ (8) $$声明$$ 1 $$和$$ 7 $$节点属于同一家庭，设置$$ father[7] = ancestor[1] = 1 $$；
 
 ![DisjointSet9.svg](../res/DisjointSet9.svg)
 
