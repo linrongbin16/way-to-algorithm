@@ -6,7 +6,7 @@
 
 拥有$$ n $$个节点的二叉树，按照中序遍历将所有节点标记为$$ [1,n] $$，如图：
 
-![MaximumTreeMerge1.svg](../res/MaximumTreeMerge1.svg)
+![MaximumBinaryTreeMerge1.svg](../res/MaximumBinaryTreeMerge1.svg)
 
 节点$$ i $$拥有价值$$ v_i $$，将子树进行合并，产生的代价的计算方法是$$ v_{tree} = v_{leftChild} \times v_{rightChild} + v_{root} $$，即其左子树的合并代价乘以右子树的合并代价，再加根节点自身的价值，特别的我们规定空子树的合并代价为$$ 1 $$。合并顺序的不同会使最终整个树的合并代价不同，求该二叉树的最大合并代价。
 
