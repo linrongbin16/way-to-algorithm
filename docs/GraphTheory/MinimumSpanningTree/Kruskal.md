@@ -1,2 +1,0 @@
-# Kruskal - Kruskal算法
-
