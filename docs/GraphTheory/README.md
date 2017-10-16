@@ -1,8 +1,7 @@
---------
-* [Upper Folder - 上一级目录](../)
+# Chapter-5 Graph Theory
+# 第5章 图论
 
 --------
-#### Chapter-5 - Graph Theory - 图论
 
 1. Traverse - 遍历
     0. [KnowledgePoint - 知识要点](Traverse/KnowledgePoint/)
@@ -63,6 +62,3 @@
     7. [MinimumDisjointPathCovering - 最小不相交路径覆盖](BinaryMatch/MinimumDisjointPathCovering/)
     8. [MinimumJointPathCovering - 最小可相交路径覆盖](BinaryMatch/MinimumJointPathCovering/)
     9. [Coloring - 染色问题](BinaryMatch/Coloring/)
-
---------
---------
