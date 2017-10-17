@@ -20,9 +20,9 @@
 因为github上可以直接浏览pdf文档（打开比较慢，估计是需要一个转码过程），而且github开源库的方式也是非常方便分发内容的方式。
 
 但因为二进制文件（pdf）没办法被版本控制软件git去重，导致项目库臃肿，每次更新docx文档，都会生成新的pdf文件。
-后来尝试了markdown加png图片的方式。可以避免生成pdf文件，但也没办法完全避免二进制文件（png）。
+后来尝试了markdown加png图片的方式，用github page来发布静态文档，这样可以避免生成pdf文件。
+再后来发现docx可以导出SVG图片（基于文本文件且支持浏览器的图片），终于解决了版本去重问题（目前用[draw.io](https://www.draw.io/)来绘制，不再依赖visio）。
 
-后来发现docx可以导出SVG图片（基于文本文件且支持浏览器的图片），终于解决了版本去重问题（目前用[draw.io](https://www.draw.io/)来绘制，不再依赖visio）。
 最后一个问题就是如何在markdown文档中显示数学公式，当我发现gitbook的插件"mathjax"可以支持Latex，而"include-codeblock"甚至可以在文档中直接展示算法源码时，立刻决定采用gitbook作为本书的发布方式，然后重写了目前的1-4章。
 
 
