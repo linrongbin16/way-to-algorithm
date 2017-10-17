@@ -25,8 +25,7 @@
 
 最后一个问题就是如何在markdown文档中显示数学公式，当我发现gitbook的插件"mathjax"可以支持Latex，而"include-codeblock"甚至可以在文档中直接展示算法源码时，立刻决定采用gitbook作为本书的发布方式，然后重写了目前的1-4章。
 
-
-#### 贡献者
+贡献者
 
 * NEWPLAN@github.com
 * zhaochenyou@github.com
