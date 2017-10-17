@@ -15,8 +15,7 @@ auto AssertAdjacent(const Position & a, const Position & b) -> void {
   assert(a1 or a2 or a3 or a4);
 }
 
-int main()
-{
+auto main() -> int {
   for (int i = 1; i < TEST_M_MAX; i++)
     for (int j = 1; j < TEST_N_MAX; j++) {
       Position beg(0, 0);

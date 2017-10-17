@@ -11,26 +11,25 @@ struct FenwickTree {
   int bit[MAX];
 };
 
-int LowBit(int i) {
+auto LowBit(int i) -> int {
   return i & (-i);
 }
 
-FenwickTree *FenwickTreeNew()
-{
-    FenwickTree *t = new FenwickTree();
-    if (!t) {
-        return NULL;
-    }
+auto FenwickTreeNew() -> FenwickTree* {
+  FenwickTree *t = new FenwickTree();
+  if (!t) {
+    return nullptr;
+  }
 
-    memset(t->bit, 0, MAX * sizeof(int));
-    return t;
+  memset(t->bit, 0, MAX * sizeof(int));
+  return t;
 }
 
 FenwickTree *FenwickTreeNewFromArray(int s[MAX])
 {
     FenwickTree *t = new FenwickTree();
     if (!t) {
-        return NULL;
+        return nullptr;
     }
 
     memset(t->bit, 0, MAX * sizeof(int));
