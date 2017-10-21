@@ -1,4 +1,6 @@
-// Copyright 2017 zhaochenyou16@gmail.com
+// MIT License
+
+// Copyright (c) 2017 zhaochenyou
 
 #include "MergeSort.hpp"
 #include <iostream>
@@ -10,7 +12,7 @@ using namespace std;
 #define MAX 64
 
 auto AssertNotAscendingOrder(const vector<int> &s,
-                              int n) -> void {
+                             int n) -> void {
   bool res = true;
   for (int i = 0; i < n - 1; ++i) {
     if (s[i] > s[i + 1]) {
@@ -32,8 +34,9 @@ auto AssertAscendingOrder(const vector<int> &s,
   }
   assert(res);
 }
+
 auto AssertMergeSort(const vector<int> &s,
-                      int n) -> void {
+                     int n) -> void {
   AssertNotAscendingOrder(s, n);
   MergeSort(s, 0, n);
   AssertAscendingOrder(s, n);

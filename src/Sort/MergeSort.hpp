@@ -1,7 +1,9 @@
-﻿// Copyright 2017 zhaochenyou16@gmail.com
+﻿// MIT License
 
-#ifndef SORT_MERGESORT_HPP_
-#define SORT_MERGESORT_HPP_
+// Copyright (c) 2017 zhaochenyou
+
+#ifndef SORT_MERGESORT_HPP
+#define SORT_MERGESORT_HPP
 
 #include <vector>
 using namespace std;

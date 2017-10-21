@@ -1,4 +1,7 @@
-// Copyright 2017 zhaochenyou16@gmail.com
+// MIT License
+
+// Copyright (c) 2017 zhaochenyou16@gmail.com
+
 
 #include "BubbleSort.hpp"
 #include <iostream>

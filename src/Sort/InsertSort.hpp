@@ -1,7 +1,9 @@
-// Copyright 2017 zhaochenyou16@gmail.com
+// MIT License
 
-#ifndef SORT_INSERTSORT_HPP_
-#define SORT_INSERTSORT_HPP_
+// Copyright (c) 2017 zhaochenyou
+
+#ifndef SORT_INSERTSORT_HPP
+#define SORT_INSERTSORT_HPP
 
 #include <vector>
 using namespace std;
@@ -32,4 +34,4 @@ auto InsertSort(vector<int> &s, int beg, int end) -> void {
   }
 }
 
-#endif  // SRC_SORT_INSERTSORT_HPP_
+#endif  // SORT_INSERTSORT_HPP
