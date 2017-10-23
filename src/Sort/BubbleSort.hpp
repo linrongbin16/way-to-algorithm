@@ -1,8 +1,13 @@
 ﻿// MIT License
+<<<<<<< HEAD
 // Copyright 2017 zhaochenyou16@gmail.com
+=======
+>>>>>>> 5a180f667c2426bd94784296480bffc3f18f8479
 
-#ifndef SORT_BUBBLESORT_HPP_
-#define SORT_BUBBLESORT_HPP_
+// Copyright (c) 2017 zhaochenyou16@gmail.com
+
+#ifndef SORT_BUBBLESORT_HPP
+#define SORT_BUBBLESORT_HPP
 
 #include <vector>
 #include <algorithm>
@@ -25,4 +30,4 @@ auto BubbleSort(vector<int> &s, int beg, int end) -> void {
 }
 
 
-#endif  // SRC_SORT_BUBBLESORT_HPP_
+#endif  // SORT_BUBBLESORT_HPP
