@@ -1,10 +1,5 @@
 ﻿// MIT License
-<<<<<<< HEAD
 // Copyright 2017 zhaochenyou16@gmail.com
-=======
->>>>>>> 5a180f667c2426bd94784296480bffc3f18f8479
-
-// Copyright (c) 2017 zhaochenyou
 
 #ifndef SORT_MERGESORT_HPP
 #define SORT_MERGESORT_HPP
@@ -55,4 +50,4 @@ auto MergeSort(vector<int> &s, int beg, int end) -> void {
 }
 
 
-#endif  // SRC_SORT_MERGESORT_HPP_
+#endif  // SORT_MERGESORT_HPP

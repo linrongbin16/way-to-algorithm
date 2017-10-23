@@ -1,11 +1,5 @@
 // MIT License
-<<<<<<< HEAD
 // Copyright 2017 zhaochenyou16@gmail.com
-=======
-
-// Copyright (c) 2017 zhaochenyou16@gmail.com
-
->>>>>>> 5a180f667c2426bd94784296480bffc3f18f8479
 
 #include "BubbleSort.hpp"
 #include <iostream>
@@ -27,6 +21,7 @@ auto AssertNotAscendingOrder(const vector<int> &s,
   }
   assert(!res);
 }
+
 auto AssertAscendingOrder(const vector<int> &s,
                           int n) -> void {
   bool res = true;

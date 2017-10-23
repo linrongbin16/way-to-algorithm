@@ -1,8 +1,8 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SEARCH_RECURSION_HPP_
-#define SEARCH_RECURSION_HPP_
+#ifndef SEARCH_RECURSION_HPP
+#define SEARCH_RECURSION_HPP
 
 #include <vector>
 #include <cstring>

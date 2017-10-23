@@ -168,4 +168,4 @@ auto BidirectionalBreadthSearch(int m,
   return {};
 }
 
-#endif  // SRC_SEARCH_BIDIRECTIONALBREADTHSEARCH_HPP_
+#endif  // SEARCH_BIDIRECTIONALBREADTHSEARCH_HPP

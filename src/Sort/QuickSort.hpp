@@ -1,8 +1,8 @@
 ﻿// MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SORT_QUICKSORT_HPP_
-#define SORT_QUICKSORT_HPP_
+#ifndef SORT_QUICKSORT_HPP
+#define SORT_QUICKSORT_HPP
 
 #include <vector>
 #include <algorithm>
@@ -48,4 +48,4 @@ auto QuickSort(vector<int> &s, int beg, int end) -> void {
 }
 
 
-#endif  // SRC_SORT_QUICKSORT_HPP_
+#endif  // SORT_QUICKSORT_HPP
