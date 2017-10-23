@@ -1,4 +1,5 @@
-﻿// Copyright 2017 zhaochenyou16@gmail.com
+﻿// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
 
 #ifndef SORT_MERGESORT_HPP_
 #define SORT_MERGESORT_HPP_

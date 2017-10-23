@@ -1,3 +1,4 @@
+// MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
 #ifndef SEARCH_RECURSION_HPP_
@@ -34,4 +35,4 @@ auto Recursion(vector<int> &tmp,
 }
 
 
-#endif  // SRC_SEARCH_RECURSION_HPP_
+#endif  // SEARCH_RECURSION_HPP

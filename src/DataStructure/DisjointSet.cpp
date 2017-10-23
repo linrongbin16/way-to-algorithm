@@ -1,3 +1,6 @@
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
 #include "DisjointSet.hpp"
 #include <iostream>
 #include <assert.h>

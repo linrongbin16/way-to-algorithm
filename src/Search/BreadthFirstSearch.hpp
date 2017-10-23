@@ -1,7 +1,8 @@
+// MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SEARCH_BREADTHFIRSTSEARCH_HPP_
-#define SEARCH_BREADTHFIRSTSEARCH_HPP_
+#ifndef SEARCH_BREADTHFIRSTSEARCH_HPP
+#define SEARCH_BREADTHFIRSTSEARCH_HPP
 
 #include <deque>
 #include <vector>
@@ -99,4 +100,4 @@ auto BreadthFirstSearch(int m,
 }
 
 
-#endif  // SRC_SEARCH_BREADTHFIRSTSEARCH_HPP_
+#endif  // SEARCH_BREADTHFIRSTSEARCH_HPP

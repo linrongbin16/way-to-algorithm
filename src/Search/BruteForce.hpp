@@ -1,3 +1,4 @@
+// MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
 #ifndef SEARCH_BRUTEFORCE_HPP_
@@ -37,4 +38,4 @@ auto BruteForce(int s[MAX], int n, int m) -> vector<vector<int>> {
 }
 
 
-#endif  // SRC_SEARCH_BRUTEFORCE_HPP_
+#endif  // SEARCH_BRUTEFORCE_HPP

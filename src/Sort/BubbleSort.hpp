@@ -1,4 +1,5 @@
-﻿// Copyright 2017 zhaochenyou16@gmail.com
+﻿// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
 
 #ifndef SORT_BUBBLESORT_HPP_
 #define SORT_BUBBLESORT_HPP_

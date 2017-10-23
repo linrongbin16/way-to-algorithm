@@ -1,5 +1,8 @@
-#ifndef DISJOINT_SET_HPP
-#define DISJOINT_SET_HPP 1
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#ifndef DATASTRUCTURE_DISJOINTSET_HPP
+#define DATASTRUCTURE_DISJOINTSET_HPP
 
 #ifndef MAX
 #define MAX 1024
@@ -20,7 +23,7 @@ static int FindFather(DisjointSet *s, int i) {
 auto DisjointSetNew() -> DisjointSet* {
   DisjointSet *s = new DisjointSet();
   if (!s) {
-    return NULL;
+    return nullptr;
   }
   for (int i = 0; i < MAX; i++)
     s->father[i] = i;
