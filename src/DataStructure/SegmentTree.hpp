@@ -1,3 +1,6 @@
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
 #ifndef SEGMENT_TREE_HPP
 #define SEGMENT_TREE_HPP 1
 

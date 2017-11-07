@@ -1,7 +1,7 @@
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SRC_SEARCH_BREADTHFIRSTSEARCH_HPP_
-#define SRC_SEARCH_BREADTHFIRSTSEARCH_HPP_
+#ifndef GRAPHTHEORY_BREADTHFIRSTSEARCH_HPP
+#define GRAPHTHEORY_BREADTHFIRSTSEARCH_HPP
 
 #include <vector>
 #include <queue>
@@ -38,4 +38,4 @@ auto BreadthFirstSearch(int g[MAX][MAX], int n) -> vector<int> {
 }
 
 
-#endif  // SRC_SEARCH_BREADTHFIRSTSEARCH_HPP_
+#endif  // GRAPHTHEORY_BREADTHFIRSTSEARCH_HPP
