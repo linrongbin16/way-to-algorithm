@@ -1,2 +1,0 @@
-# SpragueGrundy SG函数
-
