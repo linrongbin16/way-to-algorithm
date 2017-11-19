@@ -34,7 +34,7 @@ auto AssertAscendingOrder(const vector<int> &s,
   assert(res);
 }
 
-auto AssertMergeSort(const vector<int> &s,
+auto AssertMergeSort(vector<int> &s,
                      int n) -> void {
   AssertNotAscendingOrder(s, n);
   MergeSort(s, 0, n);

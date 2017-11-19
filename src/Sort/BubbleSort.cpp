@@ -34,7 +34,7 @@ auto AssertAscendingOrder(const vector<int> &s,
   assert(res);
 }
 
-auto AssertBubbleSort(const vector<int> &s,
+auto AssertBubbleSort(vector<int> &s,
                       int n) -> void {
   AssertNotAscendingOrder(s, n);
   BubbleSort(s, 0, n);
