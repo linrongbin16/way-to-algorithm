@@ -1,8 +1,8 @@
 ﻿// MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SORT_MERGESORT_HPP
-#define SORT_MERGESORT_HPP
+#ifndef MERGE_SORT_HPP
+#define MERGE_SORT_HPP 1
 
 #include <vector>
 using namespace std;
@@ -50,4 +50,4 @@ auto MergeSort(vector<int> &s, int beg, int end) -> void {
 }
 
 
-#endif  // SORT_MERGESORT_HPP
+#endif  // MERGE_SORT_HPP

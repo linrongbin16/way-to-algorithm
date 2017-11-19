@@ -1,8 +1,8 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SEARCH_EIGHTFIGUREPUZZLE_HPP
-#define SEARCH_EIGHTFIGUREPUZZLE_HPP
+#ifndef EIGHT_FIGURE_PUZZLE_HPP
+#define EIGHT_FIGURE_PUZZLE_HPP
 
 #include <algorithm>
 #include <deque>
@@ -119,4 +119,4 @@ auto AStarSearch(string beg, string end) -> vector<string> {
   return path;
 }
 
-#endif  // SEARCH_EIGHTFIGUREPUZZLE_HPP
+#endif  // EIGHT_FIGURE_PUZZLE_HPP

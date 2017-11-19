@@ -1,8 +1,8 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SEARCH_BINARYSEARCH_HPP
-#define SEARCH_BINARYSEARCH_HPP
+#ifndef BINARY_SEARCH_HPP
+#define BINARY_SEARCH_HPP 1
 
 #include <tuple>
 using namespace std;
@@ -39,4 +39,4 @@ auto BinarySearch(int s[MAX], int beg, int end, int x) -> tuple<bool, int> {
 }
 
 
-#endif  // SEARCH_BINARYSEARCH_HPP
+#endif  // BINARY_SEARCH_HPP

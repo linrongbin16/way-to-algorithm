@@ -1,8 +1,8 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SORT_INSERTSORT_HPP
-#define SORT_INSERTSORT_HPP
+#ifndef INSERT_SORT_HPP
+#define INSERT_SORT_HPP 1
 
 #include <vector>
 using namespace std;
@@ -33,4 +33,4 @@ auto InsertSort(vector<int> &s, int beg, int end) -> void {
   }
 }
 
-#endif  // SORT_INSERTSORT_HPP
+#endif  // INSERT_SORT_HPP
