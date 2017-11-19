@@ -44,7 +44,7 @@ auto AssertEqual(const vector<int> & a, const vector<int> & b) -> void {
     assert(a[i] == b[i]);
 }
 
-auto main() -> int { {
+auto main() -> int {
   for (int i = 0; i < sizeof(test_cases)/sizeof(Test); i++) {
     Test &t = test_cases[i];
     vector<int> r = BreadthFirstSearch(t.g, t.n);

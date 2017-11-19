@@ -41,37 +41,35 @@ Number Init(int a);
 Number Init(double a);
 
 //负号
-Number Negative(const Number &a);
+Number operator-(const Number &a);
 //加法
-Number Add(const Number &a, const Number &b);
+Number operator+(const Number &a, const Number &b);
+Number& operator+=(Number &a, const Number &b);
 //减法
-Number Sub(const Number &a, const Number &b);
+Number operator-(const Number &a, const Number &b);
+Number& operator-=(Number &a, const Number &b);
 //乘法
-Number Multiple(const Number &a, const Number &b);
+Number operator*(const Number &a, const Number &b);
+Number& operator*=(Number &a, const Number &b);
 //除法
-Number Devide(const Number &a, const Number &b);
-
-//负的
-bool IsNegative(const Number &a);
-//正的
-bool IsPositive(const Number &a);
+Number operator/(const Number &a, const Number &b);
+Number& operator/=(Number &a, const Number &b);
 //大于
-bool Greater(const Number &a, const Number &b);
+bool operator>(const Number &a, const Number &b);
 //大于等于
-bool GreaterEqual(const Number &a, const Number &b);
+bool operator>=(const Number &a, const Number &b);
 //大于
-bool Less(const Number &a, const Number &b);
+bool operator<(const Number &a, const Number &b);
 //小于等于
-bool LessEqual(const Number &a, const Number &b);
+bool operator<=(const Number &a, const Number &b);
 //等于
-bool Equal(const Number &a, const Number &b);
+bool operator==(const Number &a, const Number &b);
 //不等于
-bool NotEqual(const Number &a, const Number &b);
+bool operator!=(const Number &a, const Number &b);
 
 //输出字符串
 std::string IntString(const Number &a);
 std::string FloatString(const Number &a);
-
 
 
 //
@@ -80,13 +78,20 @@ std::string FloatString(const Number &a);
 
 namespace detail {
 
+  //数字有效
   auto AssertValid(const Number &a) -> void;
-
+  //小数向上浮动 将所有有效小数增加到整数
   auto FloatUp(const Number &a) -> Number;
-
+  //小数向下浮动 将小数降低decimal_len个整数
   auto FloatDown(const Number &a, int decimal_len) -> Number;
 
+  //判断
+  //负的
+  bool IsNegative(const Number &a);
+  //正的
+  bool IsPositive(const Number &a);
 }
+
 
 //初始化零
 Number Init() {
@@ -136,21 +141,24 @@ Number Init(double a) {
 }
 
 //负号
-Number Negative(const Number &a) {
+Number operator-(const Number &a) {
+  detail::AssertValid(a);
+
   Number c = a;
+  if (a.integer_len == 0 && a.decimal_len == 0)
+    return c;
   c.negative = !a.negative;
 
-  detail::AssertValid(c);
   return c;
 }
 
 //加
-Number Add(const Number &a, const Number &b) {
+Number operator+(const Number &a, const Number &b) {
   //符号不同
   //12 + (-7) -> 12 - 7
   if (a.negative != b.negative) {
-    Number c = Negative(b);
-    return Sub(a, c);
+    Number c = -b;
+    return a - c;
   }
 
   //符号相同
@@ -184,13 +192,18 @@ Number Add(const Number &a, const Number &b) {
   return c;
 }
 
+Number& operator+=(Number &a, const Number &b) {
+  a = a + b;
+  return a;
+}
+
 //减
-Number Sub(const Number &a, const Number &b) {
+Number operator-(const Number &a, const Number &b) {
   //符号不同
   //12 - (-7) -> 12 + 7
   if (a.negative != b.negative) {
-    Number c = Negative(b);
-    return Add(a, c);
+    Number c = -b;
+    return a + c;
   }
 
   //符号相同
@@ -200,14 +213,14 @@ Number Sub(const Number &a, const Number &b) {
   //a < b
   //7 - 32
   //-12 - (-3)
-  if (Less(a, b)) {
-    return Negative(Sub(b, a));
+  if (a < b) {
+    return -(b - a);
   }
 
   //a >= b且都是负数
   //-5 - (-12) -> 12 - 5
-  if (IsNegative(a) && Greater(a, b)) {
-    return Sub(Negative(b), Negative(a));
+  if (detail::IsNegative(a) && a > b) {
+    return (-b) - (-a);
   }
 
   //a >= b且都是正数
@@ -254,18 +267,22 @@ Number Sub(const Number &a, const Number &b) {
     assert(c.integer[i] < 9);
   }
 
-  assert(Greater(c, Init()));
+  assert(c > Init());
   detail::AssertValid(c);
   return c;
 }
 
+Number& operator-=(Number &a, const Number &b) {
+  a = a - b;
+  return a;
+}
 
 //乘
-Number Multiple(const Number &a, const Number &b) {
+Number operator*(const Number &a, const Number &b) {
   //a b为零
-  if (Equal(a, Init()))
+  if (a == Init())
     return Init();
-  if (Equal(b, Init()))
+  if (b == Init())
     return Init();
 
   Number a2 = detail::FloatUp(a), b2 = detail::FloatUp(b);
@@ -284,10 +301,20 @@ Number Multiple(const Number &a, const Number &b) {
   return c;
 }
 
+Number& operator*=(Number &a, const Number &b) {
+  a = a * b;
+  return a;
+}
+
 //除
 //TODO
-Number Devide(const Number &a, const Number &b) {
+Number operator/(const Number &a, const Number &b) {
   return Init();
+}
+
+Number& operator/=(Number &a, const Number &b) {
+  a = a / b;
+  return a;
 }
 
 //输出整数
@@ -347,9 +374,76 @@ std::string FloatString(const Number &a) {
   return ret;
 }
 
+//大于
+bool operator>(const Number &a, const Number &b) {
+  if (a.negative != b.negative) {
+    return a.negative && !b.negative;
+  }
+  if (a.negative) {
+    return (-b) > (-a);
+  }
+  if (a.integer_len > b.integer_len)
+    return true;
+  else if (a.integer_len < b.integer_len)
+    return false;
+  for (int i = a.integer_len-1; i >= 0; i--) {
+    if (a.integer[i] > b.integer[i])
+      return true;
+    else if (a.integer[i] < b.integer[i])
+      return false;
+  }
+  int n = max(a.decimal_len, b.decimal_len);
+  for (int i = 0; i < n; i++) {
+    if (a.decimal[i] > b.decimal[i])
+      return true;
+    else if (a.decimal[i] < b.decimal[i])
+      return false;
+  }
+  return false;
+}
+
+//大于等于
+bool operator>=(const Number &a, const Number &b) {
+  return a > b || a == b;
+}
+
+//大于
+bool operator<(const Number &a, const Number &b) {
+  return b > a;
+}
+
+//小于等于
+bool operator<=(const Number &a, const Number &b) {
+  return a < b || a == b;
+}
+
+//等于
+bool operator==(const Number &a, const Number &b) {
+  if (a.negative != b.negative)
+    return false;
+  if (a.integer_len != b.integer_len)
+    return false;
+  if (a.decimal_len != b.decimal_len)
+    return false;
+  for (int i = 0; i < a.integer_len; i++)
+    if (a.integer[i] != b.integer[i])
+      return false;
+  for (int i = 0; i < a.decimal_len; i++)
+    if (a.decimal[i] != b.decimal[i])
+      return false;
+  return true;
+}
+
+//不等于
+bool operator!=(const Number &a, const Number &b) {
+  return !(a == b);
+}
+
 namespace detail {
 
   auto AssertValid(const Number &a) -> void {
+    assert(a.integer_len >= 0);
+    assert(a.decimal_len >= 0);
     for (int i = 0; i < a.integer_len; i++) {
       assert(a.integer[i] >= 0);
       assert(a.integer[i] < 9);
@@ -389,4 +483,18 @@ namespace detail {
     return c;
   }
 
+  bool IsNegative(const Number &a) {
+    if (a.integer_len == 0 && a.decimal_len == 0) {
+      assert(!a.negative);
+    }
+    return a.negative;
+  }
+
+  //正的
+  bool IsPositive(const Number &a) {
+    if (a.integer_len == 0 && a.decimal_len == 0) {
+      assert(!a.negative);
+    }
+    return !a.negative;
+  }
 }
