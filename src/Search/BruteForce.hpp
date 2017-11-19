@@ -1,8 +1,7 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SEARCH_BRUTEFORCE_HPP_
-#define SEARCH_BRUTEFORCE_HPP_
+#pragma once
 
 #include <vector>
 #include <cstring>
@@ -37,5 +36,3 @@ auto BruteForce(int s[MAX], int n, int m) -> vector<vector<int>> {
   return comb;
 }
 
-
-#endif  // SEARCH_BRUTEFORCE_HPP

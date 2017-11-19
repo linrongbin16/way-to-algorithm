@@ -1,5 +1,8 @@
-#ifndef WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_MULTI2BINARY_H
-#define WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_MULTI2BINARY_H 1
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
+
 
 //多叉树转二叉树动规
 //multi to binary
@@ -13,5 +16,3 @@
 //其右孩子是当前节点的所有兄弟
 //对这样的森林中的每个二叉树递归调用二叉树动规的方法
 //就可以求出多叉树的最大权值
-
-#endif

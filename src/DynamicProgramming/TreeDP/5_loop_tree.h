@@ -1,5 +1,7 @@
-#ifndef WAY_TO_ALGORIHTM_DYNAMICPROGRAMMING_TREEDYNAMIC_LOOP_TREE_H
-#define WAY_TO_ALGORIHTM_DYNAMICPROGRAMMING_TREEDYNAMIC_LOOP_TREE_H 1
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
 
 //带环多叉树动规
 //loop tree
@@ -19,5 +21,3 @@
 //d点的权值和费用分别是a b c三者的权值和费用之和
 //然后就可以用正常的多叉树动规方法解决了
 
-
-#endif

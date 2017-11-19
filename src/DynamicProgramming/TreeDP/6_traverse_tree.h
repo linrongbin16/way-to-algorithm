@@ -1,5 +1,8 @@
-#ifndef WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_TRAVERSE_TREE_H
-#define WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_TRAVERSE_TREE_H 1
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
+
 //树遍历动规
 //traverse tree
 
@@ -196,6 +199,3 @@ int traverse_max(tree_node *r, int **fdown, int **fup, int level)
 		fmax = max(fmax, traverse_max(r->t_child[i], fdown, fup, level));
 	return(fmax);
 }
-
-
-#endif

@@ -1,5 +1,8 @@
-#ifndef WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_MULTI_TREE_H
-#define WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_MULTI_TREE_H 1
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
+
 //多叉树动规
 //multiple tree
 
@@ -96,5 +99,3 @@ int multiple_tree(multiple_tree_node *r, int f[MAX][MAX], int resv)
 	f[r->m_index][resv] += r->m_value;
 	return f[r->m_index][resv];
 }
-
-#endif

@@ -1,8 +1,7 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SEARCH_BREADTHFIRSTSEARCH_HPP
-#define SEARCH_BREADTHFIRSTSEARCH_HPP
+#pragma once
 
 #include <deque>
 #include <vector>
@@ -98,6 +97,3 @@ auto BreadthFirstSearch(int m,
 
   return vector<Position>();
 }
-
-
-#endif  // SEARCH_BREADTHFIRSTSEARCH_HPP

@@ -1,8 +1,7 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SEARCH_RECURSION_HPP
-#define SEARCH_RECURSION_HPP
+#pragma once
 
 #include <vector>
 #include <cstring>
@@ -21,6 +20,7 @@ auto Recursion(vector<int> &tmp,
                 const vector<int> &candidates,
                 int prev,
                 vector<vector<int>> &comb) -> void {
+
   /* 递归终止条件 */
   if (prev == tmp.size()) {
     comb.push_back(tmp);
@@ -33,6 +33,3 @@ auto Recursion(vector<int> &tmp,
     Recursion(tmp, candidates, prev + 1, comb);
   }
 }
-
-
-#endif  // SEARCH_RECURSION_HPP

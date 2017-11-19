@@ -1,8 +1,7 @@
 ﻿// MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef BUBBLE_SORT_HPP
-#define BUBBLE_SORT_HPP 1
+#pragma once
 
 #include <vector>
 #include <algorithm>
@@ -23,6 +22,3 @@ auto BubbleSort(vector<int> &s, int beg, int end) -> void {
       if (s[j] > s[j+1])
         swap(s[j], s[j+1]);
 }
-
-
-#endif  // BUBBLE_SORT_HPP

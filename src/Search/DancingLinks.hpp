@@ -1,8 +1,7 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SEARCH_DANCINGLINKS_HPP
-#define SEARCH_DANCINGLINKS_HPP
+#pragma once
 
 #include <cstring>
 #ifndef MAX
@@ -152,6 +151,3 @@ auto DancingLink(int n, int m, int subset[MAX][MAX], int cover[MAX]) -> bool {
   MakeLink(subset, n, m);
   return Dance(1, cover);
 }
-
-
-#endif  // SEARCH_DANCINGLINKS_HPP

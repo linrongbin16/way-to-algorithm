@@ -1,3 +1,8 @@
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
+
 //2-SAT问题
 //_2_satisfiability.cpp
 

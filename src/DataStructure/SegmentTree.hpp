@@ -1,8 +1,7 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef SEGMENT_TREE_HPP
-#define SEGMENT_TREE_HPP 1
+#pragma once
 
 #include <assert.h>
 #include <algorithm>
@@ -101,5 +100,3 @@ int SegmentTreeQuery(SegmentTree *t, int start, int end)
 {
     return SegmentTreeQueryRec(t, 0, start, end);
 }
-
-#endif

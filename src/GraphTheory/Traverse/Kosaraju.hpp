@@ -1,3 +1,8 @@
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
+
 //Kosaraju算法
 //kosaraju.cp
 

@@ -1,34 +1,24 @@
 ﻿// MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef MERGE_SORT_HPP
-#define MERGE_SORT_HPP 1
+#pragma once
 
 #include <vector>
 using namespace std;
 
-auto Merge(vector<int> &s, int start, int mid, int last) -> void {
-  vector<int> t;
-  t.resize(s.size());
-  int i, j, k;
+//
+// interface
+//
 
-  for (i = start, j = mid+1, k = start; i <= mid and j <= last; ++k) {
-    if (s[i] <= s[j]) {
-      t[k] = s[i];
-      i++;
-    } else {
-      t[k] = s[j];
-      j++;
-    }
-  }
-  for (; i <= mid; ++i, ++k)
-    t[k] = s[i];
-  for (; j <= last; ++j, ++k)
-    t[k] = s[j];
+auto MergeSort(vector<int> &s, int beg, int end) -> void;
 
-  /* copy(t+start, t +last+1, s) work as well */
-  for (i = start; i <= last; ++i)
-    s[i] = t[i];
+
+// implement
+
+namespace detail {
+
+  auto Merge(vector<int> &s, int start, int mid, int last) -> void;
+
 }
 
 /**
@@ -41,13 +31,39 @@ auto MergeSort(vector<int> &s, int beg, int end) -> void {
   int mid = (beg + end-1) / 2;
 
   if (beg + 2 >= end) {
-    Merge(s, beg, mid, end-1);
+    detail::Merge(s, beg, mid, end-1);
     return;
   }
   MergeSort(s, beg, mid+1);
   MergeSort(s, mid+1, end);
-  Merge(s, beg, mid, end-1);
+  detail::Merge(s, beg, mid, end-1);
 }
 
+namespace detail {
 
-#endif  // MERGE_SORT_HPP
+  auto Merge(vector<int> &s, int start, int mid, int last) -> void {
+    vector<int> t;
+    t.resize(s.size());
+    int i, j, k;
+
+    for (i = start, j = mid+1, k = start; i <= mid and j <= last; ++k) {
+      if (s[i] <= s[j]) {
+        t[k] = s[i];
+        i++;
+      } else {
+        t[k] = s[j];
+        j++;
+      }
+    }
+    for (; i <= mid; ++i, ++k)
+      t[k] = s[i];
+    for (; j <= last; ++j, ++k)
+      t[k] = s[j];
+
+    /* copy(t+start, t +last+1, s) work as well */
+    for (i = start; i <= last; ++i)
+      s[i] = t[i];
+  }
+
+}
+

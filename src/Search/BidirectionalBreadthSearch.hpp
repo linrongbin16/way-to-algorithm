@@ -1,8 +1,7 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef BIDIRECTIONAL_BREADTH_SEARCH_HPP
-#define BIDIRECTIONAL_BREADTH_SEARCH_HPP
+#pragma once
 
 #include <utility>
 #include <deque>
@@ -167,5 +166,3 @@ auto BidirectionalBreadthSearch(int m,
   // never reach here
   return {};
 }
-
-#endif  // BIDIRECTIONAL_BREADTH_SEARCH_HPP

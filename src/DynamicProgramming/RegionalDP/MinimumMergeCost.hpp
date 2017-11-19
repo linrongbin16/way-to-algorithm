@@ -1,5 +1,8 @@
-#ifndef DYNAMICPROGRAMMING_REGIONDYNAMIC_MINIMUM_MERGE_COSE_H
-#define DYNAMICPROGRAMMING_REGIONDYNAMIC_MINIMUM_MERGE_COSE_H 1
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
+
 //最小合并代价
 //minimum merge cost
 
@@ -64,5 +67,3 @@ int minimum_merge_cost(int s[MAX], int n)
 
 	return f[1][n];
 }
-
-#endif

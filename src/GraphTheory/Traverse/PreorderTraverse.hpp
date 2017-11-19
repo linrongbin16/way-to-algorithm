@@ -1,5 +1,7 @@
-#ifndef PREORDER_TRAVERSE_HPP
-#define PREORDER_TRAVERSE_HPP
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
 
 #include <iostream>
 #include <vector>
@@ -9,21 +11,42 @@ using namespace std;
 #endif
 
 
-auto PreorderImpl(int index, int n, vector<int> & seq) -> void
-{
-    if (index < 0 or index >= n) return;
-    seq.push_back(index);
-    if (index >= 0 and index < n) PreorderImpl(index * 2 + 1, n, seq);
-    if (index >= 0 and index < n) PreorderImpl(index * 2 + 2, n, seq);
+//
+// interface
+//
+
+auto PreorderTraverse(int n) -> vector<int>;
+
+
+//
+// implement
+//
+
+namespace detail {
+
+  auto PreorderImpl(int index, int n, vector<int> & seq) -> void;
+
 }
 
 /* 节点i的左孩子节点为i*2+1 右孩子节点为i*2+2 */
 /* 根节点为0 */
-auto PreorderTraverse(int n) -> vector<int>
-{
-    vector<int> seq;
-    PreorderImpl(0, n, seq);
-    return seq;
+auto PreorderTraverse(int n) -> vector<int> {
+  vector<int> seq;
+  detail::PreorderImpl(0, n, seq);
+  return seq;
 }
 
-#endif
+namespace detail {
+
+  auto PreorderImpl(int index, int n, vector<int> & seq) -> void {
+    if (index < 0 or index >= n)
+      return;
+    seq.push_back(index);
+    if (index >= 0 and index < n)
+      PreorderImpl(index*2+1, n, seq);
+    if (index >= 0 and index < n)
+      PreorderImpl(index*2+2, n, seq);
+  }
+
+}
+

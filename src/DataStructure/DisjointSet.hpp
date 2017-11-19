@@ -1,8 +1,7 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef DATASTRUCTURE_DISJOINTSET_HPP
-#define DATASTRUCTURE_DISJOINTSET_HPP
+#pragma once
 
 #ifndef MAX
 #define MAX 1024
@@ -10,14 +9,28 @@
 #include <cstring>
 
 
+//
+// interface
+//
+
 struct DisjointSet {
   int father[MAX];
 };
 
-static int FindFather(DisjointSet *s, int i) {
-  if (s->father[i] != i)
-    s->father[i] = FindFather(s, s->father[i]);
-  return s->father[i];
+auto DisjointSetNew() -> DisjointSet*;
+auto DisjointSetFree(DisjointSet *s) -> void;
+auto DisjointSetUnion(DisjointSet *s, int i, int j) -> void;
+auto DisjointSetQuery(DisjointSet *s, int i, int j) -> bool;
+
+
+//
+// implement
+//
+
+namespace detail {
+
+  auto FindFather(DisjointSet *s, int i) -> int;
+
 }
 
 auto DisjointSetNew() -> DisjointSet* {
@@ -35,14 +48,21 @@ auto DisjointSetFree(DisjointSet *s) -> void {
 }
 
 auto DisjointSetUnion(DisjointSet *s, int i, int j) -> void {
-  int i_father = FindFather(s, i);
-  int j_father = FindFather(s, j);
+  int i_father = detail::FindFather(s, i);
+  int j_father = detail::FindFather(s, j);
   s->father[j] = i_father;
 }
 
 auto DisjointSetQuery(DisjointSet *s, int i, int j) -> bool {
-  return FindFather(s, i) == FindFather(s, j);
+  return detail::FindFather(s, i) == detail::FindFather(s, j);
 }
 
+namespace detail {
 
-#endif
+  auto FindFather(DisjointSet *s, int i) -> int {
+    if (s->father[i] != i)
+      s->father[i] = FindFather(s, s->father[i]);
+    return s->father[i];
+  }
+
+}

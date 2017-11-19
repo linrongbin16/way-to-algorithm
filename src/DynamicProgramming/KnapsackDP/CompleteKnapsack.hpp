@@ -1,5 +1,7 @@
-#ifndef COMPLETE_KNAPSACK
-#define COMPLETE_KNAPSACK
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
 
 #ifndef MAX
 #define MAX 1024
@@ -9,29 +11,24 @@
 using namespace std;
 
 
-int f[MAX][MAX];
+int CompleteKnapsack(int value[MAX], int weight[MAX], int count, int total_weight) {
+  int f[MAX][MAX];
 
-int CompleteKnapsack(int value[MAX], int weight[MAX], int count, int total_weight)
-{
-    // 初始化
-    for (int i = 0; i < MAX; i++) {
-        for (int j = 0; j < MAX; j++) {
-            f[i][j] = 0;
-        }
+  // 初始化
+  for (int i = 0; i < MAX; i++) {
+    for (int j = 0; j < MAX; j++) {
+      f[i][j] = 0;
     }
+  }
 
-    for (int i = 1; i <= count; i++) {
-        for (int j = 0; j <= total_weight; j++) {
-            // 珠宝 i 最多可以装 max_count 个
-            int max_count = j / weight[i];
-            for (int k = 0; k <= max_count; k++) {
-                f[i][j] = max(f[i-1][j], f[i-1][ j - k*weight[i] ] + k*value[i]);
-            }
-        }
+  for (int i = 1; i <= count; i++) {
+    for (int j = 0; j <= total_weight; j++) {
+      // 珠宝 i 最多可以装 max_count 个
+      int max_count = j / weight[i];
+      for (int k = 0; k <= max_count; k++) {
+        f[i][j] = max(f[i-1][j], f[i-1][ j - k*weight[i] ] + k*value[i]);
+      }
     }
-
-    return f[count][total_weight];
+  }
+  return f[count][total_weight];
 }
-
-
-#endif

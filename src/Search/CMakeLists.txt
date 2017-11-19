@@ -5,5 +5,5 @@ add_executable(Search-BidirectionalBreadthSearch.exe BidirectionalBreadthSearch.
 add_executable(Search-BinarySearch.exe BinarySearch.hpp BinarySearch.cpp)
 add_executable(Search-BreadthFirstSearch.exe BreadthFirstSearch.hpp BreadthFirstSearch.cpp)
 add_executable(Search-BruteForce.exe BruteForce.hpp BruteForce.cpp)
-add_executable(Search-DancingLink.exe DancingLink.hpp DancingLink.cpp)
+add_executable(Search-DancingLinks.exe DancingLinks.hpp DancingLinks.cpp)
 add_executable(Search-Recursion.exe Recursion.hpp Recursion.cpp)

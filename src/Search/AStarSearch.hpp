@@ -1,8 +1,7 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#ifndef EIGHT_FIGURE_PUZZLE_HPP
-#define EIGHT_FIGURE_PUZZLE_HPP
+#pragma once
 
 #include <algorithm>
 #include <deque>
@@ -118,5 +117,3 @@ auto AStarSearch(string beg, string end) -> vector<string> {
   }
   return path;
 }
-
-#endif  // EIGHT_FIGURE_PUZZLE_HPP

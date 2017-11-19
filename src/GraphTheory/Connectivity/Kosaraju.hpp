@@ -1,5 +1,7 @@
-#ifndef GRAPH_THEORY_CONNECTIVITY_KOSARAJU_HPP
-#define GRAPH_THEORY_CONNECTIVITY_KOSARAJU_HPP 1
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
 
 #include "../Traverse/TopologicalSort.hpp"
 #include "../Traverse/DepthFirstSearch.hpp"
@@ -65,5 +67,3 @@ void transpose(graph_list g, graph_list& trans)
 		for(int j = 1; j < (int)g.g_l[i].size(); ++ j)
 			trans.g_l[g.g_l[i][j].g_idx].push_back(g.g_l[i][0]);
 }
-
-#endif

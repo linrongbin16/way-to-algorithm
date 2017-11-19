@@ -1,5 +1,8 @@
-#ifndef WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_BINARY_TREE_H
-#define WAY_TO_ALGORITHM_DYNAMICPROGRAMMING_TREEDYNAMIC_BINARY_TREE_H 1
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
+
 //二叉树动规
 //binary tree
 
@@ -43,8 +46,7 @@ using std::max;
 #define MAX 60
 #endif
 
-struct binary_tree_node1
-{
+struct binary_tree_node1 {
     int     m_value;
     binary_tree_node1*   m_leftchild;
     binary_tree_node1*   m_rightchild;
@@ -120,5 +122,3 @@ int binary_tree2(binary_tree_node2 *r, int f[MAX][MAX], int resv)
 	f[r->m_index][resv] += r->m_value;
 	return f[r->m_index][resv];
 }
-
-#endif

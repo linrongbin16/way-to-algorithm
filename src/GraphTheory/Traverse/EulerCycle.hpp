@@ -1,5 +1,7 @@
-#ifndef GRAPHTHEORY_DEPTH_FIRST_SEARCH_HPP
-#define GRAPHTHEORY_DEPTH_FIRST_SEARCH_HPP
+// MIT License
+// Copyright 2017 zhaochenyou16@gmail.com
+
+#pragma once
 
 #include "general_head.h"
 #include "graph.h"
@@ -70,5 +72,3 @@ int max_degree(graph_matrix g, int *degree, int beg)
 	}
 	return(index);
 }
-
-#endif
