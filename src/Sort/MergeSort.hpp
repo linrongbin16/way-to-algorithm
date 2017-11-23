@@ -2,22 +2,20 @@
 // Copyright 2017 zhaochenyou16@gmail.com
 
 #pragma once
-
-#include <vector>
-using namespace std;
+#include <cstring>
 
 //
 // interface
 //
 
-auto MergeSort(vector<int> &s, int beg, int end) -> void;
+void MergeSort(int *s, int beg, int end);
 
 
 // implement
 
 namespace detail {
 
-  auto Merge(vector<int> &s, int start, int mid, int last) -> void;
+  void Merge(int *s, int start, int mid, int last);
 
 }
 
@@ -27,7 +25,7 @@ namespace detail {
 * @param beg        序列s的起始下标
 * @param end        序列s为左闭右开区间[beg, end)
 */
-auto MergeSort(vector<int> &s, int beg, int end) -> void {
+void MergeSort(int *s, int beg, int end) {
   int mid = (beg + end-1) / 2;
 
   if (beg + 2 >= end) {
@@ -41,12 +39,11 @@ auto MergeSort(vector<int> &s, int beg, int end) -> void {
 
 namespace detail {
 
-  auto Merge(vector<int> &s, int start, int mid, int last) -> void {
-    vector<int> t;
-    t.resize(s.size());
+  void Merge(int *s, int start, int mid, int last) {
+    int *t = new int[last-start+2];
     int i, j, k;
 
-    for (i = start, j = mid+1, k = start; i <= mid and j <= last; ++k) {
+    for (i = start, j = mid+1, k = start; i <= mid && j <= last; k++) {
       if (s[i] <= s[j]) {
         t[k] = s[i];
         i++;
@@ -60,9 +57,8 @@ namespace detail {
     for (; j <= last; ++j, ++k)
       t[k] = s[j];
 
-    /* copy(t+start, t +last+1, s) work as well */
-    for (i = start; i <= last; ++i)
-      s[i] = t[i];
+    std::memcpy(s+start, t+start, (last-start)*sizeof(int));
+    delete[] t;
   }
 
 }

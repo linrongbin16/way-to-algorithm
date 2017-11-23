@@ -3,10 +3,6 @@
 
 #pragma once
 
-#include <vector>
-#include <algorithm>
-using namespace std;
-
 
 //
 // interface
@@ -24,9 +20,9 @@ namespace detail {
    * @param high      序列s的末尾下标，即左闭右闭区间[low, high]
    * @return          最终s[low]所在下标
    */
-  auto Partion(vector<int> &s, int low, int high) -> int;
+  int Partion(int *s, int low, int high);
 
-}
+}  // namespace detail
 
 
 //
@@ -39,7 +35,7 @@ namespace detail {
  * @param beg       序列s的起始下标
  * @param end       序列s的末尾下标加1，即左闭右开区间[beg, end)
  */
-auto QuickSort(vector<int> &s, int beg, int end) -> void {
+void QuickSort(int *s, int beg, int end) {
   if (beg < end-1) {
     int mid = detail::Partion(s, beg, end-1);
     QuickSort(s, beg, mid);
@@ -49,13 +45,13 @@ auto QuickSort(vector<int> &s, int beg, int end) -> void {
 
 namespace detail {
 
-  auto Partion(vector<int> &s, int low, int high) -> int {
+  int Partion(int *s, int low, int high) {
     int p = s[low];
     while (low < high) {
-      while (low < high and s[high] >= p)
+      while (low < high && s[high] >= p)
         --high;
       s[low] = s[high];
-      while (low < high and s[low] <= p)
+      while (low < high && s[low] <= p)
         ++low;
       s[high] = s[low];
     }
@@ -63,4 +59,4 @@ namespace detail {
     return low;
   }
 
-}
+}  // namespace detail

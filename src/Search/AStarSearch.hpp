@@ -22,7 +22,7 @@ using namespace std;
 int direction[4] = { -3, 3, -1, 1 };
 
 
-auto ScoreH(string a, string end) -> int {
+int ScoreH(string a, string end) {
   int diff = 0;
   for (int i = 0; i < 9; ++i)
     if (a[i] != end[i])
@@ -30,24 +30,24 @@ auto ScoreH(string a, string end) -> int {
   return diff;
 }
 
-auto OpenPop(deque<string> &open,
-              string end_node,
-              unordered_map<string, int> &score_g) -> string {
+string OpenPop(deque<string> *open,
+               string end_node,
+               unordered_map<string, int> &score_g) {
   string res;
   int f = INT_MAX;
-  auto i = open.begin();
-  for (; i != open.end(); i++) {
+  auto i = open->begin();
+  for (; i != open->end(); i++) {
     int h = ScoreH(*i, end_node);
-    if (f > h + score_g[ *i ]) {
-      f = h + score_g[ *i ];
+    if (f > h + score_g[*i]) {
+      f = h + score_g[*i];
       res = *i;
     }
   }
-  open.erase(i);
+  open->erase(i);
   return res;
 }
 
-auto OpenErase(deque<string> &open, string node) -> void {
+void OpenErase(deque<string> &open, string node) {
   for (auto i = open.begin(); i != open.end(); i++) {
     if (node == *i) {
       open.erase(i);
