@@ -4,33 +4,33 @@
 #pragma once
 
 #include <algorithm>
-#include <assert.h>
+#include <cassert>
 
 
 //
 // interface
 //
 
-struct AVLTreeNode {
+struct Node {
   /*节点下标号*/
   int index;
   /*节点高度值*/
   int depth;
   /*左右孩子节点*/
-  AVLTreeNode *left;
-  AVLTreeNode *right;
+  Node *left;
+  Node *right;
 };
 
 struct AVLTree {
-  AVLTreeNode *root;
+  Node *root;
 };
 
-auto AVLTreeNew() -> AVLTree*;
-auto AVLTreeFree(AVLTree *t) -> void;
-auto AVLTreeInsert(AVLTree *t, int index) -> void;
-auto AVLTreeFind(AVLTree *t, int index) -> int;
-auto AVLTreeErase(AVLTree *t, int index) -> void;
-auto AVLTreeDepth(AVLTree *t) -> int;
+AVLTree *AVLTreeNew();
+void AVLTreeFree(AVLTree *t);
+void AVLTreeInsert(AVLTree *t, int index);
+int AVLTreeFind(AVLTree *t, int index);
+void AVLTreeErase(AVLTree *t, int index);
+int AVLTreeDepth(AVLTree *t);
 
 
 //
@@ -38,13 +38,13 @@ auto AVLTreeDepth(AVLTree *t) -> int;
 //
 
 namespace detail {
-  auto NodeFree(AVLTreeNode *e) -> void;
-  auto NodeInsert(AVLTreeNode **e, int index) -> void;
-  auto NodeFind(AVLTreeNode **e, int index) -> int;
-  auto NodeErase(AVLTreeNode **e, int index) -> void;
+  void NodeFree(Node *e);
+  void NodeInsert(Node **e, int index);
+  int NodeFind(Node **e, int index);
+  void NodeErase(Node **e, int index);
 }
 
-auto AVLTreeNew() -> AVLTree* {
+AVLTree *AVLTreeNew() {
   AVLTree *t = new AVLTree();
   if (!t)
     return nullptr;
@@ -52,32 +52,32 @@ auto AVLTreeNew() -> AVLTree* {
   return t;
 }
 
-auto AVLTreeFree(AVLTree *t) -> void {
+void AVLTreeFree(AVLTree *t) {
   detail::NodeFree(t->root);
 }
 
-auto AVLTreeInsert(AVLTree *t, int index) -> void {
+void AVLTreeInsert(AVLTree *t, int index) {
   if (t->root) {
     detail::NodeInsert( &(t->root), index);
     return;
   }
 
-  t->root = new AVLTreeNode();
+  t->root = new Node();
   t->root->left = nullptr;
   t->root->right = nullptr;
   t->root->index = index;
   t->root->depth = 0;
 }
 
-auto AVLTreeFind(AVLTree *t, int index) -> int {
+int AVLTreeFind(AVLTree *t, int index) {
   return detail::NodeFind( &(t->root), index);
 }
 
-auto AVLTreeErase(AVLTree *t, int index) -> void {
+void AVLTreeErase(AVLTree *t, int index) {
   detail::NodeErase( &(t->root), index);
 }
 
-auto AVLTreeDepth(AVLTree *t) -> int {
+int AVLTreeDepth(AVLTree *t) {
   if (!t->root)
     return 0;
   return t->root->depth;
@@ -86,13 +86,13 @@ auto AVLTreeDepth(AVLTree *t) -> int {
 
 namespace detail {
 
-  auto RotateLL(AVLTreeNode **e) -> void;
-  auto RotateRR(AVLTreeNode **e) -> void;
-  auto RotateLR(AVLTreeNode **e) -> void;
-  auto RotateRL(AVLTreeNode **e) -> void;
-  auto NodeDepth(AVLTreeNode *e) -> int;
+  void RotateLL(Node **e);
+  void RotateRR(Node **e);
+  void RotateLR(Node **e);
+  void RotateRL(Node **e);
+  int NodeDepth(Node *e);
 
-  auto NodeFree(AVLTreeNode *e) -> void {
+  void NodeFree(Node *e) {
     if (!e)
       return;
     NodeFree(e->left);
@@ -100,8 +100,8 @@ namespace detail {
     delete e;
   }
 
-  auto RotateLL(AVLTreeNode **e) -> void {
-    AVLTreeNode *e1;
+  void RotateLL(Node **e) {
+    Node *e1;
 
     e1 = (*e)->left;
     (*e)->left = e1->right;
@@ -112,8 +112,8 @@ namespace detail {
     (*e) = e1;
   }
 
-  auto RotateRR(AVLTreeNode **e) -> void {
-    AVLTreeNode *e1;
+  void RotateRR(Node **e) {
+    Node *e1;
 
     e1 = (*e)->right;
     (*e)->right = e1->left;
@@ -124,24 +124,24 @@ namespace detail {
     (*e) = e1;
   }
 
-  auto RotateLR(AVLTreeNode **e) -> void {
+  void RotateLR(Node **e) {
     RotateRR( &((*e)->left) );
     RotateLL( e );
   }
 
-  auto RotateRL(AVLTreeNode **e) -> void {
+  void RotateRL(Node **e) {
     RotateLL( &((*e)->right) );
     RotateRR( e );
   }
 
-  auto NodeInsert(AVLTreeNode **e, int index) -> void {
+  void NodeInsert(Node **e, int index) {
     assert(e);
     assert(*e);
     /*二分插入*/
     if ( (*e)->index > index ) {
       /*若做孩子节点为空节点 创建新的节点*/
       if ((*e)->left == nullptr) {
-        (*e)->left = new AVLTreeNode();
+        (*e)->left = new Node();
         (*e)->left->left = nullptr;
         (*e)->left->right = nullptr;
         (*e)->left->index = index;
@@ -159,7 +159,7 @@ namespace detail {
     } else if ( (*e)->index < index ) {
       /*若右孩子节点为空节点 创建新的节点*/
       if ((*e)->right == nullptr) {
-        (*e)->right = new AVLTreeNode();
+        (*e)->right = new Node();
         (*e)->right->left = nullptr;
         (*e)->right->right = nullptr;
         (*e)->right->index = index;
@@ -179,7 +179,7 @@ namespace detail {
     (*e)->depth = std::max( NodeDepth((*e)->left), NodeDepth((*e)->right) ) + 1;
   }
 
-  auto NodeFind(AVLTreeNode **e, int index) -> int {
+  int NodeFind(Node **e, int index) {
     if (*e == nullptr)
       return 0;
     /*二分查找*/
@@ -192,7 +192,7 @@ namespace detail {
     }
   }
 
-  auto NodeErase(AVLTreeNode **e, int index) -> void {
+  void NodeErase(Node **e, int index) {
     if ( (*e)->index > index ) {
       NodeErase( &((*e)->left), index );
 
@@ -216,7 +216,7 @@ namespace detail {
     } else {
       /* (*e)->index == index */
       if ( (*e)->left and (*e)->right ) {
-        AVLTreeNode* temp = (*e)->right;
+        Node* temp = (*e)->right;
 
         /*temp指向节点的右儿子*/
         /*找到中序遍历的后继节点*/
@@ -235,7 +235,7 @@ namespace detail {
           }
         }
       } else {
-        AVLTreeNode* temp = (*e);
+        Node* temp = (*e);
         if( (*e)->left == nullptr )
           (*e) = (*e)->right;
         else if ( (*e)->right == nullptr )
@@ -253,7 +253,7 @@ namespace detail {
 
   /*空节点的高度值depth=-1*/
   /*叶子节点的高度值depth=0*/
-  auto NodeDepth(AVLTreeNode *e) -> int {
+  int NodeDepth(Node *e) {
     return e ? e->depth : -1;
   }
 

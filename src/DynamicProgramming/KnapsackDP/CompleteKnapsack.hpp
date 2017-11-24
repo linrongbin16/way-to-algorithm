@@ -8,10 +8,9 @@
 #endif
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 
-int CompleteKnapsack(int value[MAX], int weight[MAX], int count, int total_weight) {
+int CompleteKnapsack(int *value, int *weight, int count, int tot_weight) {
   int f[MAX][MAX];
 
   // 初始化
@@ -22,13 +21,14 @@ int CompleteKnapsack(int value[MAX], int weight[MAX], int count, int total_weigh
   }
 
   for (int i = 1; i <= count; i++) {
-    for (int j = 0; j <= total_weight; j++) {
+    for (int j = 0; j <= tot_weight; j++) {
       // 珠宝 i 最多可以装 max_count 个
       int max_count = j / weight[i];
       for (int k = 0; k <= max_count; k++) {
-        f[i][j] = max(f[i-1][j], f[i-1][ j - k*weight[i] ] + k*value[i]);
+        f[i][j] = std::max(f[i-1][j], f[i-1][ j - k*weight[i] ] + k*value[i]);
       }
     }
   }
-  return f[count][total_weight];
+
+  return f[count][tot_weight];
 }

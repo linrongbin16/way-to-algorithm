@@ -3,61 +3,50 @@
 
 #pragma once
 
-#include <vector>
-#include <cstring>
-#include <tuple>
-using namespace std;
 #ifndef MAX
 #define MAX 128
 #endif
+#include <vector>
+#include <cstring>
 
 //
 // interface
 //
 
-auto DepthFirstSearch(int g[MAX][MAX], int n) -> vector<int>;
+std::vector<int> DepthFirstSearch(int g[MAX][MAX], int n);
 
 
 // implement
 
 namespace detail {
 
-  auto DFS(int g[MAX][MAX],
-           int n,
-           int begin,
-           int visited[MAX],
-           vector<int> &out_sequence) -> void;
+  void DFS(int g[MAX][MAX], int n, int begin, int *visited, std::vector<int> &seq);
 
 }
 
-auto DepthFirstSearch(int g[MAX][MAX], int n) -> vector<int> {
+std::vector<int> DepthFirstSearch(int g[MAX][MAX], int n) {
   int visited[MAX];
-  // 将遍历到的节点加入sequence中
-  vector<int> sequence;
+  // 将遍历到的节点加入seq中
+  std::vector<int> seq;
 
   // DFS from node-i
   memset(visited, 0, sizeof(visited));
   for (int i = 0; i < n; ++ i)
     if (not visited[i]) {
-      detail::DFS(g, n, i, visited, sequence);
+      detail::DFS(g, n, i, visited, seq);
     }
 
-  return sequence;
+  return seq;
 }
 
 namespace detail {
 
-  auto DFS(int g[MAX][MAX],
-           int n,
-           int begin,
-           int visited[MAX],
-           vector<int> &out_sequence) -> void {
-
+  void DFS(int g[MAX][MAX], int n, int begin, int *visited, std::vector<int> &seq) {
     visited[begin] = 1;
-    out_sequence.push_back(begin);
+    seq.push_back(begin);
     for (int i = 0; i < n; i++)
-      if(i != begin and g[begin][i] and not visited[i])
-        DFS(g, n, i, visited, out_sequence);
+      if (i != begin && g[begin][i] && !visited[i])
+        DFS(g, n, i, visited, seq);
   }
 
 }

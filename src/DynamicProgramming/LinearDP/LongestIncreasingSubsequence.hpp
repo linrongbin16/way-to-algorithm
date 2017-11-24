@@ -7,11 +7,9 @@
 #define MAX 1024
 #endif
 #include <algorithm>
-using namespace std;
 
 
-auto LongestIncreasingSubsequence(const int s[MAX],
-                                  int n) -> int {
+int LongestIncreasingSubsequence(const int *s, int n) {
   // 序列a和b的范围是[1,n]
   int f[MAX];
 
@@ -23,14 +21,14 @@ auto LongestIncreasingSubsequence(const int s[MAX],
     int max_length = 0;
     for (int k = 1; k < i; k++) {
       if (s[i] > s[k])
-        max_length = max(max_length, f[k]);
+        max_length = std::max(max_length, f[k]);
     }
     f[i] = max_length+1;
   }
 
   int list = 1;
   for (int i = 1; i <= n; i++) {
-    list = max(list, f[i]);
+    list = std::max(list, f[i]);
   }
 
   return list;

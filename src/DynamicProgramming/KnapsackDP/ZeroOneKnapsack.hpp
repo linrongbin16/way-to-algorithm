@@ -8,15 +8,14 @@
 #endif
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 
 // 前 i 个物品重量不超过 j 的最大价值
 
-int ZeroOneKnapsack(int value[MAX],
-                    int weight[MAX],
+int ZeroOneKnapsack(int *value,
+                    int *weight,
                     int count,
-                    int total_weight) {
+                    int tot_weight) {
 
   int f[MAX][MAX];
 
@@ -29,13 +28,14 @@ int ZeroOneKnapsack(int value[MAX],
   // 第 i 个物品
   for (int i = 1; i <= count; i++) {
     // 重量不超过 j
-    for (int j = 0; j <= total_weight; j++) {
+    for (int j = 0; j <= tot_weight; j++) {
       if (j >= weight[i])
-        f[i][j] = max( f[i-1][j], f[i-1][j-weight[i]] + value[i]);
+        f[i][j] = std::max( f[i-1][j],
+                            f[i-1][j-weight[i]] + value[i]);
       else
         f[i][j] = f[i-1][j];
     }
   }
 
-  return f[count][total_weight];
+  return f[count][tot_weight];
 }

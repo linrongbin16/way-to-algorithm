@@ -18,10 +18,10 @@ struct FenwickTree {
   int bit[MAX];
 };
 
-auto FenwickTreeNew() -> FenwickTree*;
-auto FenwickTreeNewFromArray(int s[MAX]) -> FenwickTree*;
-auto FenwickTreeFree(FenwickTree *t) -> void;
-auto FenwickTreeSum(FenwickTree *t, int i) -> int;
+FenwickTree *FenwickTreeNew();
+FenwickTree *FenwickTreeNewFromArray(int *s);
+void FenwickTreeFree(FenwickTree *t);
+int FenwickTreeSum(FenwickTree *t, int i);
 
 
 //
@@ -30,11 +30,11 @@ auto FenwickTreeSum(FenwickTree *t, int i) -> int;
 
 namespace detail {
 
-  auto LowBit(int i) -> int;
+  int LowBit(int i);
 
 }
 
-auto FenwickTreeNew() -> FenwickTree* {
+FenwickTree *FenwickTreeNew() {
   FenwickTree *t = new FenwickTree();
   if (!t) {
     return nullptr;
@@ -44,7 +44,7 @@ auto FenwickTreeNew() -> FenwickTree* {
   return t;
 }
 
-auto FenwickTreeNewFromArray(int s[MAX]) -> FenwickTree* {
+FenwickTree *FenwickTreeNewFromArray(int s[MAX]) {
   FenwickTree *t = new FenwickTree();
   if (!t) {
     return nullptr;
@@ -61,17 +61,17 @@ auto FenwickTreeNewFromArray(int s[MAX]) -> FenwickTree* {
   return t;
 }
 
-auto FenwickTreeFree(FenwickTree *t) -> void {
+void FenwickTreeFree(FenwickTree *t) {
   delete t;
 }
 
-auto FenwickTreeAdd(FenwickTree *t, int i, int v) -> void {
+void FenwickTreeAdd(FenwickTree *t, int i, int v) {
   for (int j = i; j < MAX; j += detail::LowBit(j)) {
     t->bit[j] += v;
   }
 }
 
-auto FenwickTreeSum(FenwickTree *t, int i) -> int {
+int FenwickTreeSum(FenwickTree *t, int i) {
   int sum = 0;
   for (int j = i; j > 0; j -= detail::LowBit(j)) {
     sum += t->bit[j];
@@ -81,7 +81,7 @@ auto FenwickTreeSum(FenwickTree *t, int i) -> int {
 
 namespace detail {
 
-  auto LowBit(int i) -> int {
+  int LowBit(int i) {
     return i & (-i);
   }
 

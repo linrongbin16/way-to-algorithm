@@ -7,12 +7,11 @@
 #define MAX 1024
 #endif
 #include <algorithm>
-using namespace std;
 
 
 // TODO: 该算法存在bug
 
-void LongestIncreasingSubsequenceExtension(const int s[MAX],
+void LongestIncreasingSubsequenceExtension(const int *s,
                                            int n,
                                            int &list,
                                            int &count) {
@@ -33,13 +32,13 @@ void LongestIncreasingSubsequenceExtension(const int s[MAX],
     int max_length = 0;
     for (int k = 1; k < i; k++) {
       if (s[i] > s[k])
-        max_length = max(max_length, f[k]);
+        max_length = std::max(max_length, f[k]);
     }
     f[i] = max_length+1;
   }
   list = 1;
   for (int i = 1; i <= n; i++) {
-    list = max(list, f[i]);
+    list = std::max(list, f[i]);
   }
 
   // 计算相同长度的最长递增子序列的数量
@@ -56,6 +55,6 @@ void LongestIncreasingSubsequenceExtension(const int s[MAX],
   }
   count = 0;
   for (int i = 1; i <= n; i++) {
-    count = max(count, g[i]);
+    count = std::max(count, g[i]);
   }
 }

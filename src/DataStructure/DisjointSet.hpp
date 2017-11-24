@@ -13,14 +13,14 @@
 // interface
 //
 
-struct DisjointSet {
+struct Set {
   int father[MAX];
 };
 
-auto DisjointSetNew() -> DisjointSet*;
-auto DisjointSetFree(DisjointSet *s) -> void;
-auto DisjointSetUnion(DisjointSet *s, int i, int j) -> void;
-auto DisjointSetQuery(DisjointSet *s, int i, int j) -> bool;
+Set *DisjointSetNew();
+void DisjointSetFree(Set *s);
+void DisjointSetUnion(Set *s, int i, int j);
+bool DisjointSetQuery(Set *s, int i, int j);
 
 
 //
@@ -29,12 +29,12 @@ auto DisjointSetQuery(DisjointSet *s, int i, int j) -> bool;
 
 namespace detail {
 
-  auto FindFather(DisjointSet *s, int i) -> int;
+  int FindFather(Set *s, int i);
 
 }
 
-auto DisjointSetNew() -> DisjointSet* {
-  DisjointSet *s = new DisjointSet();
+Set *DisjointSetNew() {
+  Set *s = new Set();
   if (!s) {
     return nullptr;
   }
@@ -43,23 +43,23 @@ auto DisjointSetNew() -> DisjointSet* {
   return s;
 }
 
-auto DisjointSetFree(DisjointSet *s) -> void {
+void DisjointSetFree(Set *s) {
   delete s;
 }
 
-auto DisjointSetUnion(DisjointSet *s, int i, int j) -> void {
+void DisjointSetUnion(Set *s, int i, int j) {
   int i_father = detail::FindFather(s, i);
   int j_father = detail::FindFather(s, j);
   s->father[j] = i_father;
 }
 
-auto DisjointSetQuery(DisjointSet *s, int i, int j) -> bool {
+bool DisjointSetQuery(Set *s, int i, int j) {
   return detail::FindFather(s, i) == detail::FindFather(s, j);
 }
 
 namespace detail {
 
-  auto FindFather(DisjointSet *s, int i) -> int {
+  int FindFather(Set *s, int i) {
     if (s->father[i] != i)
       s->father[i] = FindFather(s, s->father[i]);
     return s->father[i];

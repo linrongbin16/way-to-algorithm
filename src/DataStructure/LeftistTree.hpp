@@ -16,27 +16,27 @@ using namespace std;
 
 struct LeftistTree;
 
-struct LeftistNode {
+struct Node {
   //节点下标
   int index;
   int distance;
-  LeftistNode *left;
-  LeftistNode *right;
+  Node *left;
+  Node *right;
   LeftistTree *tree;
 };
 
 struct LeftistTree {
-  LeftistNode *root;
+  Node *root;
   int size;
-  int (*cmp)(LeftistNode*, LeftistNode*);
+  int (*cmp)(Node*, Node*);
 };
 
-auto LeftistTreeNew(int (*Compare)(LeftistNode *a, LeftistNode *b)) -> LeftistTree*;
-auto LeftistTreeFree(LeftistTree *t) -> void;
-auto LeftistTreeMerge(LeftistTree *a, LeftistTree *b) -> LeftistTree*;
-auto LeftistTreeTop(LeftistTree *t) -> int;
-auto LeftistTreePush(LeftistTree *t, int index) -> int;
-auto LeftistTreePop(LeftistTree *t) -> int;
+LeftistTree *LeftistTreeNew(int (*Compare)(Node *a, Node *b));
+void LeftistTreeFree(LeftistTree *t);
+LeftistTree *LeftistTreeMerge(LeftistTree *a, LeftistTree *b);
+int LeftistTreeTop(LeftistTree *t);
+int LeftistTreePush(LeftistTree *t, int index);
+int LeftistTreePop(LeftistTree *t);
 
 
 //
@@ -45,12 +45,12 @@ auto LeftistTreePop(LeftistTree *t) -> int;
 
 namespace detail {
 
-  auto NodeFree(LeftistNode *e) -> void;
-  auto NodeMerge(LeftistNode *a, LeftistNode *b, LeftistTree *t) -> LeftistNode*;
+  void NodeFree(Node *e);
+  Node *NodeMerge(Node *a, Node *b, LeftistTree *t);
 
 }
 
-auto LeftistTreeNew(int (*Compare)(LeftistNode *a, LeftistNode *b)) -> LeftistTree* {
+LeftistTree *LeftistTreeNew(int (*Compare)(Node *a, Node *b)) {
   LeftistTree *t = new LeftistTree();
   if (!t) return nullptr;
   t->cmp = Compare;
@@ -59,12 +59,12 @@ auto LeftistTreeNew(int (*Compare)(LeftistNode *a, LeftistNode *b)) -> LeftistTr
   return t;
 }
 
-auto LeftistTreeFree(LeftistTree *t) -> void {
+void LeftistTreeFree(LeftistTree *t) {
   detail::NodeFree(t->root);
   delete t;
 }
 
-auto LeftistTreeMerge(LeftistTree *a, LeftistTree *b) -> LeftistTree* {
+LeftistTree *LeftistTreeMerge(LeftistTree *a, LeftistTree *b) {
   LeftistTree *t = new LeftistTree();
   if (!t)
     return nullptr;
@@ -74,12 +74,12 @@ auto LeftistTreeMerge(LeftistTree *a, LeftistTree *b) -> LeftistTree* {
   return t;
 }
 
-auto LeftistTreeTop(LeftistTree *t) -> int {
+int LeftistTreeTop(LeftistTree *t) {
   return t->root ? t->root->index : -1;
 }
 
-auto LeftistTreePush(LeftistTree *t, int index) -> int {
-  LeftistNode *e = new LeftistNode();
+int LeftistTreePush(LeftistTree *t, int index) {
+  Node *e = new Node();
   if (!e)
     return -1;
   e->distance = 0;
@@ -94,11 +94,11 @@ auto LeftistTreePush(LeftistTree *t, int index) -> int {
   return 0;
 }
 
-auto LeftistTreePop(LeftistTree *t) -> int {
+int LeftistTreePop(LeftistTree *t) {
   if (t->size <= 0)
     return -1;
 
-  LeftistNode *old = t->root;
+  Node *old = t->root;
   t->root = detail::NodeMerge(t->root->left, t->root->right, t);
   t->size -= 1;
   delete old;
@@ -108,14 +108,14 @@ auto LeftistTreePop(LeftistTree *t) -> int {
 
 namespace detail {
 
-  auto NodeFree(LeftistNode *e) -> void {
+  void NodeFree(Node *e) {
     if (!e) return;
     NodeFree(e->left);
     NodeFree(e->right);
     delete e;
   }
 
-  auto NodeMerge(LeftistNode *a, LeftistNode *b, LeftistTree *t) -> LeftistNode* {
+  Node *NodeMerge(Node *a, Node *b, LeftistTree *t) {
     if (!a and !b)
       return nullptr;
     if (!a) {

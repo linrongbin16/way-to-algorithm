@@ -25,16 +25,15 @@
 //初始条件: f[i][i]为0 其他都为INF 1<=i<=n
 //即i到i的合并代价为0 其他代价为INF
 
-#include <climits>
-#include <algorithm>
-#include <iostream>
-using namespace std;
 #ifndef MAX
 #define MAX 60
 #endif
 #ifndef INF
 #define INF INT_MAX
 #endif
+#include <climits>
+#include <algorithm>
+#include <iostream>
 
 int minimum_merge_cost(int s[MAX], int n)
 {

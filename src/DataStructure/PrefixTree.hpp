@@ -3,12 +3,11 @@
 
 #pragma once
 
+#ifndef MAX
+#define MAX 128
+#endif
 #include <cstring>
 #include <cassert>
-#ifndef MAX
-#define MAX 64
-#endif
-using namespace std;
 
 
 //
@@ -22,11 +21,11 @@ struct PrefixTree {
   PrefixTree *child[26];
 };
 
-auto PrefixTreeNew() -> PrefixTree*;
-auto PrefixTreeFree(PrefixTree *t) -> void;
-auto PrefixTreeInsert(PrefixTree *t, const char *word) -> void;
-auto PrefixTreeFind(PrefixTree *t, const char *word) -> int;
-auto PrefixTreeErase(PrefixTree *t, const char *word) -> void;
+PrefixTree *PrefixTreeNew();
+void PrefixTreeFree(PrefixTree *t);
+void PrefixTreeInsert(PrefixTree *t, const char *word);
+int PrefixTreeFind(PrefixTree *t, const char *word);
+void PrefixTreeErase(PrefixTree *t, const char *word);
 
 
 //
@@ -35,11 +34,11 @@ auto PrefixTreeErase(PrefixTree *t, const char *word) -> void;
 
 namespace detail {
 
-  auto ChildIndex(char letter) -> int;
+  int ChildIndex(char letter);
 
 }
 
-auto PrefixTreeNew() -> PrefixTree* {
+PrefixTree *PrefixTreeNew() {
   PrefixTree *t = new PrefixTree();
   if (!t) return nullptr;
   t->letter = (char)(-1);
@@ -48,7 +47,7 @@ auto PrefixTreeNew() -> PrefixTree* {
   return t;
 }
 
-auto PrefixTreeFree(PrefixTree *t) -> void {
+void PrefixTreeFree(PrefixTree *t) {
   if (!t)
     return;
   for (int i = 0; i < 26; i++)
@@ -56,7 +55,7 @@ auto PrefixTreeFree(PrefixTree *t) -> void {
   delete t;
 }
 
-auto PrefixTreeInsert(PrefixTree *t, const char *word) -> void {
+void PrefixTreeInsert(PrefixTree *t, const char *word) {
   int n = strlen(word);
   PrefixTree *e = t;
   for (int i = 0; i < n; i++) {
@@ -76,7 +75,7 @@ auto PrefixTreeInsert(PrefixTree *t, const char *word) -> void {
   }
 }
 
-auto PrefixTreeFind(PrefixTree *t, const char *word) -> int {
+int PrefixTreeFind(PrefixTree *t, const char *word) {
   PrefixTree *e = t;
   int n = strlen(word);
   for (int i = 0; i < n; i++) {
@@ -92,7 +91,7 @@ auto PrefixTreeFind(PrefixTree *t, const char *word) -> int {
   return 0;
 }
 
-auto PrefixTreeErase(PrefixTree *t, const char *word) -> void {
+void PrefixTreeErase(PrefixTree *t, const char *word) {
   PrefixTree *e = t;
   int n = strlen(word);
   for (int i = 0; i < n; i++) {
@@ -107,7 +106,7 @@ auto PrefixTreeErase(PrefixTree *t, const char *word) -> void {
 
 namespace detail {
 
-  auto ChildIndex(char letter) -> int {
+  int ChildIndex(char letter) {
     return (int)(letter - 'a');
   }
 

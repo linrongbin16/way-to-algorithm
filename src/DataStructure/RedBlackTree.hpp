@@ -8,30 +8,33 @@
 #include <algorithm>
 #include <utility>
 #include <cassert>
-using namespace std;
-
 #define RED     'R'
 #define BLACK   'B'
 
-struct RedBlackTreeNode {
+
+//
+// interface
+//
+
+struct Node {
   /* 节点颜色 */
   char color;
   /* 节点值 */
   int index;
-  RedBlackTreeNode *left;
-  RedBlackTreeNode *right;
-  RedBlackTreeNode *father;
+  Node *left;
+  Node *right;
+  Node *father;
 };
 
 struct RedBlackTree {
-  RedBlackTreeNode *root;
+  Node *root;
 };
 
-auto RedBlackTreeNew() -> RedBlackTree*;
-auto RedBlackTreeFree(RedBlackTree *t) -> void;
-auto RedBlackTreeInsert(RedBlackTree *t, int index) -> void;
-auto RedBlackTreeFind(RedBlackTree *t, int index) -> int;
-auto RedBlackTreeErase(RedBlackTree *t, int index) -> void;
+RedBlackTree *RedBlackTreeNew();
+void RedBlackTreeFree(RedBlackTree *t);
+void RedBlackTreeInsert(RedBlackTree *t, int index);
+int RedBlackTreeFind(RedBlackTree *t, int index);
+void RedBlackTreeErase(RedBlackTree *t, int index);
 
 
 //
@@ -40,43 +43,43 @@ auto RedBlackTreeErase(RedBlackTree *t, int index) -> void;
 
 namespace detail {
 
-  auto Color(RedBlackTreeNode *e) -> char;
-  auto Index(RedBlackTreeNode *e) -> int;
-  auto Previous(RedBlackTreeNode *e) -> RedBlackTreeNode*;
-  auto Next(RedBlackTreeNode *e) -> RedBlackTreeNode*;
-  auto Father(RedBlackTreeNode *e) -> RedBlackTreeNode*;
-  auto Left(RedBlackTreeNode *e) -> RedBlackTreeNode*;
-  auto Right(RedBlackTreeNode *e) -> RedBlackTreeNode*;
-  auto Uncle(RedBlackTreeNode *e) -> RedBlackTreeNode*;
-  auto GrandFather(RedBlackTreeNode *e) -> RedBlackTreeNode*;
-  auto Brother(RedBlackTreeNode *e) -> RedBlackTreeNode*;
-  auto IsLeftChild(RedBlackTreeNode *e) -> bool;
-  auto IsRightChild(RedBlackTreeNode *e) -> bool;
-  auto ChildNumber(RedBlackTreeNode *e) -> int;
-  auto SwapIndex(RedBlackTreeNode *a, RedBlackTreeNode *b) -> void;
-  auto SwapColor(RedBlackTreeNode *a, RedBlackTreeNode *b) -> void;
+  char Color(Node *e);
+  int Index(Node *e);
+  Node *Previous(Node *e);
+  Node *Next(Node *e);
+  Node *Father(Node *e);
+  Node *Left(Node *e);
+  Node *Right(Node *e);
+  auto Uncle(Node *e) -> Node*;
+  auto GrandFather(Node *e) -> Node*;
+  auto Brother(Node *e) -> Node*;
+  auto IsLeftChild(Node *e) -> bool;
+  auto IsRightChild(Node *e) -> bool;
+  auto ChildNumber(Node *e) -> int;
+  auto SwapIndex(Node *a, Node *b) -> void;
+  auto SwapColor(Node *a, Node *b) -> void;
 
-  auto NodeFree(RedBlackTreeNode *e) -> void;
-  auto NodeFind(RedBlackTree *t, int index, RedBlackTreeNode **father) -> RedBlackTreeNode*;
-  auto InsertCase1(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto InsertCase2(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto InsertCase3(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto InsertCase4(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto InsertCase5(RedBlackTree *t, RedBlackTreeNode *e) -> void;
+  auto NodeFree(Node *e) -> void;
+  auto NodeFind(RedBlackTree *t, int index, Node **father) -> Node*;
+  auto InsertCase1(RedBlackTree *t, Node *e) -> void;
+  auto InsertCase2(RedBlackTree *t, Node *e) -> void;
+  auto InsertCase3(RedBlackTree *t, Node *e) -> void;
+  auto InsertCase4(RedBlackTree *t, Node *e) -> void;
+  auto InsertCase5(RedBlackTree *t, Node *e) -> void;
 
-  auto EraseCase0(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto EraseCase0_A(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto EraseCase0_B(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto EraseCase0_C(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto EraseCase1(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto EraseCase2(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto EraseCase3(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto EraseCase4(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto EraseCase5(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto EraseCase6(RedBlackTree *t, RedBlackTreeNode *e) -> void;
+  auto EraseCase0(RedBlackTree *t, Node *e) -> void;
+  auto EraseCase0_A(RedBlackTree *t, Node *e) -> void;
+  auto EraseCase0_B(RedBlackTree *t, Node *e) -> void;
+  auto EraseCase0_C(RedBlackTree *t, Node *e) -> void;
+  auto EraseCase1(RedBlackTree *t, Node *e) -> void;
+  auto EraseCase2(RedBlackTree *t, Node *e) -> void;
+  auto EraseCase3(RedBlackTree *t, Node *e) -> void;
+  auto EraseCase4(RedBlackTree *t, Node *e) -> void;
+  auto EraseCase5(RedBlackTree *t, Node *e) -> void;
+  auto EraseCase6(RedBlackTree *t, Node *e) -> void;
 
-  auto RotateLeft(RedBlackTree *t, RedBlackTreeNode *e) -> void;
-  auto RotateRight(RedBlackTree *t, RedBlackTreeNode *e) -> void;
+  auto RotateLeft(RedBlackTree *t, Node *e) -> void;
+  auto RotateRight(RedBlackTree *t, Node *e) -> void;
 
 }
 
@@ -93,9 +96,9 @@ auto RedBlackTreeFree(RedBlackTree *t) -> void {
 }
 
 auto RedBlackTreeInsert(RedBlackTree *t, int index) -> void {
-  RedBlackTreeNode *e = new RedBlackTreeNode();
-  RedBlackTreeNode *father = nullptr;
-  RedBlackTreeNode *tmp;
+  Node *e = new Node();
+  Node *father = nullptr;
+  Node *tmp;
   tmp = detail::NodeFind(t, index, &father);
   assert(tmp == nullptr);
   e->color = RED;
@@ -118,14 +121,14 @@ auto RedBlackTreeFind(RedBlackTree *t, int index) -> int {
 }
 
 auto RedBlackTreeErase(RedBlackTree *t, int index) -> void {
-  RedBlackTreeNode *e = detail::NodeFind(t, index, nullptr);
+  Node *e = detail::NodeFind(t, index, nullptr);
   assert(e);
   detail::EraseCase0(t, e);
 }
 
 namespace detail {
 
-  auto NodeFree(RedBlackTreeNode *e) -> void {
+  auto NodeFree(Node *e) -> void {
     if (!e)
       return;
     NodeFree(detail::Left(e));
@@ -133,10 +136,10 @@ namespace detail {
     delete e;
   }
 
-  auto RotateLeft(RedBlackTree *t, RedBlackTreeNode *e) -> void {
-    RedBlackTreeNode *p = e;
-    RedBlackTreeNode *q = detail::Right(e);
-    RedBlackTreeNode *father = detail::Father(e);
+  auto RotateLeft(RedBlackTree *t, Node *e) -> void {
+    Node *p = e;
+    Node *q = detail::Right(e);
+    Node *father = detail::Father(e);
 
     if (father == nullptr) {
       t->root = q;
@@ -156,10 +159,10 @@ namespace detail {
     q->left = p;
   }
 
-  auto RotateRight(RedBlackTree *t, RedBlackTreeNode *e) -> void {
-    RedBlackTreeNode *p = e;
-    RedBlackTreeNode *q = Left(e); /* can't be nullptr */
-    RedBlackTreeNode *father = Father(p);
+  auto RotateRight(RedBlackTree *t, Node *e) -> void {
+    Node *p = e;
+    Node *q = Left(e); /* can't be nullptr */
+    Node *father = Father(p);
     assert(q);
 
     if (p->father == nullptr) {
@@ -180,8 +183,8 @@ namespace detail {
     q->right = p;
   }
 
-  auto NodeFind(RedBlackTree *t, int index, RedBlackTreeNode **father) -> RedBlackTreeNode* {
-    RedBlackTreeNode *cur = t->root;
+  auto NodeFind(RedBlackTree *t, int index, Node **father) -> Node* {
+    Node *cur = t->root;
     while (cur) {
       if (Index(cur) == index)
         return cur;
@@ -199,7 +202,7 @@ namespace detail {
     return nullptr;
   }
 
-  auto InsertCase1(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto InsertCase1(RedBlackTree *t, Node *e) -> void {
     if (t->root == nullptr) {
       assert(t->root == nullptr);
       assert(Father(e) == nullptr);
@@ -210,13 +213,13 @@ namespace detail {
     }
   }
 
-  auto InsertCase2(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto InsertCase2(RedBlackTree *t, Node *e) -> void {
     if (Color(Father(e)) == RED) {
       InsertCase3(t, e);
     }
   }
 
-  auto InsertCase3(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto InsertCase3(RedBlackTree *t, Node *e) -> void {
     if (IsLeftChild(Father(e))) {
     }
     if (Color(Uncle(e)) == RED) {
@@ -229,7 +232,7 @@ namespace detail {
     }
   }
 
-  auto InsertCase4(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto InsertCase4(RedBlackTree *t, Node *e) -> void {
     if (IsRightChild(e) and IsLeftChild(Father(e))) {
       RotateLeft(t, Father(e));
       e = Left(e);
@@ -240,7 +243,7 @@ namespace detail {
     InsertCase5(t, e);
   }
 
-  auto InsertCase5(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto InsertCase5(RedBlackTree *t, Node *e) -> void {
     Father(e)->color = BLACK;
     GrandFather(e)->color = RED;
     if (IsLeftChild(e) and IsLeftChild(Father(e))) {
@@ -252,7 +255,7 @@ namespace detail {
     }
   }
 
-  auto EraseCase0(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto EraseCase0(RedBlackTree *t, Node *e) -> void {
     int child_number = ChildNumber(e);
     if (child_number == 0) {
       // 删除操作 0-a
@@ -266,7 +269,7 @@ namespace detail {
     }
   }
 
-  auto EraseCase0_A(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto EraseCase0_A(RedBlackTree *t, Node *e) -> void {
     if (Left(Father(e)) == e)
       Father(e)->left = nullptr;
     else if (e->father->right == e)
@@ -274,8 +277,8 @@ namespace detail {
     delete e;
   }
 
-  auto EraseCase0_B(RedBlackTree *t, RedBlackTreeNode *e) -> void {
-    RedBlackTreeNode *child = Left(e)? Left(e) : Right(e);
+  auto EraseCase0_B(RedBlackTree *t, Node *e) -> void {
+    Node *child = Left(e)? Left(e) : Right(e);
     SwapIndex(child, e);
 
     // now "child" is father of "e", while "e" is child of "child"
@@ -284,13 +287,13 @@ namespace detail {
     EraseCase1(t, child);
   }
 
-  auto EraseCase0_C(RedBlackTree *t, RedBlackTreeNode *e) -> void {
-    RedBlackTreeNode *next = Next(e);
+  auto EraseCase0_C(RedBlackTree *t, Node *e) -> void {
+    Node *next = Next(e);
     e->index = Index(next);
     EraseCase0(t, next);
   }
 
-  auto EraseCase1(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto EraseCase1(RedBlackTree *t, Node *e) -> void {
     if (t->root != e) {
       assert(t->root != e);
       assert(Father(e) != nullptr);
@@ -298,7 +301,7 @@ namespace detail {
     }
   }
 
-  auto EraseCase2(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto EraseCase2(RedBlackTree *t, Node *e) -> void {
     if (Color(Brother(e)) == RED) {
       Father(e)->color = RED;
       Brother(e)->color = BLACK;
@@ -312,7 +315,7 @@ namespace detail {
     EraseCase3(t, e);
   }
 
-  auto EraseCase3(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto EraseCase3(RedBlackTree *t, Node *e) -> void {
     if (Color(Father(e)) == BLACK and Color(Brother(e)) == BLACK
       and Color(Left(Brother(e))) == BLACK and Color(Right(Brother(e))) == BLACK) {
       Brother(e)->color = RED;
@@ -322,7 +325,7 @@ namespace detail {
     }
   }
 
-  auto EraseCase4(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto EraseCase4(RedBlackTree *t, Node *e) -> void {
     if (Color(Brother(e)) == BLACK and Color(Father(e)) == RED
       and Color(Left(Brother(e))) == BLACK and Color(Right(Brother(e))) == BLACK) {
       SwapColor(Father(e), Brother(e));
@@ -331,7 +334,7 @@ namespace detail {
     }
   }
 
-  auto EraseCase5(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto EraseCase5(RedBlackTree *t, Node *e) -> void {
     if (IsLeftChild(e) and Color(Brother(e)) == BLACK
       and Color(Left(Brother(e))) == RED and Color(Right(Brother(e))) == BLACK) {
       SwapColor(Brother(e), Left(Brother(e)));
@@ -344,7 +347,7 @@ namespace detail {
     EraseCase6(t, e);
   }
 
-  auto EraseCase6(RedBlackTree *t, RedBlackTreeNode *e) -> void {
+  auto EraseCase6(RedBlackTree *t, Node *e) -> void {
     SwapColor(Brother(e), Father(e));
     if (IsLeftChild(e)) {
       assert(Color(Right(Brother(e))) == RED);
@@ -357,41 +360,41 @@ namespace detail {
     }
   }
 
-  auto SwapIndex(RedBlackTreeNode *a, RedBlackTreeNode *b) -> void {
+  auto SwapIndex(Node *a, Node *b) -> void {
     swap(a->index, b->index);
   }
 
-  auto SwapColor(RedBlackTreeNode *a, RedBlackTreeNode *b) -> void {
+  auto SwapColor(Node *a, Node *b) -> void {
     swap(a->color, b->color);
   }
 
-  auto Color(RedBlackTreeNode *e) -> char {
+  auto Color(Node *e) -> char {
       return e ? e->color : BLACK;
   }
 
-  auto Index(RedBlackTreeNode *e) -> int {
+  auto Index(Node *e) -> int {
     if (!e)
       return -1;
     return e->index;
   }
 
-  auto Previous(RedBlackTreeNode *e) -> RedBlackTreeNode* {
+  auto Previous(Node *e) -> Node* {
     while (e->left)
       e = e->left;
     return e;
   }
 
-  auto Next(RedBlackTreeNode *e) -> RedBlackTreeNode* {
+  auto Next(Node *e) -> Node* {
     while (e->right)
       e = e->right;
     return e;
   }
 
-  auto Father(RedBlackTreeNode *e) -> RedBlackTreeNode* {
+  auto Father(Node *e) -> Node* {
     return e ? e->father : nullptr;
   }
 
-  auto Uncle(RedBlackTreeNode *e) -> RedBlackTreeNode* {
+  auto Uncle(Node *e) -> Node* {
     if (!GrandFather(e))
       return nullptr;
     if (GrandFather(e)->left == e)
@@ -401,7 +404,7 @@ namespace detail {
     return nullptr;
   }
 
-  RedBlackTreeNode* GrandFather(RedBlackTreeNode *e)
+  Node* GrandFather(Node *e)
   {
       if (!e)
           return nullptr;
@@ -409,7 +412,7 @@ namespace detail {
           return nullptr;
       return e->father->father;
   }
-  RedBlackTreeNode* Brother(RedBlackTreeNode *e)
+  Node* Brother(Node *e)
   {
       if (!e)
           return nullptr;
@@ -421,28 +424,28 @@ namespace detail {
           return Left(Father(e));
       return nullptr;
   }
-  bool IsLeftChild(RedBlackTreeNode *e)
+  bool IsLeftChild(Node *e)
   {
       if (!Father(e))
           return false;
       return Left(Father(e)) == e;
   }
-  bool IsRightChild(RedBlackTreeNode *e)
+  bool IsRightChild(Node *e)
   {
       if (!Father(e))
           return false;
       return Right(Father(e)) == e;
   }
-  int ChildNumber(RedBlackTreeNode *e)
+  int ChildNumber(Node *e)
   {
       return e ? ((e->left ? 1 : 0) + (e->right ? 1 : 0)) : 0;
   }
 
-  RedBlackTreeNode* Left(RedBlackTreeNode *e)
+  Node* Left(Node *e)
   {
       return e ? e->left : nullptr;
   }
-  RedBlackTreeNode* Right(RedBlackTreeNode *e)
+  Node* Right(Node *e)
   {
       return e ? e->right : nullptr;
   }

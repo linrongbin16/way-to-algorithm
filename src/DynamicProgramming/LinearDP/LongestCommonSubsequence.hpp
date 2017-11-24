@@ -8,13 +8,10 @@
 #endif
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 
 // 序列a和b的范围是[1,n]
-auto LongestCommonSubsequence(const int a[MAX],
-                             const int b[MAX],
-                             int n) -> int {
+int LongestCommonSubsequence(const int *a, const int *b, int n) {
   int f[MAX][MAX];
 
   // 初始化
@@ -28,7 +25,7 @@ auto LongestCommonSubsequence(const int a[MAX],
       if (a[i] == b[j])
         f[i][j] = f[i-1][j-1] + 1;
       else
-        f[i][j] = max( f[i-1][j], f[i][j-1] );
+        f[i][j] = std::max( f[i-1][j], f[i][j-1] );
     }
   }
 

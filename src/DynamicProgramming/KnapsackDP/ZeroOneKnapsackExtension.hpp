@@ -8,16 +8,15 @@
 #endif
 #include <vector>
 #include <algorithm>
-using namespace std;
+
 
 // TODO: ∏√À„∑®”–bug
 
-
-int ZeroOneKnapsackExtension(int value[MAX],
-                             int weight[MAX],
+int ZeroOneKnapsackExtension(int *value,
+                             int *weight,
                              int count,
-                             int total_weight,
-                             bool choose[MAX]) {
+                             int tot_weight,
+                             bool *choose) {
 
   int f[MAX][MAX];
   bool g[MAX][MAX][MAX];
@@ -29,7 +28,7 @@ int ZeroOneKnapsackExtension(int value[MAX],
   }
 
   for (int i = 1; i <= count; i++) {
-    for (int j = 0; j <= total_weight; j++) {
+    for (int j = 0; j <= tot_weight; j++) {
       int old_f = f[i-1][j];
       if (j >= weight[i]) {
         int new_f = f[i-1][j - weight[i]] + value[i];
@@ -50,7 +49,7 @@ int ZeroOneKnapsackExtension(int value[MAX],
 
   for (int i = 0; i < MAX; i++)
     choose[i] = 0;
-  for (int i = count, w = total_weight, v = f[count][total_weight]; i >= 1; i--) {
+  for (int i = count, w = tot_weight, v = f[count][tot_weight]; i >= 1; i--) {
     if (g[i][w][v]) {
       choose[i] = true;
       w -= weight[i];
@@ -58,5 +57,5 @@ int ZeroOneKnapsackExtension(int value[MAX],
     }
   }
 
-  return f[count][total_weight];
+  return f[count][tot_weight];
 }
