@@ -1,5 +1,6 @@
 #include "DepthFirstSearch.hpp"
 #include <cassert>
+using namespace std;
 
 struct Test {
     int g[MAX][MAX];

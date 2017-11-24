@@ -361,11 +361,11 @@ namespace detail {
   }
 
   auto SwapIndex(Node *a, Node *b) -> void {
-    swap(a->index, b->index);
+    std::swap(a->index, b->index);
   }
 
   auto SwapColor(Node *a, Node *b) -> void {
-    swap(a->color, b->color);
+    std::swap(a->color, b->color);
   }
 
   auto Color(Node *e) -> char {

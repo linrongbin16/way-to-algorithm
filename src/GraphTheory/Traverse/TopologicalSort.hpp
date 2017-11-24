@@ -54,16 +54,16 @@ std::vector<int> TopologicalSort(int g[MAX][MAX], int n) {
     int dist = 0;
     // 重置visited 让任意节点i可以尽可能深的进行DFS
     memset(visited, 0, sizeof(visited));
-    std::vector<int> seq;
-    detail::DFS(g, n, i, visited, seq);
-    seq[i].dist = seq.size();
+    std::vector<int> counter;
+    detail::DFS(g, n, i, visited, counter);
+    seq[i].dist = counter.size();
   }
   std::sort(seq.begin(), seq.end(), detail::TopoCompare);
 
-  std::vector<int> topo_seq;
+  std::vector<int> topologic;
   for (int i = 0; i < seq.size(); i++)
-    topo_seq.push_back(seq[i].index);
-  return topo_seq;
+    topologic.push_back(seq[i].index);
+  return topologic;
 }
 
 namespace detail {

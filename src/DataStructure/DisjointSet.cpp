@@ -6,7 +6,7 @@
 #include <assert.h>
 using namespace std;
 
-auto PrintSet(DisjointSet *s, int n) -> void {
+auto PrintSet(Set *s, int n) -> void {
   for (int i = 0; i < n; i++) {
     cout << s->father[i] << " ";
   }
@@ -18,7 +18,7 @@ auto PrintSet(DisjointSet *s, int n) -> void {
 }
 
 auto test1() -> void {
-  DisjointSet *s = DisjointSetNew();
+  Set *s = DisjointSetNew();
   assert(s);
   DisjointSetUnion(s, 0, 4);
   DisjointSetUnion(s, 1, 9);
@@ -61,7 +61,7 @@ auto test1() -> void {
 }
 
 auto test2() -> void {
-  DisjointSet *s = DisjointSetNew();
+  Set *s = DisjointSetNew();
   assert(s);
   DisjointSetUnion(s, 1, 2);
   DisjointSetUnion(s, 1, 3);

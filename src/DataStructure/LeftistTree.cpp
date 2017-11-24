@@ -8,10 +8,10 @@ using namespace std;
 
 #define TEST_MAX 1024
 
-auto Greater(LeftistNode *a, LeftistNode *b) -> int {
+auto Greater(Node *a, Node *b) -> int {
   return b->index - a->index;
 }
-auto Less(LeftistNode *a, LeftistNode *b) -> int {
+auto Less(Node *a, Node *b) -> int {
   return a->index - b->index;
 }
 
