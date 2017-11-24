@@ -3,11 +3,10 @@
 
 #pragma once
 
-#include <tuple>
-using namespace std;
 #ifndef MAX
 #define MAX 1024
 #endif
+#include <tuple>
 
 
 /**
@@ -18,7 +17,7 @@ using namespace std;
  * @params index        返回找到的x下标
  * @return              找到x返回true 否则返回false
  */
-auto BinarySearch(int s[MAX], int beg, int end, int x) -> tuple<bool, int> {
+std::tuple<bool, int> BinarySearch(int *s, int beg, int end, int x) {
   int low = beg;
   int high = end - 1;
   int mid;
@@ -27,12 +26,12 @@ auto BinarySearch(int s[MAX], int beg, int end, int x) -> tuple<bool, int> {
     mid = (low + high) / 2;
     if (s[mid] == x) {
       index = mid;
-      return make_tuple(true, index);
+      return std::make_tuple(true, index);
     } else if (s[mid] > x) {
       high = mid - 1;
     } else if (s[mid] < x) {
       low = mid + 1;
     }
   }
-  return make_tuple(false, -1);
+  return std::make_tuple(false, -1);
 }

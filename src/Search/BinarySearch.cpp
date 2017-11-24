@@ -10,7 +10,7 @@ using namespace std;
 
 #define TEST_MAX 1024
 
-auto main() -> int {
+int main(void) {
   int s[MAX];
   for (int i = 1; i < TEST_MAX; ++i) {
     for (int j = 0; j < i; ++j)

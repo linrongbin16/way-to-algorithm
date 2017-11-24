@@ -92,7 +92,7 @@ std::vector<Node> AStarSearch(Node beg, Node end) {
       close.insert(std::make_pair(neighbor, node));
     }
   }
-  return std::vector<Node>();
+  return {};
 }
 
 Node::Node() {
