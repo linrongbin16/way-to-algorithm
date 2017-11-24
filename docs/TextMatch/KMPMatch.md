@@ -1,2 +1,0 @@
-# KMPMatch - KMP匹配
-
