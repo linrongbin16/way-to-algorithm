@@ -3,14 +3,13 @@
 
 #pragma once
 
+#ifndef MAX
+#define MAX 128
+#endif
 #include <vector>
 #include <queue>
 #include <algorithm>
 #include <cstring>
-using namespace std;
-#ifndef MAX
-#define MAX 128
-#endif
 
 
 /* 总是从节点0开始进行遍历 */

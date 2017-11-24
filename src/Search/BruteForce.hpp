@@ -5,21 +5,29 @@
 
 #include <vector>
 #include <cstring>
-using namespace std;
 #ifndef MAX
 #define MAX 1024
 #endif
 
+//
+// interface
+//
 
-auto ArrayToVector(int s[MAX], int n) -> vector<int> {
-    vector<int> ret;
-    for (int i = 0; i < n; i++)
-        ret.push_back(s[i]);
-    return ret;
+std::vector<std::vector<int>> BruteForce(int s[MAX], int n, int m);
+
+
+//
+// implement
+//
+
+namespace detail {
+
+  std::vector<int> ArrayToVector(int *s, int n);
+
 }
 
-auto BruteForce(int s[MAX], int n, int m) -> vector<vector<int>> {
-  vector<vector<int>> comb;
+std::vector<std::vector<int>> BruteForce(int s[MAX], int n, int m) {
+  std::vector<std::vector<int>> comb;
   for (int i_0 = 0; i_0 < m; i_0++)
     for (int i_1 = 0; i_1 < m; i_1++)
       for (int i_2 = 0; i_2 < m; i_2++)
@@ -30,9 +38,18 @@ auto BruteForce(int s[MAX], int n, int m) -> vector<vector<int>> {
           s[2] = i_2;
           /* ... */
           s[n - 1] = i_n_1;
-          comb.push_back(ArrayToVector(s, n));
+          comb.push_back(detail::ArrayToVector(s, n));
         }
-
   return comb;
 }
 
+namespace detail {
+
+  std::vector<int> ArrayToVector(int *s, int n) {
+    std::vector<int> ret;
+    for (int i = 0; i < n; i++)
+      ret.push_back(s[i]);
+    return ret;
+  }
+
+}

@@ -42,14 +42,13 @@ struct Test {
 };
 
 
-auto AssertArrayEqual(int s1[MAX], int n1, int s2[MAX], int n2) -> void
-{
+void AssertArrayEqual(int *s1, int n1, int *s2, int n2) {
   assert(n1 == n2);
   for (int i = 0; i < n1; i++)
     assert(s1[i] == s2[i]);
 }
 
-auto main() -> int {
+int main(void) {
   int n, m;
   int subset[MAX][MAX];
   int cover[MAX];

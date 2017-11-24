@@ -5,7 +5,6 @@
 
 #include <vector>
 #include <cstring>
-using namespace std;
 
 
 /**
@@ -16,10 +15,10 @@ using namespace std;
  * @param prev  上一个选择过的成员下标
  * @param comb  所有选择的集合
 */
-auto Recursion(vector<int> &tmp,
-                const vector<int> &candidates,
-                int prev,
-                vector<vector<int>> &comb) -> void {
+void Recursion(std::vector<int> &tmp,
+               const std::vector<int> &candidates,
+               int prev,
+               std::vector<std::vector<int>> &comb) {
 
   /* 递归终止条件 */
   if (prev == tmp.size()) {
