@@ -3,117 +3,192 @@
 
 #pragma once
 
+#ifndef MAX
+#define MAX 1024
+#endif
 #include <algorithm>
-#include <deque>
 #include <vector>
 #include <climits>
 #include <cstring>
 #include <string>
-#include <unordered_map>
-#include <unordered_set>
 #include <utility>
-using namespace std;
-
-#ifndef MAX
-#define MAX 1024
-#endif
+#include <map>
+#include <unordered_map>
+#include <cassert>
 
 
-int direction[4] = { -3, 3, -1, 1 };
+//
+// interface
+//
+
+struct Node {
+  char number[9];
+
+  Node();
+  explicit Node(const char *number1);
+  Node(const Node &other);
+  Node& operator=(const Node &other);
+  friend bool operator==(const Node &a, const Node &b);
+  friend bool operator!=(const Node &a, const Node &b);
+  friend int operator-(const Node &a, const Node &b);
+  Node Neighbor(int direction) const;
+};
+
+std::vector<Node> AStarSearch(Node beg, Node end);
 
 
-int ScoreH(string a, string end) {
-  int diff = 0;
-  for (int i = 0; i < 9; ++i)
-    if (a[i] != end[i])
-      ++diff;
-  return diff;
+//
+// implement
+//
+
+namespace detail {
+
+  int direction[4] = { -3, 3, -1, 1 };
+  Node invalid = Node("---------");
+
+  Node OpenPop(std::vector<Node> &open, Node end, std::unordered_map<Node, int> &score_g);
+  void OpenErase(std::vector<Node> &open, Node e);
+  std::vector<Node> FindPath(const std::unordered_map<Node, Node> &close, Node end);
+
 }
 
-string OpenPop(deque<string> *open,
-               string end_node,
-               unordered_map<string, int> &score_g) {
-  string res;
-  int f = INT_MAX;
-  auto i = open->begin();
-  for (; i != open->end(); i++) {
-    int h = ScoreH(*i, end_node);
-    if (f > h + score_g[*i]) {
-      f = h + score_g[*i];
-      res = *i;
+namespace std {
+  template <> struct hash<Node> {
+    typedef Node argument_type;
+    typedef std::size_t result_type;
+    result_type operator()(argument_type const &other) const {
+      return std::hash<std::string>{}(std::string(other.number));
     }
-  }
-  open->erase(i);
-  return res;
+  };
 }
 
-void OpenErase(deque<string> &open, string node) {
-  for (auto i = open.begin(); i != open.end(); i++) {
-    if (node == *i) {
-      open.erase(i);
-      break;
-    }
-  }
-}
-
-auto Neighbor(string node, int dir) -> string {
-  int xpos;
-  for (xpos = 0; xpos < 9; xpos++)
-    if (node[xpos] == 'x')
-      break;
-  int npos = xpos + dir;
-  if (npos < 0 or npos >= 9)
-    return "";
-
-  swap(node[xpos], node[npos]);
-  return node;
-}
-
-auto FindPath(vector<string> &path,
-              unordered_map<string, string> &close,
-              string end_node) -> void {
-  string node = end_node;
-  path.push_back(node);
-
-  while (true) {
-    auto from = close.find(node);
-    if (from == close.end())
-      break;
-    path.push_back(from->second);
-    node = from->second;
-  }
-}
-
-auto AStarSearch(string beg, string end) -> vector<string> {
-  unordered_map<string, int> score_g;
-  deque<string> open;
-  unordered_map<string, string> close;
-  vector<string> path;
+std::vector<Node> AStarSearch(Node beg, Node end) {
+  std::unordered_map<Node, int> score_g;
+  std::vector<Node> open;
+  std::unordered_map<Node, Node> close;
 
   open.push_back(beg);
-  close.insert(make_pair(beg, ""));
+  close.insert(std::make_pair(beg, detail::invalid));
+
   while (!open.empty()) {
-    string node = OpenPop(open, end, score_g);
+    Node node = detail::OpenPop(open, end, score_g);
     if (node == end) {
-      FindPath(path, close, end);
-      return path;
+      return detail::FindPath(close, end);
     }
 
     /* node中'x'与上下左右4个方向的数字交换位置 */
     for (int i = 0; i < 4; i++) {
-      string neighbor_node = Neighbor(node, i);
-      if (neighbor_node == "") {
+      Node neighbor = node.Neighbor(i);
+      if (neighbor == detail::invalid) {
         continue;
       }
       // 邻节点的g(x)加1
-      score_g[ neighbor_node ] = score_g[node] + 1;
+      score_g[neighbor] = score_g[node] + 1;
 
       // 若close中已经存在neighbor_node则跳过该点
-      if (close.find(neighbor_node) != close.end())
+      if (close.find(neighbor) != close.end())
         continue;
-      open.push_back(neighbor_node);
-      close.insert(make_pair(neighbor_node, node));
+      open.push_back(neighbor);
+      close.insert(std::make_pair(neighbor, node));
     }
   }
-  return path;
+  return std::vector<Node>();
 }
+
+Node::Node() {
+  memcpy(number, detail::invalid.number, sizeof(number));
+}
+
+Node::Node(const char *number1) {
+  memcpy(number, number1, sizeof(number));
+}
+
+Node::Node(const Node &other) {
+  memcpy(number, other.number, sizeof(number));
+}
+
+Node& Node::operator=(const Node &other) {
+  if (this == &other)
+    return *this;
+  memcpy(number, other.number, sizeof(number));
+  return *this;
+}
+
+bool operator==(const Node &a, const Node &b) {
+  if (&a == &b)
+    return true;
+  return memcmp(a.number, b.number, sizeof(a.number)) == 0;
+}
+
+bool operator!=(const Node &a, const Node &b) {
+  if (&a == &b)
+    return false;
+  return memcmp(a.number, b.number, sizeof(a.number)) != 0;
+}
+
+int operator-(const Node &a, const Node &b) {
+  int diff = 0;
+  for (int i = 0; i < 9; ++i)
+    if (a.number[i] != b.number[i])
+      ++diff;
+  return diff;
+}
+
+Node Node::Neighbor(int direction) const {
+  int xpos;
+  for (xpos = 0; xpos < 9; xpos++)
+    if (number[xpos] == 'x')
+      break;
+  int npos = xpos + direction;
+  if (npos < 0 || npos >= 9) {
+    return detail::invalid;
+  }
+
+  Node ret = *this;
+  std::swap(ret.number[xpos], ret.number[npos]);
+  return ret;
+}
+
+
+namespace detail {
+
+  Node OpenPop(std::vector<Node> &open, Node end, std::unordered_map<Node, int> &score_g) {
+    Node ret = detail::invalid;
+    int f = INT_MAX;
+    auto i = open.begin();
+    for (; i != open.end(); i++) {
+      int h = *i - end;
+      assert(score_g.find(*i) != score_g.end());
+      if (f > h + score_g[*i]) {
+        f = h + score_g[*i];
+        ret = *i;
+      }
+    }
+    open.erase(i);
+    return ret;
+  }
+
+  void OpenErase(std::vector<Node> &open, Node e) {
+    for (auto i = open.begin(); i != open.end(); i++) {
+      if (e == *i) {
+        open.erase(i);
+        break;
+      }
+    }
+  }
+
+  std::vector<Node> FindPath(const std::unordered_map<Node, Node> &close, Node e) {
+    std::vector<Node> path;
+    path.push_back(e);
+
+    while (true) {
+      auto from = close.find(e);
+      if (from == close.end() || from->second == detail::invalid)
+        break;
+      path.push_back(from->second);
+      e = from->second;
+    }
+    return path;
+  }
+
+}  // namespace detail

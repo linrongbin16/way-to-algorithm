@@ -7,32 +7,34 @@
 using namespace std;
 
 struct Test {
-  string begin;
-  string end;
+  Node begin;
+  Node end;
 } test_cases[] = {
-  { "1348x5726", "1238x4765" },
-  { "2317x8654", "1238x4765" },
-  { "2318x4765", "1238x4765" },
+  { Node("1348x5726"), Node("1238x4765") },
+  { Node("2317x8654"), Node("1238x4765") },
+  { Node("2318x4765"), Node("1238x4765") },
+  { Node("1238x4765"), Node("2318x4765") },
+  { Node("2831x4765"), Node("1238x4765") },
+  { Node("1348x5726"), Node("1238x4765") },
 };
 
-auto AssertXCount(string a) -> void {
+void AssertXCount(Node a) {
   int xcount = 0;
-  assert(a.length() == 9);
-  for (int i = 0; i < a.length(); i++) {
-    if (a[i] == 'x')
+  for (int i = 0; i < 9; i++) {
+    if (a.number[i] == 'x')
       xcount++;
   }
   assert(xcount == 1);
 }
 
-auto AssertIsAdjacent(string a, string b) -> void {
+void AssertIsAdjacent(Node a, Node b) {
   static int dir[4] = { -3, 3, -1, 1 };
   AssertXCount(a);
   AssertXCount(b);
 
   int xpos = -1;
   for (int i = 0; i < 9; i++) {
-    if (a[i] == 'x') {
+    if (a.number[i] == 'x') {
       xpos = i;
       break;
     }
@@ -41,14 +43,14 @@ auto AssertIsAdjacent(string a, string b) -> void {
     if (i + dir[i] < 0 or i + dir[i] >= 9) {
       continue;
     }
-    if (b[i + dir[i]] == 'x') {
+    if (b.number[i + dir[i]] == 'x') {
       return;
     }
   }
   assert(false);
 }
 
-auto AssertPath(const vector<string> &path) -> void {
+void AssertPath(const vector<Node> &path) {
   if (path.size() == 1)
     return;
   for (int i = 0; i < path.size()-1; i++) {
@@ -56,63 +58,15 @@ auto AssertPath(const vector<string> &path) -> void {
   }
 }
 
-auto main() -> int {
+int main(void) {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test & t = test_cases[i];
-    vector<string> path = AStarSearch(t.beg, t.end);
+    vector<Node> path = AStarSearch(t.begin, t.end);
     assert(path.size() > 0);
-    assert(path.front() == t.beg);
-    assert(path.back() == t.beg);
+    assert(path.front() == t.begin);
+    assert(path.back() == t.begin);
     AssertPath(path);
   }
-
-  /* case 4:
-  beg      end
-  1 2 3    2 3 1
-  8 x 4    8 x 4
-  7 6 5    7 6 5
-  */
-  memset(&beg, 0, sizeof(beg));
-  memset(&end, 0, sizeof(end));
-  memcpy(beg.value, "1238x4765", 9);
-  memcpy(end.value, "2318x4765", 9);
-  UnitTest(beg, end);
-
-  /* case 5:
-  beg      end
-  1 2 3    2 3 1
-  8 x 4    8 x 4
-  7 6 5    7 6 5
-  */
-  memset(&beg, 0, sizeof(beg));
-  memset(&end, 0, sizeof(end));
-  memcpy(beg.value, "1238x4765", 9);
-  memcpy(end.value, "2318x4765", 9);
-  UnitTest(beg, end);
-
-  /* case 6:
-  beg      end
-  2 8 3    1 2 3
-  1 x 4    8 x 4
-  7 6 5    7 6 5
-  */
-  memset(&beg, 0, sizeof(beg));
-  memset(&end, 0, sizeof(end));
-  memcpy(beg.value, "2831x4765", 9);
-  memcpy(end.value, "1238x4765", 9);
-  UnitTest(beg, end);
-
-  /* case 7:
-  beg      end
-  1 3 4    1 2 3
-  8 x 5    8 x 4
-  7 2 6    7 6 5
-  */
-  memset(&beg, 0, sizeof(beg));
-  memset(&end, 0, sizeof(end));
-  memcpy(beg.value, "1348x5726", 9);
-  memcpy(end.value, "1238x4765", 9);
-  UnitTest(beg, end);
 
   return 0;
 }
