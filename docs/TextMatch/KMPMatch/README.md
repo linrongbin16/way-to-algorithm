@@ -8,13 +8,13 @@
 
 #### 解法
 
-KMP算法的性能比简单匹配算法高很多，接近$$ O(n) $$。在$$ text "abcxbcieabkdaabcdkq" $$中匹配$$ str "abcd" $$的过程中，其实仔细观察一下会发现，没有必要在每次失败的时候，都重新从$$ str $$的起始处开始匹配，我们可以跳过一部分。
+KMP算法的性能为$$ O(n) $$，比SimpleMatch高很多。在$$ text $$ "$$ abcxbcieabkdaabcdkq $$"中匹配$$ str $$ "$$ abcd $$"的过程中，其实仔细观察一下会发现，没有必要在每次失败的时候，都重新从$$ str $$的起始处开始匹配，我们可以跳过一部分。
 
-$$ (1) $$ 当匹配到$$ text[0 \cdots 2]_{abc} \eq str[0 \cdots 2]_{abc} $$，有$$ text[3]_{x} \ne str[3]_{x} $$，匹配失败；
+$$ (1) $$ 当匹配到$$ text[0 \cdots 2]_{abc} = str[0 \cdots 2]_{abc} $$，有$$ text[3]_{x} \ne str[3]_{x} $$，匹配失败；
 
 $$ (2) $$ 接下来需要继续从$$ text[4]_{b} $$开始匹配，按照旧的办法，我们需要重新比较$$ text[4 \cdots 7]_{bcie} $$和$$ str[0 \cdots 3]_{abcd} $$是否相等，但每次比较的时间复杂度为$$ O(m) $$，即遍历字符串$$ str $$；
 
-$$ (3) $$ 这次采用一个取巧的办法，从之前$$ text[0 \cdots 2]_{abc} \eq str[0 \cdots 2]_{abc} $$的最后一个匹配成功的位置$$ str[2]_{c} $$开始倒着匹配。因为字符$$ str[2]_{c} $$距离字符$$ str[0]_{a} $$的距离为$$ 2 $$，如果说$$ text[4 \cdots 7]_{bcie} \eq str[0 \cdots 3]_{abcd} $$，则必然有$$ text[4+2]_{i} \eq str[2]_{c} $$。可惜并不相等，因此可以直接得到结论$$ text[4 \cdots 6]_{bci} \ne str[0 \cdots 2]_{abc} $$；
+$$ (3) $$ 这次采用一个取巧的办法，从之前$$ text[0 \cdots 2]_{abc} = str[0 \cdots 2]_{abc} $$的最后一个匹配成功的位置$$ str[2]_{c} $$开始倒着匹配。因为字符$$ str[2]_{c} $$距离字符$$ str[0]_{a} $$的距离为$$ 2 $$，如果说$$ text[4 \cdots 7]_{bcie} \eq str[0 \cdots 3]_{abcd} $$，则必然有$$ text[4+2]_{i} \eq str[2]_{c} $$。可惜并不相等，因此可以直接得到结论$$ text[4 \cdots 6]_{bci} \ne str[0 \cdots 2]_{abc} $$；
 
 $$ (4) $$ 然后从$$ i = 7, text[i]_{e} $$开始继续匹配。我们上次已经使用了$$ str $$的回文，这次必须使用简单匹配的方法，依次顺序的比较$$ text[7+0 \cdots 7+3]_{eabk} $$和$$ str[0 \cdots 3]_{abcd} $$；
 

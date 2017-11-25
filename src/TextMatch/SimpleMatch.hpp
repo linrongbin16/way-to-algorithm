@@ -9,13 +9,14 @@
 #include <cstring>
 #include <cassert>
 #include <vector>
+#include <string>
 
 
-std::vector<int> SimpleMatch(const char *text, int tlen, const char *str, int slen) {
+std::vector<int> SimpleMatch(const std::string &text, const std::string &str) {
   std::vector<int> pos;
-  for (int i = 0; i < tlen; i++) {
+  for (int i = 0; i < text.length(); i++) {
     bool match = true;
-    for (int j = 0; j < slen; j++) {
+    for (int j = 0; j < str.length(); j++) {
       if (text[i+j] != str[j]) {
         match = false;
         break;
