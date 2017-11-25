@@ -18,8 +18,8 @@ $$ (2) $$对数字$$ x_{10} = [ 2, 1, 9, 3 ]_{10} $$转换为$$ y_{a} = [ 0, 0, 
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/Calculation/DecimalConversion.hpp)
+[import, lang:"c_cpp"](../../../src/Calculation/DecimalConversion.hpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/Calculation/DecimalConversion.cpp)
+[import, lang:"c_cpp"](../../../src/Calculation/DecimalConversion.cpp)
