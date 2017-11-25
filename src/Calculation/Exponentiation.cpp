@@ -11,31 +11,23 @@ using namespace std;
 
 #define TEST_MAX 1024
 
+struct Test {
+  int64_t x;
+  int64_t n;
+  int64_t mod;
+  int64_t result;
+} tests[] = {
+  { 1,  233512,   100000000,  1 },
+  { 2,  2,        10000000,   4 },
+};
+
+
 int main(void) {
 
-  Number a, b;
-
-  for (int i = 0; i < TEST_MAX; i++) {
-    int a = rand();
-    int b = rand();
-    assert( Init(a) + Init(b) == Init(a + b) );
-    assert( Init(a) - Init(b) == Init(a - b) );
-    assert( Init(a) * Init(b) == Init(a * b) );
-    assert( IntString(Init(a) + Init(b)) == IntString(Init(a + b)) );
-    assert( IntString(Init(a) - Init(b)) == IntString(Init(a - b)) );
-    assert( IntString(Init(a) * Init(b)) == IntString(Init(a * b)) );
-
-    double c, d;
-    while ((c = (double)rand()) == 0.0) { }
-    c /= (double)rand();
-    while ((d = (double)rand()) == 0.0) { }
-    d /= (double)rand();
-    assert( Init(c) + Init(d) == Init(c + d) );
-    assert( Init(c) - Init(d) == Init(c - d) );
-    assert( Init(c) * Init(d) == Init(c * d) );
-    assert( FloatString(Init(c) + Init(d)) == FloatString(Init(c + d)) );
-    assert( FloatString(Init(c) - Init(d)) == FloatString(Init(c - d)) );
-    assert( FloatString(Init(c) * Init(d)) == FloatString(Init(c * d)) );
+  for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
+    Test &t = tests[i];
+    assert(Exponentiation1(t.x, t.n, t.mod) == t.result);
+    assert(Exponentiation2(t.x, t.n, t.mod) == t.result);
   }
 
   return 0;
