@@ -1,11 +1,9 @@
-* [Upper Folder - 上一级目录](../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/Subset.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/Subset.cpp)
+# Subset - 子集
 
 --------
 
-### Subset
-### 子集
+#### 问题
+
 <div>
 问题：
 <p id="i">求拥有\(n\)个元素的集合\(A = \{a_0,a_1,a_2, \cdots ,a_{n-1} \}\)的所有子集。 </p>
@@ -14,3 +12,9 @@
 <p id="i">具体从n个元素的集合中取出m个元素的所有组合，可以通过<Combination>中的算法求出。因此子集问题只需要遍历所有元素个数即可。</p>
 <p id="i">该算法的时间复杂度为\(O(2^n)\)。 </p>
 </div>
+
+--------
+
+* [Upper Folder - 上一级目录](../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/Subset.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/Subset.cpp)

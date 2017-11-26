@@ -1,13 +1,9 @@
-* [Upper Folder - 上一级目录](../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/PermutationGroup.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/PermutationGroup.cpp)
+# Permutation Group - 置换群
 
 --------
 
-### Permutation Group
-### 置换群
-<div>
-问题：
+#### 问题
+
 <p id="i">长度为\(n\)的序列\(s = [x_0, x_1, x_2, \cdots, x_{n-1} ]\)上有\(n\)个数字，每个数字各不相同，且任意的数字都满足\(\forall x_i \in [0, n-1]\)。例如\(s = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\)就是这样一个长度为\(10\)的序列，拥有\(10\)个各不相同的数字，且每个数字都满足\(i \in [0, 9]\)。 </p>
 <p id="i">给出长度相同的序列\(t = [y_0, y_1, y_2, \cdots, y_{n-1} ]\)，与序列\(s\)满足相同的条件（有\(n\)个数字，每个数字各不相同，且任意的数字都满足\(\forall y_i \in [0, n-1]\)）。例如
 \[t = [3, 4, 2, 6, 1, 7, 0, 5, 9, 8]\]
@@ -34,3 +30,10 @@ t = [3, 4, 2, 6, 1, 7, 0, 5, 9, 8]
 <p id="i">我们可以看出第\(4\)次置换和第\(1\)置换后\(s[0]\)的结果相同，这说明置换操作是有周期性的，第0个元素\(s[0]\)的周期为3，即\(s[0]_{i+3} = s[0]_{i}\)，其中\(i \in [0, 6]\)。不同元素的周期是不同的，比如\(s[2]\)的周期为1（\(s[2]_{i+1} = s[2]_{i}\)，其中\(i \in [0, 8]\)），因为\(s[2] \equiv 2)。 </p>
 <p id="i">经过观察发现任意元素\(s[i]\)都拥有一个循环周期，因此只要确定每个元素的周期，就可以避免暴力循环，直接求出k次置换操作后的序列s。该算法的时间复杂度为\(O(n)\)。</p>
 </div>
+
+* [Upper Folder - 上一级目录](../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/PermutationGroup.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/PermutationGroup.cpp)
+
+--------
+

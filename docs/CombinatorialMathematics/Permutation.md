@@ -1,2 +1,0 @@
-# Permutation 排列
-

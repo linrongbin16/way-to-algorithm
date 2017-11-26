@@ -1,13 +1,9 @@
-* [Upper Folder - 上一级目录](../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/UniqueFullPermutation.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/UniqueFullPermutation.cpp)
+# Unique Full Permutation - 唯一的全排列
 
 --------
 
-### Unique Full Permutation
-### 唯一的全排列
-<div>
-问题：
+#### 问题
+
 <p id="i">求拥有\(n\)个不同元素的数组\(A = [a_0,a_1,a_2,…,a_{n-1}]\)的唯一的全排列，其中数组\(A\)中存在重复的元素。 </p>
 <p id="i">比如\(A = [1, 2, 3_1, 3_2]\)，其全排列为： </p>
 \[
@@ -86,3 +82,9 @@
 Online Judge：
 * [leetcode-47](https://leetcode.com/problems/permutations-ii/)
 * [leetcode-47 source.hpp](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/attachment/leetcode-47.hpp)
+
+--------
+
+* [Upper Folder - 上一级目录](../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/UniqueFullPermutation.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/UniqueFullPermutation.cpp)

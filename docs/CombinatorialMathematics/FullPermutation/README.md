@@ -1,13 +1,9 @@
-* [Upper Folder - 上一级目录](../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/FullPermutation.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/FullPermutation.cpp)
+# Full Permutation - 全排列
 
 --------
 
-### Full Permutation
-### 全排列
-<div>
-问题：
+#### 问题
+
 <p id="i">求拥有\(n\)个不同元素的数组\(A = [a_0,a_1,a_2,…,a_{n-1}]\)的所有全排列。 </p>
 解法：
 <p id="i">本文介绍Steinhaus-Johnson-Trotter算法。 </p>
@@ -40,13 +36,23 @@
 <p id="i">重复上述操作，即可得到长度为\(n\)的数组\(A = [a_0,a_1,a_2, \cdots ,a_{n-1}]\)的全排列。该算法的时间复杂度为\(O(n!)\)。 </p>
 </div>
 
-<br>
-StackOverflow上关于全排列的问题：
+--------
+
+#### StackOverflow上关于全排列的问题
+
 * [http://stackoverflow.com/questions/9878846/listing-all-permutations-of-a-given-set-of-values](http://stackoverflow.com/questions/9878846/listing-all-permutations-of-a-given-set-of-values)
 
-Steinhaus-Johnson-Trotter算法：
+#### Steinhaus-Johnson-Trotter算法
+
 * [https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm](https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm)
 
-Online Judge：
-* [leetcode-46](https://leetcode.com/problems/permutations/#/description) 
+#### LeetCode
+
+* [leetcode-46](https://leetcode.com/problems/permutations/#/description)
 * [leetcode-46 source.hpp](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/attachment/leetcode46.hpp)
+
+--------
+
+* [Upper Folder - 上一级目录](../)
+* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/FullPermutation.hpp)
+* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/FullPermutation.cpp)
