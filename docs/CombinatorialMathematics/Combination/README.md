@@ -4,13 +4,16 @@
 
 #### 问题
 
-求拥有\(n\)个元素的集合\(A = \{a_0,a_1,a_2, \cdots ,a_{n-1} \}\)中任意取\(m\)个元素（\(m \leq n\)，\(m\)和\(n\)都是自然数）的所有组合。
+从拥有$$ n $$个元素的集合$$ A = \{a_0,a_1,a_2, \cdots ,a_{n-1} \} $$中任意取$$ m $$个元素（$$ m \leq n $$，$$ m $$和$$ n $$都是自然数），求所有组合。
 
 #### 解法
 
-<p id="i">本文末尾列了很多关于组合算法的文献。本文介绍一种简单易记的算法。 </p>
-<p id="i">设置数组\(s = [s_0,s_1,s_2, \cdots ,s_{n-1}]\)表示对集合\(A\)的选择，第\(i\)个数字\(s_i = 1\)表示选择数字\(a_i\)，\(s_i = 0\)表示不选择数字\(a_i\)。假设初始状态下从集合\(A = \{a_0,a_1,a_2, \cdots ,a_{n-1} \}\)中取出\(0\)个元素组成组合，即\(s = [0_0,0_1,0_2, \cdots ,0_{n-1}]\)，得到\(1\)个组合\(\{\}\)。</p>
-<p id="i">\((1)\)从集合\(A = \{a_0,a_1,a_2, \cdots ,a_{n-1} \}\)中取出\(1\)个元素作为组合。则数组\(s\)中只有一个元素为\(1\)，其他全是\(0\)，唯一的\(1\)在数组\(s\)中可以选择任意位置，得到\(C_1^n = n\)个组合： </p>
+本文末尾列了很多关于组合算法的文献。本文介绍一种简单易记的算法。
+
+设置数组\(s = [s_0,s_1,s_2, \cdots ,s_{n-1}]\)表示对集合\(A\)的选择，第\(i\)个数字\(s_i = 1\)表示选择数字\(a_i\)，\(s_i = 0\)表示不选择数字\(a_i\)。假设初始状态下从集合\(A = \{a_0,a_1,a_2, \cdots ,a_{n-1} \}\)中取出\(0\)个元素组成组合，即\(s = [0_0,0_1,0_2, \cdots ,0_{n-1}]\)，得到\(1\)个组合\(\{\}\)。</p>
+
+$$ (1) $$从集合$$ A = \{a_0,a_1,a_2, \cdots ,a_{n-1} \} $$中取出$$ 1 $$个元素作为组合。则数组$$ s $$中只有一个元素为$$ 1 $$，其他全是$$ 0 $$，唯一的$$ 1 $$在数组$$ s $$中可以选择任意位置，得到$$ C_1^n = n $$个组合：
+
 \[
 \begin{array}{lcr}
 [1_0,0_1,0_2, \cdots ,0_{n-1}] && (1-1) \\
@@ -75,6 +78,10 @@ Remark on algorithm 515: Generation of a vector from the lexicographical index c
 
 --------
 
-* [Upper Folder - 上一级目录](../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/Combination.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/Combination.cpp)
+#### 源码
+
+[import, lang:"c_cpp"](../../../src/CombinatorialMathematics/Combination.hpp)
+
+#### 测试
+
+[import, lang:"c_cpp"](../../../src/CombinatorialMathematics/Combination.cpp)

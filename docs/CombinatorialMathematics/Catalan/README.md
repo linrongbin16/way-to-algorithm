@@ -4,7 +4,6 @@
 
 #### 问题
 
-
 /**********************************************************
 *卡特兰数是组合数学中常见的公式，在计算凸多边形面积划分和
 *棋盘路径、以及进出栈方法数中具有很多应用
@@ -25,8 +24,7 @@
 *进出栈的问题：
 *设有n个1和n个-1随机组合，在其中添加括号，是的每个括号中的值
 *都不为负数，也就是一类dyck word数的计算
-*
-*
+
 *dyck word数：是一个有n个X和n个Y组成的字串，且所有部分的字串
 *满足x的个数不小于y的个数，一下为5中情况(n=3)
 *XXXYYY XYXXYY XYXYXY XXYYXY XXYXYY
@@ -77,3 +75,13 @@ void catalan(int**a,int* b)  //求卡特兰数
         b[i]=len;
     }
 }
+
+--------
+
+#### 源码
+
+[import, lang:"c_cpp"](../../../src/CombinatorialMathematics/Catalan.hpp)
+
+#### 测试
+
+[import, lang:"c_cpp"](../../../src/CombinatorialMathematics/Catalan.cpp)
