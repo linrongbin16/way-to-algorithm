@@ -16,8 +16,8 @@
 
 ### Reading - 阅读
 
-* [gitbook.com - zhaochenyou/Way-to-Algorithm](https://zhaochenyou.gitbooks.io/way-to-algorithm/content/)
-* [github.io - zhaochenyou/Way-to-Algorithm](https://zhaochenyou.github.io/Way-to-Algorithm/)
+* [gitbook.com - linrongbin16/Way-to-Algorithm](https://linrongbin16.gitbooks.io/way-to-algorithm/content/)
+* [github.io - linrongbin16/Way-to-Algorithm](https://linrongbin16.github.io/Way-to-Algorithm/)
 
 
 ### Reference - 参考
