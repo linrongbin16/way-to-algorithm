@@ -26,13 +26,14 @@
 #include "general_head.h"
 
 bool bash_game(int n, int m, int& get)
-{//剩余n个物品，可取物品数范围为[1, m]
- //判断是否有胜算，若有胜算则返回取的物品数get
-	int s = n % (m + 1);
-	if(s){
-		get = s;
-		return(true);
-	}
-	else
-		return(false);
+{
+  //剩余n个物品，可取物品数范围为[1, m]
+  //判断是否有胜算，若有胜算则返回取的物品数get
+  int s = n % (m + 1);
+  if (s) {
+    get = s;
+    return(true);
+  } else {
+    return(false);
+  }
 }
