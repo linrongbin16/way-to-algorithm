@@ -1,2 +1,0 @@
-# Dinkelback Dinkelback算法
-

@@ -1,2 +1,0 @@
-# Strassen Strassen算法
-
