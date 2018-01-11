@@ -1,5 +1,6 @@
-bui# Summary
+# Summary
 
+* [Introduction](README.md)
 * [Content 目录](docs/README.md)
 * [Preface 前言](docs/Preface/README.md)
 * [Chapter-1 Sort 第1章 排序](docs/Sort/README.md)
@@ -14,7 +15,7 @@ bui# Summary
     * [Recursion 递归](docs/Search/Recursion/README.md)
     * [BreadthFirstSearch 广度优先搜索](docs/Search/BreadthFirstSearch/README.md)
     * [BidirectionalBreadthSearch 双向广度搜索](docs/Search/BidirectionalBreadthSearch/README.md)
-    * [AStarSearch A\*搜索](docs/Search/AStarSearch/README.md)
+    * [AStarSearch A*搜索](docs/Search/AStarSearch/README.md)
     * [DancingLinks 舞蹈链](docs/Search/DancingLinks/README.md)
 * [Chapter-3 DataStructure 第3章 数据结构](docs/DataStructure/README.md)
     * [DisjointSet 并查集](docs/DataStructure/DisjointSet/README.md)
@@ -162,3 +163,4 @@ bui# Summary
     * [WythoffGame 威佐夫博弈](docs/GameTheory/WythoffGame.md)
     * [NimGame 尼姆博弈](docs/GameTheory/NimGame.md)
     * [SpragueGrundy SG函数](docs/GameTheory/SpragueGrundy.md)
+
