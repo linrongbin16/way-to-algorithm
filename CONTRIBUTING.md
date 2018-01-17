@@ -1,4 +1,4 @@
-本书目前只能算是半成品，因为参加工作，项目进度一直比较慢。如果有人愿意参与，可以直接fork项目，然后提交pull request，我会review之后merge。
+本书目前只能算是半成品，因为工作之后进度一直比较慢。如果有人愿意参与，可以直接fork项目，然后提交pull request，我会review之后merge。
 
 本书主要使用markdown编写文档、draw.io制作SVG插图、cmake管理C++11项目、gitbook发布书籍，编写时尽量与书中基本完成的前四章风格保持一致。
 

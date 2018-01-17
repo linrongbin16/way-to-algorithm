@@ -17,8 +17,6 @@
 ### Reading - 阅读
 
 * [gitbook.com - linrongbin16/Way-to-Algorithm](https://linrongbin16.gitbooks.io/way-to-algorithm/content/)
-* [github.io - linrongbin16/Way-to-Algorithm](https://linrongbin16.github.io/Way-to-Algorithm/)
-
 
 ### Reference - 参考
 
@@ -31,7 +29,7 @@
 
 ### Contribute - 贡献
 
-本书目前只能算是半成品，因为参加工作，项目进度一直比较慢。如果有人愿意参与，可以直接fork项目，然后提交pull request，我会review之后merge。
+本书目前只能算是半成品，因为参加工作，项目进度一直比较慢。如果您愿意参与，可以直接fork项目，然后提交pull request，我会review之后merge。
 
 本书主要使用[markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)编写文档、[draw.io](https://www.draw.io/)制作SVG插图、[cmake](https://cmake.org/)管理C++11项目、[gitbook](https://www.gitbook.com/)发布书籍，编写时尽量与书中基本完成的前四章风格保持一致。
 
