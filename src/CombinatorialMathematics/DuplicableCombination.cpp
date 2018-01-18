@@ -2,6 +2,8 @@
 #include <cassert>
 #include <unordered_set>
 #include <string>
+#include <cmath>
+
 using namespace std;
 
 #define MAX 64
