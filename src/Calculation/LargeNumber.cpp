@@ -11,6 +11,17 @@ using namespace std;
 
 #define TEST_MAX 1024
 
+double RandDouble() {
+  double up, down;
+  do {
+    up = (double)rand();
+  } while (up == 0.0);
+  do {
+    down = (double)rand();
+  } while (down == 0.0);
+  return up / down;
+}
+
 int main(void) {
 
   Number a, b;
@@ -25,11 +36,7 @@ int main(void) {
     assert( IntString(Init(a) - Init(b)) == IntString(Init(a - b)) );
     assert( IntString(Init(a) * Init(b)) == IntString(Init(a * b)) );
 
-    double c, d;
-    while ((c = (double)rand()) == 0.0) { }
-    c /= (double)rand();
-    while ((d = (double)rand()) == 0.0) { }
-    d /= (double)rand();
+    double c = RandDouble(), d = RandDouble();
     assert( Init(c) + Init(d) == Init(c + d) );
     assert( Init(c) - Init(d) == Init(c - d) );
     assert( Init(c) * Init(d) == Init(c * d) );
