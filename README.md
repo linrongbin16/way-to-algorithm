@@ -1,7 +1,7 @@
 <h1 align="center">Way to Algorithm - 算法之路</h1>
 
 <!--![keyboard2.jpg](docs/res/keyboard.jpg)-->
-<p style="text-align:center;">
+<p align="center">
 <img src="https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/docs/res/keyboard.jpg" alt="keyboard" align="middle">
 </p>
 
