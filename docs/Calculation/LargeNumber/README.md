@@ -111,7 +111,7 @@ $$ (5) $$ 亿分位$$ 0 \lt 5 $$，从万分位借$$ 1 $$有$$ 10 + 0 - 5 $$得$
 
 #### 乘法
 
-数字$$ a \times b $$，可以把数字部分直接进行相乘，最终正负相同则结果为正，正负不同则结果为负。
+数字$$ a \times b $$，把数字部分直接进行相乘，最终正负相同则结果为正，正负不同则结果为负。
 
 对于$$ a \times b = c $$，从低位开始依次计算：
 
@@ -122,27 +122,11 @@ c[i+1] = c[i+1] + ( c[i] + a[i] \times b[i] ) / 10
 
 $$
 
-下面演示$$ -125.39 * 91.70935 = -11499.4353965 $$：
+演示$$ -125.39 * 91.70935 = -11499.4353965 $$我们会在后面补上
 
-$$ (1) $$
+#### 除法
 
-![LargeNumber1.svg](../res/LargeNumber1.svg)
-
-$$ (2) $$
-
-![LargeNumber2.svg](../res/LargeNumber2.svg)
-
-$$ (3) $$
-
-![LargeNumber3.svg](../res/LargeNumber3.svg)
-
-$$ (4) $$
-
-![LargeNumber4.svg](../res/LargeNumber4.svg)
-
-$$ (5) $$
-
-![LargeNumber5.svg](../res/LargeNumber5.svg)
+数字$$ a \div b $$，除法的模拟有些麻烦，我们会在后面补上
 
 --------
 

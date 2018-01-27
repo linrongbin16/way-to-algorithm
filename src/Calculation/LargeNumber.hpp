@@ -79,11 +79,11 @@ std::string FloatString(const Number &a);
 namespace detail {
 
   //数字有效
-  auto AssertValid(const Number &a) -> void;
+  void AssertValid(const Number &a);
   //小数向上浮动 将所有有效小数增加到整数
-  auto FloatUp(const Number &a) -> Number;
+  Number FloatUp(const Number &a);
   //小数向下浮动 将小数降低decimal_len个整数
-  auto FloatDown(const Number &a, int decimal_len) -> Number;
+  Number FloatDown(const Number &a, int decimal_len);
 
   //判断
   //负的
@@ -145,9 +145,12 @@ Number operator-(const Number &a) {
   detail::AssertValid(a);
 
   Number c = a;
-  if (a.integer_len == 0 && a.decimal_len == 0)
+  if (a.integer_len == 0 && a.decimal_len == 0) {
+    a.negative = false;
     return c;
-  c.negative = !a.negative;
+  } else {
+    c.negative = !a.negative;
+  }
 
   return c;
 }
