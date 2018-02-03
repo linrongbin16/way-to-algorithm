@@ -13,16 +13,18 @@
 同一章节中各个小节间会有明显的联系，基础的算法在前面，变种的、高级的算法在后面。每个算法都有讲解、源码和测试三个部分。
 在编写的过程中，我学习和参考了非常多的资料，有很多都忘记了，记得的会列在参考资料中。
 
-本书的发布方式也几经周折。我需要一种能够同时展示文字段落、数学公式、插图和源代码这四个部分的载体，来展示自己的想法。初版中只有C++源码和由docx文档导出的pdf文件，（github上可以直接浏览pdf文档）。
+本书的发布方式也几经周折。我需要一种能够同时展示文字段落、数学公式、插图和源代码这四个部分的载体，来展示自己的想法。之前尝试过用doc编写，到处pdf展示（github上可以直接浏览pdf文档）。但因为二进制文件（pdf）没办法被版本控制软件git去重，导致项目库臃肿，每次更新docx文档，都会生成新的pdf文件。
 
-但因为二进制文件（pdf）没办法被版本控制软件git去重，导致项目库臃肿，每次更新docx文档，都会生成新的pdf文件。
-后来尝试了markdown加png图片的方式，用github page来发布静态文档，这样可以避免生成pdf文件。
-再后来发现docx可以导出SVG图片（基于文本文件且支持浏览器的图片），终于解决了版本去重问题（目前用[draw.io](https://www.draw.io/)来绘制，不再依赖visio）。
+后来尝试了markdown编写，再用visio绘制png图片，用github page来发布静态文档，这样可以避免生成pdf文件，但png图片仍然无法会占用大量的仓库存储。后来发现SVG这种基于文本文件且支持浏览器的图片可以完美解决，最终采用了[draw.io](https://www.draw.io/)来绘制SVG图片的方式。
 
 最后一个问题就是如何在markdown文档中显示数学公式，当我发现gitbook的插件"mathjax"可以支持Latex，而"include-codeblock"甚至可以在文档中直接展示算法源码时，立刻决定采用gitbook作为本书的发布方式。
 
+gitbook的发布方式支持markdown文档、Latex公式、SVG图片、展示源码、集成github代码库，而且通过gitbook站点可以直接分发本书。但由于gitbook的插件mathjax对website和ebook的支持存在bug，目前通过浏览器访问需要两次刷新才能正确显示Latex公式，而且pdf也无法正确下载。这些bug可能需要更久的时间等待gitbook及相关作者的修复，或者找到其它更好的替换方案。
+
+本书主要使用[markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)编写文档、[draw.io](https://www.draw.io/)制作SVG插图、[cmake](https://cmake.org/)管理C++11项目、[gitbook](https://www.gitbook.com/)发布书籍，编写时尽量与书中基本完成的前四章风格保持一致。
+
 后来NEWPLAN同学参加到这本书籍的编写中，他添加了很多内容。
-欢迎更多的同学来一起丰富这些资料。希望可以增加更多专业领域中的计算机算法，不再局限于OJ和算法比赛。
+欢迎更多的同学来一起丰富这些资料。也希望可以增加更多专业领域中的计算机算法，不再局限于OJ和算法比赛。
 
 --------
 
