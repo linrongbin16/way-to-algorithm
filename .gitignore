@@ -87,3 +87,5 @@ install_manifest.txt
 *.out
 *.app
 *.xcuserdata
+package.json
+package-lock.json
