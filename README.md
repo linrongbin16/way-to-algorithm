@@ -12,7 +12,7 @@
 
 本书围绕大学生计算机算法，收集和整理了比较常见的算法与数据结构写成。借鉴了一些经典的算法书籍，和互联网上的资料。本书通过数学公式和图画的方式来描述算法，并配备源码实现、测试用例，以及一些在Online Judge网站上的题目，来帮助读者真正理解算法。
 
-阅读地址：[Way to Algorithm](https://linrongbin16.gitbooks.io/way-to-algorithm/content/)
+阅读地址：[Way to Algorithm](https://linrongbin16.gitbook.io/way-to-algorithm/)
 
 由于个人经验有限，难免存在一些疏漏和错误的地方，还请指正。
 
