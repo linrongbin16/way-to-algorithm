@@ -7,7 +7,9 @@
         "mathjax",
         "include-codeblock",
         "ace",
-        "splitter"
+        "splitter",
+        "-search",
+        "-lunr"
     ],
     "pluginsConfig": {
         "include-codeblock": {
