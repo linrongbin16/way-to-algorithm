@@ -2,7 +2,7 @@
     "title": "Way to Algorithm - 算法之路",
     "description": "Algorithm Tutorial and Source Code - 算法教程与源码",
     "language": "zh-hans",
-    "author": "Rongbin Lin <zhaochenyou16@gmail.com>",
+    "author": "Lin Rongbin <zhaochenyou16@gmail.com>",
     "plugins": [
         "mathjax",
         "include-codeblock",
