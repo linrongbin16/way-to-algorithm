@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <cassert>
 #include <stdio.h>
+using namespace std;
 
 
 //
@@ -146,8 +147,7 @@ Number operator-(const Number &a) {
 
   Number c = a;
   if (a.integer_len == 0 && a.decimal_len == 0) {
-    a.negative = false;
-    return c;
+    c.negative = false;
   } else {
     c.negative = !a.negative;
   }
