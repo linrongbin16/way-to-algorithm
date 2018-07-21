@@ -11,14 +11,14 @@ using namespace std;
 #define MAX 64
 
 void AssertNotAscendingOrder(const int *s, int n) {
-  bool res = true;
-  for (int i = 0; i < n-1; ++i) {
-    if (s[i] > s[i+1]) {
-      res = false;
-      break;
+    bool res = true;
+    for (int i = 0; i < n-1; ++i) {
+        if (s[i] > s[i+1]) {
+            res = false;
+            break;
+        }
     }
-  }
-  assert(!res);
+    assert(!res);
 }
 
 void AssertAscendingOrder(const int *s, int n) {
@@ -39,12 +39,12 @@ void AssertBubbleSort(int *s, int n) {
 }
 
 int main(void) {
-  int s[MAX];
-  for (int i = 0; i < TEST_MAX; ++i) {
-    for (int j = 0; j < MAX; ++j) {
-      s[j] = rand() % TEST_MAX;
+    int s[MAX];
+    for (int i = 0; i < TEST_MAX; ++i) {
+        for (int j = 0; j < MAX; ++j) {
+            s[j] = rand() % TEST_MAX;
+        }
+        AssertBubbleSort(s, MAX);
     }
-    AssertBubbleSort(s, MAX);
-  }
-  return 0;
+    return 0;
 }
