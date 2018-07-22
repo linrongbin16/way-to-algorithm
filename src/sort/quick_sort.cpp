@@ -13,23 +13,6 @@
 * @param high      序列s的末尾下标，即左闭右闭区间[low, high]
 * @return          最终s[low]所在下标
 */
-int partion(int *s, int low, int high);
-
-
-/**
- * @brief QuickSort
- * @param s[MAX]    无序序列
- * @param beg       序列s的起始下标
- * @param end       序列s的末尾下标加1，即左闭右开区间[beg, end)
- */
-void quick_sort(int *s, int beg, int end) {
-    if (beg < end-1) {
-        int mid = partion(s, beg, end-1);
-        quick_sort(s, beg, mid);
-        quick_sort(s, mid+1, end);
-    }
-}
-
 int partion(int *s, int low, int high) {
     int p = s[low];
     while (low < high) {
@@ -43,3 +26,12 @@ int partion(int *s, int low, int high) {
     s[low] = p;
     return low;
 }
+
+void quick_sort(int *s, int beg, int end) {
+    if (beg < end-1) {
+        int mid = partion(s, beg, end-1);
+        quick_sort(s, beg, mid);
+        quick_sort(s, mid+1, end);
+    }
+}
+

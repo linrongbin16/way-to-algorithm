@@ -2,35 +2,13 @@
 // Copyright 2017 zhaochenyou16@gmail.com
 
 #include "quick_sort.h"
+#include "ascend_util.h"
 #include <iostream>
-#include <cassert>
 #include <cstdlib>
 using namespace std;
 
 #define TEST_MAX 1024
 #define MAX 64
-
-void assert_not_ascend(const int *s, int n) {
-    bool res = true;
-    for (int i = 0; i < n - 1; ++i) {
-        if (s[i] > s[i + 1]) {
-            res = false;
-            break;
-        }
-    }
-    assert(!res);
-}
-
-void assert_ascend(const int *s, int n) {
-  bool res = true;
-  for (int i = 0; i < n - 1; ++i) {
-    if (s[i] > s[i + 1]) {
-      res = false;
-      break;
-    }
-  }
-  assert(res);
-}
 
 void assert_quick_sort(int *s, int n) {
     assert_not_ascend(s, n);
