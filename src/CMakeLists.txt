@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 project(Way-to-Algorithm CXX)
 
 add_subdirectory(sort)
-add_subdirectory(Search)
+add_subdirectory(search)
 add_subdirectory(DataStructure)
 add_subdirectory(DynamicProgramming)
 add_subdirectory(GraphTheory)
