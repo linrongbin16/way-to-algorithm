@@ -1,0 +1,12 @@
+// MIT License
+// Copyright 2018 linrongbin16@gmail.com
+
+#include "Util.h"
+
+std::vector<int> IntArrayToVector(int *s, int n) {
+    std::vector<int> result;
+    for (int i = 0; i < n; i++) {
+        result.push_back(s[i]);
+    }
+    return result;
+}

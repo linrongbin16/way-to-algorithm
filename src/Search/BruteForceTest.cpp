@@ -1,7 +1,7 @@
 // MIT License
 // Copyright 2018 linrongbin16@gmail.com
 
-#include "brute_force.h"
+#include "BruteForce.h"
 #include <cassert>
 #include <cmath>
 using namespace std;
@@ -12,7 +12,7 @@ using namespace std;
 int main(void) {
     int s[TEST_N_MAX];
     for (int i = 1; i < TEST_M_MAX; i++) {
-        vector<vector<int>> result = brute_force(s, TEST_N_MAX, i);
+        vector<vector<int>> result = BruteForce(s, TEST_N_MAX, i);
         assert(result.size() == pow((double)i, (double)TEST_N_MAX));
         vector<int> s0;
         int sum0;

@@ -32,7 +32,7 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Search/BruteForce.hpp)
+[import, lang:"c_cpp"](../../../src/Search/BruteForce.h)
 
 #### 测试
 

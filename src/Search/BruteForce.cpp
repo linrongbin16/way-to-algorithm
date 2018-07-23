@@ -1,18 +1,10 @@
 // MIT License
-// Copyright 2017 zhaochenyou16@gmail.com
+// Copyright 2018 linrongbin16@gmail.com
 
 #include "BruteForce.h"
-#include <iostream>
+#include "Util.h"
 
-std::vector<int> IntArrayToVector(int *s, int n) {
-    std::vector<int> result;
-    for (int i = 0; i < n; i++) {
-        result.push_back(s[i]);
-    }
-    return result;
-}
-
-std::vector<std::vector<int>> brute_force(int *s, int n, int m) {
+std::vector<std::vector<int>> BruteForce(int *s, int n, int m) {
     std::vector<std::vector<int>> result;
     for (int i_0 = 0; i_0 < m; i_0++)
         for (int i_1 = 0; i_1 < m; i_1++)
@@ -24,7 +16,7 @@ std::vector<std::vector<int>> brute_force(int *s, int n, int m) {
                     s[2] = i_2;
                     /* ... */
                     s[n - 1] = i_n_1;
-                    result.push_back(int_array_to_vector(s, n));
+                    result.push_back(IntArrayToVector(s, n));
                 }
     return result;
 }

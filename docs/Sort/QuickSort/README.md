@@ -32,7 +32,7 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Sort/QuickSort.hpp)
+[import, lang:"c_cpp"](../../../src/Sort/QuickSort.h)
 
 #### 测试
 

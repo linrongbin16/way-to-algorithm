@@ -22,7 +22,7 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Sort/MergeSort.hpp)
+[import, lang:"c_cpp"](../../../src/Sort/MergeSort.h)
 
 #### 测试
 

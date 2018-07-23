@@ -121,7 +121,7 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Search/AStarSearch.hpp)
+[import, lang:"c_cpp"](../../../src/Search/AStarSearch.h)
 
 #### 测试
 

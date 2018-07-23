@@ -26,7 +26,7 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Sort/InsertSort.hpp)
+[import, lang:"c_cpp"](../../../src/Sort/InsertSort.h)
 
 #### 测试
 

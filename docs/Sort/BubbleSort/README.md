@@ -39,7 +39,7 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Sort/BubbleSort.hpp)
+[import, lang:"c_cpp"](../../../src/Sort/BubbleSort.h)
 
 #### 测试
 
