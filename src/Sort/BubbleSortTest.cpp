@@ -10,10 +10,10 @@ using namespace std;
 #define TEST_MAX 1024
 #define MAX 64
 
-void assert_bubble_sort(int *s, int n) {
-    assert_not_ascend(s, n);
-    bubble_sort(s, 0, n);
-    assert_ascend(s, n);
+void AssertBubbleSort(int *s, int n) {
+    AssertNotAscend(s, n);
+    BubbleSort(s, 0, n);
+    AssertAscend(s, n);
 }
 
 int main(void) {
@@ -22,7 +22,7 @@ int main(void) {
         for (int j = 0; j < MAX; ++j) {
             s[j] = rand() % TEST_MAX;
         }
-        assert_bubble_sort(s, MAX);
+        AssertBubbleSort(s, MAX);
     }
     return 0;
 }

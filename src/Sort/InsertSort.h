@@ -9,4 +9,4 @@
 * @param beg        序列s的起始下标
 * @param end        序列s为左闭右开区间[beg, end)
 */
-void insert_sort(int *s, int beg, int end);
+void InsertSort(int *s, int beg, int end);

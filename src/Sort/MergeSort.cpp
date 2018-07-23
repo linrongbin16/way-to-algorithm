@@ -1,10 +1,10 @@
 ﻿// MIT License
 // Copyright 2018 linrongbin16@gmail.com
 
-#include "merge_sort.h"
+#include "MergeSort.h"
 #include <cstring>
 
-void merge(int *s, int start, int mid, int last) {
+void Merge(int *s, int start, int mid, int last) {
     int *t = new int[last-start+2];
     int i, j, k;
 
@@ -26,13 +26,13 @@ void merge(int *s, int start, int mid, int last) {
     delete[] t;
 }
 
-void merge_sort(int *s, int beg, int end) {
+void MergeSort(int *s, int beg, int end) {
     int mid = (beg + end-1) / 2; 
     if (beg + 2 >= end) {
-        merge(s, beg, mid, end-1);
+        Merge(s, beg, mid, end-1);
         return;
     }
-    merge_sort(s, beg, mid+1);
-    merge_sort(s, mid+1, end);
-    merge(s, beg, mid, end-1);
+    MergeSort(s, beg, mid+1);
+    MergeSort(s, mid+1, end);
+    Merge(s, beg, mid, end-1);
 }

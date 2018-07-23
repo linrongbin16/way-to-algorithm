@@ -5,7 +5,7 @@
 #include <cassert>
 using namespace std;
 
-void assert_not_ascend(const int *s, int n) {
+void AssertNotAscend(const int *s, int n) {
     bool asc = true;
     for (int i = 0; i < n - 1; ++i) {
         if (s[i] > s[i + 1]) {
@@ -16,7 +16,7 @@ void assert_not_ascend(const int *s, int n) {
     assert(!asc);
 }
 
-void assert_ascend(const int *s, int n) {
+void AssertAscend(const int *s, int n) {
     bool asc = true;
     for (int i = 0; i < n - 1; ++i) {
         if (s[i] > s[i + 1]) {

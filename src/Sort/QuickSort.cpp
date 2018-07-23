@@ -1,7 +1,7 @@
 // MIT License
 // Copyright 2018 linrongbin16@gmail.com
-#include "quick_sort.h"
 
+#include "QuickSort.h"
 
 /**
 * @brief Partion 
@@ -13,7 +13,7 @@
 * @param high      序列s的末尾下标，即左闭右闭区间[low, high]
 * @return          最终s[low]所在下标
 */
-int partion(int *s, int low, int high) {
+int Partion(int *s, int low, int high) {
     int p = s[low];
     while (low < high) {
         while (low < high && s[high] >= p)
@@ -27,11 +27,11 @@ int partion(int *s, int low, int high) {
     return low;
 }
 
-void quick_sort(int *s, int beg, int end) {
+void QuickSort(int *s, int beg, int end) {
     if (beg < end-1) {
-        int mid = partion(s, beg, end-1);
-        quick_sort(s, beg, mid);
-        quick_sort(s, mid+1, end);
+        int mid = Partion(s, beg, end-1);
+        QuickSort(s, beg, mid);
+        QuickSort(s, mid+1, end);
     }
 }
 

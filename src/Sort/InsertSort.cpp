@@ -1,9 +1,9 @@
 // MIT License
 // Copyright 2018 linrongbin16@gmail.com
 
-#include "insert_sort.h"
+#include "InsertSort.h"
 
-void insert_sort(int *s, int beg, int end) {
+void InsertSort(int *s, int beg, int end) {
     for (int j = beg+1; j < end; j++) {
         int i;
         int p = s[j];

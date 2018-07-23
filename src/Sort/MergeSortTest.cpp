@@ -1,8 +1,8 @@
 // MIT License
-// Copyright 2017 zhaochenyou16@gmail.com
+// Copyright 2018 linrongbin16@gmail.com
 
-#include "insert_sort.h"
-#include "ascend_util.h"
+#include "MergeSort.h"
+#include "AscendUtil.h"
 #include <iostream>
 #include <cstdlib>
 using namespace std;
@@ -10,10 +10,10 @@ using namespace std;
 #define TEST_MAX 1024
 #define MAX 64
 
-void assert_insert_sort(int *s, int n) {
-    assert_not_ascend(s, n);
-    insert_sort(s, 0, n);
-    assert_ascend(s, n);
+void AssertMergeSort(int *s, int n) {
+    AssertNotAscend(s, n);
+    MergeSort(s, 0, n);
+    AssertAscend(s, n);
 }
 
 int main(void) {
@@ -22,7 +22,7 @@ int main(void) {
         for (int j = 0; j < MAX; ++j) {
             s[j] = rand() % TEST_MAX;
         }
-        assert_insert_sort(s, MAX);
+        AssertMergeSort(s, MAX);
     }
     return 0;
 }
