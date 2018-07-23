@@ -1,10 +1,10 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#include "brute_force.h"
+#include "BruteForce.h"
 #include <iostream>
 
-std::vector<int> int_array_to_vector(int *s, int n) {
+std::vector<int> IntArrayToVector(int *s, int n) {
     std::vector<int> result;
     for (int i = 0; i < n; i++) {
         result.push_back(s[i]);

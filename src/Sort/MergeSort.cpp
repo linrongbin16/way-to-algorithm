@@ -3,9 +3,10 @@
 
 #include "MergeSort.h"
 #include <cstring>
+#include <vector>
 
 void Merge(int *s, int start, int mid, int last) {
-    int *t = new int[last-start+2];
+    std::vector<int> t(last-start+2);
     int i, j, k;
 
     for (i = start, j = mid+1, k = start; i <= mid && j <= last; k++) {
@@ -22,8 +23,7 @@ void Merge(int *s, int start, int mid, int last) {
     for (; j <= last; ++j, ++k)
         t[k] = s[j];
 
-    std::memcpy(s+start, t+start, (last-start)*sizeof(int));
-    delete[] t;
+    std::memcpy(s+start, &t.begin()+start, (last-start)*sizeof(int));
 }
 
 void MergeSort(int *s, int beg, int end) {

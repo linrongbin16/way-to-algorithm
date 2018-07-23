@@ -1,8 +1,8 @@
 // MIT License
 // Copyright 2018 linrongbin16@gmail.com
 
-#include "bubble_sort.h"
-#include "ascend_util.h"
+#include "BubbleSort.h"
+#include "Util.h"
 #include <iostream>
 #include <cstdlib>
 using namespace std;

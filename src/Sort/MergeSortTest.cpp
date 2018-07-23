@@ -2,7 +2,7 @@
 // Copyright 2018 linrongbin16@gmail.com
 
 #include "MergeSort.h"
-#include "AscendUtil.h"
+#include "Util.h"
 #include <iostream>
 #include <cstdlib>
 using namespace std;

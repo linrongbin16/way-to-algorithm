@@ -2,7 +2,7 @@
 // Copyright 2017 zhaochenyou16@gmail.com
 
 #include "QuickSort.h"
-#include "AscendUtil.h"
+#include "Util.h"
 #include <iostream>
 #include <cstdlib>
 using namespace std;

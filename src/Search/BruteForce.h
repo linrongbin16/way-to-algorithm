@@ -4,4 +4,4 @@
 #pragma once
 #include <vector>
 
-std::vector<std::vector<int>> brute_force(int *s, int n, int m);
+std::vector<std::vector<int>> BruteForce(int *s, int n, int m);
