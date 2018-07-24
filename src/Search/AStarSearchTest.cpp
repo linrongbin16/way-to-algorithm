@@ -1,53 +1,53 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#include "AStarSearch.hpp"
+#include "AStarSearch.h"
 #include <cassert>
 #include <string>
 using namespace std;
 
 struct Test {
-  Node begin;
-  Node end;
+    Node begin;
+    Node end;
 } test_cases[] = {
-  { Node("1348x5726"), Node("1238x4765") },
-  { Node("2317x8654"), Node("1238x4765") },
-  { Node("2318x4765"), Node("1238x4765") },
-  { Node("1238x4765"), Node("2318x4765") },
-  { Node("2831x4765"), Node("1238x4765") },
-  { Node("1348x5726"), Node("1238x4765") },
+    { Node("1348x5726"), Node("1238x4765") },
+    { Node("2317x8654"), Node("1238x4765") },
+    { Node("2318x4765"), Node("1238x4765") },
+    { Node("1238x4765"), Node("2318x4765") },
+    { Node("2831x4765"), Node("1238x4765") },
+    { Node("1348x5726"), Node("1238x4765") },
 };
 
 void AssertXCount(Node a) {
-  int xcount = 0;
-  for (int i = 0; i < 9; i++) {
-    if (a.number[i] == 'x')
-      xcount++;
-  }
-  assert(xcount == 1);
+    int xcount = 0;
+    for (int i = 0; i < 9; i++) {
+        if (a.number[i] == 'x')
+            xcount++;
+    }
+    assert(xcount == 1);
 }
 
 void AssertIsAdjacent(Node a, Node b) {
-  static int dir[4] = { -3, 3, -1, 1 };
-  AssertXCount(a);
-  AssertXCount(b);
+    static int dir[4] = { -3, 3, -1, 1 };
+    AssertXCount(a);
+    AssertXCount(b);
 
-  int xpos = -1;
-  for (int i = 0; i < 9; i++) {
-    if (a.number[i] == 'x') {
-      xpos = i;
-      break;
+    int xpos = -1;
+    for (int i = 0; i < 9; i++) {
+        if (a.number[i] == 'x') {
+            xpos = i;
+            break;
+        }
     }
-  }
-  for (int i = 0; i < 4; i++) {
-    if (i + dir[i] < 0 or i + dir[i] >= 9) {
-      continue;
+    for (int i = 0; i < 4; i++) {
+        if (i + dir[i] < 0 or i + dir[i] >= 9) {
+            continue;
+        }
+        if (b.number[i + dir[i]] == 'x') {
+            return;
+        }
     }
-    if (b.number[i + dir[i]] == 'x') {
-      return;
-    }
-  }
-  assert(false);
+    assert(false);
 }
 
 void AssertPath(const vector<Node> &path) {
@@ -70,4 +70,3 @@ int main(void) {
 
   return 0;
 }
-
