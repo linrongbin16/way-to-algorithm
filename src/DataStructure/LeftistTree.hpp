@@ -116,7 +116,7 @@ namespace detail {
   }
 
   Node *NodeMerge(Node *a, Node *b, LeftistTree *t) {
-    if (!a and !b)
+    if (!a && !b)
       return nullptr;
     if (!a) {
       b->tree = t;

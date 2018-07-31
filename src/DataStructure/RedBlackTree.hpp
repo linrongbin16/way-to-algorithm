@@ -233,10 +233,10 @@ namespace detail {
   }
 
   auto InsertCase4(RedBlackTree *t, Node *e) -> void {
-    if (IsRightChild(e) and IsLeftChild(Father(e))) {
+    if (IsRightChild(e) && IsLeftChild(Father(e))) {
       RotateLeft(t, Father(e));
       e = Left(e);
-    } else if (IsLeftChild(e) and IsRightChild(Father(e))) {
+    } else if (IsLeftChild(e) && IsRightChild(Father(e))) {
       RotateRight(t, Father(e));
       e = Right(e);
     }
@@ -246,7 +246,7 @@ namespace detail {
   auto InsertCase5(RedBlackTree *t, Node *e) -> void {
     Father(e)->color = BLACK;
     GrandFather(e)->color = RED;
-    if (IsLeftChild(e) and IsLeftChild(Father(e))) {
+    if (IsLeftChild(e) && IsLeftChild(Father(e))) {
       RotateRight(t, GrandFather(e));
     } else {
       assert(IsRightChild(e));
@@ -316,8 +316,8 @@ namespace detail {
   }
 
   auto EraseCase3(RedBlackTree *t, Node *e) -> void {
-    if (Color(Father(e)) == BLACK and Color(Brother(e)) == BLACK
-      and Color(Left(Brother(e))) == BLACK and Color(Right(Brother(e))) == BLACK) {
+    if (Color(Father(e)) == BLACK && Color(Brother(e)) == BLACK
+      && Color(Left(Brother(e))) == BLACK && Color(Right(Brother(e))) == BLACK) {
       Brother(e)->color = RED;
       EraseCase1(t, Father(e));
     } else {
@@ -326,8 +326,10 @@ namespace detail {
   }
 
   auto EraseCase4(RedBlackTree *t, Node *e) -> void {
-    if (Color(Brother(e)) == BLACK and Color(Father(e)) == RED
-      and Color(Left(Brother(e))) == BLACK and Color(Right(Brother(e))) == BLACK) {
+    if (Color(Brother(e)) == BLACK 
+		&& Color(Father(e)) == RED
+		&& Color(Left(Brother(e))) == BLACK 
+		&& Color(Right(Brother(e))) == BLACK) {
       SwapColor(Father(e), Brother(e));
     } else {
       EraseCase5(t, e);
@@ -335,16 +337,20 @@ namespace detail {
   }
 
   auto EraseCase5(RedBlackTree *t, Node *e) -> void {
-    if (IsLeftChild(e) and Color(Brother(e)) == BLACK
-      and Color(Left(Brother(e))) == RED and Color(Right(Brother(e))) == BLACK) {
-      SwapColor(Brother(e), Left(Brother(e)));
-      RotateRight(t, Brother(e));
-    } else if (IsRightChild(e) and Color(Brother(e)) == BLACK
-      and Color(Right(Brother(e))) == RED and Color(Left(Brother(e))) == BLACK) {
-      SwapColor(Brother(e), Right(Brother(e)));
-      RotateLeft(t, Brother(e));
-    }
-    EraseCase6(t, e);
+	  if (IsLeftChild(e) 
+		  && Color(Brother(e)) == BLACK
+		  && Color(Left(Brother(e))) == RED
+		  && Color(Right(Brother(e))) == BLACK) {
+		  SwapColor(Brother(e), Left(Brother(e)));
+		  RotateRight(t, Brother(e));
+	  } else if (IsRightChild(e) 
+		  && Color(Brother(e)) == BLACK
+		  && Color(Right(Brother(e))) == RED
+		  && Color(Left(Brother(e))) == BLACK) {
+		  SwapColor(Brother(e), Right(Brother(e)));
+		  RotateLeft(t, Brother(e));
+	  }
+	  EraseCase6(t, e);
   }
 
   auto EraseCase6(RedBlackTree *t, Node *e) -> void {

@@ -1,7 +1,7 @@
 // MIT License
 // Copyright 2017 zhaochenyou16@gmail.com
 
-#include "Recursion.hpp"
+#include "Recursion.h"
 #include <cmath>
 #include <cassert>
 #include <string>

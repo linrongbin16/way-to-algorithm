@@ -15,7 +15,7 @@ void AssertAdjacent(const Node & a, const Node & b) {
   bool a2 = (a.row == b.row) && (a.col == b.col - 1);
   bool a3 = (a.row == b.row + 1) && (a.col == b.col);
   bool a4 = (a.row == b.row - 1) && (a.col == b.col);
-  assert(a1 or a2 or a3 or a4);
+  assert(a1 || a2 || a3 || a4);
 }
 
 auto main() -> int

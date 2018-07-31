@@ -39,12 +39,12 @@ std::vector<int> PreorderTraverse(int n) {
 namespace detail {
 
   void PreorderImpl(int index, int n, std::vector<int> &seq) {
-    if (index < 0 or index >= n)
+    if (index < 0 || index >= n)
       return;
     seq.push_back(index);
-    if (index >= 0 and index < n)
+    if (index >= 0 && index < n)
       PreorderImpl(index*2+1, n, seq);
-    if (index >= 0 and index < n)
+    if (index >= 0 && index < n)
       PreorderImpl(index*2+2, n, seq);
   }
 

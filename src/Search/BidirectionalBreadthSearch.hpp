@@ -190,7 +190,7 @@ namespace detail {
   }
 
   auto InRange(int pos, int range) -> bool {
-    return pos >= 0 and pos < range;
+    return pos >= 0 && pos < range;
   }
 
 }

@@ -24,9 +24,9 @@ std::vector<int> LevelorderTraverse(int n) {
     seq.push_back(index);
     int left_index = index * 2 + 1;
     int right_index = index * 2 + 2;
-    if (left_index >= 0 and left_index < n)
+    if (left_index >= 0 && left_index < n)
       que.push_back(left_index);
-    if (right_index >= 0 and right_index < n)
+    if (right_index >= 0 && right_index < n)
       que.push_back(right_index);
   }
 

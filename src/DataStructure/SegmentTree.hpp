@@ -60,7 +60,7 @@ void SegmentTreeFree(SegmentTree *t)
 /* ����s[index]��v */
 static void SegmentTreeAddRec(SegmentTree *t, int root, int index, int v)
 {
-    if (t->left_node[root] > index or t->right_node[root] < index) {
+    if (t->left_node[root] > index || t->right_node[root] < index) {
         return;
     }
 
@@ -84,7 +84,7 @@ void SegmentTreeAdd(SegmentTree *t, int index, int value)
 int SegmentTreeQueryRec(SegmentTree *t, int root, int start, int end)
 {
     int mid = (t->left_node[root] + t->right_node[root]) / 2;
-    if (t->left_node[root] >= start and t->right_node[root] <= end) {
+    if (t->left_node[root] >= start && t->right_node[root] <= end) {
         return t->sum[root];
     } else if (end <= mid) {
         return SegmentTreeQueryRec(t, LEFT_CHILD(root), start, end );

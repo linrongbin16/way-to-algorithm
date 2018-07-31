@@ -40,7 +40,7 @@ void AssertIsAdjacent(Node a, Node b) {
         }
     }
     for (int i = 0; i < 4; i++) {
-        if (i + dir[i] < 0 or i + dir[i] >= 9) {
+        if (i + dir[i] < 0 || i + dir[i] >= 9) {
             continue;
         }
         if (b.number[i + dir[i]] == 'x') {
@@ -51,22 +51,22 @@ void AssertIsAdjacent(Node a, Node b) {
 }
 
 void AssertPath(const vector<Node> &path) {
-  if (path.size() == 1)
-    return;
-  for (int i = 0; i < path.size()-1; i++) {
-    AssertIsAdjacent(path[i], path[i+1]);
-  }
+    if (path.size() == 1)
+        return;
+    for (int i = 0; i < path.size()-1; i++) {
+        AssertIsAdjacent(path[i], path[i+1]);
+    }
 }
 
 int main(void) {
-  for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
-    Test & t = test_cases[i];
-    vector<Node> path = AStarSearch(t.begin, t.end);
-    assert(path.size() > 0);
-    assert(path.front() == t.begin);
-    assert(path.back() == t.begin);
-    AssertPath(path);
-  }
+    for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
+        Test & t = test_cases[i];
+        vector<Node> path = AStarSearch(t.begin, t.end);
+        assert(path.size() > 0);
+        assert(path.front() == t.begin);
+        assert(path.back() == t.begin);
+        AssertPath(path);
+    }
 
-  return 0;
+    return 0;
 }

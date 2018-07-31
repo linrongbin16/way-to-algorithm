@@ -197,7 +197,7 @@ namespace detail {
       NodeErase( &((*e)->left), index );
 
       if ( NodeDepth((*e)->right) - NodeDepth((*e)->left) >= 2 ) {
-        if ( (*e)->right->left != nullptr and ((*e)->right->left->depth > (*e)->right->right->depth) ) {
+        if ( (*e)->right->left != nullptr && ((*e)->right->left->depth > (*e)->right->right->depth) ) {
           RotateRL( e );
         } else {
           RotateRR( e );
@@ -207,7 +207,7 @@ namespace detail {
       NodeErase( &((*e)->right), index );
 
       if ( NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2 ) {
-        if ( (*e)->right->left != nullptr and ((*e)->left->right->depth >(*e)->left->left->depth) ) {
+        if ( (*e)->right->left != nullptr && ((*e)->left->right->depth >(*e)->left->left->depth) ) {
           RotateLR( e );
         } else {
           RotateLL( e );
@@ -215,7 +215,7 @@ namespace detail {
       }
     } else {
       /* (*e)->index == index */
-      if ( (*e)->left and (*e)->right ) {
+      if ( (*e)->left && (*e)->right ) {
         Node* temp = (*e)->right;
 
         /*temp指向节点的右儿子*/
@@ -228,7 +228,7 @@ namespace detail {
         /*删除边缘节点*/
         NodeErase( &((*e)->right), temp->index );
         if ( NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2 ) {
-          if ( (*e)->left->right != nullptr and (NodeDepth((*e)->left->right) > NodeDepth((*e)->left->left)) ) {
+          if ( (*e)->left->right != nullptr && (NodeDepth((*e)->left->right) > NodeDepth((*e)->left->left)) ) {
             RotateLR( e );
           } else {
             RotateLL( e );

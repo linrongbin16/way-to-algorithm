@@ -32,7 +32,7 @@ std::vector<int> DepthFirstSearch(int g[MAX][MAX], int n) {
   // DFS from node-i
   memset(visited, 0, sizeof(visited));
   for (int i = 0; i < n; ++ i)
-    if (not visited[i]) {
+    if (!visited[i]) {
       detail::DFS(g, n, i, visited, seq);
     }
 

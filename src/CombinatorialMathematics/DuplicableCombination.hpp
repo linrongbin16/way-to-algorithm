@@ -14,7 +14,7 @@ auto Recursion(vector<int> &tmp, const vector<int> &candidates, int prev, vector
     }
 
     /* 遍历当前成员s[prev] 并递归进入下一个成员 */
-    for (int i = 0; i < candidates.size(); ++i) {
+    for (int i = 0; i < candidates.size(); i++) {
         tmp[prev] = candidates[i];
         Recursion(tmp, candidates, prev + 1, comb);
     }
