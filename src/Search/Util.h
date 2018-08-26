@@ -1,5 +1,5 @@
 // MIT License
-// Copyright 2018 linrongbin16@gmail.com
+// Copyright 2017- linrongbin16@gmail.com
 
 #pragma once
 #include <vector>

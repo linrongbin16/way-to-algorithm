@@ -89,3 +89,4 @@ install_manifest.txt
 *.xcuserdata
 package.json
 package-lock.json
+.temp

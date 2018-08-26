@@ -1,5 +1,5 @@
 // MIT License
-// Copyright 2017 zhaochenyou16@gmail.com
+// Copyright 2017- linrongbin16@gmail.com
 
 #include "Recursion.h"
 #include <cmath>
