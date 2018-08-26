@@ -1,5 +1,3 @@
-//test
-
 #include "general_head.h"
 #include "tree_dynamic.h"
 extern int binary_tree1(tree_node *r, int resv);	//1

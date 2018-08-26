@@ -1,6 +1,3 @@
-// MIT License
-// Copyright 2017 zhaochenyou16@gmail.com
-
 #pragma once
 
 //带环多叉树动规

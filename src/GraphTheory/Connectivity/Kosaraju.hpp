@@ -1,8 +1,4 @@
-// MIT License
-// Copyright 2017 zhaochenyou16@gmail.com
-
 #pragma once
-
 #include "../Traverse/TopologicalSort.hpp"
 #include "../Traverse/DepthFirstSearch.hpp"
 
