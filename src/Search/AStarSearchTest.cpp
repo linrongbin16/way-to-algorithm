@@ -1,6 +1,3 @@
-// MIT License
-// Copyright 2017 zhaochenyou16@gmail.com
-
 #include "AStarSearch.h"
 #include <cassert>
 #include <string>

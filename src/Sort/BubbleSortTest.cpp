@@ -1,6 +1,3 @@
-// MIT License
-// Copyright 2017- linrongbin16@gmail.com
-
 #include "BubbleSort.h"
 #include "Util.h"
 #include <iostream>

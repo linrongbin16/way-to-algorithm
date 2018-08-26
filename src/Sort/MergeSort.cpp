@@ -1,7 +1,4 @@
-﻿// MIT License
-// Copyright 2017- linrongbin16@gmail.com
-
-#include "MergeSort.h"
+﻿#include "MergeSort.h"
 #include <cstring>
 #include <vector>
 

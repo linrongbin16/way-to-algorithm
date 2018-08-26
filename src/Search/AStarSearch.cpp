@@ -1,6 +1,3 @@
-// MIT License
-// Copyright 2018 linrongbin16@gmail.com
-
 #include "AStarSearch.h"
 #ifndef MAX
 #define MAX 1024

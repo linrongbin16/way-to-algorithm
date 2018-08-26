@@ -1,5 +1,3 @@
-// Copyright 2017 zhaochenyou16@gmail.com
-
 #include "BreadthFirstSearch.hpp"
 #include <cassert>
 #include <vector>

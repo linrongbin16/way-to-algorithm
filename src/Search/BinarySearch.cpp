@@ -1,6 +1,3 @@
-// MIT License
-// Copyright 2018 linrongbin16@gmail.com
-
 #include "BinarySearch.h"
 
 std::pair<bool, int> BinarySearch(int *s, int beg, int end, int x) {

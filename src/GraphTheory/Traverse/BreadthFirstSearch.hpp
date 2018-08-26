@@ -1,8 +1,4 @@
-// MIT License
-// Copyright 2017 zhaochenyou16@gmail.com
-
 #pragma once
-
 #ifndef MAX
 #define MAX 128
 #endif

@@ -1,6 +1,3 @@
-// MIT License
-// Copyright 2017- linrongbin16@gmail.com
-
 #include "InsertSort.h"
 
 void InsertSort(int *s, int beg, int end) {

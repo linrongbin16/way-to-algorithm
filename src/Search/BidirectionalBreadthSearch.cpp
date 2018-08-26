@@ -1,6 +1,3 @@
-// MIT License
-// Copyright 2017 zhaochenyou16@gmail.com
-
 #include "BidirectionalBreadthSearch.hpp"
 #include <cassert>
 #include <iostream>

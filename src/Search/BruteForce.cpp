@@ -1,6 +1,3 @@
-// MIT License
-// Copyright 2018 linrongbin16@gmail.com
-
 #include "BruteForce.h"
 #include "Util.h"
 

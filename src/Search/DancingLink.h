@@ -1,8 +1,4 @@
-// MIT License
-// Copyright 2017- linrongbin16@gmail.com
-
 #pragma once
-
 #ifndef MAX
 #define MAX 128
 #endif
