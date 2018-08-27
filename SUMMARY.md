@@ -33,12 +33,12 @@
         * [LongestIncreasingSubsequence 最长递增子序列](docs/DynamicProgramming/LinearDP/LongestIncreasingSubsequence/README.md)
         * [LongestIncreasingSubsequenceExtension 最长递增子序列扩展](docs/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension/README.md)
         * [BidirectionalSubsequence 双向子序列](docs/DynamicProgramming/LinearDP/BidirectionalSubsequence/README.md)
-    * Section-2 KnapsackDP 第2节 背包问题
-        * [ZeroOneKnapsack 01背包](docs/DynamicProgramming/KnapsackDP/ZeroOneKnapsack/README.md)
-        * [ZeroOneKnapsackExtension 01背包扩展](docs/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension/README.md)
-        * [CompleteKnapsack 完全背包](docs/DynamicProgramming/KnapsackDP/CompleteKnapsack/README.md)
-        * [TwoDimensionKnapsack 二维背包](docs/DynamicProgramming/KnapsackDP/TwoDimensionKnapsack/README.md)
-        * [GroupKnapsack 分组背包](docs/DynamicProgramming/KnapsackDP/GroupKnapsack/README.md)
+    * Section-2 BagDP 第2节 背包问题
+        * [ZeroOneBag 01背包](docs/DynamicProgramming/BagDP/ZeroOneBag/README.md)
+        * [ZeroOneBagExtension 01背包扩展](docs/DynamicProgramming/BagDP/ZeroOneBagExtension/README.md)
+        * [CompleteBag 完全背包](docs/DynamicProgramming/BagDP/CompleteBag/README.md)
+        * [TwoDimensionBag 二维背包](docs/DynamicProgramming/BagDP/TwoDimensionBag/README.md)
+        * [GroupBag 分组背包](docs/DynamicProgramming/BagDP/GroupBag/README.md)
     * Section-3 RegionalDP 第3节 区域动规
         * [MinimumMergeCost - 最小合并代价](docs/DynamicProgramming/RegionalDP/MinimumMergeCost/README.md)
         * [MinimumMergeCostExtension - 最小合并代价扩展](docs/DynamicProgramming/RegionalDP/MinimumMergeCostExtension/README.md)
@@ -163,4 +163,3 @@
     * [WythoffGame 威佐夫博弈](docs/GameTheory/WythoffGame.md)
     * [NimGame 尼姆博弈](docs/GameTheory/NimGame.md)
     * [SpragueGrundy SG函数](docs/GameTheory/SpragueGrundy.md)
-
