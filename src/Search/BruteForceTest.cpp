@@ -1,12 +1,13 @@
-#include "BruteForce.h"
 #include <cassert>
 #include <cmath>
+#include "BruteForce.h"
 using namespace std;
 
 #define TEST_N_MAX 4
 #define TEST_M_MAX 16
 
-int main(void) {
+int main(void)
+{
     int s[TEST_N_MAX];
     for (int i = 1; i < TEST_M_MAX; i++) {
         vector<vector<int>> result = BruteForce(s, TEST_N_MAX, i);
@@ -20,7 +21,7 @@ int main(void) {
         }
         /* 第一个排列组合必然是[0, 0, 0, 0] */
         assert(sum0 == 0);
-        for (int j = 0; j < result.size()-1; j++) {
+        for (int j = 0; j < result.size() - 1; j++) {
             vector<int> s1, s2;
             int sum1 = 0, sum2 = 0;
             s1 = result[j];

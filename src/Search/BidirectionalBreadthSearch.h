@@ -1,10 +1,9 @@
 #pragma once
-#include <utility>
-#include <cstring>
 #include <cassert>
-#include <vector>
+#include <cstring>
 #include <deque>
-
+#include <utility>
+#include <vector>
 
 struct Node {
     int col;

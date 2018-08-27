@@ -2,50 +2,49 @@
 #ifndef MAX
 #define MAX 1024
 #endif
-#include <unordered_map>
-#include <vector>
 #include <algorithm>
+#include <cassert>
 #include <climits>
 #include <cstring>
 #include <string>
+#include <unordered_map>
 #include <utility>
-#include <cassert>
+#include <vector>
 
-int direction[4] = { -3, 3, -1, 1 };
+int direction[4] = {-3, 3, -1, 1};
 Node invalid_node = Node("---------");
 
 // node hash
-int HashNode(const Node &a) {
+int HashNode(const Node &a)
+{
     return std::hash<std::string>{}(std::string(a.number));
 }
 
 // node constructor
-Node::Node(const std::string &s) {
-    std::strncpy(number, s.data(), 9);
-}
+Node::Node(const std::string &s) { std::strncpy(number, s.data(), 9); }
 
 // node equal
-bool operator==(const Node &a, const Node &b) {
-    if (&a == &b)
-        return true;
+bool operator==(const Node &a, const Node &b)
+{
+    if (&a == &b) return true;
     return std::strncmp(a.number, b.number, 9) == 0;
 }
 
 // node difference
-int operator-(const Node &a, const Node &b) {
+int operator-(const Node &a, const Node &b)
+{
     int diff = 0;
     for (int i = 0; i < 9; ++i)
-        if (a.number[i] != b.number[i])
-            diff++;
+        if (a.number[i] != b.number[i]) diff++;
     return diff;
 }
 
 // node neighbor
-Node Neighbor(const Node &a, int direction) {
+Node Neighbor(const Node &a, int direction)
+{
     int xpos;
     for (xpos = 0; xpos < 9; xpos++)
-        if (a.number[xpos] == 'x')
-            break;
+        if (a.number[xpos] == 'x') break;
     int npos = xpos + direction;
     if (npos < 0 || npos >= 9) {
         return invalid_node;
@@ -57,7 +56,9 @@ Node Neighbor(const Node &a, int direction) {
 }
 
 // get closest node
-Node PopOpenTable(std::vector<Node> *open_table, Node end, const std::unordered_map<int, int> &g_score) {
+Node PopOpenTable(std::vector<Node> *open_table, Node end,
+                  const std::unordered_map<int, int> &g_score)
+{
     Node ret = invalid_node;
     int f_score = INT_MAX;
     std::vector<Node>::iterator i = open_table->begin();
@@ -75,21 +76,24 @@ Node PopOpenTable(std::vector<Node> *open_table, Node end, const std::unordered_
     return ret;
 }
 
-std::vector<Node> Path(const std::unordered_map<Node, Node> &close_table, Node e) {
+std::vector<Node> Path(const std::unordered_map<Node, Node> &close_table,
+                       Node e)
+{
     std::vector<Node> path;
     path.push_back(e);
 
     while (true) {
-        std::unordered_map<Node, Node>::const_iterator from = close_table.find(e);
-        if (from == close_table.end() || from->second == invalid_node)
-            break;
+        std::unordered_map<Node, Node>::const_iterator from =
+            close_table.find(e);
+        if (from == close_table.end() || from->second == invalid_node) break;
         path.push_back(from->second);
         e = from->second;
     }
     return path;
 }
 
-std::vector<Node> AStarSearch(Node beg, Node end) {
+std::vector<Node> AStarSearch(Node beg, Node end)
+{
     std::unordered_map<int, int> g_score;
     std::vector<Node> open_table;
     std::unordered_map<Node, Node> close_table;
@@ -115,8 +119,7 @@ std::vector<Node> AStarSearch(Node beg, Node end) {
             g_score[neighbor_hash] = g_score[node_hash] + 1;
 
             // 若close_table中已经存在neighbor_node则跳过该点
-            if (close_table.find(neighbor) != close_table.end())
-                continue;
+            if (close_table.find(neighbor) != close_table.end()) continue;
             open_table.push_back(neighbor);
             close_table.insert(std::make_pair(neighbor, node));
         }
