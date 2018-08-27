@@ -48,8 +48,7 @@ struct ZOKTest {
      1586},  // 5
 };
 
-int main()
-{
+int main() {
     int count = sizeof(test_cases) / sizeof(ZOKTest);
     for (int i = 0; i < count; i++) {
         ZOKTest& t = test_cases[i];

@@ -6,8 +6,7 @@
 #include <algorithm>
 #include <vector>
 
-int CompleteKnapsack(int *value, int *weight, int count, int tot_weight)
-{
+int CompleteKnapsack(int *value, int *weight, int count, int tot_weight) {
     int f[MAX][MAX];
 
     // ≥ı ºªØ

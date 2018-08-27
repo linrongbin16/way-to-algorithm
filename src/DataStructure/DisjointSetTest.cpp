@@ -3,8 +3,7 @@
 #include "DisjointSet.h"
 using namespace std;
 
-void PrintSet(Set *s, int n)
-{
+void PrintSet(Set *s, int n) {
     for (int i = 0; i < n; i++) {
         cout << s->father[i] << " ";
     }
@@ -15,8 +14,7 @@ void PrintSet(Set *s, int n)
     cout << endl << endl;
 }
 
-void test1()
-{
+void test1() {
     Set *s = DisjointSetNew();
     assert(s);
     DisjointSetUnion(s, 0, 4);
@@ -59,8 +57,7 @@ void test1()
     DisjointSetFree(s);
 }
 
-void test2()
-{
+void test2() {
     Set *s = DisjointSetNew();
     assert(s);
     DisjointSetUnion(s, 1, 2);
@@ -83,8 +80,7 @@ void test2()
     DisjointSetFree(s);
 }
 
-int main()
-{
+int main() {
     test1();
     test2();
     return 0;

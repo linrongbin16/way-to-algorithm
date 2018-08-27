@@ -40,8 +40,7 @@ struct GKTest {
      129},  // 1
 };
 
-int main()
-{
+int main() {
     int count = sizeof(test_cases) / sizeof(GKTest);
     for (int i = 0; i < count; i++) {
         GKTest& t = test_cases[i];

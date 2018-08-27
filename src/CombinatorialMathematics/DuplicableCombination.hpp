@@ -5,8 +5,8 @@
 #include <vector>
 using namespace std;
 
-auto Recursion(vector<int> &tmp, const vector<int> &candidates, int prev, vector<vector<int>> &comb) -> void
-{
+void Recursion(vector<int> &tmp, const vector<int> &candidates, int prev,
+               vector<vector<int>> &comb) {
     /* 递归终止条件 */
     if (prev == tmp.size()) {
         comb.push_back(tmp);
@@ -20,12 +20,11 @@ auto Recursion(vector<int> &tmp, const vector<int> &candidates, int prev, vector
     }
 }
 
-auto DuplicableCombination(vector<int> &candidates, int n) -> vector<vector<int>> {
+vector<vector<int>> DuplicableCombination(vector<int> &candidates, int n) {
     vector<vector<int>> comb;
     vector<int> tmp(n, 0);
     Recursion(tmp, candidates, 0, comb);
     return comb;
 }
-
 
 #endif

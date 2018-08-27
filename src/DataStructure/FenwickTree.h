@@ -13,4 +13,3 @@ FenwickTree* FenwickTreeNew();
 FenwickTree* FenwickTreeNewFromArray(int* s);
 void FenwickTreeFree(FenwickTree* t);
 int FenwickTreeSum(FenwickTree* t, int i);
-

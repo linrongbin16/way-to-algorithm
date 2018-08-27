@@ -8,14 +8,12 @@
 // implement
 //
 
-static int FindFather(Set *s, int i)
-{
+static int FindFather(Set *s, int i) {
     if (s->father[i] != i) s->father[i] = FindFather(s, s->father[i]);
     return s->father[i];
 }
 
-Set *DisjointSetNew()
-{
+Set *DisjointSetNew() {
     Set *s = new Set();
     if (!s) {
         return nullptr;
@@ -26,14 +24,12 @@ Set *DisjointSetNew()
 
 void DisjointSetFree(Set *s) { delete s; }
 
-void DisjointSetUnion(Set *s, int i, int j)
-{
+void DisjointSetUnion(Set *s, int i, int j) {
     int i_father = FindFather(s, i);
     int j_father = FindFather(s, j);
     s->father[j] = i_father;
 }
 
-bool DisjointSetQuery(Set *s, int i, int j)
-{
+bool DisjointSetQuery(Set *s, int i, int j) {
     return FindFather(s, i) == FindFather(s, j);
 }

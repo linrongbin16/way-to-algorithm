@@ -1,12 +1,11 @@
-#include "FenwickTree.h"
 #include <assert.h>
 #include <iostream>
+#include "FenwickTree.h"
 using namespace std;
 
 #define TEST_MAX 1024
 
-int main()
-{
+int main() {
     for (int i = 0; i < TEST_MAX; i++) {
         FenwickTree* t = FenwickTreeNew();
         assert(t);
@@ -20,4 +19,3 @@ int main()
 
     return 0;
 }
-

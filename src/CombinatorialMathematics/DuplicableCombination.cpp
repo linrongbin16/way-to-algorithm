@@ -1,8 +1,8 @@
 #include "DuplicableCombination.hpp"
 #include <cassert>
-#include <unordered_set>
-#include <string>
 #include <cmath>
+#include <string>
+#include <unordered_set>
 
 using namespace std;
 
@@ -15,13 +15,12 @@ void AssertUnique(const vector<vector<int>> &v) {
         for (int j = 0; j < v[i].size(); j++) {
             tmp.append(to_string(v[i][j]));
         }
-        assert( us.find(tmp) == us.end() );
+        assert(us.find(tmp) == us.end());
         us.insert(tmp);
     }
 }
 
-int main()
-{
+int main() {
     for (int i = 1; i < MAX; i++) {
         //初始化数组s
         vector<int> s(i, 0);
@@ -30,7 +29,7 @@ int main()
         }
         for (int j = 1; j <= i; j++) {
             vector<vector<int>> ret = DuplicableCombination(s, j);
-            assert( (double)ret.size() == std::pow<double>(j, i) );
+            assert((double)ret.size() == std::pow<double>(j, i));
             AssertUnique(ret);
         }
     }

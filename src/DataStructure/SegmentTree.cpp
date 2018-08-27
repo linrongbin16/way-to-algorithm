@@ -1,18 +1,17 @@
 #include "SegmentTree.hpp"
-#include <iostream>
 #include <assert.h>
+#include <iostream>
 using namespace std;
 
 #define TEST_MAX 1024
 
-int main()
-{
+int main() {
     int s[MAX];
     for (int i = 0; i < MAX; i++) {
         s[i] = i;
     }
     for (int i = 0; i < MAX; i++) {
-        SegmentTree *t = SegmentTreeNew(s, 0, MAX-1);
+        SegmentTree *t = SegmentTreeNew(s, 0, MAX - 1);
         for (int j = 0; j < MAX; j++) {
             int sum = 0;
             SegmentTreeAdd(t, j, j);
@@ -31,4 +30,3 @@ int main()
 
     return 0;
 }
-

@@ -17,8 +17,7 @@ struct Test {
     {2, 2, 10000000, 4},
 };
 
-int main(void)
-{
+int main(void) {
     for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
         Test &t = tests[i];
         assert(Exponentiation1(t.x, t.n, t.mod) == t.result);

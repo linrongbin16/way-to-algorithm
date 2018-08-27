@@ -2,16 +2,16 @@
 #define FULL_PERMUTATION_HPP
 
 // #include <iostream>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 #include <vector>
 using namespace std;
 #ifndef MAX
 #define MAX 1024
 #endif
 
-void FullPermutationImpl(vector<int> & A, int n, int prev, vector<vector<int>> & result)
-{
+void FullPermutationImpl(vector<int>& A, int n, int prev,
+                         vector<vector<int>>& result) {
     if (prev == 0) {
         result.push_back(A);
         return;
@@ -21,21 +21,19 @@ void FullPermutationImpl(vector<int> & A, int n, int prev, vector<vector<int>> &
     // i从prev开始 是为了产生一个初始化排列 该排列与A传入时完全一样
     for (int i = prev; i >= 0; i--) {
         swap(A[i], A[prev]);
-        FullPermutationImpl(A, n, prev-1, result);
+        FullPermutationImpl(A, n, prev - 1, result);
         swap(A[i], A[prev]);
     }
 }
 
-vector<vector<int>> FullPermutation(int s[MAX], int n)
-{
+vector<vector<int>> FullPermutation(int s[MAX], int n) {
     // 初始化 A=[s1, s2, s3, ..., sn]
     vector<int> A;
-    for (int i = 0; i < n; i++)
-        A.push_back(s[i]);
+    for (int i = 0; i < n; i++) A.push_back(s[i]);
 
     vector<vector<int>> perm;
 
-    FullPermutationImpl(A, n, n-1, perm);
+    FullPermutationImpl(A, n, n - 1, perm);
 
     /*
     cout << endl;
@@ -48,6 +46,5 @@ vector<vector<int>> FullPermutation(int s[MAX], int n)
 
     return perm;
 }
-
 
 #endif

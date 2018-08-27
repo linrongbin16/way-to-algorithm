@@ -5,8 +5,7 @@
 
 #define TEST_MAX 8
 
-int FullPermutationCount(int n)
-{
+int FullPermutationCount(int n) {
     int count = 1;
     for (int i = 1; i <= n; i++) {
         count *= i;
@@ -14,8 +13,7 @@ int FullPermutationCount(int n)
     return count;
 }
 
-int main()
-{
+int main() {
     int s[MAX];
     for (int i = 0; i < MAX; i++) {
         s[i] = i;
@@ -28,12 +26,12 @@ int main()
         }
 
         vector<vector<int>> result = FullPermutation(s, n);
-        // cout << "n: " << n << ", result.size: " << result.size() << ", count: " << FullPermutationCount(n) << endl;
-        assert( result.size() == FullPermutationCount(n) );
+        // cout << "n: " << n << ", result.size: " << result.size() << ", count:
+        // " << FullPermutationCount(n) << endl;
+        assert(result.size() == FullPermutationCount(n));
         for (int i = 0; i < result.size(); i++) {
             unordered_set<int> rs;
-            for (int j = 0; j < result[i].size(); j++)
-                rs.insert(result[i][j]);
+            for (int j = 0; j < result[i].size(); j++) rs.insert(result[i][j]);
             assert(rs == ss);
         }
     }

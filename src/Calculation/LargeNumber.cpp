@@ -29,8 +29,7 @@ bool IsNegative(const Number &a);
 bool IsPositive(const Number &a);
 
 //初始化零
-Number Init()
-{
+Number Init() {
     Number c;
     c.negative = false;
     memset(c.decimal, 0, sizeof(c.decimal));
@@ -43,8 +42,7 @@ Number Init()
 }
 
 //初始化整数
-Number Init(int a)
-{
+Number Init(int a) {
     Number c = Init();
 
     c.negative = (a < 0);
@@ -60,8 +58,7 @@ Number Init(int a)
 }
 
 //初始化小数
-Number Init(double a)
-{
+Number Init(double a) {
     Number c = Init((int)a);
 
     c.negative = (a < 0.0);
@@ -79,15 +76,13 @@ Number Init(double a)
 }
 
 //负号
-Number operator-(const Number &a)
-{
+Number operator-(const Number &a) {
     detail::AssertValid(a);
 
     Number c = a;
     if (a.integer_len == 0 && a.decimal_len == 0) {
         c.negative = false;
-    }
-    else {
+    } else {
         c.negative = !a.negative;
     }
 
@@ -95,8 +90,7 @@ Number operator-(const Number &a)
 }
 
 //加
-Number operator+(const Number &a, const Number &b)
-{
+Number operator+(const Number &a, const Number &b) {
     //符号不同
     // 12 + (-7) -> 12 - 7
     if (a.negative != b.negative) {
@@ -135,15 +129,13 @@ Number operator+(const Number &a, const Number &b)
     return c;
 }
 
-Number &operator+=(Number &a, const Number &b)
-{
+Number &operator+=(Number &a, const Number &b) {
     a = a + b;
     return a;
 }
 
 //减
-Number operator-(const Number &a, const Number &b)
-{
+Number operator-(const Number &a, const Number &b) {
     //符号不同
     // 12 - (-7) -> 12 + 7
     if (a.negative != b.negative) {
@@ -217,15 +209,13 @@ Number operator-(const Number &a, const Number &b)
     return c;
 }
 
-Number &operator-=(Number &a, const Number &b)
-{
+Number &operator-=(Number &a, const Number &b) {
     a = a - b;
     return a;
 }
 
 //乘
-Number operator*(const Number &a, const Number &b)
-{
+Number operator*(const Number &a, const Number &b) {
     // a b为零
     if (a == Init()) return Init();
     if (b == Init()) return Init();
@@ -246,8 +236,7 @@ Number operator*(const Number &a, const Number &b)
     return c;
 }
 
-Number &operator*=(Number &a, const Number &b)
-{
+Number &operator*=(Number &a, const Number &b) {
     a = a * b;
     return a;
 }
@@ -256,27 +245,23 @@ Number &operator*=(Number &a, const Number &b)
 // TODO
 Number operator/(const Number &a, const Number &b) { return Init(); }
 
-Number &operator/=(Number &a, const Number &b)
-{
+Number &operator/=(Number &a, const Number &b) {
     a = a / b;
     return a;
 }
 
 //输出整数
-std::string IntString(const Number &a)
-{
+std::string IntString(const Number &a) {
     detail::AssertValid(a);
     std::string ret(a.integer_len + 5, '*');
     int int_index = 0;
     for (int i = 0; i < ret.size(); i++) {
         if (i == 0 && a.negative) {
             ret[i] = '-';
-        }
-        else {
+        } else {
             if (a.integer_len == 0 && int_index >= 0) {
                 ret[i] = '0';
-            }
-            else if (int_index < a.integer_len) {
+            } else if (int_index < a.integer_len) {
                 ret[i] = (char)(a.integer[int_index] + (int)'0');
             }
             int_index++;
@@ -286,8 +271,7 @@ std::string IntString(const Number &a)
 }
 
 //输出小数
-std::string FloatString(const Number &a)
-{
+std::string FloatString(const Number &a) {
     detail::AssertValid(a);
     std::string ret(a.integer_len + a.decimal_len + 5, '*');
     int index;
@@ -297,12 +281,10 @@ std::string FloatString(const Number &a)
     for (i = 0; i < ret.size() && index < a.integer_len; i++) {
         if (i == 0 && a.negative) {
             ret[i] = '-';
-        }
-        else {
+        } else {
             if (a.integer_len == 0 && index >= 0) {
                 ret[i] = '0';
-            }
-            else if (index < a.integer_len) {
+            } else if (index < a.integer_len) {
                 ret[i] = (char)(a.integer[index] + (int)'0');
             }
             index++;
@@ -315,8 +297,7 @@ std::string FloatString(const Number &a)
     do {
         if (a.decimal_len == 0) {
             ret[i++] = '0';
-        }
-        else {
+        } else {
             ret[i] = (char)(a.decimal[index] + (int)'0');
             i++;
             index++;
@@ -327,8 +308,7 @@ std::string FloatString(const Number &a)
 }
 
 //大于
-bool operator>(const Number &a, const Number &b)
-{
+bool operator>(const Number &a, const Number &b) {
     if (a.negative != b.negative) {
         return a.negative && !b.negative;
     }
@@ -365,8 +345,7 @@ bool operator<(const Number &a, const Number &b) { return b > a; }
 bool operator<=(const Number &a, const Number &b) { return a < b || a == b; }
 
 //等于
-bool operator==(const Number &a, const Number &b)
-{
+bool operator==(const Number &a, const Number &b) {
     if (a.negative != b.negative) return false;
     if (a.integer_len != b.integer_len) return false;
     if (a.decimal_len != b.decimal_len) return false;
@@ -380,8 +359,7 @@ bool operator==(const Number &a, const Number &b)
 //不等于
 bool operator!=(const Number &a, const Number &b) { return !(a == b); }
 
-void AssertValid(const Number &a)
-{
+void AssertValid(const Number &a) {
     assert(a.integer_len >= 0);
     assert(a.decimal_len >= 0);
     for (int i = 0; i < a.integer_len; i++) {
@@ -394,8 +372,7 @@ void AssertValid(const Number &a)
     }
 }
 
-Number FloatUp(const Number &a)
-{
+Number FloatUp(const Number &a) {
     Number c = a;
     memmove(c.integer + c.decimal_len, c.integer, c.integer_len);
     for (int i = 0; i < c.decimal_len; i++) {
@@ -408,8 +385,7 @@ Number FloatUp(const Number &a)
     return c;
 }
 
-Number FloatDown(const Number &a, int decimal_len)
-{
+Number FloatDown(const Number &a, int decimal_len) {
     assert(decimal_len <= a.integer_len);
     Number c = a;
     memmove(c.decimal, c.decimal + decimal_len, decimal_len);
@@ -425,8 +401,7 @@ Number FloatDown(const Number &a, int decimal_len)
     return c;
 }
 
-bool IsNegative(const Number &a)
-{
+bool IsNegative(const Number &a) {
     if (a.integer_len == 0 && a.decimal_len == 0) {
         assert(!a.negative);
     }
@@ -434,8 +409,7 @@ bool IsNegative(const Number &a)
 }
 
 //正的
-bool IsPositive(const Number &a)
-{
+bool IsPositive(const Number &a) {
     if (a.integer_len == 0 && a.decimal_len == 0) {
         assert(!a.negative);
     }

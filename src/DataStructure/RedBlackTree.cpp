@@ -5,8 +5,7 @@
 
 #define TEST_MAX 1024
 
-int main()
-{
+int main() {
     RedBlackTree *t = RedBlackTreeNew();
     assert(t);
 

@@ -6,16 +6,14 @@
 /*叶子节点的高度值depth=0*/
 static int NodeDepth(Node *e) { return e ? e->depth : -1; }
 
-static void NodeFree(Node *e)
-{
+static void NodeFree(Node *e) {
     if (!e) return;
     NodeFree(e->left);
     NodeFree(e->right);
     delete e;
 }
 
-static void RotateLL(Node **e)
-{
+static void RotateLL(Node **e) {
     Node *e1;
 
     e1 = (*e)->left;
@@ -27,8 +25,7 @@ static void RotateLL(Node **e)
     (*e) = e1;
 }
 
-static void RotateRR(Node **e)
-{
+static void RotateRR(Node **e) {
     Node *e1;
 
     e1 = (*e)->right;
@@ -40,20 +37,17 @@ static void RotateRR(Node **e)
     (*e) = e1;
 }
 
-static void RotateLR(Node **e)
-{
+static void RotateLR(Node **e) {
     RotateRR(&((*e)->left));
     RotateLL(e);
 }
 
-static void RotateRL(Node **e)
-{
+static void RotateRL(Node **e) {
     RotateLL(&((*e)->right));
     RotateRR(e);
 }
 
-static void NodeInsert(Node **e, int index)
-{
+static void NodeInsert(Node **e, int index) {
     assert(e);
     assert(*e);
     /*二分插入*/
@@ -65,20 +59,17 @@ static void NodeInsert(Node **e, int index)
             (*e)->left->right = nullptr;
             (*e)->left->index = index;
             (*e)->left->depth = 0;
-        }
-        else {
+        } else {
             NodeInsert(&((*e)->left), index);
         }
         if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
             if ((*e)->left->index > index) {
                 RotateLL(e);
-            }
-            else {
+            } else {
                 RotateLR(e);
             }
         }
-    }
-    else if ((*e)->index < index) {
+    } else if ((*e)->index < index) {
         /*若右孩子节点为空节点 创建新的节点*/
         if ((*e)->right == nullptr) {
             (*e)->right = new Node();
@@ -86,15 +77,13 @@ static void NodeInsert(Node **e, int index)
             (*e)->right->right = nullptr;
             (*e)->right->index = index;
             (*e)->right->depth = 0;
-        }
-        else {
+        } else {
             NodeInsert(&((*e)->right), index);
         }
         if (NodeDepth((*e)->right) - NodeDepth((*e)->left) >= 2) {
             if ((*e)->right->index < index) {
                 RotateRR(e);
-            }
-            else {
+            } else {
                 RotateRL(e);
             }
         }
@@ -103,23 +92,19 @@ static void NodeInsert(Node **e, int index)
     (*e)->depth = std::max(NodeDepth((*e)->left), NodeDepth((*e)->right)) + 1;
 }
 
-static int NodeFind(Node **e, int index)
-{
+static int NodeFind(Node **e, int index) {
     if (*e == nullptr) return 0;
     /*二分查找*/
     if ((*e)->index == index) {
         return 1;
-    }
-    else if ((*e)->index > index) {
+    } else if ((*e)->index > index) {
         return NodeFind(&((*e)->left), index);
-    }
-    else {
+    } else {
         return NodeFind(&((*e)->right), index);
     }
 }
 
-static void NodeErase(Node **e, int index)
-{
+static void NodeErase(Node **e, int index) {
     if ((*e)->index > index) {
         NodeErase(&((*e)->left), index);
 
@@ -127,26 +112,22 @@ static void NodeErase(Node **e, int index)
             if ((*e)->right->left != nullptr &&
                 ((*e)->right->left->depth > (*e)->right->right->depth)) {
                 RotateRL(e);
-            }
-            else {
+            } else {
                 RotateRR(e);
             }
         }
-    }
-    else if ((*e)->index < index) {
+    } else if ((*e)->index < index) {
         NodeErase(&((*e)->right), index);
 
         if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
             if ((*e)->right->left != nullptr &&
                 ((*e)->left->right->depth > (*e)->left->left->depth)) {
                 RotateLR(e);
-            }
-            else {
+            } else {
                 RotateLL(e);
             }
         }
-    }
-    else {
+    } else {
         /* (*e)->index == index */
         if ((*e)->left && (*e)->right) {
             Node *temp = (*e)->right;
@@ -164,13 +145,11 @@ static void NodeErase(Node **e, int index)
                     (NodeDepth((*e)->left->right) >
                      NodeDepth((*e)->left->left))) {
                     RotateLR(e);
-                }
-                else {
+                } else {
                     RotateLL(e);
                 }
             }
-        }
-        else {
+        } else {
             Node *temp = (*e);
             if ((*e)->left == nullptr)
                 (*e) = (*e)->right;
@@ -186,8 +165,7 @@ static void NodeErase(Node **e, int index)
     return;
 }
 
-AVLTree *AVLTreeNew()
-{
+AVLTree *AVLTreeNew() {
     AVLTree *t = new AVLTree();
     if (!t) return nullptr;
     t->root = nullptr;
@@ -196,8 +174,7 @@ AVLTree *AVLTreeNew()
 
 void AVLTreeFree(AVLTree *t) { NodeFree(t->root); }
 
-void AVLTreeInsert(AVLTree *t, int index)
-{
+void AVLTreeInsert(AVLTree *t, int index) {
     if (t->root) {
         NodeInsert(&(t->root), index);
         return;
@@ -214,8 +191,7 @@ int AVLTreeFind(AVLTree *t, int index) { return NodeFind(&(t->root), index); }
 
 void AVLTreeErase(AVLTree *t, int index) { NodeErase(&(t->root), index); }
 
-int AVLTreeDepth(AVLTree *t)
-{
+int AVLTreeDepth(AVLTree *t) {
     if (!t->root) return 0;
     return t->root->depth;
 }

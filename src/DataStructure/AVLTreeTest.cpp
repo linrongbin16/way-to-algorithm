@@ -4,8 +4,7 @@
 
 #define TEST_MAX 1024
 
-int main()
-{
+int main() {
     AVLTree *t = AVLTreeNew();
     for (int i = 1; i <= TEST_MAX; i++) {
         AVLTreeInsert(t, i);
