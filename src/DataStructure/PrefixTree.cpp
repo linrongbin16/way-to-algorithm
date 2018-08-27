@@ -1,73 +1,66 @@
-#include "PrefixTree.hpp"
-#include <assert.h>
-#include <iostream>
-using namespace std;
+#include "PrefixTree.h"
+#include <cassert>
+#include <cstring>
 
-const char *dict1[] = {
-    "hello", "world",     "happy",   "ok",        "boy",
-    "dog",   "look",      "finally", "ppppppppp", "thisisateststring",
-    "no",    "dontworry", "future",  "life",      "is",
-    "a",     "dream",     nullptr,
-};
+static int ChildIndex(char letter) { return (int)(letter - 'a'); }
 
-const char *dict2[] = {
-    "none", "noworry", "feature", "live", "isnt", "aream", "d", nullptr,
-};
+PrefixTree *PrefixTreeNew() {
+    PrefixTree *t = new PrefixTree();
+    if (!t) return nullptr;
+    t->letter = (char)(-1);
+    t->word = nullptr;
+    memset(t->child, 0, sizeof(t->child));
+    return t;
+}
 
-int main() {
-    PrefixTree *t;
+void PrefixTreeFree(PrefixTree *t) {
+    if (!t) return;
+    for (int i = 0; i < 26; i++) PrefixTreeFree(t->child[i]);
+    delete t;
+}
 
-    // part 1
-    t = PrefixTreeNew();
-    for (int i = 0; dict1[i]; i++) {
-        PrefixTreeInsert(t, dict1[i]);
+void PrefixTreeInsert(PrefixTree *t, const char *word) {
+    int n = strlen(word);
+    PrefixTree *e = t;
+    for (int i = 0; i < n; i++) {
+        int index = ChildIndex(word[i]);
+        if (e->child[index] == nullptr) {
+            e->child[index] = new PrefixTree();
+            // initialize e->child[index]
+            PrefixTree *he = e->child[index];
+            he->letter = word[i];
+            he->word = nullptr;
+            memset(he->child, 0, sizeof(he->child));
+        }
+        e = e->child[index];
+        if (i == n - 1) {
+            e->word = word;
+        }
     }
-    for (int i = 0; dict1[i]; i++) {
-        assert(PrefixTreeFind(t, dict1[i]));
-    }
-    for (int i = 0; dict2[i]; i++) {
-        assert(!PrefixTreeFind(t, dict2[i]));
-    }
-    PrefixTreeFree(t);
+}
 
-    // part 2
-    t = PrefixTreeNew();
-    for (int i = 0; dict2[i]; i++) {
-        PrefixTreeInsert(t, dict2[i]);
+int PrefixTreeFind(PrefixTree *t, const char *word) {
+    PrefixTree *e = t;
+    int n = strlen(word);
+    for (int i = 0; i < n; i++) {
+        int index = ChildIndex(word[i]);
+        if (!e) return 0;
+        e = e->child[index];
+        if (!e) return 0;
+        if (i == n - 1 && e->word && strcmp(e->word, word) == 0) return 1;
     }
-    for (int i = 0; dict1[i]; i++) {
-        assert(!PrefixTreeFind(t, dict1[i]));
-    }
-    for (int i = 0; dict2[i]; i++) {
-        assert(PrefixTreeFind(t, dict2[i]));
-    }
-    PrefixTreeFree(t);
-
-    // part 3
-    t = PrefixTreeNew();
-    for (int i = 0; dict1[i]; i++) {
-        PrefixTreeInsert(t, dict1[i]);
-    }
-    for (int i = 0; dict2[i]; i++) {
-        PrefixTreeInsert(t, dict2[i]);
-    }
-    for (int i = 0; dict1[i]; i++) {
-        assert(PrefixTreeFind(t, dict1[i]));
-    }
-    for (int i = 0; dict2[i]; i++) {
-        assert(PrefixTreeFind(t, dict2[i]));
-    }
-    PrefixTreeFree(t);
-
-    // part 4
-    t = PrefixTreeNew();
-    for (int i = 0; dict1[i]; i++) {
-        assert(!PrefixTreeFind(t, dict1[i]));
-    }
-    for (int i = 0; dict2[i]; i++) {
-        assert(!PrefixTreeFind(t, dict2[i]));
-    }
-    PrefixTreeFree(t);
-
     return 0;
+}
+
+void PrefixTreeErase(PrefixTree *t, const char *word) {
+    PrefixTree *e = t;
+    int n = strlen(word);
+    for (int i = 0; i < n; i++) {
+        int index = ChildIndex(word[i]);
+        e = e->child[index];
+        if (i == n - 1) {
+            e->word = nullptr;
+            return;
+        }
+    }
 }

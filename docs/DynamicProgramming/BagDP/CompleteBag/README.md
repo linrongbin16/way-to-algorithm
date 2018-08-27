@@ -1,4 +1,4 @@
-# Complete Knapsack - 完全背包
+# Complete Bag - 完全背包
 
 --------
 
@@ -28,8 +28,8 @@ $$ f(n,t) $$即为$$ n $$个珠宝中重量不超过$$ t $$的最大价值。该
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/CompleteKnapsack.h)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/CompleteBag.h)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/CompleteKnapsack.cpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/CompleteBag.cpp)

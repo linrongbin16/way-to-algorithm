@@ -1,20 +1,13 @@
-#pragma once
-
-#ifndef MAX
-#define MAX 1024
-#endif
+#include "ZeroOneKnapsackExtension.h"
 #include <algorithm>
 #include <vector>
 
-// TODO: ∏√À„∑®”–bug
-
 int ZeroOneKnapsackExtension(int *value, int *weight, int count, int tot_weight,
-                             bool *choose)
-{
+                             bool *choose) {
     int f[MAX][MAX];
     bool g[MAX][MAX][MAX];
 
-    // ≥ı ºªØ
+    // ÂàùÂßãÂåñ
     for (int i = 0; i < MAX; i++) {
         f[0][i] = 0;
         f[i][0] = 0;
@@ -28,13 +21,11 @@ int ZeroOneKnapsackExtension(int *value, int *weight, int count, int tot_weight,
                 if (old_f > new_f) {
                     f[i][j] = old_f;
                     g[i][j][old_f] = false;
-                }
-                else {
+                } else {
                     f[i][j] = new_f;
                     g[i][j][old_f] = true;
                 }
-            }
-            else {
+            } else {
                 f[i][j] = old_f;
                 g[i][j][old_f] = false;
             }

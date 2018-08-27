@@ -1,18 +1,6 @@
-#include <assert.h>
-#include <iostream>
+#include <cassert>
 #include "DisjointSet.h"
 using namespace std;
-
-void PrintSet(Set *s, int n) {
-    for (int i = 0; i < n; i++) {
-        cout << s->father[i] << " ";
-    }
-    cout << endl;
-    for (int i = 0; i < n; i++) {
-        cout << i << " ";
-    }
-    cout << endl << endl;
-}
 
 void test1() {
     Set *s = DisjointSetNew();

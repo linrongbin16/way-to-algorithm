@@ -1,6 +1,15 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(WayToAlgorithm CXX)
+set(SRC_FILE
+    CompleteKnapsack.cpp
+    GroupKnapsack.cpp
+    FenwickTree.cpp
+    LeftistTree.cpp
+    PrefixTree.cpp
+    RedBlackTree.cpp
+    SegmentTree.cpp
+    SuffixTree.cpp)
+
 
 add_executable(DynamicProgramming-KnapsackDP-CompleteKnapsack.exe CompleteKnapsack.cpp CompleteKnapsack.hpp)
 add_executable(DynamicProgramming-KnapsackDP-GroupKnapsack.exe GroupKnapsack.cpp GroupKnapsack.hpp)

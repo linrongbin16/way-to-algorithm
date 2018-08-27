@@ -1,5 +1,4 @@
-#include <assert.h>
-#include <iostream>
+#include <cassert>
 #include "FenwickTree.h"
 using namespace std;
 

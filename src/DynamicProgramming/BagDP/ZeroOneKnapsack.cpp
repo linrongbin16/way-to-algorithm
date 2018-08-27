@@ -1,26 +1,17 @@
-#pragma once
-
-#ifndef MAX
-#define MAX 1024
-#endif
+#include "ZeroOneKnapsack.h"
 #include <algorithm>
 #include <vector>
 
-// Ç° i ¸öÎïÆ·ÖØÁ¿²»³¬¹ı j µÄ×î´ó¼ÛÖµ
-
-int ZeroOneKnapsack(int *value, int *weight, int count, int tot_weight)
-{
+int ZeroOneKnapsack(int *value, int *weight, int count, int tot_weight) {
     int f[MAX][MAX];
-
-    // ³õÊ¼»¯
+    //åˆå§‹åŒ–
     for (int i = 0; i < MAX; i++) {
         f[0][i] = 0;
         f[i][0] = 0;
     }
-
-    // µÚ i ¸öÎïÆ·
+    //ç¬¬iä¸ªç‰©å“
     for (int i = 1; i <= count; i++) {
-        // ÖØÁ¿²»³¬¹ı j
+        //é‡é‡ä¸è¶…è¿‡j
         for (int j = 0; j <= tot_weight; j++) {
             if (j >= weight[i])
                 f[i][j] =
@@ -29,6 +20,5 @@ int ZeroOneKnapsack(int *value, int *weight, int count, int tot_weight)
                 f[i][j] = f[i - 1][j];
         }
     }
-
     return f[count][tot_weight];
 }

@@ -1,14 +1,14 @@
-# Zero One Knapsack Extension - 01背包扩展
+# Zero One Bag Extension - 01背包扩展
 
 --------
 
 #### 问题
 
-在&lt;Zero One Knapsack&gt;的基础上，不仅求出最大价值，还求出具体选择了哪些珠宝，即求出具体的选择方案。
+在&lt;Zero One Bag&gt;的基础上，不仅求出最大价值，还求出具体选择了哪些珠宝，即求出具体的选择方案。
 
 #### 解法
 
-仍然按照&lt;Zero One Knapsack&gt;中的方法，设$$ f(i,j) $$为背包中放入前$$ i $$件物品，重量不大于$$ j $$的最大价值，其中$$ i \in [1,n] $$，$$ j \in [0,t] $$。有如下状态转移方程：
+仍然按照&lt;Zero One Bag&gt;中的方法，设$$ f(i,j) $$为背包中放入前$$ i $$件物品，重量不大于$$ j $$的最大价值，其中$$ i \in [1,n] $$，$$ j \in [0,t] $$。有如下状态转移方程：
 
 $$
 f(i,j) =
@@ -29,8 +29,8 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension.h)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBagExtension.h)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension.cpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBagExtension.cpp)

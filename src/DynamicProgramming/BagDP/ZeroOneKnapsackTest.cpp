@@ -1,6 +1,6 @@
-#include "ZeroOneKnapsack.hpp"
 #include <cassert>
 #include <iostream>
+#include "ZeroOneKnapsack.h"
 using namespace std;
 
 #define TEST_MAX 1024
@@ -46,8 +46,7 @@ struct ZOKTest {
      470},  // 5
 };
 
-int main()
-{
+int main() {
     int count = sizeof(test_cases) / sizeof(ZOKTest);
     for (int i = 0; i < count; i++) {
         ZOKTest& t = test_cases[i];
@@ -55,6 +54,5 @@ int main()
         cout << i << "," << r << endl;
         assert(r == t.result);
     }
-
     return 0;
 }

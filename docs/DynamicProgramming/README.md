@@ -9,12 +9,12 @@
     2. [LongestIncreasingSubsequence 最长递增子序列](LinearDP/LongestIncreasingSubsequence/README.md)
     3. [LongestIncreasingSubsequenceExtension 最长递增子序列扩展](LinearDP/LongestIncreasingSubsequenceExtension/README.md)
     4. [BidirectionalSubsequence 双向子序列](LinearDP/BidirectionalSubsequence/README.md)
-2. KnapsackDP 背包问题
-    1. [ZeroOneKnapsack 01背包](KnapsackDP/ZeroOneKnapsack/README.md)
-    2. [ZeroOneKnapsackExtension 01背包扩展](KnapsackDP/ZeroOneKnapsackExtension/README.md)
-    3. [CompleteKnapsack 完全背包](KnapsackDP/CompleteKnapsack/README.md)
-    4. [TwoDimensionKnapsack 二维背包](KnapsackDP/TwoDimensionKnapsack/README.md)
-    5. [GroupKnapsack 分组背包](KnapsackDP/GroupKnapsack/README.md)
+2. BagDP 背包问题
+    1. [ZeroOneBag 01背包](BagDP/ZeroOneBag/README.md)
+    2. [ZeroOneBagExtension 01背包扩展](BagDP/ZeroOneBagExtension/README.md)
+    3. [CompleteBag 完全背包](BagDP/CompleteBag/README.md)
+    4. [TwoDimensionBag 二维背包](BagDP/TwoDimensionBag/README.md)
+    5. [GroupBag 分组背包](BagDP/GroupBag/README.md)
 3. RegionalDP 区域动态规划
     1. [MinimumMergeCost 最小合并代价](RegionalDP/MinimumMergeCost/README.md)
     2. [MinimumMergeCostExtension 最小合并代价扩展](RegionalDP/MinimumMergeCostExtension/README.md)

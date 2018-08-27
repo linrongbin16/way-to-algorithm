@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.4)
 
 set(SRC_FILE
-    AStarSearch.cpp
-    BidirectionalBreadthSearch.cpp
-    BinarySearch.cpp
-    BreadthFirstSearch.cpp
-    BruteForce.cpp
-    DancingLink.cpp
-    Recursion.cpp
-    Util.cpp)
+    AVLTree.cpp
+    DisjointSet.cpp
+    FenwickTree.cpp
+    LeftistTree.cpp
+    PrefixTree.cpp
+    RedBlackTree.cpp
+    SegmentTree.cpp
+    SuffixTree.cpp)
 
 add_executable(DataStructure-AVLTree.exe AVLTreeTest.cpp ${SRC_FILE})
 add_executable(DataStructure-FenwickTree.exe FenwickTreeTest.cpp ${SRC_FILE})
