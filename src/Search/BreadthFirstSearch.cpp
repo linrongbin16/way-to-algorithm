@@ -1,36 +1,87 @@
-#include "BreadthFirstSearch.hpp"
-#include <cassert>
-using namespace std;
+#include "BreadthFirstSearch.h"
+#include <cstring>
+#include <deque>
+#include <vector>
+#ifndef MAX
+#define MAX 64
+#endif
 
-#define TEST_M_MAX MAX
-#define TEST_N_MAX MAX
+/* 4个方向: 上 下 右 左 */
+/* m列n行二维方格 col范围[0, m) row范围[0, n) */
+const int direction_col[4] = {0, 0, 1, -1};
+const int direction_row[4] = {1, -1, 0, 0};
 
-auto AssertAdjacent(const Node& a, const Node& b) -> void
+/* 递归生成从beg到end的路径 */
+void BFSPath(Node father[MAX][MAX], Node end, std::vector<Node> &path)
 {
-    bool a1 = (a.row == b.row) && (a.col == b.col + 1);
-    bool a2 = (a.row == b.row) && (a.col == b.col - 1);
-    bool a3 = (a.row == b.row + 1) && (a.col == b.col);
-    bool a4 = (a.row == b.row - 1) && (a.col == b.col);
-    assert(a1 || a2 || a3 || a4);
+    if (father[end.col][end.row] != end) {
+        BFSPath(father, father[end.col][end.row], path);
+    }
+    path.push_back(end);
 }
 
-int main()
+bool InRange(int pos, int range) { return pos >= 0 && pos < range; }
+
+/**
+ * BreadthFirstSearch 广度优先搜索
+ * @param m     列col
+ * @param n     行row
+ * @param beg   起点座标
+ * @param end   终点座标
+ * @return      从beg到end的搜索路径
+ */
+std::vector<Node> BreadthFirstSearch(int m, int n, Node beg, Node end)
 {
-    for (int i = 1; i < TEST_M_MAX; i++)
-        for (int j = 1; j < TEST_N_MAX; j++) {
-            Node beg(0, 0);
-            Node end(i - 1, j - 1);
-            vector<Node> path = BreadthFirstSearch(i, j, beg, end);
-            /* 保证路径长度为 j-1+i-1+1 */
-            assert(path.size() == (i - 1 + j - 1 + 1));
-            /* 保证起点和终点位置 */
-            assert(path[0] == beg);
-            assert(path[path.size() - 1] == end);
-            for (int k = 0; k < path.size() - 1; k++) {
-                /* 保证路径中相邻两点在二维方格中也是相邻点 */
-                AssertAdjacent(path[k], path[k + 1]);
+    Node father[MAX][MAX];
+    int visit[MAX][MAX];
+    memset(visit, 0, MAX * MAX * sizeof(int));
+    for (int i = 0; i < MAX; i++)
+        for (int j = 0; j < MAX; j++) father[i][j] = Node(i, j);
+
+    std::deque<Node> que;
+    que.push_back(beg);
+    /* beg.col 范围是[0, m) */
+    /* beg.row 范围是[0, n) */
+    visit[beg.col][beg.row] = 1;
+
+    while (!que.empty()) {
+        Node node = que.front();
+        que.pop_front();
+        if (node == end) {
+            std::vector<Node> path;
+            BFSPath(father, node, path);
+            return path;
+        }
+        /* 上下左右4个方向 */
+        for (int i = 0; i < 4; i++) {
+            int neighbor_col = node.col + direction_col[i];
+            int neighbor_row = node.row + direction_row[i];
+            /* 检查边界和是否访问过/染红 */
+            if (InRange(neighbor_col, m) && InRange(neighbor_row, n) &&
+                !visit[neighbor_col][neighbor_row]) {
+                /* 加入等待队列 */
+                que.push_back(Node(neighbor_col, neighbor_row));
+                /* 染红 */
+                visit[neighbor_col][neighbor_row] = 1;
+                /* 记录父节点 */
+                father[neighbor_col][neighbor_row] = Node(node.col, node.row);
             }
         }
+    }
 
-    return 0;
+    return {};
+}
+
+Node::Node() : col(0), row(0) {}
+
+Node::Node(int c, int r) : col(c), row(r) {}
+
+bool operator==(const Node &a, const Node &b)
+{
+    return a.col == b.col && a.row == b.row;
+}
+
+bool operator!=(const Node &a, const Node &b)
+{
+    return a.col != b.col || a.row != b.row;
 }

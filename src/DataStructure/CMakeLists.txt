@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(WayToAlgorithm CXX)
+set(SRC_FILE
+    AStarSearch.cpp
+    BidirectionalBreadthSearch.cpp
+    BinarySearch.cpp
+    BreadthFirstSearch.cpp
+    BruteForce.cpp
+    DancingLink.cpp
+    Recursion.cpp
+    Util.cpp)
 
 add_executable(DataStructure-AVLTree.exe AVLTree.cpp AVLTree.hpp)
 add_executable(DataStructure-FenwickTree.exe FenwickTree.cpp FenwickTree.hpp)
