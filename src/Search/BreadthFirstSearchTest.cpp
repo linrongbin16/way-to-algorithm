@@ -1,12 +1,11 @@
-#include "BreadthFirstSearch.h"
 #include <cassert>
+#include "BreadthFirstSearch.h"
 using namespace std;
 
 #define TEST_M_MAX MAX
 #define TEST_N_MAX MAX
 
-auto AssertAdjacent(const Node& a, const Node& b) -> void
-{
+auto AssertAdjacent(const Node& a, const Node& b) -> void {
     bool a1 = (a.row == b.row) && (a.col == b.col + 1);
     bool a2 = (a.row == b.row) && (a.col == b.col - 1);
     bool a3 = (a.row == b.row + 1) && (a.col == b.col);
@@ -14,8 +13,7 @@ auto AssertAdjacent(const Node& a, const Node& b) -> void
     assert(a1 || a2 || a3 || a4);
 }
 
-int main()
-{
+int main() {
     for (int i = 1; i < TEST_M_MAX; i++)
         for (int j = 1; j < TEST_N_MAX; j++) {
             Node beg(0, 0);
@@ -34,4 +32,3 @@ int main()
 
     return 0;
 }
-

@@ -12,4 +12,3 @@ struct Node {
 };
 
 std::vector<Node> BreadthFirstSearch(int m, int n, Node beg, Node end);
-

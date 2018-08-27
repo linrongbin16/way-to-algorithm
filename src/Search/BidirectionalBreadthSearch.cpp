@@ -5,37 +5,48 @@
 #include <utility>
 #include <vector>
 
-std::deque<Node> BidirectionalBreadthSearch(int m, int n, Node beg, Node end);
-
-//
-// implement
-//
-
-namespace detail {
-
 /* 4个方向：上下右左 */
 /* m行n列二维方格 col范围[0, m) row范围[0, n)*/
-const int direction_col[4] = { 1, -1, 0, 0 };
-const int direction_row[4] = { 0, 0, 1, -1 };
+const int direction_col[4] = {1, -1, 0, 0};
+const int direction_row[4] = {0, 0, 1, -1};
+
+Node::Node() : col(0), row(0) {}
+
+Node::Node(int c, int r) : col(c), row(r) {}
+
+bool operator==(const Node& a, const Node& b) {
+    return a.col == b.col && a.row == b.row;
+}
+
+bool operator!=(const Node& a, const Node& b) {
+    return a.col != b.col || a.row != b.row;
+}
 
 std::deque<Node> BidirectionalPath(
     const std::vector<std::vector<Node>>& beg_father,
     const std::vector<std::vector<Node>>& end_father, Node beg, Node end,
-    Node meet_pos);
+    Node meet_pos) {
+    std::deque<Node> path;
+    Node t = meet_pos;
+    while (t != beg) {
+        path.push_front(t);
+        t = beg_father[t.col][t.row];
+    }
+    path.push_front(beg);
+    t = end_father[meet_pos.col][meet_pos.row];
+    while (t != end) {
+        path.push_back(t);
+        t = end_father[t.col][t.row];
+    }
+    if (path.back() != end) {
+        path.push_back(end);
+    }
+    return path;
+}
 
-bool InRange(int pos, int range);
-} // namespace detail
+bool InRange(int pos, int range) { return pos >= 0 && pos < range; }
 
-/**
- * BidirectionalBreadthSearch 双向广度搜索
- * @param m     列col
- * @param n     行row
- * @param beg   起点座标
- * @param end   终点座标
- * @return      从起点到终点的座标路径
- */
-std::deque<Node> BidirectionalBreadthSearch(int m, int n, Node beg, Node end)
-{
+std::deque<Node> BidirectionalBreadthSearch(int m, int n, Node beg, Node end) {
     std::vector<std::vector<int>> beg_visit, end_visit;
     std::vector<std::vector<Node>> beg_father, end_father;
 
@@ -76,16 +87,25 @@ std::deque<Node> BidirectionalBreadthSearch(int m, int n, Node beg, Node end)
             // 点<neighbor_col, neighbor_row>是beg_node的邻节点
             // 并且它已经被end_visit访问过
             // 因此beg_que和end_que在此处相遇
-            if (detail::InRange(neighbor_col, m) && detail::InRange(neighbor_row, n) && !beg_visit[neighbor_col][neighbor_row] && end_visit[neighbor_col][neighbor_row]) {
-                beg_father[neighbor_col][neighbor_row] = Node(beg_node.col, beg_node.row);
-                std::deque<Node> path = detail::BidirectionalPath(beg_father, end_father, beg, end,
-                    Node(neighbor_col, neighbor_row));
+            if (detail::InRange(neighbor_col, m) &&
+                detail::InRange(neighbor_row, n) &&
+                !beg_visit[neighbor_col][neighbor_row] &&
+                end_visit[neighbor_col][neighbor_row]) {
+                beg_father[neighbor_col][neighbor_row] =
+                    Node(beg_node.col, beg_node.row);
+                std::deque<Node> path =
+                    detail::BidirectionalPath(beg_father, end_father, beg, end,
+                                              Node(neighbor_col, neighbor_row));
                 return path;
-            } else if (detail::InRange(neighbor_col, m) && detail::InRange(neighbor_row, n) && !beg_visit[neighbor_col][neighbor_row] && !end_visit[neighbor_col][neighbor_row]) {
+            } else if (detail::InRange(neighbor_col, m) &&
+                       detail::InRange(neighbor_row, n) &&
+                       !beg_visit[neighbor_col][neighbor_row] &&
+                       !end_visit[neighbor_col][neighbor_row]) {
                 // 点<neighbor_col, neighbor_row>尚未被beg_que和end_que访问过
                 beg_que.push_back(Node(neighbor_col, neighbor_row));
                 beg_visit[neighbor_col][neighbor_row] = 1;
-                beg_father[neighbor_col][neighbor_row] = Node(beg_node.col, beg_node.row);
+                beg_father[neighbor_col][neighbor_row] =
+                    Node(beg_node.col, beg_node.row);
             }
         }
 
@@ -99,17 +119,26 @@ std::deque<Node> BidirectionalBreadthSearch(int m, int n, Node beg, Node end)
             // 点<neighbor_col, neighbor_row>是end_node的邻节点
             // 并且它已经被beg_visit访问过
             // 因此beg_que和end_que在此处相遇
-            if (detail::InRange(neighbor_col, m) && detail::InRange(neighbor_row, n) && !end_visit[neighbor_col][neighbor_row] && beg_visit[neighbor_col][neighbor_row]) {
-                end_father[neighbor_col][neighbor_row] = Node(end_node.col, end_node.row);
-                std::deque<Node> path = detail::BidirectionalPath(beg_father, end_father, beg, end,
-                    Node(neighbor_col, neighbor_row));
+            if (detail::InRange(neighbor_col, m) &&
+                detail::InRange(neighbor_row, n) &&
+                !end_visit[neighbor_col][neighbor_row] &&
+                beg_visit[neighbor_col][neighbor_row]) {
+                end_father[neighbor_col][neighbor_row] =
+                    Node(end_node.col, end_node.row);
+                std::deque<Node> path =
+                    detail::BidirectionalPath(beg_father, end_father, beg, end,
+                                              Node(neighbor_col, neighbor_row));
                 return path;
-            } else if (detail::InRange(neighbor_col, m) && detail::InRange(neighbor_row, n) && !end_visit[neighbor_col][neighbor_row] && !beg_visit[neighbor_col][neighbor_row]) {
+            } else if (detail::InRange(neighbor_col, m) &&
+                       detail::InRange(neighbor_row, n) &&
+                       !end_visit[neighbor_col][neighbor_row] &&
+                       !beg_visit[neighbor_col][neighbor_row]) {
                 // 点 <neighbor_col, neighbor_row> 尚未被 beg_que 和 end_que
                 // 访问过
                 end_que.push_back(Node(neighbor_col, neighbor_row));
                 end_visit[neighbor_col][neighbor_row] = 1;
-                end_father[neighbor_col][neighbor_row] = Node(end_node.col, end_node.row);
+                end_father[neighbor_col][neighbor_row] =
+                    Node(end_node.col, end_node.row);
             }
         }
     }
@@ -117,55 +146,3 @@ std::deque<Node> BidirectionalBreadthSearch(int m, int n, Node beg, Node end)
     // never reach here
     return {};
 }
-
-Node::Node()
-    : col(0)
-    , row(0)
-{
-}
-
-Node::Node(int c, int r)
-    : col(c)
-    , row(r)
-{
-}
-
-bool operator==(const Node& a, const Node& b)
-{
-    return a.col == b.col && a.row == b.row;
-}
-
-bool operator!=(const Node& a, const Node& b)
-{
-    return a.col != b.col || a.row != b.row;
-}
-
-namespace detail {
-
-std::deque<Node> BidirectionalPath(
-    const std::vector<std::vector<Node>>& beg_father,
-    const std::vector<std::vector<Node>>& end_father, Node beg, Node end,
-    Node meet_pos)
-{
-    std::deque<Node> path;
-    Node t = meet_pos;
-    while (t != beg) {
-        path.push_front(t);
-        t = beg_father[t.col][t.row];
-    }
-    path.push_front(beg);
-    t = end_father[meet_pos.col][meet_pos.row];
-    while (t != end) {
-        path.push_back(t);
-        t = end_father[t.col][t.row];
-    }
-    if (path.back() != end) {
-        path.push_back(end);
-    }
-    return path;
-}
-
-auto InRange(int pos, int range) -> bool { return pos >= 0 && pos < range; }
-
-} // namespace detail
-

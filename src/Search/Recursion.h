@@ -10,5 +10,4 @@
  * @param result    所有选择的集合
  */
 void Recursion(std::vector<int>& tmp, const int* s, int n, int m, int prev,
-    std::vector<std::vector<int>>& result);
-
+               std::vector<std::vector<int>>& result);

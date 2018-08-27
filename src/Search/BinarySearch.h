@@ -10,4 +10,3 @@
  * @return              找到x返回true 否则返回false
  */
 std::pair<bool, int> BinarySearch(const int* s, int beg, int end, int x);
-

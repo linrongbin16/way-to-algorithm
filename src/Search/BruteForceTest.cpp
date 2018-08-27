@@ -1,13 +1,12 @@
-#include "BruteForce.h"
 #include <cassert>
 #include <cmath>
+#include "BruteForce.h"
 using namespace std;
 
 #define TEST_N_MAX 4
 #define TEST_M_MAX 16
 
-int main(void)
-{
+int main() {
     int s[TEST_N_MAX];
     for (int i = 1; i < TEST_M_MAX; i++) {
         vector<vector<int>> result = BruteForce(s, TEST_N_MAX, i);
@@ -36,4 +35,3 @@ int main(void)
     }
     return 0;
 }
-

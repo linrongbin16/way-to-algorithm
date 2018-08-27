@@ -3,8 +3,7 @@
 #include <string>
 #include <unordered_set>
 
-std::vector<int> IntArrayToVector(const int *s, int n)
-{
+std::vector<int> IntArrayToVector(const int *s, int n) {
     std::vector<int> result;
     for (int i = 0; i < n; i++) {
         result.push_back(s[i]);
@@ -12,14 +11,12 @@ std::vector<int> IntArrayToVector(const int *s, int n)
     return result;
 }
 
-void AssertArrayEqual(int *s1, int n1, int *s2, int n2)
-{
+void AssertArrayEqual(int *s1, int n1, int *s2, int n2) {
     assert(n1 == n2);
     for (int i = 0; i < n1; i++) assert(s1[i] == s2[i]);
 }
 
-void AssertUnique(const std::vector<std::vector<int>> &v)
-{
+void AssertUnique(const std::vector<std::vector<int>> &v) {
     std::unordered_set<std::string> uniques;
     std::vector<std::string> v2;
     for (int i = 0; i < v.size(); i++) {

@@ -4,4 +4,3 @@
 #endif
 
 bool DancingLink(int n, int m, int subset[MAX][MAX], int* cover);
-

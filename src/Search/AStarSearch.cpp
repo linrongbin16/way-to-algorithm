@@ -1,7 +1,4 @@
 #include "AStarSearch.h"
-#ifndef MAX
-#define MAX 1024
-#endif
 #include <algorithm>
 #include <cassert>
 #include <climits>

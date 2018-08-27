@@ -1,53 +1,51 @@
-#include "GroupKnapsack.hpp"
-#include <cassert>
+#include "GroupKnapsack.h"
+#include <algorithm>
 #include <iostream>
-using namespace std;
 
-#define TEST_MAX 1024
+bool ItemCompare(const Item &a, const Item &b) {
+    double rate_a = (double)a.value / (double)a.weight;
+    double rate_b = (double)b.value / (double)b.weight;
+    if (rate_a != rate_b)
+        return rate_a > rate_b;
+    else
+        return a.weight < b.weight;
+}
 
-struct GKTest {
-    Item group[MAX][MAX];
-    int group_n[MAX];
-    int n;
-    int total_weight;
-    int result;
-} test_cases[] = {
-    {{
-         {},
-         {{}, {3, 71}, {402, 5}, {5, 10}, {1, 27}, {4, 5}},
-         {{}, {11, 10}, {19, 4}, {343, 2342}, {13, 7}},
-         {{}, {13, 3}, {12, 5}, {50, 1}, {2, 37}, {4, 35}, {7, 10}},
-         {{}, {3, 11}, {2, 24}, {5, 10}, {3, 25}, {40, 9}, {92, 21}, {393, 19}},
-         {{}, {12, 22}, {83, 11}, {5, 10}},
-     },
-     {0, 5, 4, 6, 7, 3},
-     5,
-     30,
-     864},  // 0
-    {{
-         {},
-         {{}, {1, 2}, {2, 4}, {3, 6}, {4, 8}, {5, 10}},
-         {{}, {10, 31}, {2, 5}, {5, 78}, {3, 7}},
-         {{}, {4, 7}, {2, 51}, {5, 10}, {3, 7}, {4, 5}, {7, 10}},
-         {{}, {9, 8}, {48, 13}, {6, 17}, {13, 7}},
-         {{}, {15, 21}, {39, 35}, {8, 17}},
-         {{}, {5, 1}, {32, 51}, {9, 10}},
-         {{}, {15, 21}, {2, 5}, {18, 13}},
-     },
-     {0, 5, 4, 6, 4, 3, 3, 3},
-     7,
-     100,
-     129},  // 1
-};
+int GroupKnapsack(Item group[MAX][MAX], int *group_n, int n, int tot_weight) {
+    // f[k][j] 前 k 组重量不超过 j 的最大价值
+    int f[MAX][MAX];
 
-int main() {
-    int count = sizeof(test_cases) / sizeof(GKTest);
-    for (int i = 0; i < count; i++) {
-        GKTest& t = test_cases[i];
-        int r = GroupKnapsack(t.group, t.group_n, t.n, t.total_weight);
-        cout << i << ": " << r << endl;
-        assert(r == t.result);
+    // 初始化
+    for (int i = 0; i < MAX; i++)
+        for (int j = 0; j < MAX; j++) f[i][j] = 0;
+
+    // 对所有分组进行排序
+    for (int i = 1; i <= n; i++) {
+        std::sort((Item *)group[i] + 1, (Item *)group[i] + 1 + group_n[i],
+                  ItemCompare);
     }
 
-    return 0;
+    // 第 k 组物品
+    for (int k = 1; k <= n; k++) {
+        // 一组中的第 i 个物品
+        for (int i = 1; i <= group_n[k]; i++) {
+            // 重量不超过 j
+            for (int j = 0; j <= tot_weight; j++) {
+                // 在同一组 k 中的不同物品 i 之间是互斥的
+                // 至多只能选择一个
+                // 选择物品 i 和前一个物品 i-1 之中价值最大的
+                int tmp;
+                if (j >= group[k][i].weight) {
+                    tmp =
+                        std::max(f[k - 1][j], f[k - 1][j - group[k][i].weight] +
+                                                  group[k][i].value);
+                } else {
+                    tmp = f[k - 1][j];
+                }
+                f[k][j] = std::max(f[k][j], tmp);
+            }
+        }
+    }
+
+    return f[n][tot_weight];
 }

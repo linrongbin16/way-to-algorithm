@@ -11,8 +11,7 @@
  * @param comb  所有选择的集合
  */
 void Recursion(std::vector<int>& tmp, const std::vector<int>& candidates,
-    int prev, std::vector<std::vector<int>>& comb)
-{
+               int prev, std::vector<std::vector<int>>& comb) {
     /* 递归终止条件 */
     if (prev == tmp.size()) {
         comb.push_back(tmp);
@@ -25,4 +24,3 @@ void Recursion(std::vector<int>& tmp, const std::vector<int>& candidates,
         Recursion(tmp, candidates, prev + 1, comb);
     }
 }
-
