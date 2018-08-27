@@ -18,7 +18,8 @@ void MakeLink(int subset[MAX][MAX], int n, int m)
     memset(column, 0, MAX * sizeof(int));
     for (int i = 1; i <= m; i++)
         for (int j = 1; j <= n; j++)
-            if (subset[i][j]) subset[i][j] += n;
+            if (subset[i][j])
+                subset[i][j] += n;
 
     /* 0为头节点head */
     for (int i = 0; i <= n; i++) {
@@ -34,7 +35,8 @@ void MakeLink(int subset[MAX][MAX], int n, int m)
         for (int j = 1; j <= n; j++) {
             int index = subset[i][j];
             int p;
-            if (!index) continue;
+            if (!index)
+                continue;
             row[index] = i;
             column[index] = j;
             for (p = i + 1; p <= m; p++)
@@ -104,12 +106,13 @@ void ResumeNode(int u)
     }
 }
 
-bool Dance(int r, int *cover)
+bool Dance(int r, int* cover)
 {
     /* 0节点即为head节点 */
     /* 选择head节点右边的第1个节点u */
     int u = right_node[0];
-    if (u == 0) return true;
+    if (u == 0)
+        return true;
 
     /* 删除节点u */
     /* 以及u所在列上的每个子集/每行的所有节点 */
@@ -123,7 +126,8 @@ bool Dance(int r, int *cover)
             RemoveNode(column[p2]);
 
         /* 继续下1列 若矩阵为空时可以将所有成员都覆盖 则获得精确覆盖方案 */
-        if (Dance(r + 1, cover)) return true;
+        if (Dance(r + 1, cover))
+            return true;
         /* 若矩阵为空时没有获得精确覆盖方案 说明p1选择失败 恢复所有被删掉的节点
          * 并继续尝试u这列中的下一个节点 */
         cover[row[p1]] = 0;
@@ -136,7 +140,7 @@ bool Dance(int r, int *cover)
     return false;
 }
 
-bool DancingLink(int n, int m, int subset[MAX][MAX], int *cover)
+bool DancingLink(int n, int m, int subset[MAX][MAX], int* cover)
 {
     /* 集合s有n个成员[1,n] 子集subset有m个[1,m] */
     /* subset[i][j]=7 表示子集j包含成员i 节点的下标号为7 */
@@ -147,3 +151,4 @@ bool DancingLink(int n, int m, int subset[MAX][MAX], int *cover)
     MakeLink(subset, n, m);
     return Dance(1, cover);
 }
+

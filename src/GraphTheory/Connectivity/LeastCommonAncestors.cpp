@@ -31,61 +31,62 @@
 #include "general_head.h"
 #include "graph.h"
 void dfs_lca(graph_list g, int p, map<pair<int, int>, int>& query,
-		int *visited, tree_node *tree);
+    int* visited, tree_node* tree);
 tree_node* make_disjoint();
-tree_node* find_father(tree_node *p);
+tree_node* find_father(tree_node* p);
 
 void least_common_ancestors(graph_list g, map<pair<int, int>, int>& query)
-{//有向无环图G有g_l.size()个节点，下标从0到g_l.size()-1
- //返回query节点对的最近公共祖先，存储于pair对应的位置中
-	int visited[MAX];
-	memset(visited, 0, MAX * sizeof(int));
-	//用树节点实作并查集
-	tree_node* tree = make_disjoint();
-	for(int i = 0; i < (int)g.g_l.size(); ++ i)
-		if(!visited[i])
-			dfs_lca(g, i, query, visited, tree);
+{ //有向无环图G有g_l.size()个节点，下标从0到g_l.size()-1
+    //返回query节点对的最近公共祖先，存储于pair对应的位置中
+    int visited[MAX];
+    memset(visited, 0, MAX * sizeof(int));
+    //用树节点实作并查集
+    tree_node* tree = make_disjoint();
+    for (int i = 0; i < (int)g.g_l.size(); ++i)
+        if (!visited[i])
+            dfs_lca(g, i, query, visited, tree);
 }
 void dfs_lca(graph_list g, int p, map<pair<int, int>, int>& query,
-		int *visited, tree_node *tree)
+    int* visited, tree_node* tree)
 {
-	//进行下一轮dfs遍历，并更新并查集
-	for(int i = 1; i < (int)g.g_l[p].size(); ++ i){
-		dfs_lca(g, g.g_l[p][i].g_idx, query, visited, tree);
-		//将p节点和它的孩子节点i.g_idx合并
-		tree_node *pf1 = find_father(&tree[p]);
-		tree_node *pf2 = find_father(&tree[g.g_l[p][i].g_idx]);
-		//将孩子节点i.g_idx的父节点指针设置为p节点的父节点
-		pf2->t_fa = pf1;
-	}
-	visited[p] = 1;
-	//用并查集进行查询
-	for(map<pair<int, int>, int>::iterator it = query.begin();
-			it != query.end(); ++ it){
-		//查询所有与节点p相关的节点对
-		if(p == it->first.first and visited[it->first.second]){
-			//若有与节点p相关的查询，且另一个节点second已被访问
-			tree_node *fa = find_father(&tree[it->first.second]);
-			//则节点p与另一个节点second的最近公共祖先是second的并查集父节点
-			it->second = fa->t_idx;
-		}
-		if(p == it->first.second and visited[it->first.first]){
-			tree_node *fa = find_father(&tree[it->first.first]);
-			it->second = fa->t_idx;
-		}
-	}
+    //进行下一轮dfs遍历，并更新并查集
+    for (int i = 1; i < (int)g.g_l[p].size(); ++i) {
+        dfs_lca(g, g.g_l[p][i].g_idx, query, visited, tree);
+        //将p节点和它的孩子节点i.g_idx合并
+        tree_node* pf1 = find_father(&tree[p]);
+        tree_node* pf2 = find_father(&tree[g.g_l[p][i].g_idx]);
+        //将孩子节点i.g_idx的父节点指针设置为p节点的父节点
+        pf2->t_fa = pf1;
+    }
+    visited[p] = 1;
+    //用并查集进行查询
+    for (map<pair<int, int>, int>::iterator it = query.begin();
+         it != query.end(); ++it) {
+        //查询所有与节点p相关的节点对
+        if (p == it->first.first and visited[it->first.second]) {
+            //若有与节点p相关的查询，且另一个节点second已被访问
+            tree_node* fa = find_father(&tree[it->first.second]);
+            //则节点p与另一个节点second的最近公共祖先是second的并查集父节点
+            it->second = fa->t_idx;
+        }
+        if (p == it->first.second and visited[it->first.first]) {
+            tree_node* fa = find_father(&tree[it->first.first]);
+            it->second = fa->t_idx;
+        }
+    }
 }
 tree_node* make_disjoint()
-{//生成并查集，用树节点实作
-	tree_node *tree = new tree_node[MAX];
-	for(int i = 0; i < MAX; ++ i)
-		//t_idx指代该节点的下标，所有节点的父节点初始化为自己
-		tree[i].t_idx = i, tree[i].t_fa = &tree[i];
-	return(tree);
+{ //生成并查集，用树节点实作
+    tree_node* tree = new tree_node[MAX];
+    for (int i = 0; i < MAX; ++i)
+        //t_idx指代该节点的下标，所有节点的父节点初始化为自己
+        tree[i].t_idx = i, tree[i].t_fa = &tree[i];
+    return (tree);
 }
-tree_node* find_father(tree_node *p)
+tree_node* find_father(tree_node* p)
 {
-	if(p->t_fa != p)
-		p->t_fa = find_father(p->t_fa);
-	return(p->t_fa);
+    if (p->t_fa != p)
+        p->t_fa = find_father(p->t_fa);
+    return (p->t_fa);
 }
+

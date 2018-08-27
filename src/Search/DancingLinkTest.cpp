@@ -1,8 +1,8 @@
-#include <assert.h>
-#include <algorithm>
-#include <iostream>
 #include "DancingLink.h"
 #include "Util.h"
+#include <algorithm>
+#include <assert.h>
+#include <iostream>
 using namespace std;
 
 struct Test {
@@ -13,43 +13,43 @@ struct Test {
 } test_cases[] = {
     {
         {
-            {},                        // subset[0]
-            {0, 0, 0, 1, 0, 2, 3},     // subset[1]
-            {0, 4, 0, 0, 5, 0, 0, 6},  // subset[2]
-            {0, 0, 7, 8, 0, 0, 9},     // subset[3]
+            {},                         // subset[0]
+            { 0, 0, 0, 1, 0, 2, 3 },    // subset[1]
+            { 0, 4, 0, 0, 5, 0, 0, 6 }, // subset[2]
+            { 0, 0, 7, 8, 0, 0, 9 },    // subset[3]
             {
                 0,
                 10,
                 0,
                 0,
                 11,
-            },                            // subset[4]
-            {0, 0, 12, 0, 0, 0, 0, 13},   // subset[5]
-            {0, 0, 0, 0, 14, 15, 0, 16},  // subset[6]
+            },                             // subset[4]
+            { 0, 0, 12, 0, 0, 0, 0, 13 },  // subset[5]
+            { 0, 0, 0, 0, 14, 15, 0, 16 }, // subset[6]
         },
         7,
         6,
-        {0, 1, 1, 1, 1, 1, 1},
+        { 0, 1, 1, 1, 1, 1, 1 },
     },
     {
         {
-            {},                        // subset[0]
-            {0, 0, 0, 1, 0, 2, 3},     // subset[1]
-            {0, 4, 0, 0, 5, 0, 0, 6},  // subset[2]
-            {0, 0, 7, 8, 0, 0, 9},     // subset[3]
+            {},                         // subset[0]
+            { 0, 0, 0, 1, 0, 2, 3 },    // subset[1]
+            { 0, 4, 0, 0, 5, 0, 0, 6 }, // subset[2]
+            { 0, 0, 7, 8, 0, 0, 9 },    // subset[3]
             {
                 0,
                 10,
                 0,
                 0,
                 11,
-            },                            // subset[4]
-            {0, 0, 12, 0, 0, 0, 0, 13},   // subset[5]
-            {0, 0, 0, 0, 14, 15, 0, 16},  // subset[6]
+            },                             // subset[4]
+            { 0, 0, 12, 0, 0, 0, 0, 13 },  // subset[5]
+            { 0, 0, 0, 0, 14, 15, 0, 16 }, // subset[6]
         },
         7,
         6,
-        {0, 1, 1, 1, 1, 1, 1},
+        { 0, 1, 1, 1, 1, 1, 1 },
     },
 };
 
@@ -60,7 +60,7 @@ int main(void)
     int cover[MAX];
 
     for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
-        Test &t = test_cases[i];
+        Test& t = test_cases[i];
         assert(DancingLink(t.n, t.m, t.subset, cover));
         AssertArrayEqual(cover, t.n, t.result_cover, t.n);
     }
@@ -87,8 +87,7 @@ int main(void)
     subset[6][7] = 17;
 
     assert(DancingLink(n, m, subset, cover));
-    assert(!cover[1] && cover[2] && !cover[3] && cover[4] && !cover[5] &&
-           cover[6]);
+    assert(!cover[1] && cover[2] && !cover[3] && cover[4] && !cover[5] && cover[6]);
 
     n = 7;
     m = 6;
@@ -111,8 +110,7 @@ int main(void)
     subset[6][7] = 16;
 
     assert(DancingLink(n, m, subset, cover));
-    assert(cover[1] && !cover[2] && !cover[3] && cover[4] && cover[5] &&
-           !cover[6]);
+    assert(cover[1] && !cover[2] && !cover[3] && cover[4] && cover[5] && !cover[6]);
 
     n = 4;
     m = 5;
@@ -150,7 +148,7 @@ int main(void)
     subset[8][1] = 14;
 
     assert(DancingLink(n, m, subset, cover));
-    assert(cover[1] && cover[2] && cover[3] && !cover[4] && !cover[5] &&
-           cover[6] && !cover[7] && cover[8]);
+    assert(cover[1] && cover[2] && cover[3] && !cover[4] && !cover[5] && cover[6] && !cover[7] && cover[8]);
     return 0;
 }
+

@@ -1,21 +1,57 @@
-#include "FenwickTree.hpp"
-#include <iostream>
-#include <assert.h>
-using namespace std;
+#include "FenwickTree.h"
 
-#define TEST_MAX 1024
-
-auto main() -> int {
-  for (int i = 0; i < TEST_MAX; i++) {
-    FenwickTree *t = FenwickTreeNew();
-    assert(t);
-    int sum = 0;
-    for (int j = 1; j < MAX; j++) {
-      FenwickTreeAdd(t, j, i);
-      sum += i;
-      assert(FenwickTreeSum(t, MAX-1) == sum);
-    }
-  }
-
-  return 0;
+static int LowBit(int i)
+{
+    return i & (-i);
 }
+
+FenwickTree* FenwickTreeNew()
+{
+    FenwickTree* t = new FenwickTree();
+    if (!t) {
+        return nullptr;
+    }
+
+    memset(t->bit, 0, MAX * sizeof(int));
+    return t;
+}
+
+FenwickTree* FenwickTreeNewFromArray(int s[MAX])
+{
+    FenwickTree* t = new FenwickTree();
+    if (!t) {
+        return nullptr;
+    }
+
+    memset(t->bit, 0, MAX * sizeof(int));
+    /* 数组下标从1开始 */
+    for (int i = 1; i < MAX; i++) {
+        t->bit[i] = s[i];
+        for (int j = i - 1; j > i - LowBit(i); j--)
+            t->bit[i] += s[i];
+    }
+
+    return t;
+}
+
+void FenwickTreeFree(FenwickTree* t)
+{
+    delete t;
+}
+
+void FenwickTreeAdd(FenwickTree* t, int i, int v)
+{
+    for (int j = i; j < MAX; j += LowBit(j)) {
+        t->bit[j] += v;
+    }
+}
+
+int FenwickTreeSum(FenwickTree* t, int i)
+{
+    int sum = 0;
+    for (int j = i; j > 0; j -= LowBit(j)) {
+        sum += t->bit[j];
+    }
+    return sum;
+}
+

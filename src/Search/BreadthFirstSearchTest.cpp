@@ -1,5 +1,5 @@
-#include <cassert>
 #include "BreadthFirstSearch.h"
+#include <cassert>
 using namespace std;
 
 #define TEST_M_MAX MAX
@@ -34,3 +34,4 @@ int main()
 
     return 0;
 }
+

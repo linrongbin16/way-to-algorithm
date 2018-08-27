@@ -45,54 +45,53 @@
 #include "graph.h"
 //strongest_connected_component.cpp
 extern void set_value(graph_list& g);
-void dfs_cut(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
-		int father, int root, int& root_son, vector<pair<int, int> >& cut_edge);
+void dfs_cut(graph_list& g, int p, int* visited, int& time, int* dfn, int* low,
+    int father, int root, int& root_son, vector<pair<int, int>>& cut_edge);
 
-void cut(graph_list& g, vector<pair<int, int> >& cut_edge)
-{//无向图G有g_l.size()个节点，下标从0到g_l.size()-1
- //返回无向图G的所有割点和割边，存储于g_value和cut_edge中
-	cut_edge.clear();
-	//root_son标记根节点的子树数量
-	//其实本节前面算法中不必要设置visited数组，用其他数组例如dfn也可以标记是否被访问
-	//但本文中visited数组的标记与本节前面的不同，必须使用
-	int dfn[MAX], low[MAX], visited[MAX], time(1), root_son(0);
-	memset(dfn, 0, MAX * sizeof(int));
-	memset(low, 0, MAX * sizeof(int));
-	memset(visited, 0, MAX * sizeof(int));
-	for(int i = 0; i < (int)g.g_l.size(); ++ i)
-		if(visited[i] == 0)
-			dfs_cut(g, i, visited, time, dfn, low, i, i, root_son, cut_edge);
+void cut(graph_list& g, vector<pair<int, int>>& cut_edge)
+{ //无向图G有g_l.size()个节点，下标从0到g_l.size()-1
+    //返回无向图G的所有割点和割边，存储于g_value和cut_edge中
+    cut_edge.clear();
+    //root_son标记根节点的子树数量
+    //其实本节前面算法中不必要设置visited数组，用其他数组例如dfn也可以标记是否被访问
+    //但本文中visited数组的标记与本节前面的不同，必须使用
+    int dfn[MAX], low[MAX], visited[MAX], time(1), root_son(0);
+    memset(dfn, 0, MAX * sizeof(int));
+    memset(low, 0, MAX * sizeof(int));
+    memset(visited, 0, MAX * sizeof(int));
+    for (int i = 0; i < (int)g.g_l.size(); ++i)
+        if (visited[i] == 0)
+            dfs_cut(g, i, visited, time, dfn, low, i, i, root_son, cut_edge);
 }
-void dfs_cut(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
-		int father, int root, int& root_son, vector<pair<int, int> >& cut_edge)
+void dfs_cut(graph_list& g, int p, int* visited, int& time, int* dfn, int* low,
+    int father, int root, int& root_son, vector<pair<int, int>>& cut_edge)
 {
-	//Tarjan算法在割点割边的应用与前面强连通分支的最大区别
-	//就是不需要设置栈，因为割点和割边不需要用栈来存储整个强连通分支的节点
-	dfn[p] = low[p] = time ++;
-	//visited值为0指代该节点未被访问，为1指代该节点被访问但不确定是否为割点或割边
-	visited[p] = 1;
-	for(int i = 1; i < (int)g.g_l[p].size(); ++ i){
-		if(visited[g.g_l[p][i].g_idx] == 0){
-			dfs_cut(g, g.g_l[p][i].g_idx, visited, time,
-					dfn, low, p, root, root_son, cut_edge);
-			low[p] = min(low[p], low[g.g_l[p][i].g_idx]);
-			if(p == root)
-				//判断根节点的子树个数并累加标记到root_son上
-				++ root_son;
-			//判断割点
-			if((p == root and root_son >= 2) or
-					(p != root and dfn[p] <= low[g.g_l[p][i].g_idx]))
-				//若节点p为根节点且节点p有至少2个子树
-				//或着若节点p不为根节点且满足dfn[p] <= dfn[i.g_idx]
-				g.g_l[p][0].g_value = 1;
-			//判断割边
-			if(dfn[p] < low[g.g_l[p][i].g_idx])
-				//若满足dfn[p] < low[i.g_idx]则边(p, i.g_idx)是割边
-				cut_edge.push_back(make_pair(p, g.g_l[p][i].g_idx));
-		}
-		else if(g.g_l[p][i].g_idx != father and visited[g.g_l[p][i].g_idx] == 1)
-			low[p] = min(low[p], dfn[g.g_l[p][i].g_idx]);
-	}
-	//visited值为2指代该节点已经确定
-	visited[p] = 2;
+    //Tarjan算法在割点割边的应用与前面强连通分支的最大区别
+    //就是不需要设置栈，因为割点和割边不需要用栈来存储整个强连通分支的节点
+    dfn[p] = low[p] = time++;
+    //visited值为0指代该节点未被访问，为1指代该节点被访问但不确定是否为割点或割边
+    visited[p] = 1;
+    for (int i = 1; i < (int)g.g_l[p].size(); ++i) {
+        if (visited[g.g_l[p][i].g_idx] == 0) {
+            dfs_cut(g, g.g_l[p][i].g_idx, visited, time,
+                dfn, low, p, root, root_son, cut_edge);
+            low[p] = min(low[p], low[g.g_l[p][i].g_idx]);
+            if (p == root)
+                //判断根节点的子树个数并累加标记到root_son上
+                ++root_son;
+            //判断割点
+            if ((p == root and root_son >= 2) or (p != root and dfn[p] <= low[g.g_l[p][i].g_idx]))
+                //若节点p为根节点且节点p有至少2个子树
+                //或着若节点p不为根节点且满足dfn[p] <= dfn[i.g_idx]
+                g.g_l[p][0].g_value = 1;
+            //判断割边
+            if (dfn[p] < low[g.g_l[p][i].g_idx])
+                //若满足dfn[p] < low[i.g_idx]则边(p, i.g_idx)是割边
+                cut_edge.push_back(make_pair(p, g.g_l[p][i].g_idx));
+        } else if (g.g_l[p][i].g_idx != father and visited[g.g_l[p][i].g_idx] == 1)
+            low[p] = min(low[p], dfn[g.g_l[p][i].g_idx]);
+    }
+    //visited值为2指代该节点已经确定
+    visited[p] = 2;
 }
+

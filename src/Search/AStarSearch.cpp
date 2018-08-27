@@ -15,24 +15,21 @@ int direction[4] = {-3, 3, -1, 1};
 Node invalid_node = Node("---------");
 
 // node hash
-int HashNode(const Node &a)
-{
+int HashNode(const Node& a) {
     return std::hash<std::string>{}(std::string(a.number));
 }
 
 // node constructor
-Node::Node(const std::string &s) { std::strncpy(number, s.data(), 9); }
+Node::Node(const std::string& s) { std::strncpy(number, s.data(), 9); }
 
 // node equal
-bool operator==(const Node &a, const Node &b)
-{
+bool operator==(const Node& a, const Node& b) {
     if (&a == &b) return true;
     return std::strncmp(a.number, b.number, 9) == 0;
 }
 
 // node difference
-int operator-(const Node &a, const Node &b)
-{
+int operator-(const Node& a, const Node& b) {
     int diff = 0;
     for (int i = 0; i < 9; ++i)
         if (a.number[i] != b.number[i]) diff++;
@@ -40,8 +37,7 @@ int operator-(const Node &a, const Node &b)
 }
 
 // node neighbor
-Node Neighbor(const Node &a, int direction)
-{
+Node Neighbor(const Node& a, int direction) {
     int xpos;
     for (xpos = 0; xpos < 9; xpos++)
         if (a.number[xpos] == 'x') break;
@@ -56,14 +52,13 @@ Node Neighbor(const Node &a, int direction)
 }
 
 // get closest node
-Node PopOpenTable(std::vector<Node> *open_table, Node end,
-                  const std::unordered_map<int, int> &g_score)
-{
+Node PopOpenTable(std::vector<Node>* open_table, Node end,
+                  const std::unordered_map<int, int>& g_score) {
     Node ret = invalid_node;
     int f_score = INT_MAX;
     std::vector<Node>::iterator i = open_table->begin();
     for (; i != open_table->end(); i++) {
-        Node &tmp = *i;
+        Node& tmp = *i;
         int tmp_hash = HashNode(tmp);
         int h_score = tmp - end;
         assert(g_score.find(tmp_hash) != g_score.end());
@@ -76,9 +71,8 @@ Node PopOpenTable(std::vector<Node> *open_table, Node end,
     return ret;
 }
 
-std::vector<Node> Path(const std::unordered_map<Node, Node> &close_table,
-                       Node e)
-{
+std::vector<Node> Path(const std::unordered_map<Node, Node>& close_table,
+                       Node e) {
     std::vector<Node> path;
     path.push_back(e);
 
@@ -92,8 +86,7 @@ std::vector<Node> Path(const std::unordered_map<Node, Node> &close_table,
     return path;
 }
 
-std::vector<Node> AStarSearch(Node beg, Node end)
-{
+std::vector<Node> AStarSearch(Node beg, Node end) {
     std::unordered_map<int, int> g_score;
     std::vector<Node> open_table;
     std::unordered_map<Node, Node> close_table;

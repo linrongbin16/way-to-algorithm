@@ -65,54 +65,53 @@
 
 #include "general_head.h"
 #include "graph.h"
-void dfs_dcc(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
-		stack<pair<int, int> >& stk, int& grp, deque<deque<pair<int, int> > >& com);
+void dfs_dcc(graph_list& g, int p, int* visited, int& time, int* dfn, int* low,
+    stack<pair<int, int>>& stk, int& grp, deque<deque<pair<int, int>>>& com);
 
-void double_connected_component(graph_list g, deque<deque<pair<int, int> > >& com)
-{//无向图G有g_l.size()个节点，下标从0到g_l.size()-1
- //返回图G的所有点双连通分支，每个连通分支存储于com的一个deque<pair<int, int> >元素中
-	com.clear();
-	int dfn[MAX], low[MAX], visited[MAX], time(1), grp(1);
-	memset(dfn, 0, MAX * sizeof(int));
-	memset(low, 0, MAX * sizeof(int));
-	memset(visited, 0, MAX * sizeof(int));
-	stack<pair<int, int> > stk;
-	for(int i = 0; i < (int)g.g_l.size(); ++ i)
-		if(visited[i] == 0)
-			dfs_dcc(g, i, visited, time, dfn, low, stk, grp, com);
+void double_connected_component(graph_list g, deque<deque<pair<int, int>>>& com)
+{ //无向图G有g_l.size()个节点，下标从0到g_l.size()-1
+    //返回图G的所有点双连通分支，每个连通分支存储于com的一个deque<pair<int, int> >元素中
+    com.clear();
+    int dfn[MAX], low[MAX], visited[MAX], time(1), grp(1);
+    memset(dfn, 0, MAX * sizeof(int));
+    memset(low, 0, MAX * sizeof(int));
+    memset(visited, 0, MAX * sizeof(int));
+    stack<pair<int, int>> stk;
+    for (int i = 0; i < (int)g.g_l.size(); ++i)
+        if (visited[i] == 0)
+            dfs_dcc(g, i, visited, time, dfn, low, stk, grp, com);
 }
-void dfs_dcc(graph_list& g, int p, int *visited, int& time, int *dfn, int *low,
-		stack<pair<int, int> >& stk, int& grp, deque<deque<pair<int, int> > >& com)
+void dfs_dcc(graph_list& g, int p, int* visited, int& time, int* dfn, int* low,
+    stack<pair<int, int>>& stk, int& grp, deque<deque<pair<int, int>>>& com)
 {
-	dfn[p] = low[p] = time ++;
-	visited[p] = 1;
-	//除了栈的操作其他与求割点算法是完全相同的
-	//注意这里并不像强连通分支一样一开始就stk.push(p)将节点p压栈
-	for(int i = 1; i < (int)g.g_l[p].size(); ++ i){
-		if(visited[g.g_l[p][i].g_idx] == 0){
-			//将边e(p, i.g_idx)压栈
-			stk.push(make_pair(p, g.g_l[p][i].g_idx));
-			dfs_dcc(g, g.g_l[p][i].g_idx, visited, time, dfn, low, stk, grp, com);
-			low[p] = min(low[p], low[g.g_l[p][i].g_idx]);
-			//判断点双连通分支
-			if(dfn[p] <= low[g.g_l[p][i].g_idx]){
-				//节点p是割点
-				deque<pair<int, int> > tmp;
-				pair<int, int> tmp_edge;
-				do{
-					tmp_edge = stk.top(); stk.pop();
-					tmp.push_back(tmp_edge);
-				}while(!((tmp_edge.first == p and
-								tmp_edge.second == g.g_l[p][i].g_idx)
-							or (tmp_edge.first == g.g_l[p][i].g_idx and
-								tmp_edge.second == p)));
-				//直到出栈的边是e(p, i.g_idx)为止
-				//tmp是一个点双连通分支
-				com.push_back(tmp);
-			}
-		}
-		else if(visited[g.g_l[p][i].g_idx] == 1)
-			low[p] = min(low[p], dfn[g.g_l[p][i].g_idx]);
-	}
-	visited[p] = 2;
+    dfn[p] = low[p] = time++;
+    visited[p] = 1;
+    //除了栈的操作其他与求割点算法是完全相同的
+    //注意这里并不像强连通分支一样一开始就stk.push(p)将节点p压栈
+    for (int i = 1; i < (int)g.g_l[p].size(); ++i) {
+        if (visited[g.g_l[p][i].g_idx] == 0) {
+            //将边e(p, i.g_idx)压栈
+            stk.push(make_pair(p, g.g_l[p][i].g_idx));
+            dfs_dcc(g, g.g_l[p][i].g_idx, visited, time, dfn, low, stk, grp, com);
+            low[p] = min(low[p], low[g.g_l[p][i].g_idx]);
+            //判断点双连通分支
+            if (dfn[p] <= low[g.g_l[p][i].g_idx]) {
+                //节点p是割点
+                deque<pair<int, int>> tmp;
+                pair<int, int> tmp_edge;
+                do {
+                    tmp_edge = stk.top();
+                    stk.pop();
+                    tmp.push_back(tmp_edge);
+                } while (!((tmp_edge.first == p and tmp_edge.second == g.g_l[p][i].g_idx)
+                    or (tmp_edge.first == g.g_l[p][i].g_idx and tmp_edge.second == p)));
+                //直到出栈的边是e(p, i.g_idx)为止
+                //tmp是一个点双连通分支
+                com.push_back(tmp);
+            }
+        } else if (visited[g.g_l[p][i].g_idx] == 1)
+            low[p] = min(low[p], dfn[g.g_l[p][i].g_idx]);
+    }
+    visited[p] = 2;
 }
+

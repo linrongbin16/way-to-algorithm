@@ -1,6 +1,6 @@
+#include "BruteForce.h"
 #include <cassert>
 #include <cmath>
-#include "BruteForce.h"
 using namespace std;
 
 #define TEST_N_MAX 4
@@ -36,3 +36,4 @@ int main(void)
     }
     return 0;
 }
+

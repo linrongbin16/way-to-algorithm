@@ -3,24 +3,25 @@
 
 //支持所有算法的通用头文件
 
-#include <iostream>
-#include <cstring>
-#include <utility>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
+#include <cstring>
+#include <iostream>
+#include <utility>
 
-#include <string>
-#include <sstream>
-#include <vector>
 #include <deque>
 #include <map>
-#include <set>
-#include <stack>
 #include <queue>
+#include <set>
+#include <sstream>
+#include <stack>
+#include <string>
+#include <vector>
 #if defined(WIN32) or defined(_WIN32)
 #include <windows.h>
 #endif
 using namespace std;
 
-#define MAX 60			//最大值
-#define INF 99999		//极大值
+#define MAX 60    //最大值
+#define INF 99999 //极大值
+

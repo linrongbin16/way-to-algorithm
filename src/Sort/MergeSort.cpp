@@ -2,8 +2,7 @@
 #include <cstring>
 #include <vector>
 
-void Merge(int *s, int start, int mid, int last)
-{
+void Merge(int* s, int start, int mid, int last) {
     std::vector<int> t(last - start + 2);
     int i, j, k;
 
@@ -11,8 +10,7 @@ void Merge(int *s, int start, int mid, int last)
         if (s[i] <= s[j]) {
             t[k] = s[i];
             i++;
-        }
-        else {
+        } else {
             t[k] = s[j];
             j++;
         }
@@ -23,8 +21,7 @@ void Merge(int *s, int start, int mid, int last)
     std::memcpy(s + start, &t.begin() + start, (last - start) * sizeof(int));
 }
 
-void MergeSort(int *s, int beg, int end)
-{
+void MergeSort(int* s, int beg, int end) {
     int mid = (beg + end - 1) / 2;
     if (beg + 2 >= end) {
         Merge(s, beg, mid, end - 1);

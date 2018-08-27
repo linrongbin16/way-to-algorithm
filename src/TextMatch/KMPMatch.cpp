@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-std::vector<int> KMPMatch(const std::string &text, const std::string &str)
+std::vector<int> KMPMatch(const std::string& text, const std::string& str)
 {
     std::vector<int> pos;
     for (int i = 0; i < text.length(); i++) {
@@ -24,3 +24,4 @@ std::vector<int> KMPMatch(const std::string &text, const std::string &str)
     }
     return pos;
 }
+

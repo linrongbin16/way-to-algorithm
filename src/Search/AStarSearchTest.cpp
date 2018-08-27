@@ -15,8 +15,7 @@ struct Test {
     {Node("1348x5726"), Node("1238x4765")},
 };
 
-void AssertXCount(Node a)
-{
+void AssertXCount(Node a) {
     int xcount = 0;
     for (int i = 0; i < 9; i++) {
         if (a.number[i] == 'x') xcount++;
@@ -24,8 +23,7 @@ void AssertXCount(Node a)
     assert(xcount == 1);
 }
 
-void AssertIsAdjacent(Node a, Node b)
-{
+void AssertIsAdjacent(Node a, Node b) {
     static int dir[4] = {-3, 3, -1, 1};
     AssertXCount(a);
     AssertXCount(b);
@@ -48,18 +46,16 @@ void AssertIsAdjacent(Node a, Node b)
     assert(false);
 }
 
-void AssertPath(const vector<Node> &path)
-{
+void AssertPath(const vector<Node>& path) {
     if (path.size() == 1) return;
     for (int i = 0; i < path.size() - 1; i++) {
         AssertIsAdjacent(path[i], path[i + 1]);
     }
 }
 
-int main(void)
-{
+int main(void) {
     for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
-        Test &t = test_cases[i];
+        Test& t = test_cases[i];
         vector<Node> path = AStarSearch(t.begin, t.end);
         assert(path.size() > 0);
         assert(path.front() == t.begin);

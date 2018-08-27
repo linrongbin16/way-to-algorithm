@@ -10,8 +10,7 @@
  * @param high      序列s的末尾下标，即左闭右闭区间[low, high]
  * @return          最终s[low]所在下标
  */
-int Partion(int *s, int low, int high)
-{
+int Partion(int* s, int low, int high) {
     int p = s[low];
     while (low < high) {
         while (low < high && s[high] >= p) --high;
@@ -23,8 +22,7 @@ int Partion(int *s, int low, int high)
     return low;
 }
 
-void QuickSort(int *s, int beg, int end)
-{
+void QuickSort(int* s, int beg, int end) {
     if (beg < end - 1) {
         int mid = Partion(s, beg, end - 1);
         QuickSort(s, beg, mid);

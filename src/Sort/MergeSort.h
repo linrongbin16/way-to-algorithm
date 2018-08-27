@@ -6,4 +6,5 @@
  * @param beg        序列s的起始下标
  * @param end        序列s为左闭右开区间[beg, end)
  */
-void MergeSort(int *s, int beg, int end);
+void MergeSort(int* s, int beg, int end);
+

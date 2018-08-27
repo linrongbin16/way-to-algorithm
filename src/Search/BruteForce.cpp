@@ -1,7 +1,7 @@
 #include "BruteForce.h"
 #include "Util.h"
 
-std::vector<std::vector<int>> BruteForce(int *s, int n, int m)
+std::vector<std::vector<int>> BruteForce(int* s, int n, int m)
 {
     std::vector<std::vector<int>> result;
     for (int i_0 = 0; i_0 < m; i_0++)
@@ -17,3 +17,4 @@ std::vector<std::vector<int>> BruteForce(int *s, int n, int m)
                 }
     return result;
 }
+
