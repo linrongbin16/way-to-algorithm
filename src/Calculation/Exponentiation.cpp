@@ -1,32 +1,34 @@
-#include "Exponentiation.hpp"
-#include <iostream>
+#include "Exponentiation.h"
+#include <algorithm>
 #include <cassert>
-#include <cstdlib>
-#include <random>
-using namespace std;
+#include <cstdint>
+#include <cstring>
+#include <string>
 
-
-#define TEST_MAX 1024
-
-struct Test {
-  int64_t x;
-  int64_t n;
-  int64_t mod;
-  int64_t result;
-} tests[] = {
-  { 1,  233512,   100000000,  1 },
-  { 2,  2,        10000000,   4 },
-};
-
-
-int main(void) {
-
-  for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
-    Test &t = tests[i];
-    assert(Exponentiation1(t.x, t.n, t.mod) == t.result);
-    assert(Exponentiation2(t.x, t.n, t.mod) == t.result);
-  }
-
-  return 0;
+// recursive algorithm
+int64_t Exponentiation1(int64_t x, int64_t n, int64_t mod)
+{
+    if (n < 0)
+        return Exponentiation1(x % mod, -n, mod) % mod;
+    else if (n == 0)
+        return 1L;
+    else if (n == 1)
+        return x % mod;
+    else if (n % 2)
+        return x * Exponentiation1(x * x % mod, (n - 1) / 2, mod) % mod;
+    else
+        return Exponentiation1(x * x % mod, n / 2, mod) % mod;
 }
 
+// binary algorithm
+int64_t Exponentiation2(int64_t x, int64_t n, int64_t mod)
+{
+    int64_t exp = 1L;
+    while (n > 0) {
+        if (n & 1) exp = (exp * x) % mod;
+        x = (x * x) % mod;
+        // n /= 2
+        n >>= 1;
+    }
+    return exp;
+}
