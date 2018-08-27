@@ -31,7 +31,7 @@ $$ f(m,t) $$即为$$ m $$组珠宝中重量不超过$$ t $$的最大价值。该
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/GroupKnapsack.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/GroupKnapsack.h)
 
 #### 测试
 

@@ -56,7 +56,7 @@ $$ (7) $$从$$ begqueue $$中取出头节点$$ [2,1] $$，将其邻节点$$ [2,2
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Search/BidirectionalBreadthSearch.hpp)
+[import, lang:"c_cpp"](../../../src/Search/BidirectionalBreadthSearch.h)
 
 #### 测试
 

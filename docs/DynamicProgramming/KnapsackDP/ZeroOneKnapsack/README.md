@@ -29,7 +29,7 @@ $$ f(n,t) $$即为$$ n $$个珠宝中重量不超过$$ t $$的最大价值。该
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/ZeroOneKnapsack.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/ZeroOneKnapsack.h)
 
 #### 测试
 

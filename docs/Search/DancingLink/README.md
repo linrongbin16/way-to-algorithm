@@ -72,8 +72,8 @@ $$ (4) $$ 这时矩阵$$ d $$为空，所选子集为$$ \{ sub_1 \} $$，覆盖�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Search/Dancing.hpp)
+[import, lang:"c_cpp"](../../../src/Search/DancingLink.h)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/Search/Dancing.cpp)
+[import, lang:"c_cpp"](../../../src/Search/DancingLink.cpp)

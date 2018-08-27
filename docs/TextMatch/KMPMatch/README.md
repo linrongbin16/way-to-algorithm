@@ -54,8 +54,8 @@ $$ (5) $$ 子字符串$$ str[0 \cdots 4] $$，其相同的最长的前缀和后�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/TextMatch/SimpleMatch.hpp)
+[import, lang:"c_cpp"](../../../src/TextMatch/KMPMatch.h)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/TextMatch/SimpleMatch.cpp)
+[import, lang:"c_cpp"](../../../src/TextMatch/KMPMatch.cpp)

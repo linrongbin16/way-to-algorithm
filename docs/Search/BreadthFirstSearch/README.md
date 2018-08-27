@@ -72,7 +72,7 @@ $$ (5) $$从$$ queue $$中取出头节点$$ [3,4] $$，因$$ [3,4] = end $$，�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.hpp)
+[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.h)
 
 #### 测试
 

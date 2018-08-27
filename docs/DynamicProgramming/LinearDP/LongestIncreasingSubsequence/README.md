@@ -33,7 +33,7 @@ $$ (3) $$ 对于序列$$ s $$中第$$ i $$个数字$$ s[i] $$，若$$ s[i] \gt s
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.h)
 
 #### 测试
 

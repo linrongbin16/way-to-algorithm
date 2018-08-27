@@ -29,7 +29,7 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/ZeroOneKnapsackExtension.h)
 
 #### 测试
 

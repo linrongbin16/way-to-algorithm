@@ -18,7 +18,7 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/BidirectionalIncreasingDecreasingSubsequence.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/BidirectionalIncreasingDecreasingSubsequence.h)
 
 #### 测试
 

@@ -56,7 +56,7 @@ $$ (4) $$若$$ s[i] \gt s[k] $$，且$$ f[k]+1 = f[i] $$，这说明$$ s[i] $$�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.h)
 
 #### 测试
 

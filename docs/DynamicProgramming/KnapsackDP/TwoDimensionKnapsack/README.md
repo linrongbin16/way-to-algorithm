@@ -31,7 +31,7 @@ $$ f(n,t1,t2) $$即为$$ n $$个珠宝中重量$$ 1 $$不超$$ t1 $$，重量$$ 
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/TwoDimensionKnapsack.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/KnapsackDP/TwoDimensionKnapsack.h)
 
 #### 测试
 

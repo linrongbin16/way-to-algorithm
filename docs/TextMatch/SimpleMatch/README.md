@@ -34,7 +34,7 @@ $$ (3) $$ 从$$ text $$第$$ 7 $$个字符开始匹配，$$ text[7 \cdots 10] = 
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/TextMatch/SimpleMatch.hpp)
+[import, lang:"c_cpp"](../../../src/TextMatch/SimpleMatch.h)
 
 #### 测试
 

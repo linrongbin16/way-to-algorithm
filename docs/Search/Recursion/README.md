@@ -56,7 +56,7 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Search/Recursion.hpp)
+[import, lang:"c_cpp"](../../../src/Search/Recursion.h)
 
 #### 测试
 

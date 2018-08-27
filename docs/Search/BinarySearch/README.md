@@ -32,7 +32,7 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Search/BinarySearch.hpp)
+[import, lang:"c_cpp"](../../../src/Search/BinarySearch.h)
 
 #### 测试
 

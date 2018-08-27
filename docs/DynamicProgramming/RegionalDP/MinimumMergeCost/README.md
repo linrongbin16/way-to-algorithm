@@ -41,7 +41,7 @@ $$ f(0,n) $$即为序列$$ s $$的最小合并代价。该算法的时间复杂�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/RegionalDP/MinimumMergeCost.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/RegionalDP/MinimumMergeCost.h)
 
 #### 测试
 
