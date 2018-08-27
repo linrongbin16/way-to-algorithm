@@ -1,4 +1,5 @@
 #include "Util.h"
+#include <cmath>
 
 Node::Node() {
     this->x = 0;
@@ -40,4 +41,9 @@ Segment::Segment(const Node& left, const Node& right) {
 Segment::Segment(const Segment& s) {
     this->left = s.left;
     this->right = s.right;
+}
+
+double NodeDistance(const Node& a, const Node& b) {
+    return std::sqrt<double>(std::pow<double>(b.x - a.x, 2.0) +
+                             std::pow<double>(b.y - a.y, 2.0));
 }

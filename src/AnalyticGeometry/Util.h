@@ -35,3 +35,5 @@ struct Segment {
     Segment(const Node& left, const Node& right);
     Segment(const Segment& s);
 };
+
+double NodeDistance(const Node& a, const Node& b);
