@@ -1,25 +1,26 @@
-// MIT License
-// Copyright 2017 zhaochenyou16@gmail.com
-
-#include "KMPMatch.hpp"
+#include "KMPMatch.h"
+#ifndef MAX
+#define MAX 1024
+#endif
 #include <cassert>
-#include <iostream>
-using namespace std;
+#include <cstring>
+#include <string>
+#include <vector>
 
-#define TEST_MAX 1024
-
-struct Test {
-    string text;
-    string str;
-    vector<int> pos;
-} tests[] = {{"asdfasdfasdfasdf", "asdf", {0, 4, 8, 12}},
-             {"asdfasdfasdfasdf", "asdf", {0, 4, 8, 12}}};
-
-int main(void)
+std::vector<int> KMPMatch(const std::string &text, const std::string &str)
 {
-    for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
-        Test &t = tests[i];
-        assert(KMPMatch(t.text, t.str) == t.pos);
+    std::vector<int> pos;
+    for (int i = 0; i < text.length(); i++) {
+        bool match = true;
+        for (int j = 0; j < str.length(); j++) {
+            if (text[i + j] != str[j]) {
+                match = false;
+                break;
+            }
+        }
+        if (match) {
+            pos.push_back(i);
+        }
     }
-    return 0;
+    return pos;
 }
