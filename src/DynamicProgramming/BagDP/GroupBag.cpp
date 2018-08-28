@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-bool ItemCompare(const Item &a, const Item &b) {
+static bool ItemCompare(const Item &a, const Item &b) {
   double rate_a = (double)a.value / (double)a.weight;
   double rate_b = (double)b.value / (double)b.weight;
   if (rate_a != rate_b)
@@ -49,3 +49,4 @@ int GroupKnapsack(Item group[MAX][MAX], int *group_n, int n, int tot_weight) {
 
   return f[n][tot_weight];
 }
+

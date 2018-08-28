@@ -5,7 +5,7 @@ using namespace std;
 
 #define TEST_MAX 1024
 
-struct ZOKTest {
+struct Test {
   int value[MAX];
   int weight[MAX];
   int count;
@@ -49,12 +49,13 @@ struct ZOKTest {
 };
 
 int main() {
-  int count = sizeof(test_cases) / sizeof(ZOKTest);
+  int count = sizeof(test_cases) / sizeof(Test);
   for (int i = 0; i < count; i++) {
-    ZOKTest &t = test_cases[i];
+    Test &t = test_cases[i];
     int r = CompleteBag(t.value, t.weight, t.count, t.total_weight);
     assert(r == t.result);
   }
 
   return 0;
 }
+

@@ -1,4 +1,5 @@
 #include "LongestIncreasingSubsequenceExtension.h"
+#include <algorithm>
 
 // TODO: 该算法存在bug
 
@@ -46,3 +47,4 @@ void LongestIncreasingSubsequenceExtension(const int *s, int n, int &list,
     count = std::max(count, g[i]);
   }
 }
+

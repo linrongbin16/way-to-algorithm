@@ -16,3 +16,4 @@ struct Item {
 };
 
 int GroupBag(Item group[MAX][MAX], int *group_n, int n, int tot_weight);
+

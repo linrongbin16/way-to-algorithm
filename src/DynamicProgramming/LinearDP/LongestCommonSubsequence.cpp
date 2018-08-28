@@ -1,4 +1,6 @@
 #include "LongestCommonSubsequence.h"
+#include <algorithm>
+#include <vector>
 
 // 序列a和b的范围是[1,n]
 int LongestCommonSubsequence(const int *a, const int *b, int n) {
@@ -21,3 +23,4 @@ int LongestCommonSubsequence(const int *a, const int *b, int n) {
 
   return f[n][n];
 }
+

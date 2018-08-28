@@ -27,3 +27,4 @@ int TwoDimensionBag(int *value, int *weight1, int *weight2, int n, int w1,
 
   return f[n][w1][w2];
 }
+

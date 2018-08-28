@@ -5,7 +5,7 @@ using namespace std;
 
 #define TEST_MAX 1024
 
-struct GKTest {
+struct Test {
   Item group[MAX][MAX];
   int group_n[MAX];
   int n;
@@ -41,9 +41,9 @@ struct GKTest {
 };
 
 int main() {
-  int count = sizeof(test_cases) / sizeof(GKTest);
+  int count = sizeof(test_cases) / sizeof(Test);
   for (int i = 0; i < count; i++) {
-    GKTest &t = test_cases[i];
+    Test &t = test_cases[i];
     int r = GroupBag(t.group, t.group_n, t.n, t.total_weight);
     cout << i << ": " << r << endl;
     assert(r == t.result);
@@ -51,3 +51,4 @@ int main() {
 
   return 0;
 }
+

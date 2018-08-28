@@ -154,3 +154,4 @@ int main(void) {
          cover[6] && !cover[7] && cover[8]);
   return 0;
 }
+

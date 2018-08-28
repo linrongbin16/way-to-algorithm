@@ -146,3 +146,4 @@ bool DancingLink(int n, int m, int subset[MAX][MAX], int *cover) {
   MakeLink(subset, n, m);
   return Dance(1, cover);
 }
+

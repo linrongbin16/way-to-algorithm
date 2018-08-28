@@ -118,6 +118,6 @@ std::vector<Node> AStarSearch(Node beg, Node end) {
       close_table.insert(std::make_pair(neighbor, node));
     }
   }
-  return {};
+  return std::vector<Node>();
 }
 

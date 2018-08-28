@@ -55,7 +55,7 @@ void AssertPath(const vector<Node> &path) {
   }
 }
 
-int main(void) {
+int main() {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test &t = test_cases[i];
     vector<Node> path = AStarSearch(t.begin, t.end);
