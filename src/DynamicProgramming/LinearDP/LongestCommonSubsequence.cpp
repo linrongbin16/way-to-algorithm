@@ -1,53 +1,23 @@
-#include "LongestCommonSubsequence.hpp"
-#include <cassert>
-// #include <iostream>
-using namespace std;
+#include "LongestCommonSubsequence.h"
 
-#define TEST_MAX 1024
+// 序列a和b的范围是[1,n]
+int LongestCommonSubsequence(const int *a, const int *b, int n) {
+  int f[MAX][MAX];
 
-struct Test {
-    int a[MAX];
-    int b[MAX];
-    int n;
-    int result;
-} test_cases[] = {
-    {{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
-     {0, 1, 3, 5, 7, 9, 11, 13, 15, 17},
-     10,
-     5},
-    {{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
-     {0, 2, 4, 6, 8, 10, 1, 3, 5, 7, 9},
-     10,
-     5},
-    {{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
-     {0, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1},
-     10,
-     1},
-    {{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
-     {0, 1, 2, 8, 7, 4, 3, 4, 3, 2, 1},
-     10,
-     4},
-    {{0, 1, 1, 5, 4, 9, 7, 31, -13, 34, 21, 17},
-     {0, 5, 6, 11, 4, 9, 0, 34, 21, -13, 17, 3},
-     11,
-     6},
-    {{0, 12, 142, -5, 14, 15,  45, 42,  61, 41,
-      0, 42, 42,  -5, 14, 215, 45, -42, 1,  31},
-     {0, 42, 42,  -5, 14, 215, 45, -42, 1,  31,
-      0, 12, 142, -5, 14, 15,  45, 42,  61, 41},
-     19,
-     9},
-};
+  // 初始化
+  for (int i = 0; i < MAX; i++) {
+    f[i][0] = 0;
+    f[0][i] = 0;
+  }
 
-int main()
-{
-    int count = sizeof(test_cases) / sizeof(Test);
-    for (int i = 0; i < count; i++) {
-        Test& t = test_cases[i];
-        int r = LongestCommonSubsequence(t.a, t.b, t.n);
-        // cout << i << "," << r << endl;
-        assert(r == t.result);
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n; j++) {
+      if (a[i] == b[j])
+        f[i][j] = f[i - 1][j - 1] + 1;
+      else
+        f[i][j] = std::max(f[i - 1][j], f[i][j - 1]);
     }
+  }
 
-    return 0;
+  return f[n][n];
 }

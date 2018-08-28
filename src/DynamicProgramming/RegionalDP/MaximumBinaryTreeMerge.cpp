@@ -1,30 +1,30 @@
-#include "MaximumBinaryTreeMerge.hpp"
-#include <cassert>
-#include <iostream>
-using namespace std;
+#include "MaximumBinaryTreeMerge.h"
 
-#define TEST_MAX 1024
+int MaximumBinaryTreeMerge(int *s, int n) {
+  // f[i][j]表示节点[i,j]的树的最大合并价值
+  int f[MAX][MAX];
+  //序列s的数量为n 范围是[1,n] 返回最小合并代价
+  for (int i = 0; i < MAX; i++)
+    for (int j = 0; j < MAX; j++)
+      f[i][j] = 1;
+  for (int i = 1; i <= n; i++)
+    f[i][i] = 1 + s[i];
 
-struct TMTest {
-    int s[MAX];
-    int n;
-    int result;
-} test_cases[] = {
-    {{0, 1, 2, 3, 4, 5, 6, 7}, 7, 544},                    // 0
-    {{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 10, 17935},       // 1
-    {{0, 1, 10, 3, 8, 5, 6, 7, 4, 9, 2}, 10, 19671},       // 2
-    {{0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19}, 10, 185274},  // 3
-};
-
-int main()
-{
-    int count = sizeof(test_cases) / sizeof(TMTest);
-    for (int i = 0; i < count; i++) {
-        TMTest& t = test_cases[i];
-        int r = MaximumBinaryTreeMerge(t.s, t.n);
-        cout << i << ": " << r << endl;
-        assert(r == t.result);
+  // 按照[i,j]范围的节点数量len来遍历
+  // 当len=1时 所有合并情况是[1,2] [2,3] [3,4] ...
+  // 当len=2时 所有合并情况是[1,3] [2,4] [3,5] ...
+  // 当len=3时 所有合并情况是[1,4] [2,5] [3,6] ...
+  for (int len = 1; len <= n; len++) {
+    for (int i = 1; i <= n; i++) {
+      for (int k = i; k <= i + len && k <= n; k++) {
+        // k==i或k+1==i+len时 f[i][k-1]或f[k+1][i+len]的值是没有意义的
+        // 但我们将这些无意义的值都初始化为1
+        // 把它们看作空子树的合并价值即可
+        f[i][i + len] =
+            std::max(f[i][i + len], f[i][k - 1] * f[k + 1][i + len] + s[k]);
+      }
     }
+  }
 
-    return 0;
+  return f[1][n];
 }

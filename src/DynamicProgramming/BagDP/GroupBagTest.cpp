@@ -1,16 +1,16 @@
+#include "GroupBag.h"
 #include <cassert>
 #include <iostream>
-#include "GroupKnapsack.h"
 using namespace std;
 
 #define TEST_MAX 1024
 
 struct GKTest {
-    Item group[MAX][MAX];
-    int group_n[MAX];
-    int n;
-    int total_weight;
-    int result;
+  Item group[MAX][MAX];
+  int group_n[MAX];
+  int n;
+  int total_weight;
+  int result;
 } test_cases[] = {
     {{
          {},
@@ -23,7 +23,7 @@ struct GKTest {
      {0, 5, 4, 6, 7, 3},
      5,
      30,
-     864},  // 0
+     864}, // 0
     {{
          {},
          {{}, {1, 2}, {2, 4}, {3, 6}, {4, 8}, {5, 10}},
@@ -37,17 +37,17 @@ struct GKTest {
      {0, 5, 4, 6, 4, 3, 3, 3},
      7,
      100,
-     129},  // 1
+     129}, // 1
 };
 
 int main() {
-    int count = sizeof(test_cases) / sizeof(GKTest);
-    for (int i = 0; i < count; i++) {
-        GKTest& t = test_cases[i];
-        int r = GroupKnapsack(t.group, t.group_n, t.n, t.total_weight);
-        cout << i << ": " << r << endl;
-        assert(r == t.result);
-    }
+  int count = sizeof(test_cases) / sizeof(GKTest);
+  for (int i = 0; i < count; i++) {
+    GKTest &t = test_cases[i];
+    int r = GroupBag(t.group, t.group_n, t.n, t.total_weight);
+    cout << i << ": " << r << endl;
+    assert(r == t.result);
+  }
 
-    return 0;
+  return 0;
 }
