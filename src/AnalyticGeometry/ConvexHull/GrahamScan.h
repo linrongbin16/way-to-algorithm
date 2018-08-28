@@ -1,7 +1,8 @@
 #pragma once
-#include <stack>
-#include <vector>
 #include "../Polygon/Cross.h"
 #include "../Util.h"
+#include <stack>
+#include <vector>
 
-void GrahamScan(std::vector<Node> s, std::stack<Node>& stk);
+void GrahamScan(std::vector<Node> s, std::stack<Node> &stk);
+
