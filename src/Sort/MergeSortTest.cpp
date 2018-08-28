@@ -1,25 +1,26 @@
-#include <cstdlib>
-#include <iostream>
 #include "MergeSort.h"
 #include "Util.h"
+#include <cstdlib>
+#include <iostream>
 using namespace std;
 
 #define TEST_MAX 1024
 #define MAX 64
 
-void AssertMergeSort(int* s, int n) {
-    AssertNotAscend(s, n);
-    MergeSort(s, 0, n);
-    AssertAscend(s, n);
+void AssertMergeSort(int *s, int n) {
+  AssertNotAscend(s, n);
+  MergeSort(s, 0, n);
+  AssertAscend(s, n);
 }
 
 int main(void) {
-    int s[MAX];
-    for (int i = 0; i < TEST_MAX; ++i) {
-        for (int j = 0; j < MAX; ++j) {
-            s[j] = rand() % TEST_MAX;
-        }
-        AssertMergeSort(s, MAX);
+  int s[MAX];
+  for (int i = 0; i < TEST_MAX; i++) {
+    for (int j = 0; j < MAX; j++) {
+      s[j] = rand() % TEST_MAX;
     }
-    return 0;
+    AssertMergeSort(s, MAX);
+  }
+  return 0;
 }
+
