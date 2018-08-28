@@ -1,4 +1,4 @@
-#include "LargeNumber.hpp"
+#include "LargeNumber.h"
 #include <cassert>
 #include <cstdlib>
 #include <iostream>
@@ -18,7 +18,7 @@ double RandDouble() {
   return up / down;
 }
 
-int main(void) {
+int main() {
   Number a, b;
 
   for (int i = 0; i < TEST_MAX; i++) {
@@ -27,17 +27,17 @@ int main(void) {
     assert(Init(a) + Init(b) == Init(a + b));
     assert(Init(a) - Init(b) == Init(a - b));
     assert(Init(a) * Init(b) == Init(a * b));
-    assert(IntString(Init(a) + Init(b)) == IntString(Init(a + b)));
-    assert(IntString(Init(a) - Init(b)) == IntString(Init(a - b)));
-    assert(IntString(Init(a) * Init(b)) == IntString(Init(a * b)));
+    assert(ToString(Init(a) + Init(b)) == ToString(Init(a + b)));
+    assert(ToString(Init(a) - Init(b)) == ToString(Init(a - b)));
+    assert(ToString(Init(a) * Init(b)) == ToString(Init(a * b)));
 
     double c = RandDouble(), d = RandDouble();
     assert(Init(c) + Init(d) == Init(c + d));
     assert(Init(c) - Init(d) == Init(c - d));
     assert(Init(c) * Init(d) == Init(c * d));
-    assert(FloatString(Init(c) + Init(d)) == FloatString(Init(c + d)));
-    assert(FloatString(Init(c) - Init(d)) == FloatString(Init(c - d)));
-    assert(FloatString(Init(c) * Init(d)) == FloatString(Init(c * d)));
+    assert(ToString(Init(c) + Init(d)) == ToString(Init(c + d)));
+    assert(ToString(Init(c) - Init(d)) == ToString(Init(c - d)));
+    assert(ToString(Init(c) * Init(d)) == ToString(Init(c * d)));
   }
 
   return 0;

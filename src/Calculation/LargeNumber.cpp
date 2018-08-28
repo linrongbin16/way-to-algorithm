@@ -6,10 +6,6 @@
 #include <string>
 using namespace std;
 
-//
-// implement
-//
-
 //数字有效
 void AssertValid(const Number &a);
 //小数向上浮动 将所有有效小数增加到整数
@@ -247,28 +243,8 @@ Number &operator/=(Number &a, const Number &b) {
   return a;
 }
 
-//输出整数
-std::string IntString(const Number &a) {
-  detail::AssertValid(a);
-  std::string ret(a.integer_len + 5, '*');
-  int int_index = 0;
-  for (int i = 0; i < ret.size(); i++) {
-    if (i == 0 && a.negative) {
-      ret[i] = '-';
-    } else {
-      if (a.integer_len == 0 && int_index >= 0) {
-        ret[i] = '0';
-      } else if (int_index < a.integer_len) {
-        ret[i] = (char)(a.integer[int_index] + (int)'0');
-      }
-      int_index++;
-    }
-  }
-  return ret;
-}
-
-//输出小数
-std::string FloatString(const Number &a) {
+// to string
+std::string ToString(const Number &a) {
   detail::AssertValid(a);
   std::string ret(a.integer_len + a.decimal_len + 5, '*');
   int index;
