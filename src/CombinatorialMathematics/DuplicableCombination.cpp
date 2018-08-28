@@ -1,37 +1,27 @@
-#include "DuplicableCombination.hpp"
-#include <cassert>
-#include <cmath>
-#include <string>
-#include <unordered_set>
-
+#include "Recursion.h"
+#include <algorithm>
+#include <vector>
 using namespace std;
 
-#define MAX 64
+void Recursion(vector<int> &tmp, const vector<int> &candidates, int prev,
+               vector<vector<int>> &comb) {
+  /* 递归终止条件 */
+  if (prev == tmp.size()) {
+    comb.push_back(tmp);
+    return;
+  }
 
-void AssertUnique(const vector<vector<int>> &v) {
-    unordered_set<string> us;
-    for (int i = 0; i < v.size(); i++) {
-        string tmp;
-        for (int j = 0; j < v[i].size(); j++) {
-            tmp.append(to_string(v[i][j]));
-        }
-        assert(us.find(tmp) == us.end());
-        us.insert(tmp);
-    }
+  /* 遍历当前成员s[prev] 并递归进入下一个成员 */
+  for (int i = 0; i < candidates.size(); i++) {
+    tmp[prev] = candidates[i];
+    Recursion(tmp, candidates, prev + 1, comb);
+  }
 }
 
-int main() {
-    for (int i = 1; i < MAX; i++) {
-        //初始化数组s
-        vector<int> s(i, 0);
-        for (int j = 0; j < i; j++) {
-            s[j] = j;
-        }
-        for (int j = 1; j <= i; j++) {
-            vector<vector<int>> ret = DuplicableCombination(s, j);
-            assert((double)ret.size() == std::pow<double>(j, i));
-            AssertUnique(ret);
-        }
-    }
-    return 0;
+vector<vector<int>> DuplicableCombination(vector<int> &candidates, int n) {
+  vector<vector<int>> comb;
+  vector<int> tmp(n, 0);
+  Recursion(tmp, candidates, 0, comb);
+  return comb;
 }
+

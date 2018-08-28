@@ -18,10 +18,11 @@ public:
   bool operator()(const Node &a, const Node &b) {
     //计算向量p0->a和p0->b的叉积
     double c = Cross(vec(p0, a), vec(p0, b));
-    if (c > 0.0)
+    if (c > 0.0) {
       //若叉积为正值 则p0->a在P0->b的顺时针方向 按照逆时针旋转的方向排序
       return true;
-    if (c == 0)
+    }
+    if (c == 0) {
       //若叉积为0 则两向量共线 即p0 a b三点共线
       //按照到p0点距离从小到大排序
       //算法导论中原本的描述是删去到p0距离较近的点 此处并未实现删除操作
@@ -29,6 +30,7 @@ public:
       //若凸包上存在多个点共线 只选取共线的边的两端点作为凸包顶点
       //而不选取中间的点
       return NodeDistance(p0, a) < NodeDistance(p0, b);
+    }
     return false;
   }
 };
