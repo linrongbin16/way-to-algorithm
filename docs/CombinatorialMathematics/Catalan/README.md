@@ -95,7 +95,7 @@ void catalan(int**a,int* b)  //求卡特兰数
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/CombinatorialMathematics/Catalan.hpp)
+[import, lang:"c_cpp"](../../../src/CombinatorialMathematics/Catalan.h)
 
 #### 测试
 
