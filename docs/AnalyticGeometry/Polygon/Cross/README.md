@@ -101,8 +101,9 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/AnalyticGeometry/Polygon/Cross.h)
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Cross.h)
+
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/AnalyticGeometry/Polygon/Cross.cpp)
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Cross.cpp)
