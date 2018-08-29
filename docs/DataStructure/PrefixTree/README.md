@@ -16,7 +16,7 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DataStructure/PrefixTree.hpp)
+[import, lang:"c_cpp"](../../../src/DataStructure/PrefixTree.h)
 
 #### 测试
 

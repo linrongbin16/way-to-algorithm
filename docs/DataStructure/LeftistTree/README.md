@@ -82,7 +82,7 @@ $$ (11) $$对于节点$$ 6 $$，$$ d_{6.leftChild} = d_{11} = 2 \ge d_{6.rightCh
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DataStructure/LeftistTree.hpp)
+[import, lang:"c_cpp"](../../../src/DataStructure/LeftistTree.h)
 
 #### 测试
 

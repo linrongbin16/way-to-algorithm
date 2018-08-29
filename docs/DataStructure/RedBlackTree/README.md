@@ -8,7 +8,7 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DataStructure/RedBlackTree.hpp)
+[import, lang:"c_cpp"](../../../src/DataStructure/RedBlackTree.h)
 
 #### 测试
 

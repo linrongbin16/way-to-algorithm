@@ -54,7 +54,7 @@ $$ (8) $$声明$$ 1 $$和$$ 7 $$节点属于同一家庭，设置$$ father[7] = 
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DataStructure/DisjointSet.hpp)
+[import, lang:"c_cpp"](../../../src/DataStructure/DisjointSet.h)
 
 #### 测试
 

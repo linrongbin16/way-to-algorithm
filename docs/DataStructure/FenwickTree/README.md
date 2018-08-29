@@ -79,7 +79,7 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DataStructure/FenwickTree.hpp)
+[import, lang:"c_cpp"](../../../src/DataStructure/FenwickTree.h)
 
 #### 测试
 

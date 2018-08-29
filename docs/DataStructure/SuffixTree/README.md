@@ -8,7 +8,7 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DataStructure/SuffixTree.hpp)
+[import, lang:"c_cpp"](../../../src/DataStructure/SuffixTree.h)
 
 #### 测试
 

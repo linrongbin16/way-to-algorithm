@@ -24,7 +24,7 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DataStructure/SegmentTree.hpp)
+[import, lang:"c_cpp"](../../../src/DataStructure/SegmentTree.h)
 
 #### 测试
 
