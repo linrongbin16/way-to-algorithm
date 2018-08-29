@@ -34,8 +34,8 @@ $$
 v_{1} \times v_{2} =
 
 \begin{cases}
-\mid    &   i       &   j       &   k       \mid
-\mid    &   x_{1}   &   y_{1}   &   z_{1}   \mid
+\mid    &   i       &   j       &   k       \mid    \\
+\mid    &   x_{1}   &   y_{1}   &   z_{1}   \mid    \\
 \mid    &   x_{2}   &   y_{2}   &   z_{2}   \mid
 \end{cases}
 $$
@@ -48,27 +48,27 @@ $$
 
 $$
 \begin{cases}
-\mid    &   a   &   b   &   c   \mid
-\mid    &   d   &   e   &   f   \mid
+\mid    &   a   &   b   &   c   \mid    \\
+\mid    &   d   &   e   &   f   \mid    \\
 \mid    &   g   &   h   &   i   \mid
 \end{cases}
 
 =
 
 \begin{cases}
-\mid    &   e   &   f   \mid
+\mid    &   e   &   f   \mid    \\
 \mid    &   h   &   i   \mid
 \end{cases}
 
 
 \begin{cases}
-\mid    &   d   &   f   \mid
+\mid    &   d   &   f   \mid    \\
 \mid    &   g   &   i   \mid
 \end{cases}
 
 
 \begin{cases}
-\mid    &   d   &   e   \mid
+\mid    &   d   &   e   \mid    \\
 \mid    &   g   &   h   \mid
 \end{cases}
 
