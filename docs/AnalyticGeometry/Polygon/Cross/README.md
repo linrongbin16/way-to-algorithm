@@ -47,30 +47,30 @@ $$
 如下：
 
 $$
-\begin{cases}
-\mid    &   a   &   b   &   c   \mid    \\
-\mid    &   d   &   e   &   f   \mid    \\
-\mid    &   g   &   h   &   i   \mid
-\end{cases}
+\begin{vmatrix}
+a   &   b   &   c   \\
+d   &   e   &   f   \\
+g   &   h   &   i
+\end{vmatrix}
 
 =
 
-\begin{cases}
-\mid    &   e   &   f   \mid    \\
-\mid    &   h   &   i   \mid
-\end{cases}
+\begin{vmatrix}
+e   &   f   \\
+h   &   i
+\end{vmatrix}
 
 
-\begin{cases}
-\mid    &   d   &   f   \mid    \\
-\mid    &   g   &   i   \mid
-\end{cases}
+\begin{vmatrix}
+d   &   f   \\
+g   &   i
+\end{vmatrix}
 
 
-\begin{cases}
-\mid    &   d   &   e   \mid    \\
-\mid    &   g   &   h   \mid
-\end{cases}
+\begin{vmatrix}
+d   &   e   \\
+g   &   h
+\end{vmatrix}
 
 
 a_(-1)^(1+1)_| e f | + b_(-1)^(1+2)_| d f | + c_(-1)^(1+3)_| d e |
