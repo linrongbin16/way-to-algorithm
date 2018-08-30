@@ -81,9 +81,17 @@ $$
 
 根据上面公式可得：
 
-三维空间中向量叉积为：$$ \vec{v_{1}} \times \vec{v_{2}} = (y_{1} \cdot z_{2} - y_{2} \cdot z_{1}) \cdot \vec{i} - (x_{1} \cdot z_{2} - x_{2} \cdot z_{1}) \cdot \vec{j} + (x_{1} \cdot y_{2} - x_{2} \cdot y_{1}) \cdot \vec{k} $$。
+三维空间中向量叉积为：
 
-二维平面中向量叉积为：$$ \vec{v_{1}} \times \vec{v_{2}} = (x_{1} \cdot y_{2} - x_{2} y_{1}) \cdot \vec{k} $$。
+$$
+\vec{v_{1}} \times \vec{v_{2}} = (y_{1} \cdot z_{2} - y_{2} \cdot z_{1}) \cdot \vec{i} - (x_{1} \cdot z_{2} - x_{2} \cdot z_{1}) \cdot \vec{j} + (x_{1} \cdot y_{2} - x_{2} \cdot y_{1}) \cdot \vec{k}
+$$
+
+二维平面中向量叉积为：
+
+$$
+\vec{v_{1}} \times \vec{v_{2}} = (x_{1} \cdot y_{2} - x_{2} y_{1}) \cdot \vec{k}
+$$
 
 #### 向量夹角
 
