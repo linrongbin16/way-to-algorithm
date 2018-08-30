@@ -51,7 +51,7 @@ $$
 
 #### 行列式计算公式
 
-如下：
+二阶行列式：
 
 $$
 \begin{vmatrix}
@@ -62,6 +62,7 @@ c   &   d
 = a \cdot d - b \cdot c
 $$
 
+三阶行列式：
 
 $$
 \begin{vmatrix}
@@ -73,7 +74,7 @@ g   &   h   &   i
 = a \cdot e \cdot i + b \cdot f \cdot g + c \cdot d \cdot h - c \cdot e \cdot g - a \cdot f \cdot h - b \cdot d \cdot i
 $$
 
-根据上面三阶行列式计算公式，可得：
+根据上面公式可得：
 
 三维空间中向量叉积为：$$ \vec{v_{1}} \times \vec{v_{2}} = (y_{1} \cdot z_{2} - y_{2} \cdot z_{1}) \cdot \vec{i} - (x_{1} \cdot z_{2} - x_{2} \cdot z_{1}) \cdot \vec{j} + (x_{1} \cdot y_{2} - x_{2} \cdot y_{1}) \cdot k $$。
 
