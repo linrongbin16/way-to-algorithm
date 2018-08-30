@@ -123,6 +123,8 @@ $$ (3) $$ 若为$$ 0 $$则$$ \vec{v_{1}} $$与$$ \vec_{v_{2}} $$共线，属于�
 
 #### 源码
 
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Util.h)
+
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Cross.h)
 
 

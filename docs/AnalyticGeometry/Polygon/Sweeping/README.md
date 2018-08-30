@@ -45,6 +45,8 @@ $$ (1) $$ 扫除算法介绍
 
 #### 源码
 
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Util.h)
+
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Sweeping.h)
 
 

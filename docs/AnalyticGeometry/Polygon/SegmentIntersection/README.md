@@ -39,6 +39,8 @@ $$ (2) $$ 线段$$ l_{1} $$的端点$$ a $$在线段$$ l_{2} $$上，另一端�
 
 #### 源码
 
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Util.h)
+
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/SegmentIntersection.h)
 
 
