@@ -12,7 +12,12 @@ $$
 \vec{v} = x \times \vec{i} + y \times \vec{j} + z \times \vec{k}
 $$
 
-其中$$ \vec{i}, \vec{j}, \vec{k} $$是$$ x, y, z $$三个轴上的单位向量，平面中的向量可以视为$$ z $$轴长度为$$ 0 $$的三维空间中一种特殊的向量。
+其中$$ \vec{i}, \vec{j}, \vec{k} $$是$$ x, y, z $$三个轴上的单位向量，平面中的向量可以视为$$ z $$轴长度为$$ 0 $$的三维空间中一种特殊的向量，一般写作：
+
+$$
+\vec{v} = x \times \vec{i} + y \times \vec{j}
+$$
+
 
 #### 点积
 
@@ -78,7 +83,7 @@ $$
 
 三维空间中向量叉积为：$$ \vec{v_{1}} \times \vec{v_{2}} = (y_{1} \cdot z_{2} - y_{2} \cdot z_{1}) \cdot \vec{i} - (x_{1} \cdot z_{2} - x_{2} \cdot z_{1}) \cdot \vec{j} + (x_{1} \cdot y_{2} - x_{2} \cdot y_{1}) \cdot k $$。
 
-二维平面中向量叉积为：$$ \vec{v_{1}} \times \vec{v_{2}} = (x_{1} \cdot y_{2} - x_{2} y_{1}) \cdot \vec{k} $$，其中$$ \vec{v_{1}} $$和$$ \vec{v_{2}} $$都只在$$ \vec{i} $$、$$ \vec{j} $$方向有长度，而$$ \vec{k} $$方向得长度为$$ 0 $$，即表示为$$ \vec{v} = x \cdot \vec{i} + y \cdot \vec{j} $$。
+二维平面中向量叉积为：$$ \vec{v_{1}} \times \vec{v_{2}} = (x_{1} \cdot y_{2} - x_{2} y_{1}) \cdot \vec{k} $$。
 
 #### 向量夹角
 
