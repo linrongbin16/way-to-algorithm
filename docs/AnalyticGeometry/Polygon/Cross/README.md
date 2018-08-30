@@ -47,7 +47,7 @@ $$
 \vec{v_{1}} \times \vec{v_{2}} = \vec{n} \mid \vec{v_{1}} \mid \cdot \mid \vec{v_{2}} \mid sin \theta
 $$
 
-其中$$ \vec{n} $$即为右手法则中大拇指的方向向量，长度为$$ 1 $$；$$ \theta $$为从$$ \vec{v_{1}} $$转向$$ \vec{v_{2}} $$的转角（$$ 0^{\circ} \leq \theta \leq 180^{\circ} $$）。
+其中$$ \vec{n} $$即为右手法则中大拇指的方向向量，长度为$$ 1 $$，$$ \theta $$为从$$ \vec{v_{1}} $$转向$$ \vec{v_{2}} $$的转角（$$ 0^{\circ} \leq \theta \leq 180^{\circ} $$）。
 
 #### 行列式计算公式
 
