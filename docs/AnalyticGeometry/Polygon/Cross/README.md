@@ -57,45 +57,40 @@ $$
 
 $$
 \begin{vmatrix}
+a   &   b   \\
+c   &   d
+\end{vmatrix}
+
+= a \cdot d - b \cdot c
+$$
+
+
+$$
+\begin{vmatrix}
 a   &   b   &   c   \\
 d   &   e   &   f   \\
 g   &   h   &   i
 \end{vmatrix}
 
-=
-
-\begin{vmatrix}
-e   &   f   \\
-h   &   i
-\end{vmatrix}
-
-
-\begin{vmatrix}
-d   &   f   \\
-g   &   i
-\end{vmatrix}
-
-
-\begin{vmatrix}
-d   &   e   \\
-g   &   h
-\end{vmatrix}
-
-
-a_(-1)^(1+1)_| e f | + b_(-1)^(1+2)_| d f | + c_(-1)^(1+3)_| d e |
-             | h i |                | g i |                | g h |
-
+= a \cdot e \cdot i + b \cdot f \cdot g + c \cdot d \cdot h - c \cdot e \cdot g - a \cdot f \cdot h - b \cdot d \cdot i
 $$
 
-可得三维空间中$$ \vec{v_{1}} \times \vec{v_{2}} = (y1_z2 - y2_z1)i-(x1_z2 - x2_z1)j+(x1_y2 - x2_y1)k
-二维平面中v1 cross v2 = (x1_y2 - x2_y1)k
+根据上面三阶行列式计算公式，可得：
 
-5.  向量夹角
+三维空间中向量叉积为：$$ \vec{v_{1}} \times \vec{v_{2}} = (y_{1} \cdot z_{2} - y_{2} \cdot z_{1}) \cdot \vec{i} - (x_{1} \cdot z_{2} - x_{2} \cdot z_{1}) \cdot \vec{j} + (x_{1} \cdot y_{2} - x_{2} \cdot y_{1}) \cdot k $$。
 
-在平面中v1 cross v2 = x1_y2 - x2_y1
-若为正数则v1在v2的顺时针方向 按照右手螺旋法则从v2到v1旋转时 大拇指与z轴反方向一致(向下)
-若为负数则v1在v2的逆时针方向 按照右手螺旋法则从v2到v1旋转时 大拇指与z轴正方向一致(向上)
-若为0则v1和v2共线 此为边界情况
+二维平面中向量叉积为：$$ \vec{v_{1}} \times \vec{v_{2}} = (x_{1} \cdot y_{2} - x_{2} y_{1}) \cdot \vec{k} $$，其中$$ \vec{v_{1}} $$和$$ \vec{v_{2}} $$都只在$$ \vec{i} $$、$$ \vec{j} $$方向有长度，而$$ \vec{k} $$方向得长度为$$ 0 $$，即表示为$$ \vec{v} = x \cdot \vec{i} + y \cdot \vec{j} $$。
+
+5. 向量夹角
+
+计算两个向量$$ \vec{v_{1}} $$和$$ \vec{v_{2}} $$的夹角时，我们一般将它们看作其共同的垂直方向向量长度为$$ 0 $$。叉积$$ \vec{v_{1}} \times \vec{v_{2}} = (x_{1} \cdot y_{2} - x_{2} y_{1}) \cdot \vec{k} $$的结果。
+
+$$ (1) $$ 若为正数则$$ \vec{v_{1}} $$在$$ \vec_{v_{2}} $$的顺时针方向（按右手螺旋法则从$$ \vec{v_{2}}$$旋转到$$ \vec{v_{1}} $$时，大拇指与$$ \vec{k} $$方向相反）；
+
+$$ (2) $$ 若为负数则$$ \vec{v_{1}} $$在$$ \vec_{v_{2}} $$的逆时针方向（按右手螺旋法则从$$ \vec{v_{2}}$$旋转到$$ \vec{v_{1}} $$时，大拇指与$$ \vec{k} $$方向相同）；
+
+$$ (3) $$ 若为$$ 0 $$则$$ \vec{v_{1}} $$与$$ \vec_{v_{2}} $$共线，属于边界情况。
+
 在两连续线段p0_p1 p1_p2中 考察角&lt;p0p1p2是左转还是右转
 即计算向量p0->p2在p0->p1的顺时针方向还是逆时针方向 可以通过计算p0->p2 cross p0->p1
 在向量a->b中 a是向量起点 b是向量终点
@@ -104,7 +99,11 @@ $$
 若为0则p0 p1 p2三点共享
 这里需要注意叉积的正负值与向量间顺时针逆时针的关系 实际运算时很容易搞混
 
-本节引用了"数学复习全书(2013年李永乐李正元考研数学 数学一)" 作者"李永乐""李正元"
+--------
+
+#### 数学复习全书（2013年李永乐李正元考研数学 数学一）
+
+* https://book.douban.com/subject/21370697/
 
 --------
 
@@ -116,3 +115,4 @@ $$
 #### 测试
 
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Cross.cpp)
+
