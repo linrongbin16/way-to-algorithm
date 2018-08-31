@@ -186,5 +186,6 @@ ACAutomationMatch(ACAutomation *ac, const std::string &text) {
   return pos;
 }
 
+// not implement
 void ACAutomationFree(ACAutomation *ac) { (void)ac; }
 

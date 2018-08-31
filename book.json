@@ -9,7 +9,8 @@
         "ace",
         "splitter",
         "-search",
-        "-lunr"
+        "-lunr",
+        "livereload"
     ],
     "pluginsConfig": {
         "include-codeblock": {
