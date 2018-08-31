@@ -1,5 +1,4 @@
 #pragma once
-
 #ifndef MAX
 #define MAX 64
 #endif

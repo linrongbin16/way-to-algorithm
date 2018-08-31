@@ -6,8 +6,6 @@
 #include <unordered_map>
 #include <vector>
 
-// implement
-
 #define INVALID_CHAR '@'
 
 Node::Node() {
@@ -34,7 +32,7 @@ Node &Node::operator=(const Node &other) {
   return *this;
 }
 
-void Insert(ACAutomation *ac, const std::string &str) {
+static void Insert(ACAutomation *ac, const std::string &str) {
   Node *p = &ac->root;
   for (int i = 0; i < str.length(); i++) {
     int index = (int)str[i] - (int)'a';
@@ -49,7 +47,7 @@ void Insert(ACAutomation *ac, const std::string &str) {
   ++p->count;
 }
 
-char GetChar(Node *p) {
+static char GetChar(Node *p) {
   //返回节点p的字母 若为根节点则输出@
   if (p->father == NULL)
     return INVALID_CHAR;
@@ -61,7 +59,7 @@ char GetChar(Node *p) {
   return INVALID_CHAR;
 }
 
-std::string GetString(Node *p, const std::string &str) {
+static std::string GetString(Node *p, const std::string &str) {
   //返回以节点p为最后一个字母的字符串
   //若节点增加字母和字符串成员
   //插入字符串时在相应节点中进行标记
@@ -76,7 +74,7 @@ std::string GetString(Node *p, const std::string &str) {
   return GetString(p->father, ch + str);
 }
 
-void FailPath(ACAutomation *ac) {
+static void FailPath(ACAutomation *ac) {
   //通过bfs给字典树中所有节点建立失败指针
   std::queue<Node *> q;
   //根节点的失败指针为NULL
@@ -125,8 +123,8 @@ ACAutomation *ACAutomationNew(const std::vector<std::string> &str) {
   // 插入待查寻字符串
   // 建立失败路径
   for (int i = 0; i < str.size(); i++)
-    detail::Insert(ac, str[i]);
-  detail::FailPath(ac);
+    Insert(ac, str[i]);
+  FailPath(ac);
   return ac;
 }
 
@@ -168,7 +166,7 @@ ACAutomationMatch(ACAutomation *ac, const std::string &text) {
         //但是经过测试这里tmp->a_cnt == 0的条件恰好应该是相反的
         //即tmp->a_cnt != 0 也可写作tmp->a_cnt(该值为正时即true)
         if (tmp->count) {
-          std::string s = detail::GetString(tmp);
+          std::string s = GetString(tmp);
           pos.insert(std::make_pair(s, i - s.length() + 1));
           //文档"AC自动机算法详解" 作者"极限定律"中
           //第二个有问题的地方则是:
