@@ -1,6 +1,8 @@
 # Chapter-5 Graph Theory
 # 第5章 图论
 
+![GraphTheory.svg](res/GraphTheory.svg)
+
 --------
 
 1. Traverse - 遍历
