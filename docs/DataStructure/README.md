@@ -1,6 +1,8 @@
 # Chapter-3 Data Structure
 # 第3章 数据结构
 
+![DataStructure.svg](res/DataStructure.svg)
+
 --------
 
 1. [DisjointSet 并查集](DisjointSet/README.md)
