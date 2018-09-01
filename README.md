@@ -25,6 +25,4 @@
 * [Wikipedia](https://www.wikipedia.org/)
 * [LeetCode](https://leetcode.com)
 
-### Contributing - 贡献
-
-见 [Contributing](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/CONTRIBUTING.md)
+### [Contributing - 贡献](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/CONTRIBUTING.md)
