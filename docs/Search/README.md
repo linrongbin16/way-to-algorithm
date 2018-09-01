@@ -1,6 +1,8 @@
 # Chapter-2 Search
 # 第2章 搜索
 
+![Search.svg](res/Search.svg)
+
 --------
 
 1. [KnowledgePoint 知识要点](KnowledgePoint/README.md)
