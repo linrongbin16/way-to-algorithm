@@ -1,6 +1,5 @@
 # Content - 目录
 
-* [Introduction](README.md)
 * [Content 目录](SUMMARY.md)
 * [Preface 前言](docs/Preface/README.md)
 * [Chapter-1 Sort 第1章 排序](docs/Sort/README.md)
