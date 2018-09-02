@@ -1,3 +1,5 @@
+<head><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></head>
+
 # Bubble Sort - 冒泡排序
 
 --------
