@@ -1,3 +1,5 @@
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
+
 # Two Dimension Bag - 二维背包
 
 --------

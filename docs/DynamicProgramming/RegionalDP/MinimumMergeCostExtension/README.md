@@ -1,3 +1,5 @@
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
+
 # Minimum Merge Cost Extension - 最小合并代价扩展
 
 --------
