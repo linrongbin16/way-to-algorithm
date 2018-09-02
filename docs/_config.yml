@@ -2,6 +2,6 @@ theme: jekyll-theme-slate
 layout: post
 mathjax: true
 comments: true
-title:  "Adding MathJax to a GitHub Pages Jekyll Blog"
-date:   2016-08-21 23:41:54 +0000
+title:  "Way-to-Algorithm"
+date:   2018-09-01 12:00:00
 categories: github jekyll
