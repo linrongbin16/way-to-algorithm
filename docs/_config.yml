@@ -1,5 +1,6 @@
 theme: jekyll-theme-slate
 layout: post
+markdown: kramdown
 mathjax: true
 comments: true
 title:  "Way-to-Algorithm"

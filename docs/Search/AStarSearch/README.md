@@ -1,3 +1,5 @@
+{% include mathjax.html %}
+
 # A Star Search - A\*搜索
 
 --------
