@@ -4,8 +4,8 @@ sudo npm install gitbook-cli -g
 sudo npm install svgexport -g
 mkdir -p ./bin
 gitbook install .
-gitbook build .
-gitbook pdf . ./bin/Way-to-Algorithm.pdf &
-gitbook epub . ./bin/Way-to-Algorithm.epub &
-gitbook mobi . ./bin/Way-to-Algorithm.mobi &
+gitbook build . --debug
+gitbook pdf . ./bin/Way-to-Algorithm.pdf --debug &
+gitbook epub . ./bin/Way-to-Algorithm.epub --debug &
+gitbook mobi . ./bin/Way-to-Algorithm.mobi --debug &
 gitbook serve .
