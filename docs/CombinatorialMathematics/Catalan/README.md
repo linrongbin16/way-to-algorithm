@@ -26,7 +26,7 @@ f(n) = frac{1}{n + 1}(
         2 \times n \\
         n
         \end{cases}
-        ) & 其中（n \ge 0）
+        ) 其中（n \ge 0）
 
 $$
 
