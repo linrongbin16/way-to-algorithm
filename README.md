@@ -31,3 +31,9 @@
 #### Contributing - 贡献
 
 * https://github.com/linrongbin16/Way-to-Algorithm/blob/master/CONTRIBUTING.md
+
+#### Funding - 资助
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/docs/res/alipay.jpg" alt="alipay">
+</p>
