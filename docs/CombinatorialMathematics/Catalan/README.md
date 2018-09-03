@@ -11,7 +11,7 @@
 
 ![Catalan1.svg](../res/Catalan1.svg)
 
-2. 
+2.
 
 #### 解法
 

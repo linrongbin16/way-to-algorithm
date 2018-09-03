@@ -22,9 +22,9 @@
 $$
 f(i,j) =
 \begin{cases}
-1 & (初始化)i,j \in [0,n] \\
-1 \times 1+v_i & (初始化)i,j \in [1,n],i = j \\
-max \{ f(i,k-1) \times f(k+1,j) \}+v_k & i,j,k \in [1,n],i \lt k \lt j
+1                                       &   (initialize)i,j \in [0,n] \\
+1 \times 1+v_i                          &   (initialize)i,j \in [1,n],i = j \\
+max \{ f(i,k-1) \times f(k+1,j) \}+v_k  &   i,j,k \in [1,n], i \lt k \lt j
 \end{cases}
 $$
 

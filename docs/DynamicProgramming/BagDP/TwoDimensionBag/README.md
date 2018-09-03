@@ -18,9 +18,9 @@
 $$
 f(i,j,k) =
 \begin{cases}
-0 & (初始化)i = 0 \\
-f(i-1,j,k) & i,j,k \gt 0 \\
-max{f(i-1,j,k),f(i-1,j-w1_i,k-w2_i)+v_i} & i,j,k \gt 0,j \geq w1_i,k \geq w2_i
+0                                           &   (intialize)i = 0 \\
+f(i-1,j,k)                                  &   i,j,k \gt 0 \\
+max{f(i-1,j,k),f(i-1,j-w1_i,k-w2_i)+v_i}    &   i,j,k \gt 0, j \geq w1_i, k \geq w2_i
 \end{cases}
 $$
 

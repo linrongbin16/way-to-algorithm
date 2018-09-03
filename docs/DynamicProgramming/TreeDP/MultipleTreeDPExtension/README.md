@@ -18,8 +18,8 @@
 $$
 f(i,j) =
 \begin{cases}
-v_i & (初始化)i,j \in [0,n),i = j \\
-max⁡\{ \sum_{1}^{j} f(child_j,k_j )+v_i \} & i,j,k \in [0,n),i \neq j,\sum_{1}^{j} k_j  = m-1
+v_i                                         &   (initialize)i,j \in [0,n),i = j \\
+max⁡\{ \sum_{1}^{j} f(child_j,k_j )+v_i \}  &   i,j,k \in [0,n), i \neq j, \sum_{1}^{j} k_j = m-1
 \end{cases}
 $$
 

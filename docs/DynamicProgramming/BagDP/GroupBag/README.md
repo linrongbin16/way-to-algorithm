@@ -18,9 +18,9 @@
 $$
 f(i,j) =
 \begin{cases}
-0 & (初始化)i = 0 \\
-f(i-1,j) & i,j \gt 0 \\
-max(f(i-1,j),f(i-1,j - w_k ) + v_k) & i,j \gt 0,k \in [1,group_i],j \geq w_k
+0                                       &   (initialize)i = 0 \\
+f(i-1,j)                                &   i,j \gt 0 \\
+max(f(i-1,j),f(i-1,j - w_k ) + v_k)     &   i,j \gt 0, k \in [1,group_i], j \geq w_k
 \end{cases}
 $$
 

@@ -18,9 +18,9 @@
 $$
 f(i,j) =
 \begin{cases}
-0 & (初始化)i = 0或j = 0 \\
-f(i-1,j-1)+1 & i,j \gt 0,i,j \in [1,n],s_1 [i] = s_2 [j] \\
-max(f(i,j-1),f(i-1,j)) & i,j \gt 0,i,j \in [1,n],s_1 [i] \neq s_2 [j]
+0                       &   (initialize)i = 0或j = 0 \\
+f(i-1,j-1)+1            &   i,j \gt 0, i,j \in [1,n], s_1 [i] = s_2 [j] \\
+max(f(i,j-1),f(i-1,j))  &   i,j \gt 0, i,j \in [1,n], s_1 [i] \neq s_2 [j]
 \end{cases}
 $$
 

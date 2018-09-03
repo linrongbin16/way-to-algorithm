@@ -30,8 +30,8 @@ $$ (3) $$错误剪裁
 $$
 f(i,j) =
 \begin{cases}
-v_i & (初始化)i,j \in [0,n),i = j \\
-max⁡\{f(leftChild_i,k)+f(rightChild_i,j-1-k)+v_i \} & i,j \in [0,n),i \neq j
+v_i                                                 &   (initialize)i,j \in [0,n),i = j \\
+max⁡\{f(leftChild_i,k)+f(rightChild_i,j-1-k)+v_i \} &   i,j \in [0,n), i \neq j
 \end{cases}
 $$
 

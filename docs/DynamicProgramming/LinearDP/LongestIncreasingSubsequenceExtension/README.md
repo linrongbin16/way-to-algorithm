@@ -18,9 +18,9 @@
 $$
 f(i) =
 \begin{cases}
-0 & (初始化)i = 0 \\
-1 & (初始化)i \in [1,n] \\
-max \{ f(k)+1 \} & i \gt 0,s[i] \gt s[k],k \in [1,i)
+0                   &   (initialize)i = 0 \\
+1                   &   (initialize)i \in [1,n] \\
+max \{ f(k)+1 \}    &   i \gt 0, s[i] \gt s[k], k \in [1,i)
 \end{cases}
 $$
 

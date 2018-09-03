@@ -16,9 +16,9 @@
 $$
 f(i,j) =
 \begin{cases}
-0 & (初始化)i = 0 \\
-f(i-1,j) & i,j \gt 0 \\
-max(f(i-1,j),f(i-1,j-w_i)+v_i) & i,j \gt 0,j \geq w_i
+0                               &   (initialize)i = 0 \\
+f(i-1,j)                        &   i,j \gt 0 \\
+max(f(i-1,j),f(i-1,j-w_i)+v_i)  &   i,j \gt 0, j \geq w_i
 \end{cases}
 $$
 

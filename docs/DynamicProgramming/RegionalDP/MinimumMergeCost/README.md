@@ -20,9 +20,9 @@
 $$
 f(i,j) =
 \begin{cases}
-0 & (初始化)i,j \in [0,n],i = j \\
-+\infty & (初始化)i,j \in [0,n],i \neq j \\
-min \{⁡f(i,k)+f(k+1,j)+sum(i,k)+sum(k+1,j) \} & i,j,k \in [1,n],i \leq k \leq j
+0                                               &   (initialize)i,j \in [0,n],i = j \\
++\infty                                         &   (initialize)i,j \in [0,n],i \neq j \\
+min \{⁡f(i,k)+f(k+1,j)+sum(i,k)+sum(k+1,j) \}   &   i,j,k \in [1,n], i \leq k \leq j
 \end{cases}
 $$
 
