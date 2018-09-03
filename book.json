@@ -4,6 +4,7 @@
     "language": "zh-hans",
     "author": "Lin Rongbin <linrongbin16@gmail.com>",
     "plugins": [
+        "mathjax",
         "include-codeblock",
         "ace",
         "splitter",
