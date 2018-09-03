@@ -2,9 +2,8 @@
 #include "../Util.h"
 
 /**
- * @return 0 若两线段不相交
- * @return 1 若两线段相交，且不存在一个端点在另一个线段上的情况
- * @return 2 若两线段中一个端点在另一个线段上
+ * @param   s1, s2 两线段
+ * @return  false 若两线段不相交 true 若两线段相交
  */
-int SegmentIntersection(const Segment &s1, const Segment &s2);
+bool SegmentIntersection(const Segment &s1, const Segment &s2);
 

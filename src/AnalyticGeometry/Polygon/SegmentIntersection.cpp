@@ -10,7 +10,7 @@ static bool OnSegment(const Segment &s, const Node &n) {
          n.y <= std::max(s.left.y, s.right.y);
 }
 
-int SegmentIntersection(const Segment &s1, const Segment &s2) {
+bool SegmentIntersection(const Segment &s1, const Segment &s2) {
   Vec v1 = Vec(s2.left, s2.right);
   Vec v2 = Vec(s2.left, s1.left);
   Vec v3 = Vec(s2.left, s1.right);
@@ -26,19 +26,19 @@ int SegmentIntersection(const Segment &s1, const Segment &s2) {
   // d1 d2一正一负
   // d3 d4一正一负
   if (d1 * d2 < 0.0f && d3 * d4 < 0.0f)
-    return 1;
+    return true;
 
   //一线段在另一线段上
   if (d1 == 0.0f && OnSegment(s2, s1.left))
-    return 2;
+    return true;
   if (d2 == 0.0f && OnSegment(s2, s1.right))
-    return 2;
+    return true;
   if (d3 == 0.0f && OnSegment(s1, s2.left))
-    return 2;
+    return true;
   if (d4 == 0.0f && OnSegment(s1, s2.right))
-    return 2;
+    return true;
 
   //不相交
-  return 0;
+  return false;
 }
 

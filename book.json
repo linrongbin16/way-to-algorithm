@@ -4,7 +4,7 @@
     "language": "zh-hans",
     "author": "Lin Rongbin <linrongbin16@gmail.com>",
     "plugins": [
-        "mathjax",
+        "mathjax@https://github.com/OrgVue/gitbook-plugin-mathjax.git#speech-fix",
         "include-codeblock",
         "ace",
         "splitter",

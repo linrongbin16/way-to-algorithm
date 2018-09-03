@@ -89,3 +89,4 @@ install_manifest.txt
 package.json
 package-lock.json
 .temp
+bin
