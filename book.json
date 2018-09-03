@@ -13,9 +13,34 @@
         "livereload"
     ],
     "pluginsConfig": {
+        "fontSettings": {
+            "theme": "white",
+            "family": "msyh",
+            "size": 2
+        },
         "include-codeblock": {
             "template": "ace",
             "theme": "monokai"
+        },
+        "fontSettings": {
+            "theme": "white",
+            "family": "msyh",
+            "size": 2
+        },
+        "plugins": [
+            "yahei",
+            "-search"
+        ]
+    },
+    "pdf": {
+        "pageNumbers": true,
+        "fontSize": 18,
+        "paperSize": "a4",
+        "margin": {
+            "right": 30,
+            "left": 30,
+            "top": 30,
+            "bottom": 50
         }
-    }
+    },
 }
