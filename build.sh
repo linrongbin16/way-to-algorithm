@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-npm install gitbook-cli -g
-npm install svgexport -g
+sudo npm install gitbook-cli -g
+sudo npm install svgexport -g
+mkdir -p ./bin
 gitbook install .
 gitbook build .
 gitbook pdf . ./bin/Way-to-Algorithm.pdf &
