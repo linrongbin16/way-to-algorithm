@@ -12,7 +12,7 @@ KMP算法的性能为$$ O(n) $$，比SimpleMatch高很多。在$$ text = abcxbci
 
 对于下面这个匹配：
 
-![KMPMatch1.svg](../res/KMPMatch1.svg)
+<!--![KMPMatch1.svg](../res/KMPMatch1.svg)-->
 
 $$ (1) $$ 从$$ text $$第$$ 0 $$个字符开始匹配，有$$ text[0 \cdots 2] = str[0 \cdots 2]，text[3] \ne str[3] $$；
 
