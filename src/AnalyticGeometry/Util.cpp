@@ -1,4 +1,5 @@
 #include "Util.h"
+#include <algorithm>
 #include <cmath>
 
 Node::Node() {
@@ -46,5 +47,13 @@ Segment::Segment(const Segment &s) {
 double NodeDistance(const Node &a, const Node &b) {
   return std::sqrt(std::pow<double>(b.x - a.x, 2.0f) +
                    std::pow<double>(b.y - a.y, 2.0f));
+}
+
+bool FloatEq(const double &a, const double &b) {
+  return std::abs(a - b) <= (double)0.000001f;
+}
+
+bool FloatEq(const float &a, const float &b) {
+  return std::abs(a - b) <= (float)0.000001f;
 }
 

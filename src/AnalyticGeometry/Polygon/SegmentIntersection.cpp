@@ -1,4 +1,5 @@
 #include "SegmentIntersection.h"
+#include "../Util.h"
 #include "Cross.h"
 #include <algorithm>
 
@@ -29,13 +30,13 @@ bool SegmentIntersection(const Segment &s1, const Segment &s2) {
     return true;
 
   //一线段在另一线段上
-  if (d1 == 0.0f && OnSegment(s2, s1.left))
+  if (FloatEq(d1, (double)0.0f) && OnSegment(s2, s1.left))
     return true;
-  if (d2 == 0.0f && OnSegment(s2, s1.right))
+  if (FloatEq(d2, (double)0.0f) && OnSegment(s2, s1.right))
     return true;
-  if (d3 == 0.0f && OnSegment(s1, s2.left))
+  if (FloatEq(d3, (double)0.0f) && OnSegment(s1, s2.left))
     return true;
-  if (d4 == 0.0f && OnSegment(s1, s2.right))
+  if (FloatEq(d4, (double)0.0f) && OnSegment(s1, s2.right))
     return true;
 
   //不相交
