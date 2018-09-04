@@ -17,11 +17,6 @@
         "include-codeblock": {
             "template": "ace",
             "theme": "monokai"
-        },
-        "fontSettings": {
-            "theme": "white",
-            "family": "msyh",
-            "size": 2
         }
     },
     "pdf": {
