@@ -36,10 +36,10 @@ $$ (2) $$ 线段$$ l_{1} $$的其中一个端点在线段$$ l_{2} $$上，这是
 
 --------
 
-#### 算法导论-第33章计算几何学-第2节
+#### 算法导论-第33章计算几何学
 
 * https://book.douban.com/subject/20432061/
-* http://open.163.com/special/opencourse/algorithms.html
+* https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf
 
 --------
 
