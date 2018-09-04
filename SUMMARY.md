@@ -143,7 +143,6 @@
     * Section-1 Polygon 第1节 多边形
         * [Cross 叉积](docs/AnalyticGeometry/Polygon/Cross/README.md)
         * [SegmentIntersection 线段相交](docs/AnalyticGeometry/Polygon/SegmentIntersection/README.md)
-        * [PointInConvexPolygon 点在多边形内](docs/AnalyticGeometry/Polygon/PointInConvexPolygon/README.md)
         * [Sweeping 扫除算法](docs/AnalyticGeometry/Polygon/Sweeping/README.md)
         * [ConvexPolygonArea 凸多边形面积](docs/AnalyticGeometry/Polygon/ConvexPolygonArea/README.md)
         * [ConvexPolygonGravityCenter 凸多边形重心](docs/AnalyticGeometry/Polygon/ConvexPolygonGravityCenter/README.md)
