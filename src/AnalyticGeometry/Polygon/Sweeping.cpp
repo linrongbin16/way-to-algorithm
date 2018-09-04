@@ -59,7 +59,7 @@ static TIter Above(T &t, const Node &p) {
   if (i == t.begin()) {
     return t.end();
   }
-  return --i;
+  return ++i;
 }
 
 static TIter Below(T &t, const Node &p) {
@@ -70,7 +70,7 @@ static TIter Below(T &t, const Node &p) {
   if (i == t.begin()) {
     return t.end();
   }
-  return ++i;
+  return --i;
 }
 
 bool Sweeping(Segment *l, int n) {
@@ -119,7 +119,9 @@ bool Sweeping(Segment *l, int n) {
                               l[node_segment_index[TValue(below_p).index]]))
         return true;
 
-      Erase(t, p);
+	  Segment line = l[node_segment_index[p.index]];
+	  Erase(t, line.left);
+      Erase(t, line.right);
     }
   }
   return false;
