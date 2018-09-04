@@ -1,107 +1,121 @@
 #include "Sweeping.h"
+#include "../Util.h"
+#include "SegmentIntersection.h"
 #include <algorithm>
 #include <map>
-#include <multimap>
 #include <utility>
 
+// key为端点y坐标 value为端点
+typedef std::multimap<double, Node, std::less<double>> T;
+typedef std::multimap<double, Node, std::less<double>>::iterator TIter;
+#define TKey(iter) ((iter)->first)
+#define TValue(iter) ((iter)->second)
+
+int is_left_node[MAX];
+
+//端点排序
 static bool Compare(const Node &a, const Node &b) {
-  //两点x坐标不一致时，取x坐标较小者为先
-  if (a.x != b.x)
+  // x坐标不同 x坐标较小的优先
+  if (!FloatEq(a.x, b.x))
     return a.x < b.x;
-  //若两点不都是线段左端点或右端点，取左端点者为先
-  if (a.left != b.right)
-    return a.left == 1 ? true : false;
-  //两点y坐标不一致时，最后取y坐标较小者为先
-  if (a.y != b.y)
+
+  // 若两点一个是左端点一个是右端点 左端点优先
+  if (is_left_node[a.index] != is_left_node[b.index])
+    return (is_left_node[a.index]) ? true : false;
+
+  // y坐标不同 y坐标较小的优先
+  if (!FloatEq(a.y, b.y))
     return a.y < b.y;
-  //以上三种情况皆不成立
-  //即x坐标与y坐标都相同，且都是所在线段的左端点或右端点，可以判断存在相交
+
   return false;
 }
 
-std::multimap<double, Node, std::less<double>>::iterator
-FindNode(std::multimap<double, Node, std::less<double>> &t, const Node &p) {
-  //找出扫除线的节点p的迭代器
-  for (std::multimap<double, Node, std::less<double>>::iterator i = t.begin();
-       i != t.end(); i++)
-    if (i->first == p.n_y && i->second == p)
-      //迭代器的键值y坐标相等，所映射的点的xy坐标也相等
+static TIter Find(T &t, const Node &p) {
+  std::pair<TIter, TIter> range = t.equal_range(p.y);
+  for (TIter i = range.first; i != range.second; i++) {
+    if (NodeEq(TValue(i), p)) {
       return i;
+    }
+  }
   return t.end();
 }
 
-bool Sweeping(Segment *l, int n) {
-  //线段集l有n条线段，下标从0到n-1，判断线段集中是否存在相交线段
-  //键值double指代点的y坐标
-  //映射Node指代y坐标所在点
-  std::multimap<double, Node, std::less<double>> T;
-  //以键值从小到大排序
-  // T维护垂直扫除线当前穿过的线段
-  // T按照扫除线与线段的交点的y坐标从小到大排列
-  //因为需要查找扫除线某个交点的上下距离最近的交点
+static void Insert(T &t, const Node &p) { t.insert(std::make_pair(p.y, p)); }
 
-  Node s[MAX]; // s是线段集l的点集
-  for (int i = 0; i < 2 * n; i += 2) {
-    s[i] = l[i / 2].left;
-    s[i + 1] = l[i / 2].right;
+static void Erase(T &t, const Node &p) {
+  TIter i = Find(t, p);
+  if (i != t.end()) {
+    t.erase(i);
   }
-  //将所有端点按照x坐标从小到大，是否左端点，y坐标从小到大进行排序
+}
+
+static TIter Above(T &t, const Node &p) {
+  TIter i = Find(t, p);
+  if (i == t.end()) {
+    return t.end();
+  }
+  if (i == t.begin()) {
+    return t.end();
+  }
+  return --i;
+}
+
+static TIter Below(T &t, const Node &p) {
+  TIter i = Find(t, p);
+  if (i == t.end()) {
+    return t.end();
+  }
+  if (i == t.begin()) {
+    return t.end();
+  }
+  return ++i;
+}
+
+bool Sweeping(Segment *l, int n) {
+  // 键值double指代点的y坐标
+  // 映射Node指代y坐标所在点
+  T t;
+  std::memset(is_left_node, 0, MAX * sizeof(int));
+
+  // s是线段集l的端点集
+  Node s[MAX];
+  for (int i = 0; i < n; i++) {
+    s[l[i].left.index] = l[i].left;
+    s[l[i].right.index] = l[i].right;
+    // 标记某点为左端点/右端点
+    is_left_node[l[i].left.index] = 1;
+    is_left_node[l[i].right.index] = 0;
+  }
   std::sort(s, s + 2 * n, Compare);
-  //从左至右进行扫除
+
+  // 从左至右
   for (int i = 0; i < 2 * n; i++) {
-    //扫除线从左向右依次经过
     Node p = s[i];
-    if (p.left) {
-      //如果p点是其所在线段的左端点，将p点插入T中
-      T.insert(std::make_pair(p.n_y, p));
-      // above指代T中pos之上距离最近的点
-      std::multimap<double, Node, std::less<double>>::iterator above = T.end();
-      // below指代T中pos之下距离最近的点
-      std::multimap<double, Node, std::less<double>>::iterator below = T.end();
+    // 若p为左端点
+    if (is_left_node[p.index]) {
+      Insert(t, p);
+      TIter above_p = Above(t, p);
+      TIter below_p = Below(t, p);
 
-      // pos指代T中刚刚插入的左端点p
-      std::multimap<double, Node, std::less<double>>::iterator pos =
-          FindNode(T, p);
-      //考虑左端点p和它之上的点above
-      if (pos != T.begin())
-        above = --pos;
-      if (above != T.end() && SegmentIntersection(l[(above->second).index],
-                                                  l[((++pos)->second).index]))
-        //若T中pos所在的线段上有线段，并且pos和above所在的两线段相交
+      if (above_p != t.end() &&
+          SegmentIntersection(l[TValue(above_p).index], l[p.index]))
         return true;
 
-      //考虑左端点p和它之下的点below
-      pos = FindNode(T, p);
-      if (pos != T.end() && pos != (--T.end()))
-        below = ++pos;
-      if (below != T.end() && SegmentIntersection(l[(below->second).index],
-                                                  l[((--pos)->second).index]))
-        //若T中pos所在的线段下有线段，并且pos与below所在的两线段相交
+      if (below_p != t.end() &&
+          SegmentIntersection(l[TValue(below_p).index], l[p.index]))
         return true;
+
     } else {
-      //如果p点是线段右端点，找出p点所在线段
-      std::map<double, Node, std::less<double>>::iterator above = T.end();
-      std::map<double, Node, std::less<double>>::iterator below = T.end();
+      // 若p为右端点
+      TIter above_p = Above(t, p);
+      TIter below_p = Below(t, p);
 
-      //找出这个右端点p所在线段的左端点，这个左端点已经属于T
-      std::map<double, Node, std::less<double>>::iterator pos =
-          FindNode(T, l[p.index].left);
-      //若p所在线段的左端点pos之上有线段above
-      if (pos != T.begin())
-        above = --pos;
-
-      pos = FindNode(T, l[p.index].left);
-      //若p所在线段的左端点pos之下有线段below
-      if (pos != T.end() && pos != (--T.end()))
-        below = ++pos;
-
-      if ((above != T.end() && below != T.end()) &&
-          SegmentIntersection(l[(above->second).index],
-                              l[(below->second).index]))
-        //若pos上下都有线段，且above与below两线段相交
+      if (above_p != t.end() && below_p != t.end() &&
+          SegmentIntersection(l[TValue(above_p).index],
+                              l[TValue(below_p).index]))
         return true;
-      //删除左端点pos
-      T.erase(pos);
+
+      Erase(t, p);
     }
   }
   return false;
