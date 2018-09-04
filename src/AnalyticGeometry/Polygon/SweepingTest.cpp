@@ -53,7 +53,6 @@ struct Test {
 int main() {
   for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
     Test &t = tests[i];
-	std::cout << i << std::endl;
     assert(Sweeping(t.s, t.n) == t.result);
   }
   return 0;
