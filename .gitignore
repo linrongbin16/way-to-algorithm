@@ -90,3 +90,4 @@ package.json
 package-lock.json
 .temp
 bin
+.bin

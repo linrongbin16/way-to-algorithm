@@ -44,7 +44,7 @@ Segment::Segment(const Segment &s) {
 }
 
 double NodeDistance(const Node &a, const Node &b) {
-  return std::sqrt<double>(std::pow<double>(b.x - a.x, 2.0) +
-                           std::pow<double>(b.y - a.y, 2.0));
+  return std::sqrt(std::pow<double>(b.x - a.x, 2.0f) +
+                   std::pow<double>(b.y - a.y, 2.0f));
 }
 
