@@ -12,7 +12,8 @@ typedef std::multimap<double, Node, std::less<double>>::iterator TIter;
 #define TKey(iter) ((iter)->first)
 #define TValue(iter) ((iter)->second)
 
-int is_left_node[MAX];
+int node_is_segment_left[MAX];
+int node_segment_index[MAX];
 
 //端点排序
 static bool Compare(const Node &a, const Node &b) {
@@ -21,8 +22,8 @@ static bool Compare(const Node &a, const Node &b) {
     return a.x < b.x;
 
   // 若两点一个是左端点一个是右端点 左端点优先
-  if (is_left_node[a.index] != is_left_node[b.index])
-    return (is_left_node[a.index]) ? true : false;
+  if (node_is_segment_left[a.index] != node_is_segment_left[b.index])
+    return (node_is_segment_left[a.index]) ? true : false;
 
   // y坐标不同 y坐标较小的优先
   if (!FloatEq(a.y, b.y))
@@ -76,7 +77,7 @@ bool Sweeping(Segment *l, int n) {
   // 键值double指代点的y坐标
   // 映射Node指代y坐标所在点
   T t;
-  std::memset(is_left_node, 0, MAX * sizeof(int));
+  std::memset(node_is_segment_left, 0, MAX * sizeof(int));
 
   // s是线段集l的端点集
   Node s[MAX];
@@ -84,8 +85,10 @@ bool Sweeping(Segment *l, int n) {
     s[l[i].left.index] = l[i].left;
     s[l[i].right.index] = l[i].right;
     // 标记某点为左端点/右端点
-    is_left_node[l[i].left.index] = 1;
-    is_left_node[l[i].right.index] = 0;
+    node_is_segment_left[l[i].left.index] = 1;
+    node_is_segment_left[l[i].right.index] = 0;
+	node_segment_index[l[i].left.index] = i;
+	node_segment_index[l[i].right.index] = i;
   }
   std::sort(s, s + 2 * n, Compare);
 
@@ -93,17 +96,17 @@ bool Sweeping(Segment *l, int n) {
   for (int i = 0; i < 2 * n; i++) {
     Node p = s[i];
     // 若p为左端点
-    if (is_left_node[p.index]) {
+    if (node_is_segment_left[p.index]) {
       Insert(t, p);
       TIter above_p = Above(t, p);
       TIter below_p = Below(t, p);
 
       if (above_p != t.end() &&
-          SegmentIntersection(l[TValue(above_p).index], l[p.index]))
+          SegmentIntersection(l[node_segment_index[TValue(above_p).index]], l[node_segment_index[p.index]]))
         return true;
 
       if (below_p != t.end() &&
-          SegmentIntersection(l[TValue(below_p).index], l[p.index]))
+          SegmentIntersection(l[node_segment_index[TValue(below_p).index]], l[node_segment_index[p.index]]))
         return true;
 
     } else {
@@ -112,8 +115,8 @@ bool Sweeping(Segment *l, int n) {
       TIter below_p = Below(t, p);
 
       if (above_p != t.end() && below_p != t.end() &&
-          SegmentIntersection(l[TValue(above_p).index],
-                              l[TValue(below_p).index]))
+          SegmentIntersection(l[node_segment_index[TValue(above_p).index]],
+                              l[node_segment_index[TValue(below_p).index]]))
         return true;
 
       Erase(t, p);
