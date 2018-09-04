@@ -2,6 +2,7 @@
 #include "../Util.h"
 #include "SegmentIntersection.h"
 #include <algorithm>
+#include <cstring>
 #include <map>
 #include <utility>
 
@@ -120,4 +121,3 @@ bool Sweeping(Segment *l, int n) {
   }
   return false;
 }
-
