@@ -10,24 +10,12 @@
         "splitter",
         "-search",
         "-lunr",
-        "livereload",
-        "yahei"
+        "livereload"
     ],
     "pluginsConfig": {
         "include-codeblock": {
             "template": "ace",
             "theme": "monokai"
-        }
-    },
-    "pdf": {
-        "pageNumbers": true,
-        "fontSize": 20,
-        "paperSize": "a4",
-        "margin": {
-            "right": 30,
-            "left": 30,
-            "top": 30,
-            "bottom": 50
         }
     }
 }
