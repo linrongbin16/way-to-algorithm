@@ -11,15 +11,12 @@
 #### Introduction - 简介
 
 本书围绕计算机算法编写，借鉴了一些书籍和网上资料。通过公式、插图来描述算法，配合源码、测试、OJ题目，来帮助读者真正理解。
+由于个人经验有限，难免存在一些疏漏和错误的地方，还请指正。欢迎大家增加新的算法，或对已有的内容、代码进行修正。
 
 #### Reading - 阅读
 
 * gitbook: [Way-to-Algorithm](https://linrongbin16.gitbooks.io/way-to-algorithm/content/)
 * github pages: [Way-to-Algorithm](https://linrongbin16.github.io/Way-to-Algorithm/)
-
-#### Contributing - 贡献
-
-由于个人经验有限，难免存在一些疏漏和错误的地方，还请指正。欢迎大家增加新的算法，或对已有的内容、代码进行修正。
 
 #### Funding - 资助
 
