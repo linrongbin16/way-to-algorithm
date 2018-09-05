@@ -3,7 +3,7 @@
 #include <cmath>
 
 //三角形面积
-static double TriangleArea(const Node &a, const Node &b, const Node &c) {
+double TriangleArea(const Node &a, const Node &b, const Node &c) {
   Vec v1 = Vec(a, b);
   Vec v2 = Vec(a, c);
   return std::abs(Cross(v1, v2) / 2.0f);
