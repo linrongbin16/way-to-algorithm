@@ -18,16 +18,6 @@
 * gitbook: [Way-to-Algorithm](https://linrongbin16.gitbooks.io/way-to-algorithm/content/)
 * github pages: [Way-to-Algorithm](https://linrongbin16.github.io/Way-to-Algorithm/)
 
-
-#### Reference - 参考
-
-* [算法导论 - Introduction to Algorithms](http://ce.bonabu.ac.ir/uploads/30/CMS/user/file/115/EBook/Introduction.to.Algorithms.3rd.Edition.Sep.2010.pdf)
-* [背包问题九讲](http://love-oriented.com/pack/)
-* [USACO](http://www.usaco.org/)
-* [StackOverflow](http://stackoverflow.com/)
-* [Wikipedia](https://www.wikipedia.org/)
-* [LeetCode](https://leetcode.com)
-
 #### Contributing - 贡献
 
 * https://github.com/linrongbin16/Way-to-Algorithm/blob/master/CONTRIBUTING.md
