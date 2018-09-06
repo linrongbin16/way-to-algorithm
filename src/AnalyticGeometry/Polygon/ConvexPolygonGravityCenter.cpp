@@ -17,7 +17,7 @@ Node ConvexPolygonGravityCenter(Node *a, int n) {
   //划分的三角形面积
   double area[MAX];
 
-  for (int i = 0; i < n; ++i) {
+  for (int i = 0; i < n; i++) {
     if (i != n - 1) {
       center[i] = TriangleGravityCenter(p, a[i], a[i + 1]);
       area[i] = TriangleArea(p, a[i], a[i + 1]);
@@ -26,9 +26,9 @@ Node ConvexPolygonGravityCenter(Node *a, int n) {
 
   double sum_area = 0.0f;
   Node sum_center(0.0f, 0.0f);
-  for (int i = 0; i < n; ++i)
+  for (int i = 0; i < n; i++)
     sum_area += area[i];
-  for (int i = 0; i < n; ++i) {
+  for (int i = 0; i < n; i++) {
     sum_center.x += center[i].x * area[i];
     sum_center.y += center[i].y * area[i];
   }

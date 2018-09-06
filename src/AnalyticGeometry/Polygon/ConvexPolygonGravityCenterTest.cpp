@@ -25,14 +25,23 @@ struct ConvexTest {
         {0.5f, 0.333333f},
     },
     {
-        {{0.0f, 0.0f}, {1.0f, 0.0f}, {0.0f, 1.0f}},
+        {{0.0f, 0.0f}, {1.0f, 0.0f}, {1.0f, 1.0f}, {0.0f, 1.0f}},
+        4,
+        {0.5f, 0.5f},
+    },
+    {
+        {{0.0f, 0.0f}, {1.0f, 0.0f}, {1.0f, 1.0f}, {0.5f, 2.0f}, {0.0f, 1.0f}},
         5,
-        {0.5f, 0.333333f},
+        {0.5f, 1.0f},
     },
 };
 
 int main() {
   for (int i = 0; i < sizeof(triangle_tests) / sizeof(TriangleTest); i++) {
+    TriangleTest &t = triangle_tests[i];
+    assert(NodeEq(TriangleGravityCenter(t.a, t.b, t.c), t.result));
+  }
+  for (int i = 0; i < sizeof(convex_tests) / sizeof(ConvexTest); i++) {
     TriangleTest &t = triangle_tests[i];
     assert(NodeEq(TriangleGravityCenter(t.a, t.b, t.c), t.result));
   }
