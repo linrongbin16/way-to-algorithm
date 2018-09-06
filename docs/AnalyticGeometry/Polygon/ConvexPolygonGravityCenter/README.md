@@ -25,8 +25,8 @@ $$ (2) $$ 凸多边形重心
 
 $$
 \begin{cases}
-x_{gravity} = sum(x_{center_{i}} * area_{i}) / sum(area_{i})  \\
-y_{gravity} = sum(y_{center_{i}} * area_{i}) / sum(area_{i})
+x_{gravity} = \frac{\sum_{i=1}^{n} x_{center_{i}} * area_{i}}{\sum_{i=1}^{n} area_{i}}  \\
+y_{gravity} = \frac{\sum_{i=1}^{n} y_{center_{i}} * area_{i}}{\sum_{i=1}^{n}area_{i}}
 \end{cases}
 
 1 \le i \le n
