@@ -4,7 +4,9 @@
 #include <utility>
 
 Node TriangleGravityCenter(const Node &a, const Node &b, const Node &c) {
-  return Node();
+  double x = (a.x + b.x + c.x) / (double)3.0f;
+  double y = (a.y + b.y + c.y) / (double)3.0f;
+  return Node(x, y);
 }
 
 Node ConvexPolygonGravityCenter(Node *a, int n) {
