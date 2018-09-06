@@ -13,7 +13,7 @@
 
 $$ (1) $$ 三角形重心
 
-顶点为$$ a, b, c $$的三角形重心坐标为$$ x_{gravity} = (x_{a} + x_{b} + x_{c}) \div  3 $$，$$ y_{gravity} = (y_{a} + y_{b} + y_{c}) \div 3 $$。
+顶点为$$ a, b, c $$的三角形重心坐标为$$ x_{gravity} = \frac{x_{a} + x_{b} + x_{c}}{3} $$，$$ y_{gravity} = \frac{y_{a} + y_{b} + y_{c}}{3} $$。
 
 $$ (2) $$ 凸多边形重心
 
@@ -24,10 +24,10 @@ $$ (2) $$ 凸多边形重心
 凸多边形的重心是所有三角形的重心坐标的面积加权平均值：
 
 $$
-\begin{cases}
+\begin{matrix}
 x_{gravity} = \frac{\sum_{i=1}^{n} x_{center_{i}} * area_{i}}{\sum_{i=1}^{n} area_{i}}  \\
 y_{gravity} = \frac{\sum_{i=1}^{n} y_{center_{i}} * area_{i}}{\sum_{i=1}^{n}area_{i}}
-\end{cases}
+\end{matrix}
 
 1 \le i \le n
 $$
