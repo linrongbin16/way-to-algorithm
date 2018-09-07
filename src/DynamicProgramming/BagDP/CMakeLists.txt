@@ -1,18 +1,14 @@
 cmake_minimum_required(VERSION 3.4)
 
 set(SRC_FILE
-    CompleteKnapsack.cpp
-    GroupKnapsack.cpp
-    FenwickTree.cpp
-    LeftistTree.cpp
-    PrefixTree.cpp
-    RedBlackTree.cpp
-    SegmentTree.cpp
-    SuffixTree.cpp)
+    CompleteBag.cpp
+    GroupBag.cpp
+    TwoDimensionBag.cpp
+    ZeroOneBag.cpp
+    ZeroOneBagExtension.cpp)
 
-
-add_executable(DynamicProgramming-KnapsackDP-CompleteKnapsack.exe CompleteKnapsack.cpp CompleteKnapsack.hpp)
-add_executable(DynamicProgramming-KnapsackDP-GroupKnapsack.exe GroupKnapsack.cpp GroupKnapsack.hpp)
-add_executable(DynamicProgramming-KnapsackDP-TwoDimensionKnapsack.exe TwoDimensionKnapsack.cpp TwoDimensionKnapsack.hpp)
-add_executable(DynamicProgramming-KnapsackDP-ZeroOneKnapsack.exe ZeroOneKnapsack.cpp ZeroOneKnapsack.hpp)
-add_executable(DynamicProgramming-KnapsackDP-ZeroOneKnapsackExtension.exe ZeroOneKnapsackExtension.cpp ZeroOneKnapsackExtension.hpp)
+add_executable(DynamicProgramming-CompleteBag.exe CompleteBagTest.cpp ${SRC_FILE})
+add_executable(DynamicProgramming-GroupBag.exe GroupBagTest.cpp ${SRC_FILE})
+add_executable(DynamicProgramming-TwoDimensionBag.exe TwoDimensionBagTest.cpp ${SRC_FILE})
+add_executable(DynamicProgramming-ZeroOneBag.exe ZeroOneBagTest.cpp ${SRC_FILE})
+add_executable(DynamicProgramming-ZeroOneBagExtension.exe ZeroOneBagExtensionTest.cpp ${SRC_FILE})

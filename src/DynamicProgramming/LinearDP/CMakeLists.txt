@@ -1,8 +1,12 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(WayToAlgorithm CXX)
+set(SRC_FILE
+    BidirectionalSubsequence.cpp
+    LongestCommonSubsequence.cpp
+    LongestIncreasingSubsequence.cpp
+    LongestIncreasingSubsequenceExtension.cpp)
 
-add_executable(DynamicProgramming-LinearDP-BidirectionalIncreasingDecreasingSubsequence.exe BidirectionalIncreasingDecreasingSubsequence.cpp BidirectionalIncreasingDecreasingSubsequence.hpp)
-add_executable(DynamicProgramming-LinearDP-LongestCommonSubsequence.exe LongestCommonSubsequence.cpp LongestCommonSubsequence.hpp)
-add_executable(DynamicProgramming-LinearDP-LongestIncreasingSubsequence.exe LongestIncreasingSubsequence.cpp LongestIncreasingSubsequence.hpp)
-# add_executable(LongestIncreasingSubsequenceExtension.exe LongestIncreasingSubsequenceExtension.cpp)
+add_executable(DynamicProgramming-BidirectionalSubsequence.exe BidirectionalSubsequenceTest.cpp ${SRC_FILE})
+add_executable(DynamicProgramming-LongestCommonSubsequence.exe LongestCommonSubsequenceTest.cpp ${SRC_FILE})
+add_executable(DynamicProgramming-LongestIncreasingSubsequence.exe LongestIncreasingSubsequenceTest.cpp ${SRC_FILE})
+add_executable(DynamicProgramming-LongestIncreasingSubsequenceExtension.exe LongestIncreasingSubsequenceExtensionTest.cpp ${SRC_FILE})

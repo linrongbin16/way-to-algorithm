@@ -1,4 +1,7 @@
 #include "MinimumMergeCost.h"
+#include <algorithm>
+#include <climits>
+#include <iostream>
 
 //最小合并代价
 // minimum merge cost
@@ -22,7 +25,7 @@
 //初始条件: f[i][i]为0 其他都为INF 1<=i<=n
 //即i到i的合并代价为0 其他代价为INF
 
-int MinimumMergeCost(int s[MAX], int n) {
+int MinimumMergeCost(int *s, int n) {
   //序列s的数量为n 范围是[1,n] 返回最小合并代价
   int f[MAX + 1][MAX + 1];
   int sum[MAX + 1][MAX + 1];
@@ -52,3 +55,4 @@ int MinimumMergeCost(int s[MAX], int n) {
 
   return f[1][n];
 }
+
