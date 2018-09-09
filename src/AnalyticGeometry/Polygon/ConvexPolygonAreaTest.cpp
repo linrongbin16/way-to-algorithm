@@ -10,7 +10,9 @@ struct Test {
   Node convex[TEST_MAX];
   int n;
   double result;
-} tests[] = {};
+} tests[] = {
+    {{}},
+};
 
 int main() { return 0; }
 
