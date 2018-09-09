@@ -2,6 +2,6 @@
 
 bool BashGame(int n, int m) {
   int s = n % (m + 1);
-  return s == 0;
+  return s != 0;
 }
 
