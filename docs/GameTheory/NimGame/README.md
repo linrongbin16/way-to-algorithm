@@ -35,8 +35,10 @@ $$
 7_{10}  &   111_{2}     &   s_{2}   \\
 0_{10}  &   000_{2}     &   s_{3}
 \end{matrix}    \\
-nim_{1} = 0 \bigoplus 7 \bigoplus 0 = 1 \\
-\\
+nim_{1} = 0 \bigoplus 7 \bigoplus 0 = 1
+$$
+
+$$
 \begin{matrix}
 0_{10}  &   000_{2}     &   s_{1}   \\
 1_{10}  &   001_{2}     &   s_{2}   \\
@@ -44,8 +46,10 @@ nim_{1} = 0 \bigoplus 7 \bigoplus 0 = 1 \\
 0_{10}  &   000_{2}     &   s_{4}   \\
 0_{10}  &   000_{2}     &   s_{5}
 \end{matrix}    \\
-nim_{2} = 0 \bigoplus 1 \bigoplus 1 \bigoplus 0 \bigoplus 0 = 0 \\
-\\
+nim_{2} = 0 \bigoplus 1 \bigoplus 1 \bigoplus 0 \bigoplus 0 = 0
+$$
+
+$$
 \begin{matrix}
 0_{10}  &   000_{2}     &   s_{1}   \\
 1_{10}  &   001_{2}     &   s_{2}   \\
@@ -53,8 +57,10 @@ nim_{2} = 0 \bigoplus 1 \bigoplus 1 \bigoplus 0 \bigoplus 0 = 0 \\
 1_{10}  &   001_{2}     &   s_{4}   \\
 0_{10}  &   000_{2}     &   s_{5}
 \end{matrix}    \\
-nim_{3} = 0 \bigoplus 1 \bigoplus 1 \bigoplus 1 \bigoplus 0 = 1 \\
-\\
+nim_{3} = 0 \bigoplus 1 \bigoplus 1 \bigoplus 1 \bigoplus 0 = 1
+$$
+
+$$
 \begin{matrix}
 3_{10}  &   011_{2}     &   s_{1}   \\
 4_{10}  &   100_{2}     &   s_{2}   \\
