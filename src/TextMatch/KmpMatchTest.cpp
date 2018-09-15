@@ -1,4 +1,4 @@
-#include "KMPMatch.h"
+#include "KmpMatch.h"
 #include <cassert>
 #include <iostream>
 using namespace std;
@@ -15,8 +15,7 @@ struct Test {
 int main() {
   for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
     Test &t = tests[i];
-    assert(KMPMatch(t.text, t.str) == t.pos);
+    assert(KmpMatch(t.text, t.str) == t.pos);
   }
   return 0;
 }
-
