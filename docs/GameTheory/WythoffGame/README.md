@@ -41,9 +41,9 @@ $$
 
 $$
 
-\phi = \frac{1 + \sqrt{5}}{2} \approx 1.6180339887\dots
+\phi = \frac{1 + \sqrt{5}}{2} \approx 1.6180339887\dots \\
 
-\frac{y}{x} = \phi
+\frac{y}{x} = \phi \\
 
 \frac{x}{y} = \phi
 
