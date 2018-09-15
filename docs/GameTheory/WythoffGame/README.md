@@ -49,29 +49,18 @@ $$
 
 $$
 
-其中$$ \phi $$常被称为“黄金比例”（Golden Ratio），也称“黄金分割”。黄金分割常数是一个无理数，任何正整数乘以或除以它，结果都不是整数。
-
-本问题中给定一个正整数时可以算出另一个数字，再向上取整，可以得到两条直线上安全局势的边界点。我们将二维坐标系上半边黄金分割线称为$$ upper $$，黄金分割线称为$$ lower $$：
-
-$$
-x_{upper} = 1, y_{upper} = \lceil \phi \cdot x_{upper} \rceil \approx \lceil 1.618 \rceil = 2 \\
-x_{upper} = 2, y_{upper} = \lceil \phi \cdot x_{upper} \rceil \approx \lceil 3.236 \rceil = 4 \\
-x_{upper} = 3, y_{upper} = \lceil \phi \cdot x_{upper} \rceil \approx \lceil 4.854 \rceil = 5 \\
-x_{upper} = 4, y_{upper} = \lceil \phi \cdot x_{upper} \rceil \approx \lceil 6.472 \rceil = 7 \\
-
-\cdots \\
-
-y_{lower} = 1, x_{lower} = \lceil \phi \cdot y_{lower} \rceil \approx \lceil 1.618 \rceil = 2 \\
-y_{lower} = 2, x_{lower} = \lceil \phi \cdot y_{lower} \rceil \approx \lceil 3.236 \rceil = 4 \\
-y_{lower} = 3, x_{lower} = \lceil \phi \cdot y_{lower} \rceil \approx \lceil 4.854 \rceil = 5 \\
-y_{lower} = 4, x_{lower} = \lceil \phi \cdot y_{lower} \rceil \approx \lceil 6.472 \rceil = 7 \\
-
-\cdots
-$$
+其中$$ \phi $$常被称为“黄金比例”（Golden Ratio），也称“黄金分割”。黄金分割常数是一个无理数，任何正整数乘以或除以它，结果都不是整数。本问题中给定一个正整数时可以算出另一个数字，再向上取整，可以得到两条直线上安全局势的边界点。我们将二维坐标系上半边黄金分割线称为$$ upper $$，黄金分割线称为$$ lower $$。
 
 在下图中，当给定点$$ x, y $$，可以算出其与$$ x, y $$轴平行的直线与两条黄金分割线的四个交点$$ a, b, c, d $$。
 
 ![WythoffGame3.svg](../res/WythoffGame3.svg)
+
+$$
+x = 2.5, y_{c} = \lceil x \times \phi \rceil \approx \lceil 2.5 \times 1.618 \rceil = \lceil 4.045 \rceil = 5 \\
+x = 2.5, y_{d} = \lfloor x \div \phi \rfloor \approx \lceil 2.5 \div 1.618 \rfloor = \lfloor 1.545 \rfloor = 1 \\
+y = 1.8, x_{b} = \lceil y \times \phi \rceil \approx \lceil 1.8 \times 1.618 \rceil = \lceil 2.912 \rceil = 3 \\
+y = 1.8, x_{a} = \lfloor y \div \phi \rfloor \approx \lceil 1.8 \div 1.618 \rfloor = \lfloor 1.112 \rfloor = 1 \\
+$$
 
 若点$$ x,y $$满足$$ x_{a} \lt x \lt x_{b}, y_{d} \lt y \lt y_{c} $$，则该点为安全局势，即处于黄金分割线区域内的一方必赢。
 
