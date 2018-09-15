@@ -54,17 +54,17 @@ $$
 本问题中给定一个正整数时可以算出另一个数字，再向上取整，可以得到两条直线上安全局势的边界点。我们将二维坐标系上半边黄金分割线称为$$ upper $$，黄金分割线称为$$ lower $$：
 
 $$
-x_{upper} = 1, y_{upper} = \lfloor \phi \cdot x_{upper} \rfloor \approx \lfloor 1.618 \rfloor = 2 \\
-x_{upper} = 2, y_{upper} = \lfloor \phi \cdot x_{upper} \rfloor \approx \lfloor 3.236 \rfloor = 4 \\
-x_{upper} = 3, y_{upper} = \lfloor \phi \cdot x_{upper} \rfloor \approx \lfloor 4.854 \rfloor = 5 \\
-x_{upper} = 4, y_{upper} = \lfloor \phi \cdot x_{upper} \rfloor \approx \lfloor 6.472 \rfloor = 7 \\
+x_{upper} = 1, y_{upper} = \lceil \phi \cdot x_{upper} \rceil \approx \lceil 1.618 \rceil = 2 \\
+x_{upper} = 2, y_{upper} = \lceil \phi \cdot x_{upper} \rceil \approx \lceil 3.236 \rceil = 4 \\
+x_{upper} = 3, y_{upper} = \lceil \phi \cdot x_{upper} \rceil \approx \lceil 4.854 \rceil = 5 \\
+x_{upper} = 4, y_{upper} = \lceil \phi \cdot x_{upper} \rceil \approx \lceil 6.472 \rceil = 7 \\
 
 \cdots \\
 
-y_{lower} = 1, x_{lower} = \lfloor \phi \cdot y_{lower} \rfloor \approx \lfloor 1.618 \rfloor = 2 \\
-y_{lower} = 2, x_{lower} = \lfloor \phi \cdot y_{lower} \rfloor \approx \lfloor 3.236 \rfloor = 4 \\
-y_{lower} = 3, x_{lower} = \lfloor \phi \cdot y_{lower} \rfloor \approx \lfloor 4.854 \rfloor = 5 \\
-y_{lower} = 4, x_{lower} = \lfloor \phi \cdot y_{lower} \rfloor \approx \lfloor 6.472 \rfloor = 7 \\
+y_{lower} = 1, x_{lower} = \lceil \phi \cdot y_{lower} \rceil \approx \lceil 1.618 \rceil = 2 \\
+y_{lower} = 2, x_{lower} = \lceil \phi \cdot y_{lower} \rceil \approx \lceil 3.236 \rceil = 4 \\
+y_{lower} = 3, x_{lower} = \lceil \phi \cdot y_{lower} \rceil \approx \lceil 4.854 \rceil = 5 \\
+y_{lower} = 4, x_{lower} = \lceil \phi \cdot y_{lower} \rceil \approx \lceil 6.472 \rceil = 7 \\
 
 \cdots
 $$
