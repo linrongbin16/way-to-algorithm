@@ -27,78 +27,59 @@ $$
 \cdots
 $$
 
-把$$ (2, 1), (1, 2), (3, 1), (3, 2) $$这样的局势看作棋盘上的坐标时，这样可以赢的局势在棋盘上很像“皇后的棋步”（Queue's Move）。
+把$$ (2, 1), (3, 1) $$这样的局势看作棋盘上的坐标时，很像“皇后的棋步”（Queue's Move）。
 
 ![WythoffGame1.svg](../res/WythoffGame1.svg)
 
-该算法的时间复杂度为$$ O(1) $$。
+上图中$$ (1,1), (2,2), (3,2), (2,3), (3,3), (3,4), (4,3) \cdots $$这些在虚线上的坐标，当我方面对这样的局势时必赢（称这样的局势为安全局势）。棋盘上关键的位置是红色的$$ (1,2), (2,1), (3,5), (5,3) \cdots $$，这些安全局势的边界点。
 
-其中a(k)与b(k)交换位置后仍然是等价的，为了方便设a(k) <= b(k)
-前几个奇异局势是：
-k  0  1  2  3  4  5  6  7  8  9  ...
-a  0  1  3  4  6  8  9  11 12 14 ...
-b  0  2  5  7  10 13 15 18 20 23 ...
-即(a(0), b(0)) = (0, 0)，k = 0
-(a(1), b(1)) = (1, 2)，k = 1
-(a(2), b(2)) = (3, 5)，k = 2
-...
+根据数学研究，这些边界实际是两条直线：
 
-2)局势的性质
-性质1：
-任何自然数都包含于且仅包含于一个奇异局势中
-且a(k) > a(k-1)，b(k) > b(k-1)，b(k) = a(k) + k
-性质2：
-任意操作都可以将奇异局势改变为非奇异局势(Hot Position)
-性质3：
-通过适当的方法可以将非奇异局势变为奇异局势
+![WythoffGame2.svg](../res/WythoffGame2.svg)
 
-3)计算奇异局势序列
-原始的计算方法是初始k = 0时a(0) = 0，b(0) = 0
-以后递归的计算k = 1，k = 2，k = 3...的情况
-对于k = i，a(i)取之前0到i-1中尚未使用的最小自然数作为a(i)的值，而b(i) = a(i) + i
-比如对于：
-k  0  1  2  3  4  5  6  7  8  9  
-a  0  1  3  4  6  8  9  11 12 14 
-b  0  2  5  7  10 13 15 18 20 23 
-当k = 10时，a(10)取从0到9中尚未使用过的最小自然数16，b(10) = 16 + 10 = 26
+在二维坐标系上这两条直线的坐标计算方式是
 
-更快的方式是用黄金分割方法，由威佐夫(Wythoff)提出，该算法也由他的名字命名
-黄金分割Golden Ratio是x^2 = x + 1的正值解，设t为根号5，则黄金分割为(1+t)/2
-从黄金分割有：
+$$
 
-k						0  1	  2		 3	    4	   5	  6		
-k*golden_ratio		0  1.618  3.236  4.854  6.472  8.090  9.708
-a						0  1	  3	     4		6	   8	  9
-k*(golden_ratio+1)	0  2.618  5.236  7.854  10.472 13.090 15.708
-b						0  2	  5		 7		10	   13	  15
+\phi = \frac{1 + \sqrt{5}}{2} \approx 1.6180339887\dots
 
-则可以得到结论，对于i >= 0，a(i)取小于i*golden_ratio的最大整数
-//其中i*golden_ratio一定是一个无理数，大于a(i)小于a(i)+1
-//
-//4)局势变换策略
-//从上文可知令对手处于奇异局势(a(k), b(k))即可获胜
-//因此获胜关键在于将非奇异局势转化为奇异局势
-//非奇异局势(a, b)有5种情况：
-//a = b						第1种情况
-//a = a(k), b > b(k)		第2种情况
-//a = a(k), b < b(k)		第3种情况
-//第1种情况：
-//将a和b两堆同时取完，令对方面临(0, 0)奇异局势
-//第2种情况：
-//从b中取b - b(k)数量的物品，使b = b(k)，令对方面临(a(k), b(k))奇异局势
-//第3种情况：
-//i)若b > a，这时必然存在这样一个t = b - a，从a和b中同时取a - a(t)数量的物品
-//因为有b(k) = a(k) + k，则有b - (a - a(t)) = b - a + a(t) = b - a + b(t) - t = b(t)
-//同时取出a - a(t)物品后使a = a(t)，b = b(t)，令对方面临(a(t), b(t))奇异局势
-//ii)若b < a，则不能b - a，因为本文问题中都是非负整数的计算
-//则需求出b在奇异局势数组中的下标k'
-//从a中取a - a(k')个物品，使a = a(k')，令对方面临(a(k'), b(k'))奇异局势
-//
-//网络上流行的中文文档中关于这里的情况划分通常是5种
-//但其中第3种情况的讲解非常糟糕，因为网络文档中将局势中a和b的下标k搞混，容易令人误解
-//经过总结本文将5种情况进行了筛选，经过测试是正确的
-//
-//本文引用了“Wythoff’s Game”，作者“Kimberly Hirschfeld-Cotton(Oshkosh, Nebraska)”
+\frac{y}{x} = \phi
+
+\frac{x}{y} = \phi
+
+$$
+
+其中$$ \phi $$常被称为“黄金比例”（Golden Ratio），也称“黄金分割”。黄金分割常数是一个无理数，任何正整数乘以或除以它，结果都不是整数。
+
+本问题中给定一个正整数时可以算出另一个数字，再向上取整，可以得到两条直线上安全局势的边界点。我们将二维坐标系上半边黄金分割线称为$$ upper $$，黄金分割线称为$$ lower $$：
+
+$$
+x_{upper-edge} = 1, y_{upper-edge} = \lfloor \phi \cdot x_{upper-edge} \rfloor \approx \lfloor 1.618 \rfloor = 2 \\
+x_{upper-edge} = 2, y_{upper-edge} = \lfloor \phi \cdot x_{upper-edge} \rfloor \approx \lfloor 3.236 \rfloor = 4 \\
+x_{upper-edge} = 3, y_{upper-edge} = \lfloor \phi \cdot x_{upper-edge} \rfloor \approx \lfloor 4.854 \rfloor = 5 \\
+x_{upper-edge} = 4, y_{upper-edge} = \lfloor \phi \cdot x_{upper-edge} \rfloor \approx \lfloor 6.472 \rfloor = 7 \\
+
+\cdots \\
+
+y_{lower-edge} = 1, x_{lower-edge} = \lfloor \phi \cdot y_{lower-edge} \rfloor \approx \lfloor 1.618 \rfloor = 2 \\
+y_{lower-edge} = 2, x_{lower-edge} = \lfloor \phi \cdot y_{lower-edge} \rfloor \approx \lfloor 3.236 \rfloor = 4 \\
+y_{lower-edge} = 3, x_{lower-edge} = \lfloor \phi \cdot y_{lower-edge} \rfloor \approx \lfloor 4.854 \rfloor = 5 \\
+y_{lower-edge} = 4, x_{lower-edge} = \lfloor \phi \cdot y_{lower-edge} \rfloor \approx \lfloor 6.472 \rfloor = 7 \\
+
+\cdots
+$$
+
+在下图中，当给定点$$ x, y $$，可以算出其与$$ x, y $$轴平行的直线与两条黄金分割线的四个交点$$ a, b, c, d $$。
+
+![WythoffGame3.svg](../res/WythoffGame3.svg)
+
+对于点$$ x \lt y $$，若$$ x_{a} \gt x \gt x_{b}, y_{d} \gt y \gt y_{c} $$则该点为安全局势，即处于黄金分割线区域内的一方必赢。
+
+$$ (1) $$ 当$$ (p, k) $$处于黄金分割区域，我方必赢；
+$$ (2) $$ 当$$ (p, k) $$处于黄金分割区域的边界点，我方必输；
+$$ (3) $$ 当$$ (p, k) $$处于其他区域时，我方需要取一个合适的数，将对方置于黄金分割区域的边界点，我方才赢；
+
+当我方和对方都是高手时，只需一轮即可决定胜负，该算法的时间复杂度为$$ O(n) $$。
 
 --------
 
