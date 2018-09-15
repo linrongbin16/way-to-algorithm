@@ -160,4 +160,3 @@
     * [BashGame 巴什博弈](docs/GameTheory/BashGame/README.md)
     * [WythoffGame 威佐夫博弈](docs/GameTheory/WythoffGame/README.md)
     * [NimGame 尼姆博弈](docs/GameTheory/NimGame/README.md)
-    * [SpragueGrundy SG函数](docs/GameTheory/SpragueGrundy/README.md)
