@@ -57,9 +57,9 @@ $$
 
 $$
 x = 2.5, y_{c} = \lceil x \times \phi \rceil \approx \lceil 2.5 \times 1.618 \rceil = \lceil 4.045 \rceil = 5 \\
-x = 2.5, y_{d} = \lfloor x \div \phi \rfloor \approx \lceil 2.5 \div 1.618 \rfloor = \lfloor 1.545 \rfloor = 1 \\
+x = 2.5, y_{d} = \lfloor x \div \phi \rfloor \approx \lfloor 2.5 \div 1.618 \rfloor = \lfloor 1.545 \rfloor = 1 \\
 y = 1.8, x_{b} = \lceil y \times \phi \rceil \approx \lceil 1.8 \times 1.618 \rceil = \lceil 2.912 \rceil = 3 \\
-y = 1.8, x_{a} = \lfloor y \div \phi \rfloor \approx \lceil 1.8 \div 1.618 \rfloor = \lfloor 1.112 \rfloor = 1 \\
+y = 1.8, x_{a} = \lfloor y \div \phi \rfloor \approx \lfloor 1.8 \div 1.618 \rfloor = \lfloor 1.112 \rfloor = 1 \\
 $$
 
 若点$$ x,y $$满足$$ x_{a} \lt x \lt x_{b}, y_{d} \lt y \lt y_{c} $$，则该点为安全局势，即处于黄金分割线区域内的一方必赢。
@@ -82,8 +82,8 @@ http://math.rice.edu/~michael/teaching/2012Fall/Wythoff.pdf
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/GameTheory/WythoffGame.h)
+[import, lang:"c_cpp"](../../../src/GameTheory/WythoffGame.h)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/GameTheory/WythoffGame.cpp)
+[import, lang:"c_cpp"](../../../src/GameTheory/WythoffGame.cpp)

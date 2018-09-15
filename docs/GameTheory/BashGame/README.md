@@ -43,8 +43,8 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/GameTheory/BashGame.h)
+[import, lang:"c_cpp"](../../../src/GameTheory/BashGame.h)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/GameTheory/BashGame.cpp)
+[import, lang:"c_cpp"](../../../src/GameTheory/BashGame.cpp)
