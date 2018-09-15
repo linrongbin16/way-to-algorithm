@@ -1,7 +1,4 @@
 #include "SimpleMatch.h"
-#ifndef MAX
-#define MAX 1024
-#endif
 #include <cassert>
 #include <cstring>
 #include <string>

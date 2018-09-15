@@ -9,8 +9,18 @@ struct Test {
   string text;
   string str;
   vector<int> pos;
-} tests[] = {{"asdfasdfasdfasdf", "asdf", {0, 4, 8, 12}},
-             {"asdfasdfasdfasdf", "asdf", {0, 4, 8, 12}}};
+} tests[] = {
+    {
+        "asdfasdfasdfasdf",
+        "asdf",
+        {0, 4, 8, 12},
+    },
+    {
+        "asdfasdfasdfasdf",
+        "asdf",
+        {0, 4, 8, 12},
+    },
+};
 
 int main() {
   for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
