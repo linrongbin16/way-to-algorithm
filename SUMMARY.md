@@ -156,7 +156,7 @@
     * [SimpleMatch 简单匹配](docs/TextMatch/SimpleMatch/README.md)
     * [KnuthMorrisPratt KMP匹配算法](docs/TextMatch/KnuthMorrisPratt/README.md)
     * [AhoCorasick AC自动机](docs/TextMatch/AhoCorasick/README.md)
-    * [DfsAutomaton AC自动机](docs/TextMatch/DfsAutomaton/README.md)
+    * [DfsAutomaton 确定状态有限自动机](docs/TextMatch/DfsAutomaton/README.md)
 * [Chapter-12 GameTheory 第12章 博弈论](docs/GameTheory/README.md)
     * [BashGame 巴什博弈](docs/GameTheory/BashGame/README.md)
     * [WythoffGame 威佐夫博弈](docs/GameTheory/WythoffGame/README.md)

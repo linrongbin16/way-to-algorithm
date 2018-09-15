@@ -1,4 +1,4 @@
-# KMP(Knuth Morris Pratt) Match - KMP匹配
+# (Knuth Morris Pratt) Match - KMP匹配
 
 --------
 
