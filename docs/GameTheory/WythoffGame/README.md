@@ -27,7 +27,7 @@ $$
 \cdots
 $$
 
-把$$ (2, 1), (3, 1) $$这样的局势看作棋盘上的坐标时，很像“皇后的棋步”（Queue's Move）。
+把$$ (2, 1), (3, 1) $$这样的局势看作棋盘上的坐标时，很像“皇后的棋步”（Queen's Move）。
 
 ![WythoffGame1.svg](../res/WythoffGame1.svg)
 
