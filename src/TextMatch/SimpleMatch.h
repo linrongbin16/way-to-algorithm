@@ -5,5 +5,5 @@
 #define MAX 1024
 #endif
 
-std::vector<int> SimpleMatch(const std::string &text, const std::string &str);
-
+std::vector<int> SimpleMatch(const std::string &text,
+                             const std::string &pattern);

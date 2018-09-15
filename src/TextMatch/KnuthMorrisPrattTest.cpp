@@ -1,4 +1,4 @@
-#include "KmpMatch.h"
+#include "KnuthMorrisPratt.h"
 #include <cassert>
 #include <iostream>
 using namespace std;
@@ -7,7 +7,7 @@ using namespace std;
 
 struct Test {
   string text;
-  string str;
+  string pattern;
   vector<int> pos;
 } tests[] = {{"asdfasdfasdfasdf", "asdf", {0, 4, 8, 12}},
              {"asdfasdfasdfasdf", "asdf", {0, 4, 8, 12}}};
@@ -15,7 +15,7 @@ struct Test {
 int main() {
   for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
     Test &t = tests[i];
-    assert(KmpMatch(t.text, t.str) == t.pos);
+    assert(KnuthMorrisPratt(t.text, t.pattern) == t.pos);
   }
   return 0;
 }

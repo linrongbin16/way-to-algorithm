@@ -7,7 +7,7 @@ using namespace std;
 
 struct Test {
   string text;
-  string str;
+  string pattern;
   vector<int> pos;
 } tests[] = {
     {
@@ -25,8 +25,7 @@ struct Test {
 int main() {
   for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
     Test &t = tests[i];
-    assert(SimpleMatch(t.text, t.str) == t.pos);
+    assert(SimpleMatch(t.text, t.pattern) == t.pos);
   }
   return 0;
 }
-

@@ -3,6 +3,7 @@
 
 --------
 
-1. [SimpleMatch 简单匹配](SimpleMatch/README.md)
-2. [KMPMatch - KMP匹配](KMPMatch/README.md)
-3. [ACAutomation - AC自动机](ACAutomation/README.md)
+* [SimpleMatch 简单匹配](docs/TextMatch/SimpleMatch/README.md)
+* [KnuthMorrisPratt KMP匹配算法](docs/TextMatch/KnuthMorrisPratt/README.md)
+* [AhoCorasick AC自动机](docs/TextMatch/AhoCorasick/README.md)
+* [DfsAutomaton AC自动机](docs/TextMatch/DfsAutomaton/README.md)

@@ -4,12 +4,13 @@
 #include <string>
 #include <vector>
 
-std::vector<int> SimpleMatch(const std::string &text, const std::string &str) {
+std::vector<int> SimpleMatch(const std::string &text,
+                             const std::string &pattern) {
   std::vector<int> pos;
   for (int i = 0; i < text.length(); i++) {
     bool match = true;
-    for (int j = 0; j < str.length(); j++) {
-      if (text[i + j] != str[j]) {
+    for (int j = 0; j < pattern.length(); j++) {
+      if (text[i + j] != pattern[j]) {
         match = false;
         break;
       }
@@ -20,4 +21,3 @@ std::vector<int> SimpleMatch(const std::string &text, const std::string &str) {
   }
   return pos;
 }
-
