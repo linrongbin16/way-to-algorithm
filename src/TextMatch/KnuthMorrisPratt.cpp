@@ -2,27 +2,28 @@
 #include <string>
 #include <vector>
 
-static void PartialMatchFunction(const std::string &text, int *next) {
-  next[0] = -1;
-  next[1] = 0;
-  for (int i = 1; i < text.length(); i++) {
+static void PartialMatchTable(const std::string &pattern, int *pmt) {
+  pmt[0] = -1;
+  pmt[1] = 0;
+  for (int i = 1; i < pattern.length(); i++) {
     int k = i;
-    while (k > 0 && text[i] != text[next[k]]) {
-      k = next[k];
+    while (k > 0 && pattern[i] != pattern[pmt[k]]) {
+      k = pmt[k];
     }
-    if (text[k + 1] == text[k]) {
-      next[i] = k + 1;
+    if (pattern[k + 1] == pattern[k]) {
+      pmt[i] = k + 1;
     } else {
-      next[i] = -1;
+      pmt[i] = 0;
     }
   }
+  pmt[0] = 0;
 }
 
 std::vector<int> KnuthMorrisPratt(const std::string &text,
                                   const std::string &pattern) {
   std::vector<int> match;
-  int next[MAX];
-  PartialMatchFunction(text, next);
+  int pmt[MAX];
+  PartialMatchTable(pattern, pmt);
 
   int i = 0;
   int j = 0;
@@ -30,10 +31,8 @@ std::vector<int> KnuthMorrisPratt(const std::string &text,
     if (text[i] == pattern[j]) {
       i++;
       j++;
-    } else if (i == 0) {
-      i++;
     } else {
-      i = next[i - 1] + 1;
+      i = pmt[i] + 1;
     }
     if (j == pattern.length()) {
       match.push_back(i - j);
@@ -42,3 +41,4 @@ std::vector<int> KnuthMorrisPratt(const std::string &text,
   }
   return match;
 }
+

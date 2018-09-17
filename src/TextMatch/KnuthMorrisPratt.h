@@ -7,3 +7,4 @@
 
 std::vector<int> KnuthMorrisPratt(const std::string &text,
                                   const std::string &pattern);
+

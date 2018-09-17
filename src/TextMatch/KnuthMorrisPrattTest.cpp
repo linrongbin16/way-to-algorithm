@@ -3,8 +3,6 @@
 #include <iostream>
 using namespace std;
 
-#define TEST_MAX 1024
-
 struct Test {
   string text;
   string pattern;
@@ -19,3 +17,4 @@ int main() {
   }
   return 0;
 }
+

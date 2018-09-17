@@ -4,58 +4,50 @@
 
 #### 问题
 
-在文本$$ text $$中查找字符串$$ str $$的位置（设$$ text $$长度为n，$$ str $$长度为$$ m $$，该场景满足$$ n \gt m $$）。
+在文本$$ text $$中查找字符串$$ pattern $$出现的所有位置（$$ text $$长度为n，$$ pattern $$长度为$$ m $$，$$ n, m $$都是正整数且$$ n \gt m $$）。
 
 #### 解法
 
-KMP算法的性能为$$ O(n) $$，比SimpleMatch高很多。在$$ text = abcxbciabcab $$搜索$$ str = abcab $$的过程中，其实仔细观察一下会发现，没有必要在每次失败的时候，都重新从$$ str $$的起始处开始匹配，我们可以跳过一部分。
+KMP算法的性能为$$ O(n) $$，比SimpleMatch高很多。在$$ text $$中匹配$$ pattern $$的过程中，仔细观察可以发现，不必在失败时从$$ pattern $$的起始重新匹配，我们可以对这块进行优化。
 
 对于下面这个匹配：
 
-<!--![KMPMatch1.svg](../res/KMPMatch1.svg)-->
+![KnuthMorrisPratt1.svg](../res/KnuthMorrisPratt1.svg)
 
-$$ (1) $$ 从$$ text $$第$$ 0 $$个字符开始匹配，有$$ text[0 \cdots 2] = str[0 \cdots 2]，text[3] \ne str[3] $$；
+$$ (1) $$ 从$$ text[i = 0], pattern[j = 0] $$开始，可以得到$$ text[0 \dots 3] = pattern[0 \dots 3] $$但$$ text[4] \ne pattern[4] $$；
 
-$$ (2) $$ 这次我们不希望从$$ text $$的第$$ 1 $$个字符开始匹配，因为这样需要重复比较$$ str[0 \cdots 2] $$这$$ 3 $$个字符，导致时间复杂度成为$$ O(n \times m) $$。
+$$ (2) $$ 但这次我们不希望从$$ text[i = 1], pattern[j = 0] $$重新开始。通过观察发现，显然$$ text[1] \ne pattern[0] $$，而真正适合作为下一轮匹配的起始点是$$ text[i = 2], pattern[j = 0] $$，因为$$ pattern[0 \dots 1] = pattern[2 \dots 3] $$，而上一轮匹配失败时$$ pattern[0 \dots j-1] $$都与$$ text[i \dots i+j-1] $$相同（$$ i = 0, j = 4 $$）。我们称$$ j = 4 $$这样令匹配失败的位置为“失败位置”；
 
-这里我们定义两个概念：前缀、后缀。设字符串$$ s $$的前缀$$ prefix $$、后缀$$ suffix $$分别表示该字符串的真子集（即$$ prefix \ne s $$且$$ suffix \ne s $$），并且，前缀是从头开始的连续字符串子集，后缀是从尾开始的连续字符串子集，包括空字符串（空集）。比如字符串$$ s = abcab $$，其前缀为$$ prefix = [ \emptyset, a, ab, abc, abca ] $$，后缀为$$ suffix = [ \emptyset, b, ab, cab, bcab ] $$（注意前缀和后缀中不能有字符串$$ s = abcab $$本身，必须是真子集）。
+我们再举一个更明显的例子：
 
-在前缀、后缀的概念下，对于长度为$$ m $$的字符串$$ str $$的任意一个子字符串$$ str[0 \cdots i] $$，我们都可以求出它的前缀和后缀。例如对于字符串$$ str = abcab $$，可以得到：
+![KnuthMorrisPratt2.svg](../res/KnuthMorrisPratt2.svg)
 
-$$ (1) $$ 子字符串$$ str[0 \cdots 0] = a $$的前缀为$$ prefix = [ \emptyset ] $$，后缀为$$ suffix = [ \emptyset ] $$；
+$$ (1) $$ 从$$ text[i = 0], pattern[j = 0] $$开始，可以得到$$ text[0 \dots 5] = pattern[0 \dots 5] $$但$$ text[6] \ne pattern[6] $$，这是失败位置为$$ fail = 6 $$；
 
-$$ (2) $$ 子字符串$$ str[0 \cdots 1] = ab $$的前缀为$$ prefix = [ \emptyset, a ] $$，后缀为$$ suffix = [ \emptyset, b ] $$；
+$$ (2) $$ 读者这里请注意，我们不能因为$$ text[6] \ne pattern[6] $$就武断的认为下一次匹配的起始位置为$$ i = 6 $$或者$$ i = 6 + 1 $$。反直觉的，因为$$ pattern[0 \dots 2] = pattern[4 \dots 6] $$，真正适合作为下一轮匹配的起始点是$$ text[i = 3], pattern[j = 0] $$；
 
-$$ (3) $$ 子字符串$$ str[0 \cdots 2] = abc $$的前缀为$$ prefix = [ \emptyset, a, ab ] $$，后缀为$$ suffix = [ \emptyset, c, bc ] $$；
+如果再找几个稍微长一点的例子，可以发现当$$ text[i \dots i+fail-1] = pattern[0 \dots fail-1] $$但$$ text[i+fail] \ne pattern[fail] $$，若这时在$$ pattern[1 \dots fail-1] $$上存在一个$$ k $$，使得$$ pattern[0 \dots k] = pattern[fail-k \dots fail] $$（尽可能将$$ k $$最大化），那么下一次匹配，我们可以轻松的跳过$$ k $$个字符，直接从$$ i = i + k + 1, j = 0 $$开始继续匹配，而不用像SimpleMatch中一样从$$ i = i + 1, j = 0 $$开始，显然$$ text[i+1] \dots text[i+k] $$这部分字符作为起始点的匹配都是必然失败的。
 
-$$ (4) $$ 子字符串$$ str[0 \cdots 3] = abca $$的前缀为$$ prefix = [ \emptyset, a, ab, abc ] $$，后缀为$$ suffix = [ \emptyset, a, ca, bca ] $$；
+上一段中的$$ k $$为正整数且满足$$ 0 \gt k \gt fail, 0 \gt fail - k \gt fail  $$。这个函数
 
-$$ (5) $$ 子字符串$$ str[0 \cdots 4] = abcab $$的前缀为$$ prefix = [ \emptyset, a, ab, abc, abca ] $$，后缀为$$ suffix = [ \emptyset, b, ab, cab, bcab ] $$；
+$$
 
-设字符串$$ str $$的每个字符$$ str[i] $$有个回文长度$$ len[i] $$。对于子字符串$$ str[i] $$的前缀、后缀，找到其中相同的前缀和后缀$$ same $$（如果存在多个，选最长的），则$$ len[i] = length\_{same} $$。
+k = f(fail)
 
-$$ (1) $$ 子字符串$$ str[0 \cdots 0] $$，其相同的最长的前缀和后缀为$$ \emptyset $$，因此$$ len[0] = 0 $$；
+$$
 
-$$ (2) $$ 子字符串$$ str[0 \cdots 1] $$，其相同的最长的前缀和后缀为$$ \emptyset $$，因此$$ len[1] = 0 $$；
+称作失败函数（Failure Function）、部分匹配表（Partial Match Table）。在字符串$$ pattern[0 \dots m-1] $$上由任意位置$$ j $$组成的前缀字符串$$ pattern[0 \dots j] $$，求出一个最大的$$ k $$使其满足$$ pattern[0 \dots k] = pattern[j-k \dots j] $$。
 
-$$ (3) $$ 子字符串$$ str[0 \cdots 2] $$，其相同的最长的前缀和后缀为$$ \emptyset $$，因此$$ len[2] = 0 $$；
+那么当$$ pattern $$在$$ text[i] $$上匹配失败时，设$$ text[i \dots i+fail-1] = pattern[0 \dots fail-1] $$但$$ text[i+fail] \ne pattern[fail] $$，求出一个$$ k $$可以直接让$$ i = i + k + 1 $$，找到下一次匹配的起始位置。
 
-$$ (4) $$ 子字符串$$ str[0 \cdots 3] $$，其相同的最长的前缀和后缀为$$ a $$，因此$$ len[3] = 1 $$；
-
-$$ (5) $$ 子字符串$$ str[0 \cdots 4] $$，其相同的最长的前缀和后缀为$$ ab $$，因此$$ len[4] = 2 $$；
-
-最终得到的回文长度为$$ len = [ 0, 0, 0, 1, 2 ] $$。回文长度代表的意义是子字符串中从头开始、和从尾开始的两部分字符串的最长相同部分的长度。
-
-回到开始，当匹配$$ text[0 \cdots 4] \ne str[0 \cdots 4] $$时，其中$$ text[0 \cdots 2]_{abc} = str[0 \cdots 2]_{abc} $$，而$$ text[3]_{x} \ne str[3]_{a} $$。这时以最后一个成功匹配的字符$$ str[2] $$为准，我们知道$$ len[2] = 0 $$，即$$ str[2] $$这个字符存在最大长度为2的前缀和后缀，即$$ str[0 \cdots 1]_{ab} $$和$$ str[3 \cdots 4]_{ab} $$。这时可以算出$$ 移动长度 = 已经匹配的字符数量 - 最后一位匹配字符的匹配长度值 $$，即$$ 1 = 3 - 2 $$。
-
-在上面这个例子中，该公式表达了，已经匹配的字符串$$ str[0 \cdots 2] = abc $$，它的前缀$$ str[0 \cdots 1] = ab $$，和它后面没有被匹配的后缀$$ str[3 \cdots 4] = ab $$是相同的。利用这个特点，下一次匹配我们希望可以直接让前缀$$ ab $$和
+KMP算法需要对$$ pattern $$进行预处理，来算出每个位置$$ j $$对应的$$ k $$值，实际匹配时可以直接查找。
 
 --------
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/TextMatch/KMPMatch.h)
+[import, lang:"c_cpp"](../../../src/TextMatch/KnuthMorrisPratt.h)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/TextMatch/KMPMatch.cpp)
+[import, lang:"c_cpp"](../../../src/TextMatch/KnuthMorrisPratt.cpp)
