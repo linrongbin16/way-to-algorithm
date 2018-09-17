@@ -32,7 +32,7 @@ std::vector<int> KnuthMorrisPratt(const std::string &text,
       i++;
       j++;
     } else {
-      i = pmt[i] + 1;
+      i = i + pmt[i] + 1;
     }
     if (j == pattern.length()) {
       match.push_back(i - j);
