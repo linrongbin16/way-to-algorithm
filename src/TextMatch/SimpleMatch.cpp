@@ -7,17 +7,18 @@
 std::vector<int> SimpleMatch(const std::string &text,
                              const std::string &pattern) {
   std::vector<int> pos;
-  for (int i = 0; i < text.length(); i++) {
-    bool match = true;
-    for (int j = 0; j < pattern.length(); j++) {
+  int i, j;
+
+  for (i = 0; i < text.length(); i++) {
+    for (j = 0; j < pattern.length(); j++) {
       if (text[i + j] != pattern[j]) {
-        match = false;
         break;
       }
     }
-    if (match) {
+    if (j == pattern.length()) {
       pos.push_back(i);
     }
   }
   return pos;
 }
+
