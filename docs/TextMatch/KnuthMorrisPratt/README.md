@@ -49,7 +49,19 @@ $$ (3) $$ 字符串$$ pattern = \textit{"ab"} $$的$$ prefix = [\textit{"a"}] $$
 
 ![KnuthMorrisPratt5.svg](../res/KnuthMorrisPratt5.svg)
 
-构造$$ next $$数组也可以在$$ O(n) $$时间复杂度内完成，避免$$ O(n ^ 2) $$时间复杂度的构造。
+对于$$ pattern $$上任意位置$$ i $$处，让两个$$ pattern $$自己相互匹配，初始时设置$$ next[0] = -1, next[1] = 0 $$。当$$ pattern[i] = pattern[j] $$时$$ next[i] = next[i-1] + 1 $$，然后将下标$$ i = i + 1, j = j + 1 $$都向右移动一位。当$$ pattern[i] \ne pattern[j] $$时将其重置$$ next[i] = 0 $$，然后将下标$$ i = i + 1, j = 0 $$，$$ i $$仍然向右移动一位，但$$ j $$重置为$$ 0 $$，再开始下一轮匹配。
+
+![KnuthMorrisPratt6.svg](../res/KnuthMorrisPratt6.svg)
+
+![KnuthMorrisPratt7.svg](../res/KnuthMorrisPratt7.svg)
+
+![KnuthMorrisPratt8.svg](../res/KnuthMorrisPratt8.svg)
+
+![KnuthMorrisPratt9.svg](../res/KnuthMorrisPratt9.svg)
+
+![KnuthMorrisPratt10.svg](../res/KnuthMorrisPratt10.svg)
+
+
 
 $$
 
