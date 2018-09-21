@@ -45,10 +45,12 @@ struct Segment {
 
 double NodeDistance(const Node &a, const Node &b);
 
-// ==
+// double eq
 bool FloatEq(const double &a, const double &b);
 
+// float eq
 bool FloatEq(const float &a, const float &b);
 
+// Node eq
 bool NodeEq(const Node &a, const Node &b);
 

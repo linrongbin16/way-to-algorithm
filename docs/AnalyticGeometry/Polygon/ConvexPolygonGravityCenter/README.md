@@ -38,8 +38,6 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Util.h)
-
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/ConvexPolygonGravityCenter.h)
 
 

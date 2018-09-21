@@ -49,8 +49,6 @@ $$ (2) $$ 当扫除线遇到线段$$ l_{1} $$的右端点$$ a $$时，将线段$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Util.h)
-
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Sweeping.h)
 
 

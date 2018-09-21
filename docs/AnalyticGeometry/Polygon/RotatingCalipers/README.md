@@ -96,8 +96,6 @@ $$ (1) $$ 凸$$ n $$边形直径
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Util.h)
-
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/RotatingCalipers.h)
 
 

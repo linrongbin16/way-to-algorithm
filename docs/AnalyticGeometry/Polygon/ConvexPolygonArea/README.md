@@ -29,8 +29,6 @@ $$ (2) $$ 多边形面积
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Util.h)
-
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/ConvexPolygonArea.h)
 
 

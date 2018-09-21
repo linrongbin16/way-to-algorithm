@@ -1,7 +1,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
 <script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
-# AC(Aho Corasick) Automation - AC自动机
+# Aho Corasick - AC自动机
 
 --------
 
@@ -19,8 +19,8 @@ AC自动机算法可以在遍历一次文本$$ text $$中找出$$ k $$个字符�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/TextMatch/ACAutomation.h)
+[import, lang:"c_cpp"](../../../src/TextMatch/AhoCorasick.h)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/TextMatch/ACAutomation.cpp)
+[import, lang:"c_cpp"](../../../src/TextMatch/AhoCorasick.cpp)
