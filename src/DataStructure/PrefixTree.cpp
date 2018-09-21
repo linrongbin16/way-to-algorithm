@@ -7,9 +7,9 @@ static int ChildIndex(char letter) { return (int)(letter - 'a'); }
 PrefixTree *PrefixTreeNew() {
   PrefixTree *t = new PrefixTree();
   if (!t)
-    return nullptr;
+    return NULL;
   t->letter = (char)(-1);
-  t->word = nullptr;
+  t->word = NULL;
   memset(t->child, 0, sizeof(t->child));
   return t;
 }
@@ -27,12 +27,12 @@ void PrefixTreeInsert(PrefixTree *t, const char *word) {
   PrefixTree *e = t;
   for (int i = 0; i < n; i++) {
     int index = ChildIndex(word[i]);
-    if (e->child[index] == nullptr) {
+    if (e->child[index] == NULL) {
       e->child[index] = new PrefixTree();
       // initialize e->child[index]
       PrefixTree *he = e->child[index];
       he->letter = word[i];
-      he->word = nullptr;
+      he->word = NULL;
       memset(he->child, 0, sizeof(he->child));
     }
     e = e->child[index];
@@ -65,7 +65,7 @@ void PrefixTreeErase(PrefixTree *t, const char *word) {
     int index = ChildIndex(word[i]);
     e = e->child[index];
     if (i == n - 1) {
-      e->word = nullptr;
+      e->word = NULL;
       return;
     }
   }
