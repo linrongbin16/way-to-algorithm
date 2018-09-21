@@ -21,7 +21,7 @@
     * [FenwickTree(BinaryIndexTree) 树状数组](DataStructure/FenwickTree/)
     * [SegmentTree 线段树](DataStructure/SegmentTree/)
     * [LeftistTree(LeftistHeap) 左偏树（左偏堆）](DataStructure/LeftistTree/)
-    * [PrefixTree 前缀树](DataStructure/PrefixTree/)
+    * [PrefixTree(TrieTree) 前缀树](DataStructure/PrefixTree/)
     * [SuffixTree 后缀树](DataStructure/SuffixTree/)
     * [AVLTree AVL平衡树](DataStructure/AVLTree/)
     * [RedBlackTree 红黑树](DataStructure/RedBlackTree/)
