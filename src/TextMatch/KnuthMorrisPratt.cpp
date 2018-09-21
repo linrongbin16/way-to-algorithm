@@ -2,43 +2,41 @@
 #include <string>
 #include <vector>
 
-static void PartialMatchTable(const std::string &pattern, int *pmt) {
-  pmt[0] = -1;
-  pmt[1] = 0;
-  for (int i = 1; i < pattern.length(); i++) {
-    int k = i;
-    while (k > 0 && pattern[i] != pattern[pmt[k]]) {
-      k = pmt[k];
-    }
-    if (pattern[k + 1] == pattern[k]) {
-      pmt[i] = k + 1;
+static void GenNext(const std::string &pattern, int *next) {
+  next[0] = -1;
+  int i = 0, j = -1;
+  while (i < pattern.length()) {
+    if (j == -1 || pattern[i] == pattern[j]) {
+      j++;
+      i++;
+      next[i] = j;
     } else {
-      pmt[i] = 0;
+      j = next[j];
     }
   }
-  pmt[0] = 0;
 }
 
 std::vector<int> KnuthMorrisPratt(const std::string &text,
                                   const std::string &pattern) {
   std::vector<int> match;
-  int pmt[MAX];
-  PartialMatchTable(pattern, pmt);
+  int next[MAX];
+  GenNext(pattern, next);
 
   int i = 0;
   int j = 0;
   while (i < text.length()) {
-    if (text[i] == pattern[j]) {
+    if (j == -1 || text[i] == pattern[j]) {
       i++;
       j++;
     } else {
-      i = i + pmt[i] + 1;
+      j = next[j];
     }
     if (j == pattern.length()) {
       match.push_back(i - j);
       j = 0;
     }
   }
+
   return match;
 }
 
