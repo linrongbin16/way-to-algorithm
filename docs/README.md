@@ -148,7 +148,7 @@
 * [Chapter-11 TextMatch 第11章 文本匹配](TextMatch/)
     * [SimpleMatch 简单匹配](TextMatch/SimpleMatch/README.md)
     * [KnuthMorrisPratt KMP匹配算法](TextMatch/KnuthMorrisPratt/README.md)
-    * [AhoCorasick AC自动机](TextMatch/AhoCorasick/README.md)
+    * [AhoCorasickAutomata AC自动机](TextMatch/AhoCorasickAutomata/README.md)
     * [DfsAutomaton 确定状态有限自动机](TextMatch/DfsAutomaton/README.md)
 * [Chapter-12 GameTheory 第12章 博弈论](GameTheory/)
     * [BashGame 巴什博弈](GameTheory/BashGame/)

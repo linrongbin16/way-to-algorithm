@@ -1,7 +1,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
 <script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
-# Aho Corasick - AC自动机
+# Aho Corasick Automata - AC自动机
 
 --------
 
@@ -17,10 +17,13 @@
 
 我们能否在一次匹配$$ text $$的过程中就同时找出所有模式呢？即并行算法（算法上的并行，非多线程多进程的并行）。
 
-首先用所有$$ pattern $$构造一个前缀树$$ Prefix Tree $$（$$ Trie Tree $$），如图所示：
+首先用所有$$ pattern $$构造一个前缀树$$ pt $$，如图所示：
 
 ![AhoCorasick2.svg](../res/AhoCorasick2.svg)
 
+![AhoCorasick3.svg](../res/AhoCorasick3.svg)
+
+那么从$$ text $$的首个字符$$ text[i = 0] $$开始，将其与$$ pt $$从第一层节点开始匹配，$$ text[0] = pt[] $$
 
 --------
 

@@ -1,4 +1,4 @@
-#include "ACAutomation.h"
+#include "AhoCorasickAutomata.h"
 #include <cassert>
 #include <cstring>
 #include <queue>
