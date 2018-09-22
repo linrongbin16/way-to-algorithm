@@ -8,7 +8,6 @@
     * [QuickSort 快速排序](docs/Sort/QuickSort/README.md)
     * [MergeSort 归并排序](docs/Sort/MergeSort/README.md)
 * [Chapter-2 Search 第2章 搜索](docs/Search/README.md)
-    * [KnowledgePoint 知识要点](docs/Search/KnowledgePoint/README.md)
     * [BinarySearch 二分查找法（折半查找法）](docs/Search/BinarySearch/README.md)
     * [BruteForce 暴力枚举](docs/Search/BruteForce/README.md)
     * [Recursion 递归](docs/Search/Recursion/README.md)
@@ -26,7 +25,6 @@
     * [AVLTree AVL平衡树](docs/DataStructure/AVLTree/README.md)
     * [RedBlackTree 红黑树](docs/DataStructure/RedBlackTree/README.md)
 * [Chapter-4 DynamicProgramming 第4章 动态规划](docs/DynamicProgramming/README.md)
-    * [KnowledgePoint 知识要点](docs/DynamicProgramming/KnowledgePoint/README.md)
     * Section-1 LinearDP 第1节 线性动规
         * [LongestCommonSubsequence 最长公共子序列](docs/DynamicProgramming/LinearDP/LongestCommonSubsequence/README.md)
         * [LongestIncreasingSubsequence 最长递增子序列](docs/DynamicProgramming/LinearDP/LongestIncreasingSubsequence/README.md)
@@ -50,7 +48,6 @@
         * [TraverseBinaryTreeDP 遍历二叉树动规](docs/DynamicProgramming/TreeDP/TraverseBinaryTreeDP/README.md)
 * [Chapter-5 GraphTheory 第5章 图论](docs/GraphTheory/README.md)
     * Section-1 Traverse 第1节 遍历
-        * [KnowledgePoint 知识要点](docs/GraphTheory/Traverse/KnowledgePoint/README.md)
         * [PreorderTraverse 先序遍历](docs/GraphTheory/Traverse/PreorderTraverse/README.md)
         * [InorderTraverse 中序遍历](docs/GraphTheory/Traverse/InorderTraverse/README.md)
         * [PostorderTraverse 后序遍历](docs/GraphTheory/Traverse/PostorderTraverse/README.md)
@@ -60,13 +57,11 @@
         * [TopologicalSort 拓扑排序](docs/GraphTheory/Traverse/TopologicalSort/README.md)
         * [EulerCycle 欧拉回路](docs/GraphTheory/Traverse/EulerCycle/README.md)
     * Section-2 MinimumSpanningTree 第2节 最小生成树
-        * [KnowledgePoint 知识要点](docs/GraphTheory/MinimumSpanningTree/KnowledgePoint/README.md)
         * [Kruskal Kruskal算法](docs/GraphTheory/MinimumSpanningTree/Kruskal/README.md)
         * [Prim Prim算法](docs/GraphTheory/MinimumSpanningTree/Prim/README.md)
         * [SecondMinimumSpanningTree 次小生成树](docs/GraphTheory/MinimumSpanningTree/SecondMinimumSpanningTree/README.md)
         * [OptimalRatioSpanningTree 最优比率生成树](docs/GraphTheory/MinimumSpanningTree/OptimalRatioSpanningTree/README.md)
     * Section-3 ShortestPath 第3节 最短路径
-        * [KnowledgePoint 知识要点](docs/GraphTheory/ShortestPath/KnowledgePoint/README.md)
         * [Relaxation 松弛操作](docs/GraphTheory/ShortestPath/Relaxation/README.md)
         * [BellmanFord BellmanFord算法](docs/GraphTheory/ShortestPath/BellmanFord/README.md)
         * [ShortestPathFasterAlgorithm 最短路径更快算法（SPFA）](docs/GraphTheory/ShortestPath/ShortestPathFasterAlgorithm/README.md)
@@ -74,7 +69,6 @@
         * [Floyd Floyd算法](docs/GraphTheory/ShortestPath/Floyd/README.md)
         * [DifferentConstraints 差分约束](docs/GraphTheory/ShortestPath/DifferentConstraints/README.md)
     * Section-4 Connectivity 第4节 连通
-        * [KnowledgePoint 知识要点](docs/GraphTheory/Connectivity/KnowledgePoint/README.md)
         * [Kosaraju Kosaraju算法](docs/GraphTheory/Connectivity/Kosaraju/README.md)
         * [Tarjan Tarjan算法](docs/GraphTheory/Connectivity/Tarjan/README.md)
         * [Gabow - Gabow算法](docs/GraphTheory/Connectivity/Gabow/README.md)
@@ -113,7 +107,6 @@
     * [DecimalConversion 进制转换](docs/Calculation/DecimalConversion/README.md)
     * [Exponentiation 幂运算](docs/Calculation/Exponentiation/README.md)
 * [Chapter-7 CombinatorialMathematics 第7章 组合数学](docs/CombinatorialMathematics/README.md)
-    * [KnowledgePoint 知识要点](docs/CombinatorialMathematics/KnowledgePoint/README.md)
     * [FullPermutation 全排列](docs/CombinatorialMathematics/FullPermutation/README.md)
     * [UniqueFullPermutation 唯一的全排列](docs/CombinatorialMathematics/UniqueFullPermutation/README.md)
     * [Combination 组合](docs/CombinatorialMathematics/Combination/README.md)

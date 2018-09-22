@@ -8,7 +8,6 @@
     * [QuickSort 快速排序](Sort/QuickSort/)
     * [MergeSort 归并排序](Sort/MergeSort/)
 * [Chapter-2 Search 第2章 搜索](Search/)
-    * [KnowledgePoint 知识要点](Search/KnowledgePoint/)
     * [BinarySearch 二分查找法（折半查找法）](Search/BinarySearch/)
     * [BruteForce 暴力枚举](Search/BruteForce/)
     * [Recursion 递归](Search/Recursion/)
@@ -26,7 +25,6 @@
     * [AVLTree AVL平衡树](DataStructure/AVLTree/)
     * [RedBlackTree 红黑树](DataStructure/RedBlackTree/)
 * [Chapter-4 DynamicProgramming 第4章 动态规划](DynamicProgramming/)
-    * [KnowledgePoint 知识要点](DynamicProgramming/KnowledgePoint/)
     * Section-1 LinearDP 第1节 线性动规
         * [LongestCommonSubsequence 最长公共子序列](DynamicProgramming/LinearDP/LongestCommonSubsequence/)
         * [LongestIncreasingSubsequence 最长递增子序列](DynamicProgramming/LinearDP/LongestIncreasingSubsequence/)
@@ -50,7 +48,6 @@
         * [TraverseBinaryTreeDP 遍历二叉树动规](DynamicProgramming/TreeDP/TraverseBinaryTreeDP/)
 * [Chapter-5 GraphTheory 第5章 图论](GraphTheory/)
     * Section-1 Traverse 第1节 遍历
-        * [KnowledgePoint 知识要点](GraphTheory/Traverse/KnowledgePoint/)
         * [PreorderTraverse 先序遍历](GraphTheory/Traverse/PreorderTraverse/)
         * [InorderTraverse 中序遍历](GraphTheory/Traverse/InorderTraverse/)
         * [PostorderTraverse 后序遍历](GraphTheory/Traverse/PostorderTraverse/)
@@ -60,13 +57,11 @@
         * [TopologicalSort 拓扑排序](GraphTheory/Traverse/TopologicalSort/)
         * [EulerCycle 欧拉回路](GraphTheory/Traverse/EulerCycle/)
     * Section-2 MinimumSpanningTree 第2节 最小生成树
-        * [KnowledgePoint 知识要点](GraphTheory/MinimumSpanningTree/KnowledgePoint/)
         * [Kruskal Kruskal算法](GraphTheory/MinimumSpanningTree/Kruskal/)
         * [Prim Prim算法](GraphTheory/MinimumSpanningTree/Prim/)
         * [SecondMinimumSpanningTree 次小生成树](GraphTheory/MinimumSpanningTree/SecondMinimumSpanningTree/)
         * [OptimalRatioSpanningTree 最优比率生成树](GraphTheory/MinimumSpanningTree/OptimalRatioSpanningTree/)
     * Section-3 ShortestPath 第3节 最短路径
-        * [KnowledgePoint 知识要点](GraphTheory/ShortestPath/KnowledgePoint/)
         * [Relaxation 松弛操作](GraphTheory/ShortestPath/Relaxation/)
         * [BellmanFord BellmanFord算法](GraphTheory/ShortestPath/BellmanFord/)
         * [ShortestPathFasterAlgorithm 最短路径更快算法（SPFA）](GraphTheory/ShortestPath/ShortestPathFasterAlgorithm/)
@@ -74,7 +69,6 @@
         * [Floyd Floyd算法](GraphTheory/ShortestPath/Floyd/)
         * [DifferentConstraints 差分约束](GraphTheory/ShortestPath/DifferentConstraints/)
     * Section-4 Connectivity 第4节 连通
-        * [KnowledgePoint 知识要点](GraphTheory/Connectivity/KnowledgePoint/)
         * [Kosaraju Kosaraju算法](GraphTheory/Connectivity/Kosaraju/)
         * [Tarjan Tarjan算法](GraphTheory/Connectivity/Tarjan/)
         * [Gabow - Gabow算法](GraphTheory/Connectivity/Gabow/)
@@ -113,7 +107,6 @@
     * [DecimalConversion 进制转换](Calculation/DecimalConversion/)
     * [Exponentiation 幂运算](Calculation/Exponentiation/)
 * [Chapter-7 CombinatorialMathematics 第7章 组合数学](CombinatorialMathematics/)
-    * [KnowledgePoint 知识要点](CombinatorialMathematics/KnowledgePoint/)
     * [FullPermutation 全排列](CombinatorialMathematics/FullPermutation/)
     * [UniqueFullPermutation 唯一的全排列](CombinatorialMathematics/UniqueFullPermutation/)
     * [Combination 组合](CombinatorialMathematics/Combination/)
