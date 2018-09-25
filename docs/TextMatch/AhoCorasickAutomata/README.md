@@ -96,8 +96,8 @@ AC自动机算法的时间复杂度为$$ O(n + m_{sum} + z) $$。其中$$ z $$�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/TextMatch/AhoCorasick.h)
+[import, lang:"c_cpp"](../../../src/TextMatch/AhoCorasickAutomata.h)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/TextMatch/AhoCorasick.cpp)
+[import, lang:"c_cpp"](../../../src/TextMatch/AhoCorasickAutomata.cpp)
