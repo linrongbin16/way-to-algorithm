@@ -91,6 +91,7 @@ AC自动机算法的时间复杂度为$$ O(n + m_{sum} + z) $$。其中$$ z $$�
 
 * https://web.stanford.edu/class/cs166/lectures/02/Small02.pdf
 * https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/
+* http://cs.haifa.ac.il/LANDAU/gadi/shiri.pdf
 
 --------
 
