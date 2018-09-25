@@ -1,5 +1,6 @@
 #include "AhoCorasickAutomata.h"
 #include <cassert>
+#include <cctype>
 #include <cstring>
 #include <queue>
 #include <string>
@@ -8,104 +9,92 @@
 
 #define INVALID_CHAR '@'
 
-Node::Node() {
-  count = 0;
+#define get_child(acnode, c)                                                   \
+  ((acnode)->child[(int)(std::tolower(c)) - (int)('a')])
+#define set_child(acnode, c, childnode)                                        \
+  do {                                                                         \
+    (acnode)->child[(int)(std::tolower(c)) - (int)('a')] = childnode;          \
+  } while (0)
+
+#define get_child_by_index(acnode, i) ((acnode)->child[i])
+#define get_char(acnode) (((acnode) == NULL) ? INVALID_CHAR : (acnode)->ch)
+#define get_string(acnode) (((acnode) == NULL) ? "" : (acnode)->value)
+#define is_leaf(acnode) (((acnode) == NULL) ? false : (acnode)->is_leaf)
+#define get_father(acnode) (((acnode) == NULL) ? NULL : (acnode)->father)
+#define get_fail(acnode) (((acnode) == NULL) ? NULL : (acnode)->fail)
+#define add_output(acnode) (((acnode) == NULL) ? NULL : (acnode)->fail)
+
+AcNode::AcNode() {
+  ch = INVALID_CHAR;
+  value = "";
+  is_leaf = false;
   father = NULL;
+  std::memset(child, 0, sizeof(AcNode *) * CHILD_MAX);
   fail = NULL;
-  memset(child, 0, sizeof(child));
+  std::memset(output, 0, sizeof(AcNode *) * MAX);
+  output_cnt = 0;
 }
 
-Node::Node(const Node &other) {
-  count = other.count;
+AcNode::AcNode(const AcNode &other) {
+  ch = other.ch;
+  value = other.value;
+  is_leaf = other.is_leaf;
   father = other.father;
+  std::memcpy(child, other.child, sizeof(AcNode *) * CHILD_MAX);
   fail = other.fail;
-  std::memcpy(child, other.child, sizeof(child));
+  std::memcpy(output, other.output, sizeof(AcNode *) * MAX);
+  output_cnt = other.output_cnt;
 }
 
-Node &Node::operator=(const Node &other) {
+AcNode &AcNode::operator=(const AcNode &other) {
   if (this == &other)
     return *this;
-  count = other.count;
+  ch = other.ch;
+  value = other.value;
+  is_leaf = other.is_leaf;
   father = other.father;
+  std::memcpy(child, other.child, sizeof(AcNode *) * CHILD_MAX);
   fail = other.fail;
-  std::memcpy(child, other.child, sizeof(child));
+  std::memcpy(output, other.output, sizeof(AcNode *) * MAX);
+  output_cnt = other.output_cnt;
   return *this;
 }
 
-static void Insert(ACAutomation *ac, const std::string &str) {
-  Node *p = &ac->root;
-  for (int i = 0; i < str.length(); i++) {
-    int index = (int)str[i] - (int)'a';
-    if (p->child[index] == NULL) {
-      p->child[index] = new Node();
-      //将孩子节点成员中的父节点指针指向自己
-      //加入父节点成员完全是为了输出当前节点所在的字符串
-      p->child[index]->father = p;
+static void Insert(AcNode *root, const std::string &pattern) {
+  AcNode *p = root;
+  for (int i = 0; i < pattern.length(); i++) {
+    char ch = pattern[i];
+    if (get_child(p, ch)) {
+      set_child(p, ch, new AcNode());
+      get_child(p, ch)->ch = ch;
+      get_child(p, ch)->value = p->value + ch;
+      if (i == pattern.length() - 1) {
+        get_child(p, ch)->is_leaf = true;
+      }
+      get_child(p, ch)->father = p;
     }
-    p = p->child[index];
+    p = get_child(p, pattern[i]);
   }
-  ++p->count;
 }
 
-static char GetChar(Node *p) {
-  //返回节点p的字母 若为根节点则输出@
-  if (p->father == NULL)
-    return INVALID_CHAR;
-
-  Node *fa = p->father;
-  for (int i = 0; i < MAX; ++i)
-    if (fa->child[i] == p)
-      return (char)((int)'a' + (int)i);
-  return INVALID_CHAR;
-}
-
-static std::string GetString(Node *p, const std::string &str) {
-  //返回以节点p为最后一个字母的字符串
-  //若节点增加字母和字符串成员
-  //插入字符串时在相应节点中进行标记
-  //则可不需要a_getstring和a_getchar函数
-
-  //递归终止条件 当节点p是根节点时返回字符串
-  if (p->father == NULL)
-    return str;
-
-  char ch = GetChar(p);
-  //继续向上递归求字符串
-  return GetString(p->father, ch + str);
-}
-
-static void FailPath(ACAutomation *ac) {
-  //通过bfs给字典树中所有节点建立失败指针
-  std::queue<Node *> q;
-  //根节点的失败指针为NULL
-  ac->root.fail = NULL;
-  //根节点的所有孩子节点的失败指针指向根节点
-  for (int i = 0; i < MAX; ++i) {
-    if (ac->root.child[i] != NULL) {
-      ac->root.child[i]->fail = &ac->root;
-      q.push(ac->root.child[i]);
-    }
-  }
+static void BuildFailPointer(AcNode *root) {
+  std::queue<AcNode *> q;
+  root->fail = NULL;
+  q.push(root);
 
   while (!q.empty()) {
-    Node *p = q.front();
+    AcNode *p = q.front();
     q.pop();
 
-    for (int i = 0; i < MAX; ++i) {
-      if (p->child[i] != NULL) {
-        //设置节点p的孩子节点i的失败节点
-        Node *f = p->fail;
-        // f是节点i的父节点p的失败指针
-        while (f) {
-          if (f->child[i]) {
-            //若f有与节点i字符相同的孩子节点
-            //则节点i的失败指针指向f的这个孩子节点
-            p->child[i]->fail = f->child[i];
+    for (int i = 0; i < CHILD_MAX; i++) {
+      if (get_child_by_index(p, i) != NULL) {
+        AcNode *father = p->father;
+        while (father) {
+          if (get_child_by_index(father, i) != NULL) {
+            get_child_by_index(p, i)->fail = get_child_by_index(father, i);
             break;
           }
-          //若f没有这样的孩子节点
-          //递归考察f的失败指针指向的节点
-          f = f->fail;
+          father = father->fail;
         }
         if (!f) {
           //若f为空则节点i的失败指针指向根节点

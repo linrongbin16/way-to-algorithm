@@ -3,33 +3,34 @@
 #include <unordered_map>
 #include <vector>
 #ifndef MAX
-#define MAX 64
+#define MAX 128
+#endif
+#ifndef CHILD_MAX
+#define CHILD_MAX 26
 #endif
 
-typedef std::unordered_map<std::string, std::vector<int>> ac_match;
+struct AcNode {
+  char ch;
+  std::string value;
+  bool is_leaf;
+  AcNode *father;
+  AcNode *child[CHILD_MAX];
+  AcNode *fail;
+  AcNode *output[MAX];
+  int output_cnt;
 
-struct TrieNode {
-  int count;
-  TrieNode *child[MAX];
-  TrieNode *father;
-  TrieNode *fail;
-
-  TrieNode();
-  TrieNode(const TrieNode &other);
-  TrieNode &operator=(const TrieNode &other);
-};
-
-struct AhoCorasick {
-  TrieNode root;
+  AcNode();
+  AcNode(const AcNode &other);
+  AcNode &operator=(const AcNode &other);
 };
 
 // create AC automation
-AhoCorasick *AhoCorasickNew(const std::vector<std::string> &str);
+AcNode *AhoCorasickAutomataNew(const std::vector<std::string> &pattern);
 
 // free AC automation
-void AhoCorasickFree(AhoCorasick *ac);
+void AhoCorasickAutomataFree(AcNode *root);
 
 // match text with AC automation
 std::unordered_map<std::string, std::vector<int>>
-AhoCorasickMatch(AhoCorasick *ac, const std::string &text);
+AhoCorasickAutomataMatch(AcNode *root, const std::string &text);
 
