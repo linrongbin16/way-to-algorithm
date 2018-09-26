@@ -100,20 +100,21 @@ static void BuildFailPointer(AcNode *root) {
 
     for (int i = 0; i < CHILD_MAX; i++) {
       AcNode *target = p->child[i];
-      if (target) {
-        q.push(target);
+      if (!target) {
+        continue;
+      }
 
-        AcNode *fail = p->fail;
-        AcNode *fail_child_i = fail->child[i];
-        while (!fail_child_i && fail != root) {
-          fail = fail->fail;
-          fail_child_i = fail->child[i];
-        }
-        if (fail_child_i) {
-          target->fail = fail_child_i;
-        } else {
-          target->fail = root;
-        }
+      q.push(target);
+      AcNode *fail = p->fail;
+      AcNode *fail_child_i = fail->child[i];
+      while (!fail_child_i && fail != root) {
+        fail = fail->fail;
+        fail_child_i = fail->child[i];
+      }
+      if (fail_child_i) {
+        target->fail = fail_child_i;
+      } else {
+        target->fail = root;
       }
     } // for
   }   // while
