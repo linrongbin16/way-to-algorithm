@@ -8,13 +8,7 @@
 #include <vector>
 
 #define INVALID_CHAR '@'
-#define add_output(acnode, outnode)                                            \
-  do {                                                                         \
-    (acnode)->output[(acnode)->output_cnt++] = outnode;                        \
-  } while (0)
-
-#define foreach_output(acnode, i)                                              \
-  for (int(i) = 0; (i) < (acnode)->output_cnt; (i)++)
+#define child_position(c) ((assert(std::islower(c))), (int)(c) - (int)'a')
 
 AcNode::AcNode() {
   ch = INVALID_CHAR;
@@ -22,8 +16,7 @@ AcNode::AcNode() {
   father = NULL;
   std::memset(child, 0, sizeof(AcNode *) * CHILD_MAX);
   fail = NULL;
-  std::memset(output, 0, sizeof(AcNode *) * MAX);
-  output_cnt = 0;
+  output = NULL;
 }
 
 AcNode::AcNode(const AcNode &other) {
@@ -32,8 +25,7 @@ AcNode::AcNode(const AcNode &other) {
   father = other.father;
   std::memcpy(child, other.child, sizeof(AcNode *) * CHILD_MAX);
   fail = other.fail;
-  std::memcpy(output, other.output, sizeof(AcNode *) * MAX);
-  output_cnt = other.output_cnt;
+  output = other.output;
 }
 
 AcNode &AcNode::operator=(const AcNode &other) {
@@ -44,56 +36,14 @@ AcNode &AcNode::operator=(const AcNode &other) {
   father = other.father;
   std::memcpy(child, other.child, sizeof(AcNode *) * CHILD_MAX);
   fail = other.fail;
-  std::memcpy(output, other.output, sizeof(AcNode *) * MAX);
-  output_cnt = other.output_cnt;
+  output = other.output;
   return *this;
 }
 
-static AcNode *&AcChild(AcNode *node, char c) {
-  assert(node);
-  assert(std::islower(c));
-  return node->child[(int)c - (int)'a'];
-}
-
-static AcNode *&AcChild(AcNode *node, int i) {
-  assert(node);
-  return node->child[i];
-}
-
-static bool &AcLeaf(AcNode *node) {
-  assert(node);
-  return node->is_leaf;
-}
-
-static AcNode *&AcFather(AcNode *node) {
-  assert(node);
-  return node->father;
-}
-
-static AcNode *&AcFail(AcNode *node) {
-  assert(node);
-  return node->fail;
-}
-
-static int &AcOutputCnt(AcNode *node) {
-  assert(node);
-  return node->output_cnt;
-}
-
-static AcNode *&AcOutput(AcNode *node, int i) {
-  assert(node);
-  return node->output[i];
-}
-
-static char &AcChar(AcNode *node) {
-  assert(node);
-  return node->ch;
-}
-
-static std::string AcString(AcNode *node) {
+static std::string GetString(AcNode *node) {
   std::string str;
-  for (AcNode *i = node; i; i = AcFather(i)) {
-    str = std::string() + AcChar(i) + str;
+  for (AcNode *i = node; i; i = i->father) {
+    str = std::string() + i->ch + str;
   }
   return str;
 }
@@ -102,16 +52,25 @@ static void Insert(AcNode *root, const std::string &pattern) {
   AcNode *p = root;
   for (int i = 0; i < pattern.length(); i++) {
     char ch = pattern[i];
-    if (AcChild(p, ch)) {
-      AcChild(p, ch) = new AcNode();
-      AcChar(p) = ch;
+    int pos = child_position(ch);
+    if (!p->child[pos]) {
+      p->child[pos] = new AcNode();
+      p->child[pos]->ch = ch;
       if (i == pattern.length() - 1) {
-        AcLeaf(AcChild(p, ch)) = true;
+        p->child[pos]->is_leaf = true;
       }
-      AcFather(AcChild(p, ch)) = p;
+      p->child[pos]->father = p;
     }
-    p = AcChild(p, ch);
+    p = p->child[pos];
   }
+}
+
+static AcNode *BuildPrefixTree(const std::vector<std::string> &pattern) {
+  AcNode *root = new AcNode();
+  for (int i = 0; i < pattern.size(); i++) {
+    Insert(root, pattern[i]);
+  }
+  return root;
 }
 
 static void BuildFailPointer(AcNode *root) {
@@ -124,87 +83,107 @@ static void BuildFailPointer(AcNode *root) {
     q.pop();
 
     for (int i = 0; i < CHILD_MAX; i++) {
-      if (AcChild(p, i) != NULL) {
-        AcNode *father = p->father;
-        while (father) {
-          if (AcChild(father, i) != NULL) {
-            AcFail(AcChild(p, i)) = AcChild(father, i);
+      AcNode *target = p->child[i];
+      if (target) {
+        AcNode *fail = p->fail;
+        while (fail) {
+          if (fail->child[i]) {
+            // father->child[i]->ch == target->ch
+            target->fail = fail->child[i];
             break;
           }
-          father = AcFail(father);
+          fail = fail->fail;
         }
-        if (!father) {
-          AcFail(AcChild(p, i)) = root;
+        if (!fail) {
+          target->fail = root;
         }
-        q.push(AcChild(p, i));
-      }
-    } // for
-  }   // while
+        q.push(target);
+      } // if
+    }   // for
+  }     // while
 }
 
-static void BuildOutputPointer(AcNode *root) {}
+static bool HasPattern(const std::vector<std::string> &pattern,
+                       const std::string &target) {
+  for (int i = 0; i < pattern.size(); i++) {
+    if (pattern[i] == target) {
+      return true;
+    }
+  }
+  return false;
+}
+
+static void BuildOutputPointer(AcNode *root,
+                               const std::vector<std::string> &pattern) {
+  std::queue<AcNode *> q;
+  root->output = NULL;
+  q.push(root);
+
+  while (!q.empty()) {
+    AcNode *p = q.front();
+    q.pop();
+
+    for (int i = 0; i < CHILD_MAX; i++) {
+      AcNode *target = p->child[i];
+      if (target) {
+        AcNode *fail = target->fail;
+        std::string str = "";
+        if (fail) {
+          str = GetString(fail);
+        }
+        if (HasPattern(pattern, str)) {
+          target->output = fail;
+        } else {
+          target->output = fail->output;
+        }
+        q.push(target);
+      } // if
+    }   // for
+  }     // while
+}
 
 AcNode *AhoCorasickAutomataNew(const std::vector<std::string> &pattern) {
-  AcNode *root = new AcNode();
-  for (int i = 0; i < pattern.size(); i++)
-    Insert(root, pattern[i]);
+  AcNode *root = BuildPrefixTree(pattern);
   BuildFailPointer(root);
-  BuildOutputPointer(root);
+  BuildOutputPointer(root, pattern);
   return root;
 }
 
 std::unordered_map<std::string, std::vector<int>>
 AhoCorasickAutomataMatch(AcNode *root, const std::string &text) {
-  std::unordered_map<std::string, std::vector<int>> pos;
+  std::unordered_map<std::string, std::vector<int>> match;
   int i = 0;
   AcNode *p = root;
 
   while (i < text.length()) {
-    int index = (int)text[i] - (int)'a';
-    while (!AcChild(p, text[i]) && p != root) {
+    int pos = child_position(text[i]);
+    while (!p->child[pos] && p != root) {
       p = p->fail;
     }
 
-    if (p->child[index] == NULL) {
-      p = &ac->root;
+    if (!p->child[pos]) {
+      p = root;
     } else {
-      //若点p的孩子节点index存在
-      //即该孩子节点与文本下标i处字符匹配
-      p = p->child[index];
-      Node *tmp = p;
+      p = p->child[pos];
+      AcNode *node = p;
 
-      // http://store.steampowered.com/app/252490/Rust/?snr=1_4_4__128
-
-      while (tmp != &ac->root) {
-        //通过指针tmp找出所有可能与文本下标i处匹配的字符串
-        //因为除了p的孩子节点index 还可能存在其他字符串此时也与i处匹配
-        //
-        //在文档"AC自动机算法详解" 作者"极限定律"中
-        //第一个有问题的地方是:
-        //原文中该处的判断条件是:
-        // while(tmp != root and tmp->a_cnt == 0)
-        //(原文与本文中的变量名不一样 但代码的含义没有曲解)
-        //但是经过测试这里tmp->a_cnt == 0的条件恰好应该是相反的
-        //即tmp->a_cnt != 0 也可写作tmp->a_cnt(该值为正时即true)
-        if (tmp->count) {
-          std::string s = GetString(tmp);
-          pos.insert(std::make_pair(s, i - s.length() + 1));
-          //文档"AC自动机算法详解" 作者"极限定律"中
-          //第二个有问题的地方则是:
-          //原文中该处有一处操作:
-          // tmp->a_cnt = 0;
-          //(原文与本文中的变量名不一样 但代码的含义没有曲解)
-          //但我不太明白为何要将字典树中该字符串删除
-          //也可能只求字符串第一次出现的位置
-          //本文的代码中没有删除字符串
-          //测试用例中可以看出本文的代码找出了所有匹配到的字符串位置
+      while (node != root) {
+        if (node->is_leaf) {
+          std::string str = GetString(node);
+          std::vector<int> match_pos;
+          if (match.find(str) != match.end()) {
+            match_pos = match[str];
+          }
+          match_pos.push_back(i - str.length() + 1);
+          match.insert(std::make_pair(str, match_pos));
         }
-        tmp = tmp->fail;
+        node = node->fail;
+        break;
       }
     }
-    ++i;
+    i++;
   }
-  return pos;
+  return match;
 }
 
 // not implement

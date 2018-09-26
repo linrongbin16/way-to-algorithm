@@ -15,8 +15,7 @@ struct AcNode {
   AcNode *father;
   AcNode *child[CHILD_MAX];
   AcNode *fail;
-  AcNode *output[MAX];
-  int output_cnt;
+  AcNode *output;
 
   AcNode();
   AcNode(const AcNode &other);
