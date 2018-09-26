@@ -8,25 +8,16 @@
 #include <vector>
 
 #define INVALID_CHAR '@'
-
-#define get_child(acnode, c)                                                   \
-  ((acnode)->child[(int)(std::tolower(c)) - (int)('a')])
-#define set_child(acnode, c, childnode)                                        \
+#define add_output(acnode, outnode)                                            \
   do {                                                                         \
-    (acnode)->child[(int)(std::tolower(c)) - (int)('a')] = childnode;          \
+    (acnode)->output[(acnode)->output_cnt++] = outnode;                        \
   } while (0)
 
-#define get_child_by_index(acnode, i) ((acnode)->child[i])
-#define get_char(acnode) (((acnode) == NULL) ? INVALID_CHAR : (acnode)->ch)
-#define get_string(acnode) (((acnode) == NULL) ? "" : (acnode)->value)
-#define is_leaf(acnode) (((acnode) == NULL) ? false : (acnode)->is_leaf)
-#define get_father(acnode) (((acnode) == NULL) ? NULL : (acnode)->father)
-#define get_fail(acnode) (((acnode) == NULL) ? NULL : (acnode)->fail)
-#define add_output(acnode) (((acnode) == NULL) ? NULL : (acnode)->fail)
+#define foreach_output(acnode, i)                                              \
+  for (int(i) = 0; (i) < (acnode)->output_cnt; (i)++)
 
 AcNode::AcNode() {
   ch = INVALID_CHAR;
-  value = "";
   is_leaf = false;
   father = NULL;
   std::memset(child, 0, sizeof(AcNode *) * CHILD_MAX);
@@ -37,7 +28,6 @@ AcNode::AcNode() {
 
 AcNode::AcNode(const AcNode &other) {
   ch = other.ch;
-  value = other.value;
   is_leaf = other.is_leaf;
   father = other.father;
   std::memcpy(child, other.child, sizeof(AcNode *) * CHILD_MAX);
@@ -50,7 +40,6 @@ AcNode &AcNode::operator=(const AcNode &other) {
   if (this == &other)
     return *this;
   ch = other.ch;
-  value = other.value;
   is_leaf = other.is_leaf;
   father = other.father;
   std::memcpy(child, other.child, sizeof(AcNode *) * CHILD_MAX);
@@ -60,20 +49,68 @@ AcNode &AcNode::operator=(const AcNode &other) {
   return *this;
 }
 
+static AcNode *&AcChild(AcNode *node, char c) {
+  assert(node);
+  assert(std::islower(c));
+  return node->child[(int)c - (int)'a'];
+}
+
+static AcNode *&AcChild(AcNode *node, int i) {
+  assert(node);
+  return node->child[i];
+}
+
+static bool &AcLeaf(AcNode *node) {
+  assert(node);
+  return node->is_leaf;
+}
+
+static AcNode *&AcFather(AcNode *node) {
+  assert(node);
+  return node->father;
+}
+
+static AcNode *&AcFail(AcNode *node) {
+  assert(node);
+  return node->fail;
+}
+
+static int &AcOutputCnt(AcNode *node) {
+  assert(node);
+  return node->output_cnt;
+}
+
+static AcNode *&AcOutput(AcNode *node, int i) {
+  assert(node);
+  return node->output[i];
+}
+
+static char &AcChar(AcNode *node) {
+  assert(node);
+  return node->ch;
+}
+
+static std::string AcString(AcNode *node) {
+  std::string str;
+  for (AcNode *i = node; i; i = AcFather(i)) {
+    str = std::string() + AcChar(i) + str;
+  }
+  return str;
+}
+
 static void Insert(AcNode *root, const std::string &pattern) {
   AcNode *p = root;
   for (int i = 0; i < pattern.length(); i++) {
     char ch = pattern[i];
-    if (get_child(p, ch)) {
-      set_child(p, ch, new AcNode());
-      get_child(p, ch)->ch = ch;
-      get_child(p, ch)->value = p->value + ch;
+    if (AcChild(p, ch)) {
+      AcChild(p, ch) = new AcNode();
+      AcChar(p) = ch;
       if (i == pattern.length() - 1) {
-        get_child(p, ch)->is_leaf = true;
+        AcLeaf(AcChild(p, ch)) = true;
       }
-      get_child(p, ch)->father = p;
+      AcFather(AcChild(p, ch)) = p;
     }
-    p = get_child(p, pattern[i]);
+    p = AcChild(p, ch);
   }
 }
 
@@ -87,49 +124,44 @@ static void BuildFailPointer(AcNode *root) {
     q.pop();
 
     for (int i = 0; i < CHILD_MAX; i++) {
-      if (get_child_by_index(p, i) != NULL) {
+      if (AcChild(p, i) != NULL) {
         AcNode *father = p->father;
         while (father) {
-          if (get_child_by_index(father, i) != NULL) {
-            get_child_by_index(p, i)->fail = get_child_by_index(father, i);
+          if (AcChild(father, i) != NULL) {
+            AcFail(AcChild(p, i)) = AcChild(father, i);
             break;
           }
-          father = father->fail;
+          father = AcFail(father);
         }
-        if (!f) {
-          //若f为空则节点i的失败指针指向根节点
-          p->child[i]->fail = &ac->root;
+        if (!father) {
+          AcFail(AcChild(p, i)) = root;
         }
-        q.push(p->child[i]);
+        q.push(AcChild(p, i));
       }
     } // for
   }   // while
 }
 
-ACAutomation *ACAutomationNew(const std::vector<std::string> &str) {
-  ACAutomation *ac = new ACAutomation();
-  // 建立AC自动机
-  // 插入待查寻字符串
-  // 建立失败路径
-  for (int i = 0; i < str.size(); i++)
-    Insert(ac, str[i]);
-  FailPath(ac);
-  return ac;
+static void BuildOutputPointer(AcNode *root) {}
+
+AcNode *AhoCorasickAutomataNew(const std::vector<std::string> &pattern) {
+  AcNode *root = new AcNode();
+  for (int i = 0; i < pattern.size(); i++)
+    Insert(root, pattern[i]);
+  BuildFailPointer(root);
+  BuildOutputPointer(root);
+  return root;
 }
 
 std::unordered_map<std::string, std::vector<int>>
-ACAutomationMatch(ACAutomation *ac, const std::string &text) {
-  //扫描文本t
-  //返回其中出现的字典树中的字符串及其位置 存储于映射表pos中
+AhoCorasickAutomataMatch(AcNode *root, const std::string &text) {
   std::unordered_map<std::string, std::vector<int>> pos;
   int i = 0;
-  Node *p = &ac->root;
+  AcNode *p = root;
 
   while (i < text.length()) {
     int index = (int)text[i] - (int)'a';
-    while (!p->child[index] && p != &ac->root) {
-      //若字典树中该节点不存在
-      //则沿着fail指针递归 直到回到根节点
+    while (!AcChild(p, text[i]) && p != root) {
       p = p->fail;
     }
 
@@ -176,5 +208,5 @@ ACAutomationMatch(ACAutomation *ac, const std::string &text) {
 }
 
 // not implement
-void ACAutomationFree(ACAutomation *ac) { (void)ac; }
+void AhoCorasickAutomataFree(AcNode *root) { (void)root; }
 

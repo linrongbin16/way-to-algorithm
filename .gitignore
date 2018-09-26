@@ -1,9 +1,3 @@
-.temp
-.tags
-tags
-tags.lock
-tags.temp
-
 *.log
 *.out
 *.o
@@ -60,6 +54,11 @@ _DS_Store
 Thumbs.db
 bin
 .bin
+.temp
+.tags
+tags
+tags.lock
+tags.temp
 
 package.json
 package-lock.json

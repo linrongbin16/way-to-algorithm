@@ -11,7 +11,6 @@
 
 struct AcNode {
   char ch;
-  std::string value;
   bool is_leaf;
   AcNode *father;
   AcNode *child[CHILD_MAX];
