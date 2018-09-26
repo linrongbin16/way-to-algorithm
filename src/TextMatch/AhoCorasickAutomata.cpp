@@ -5,7 +5,6 @@
 #include <queue>
 #include <string>
 #include <unordered_map>
-#include <vector>
 
 #define INVALID_CHAR '@'
 #define child_position(c) ((assert(std::islower(c))), (int)(c) - (int)'a')
@@ -16,7 +15,8 @@ AcNode::AcNode() {
   father = NULL;
   std::memset(child, 0, sizeof(AcNode *) * CHILD_MAX);
   fail = NULL;
-  output = NULL;
+  std::memset(output, 0, sizeof(AcNode *) * MAX);
+  output_cnt = 0;
 }
 
 AcNode::AcNode(const AcNode &other) {
@@ -25,7 +25,8 @@ AcNode::AcNode(const AcNode &other) {
   father = other.father;
   std::memcpy(child, other.child, sizeof(AcNode *) * CHILD_MAX);
   fail = other.fail;
-  output = other.output;
+  std::memcpy(output, other.output, sizeof(AcNode *) * MAX);
+  output_cnt = other.output_cnt;
 }
 
 AcNode &AcNode::operator=(const AcNode &other) {
@@ -36,30 +37,35 @@ AcNode &AcNode::operator=(const AcNode &other) {
   father = other.father;
   std::memcpy(child, other.child, sizeof(AcNode *) * CHILD_MAX);
   fail = other.fail;
-  output = other.output;
+  std::memcpy(output, other.output, sizeof(AcNode *) * MAX);
+  output_cnt = other.output_cnt;
   return *this;
 }
 
 static std::string GetString(AcNode *node) {
-  std::string str;
+  std::string s;
   for (AcNode *i = node; i; i = i->father) {
-    str = std::string() + i->ch + str;
+    s = std::string() + i->ch + s;
   }
-  return str;
+  return s;
 }
 
-static void Insert(AcNode *root, const std::string &pattern) {
+static void Insert(AcNode *root, const std::string &word) {
   AcNode *p = root;
-  for (int i = 0; i < pattern.length(); i++) {
-    char ch = pattern[i];
+  for (int i = 0; i < word.length(); i++) {
+    char ch = word[i];
     int pos = child_position(ch);
+    // 若p还没有ch这个孩子节点
+    // 则新建该孩子节点
     if (!p->child[pos]) {
       p->child[pos] = new AcNode();
       p->child[pos]->ch = ch;
-      if (i == pattern.length() - 1) {
+      p->child[pos]->father = p;
+      // 标记该节点为叶子节点
+      // 表示前缀树中某字符串的末尾字符
+      if (i == word.length() - 1) {
         p->child[pos]->is_leaf = true;
       }
-      p->child[pos]->father = p;
     }
     p = p->child[pos];
   }
@@ -75,8 +81,18 @@ static AcNode *BuildPrefixTree(const std::vector<std::string> &pattern) {
 
 static void BuildFailPointer(AcNode *root) {
   std::queue<AcNode *> q;
+
+  // root节点fail指针为NULL
   root->fail = NULL;
-  q.push(root);
+
+  // root节点的孩子节点的fail指针指向root
+  for (int i = 0; i < CHILD_MAX; i++) {
+    AcNode *target = root->child[i];
+    if (target) {
+      target->fail = root;
+      q.push(target);
+    }
+  }
 
   while (!q.empty()) {
     AcNode *p = q.front();
@@ -85,28 +101,28 @@ static void BuildFailPointer(AcNode *root) {
     for (int i = 0; i < CHILD_MAX; i++) {
       AcNode *target = p->child[i];
       if (target) {
+        q.push(target);
+
         AcNode *fail = p->fail;
-        while (fail) {
-          if (fail->child[i]) {
-            // father->child[i]->ch == target->ch
-            target->fail = fail->child[i];
-            break;
-          }
+        AcNode *fail_child_i = fail->child[i];
+        while (!fail_child_i && fail != root) {
           fail = fail->fail;
+          fail_child_i = fail->child[i];
         }
-        if (!fail) {
+        if (fail_child_i) {
+          target->fail = fail_child_i;
+        } else {
           target->fail = root;
         }
-        q.push(target);
-      } // if
-    }   // for
-  }     // while
+      }
+    } // for
+  }   // while
 }
 
 static bool HasPattern(const std::vector<std::string> &pattern,
-                       const std::string &target) {
+                       const std::string s) {
   for (int i = 0; i < pattern.size(); i++) {
-    if (pattern[i] == target) {
+    if (s == pattern[i]) {
       return true;
     }
   }
@@ -116,8 +132,18 @@ static bool HasPattern(const std::vector<std::string> &pattern,
 static void BuildOutputPointer(AcNode *root,
                                const std::vector<std::string> &pattern) {
   std::queue<AcNode *> q;
-  root->output = NULL;
-  q.push(root);
+
+  // root节点output指针数量为0
+  root->output_cnt = 0;
+
+  // root节点的孩子节点的fail指针指向root
+  for (int i = 0; i < CHILD_MAX; i++) {
+    AcNode *target = root->child[i];
+    if (target) {
+      target->fail = root;
+      q.push(target);
+    }
+  }
 
   while (!q.empty()) {
     AcNode *p = q.front();
@@ -126,20 +152,22 @@ static void BuildOutputPointer(AcNode *root,
     for (int i = 0; i < CHILD_MAX; i++) {
       AcNode *target = p->child[i];
       if (target) {
-        AcNode *fail = target->fail;
-        std::string str = "";
-        if (fail) {
-          str = GetString(fail);
-        }
-        if (HasPattern(pattern, str)) {
-          target->output = fail;
-        } else {
-          target->output = fail->output;
-        }
         q.push(target);
-      } // if
-    }   // for
-  }     // while
+
+        AcNode *fail = p->fail;
+        AcNode *fail_child_i = fail->child[i];
+        while (!fail_child_i && fail != root) {
+          fail = fail->fail;
+          fail_child_i = fail->child[i];
+        }
+        if (fail_child_i) {
+          target->fail = fail_child_i;
+        } else {
+          target->fail = root;
+        }
+      }
+    } // for
+  }   // while
 }
 
 AcNode *AhoCorasickAutomataNew(const std::vector<std::string> &pattern) {
@@ -156,33 +184,52 @@ AhoCorasickAutomataMatch(AcNode *root, const std::string &text) {
   AcNode *p = root;
 
   while (i < text.length()) {
-    int pos = child_position(text[i]);
-    while (!p->child[pos] && p != root) {
+    char ch = text[i];
+    AcNode *pc = p->child[child_position(ch)];
+
+    // 当匹配失败时沿着失败指针跳转
+    while (!pc) {
       p = p->fail;
-    }
-
-    if (!p->child[pos]) {
-      p = root;
-    } else {
-      p = p->child[pos];
-      AcNode *node = p;
-
-      while (node != root) {
-        if (node->is_leaf) {
-          std::string str = GetString(node);
-          std::vector<int> match_pos;
-          if (match.find(str) != match.end()) {
-            match_pos = match[str];
-          }
-          match_pos.push_back(i - str.length() + 1);
-          match.insert(std::make_pair(str, match_pos));
-        }
-        node = node->fail;
+      pc = p->child[child_position(ch)];
+      // 当跳转回root节点时说明不存在匹配
+      // 从text的下个位置重新匹配
+      if (p == root && !pc) {
+        i++;
         break;
       }
+    } // while
+
+    // 无论是正常的沿着前缀树到达pc
+    // 还是沿着失败指针跳转到pc
+    // 最终找到合适的匹配位置pc
+    if (pc) {
+      p = pc;
+      i++;
+
+      // 若p为叶子节点则将该位置加入成功匹配结果
+      if (p->is_leaf) {
+        std::string s = GetString(p);
+        std::vector<int> match_pos;
+        if (match.find(s) != match.end()) {
+          match_pos = match[s];
+        }
+        match_pos.push_back(i - s.length());
+        match.insert(std::make_pair(s, match_pos));
+      }
+      // 若p上有输出节点则将所有输出节点加入成功匹配结果
+      if (p->output_cnt > 0) {
+        for (int j = 0; j < p->output_cnt; j++) {
+          std::string s = GetString(p->output[j]);
+          std::vector<int> match_pos;
+          if (match.find(s) != match.end()) {
+            match_pos = match[s];
+          }
+          match_pos.push_back(i - s.length());
+          match.insert(std::make_pair(s, match_pos));
+        }
+      }
     }
-    i++;
-  }
+  } // while
   return match;
 }
 

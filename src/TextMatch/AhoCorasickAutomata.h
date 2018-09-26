@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include <unordered_map>
-#include <vector>
 #ifndef MAX
 #define MAX 128
 #endif
@@ -10,12 +9,14 @@
 #endif
 
 struct AcNode {
+  // a-z
   char ch;
   bool is_leaf;
   AcNode *father;
   AcNode *child[CHILD_MAX];
   AcNode *fail;
-  AcNode *output;
+  AcNode *output[MAX];
+  int output_cnt;
 
   AcNode();
   AcNode(const AcNode &other);

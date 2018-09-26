@@ -11,7 +11,7 @@
 
 #### 简单字符串匹配算法
 
-将简单字符串匹配SimpleMatch应用在本问题上，搜索所有模式需要重复$$ k $$次。直接应用SimpleMatch算法的时间复杂度为$$ O_{1} = O(n \cdot m_{sum}) $$。
+将简单字符串匹配SimpleMatch应用在本问题上，搜索所有模式需要重复$$ k $$次，每次的时间复杂度为$$ O(n \cdot m_{i}) $$。直接应用SimpleMatch算法的时间复杂度为$$ O_{1} = O(n \cdot m_{sum}) $$。
 
 ![AhoCorasick1.svg](../res/AhoCorasick1.svg)
 
@@ -22,8 +22,6 @@
 首先用所有$$ pattern $$构造一个前缀树$$ pt $$，如图所示：
 
 ![AhoCorasick2.svg](../res/AhoCorasick2.svg)
-
-![AhoCorasick3.svg](../res/AhoCorasick3.svg)
 
 $$ (1) $$ 从$$ text $$的首个字符$$ text[i = 0] $$开始，将其与第一层以$$ pt[0] $$为根节点的孩子节点匹配，可知$$ text[0] = pt[1] $$，然后$$ i = i + 1 $$向右移动一位，$$ pt $$下一次匹配的位置以$$ pt[1] $$为根节点向下匹配；
 
@@ -43,11 +41,11 @@ $$
 
 考虑优化前缀树，如图所示：
 
-![AhoCorasick4.svg](../res/AhoCorasick4.svg)
+![AhoCorasick3.svg](../res/AhoCorasick3.svg)
 
 $$ (1) $$ $$ text[0 \dots 3] $$与$$ pt[3 \dots 12] $$这一串完成匹配后，仔细观察可以发现，其实$$ text[1 \dots 4] = pt[2 \dots 11] $$；
 
-![AhoCorasick5.svg](../res/AhoCorasick5.svg)
+![AhoCorasick4.svg](../res/AhoCorasick4.svg)
 
 $$ (2) $$ 在构造前缀树时我们已知$$ pt[2 \dots 9] = pt[7 \dots 12] $$，$$ pt[2 \dots 9] $$的长度为$$ 3 $$。那么我们可以从前缀树中字符串的末尾字符位置$$ pt[12] $$直接跳到$$ pt[9] $$。这时必然有$$ text[1 \dots 3] = pt[2 \dots 9] $$，继续向右匹配发现$$ text[4] = pt[11] $$，可知$$ text[1 \dots 4] = pt[2 \dots 11] $$。图中红色的连线称为失败链接/失败指针$$ failure link $$；
 
@@ -55,7 +53,7 @@ $$ (2) $$ 在构造前缀树时我们已知$$ pt[2 \dots 9] = pt[7 \dots 12] $$�
 
 构造失败指针的核心在于匹配文本失败时，希望避免总是从前缀树的根部重新开始匹配。失败指针要么指向一个与当前位置上字符串相同的最长的后缀字符串（这样的指针就是后缀指针），要么指向前缀树的根节点。比如下图中$$ pt[2 \dots 9] = "oar" $$是$$ pt[3 \dots 12] = "soar" $$的后缀字符串，因此$$ pt[12] $$的失败指针指向$$ pt[9] $$。前缀树中找不到$$ pt[3 \dots 7] = "so" $$的最长后缀字符串（也可以认为最长后缀字符串为空），因此$$ pt[7] $$的失败指针指向$$ pt[root] $$。
 
-![AhoCorasick6.svg](../res/AhoCorasick6.svg)
+![AhoCorasick5.svg](../res/AhoCorasick5.svg)
 
 失败指针将匹配的时间复杂度降低到$$ O_{3} = O(m_{sum}) + O(n) $$。
 
@@ -63,7 +61,7 @@ $$ (2) $$ 在构造前缀树时我们已知$$ pt[2 \dots 9] = pt[7 \dots 12] $$�
 
 除了失败指针，考虑在前缀树上建立输出指针来优化，下图中蓝色线从节点$$ pt[i] $$指向节点$$ pt[j] $$，其中$$ pt[j] $$是前缀树中的字符串（红色节点）$$ \beta $$的末尾字符，设$$ pt[i] $$是字符串$$ \alpha $$的末尾字符，满足$$ \beta $$是$$ \alpha $$的后缀字符串，但不必是最长的。
 
-![AhoCorasick7.svg](../res/AhoCorasick7.svg)
+![AhoCorasick6.svg](../res/AhoCorasick6.svg)
 
 显然在匹配时，若前缀树的当前节点上有输出指针，可以立刻直接沿着输出指针找到一个不在当前字符串上（在其他分支的字符串上）的成功匹配。前缀树上每个指针可以有多个输出指针，当一个节点上有输出指针时，我们使用所有的输出指针，找到所有在其他分支的字符串上的所有成功匹配。
 
@@ -91,8 +89,6 @@ $$ (2) $$ 对于前缀树第一层节点，其失败指针指向$$ pt[root] $$�
 
 $$ (3) $$ 对于前缀树中其他的节点$$ pt[i] $$，设该节点的字符为$$ x $$，其父节点为$$ pt[father] $$，且$$ pt[j] $$为$$ pt[father] $$的失败指针。若$$ pt[j] $$有字符为$$ x $$的孩子节点$$ pt[child] $$，则显然$$ pt[child] $$所在的字符串为$$ pt[i] $$所在字符串的最长后缀字符串。因此$$ pt[i] $$的失败指针指向$$ pt[child] $$。若不存在这样的孩子节点，则递归的再考虑$$ pt[j] $$的失败指针，直到失败指针本身是$$ pt[root] $$，则将$$ pt[i] $$的失败指针指向$$ pt[root] $$，递归结束；
 
-![AhoCorasick8.svg](../res/AhoCorasick8.svg)
-
 构造输出指针的过程，是在构造失败指针的同时完成的。初始时令所有节点的输出指针为空，在BFS遍历前缀树上所有节点的过程中：
 
 $$ (1) $$ 前缀树根节点$$ pt[root] $$没有输出指针；
@@ -105,6 +101,8 @@ $$ (2) $$ 对于前缀树中其他的节点$$ pt[i] $$，设其失败指针指�
 
 * https://web.stanford.edu/class/cs166/lectures/02/Small02.pdf
 * https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/
+* http://www.learn4master.com/algorithms/aho-corasick-algorithm
+* http://101.96.10.64/u.cs.biu.ac.il/~amir/PMslides/pattern_matching_lecture_notes_1.pdf
 
 --------
 
