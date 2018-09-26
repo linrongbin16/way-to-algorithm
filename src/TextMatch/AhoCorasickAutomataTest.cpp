@@ -12,6 +12,40 @@ struct Test {
   unordered_map<string, vector<int>> match;
 } tests[] = {
     {
+        "sting",
+        {"i", "in", "tin", "sting"},
+        {
+            {"i", {2}},
+            {"in", {2}},
+            {"tin", {1}},
+            {"sting", {0}},
+        },
+    },
+    {
+        "abedget",
+        {"ab", "about", "at", "ate", "be", "bed", "edge", "get"},
+        {
+            {"ab", {0}},
+            {"about", {}},
+            {"at", {}},
+            {"ate", {}},
+            {"be", {1}},
+            {"bed", {1}},
+            {"edge", {2}},
+            {"get", {4}},
+        },
+    },
+    {
+        "aaaaaaaa",
+        {"a", "aa", "aaa", "aaaa"},
+        {
+            {"a", {0, 1, 2, 3, 4, 5, 6, 7}},
+            {"aa", {1, 2, 3, 4, 5, 6}},
+            {"aaa", {2, 3, 4, 5}},
+            {"aaaa", {3, 4}},
+        },
+    },
+    {
         "asdfasdfasdfasdf",
         {"asdf"},
         {
