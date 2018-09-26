@@ -15,8 +15,7 @@ AcNode::AcNode() {
   father = NULL;
   std::memset(child, 0, sizeof(AcNode *) * CHILD_MAX);
   fail = NULL;
-  std::memset(output, 0, sizeof(AcNode *) * MAX);
-  output_cnt = 0;
+  output = NULL;
 }
 
 AcNode::AcNode(const AcNode &other) {
@@ -25,8 +24,7 @@ AcNode::AcNode(const AcNode &other) {
   father = other.father;
   std::memcpy(child, other.child, sizeof(AcNode *) * CHILD_MAX);
   fail = other.fail;
-  std::memcpy(output, other.output, sizeof(AcNode *) * MAX);
-  output_cnt = other.output_cnt;
+  output = other.output;
 }
 
 AcNode &AcNode::operator=(const AcNode &other) {
@@ -37,8 +35,7 @@ AcNode &AcNode::operator=(const AcNode &other) {
   father = other.father;
   std::memcpy(child, other.child, sizeof(AcNode *) * CHILD_MAX);
   fail = other.fail;
-  std::memcpy(output, other.output, sizeof(AcNode *) * MAX);
-  output_cnt = other.output_cnt;
+  output = other.output;
   return *this;
 }
 
@@ -82,14 +79,16 @@ static AcNode *BuildPrefixTree(const std::vector<std::string> &pattern) {
 static void BuildFailPointer(AcNode *root) {
   std::queue<AcNode *> q;
 
-  // root节点fail指针为NULL
+  // root节点fail/output指针为NULL
   root->fail = NULL;
+  root->output = NULL;
 
   // root节点的孩子节点的fail指针指向root
   for (int i = 0; i < CHILD_MAX; i++) {
     AcNode *target = root->child[i];
     if (target) {
       target->fail = root;
+      target->output = NULL;
       q.push(target);
     }
   }
@@ -116,56 +115,8 @@ static void BuildFailPointer(AcNode *root) {
       } else {
         target->fail = root;
       }
-    } // for
-  }   // while
-}
-
-static bool HasPattern(const std::vector<std::string> &pattern,
-                       const std::string s) {
-  for (int i = 0; i < pattern.size(); i++) {
-    if (s == pattern[i]) {
-      return true;
-    }
-  }
-  return false;
-}
-
-static void BuildOutputPointer(AcNode *root,
-                               const std::vector<std::string> &pattern) {
-  std::queue<AcNode *> q;
-
-  // root节点output指针数量为0
-  root->output_cnt = 0;
-
-  // root节点的孩子节点的fail指针指向root
-  for (int i = 0; i < CHILD_MAX; i++) {
-    AcNode *target = root->child[i];
-    if (target) {
-      target->fail = root;
-      q.push(target);
-    }
-  }
-
-  while (!q.empty()) {
-    AcNode *p = q.front();
-    q.pop();
-
-    for (int i = 0; i < CHILD_MAX; i++) {
-      AcNode *target = p->child[i];
-      if (target) {
-        q.push(target);
-
-        AcNode *fail = p->fail;
-        AcNode *fail_child_i = fail->child[i];
-        while (!fail_child_i && fail != root) {
-          fail = fail->fail;
-          fail_child_i = fail->child[i];
-        }
-        if (fail_child_i) {
-          target->fail = fail_child_i;
-        } else {
-          target->fail = root;
-        }
+      if (target->fail->is_leaf) {
+        target->output = target->fail;
       }
     } // for
   }   // while
@@ -174,7 +125,6 @@ static void BuildOutputPointer(AcNode *root,
 AcNode *AhoCorasickAutomataNew(const std::vector<std::string> &pattern) {
   AcNode *root = BuildPrefixTree(pattern);
   BuildFailPointer(root);
-  BuildOutputPointer(root, pattern);
   return root;
 }
 
@@ -217,17 +167,15 @@ AhoCorasickAutomataMatch(AcNode *root, const std::string &text) {
         match_pos.push_back(i - s.length());
         match.insert(std::make_pair(s, match_pos));
       }
-      // 若p上有输出节点则将所有输出节点加入成功匹配结果
-      if (p->output_cnt > 0) {
-        for (int j = 0; j < p->output_cnt; j++) {
-          std::string s = GetString(p->output[j]);
-          std::vector<int> match_pos;
-          if (match.find(s) != match.end()) {
-            match_pos = match[s];
-          }
-          match_pos.push_back(i - s.length());
-          match.insert(std::make_pair(s, match_pos));
+      // 若p上有输出指针则将输出指针加入成功匹配结果
+      if (p->output) {
+        std::string s = GetString(p->output);
+        std::vector<int> match_pos;
+        if (match.find(s) != match.end()) {
+          match_pos = match[s];
         }
+        match_pos.push_back(i - s.length());
+        match.insert(std::make_pair(s, match_pos));
       }
     }
   } // while
