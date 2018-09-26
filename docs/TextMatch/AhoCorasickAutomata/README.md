@@ -110,7 +110,6 @@ AC自动机的构造时间复杂度为$$ O(m_{sum}) $$，加上匹配的时间�
 * https://web.stanford.edu/class/cs166/lectures/02/Small02.pdf
 * https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/
 * http://www.learn4master.com/algorithms/aho-corasick-algorithm
-* http://101.96.10.64/u.cs.biu.ac.il/~amir/PMslides/pattern_matching_lecture_notes_1.pdf
 
 --------
 
