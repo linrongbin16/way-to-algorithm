@@ -20,6 +20,38 @@ struct Test {
         "asdf",
         {0, 4, 8, 12},
     },
+    {
+        "sting",
+        "in",
+        {2},
+    },
+    {
+        "abedget",
+        "bed",
+        {1},
+    },
+    {
+        "aaaaaaaa",
+        "aaa",
+        {0, 1, 2, 3, 4, 5},
+    },
+    {
+        "shherishers",
+        "he",
+        {2, 7},
+    },
+    {
+        "helloworldgoodbyeworldthisisagoodbookformanycomputersciencestudentihop"
+        "eyouenjoy",
+        "oo",
+        {11, 30, 34},
+    },
+    {
+        "helloworldgoodbyeworldthisisagoodbookformanycomputersciencestudentihop"
+        "eyouenjoy",
+        "world",
+        {5, 17},
+    },
 };
 
 int main() {
@@ -29,3 +61,4 @@ int main() {
   }
   return 0;
 }
+
