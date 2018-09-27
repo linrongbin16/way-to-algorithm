@@ -5,6 +5,7 @@
 #include <queue>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 #define INVALID_CHAR '@'
 #define child_position(c) ((assert(std::islower(c))), (int)(c) - (int)'a')
@@ -184,4 +185,3 @@ AhoCorasickAutomataMatch(AcNode *root, const std::string &text) {
 
 // not implement
 void AhoCorasickAutomataFree(AcNode *root) { (void)root; }
-

@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <unordered_map>
+#include <vector>
 #ifndef MAX
 #define MAX 128
 #endif
@@ -31,4 +32,3 @@ void AhoCorasickAutomataFree(AcNode *root);
 // match text with AC automation
 std::unordered_map<std::string, std::vector<int>>
 AhoCorasickAutomataMatch(AcNode *root, const std::string &text);
-
