@@ -18,7 +18,7 @@ Kruskal算法是一种贪心算法。初始时将图$$ G $$的边集$$ E $$按�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/GraphTheory/MinimumSpanningTree/Kruskal.hpp)
+[import, lang:"c_cpp"](../../../../src/GraphTheory/MinimumSpanningTree/Kruskal.h)
 
 #### 测试
 

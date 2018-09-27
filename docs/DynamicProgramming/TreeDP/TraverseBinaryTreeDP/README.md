@@ -53,7 +53,7 @@ $$ (2) $$向下可达的所有节点的权值和：
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.hpp)
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.h)
 
 #### 测试
 
