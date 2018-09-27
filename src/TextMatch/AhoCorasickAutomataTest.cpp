@@ -41,9 +41,9 @@ struct Test {
         {"a", "aa", "aaa", "aaaa"},
         {
             {"a", {0, 1, 2, 3, 4, 5, 6, 7}},
-            {"aa", {1, 2, 3, 4, 5, 6}},
-            {"aaa", {2, 3, 4, 5}},
-            {"aaaa", {3, 4}},
+            {"aa", {0, 1, 2, 3, 4, 5, 6}},
+            {"aaa", {0, 1, 2, 3, 4, 5}},
+            {"aaaa", {0, 1, 2, 3, 4}},
         },
     },
     {
@@ -89,7 +89,6 @@ void AssertEqual(vector<int> s1, vector<int> s2) {
   sort(s1.begin(), s1.end());
   sort(s2.begin(), s2.end());
   assert(s1.size() == s2.size());
-  assert(s1 == s2);
   for (int i = 0; i < s1.size(); i++) {
     assert(s1[i] == s2[i]);
   }
@@ -134,6 +133,7 @@ int main() {
   for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
     Test &t = tests[i];
 
+	cout << "i: " << i << endl;
     AcNode *root = AhoCorasickAutomataNew(t.pattern);
     AssertEqual(AhoCorasickAutomataMatch(root, t.text), t.match);
     AhoCorasickAutomataFree(root);

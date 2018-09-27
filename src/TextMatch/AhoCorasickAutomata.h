@@ -10,6 +10,7 @@
 #endif
 
 struct AcNode {
+  int code;
   // a-z
   char ch;
   bool is_leaf;
@@ -18,7 +19,7 @@ struct AcNode {
   AcNode *fail;
   AcNode *output;
 
-  AcNode();
+  AcNode(int tag);
   AcNode(const AcNode &other);
   AcNode &operator=(const AcNode &other);
 };
@@ -32,3 +33,4 @@ void AhoCorasickAutomataFree(AcNode *root);
 // match text with AC automation
 std::unordered_map<std::string, std::vector<int>>
 AhoCorasickAutomataMatch(AcNode *root, const std::string &text);
+
