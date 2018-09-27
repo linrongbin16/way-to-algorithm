@@ -80,7 +80,7 @@ struct Test {
             {"oo", {11, 30, 34}},
             {"world", {5, 17}},
             {"good", {10, 29}},
-            {"i", {24, 26, 40, 48}},
+            {"i", {24, 26, 54, 66}},
         },
     },
 };
@@ -129,11 +129,24 @@ void AssertEqual(unordered_map<string, vector<int>> m1,
   }
 }
 
+void DumpResult(const unordered_map<string, vector<int>> &result) {
+  cout << endl << "dump size: " << result.size() << endl;
+  for (auto i = result.begin(); i != result.end(); i++) {
+    string key = i->first;
+    vector<int> val = i->second;
+    cout << "\tkey:" << key << endl;
+    cout << "\tval:";
+    for (int j = 0; j < val.size(); j++) {
+      cout << "\t" << val[j];
+    }
+    cout << endl;
+  }
+}
+
 int main() {
   for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
     Test &t = tests[i];
 
-	cout << "i: " << i << endl;
     AcNode *root = AhoCorasickAutomataNew(t.pattern);
     AssertEqual(AhoCorasickAutomataMatch(root, t.text), t.match);
     AhoCorasickAutomataFree(root);
