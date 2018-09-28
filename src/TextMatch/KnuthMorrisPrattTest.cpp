@@ -26,7 +26,6 @@ struct Test {
 int main() {
   for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
     Test &t = tests[i];
-	cout << "i: " << i << endl;
     assert(KnuthMorrisPratt(t.text, t.pattern) == t.pos);
   }
   return 0;

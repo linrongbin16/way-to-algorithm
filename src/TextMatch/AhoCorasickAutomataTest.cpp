@@ -85,15 +85,6 @@ struct Test {
     },
 };
 
-void AssertEqual(vector<int> s1, vector<int> s2) {
-  sort(s1.begin(), s1.end());
-  sort(s2.begin(), s2.end());
-  assert(s1.size() == s2.size());
-  for (int i = 0; i < s1.size(); i++) {
-    assert(s1[i] == s2[i]);
-  }
-}
-
 void AssertEqual(unordered_map<string, vector<int>> m1,
                  unordered_map<string, vector<int>> m2) {
 
@@ -125,21 +116,7 @@ void AssertEqual(unordered_map<string, vector<int>> m1,
     vector<int> s1 = i->second;
     assert(m2.find(k1) != m2.end());
     vector<int> s2 = m2[k1];
-    AssertEqual(s1, s2);
-  }
-}
-
-void DumpResult(const unordered_map<string, vector<int>> &result) {
-  cout << endl << "dump size: " << result.size() << endl;
-  for (auto i = result.begin(); i != result.end(); i++) {
-    string key = i->first;
-    vector<int> val = i->second;
-    cout << "\tkey:" << key << endl;
-    cout << "\tval:";
-    for (int j = 0; j < val.size(); j++) {
-      cout << "\t" << val[j];
-    }
-    cout << endl;
+    assert(s1 == s2);
   }
 }
 

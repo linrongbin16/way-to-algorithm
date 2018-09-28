@@ -1,9 +1,7 @@
-#include "SimpleMatch.h"
+#include "RabinKarp.h"
 #include <cassert>
 #include <iostream>
 using namespace std;
-
-#define TEST_MAX 1024
 
 struct Test {
   string text;
@@ -11,24 +9,25 @@ struct Test {
   vector<int> pos;
 } tests[] = {
     {"asdfasdfasdfasdf", "asdf", {0, 4, 8, 12}},
-    {"sting", "in", {2}},
-    {"abedget", "bed", {1}},
-    {"aaaaaaaa", "aaa", {0, 1, 2, 3, 4, 5}},
-    {"shherishers", "he", {2, 7}},
-    {"helloworldgoodbyeworldthisisagoodbookformanycomputersciencestudentihop"
-     "eyouenjoy",
+    {"helloworldgoodbyeworldthisisagoodbookformanycomputersciencestudentihopeyo"
+     "uenjoy",
      "oo",
      {11, 30, 34}},
+    {"sting", "in", {2}},
+    {"abedget", "be", {1}},
+    {"aaaaaaaa", "aa", {0, 1, 2, 3, 4, 5, 6}},
+    {"shherishers", "her", {2, 7}},
     {"helloworldgoodbyeworldthisisagoodbookformanycomputersciencestudentihop"
      "eyouenjoy",
-     "world",
-     {5, 17}},
+     "i",
+     {24, 26, 54, 66}},
 };
 
 int main() {
   for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
     Test &t = tests[i];
-    assert(SimpleMatch(t.text, t.pattern) == t.pos);
+    cout << "i: " << i << endl;
+    assert(RabinKarp(t.text, t.pattern) == t.pos);
   }
   return 0;
 }

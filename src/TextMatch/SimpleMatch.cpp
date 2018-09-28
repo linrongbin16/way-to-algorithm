@@ -1,4 +1,5 @@
 #include "SimpleMatch.h"
+#include "Util.h"
 #include <cassert>
 #include <cstring>
 #include <string>
@@ -6,19 +7,14 @@
 
 std::vector<int> SimpleMatch(const std::string &text,
                              const std::string &pattern) {
-  std::vector<int> pos;
+  std::vector<int> match;
   int i, j;
 
   for (i = 0; i < text.length(); i++) {
-    for (j = 0; j < pattern.length(); j++) {
-      if (text[i + j] != pattern[j]) {
-        break;
-      }
-    }
-    if (j == pattern.length()) {
-      pos.push_back(i);
+    if (StringEq(text, i, pattern, 0, pattern.length())) {
+      match.push_back(i);
     }
   }
-  return pos;
+  return match;
 }
 
