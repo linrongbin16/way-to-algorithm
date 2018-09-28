@@ -1,11 +1,14 @@
 #include "Sieve.h"
 #include <cassert>
+#include <iostream>
 #include <list>
 #include <thread>
+#include <utility>
 #include <vector>
+#include <ctime>
 using namespace std;
 
-#define CONCURRENCY 32
+#define CONCURRENCY (thread::hardware_concurrency())
 
 static void AssertPrime(int k) {
   int mod_count = 0;
@@ -17,24 +20,25 @@ static void AssertPrime(int k) {
   assert(mod_count == 2);
 }
 
-static void AssertPrimeRoutine(int i, const vector<int> &prime) {
-  for (int j = 0; j < prime.size(); j++) {
-    if (j % CONCURRENCY == i) {
-      AssertPrime(prime[j]);
+static void AssertPrimeRoutine(const tuple<int, vector<int> *> &args) {
+  int mod = get<0>(args);
+  vector<int> &vec = *get<1>(args);
+  for (int j = 0; j < vec.size(); j++) {
+    if (j % CONCURRENCY == mod && vec[j]) {
+      AssertPrime(j);
     }
   }
 }
 
 int main(void) {
-  vector<int> prime = Sieve(99999);
+  vector<int> prime = Sieve(499999);
 
-  vector<thread> workers;
+  vector<thread *> workers;
   for (int i = 0; i < CONCURRENCY; i++) {
-    thread t = thread(AssertPrimeRoutine, i, &prime);
-    workers.push_back(t);
+    workers.push_back(new thread(AssertPrimeRoutine, make_tuple(i, &prime)));
   }
   for (int i = 0; i < workers.size(); i++) {
-    workers[i].join();
+    workers[i]->join();
   }
   return 0;
 }

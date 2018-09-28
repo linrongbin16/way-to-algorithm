@@ -12,5 +12,6 @@ struct FenwickTree {
 FenwickTree *FenwickTreeNew();
 FenwickTree *FenwickTreeNewFromArray(int *s);
 void FenwickTreeFree(FenwickTree *t);
+void FenwickTreeAdd(FenwickTree *t, int i, int v);
 int FenwickTreeSum(FenwickTree *t, int i);
 

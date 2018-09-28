@@ -11,7 +11,7 @@ static bool ItemCompare(const Item &a, const Item &b) {
     return a.weight < b.weight;
 }
 
-int GroupKnapsack(Item group[MAX][MAX], int *group_n, int n, int tot_weight) {
+int GroupBag(Item group[MAX][MAX], int *group_n, int n, int tot_weight) {
   // f[k][j] 前 k 组重量不超过 j 的最大价值
   int f[MAX][MAX];
 

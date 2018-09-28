@@ -25,7 +25,7 @@ int MinimumMergeCostExtension(int *s, int n) {
     // j范围是[i+1,n]
     for (int j = i + 1; j <= n; ++j)
       for (int k = i; k < j; ++k) {
-        if (f[i][k] == INF or f[k + 1][j] == INF)
+        if (f[i][k] == INF || f[k + 1][j] == INF)
           continue;
         f[i][j] = std::min(f[i][j],
                            f[i][k] + f[k + 1][j] + sum[i][k] + sum[k + 1][j]);

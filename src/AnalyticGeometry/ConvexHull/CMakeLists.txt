@@ -5,4 +5,4 @@ set(SRC_FILE
     GrahamScan.cpp
     )
 
-add_executable(AnalyticGeometry-GrahamScan.exe GrahamScanTest.cpp ${SRC_FILE})
+#add_executable(AnalyticGeometry-GrahamScan.exe GrahamScanTest.cpp ${SRC_FILE})

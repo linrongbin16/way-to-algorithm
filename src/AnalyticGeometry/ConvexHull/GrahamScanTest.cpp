@@ -1,4 +1,6 @@
 #include "GrahamScan.h"
+#include <vector>
+using namespace std;
 
 int main() {
   Node s[26];
