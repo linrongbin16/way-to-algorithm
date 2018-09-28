@@ -17,19 +17,28 @@
 
 ![KnuthMorrisPratt1.svg](../res/KnuthMorrisPratt1.svg)
 
-得到模式$$ pattern $$的每个节点跳转的下标，在KMP算法中，这个跳转的下标数组称为失败函数（Failure Function），或部分匹配表（Partial Match Table）。
+得到模式$$ pattern $$的每个节点跳转的下标，在KMP算法中，这个跳转的下标数组称为失败函数（Failure Function），或部分匹配表（Partial Match Table）。部分匹配表的实质也是最长后缀字符串。
 
-当匹配到$$ text[0 \dots 3] = pattern[0 \dots 3] $$但$$ text[4] \ne pattern[4] $$时，已知$$ pattern[0 \dots 3] $$的最长后缀字符串为$$ pt[0 \dots 1] $$，按照AC自动机的算法，当前的匹配位置是$$ pattern[3] $$，沿着失败指针$$ pattern[3] \rightarrow pattern[1] $$跳转，然后继续尝试匹配$$ pattern[2] $$和$$ text[4] $$。指向前缀树根节点的下标都调整为$$ 0 $$（而不是$$ -1 $$这种无意义的值）。
+当匹配到$$ text[0 \dots 3] = pattern[0 \dots 3] $$但$$ text[4] \ne pattern[4] $$时，已知$$ pattern[0 \dots 3] $$的最长后缀字符串为$$ pt[0 \dots 1] $$，按照AC自动机的算法，当前的匹配位置是$$ pattern[3] $$，沿着失败指针$$ pattern[3] \rightarrow pattern[1] $$跳转，然后继续尝试匹配$$ pattern[2] $$和$$ text[4] $$。指向前缀树根节点的下标都设为$$ -1 $$。
 
 由此可得，当$$ text[i] = pattern[j] $$而在$$ text[i+1] \ne pattern[j+1] $$处匹配失败时，若$$ j = 0 $$则匹配位置不动，文本上的位置向右移动一位$$ i = i + 1 $$；若$$ j \gt 0 $$则匹配位置跳转到$$ j = pmt[j] $$，文本上的位置不动，然后继续尝试匹配$$ text[i+1] $$和$$ pattern[j+1] $$。当$$ text[i] = pattern[j] $$匹配成功（即$$ text[i-m+1 \dots i] = pattern[j-m+1 \dots j] $$），模式的匹配位置仍然沿着失败指针跳转到$$ j = pmt[j] $$，继续匹配。
 
+根据AC自动机中构造前缀树及失败指针的算法可知：
+
+$$
+
+pmt[i] =
+\begin{matrix}
+-1       &   i = 0   \\
+-1       &   0 \lt i \lt m, pattern[pmt[i-1]+1] \ne pattern[i]   \\
+pmt[i-1] + 1 &  0 \lt i \lt m, pattern[pmt[i-1]+1] = pattern[i]
+\end{matrix}
+
+$$
+
+实际编程中为了方便，通常会定义数组$$ next $$，令$$ next[i] = pmt[i-1] $$来方便匹配。
+
 KMP算法的时间复杂度为$$ O(n + m) $$。
-
---------
-
-KMP算法
-
-* https://www.zhihu.com/question/21923021/answer/281346746
 
 --------
 

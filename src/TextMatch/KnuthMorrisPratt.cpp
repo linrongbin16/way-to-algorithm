@@ -2,25 +2,31 @@
 #include <string>
 #include <vector>
 
-static void GenNext(const std::string &pattern, int *next) {
-  next[0] = -1;
-  int i = 0, j = -1;
+// pmt[i] =
+//\begin{matrix}
+//                -1       &   i = 0   \\
+//-1       &   0 \lt i \lt m, pattern[pmt[i-1]+1] \ne pattern[i]   \\
+//pmt[i-1] + 1 &  0 \lt i \lt m, pattern[pmt[i-1]+1] = pattern[i]
+//\end{matrix}
+
+static void BuildPmt(const std::string &pattern, int *pmt) {
+  pmt[0] = -1;
+  int i = 1;
   while (i < pattern.length()) {
-    if (j == -1 || pattern[i] == pattern[j]) {
-      j++;
-      i++;
-      next[i] = j;
+    if (i > 0 && pattern[pmt[i - 1] + 1] == pattern[i]) {
+      pmt[i] = pmt[i - 1] + 1;
     } else {
-      j = next[j];
+      pmt[i] = -1;
     }
+    i++;
   }
 }
 
 std::vector<int> KnuthMorrisPratt(const std::string &text,
                                   const std::string &pattern) {
   std::vector<int> match;
-  int next[MAX];
-  GenNext(pattern, next);
+  int pmt[MAX];
+  BuildPmt(pattern, pmt);
 
   int i = 0;
   int j = 0;
@@ -29,7 +35,7 @@ std::vector<int> KnuthMorrisPratt(const std::string &text,
       i++;
       j++;
     } else {
-      j = next[j];
+      j = pmt[j - 1] + 1;
     }
     if (j == pattern.length()) {
       match.push_back(i - j);

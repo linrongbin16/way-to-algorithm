@@ -14,6 +14,14 @@ struct Test {
      "uenjoy",
      "oo",
      {11, 30, 34}},
+    {"sting", "in", {2}},
+    {"abedget", "be", {1}},
+    {"aaaaaaaa", "aa", {0, 1, 2, 3, 4, 5, 6}},
+    {"shherishers", "her", {2, 7}},
+    {"helloworldgoodbyeworldthisisagoodbookformanycomputersciencestudentihop"
+     "eyouenjoy",
+     "i",
+     {24, 26, 54, 66}},
 };
 
 int main() {
