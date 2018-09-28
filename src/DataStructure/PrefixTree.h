@@ -19,14 +19,14 @@ struct PreNode {
 PreNode *PrefixTreeNew();
 
 // free prefix tree
-void PrefixTreeFree(PreNode *root);
+void PrefixTreeFree(PreNode *t);
 
 // insert word to prefix tree
-void PrefixTreeInsert(PreNode *root, const char *word);
+void PrefixTreeInsert(PreNode *t, const char *word);
 
 // find word from prefix tree
-int PrefixTreeFind(PreNode *root, const char *word);
+int PrefixTreeFind(PreNode *t, const char *word);
 
 // erase word from prefix tree
-void PrefixTreeErase(PreNode *root, const char *word);
+void PrefixTreeErase(PreNode *t, const char *word);
 

@@ -5,7 +5,7 @@
 #define MAX 64
 #endif
 
-static int SegmentTreeInitRec(SegmentTree *t, int root, int s[MAX], int start,
+static int SegmentTreeInitRec(SegNode *t, int root, int s[MAX], int start,
                               int end) {
   if (start == end) {
     t->left[root] = start;
@@ -23,7 +23,7 @@ static int SegmentTreeInitRec(SegmentTree *t, int root, int s[MAX], int start,
   return t->sum[root];
 }
 
-static void SegmentTreeAddRec(SegmentTree *t, int root, int index, int v) {
+static void SegmentTreeAddRec(SegNode *t, int root, int index, int v) {
   if (t->left[root] > index || t->right[root] < index) {
     return;
   }
@@ -39,7 +39,7 @@ static void SegmentTreeAddRec(SegmentTree *t, int root, int index, int v) {
   SegmentTreeAddRec(t, RIGHT_CHILD(root), index, v);
 }
 
-static int SegmentTreeQueryRec(SegmentTree *t, int root, int start, int end) {
+static int SegmentTreeQueryRec(SegNode *t, int root, int start, int end) {
   int mid = (t->left[root] + t->right[root]) / 2;
   if (t->left[root] >= start && t->right[root] <= end) {
     return t->sum[root];
@@ -53,8 +53,8 @@ static int SegmentTreeQueryRec(SegmentTree *t, int root, int start, int end) {
   }
 }
 
-SegmentTree *SegmentTreeNew(int s[MAX], int start, int end) {
-  SegmentTree *t = new SegmentTree();
+SegNode *SegmentTreeNew(int s[MAX], int start, int end) {
+  SegNode *t = new SegNode();
   if (!t) {
     return NULL;
   }
@@ -62,13 +62,13 @@ SegmentTree *SegmentTreeNew(int s[MAX], int start, int end) {
   return t;
 }
 
-void SegmentTreeFree(SegmentTree *t) { delete t; }
+void SegmentTreeFree(SegNode *t) { delete t; }
 
-void SegmentTreeAdd(SegmentTree *t, int index, int value) {
+void SegmentTreeAdd(SegNode *t, int index, int value) {
   SegmentTreeAddRec(t, 0, index, value);
 }
 
-int SegmentTreeQuery(SegmentTree *t, int start, int end) {
+int SegmentTreeQuery(SegNode *t, int start, int end) {
   return SegmentTreeQueryRec(t, 0, start, end);
 }
 

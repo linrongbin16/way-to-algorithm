@@ -7,18 +7,18 @@
 
 // TODO: bugs need fix
 
-struct Node {
+struct RbNode {
   /* 节点颜色 */
   char color;
   /* 节点值 */
   int index;
-  Node *left;
-  Node *right;
-  Node *father;
+  RbNode *left;
+  RbNode *right;
+  RbNode *father;
 };
 
 struct RedBlackTree {
-  Node *root;
+  RbNode *root;
 };
 
 RedBlackTree *RedBlackTreeNew();

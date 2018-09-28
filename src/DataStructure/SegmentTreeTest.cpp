@@ -11,7 +11,7 @@ int main() {
     s[i] = i;
   }
   for (int i = 0; i < MAX; i++) {
-    SegmentTree *t = SegmentTreeNew(s, 0, MAX - 1);
+    SegNode *t = SegmentTreeNew(s, 0, MAX - 1);
     for (int j = 0; j < MAX; j++) {
       int sum = 0;
       SegmentTreeAdd(t, j, j);
