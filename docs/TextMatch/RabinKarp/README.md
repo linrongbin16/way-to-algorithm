@@ -17,15 +17,15 @@
 
 $$
 
-hash(text[0 \dots i+1]) = hash(text[0 \dots i]) \cdots base + text[i+1]
+hash(text[0 \dots i+1]) = hash(text[0 \dots i]) \cdot base + text[i+1]
 
 $$
 
-实际我们想计算的是$$ hash(text[i \dots i+m-1]) $$，当$$ i $$右移一位时，不仅要考虑右边界新加入的字符，还需要考虑左边界离开的字符。一个字符从最右边界一直移动到最左边界，其值乘以$$ base $$共$$ m-1 $$次。因此哈希值要减去$$ base^{m-1} \cdots text[i] $$。特别注意$$ pattern $$长度为$$ 1 $$时$$ base^{m-1} = 1 $$：
+实际我们想计算的是$$ hash(text[i \dots i+m-1]) $$，当$$ i $$右移一位时，不仅要考虑右边界新加入的字符，还需要考虑左边界离开的字符。一个字符从最右边界一直移动到最左边界，其值乘以$$ base $$共$$ m-1 $$次。因此哈希值要减去$$ base^{m-1} \cdot text[i] $$。特别注意$$ pattern $$长度为$$ 1 $$时$$ base^{m-1} = 1 $$：
 
 $$
 
-hash(text[i+1 \dots i+m]) = hash(text[i \dots i+m-1]) \cdots base - base^{m-1} \cdots text[i] + text[i+1]
+hash(text[i+1 \dots i+m]) = hash(text[i \dots i+m-1]) \cdot base - base^{m-1} \cdot text[i] + text[i+1]
 
 $$
 
@@ -33,12 +33,12 @@ $$
 
 $$
 
-hash(text[i+1 \dots i+m]) = (hash(text[i \dots i+m-1]) \cdots base - base^{m-1} \cdots text[i] + text[i+1]) % prime
+hash(text[i+1 \dots i+m]) = (hash(text[i \dots i+m-1]) \cdot base - base^{m-1} \cdot text[i] + text[i+1]) % prime
 
 $$
 
 
-Rabin Fingerprint算法可以连续的处理字符串，在时间复杂度为$$ O(n) $$内求出所有字符串$$ text[i \dots i+m-1] $$的哈希值（其中$$ 0 \ge i \ge n-m+1 $$）。Rabin-Karp算法的时间复杂度为$$ O(n + z \cdots m) $$，其中$$ z $$是模式$$ pattern $$在文本中出现的次数。
+Rabin Fingerprint算法可以连续的处理字符串，在时间复杂度为$$ O(n) $$内求出所有字符串$$ text[i \dots i+m-1] $$的哈希值（其中$$ 0 \ge i \ge n-m+1 $$）。Rabin-Karp算法的时间复杂度为$$ O(n + z \cdot m) $$，其中$$ z $$是模式$$ pattern $$在文本中出现的次数。
 
 --------
 

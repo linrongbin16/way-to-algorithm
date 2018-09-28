@@ -29,7 +29,7 @@ $$ (3) $$ $$ P $$的任意两个元素的交集为空集；
 
 #### 加法原理
 
-集合$$ X $$的元素数量等于$$ X $$的所有部分的元素数量之和，即$$ \mid X \mid = \mid X_1 \mid + \mid X_2 \mid + \cdots + \mid X_n \mid $$。
+集合$$ X $$的元素数量等于$$ X $$的所有部分的元素数量之和，即$$ \mid X \mid = \mid X_1 \mid + \mid X_2 \mid + \dots + \mid X_n \mid $$。
 
 #### 乘法原理
 
@@ -49,7 +49,7 @@ $$
 n! =
 \begin{cases}
 1 & n = 0 \\
-1 \times 2 \times 3 \times \cdots \times n & \forall n \gt 0
+1 \times 2 \times 3 \times \dots \times n & \forall n \gt 0
 \end{cases}
 $$
 
@@ -106,7 +106,7 @@ $$
 P_m^n = \frac{n!}{(n-m)!}
 $$
 
-也写作：$$ A_m^n = \frac{n!}{(n-m)!} $$，维基百科中特别提到中国大陆教材中写做$$ A_n^m $$。特别的当$$ m = n $$时，$$ P_m^n $$称为全排列，$$ P_m^n = 1 \times 2 \times 3 \times \cdots \times n = n! $$。
+也写作：$$ A_m^n = \frac{n!}{(n-m)!} $$，维基百科中特别提到中国大陆教材中写做$$ A_n^m $$。特别的当$$ m = n $$时，$$ P_m^n $$称为全排列，$$ P_m^n = 1 \times 2 \times 3 \times \dots \times n = n! $$。
 
 #### 数学符号表
 
