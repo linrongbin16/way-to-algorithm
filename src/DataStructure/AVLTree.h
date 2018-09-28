@@ -3,18 +3,18 @@
 #include <algorithm>
 #include <cassert>
 
-struct Node {
+struct AvlNode {
   /*节点下标号*/
   int index;
   /*节点高度值*/
   int depth;
   /*左右孩子节点*/
-  Node *left;
-  Node *right;
+  AvlNode *left;
+  AvlNode *right;
 };
 
 struct AVLTree {
-  Node *root;
+  AvlNode *root;
 };
 
 // create AVLTree

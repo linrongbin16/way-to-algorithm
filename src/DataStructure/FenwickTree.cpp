@@ -5,7 +5,7 @@ static int LowBit(int i) { return i & (-i); }
 FenwickTree *FenwickTreeNew() {
   FenwickTree *t = new FenwickTree();
   if (!t) {
-    return nullptr;
+    return NULL;
   }
 
   memset(t->bit, 0, MAX * sizeof(int));
@@ -15,7 +15,7 @@ FenwickTree *FenwickTreeNew() {
 FenwickTree *FenwickTreeNewFromArray(int s[MAX]) {
   FenwickTree *t = new FenwickTree();
   if (!t) {
-    return nullptr;
+    return NULL;
   }
 
   memset(t->bit, 0, MAX * sizeof(int));

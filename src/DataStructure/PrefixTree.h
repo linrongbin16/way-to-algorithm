@@ -2,28 +2,31 @@
 #ifndef MAX
 #define MAX 128
 #endif
+#ifndef CHILD_MAX
+#define CHILD_MAX 26
+#endif
 #include <cassert>
 #include <cstring>
 
-struct PrefixTree {
+struct PreNode {
   char letter;
   const char *word;
   /* next letter if exist */
-  PrefixTree *child[26];
+  PreNode *child[CHILD_MAX];
 };
 
 // create prefix tree
-PrefixTree *PrefixTreeNew();
+PreNode *PrefixTreeNew();
 
 // free prefix tree
-void PrefixTreeFree(PrefixTree *t);
+void PrefixTreeFree(PreNode *root);
 
 // insert word to prefix tree
-void PrefixTreeInsert(PrefixTree *t, const char *word);
+void PrefixTreeInsert(PreNode *root, const char *word);
 
 // find word from prefix tree
-int PrefixTreeFind(PrefixTree *t, const char *word);
+int PrefixTreeFind(PreNode *root, const char *word);
 
 // erase word from prefix tree
-void PrefixTreeErase(PrefixTree *t, const char *word);
+void PrefixTreeErase(PreNode *root, const char *word);
 

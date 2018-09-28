@@ -2,7 +2,6 @@
 #ifndef MAX
 #define MAX 1024
 #endif
-#include <cstring>
 
 struct Set {
   int father[MAX];

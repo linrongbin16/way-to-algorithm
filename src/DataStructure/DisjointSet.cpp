@@ -17,7 +17,7 @@ static int FindFather(Set *s, int i) {
 Set *DisjointSetNew() {
   Set *s = new Set();
   if (!s) {
-    return nullptr;
+    return NULL;
   }
   for (int i = 0; i < MAX; i++)
     s->father[i] = i;

@@ -14,7 +14,7 @@ const char *dict2[] = {
 };
 
 int main() {
-  PrefixTree *t;
+  PreNode *t;
 
   // part 1
   t = PrefixTreeNew();

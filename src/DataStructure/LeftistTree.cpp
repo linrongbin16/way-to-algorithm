@@ -16,7 +16,7 @@ static void NodeFree(Node *e) {
 
 static Node *NodeMerge(Node *a, Node *b, LeftistTree *t) {
   if (!a && !b)
-    return nullptr;
+    return NULL;
   if (!a) {
     b->tree = t;
     return b;
@@ -47,9 +47,9 @@ static Node *NodeMerge(Node *a, Node *b, LeftistTree *t) {
 LeftistTree *LeftistTreeNew(int (*Compare)(Node *a, Node *b)) {
   LeftistTree *t = new LeftistTree();
   if (!t)
-    return nullptr;
+    return NULL;
   t->cmp = Compare;
-  t->root = nullptr;
+  t->root = NULL;
   t->size = 0;
   return t;
 }
@@ -62,7 +62,7 @@ void LeftistTreeFree(LeftistTree *t) {
 LeftistTree *LeftistTreeMerge(LeftistTree *a, LeftistTree *b) {
   LeftistTree *t = new LeftistTree();
   if (!t)
-    return nullptr;
+    return NULL;
   t->cmp = a->cmp;
   t->size = a->size + b->size;
   t->root = NodeMerge(a->root, b->root, a);
@@ -77,9 +77,9 @@ int LeftistTreePush(LeftistTree *t, int index) {
     return -1;
   e->distance = 0;
   e->index = index;
-  e->left = nullptr;
-  e->right = nullptr;
-  e->tree = nullptr;
+  e->left = NULL;
+  e->right = NULL;
+  e->tree = NULL;
 
   t->root = NodeMerge(t->root, e, t);
   t->size += 1;

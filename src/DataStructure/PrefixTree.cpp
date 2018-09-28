@@ -4,33 +4,33 @@
 
 static int ChildIndex(char letter) { return (int)(letter - 'a'); }
 
-PrefixTree *PrefixTreeNew() {
-  PrefixTree *t = new PrefixTree();
-  if (!t)
+PreNode *PrefixTreeNew() {
+  PreNode *root = new PreNode();
+  if (!root)
     return NULL;
-  t->letter = (char)(-1);
-  t->word = NULL;
-  memset(t->child, 0, sizeof(t->child));
-  return t;
+  root->letter = (char)(-1);
+  root->word = NULL;
+  memset(root->child, 0, sizeof(root->child));
+  return root;
 }
 
-void PrefixTreeFree(PrefixTree *t) {
-  if (!t)
+void PrefixTreeFree(PreNode *root) {
+  if (!root)
     return;
   for (int i = 0; i < 26; i++)
-    PrefixTreeFree(t->child[i]);
-  delete t;
+    PrefixTreeFree(root->child[i]);
+  delete root;
 }
 
-void PrefixTreeInsert(PrefixTree *t, const char *word) {
+void PrefixTreeInsert(PreNode *root, const char *word) {
   int n = strlen(word);
-  PrefixTree *e = t;
+  PreNode *e = root;
   for (int i = 0; i < n; i++) {
     int index = ChildIndex(word[i]);
     if (e->child[index] == NULL) {
-      e->child[index] = new PrefixTree();
+      e->child[index] = new PreNode();
       // initialize e->child[index]
-      PrefixTree *he = e->child[index];
+      PreNode *he = e->child[index];
       he->letter = word[i];
       he->word = NULL;
       memset(he->child, 0, sizeof(he->child));
@@ -42,8 +42,8 @@ void PrefixTreeInsert(PrefixTree *t, const char *word) {
   }
 }
 
-int PrefixTreeFind(PrefixTree *t, const char *word) {
-  PrefixTree *e = t;
+int PrefixTreeFind(PreNode *root, const char *word) {
+  PreNode *e = root;
   int n = strlen(word);
   for (int i = 0; i < n; i++) {
     int index = ChildIndex(word[i]);
@@ -58,8 +58,8 @@ int PrefixTreeFind(PrefixTree *t, const char *word) {
   return 0;
 }
 
-void PrefixTreeErase(PrefixTree *t, const char *word) {
-  PrefixTree *e = t;
+void PrefixTreeErase(PreNode *root, const char *word) {
+  PreNode *e = root;
   int n = strlen(word);
   for (int i = 0; i < n; i++) {
     int index = ChildIndex(word[i]);
