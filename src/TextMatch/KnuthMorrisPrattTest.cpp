@@ -9,7 +9,6 @@ struct Test {
   vector<int> pos;
 } tests[] = {
     {"asdfasdfasdfasdf", "asdf", {0, 4, 8, 12}},
-    {"asdfasdfasdfasdf", "asdf", {0, 4, 8, 12}},
     {"helloworldgoodbyeworldthisisagoodbookformanycomputersciencestudentihopeyo"
      "uenjoy",
      "oo",

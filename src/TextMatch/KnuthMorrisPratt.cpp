@@ -4,7 +4,7 @@
 
 // pmt[i] =
 //\begin{matrix}
-//                -1       &   i = 0   \\
+//                          -1       &   i = 0   \\
 //-1       &   0 \lt i \lt m, pattern[pmt[i-1]+1] \ne pattern[i]   \\
 //pmt[i-1] + 1 &  0 \lt i \lt m, pattern[pmt[i-1]+1] = pattern[i]
 //\end{matrix}
@@ -31,10 +31,12 @@ std::vector<int> KnuthMorrisPratt(const std::string &text,
   int i = 0;
   int j = 0;
   while (i < text.length()) {
-    if (j == -1 || text[i] == pattern[j]) {
+    if (text[i] == pattern[j]) {
       i++;
       j++;
-    } else {
+    } else if (j == 0) {
+      i++;
+    } else if (j > 0) {
       j = pmt[j - 1] + 1;
     }
     if (j == pattern.length()) {
