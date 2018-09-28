@@ -5,11 +5,12 @@
 #endif
 
 struct FenwickTree {
-    /*数组下标从1开始*/
-    int bit[MAX];
+  /*数组下标从1开始*/
+  int bit[MAX];
 };
 
-FenwickTree* FenwickTreeNew();
-FenwickTree* FenwickTreeNewFromArray(int* s);
-void FenwickTreeFree(FenwickTree* t);
-int FenwickTreeSum(FenwickTree* t, int i);
+FenwickTree *FenwickTreeNew();
+FenwickTree *FenwickTreeNewFromArray(int *s);
+void FenwickTreeFree(FenwickTree *t);
+int FenwickTreeSum(FenwickTree *t, int i);
+

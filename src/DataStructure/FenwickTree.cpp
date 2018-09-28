@@ -2,44 +2,46 @@
 
 static int LowBit(int i) { return i & (-i); }
 
-FenwickTree* FenwickTreeNew() {
-    FenwickTree* t = new FenwickTree();
-    if (!t) {
-        return nullptr;
-    }
+FenwickTree *FenwickTreeNew() {
+  FenwickTree *t = new FenwickTree();
+  if (!t) {
+    return nullptr;
+  }
 
-    memset(t->bit, 0, MAX * sizeof(int));
-    return t;
+  memset(t->bit, 0, MAX * sizeof(int));
+  return t;
 }
 
-FenwickTree* FenwickTreeNewFromArray(int s[MAX]) {
-    FenwickTree* t = new FenwickTree();
-    if (!t) {
-        return nullptr;
-    }
+FenwickTree *FenwickTreeNewFromArray(int s[MAX]) {
+  FenwickTree *t = new FenwickTree();
+  if (!t) {
+    return nullptr;
+  }
 
-    memset(t->bit, 0, MAX * sizeof(int));
-    /* 数组下标从1开始 */
-    for (int i = 1; i < MAX; i++) {
-        t->bit[i] = s[i];
-        for (int j = i - 1; j > i - LowBit(i); j--) t->bit[i] += s[i];
-    }
+  memset(t->bit, 0, MAX * sizeof(int));
+  /* 数组下标从1开始 */
+  for (int i = 1; i < MAX; i++) {
+    t->bit[i] = s[i];
+    for (int j = i - 1; j > i - LowBit(i); j--)
+      t->bit[i] += s[i];
+  }
 
-    return t;
+  return t;
 }
 
-void FenwickTreeFree(FenwickTree* t) { delete t; }
+void FenwickTreeFree(FenwickTree *t) { delete t; }
 
-void FenwickTreeAdd(FenwickTree* t, int i, int v) {
-    for (int j = i; j < MAX; j += LowBit(j)) {
-        t->bit[j] += v;
-    }
+void FenwickTreeAdd(FenwickTree *t, int i, int v) {
+  for (int j = i; j < MAX; j += LowBit(j)) {
+    t->bit[j] += v;
+  }
 }
 
-int FenwickTreeSum(FenwickTree* t, int i) {
-    int sum = 0;
-    for (int j = i; j > 0; j -= LowBit(j)) {
-        sum += t->bit[j];
-    }
-    return sum;
+int FenwickTreeSum(FenwickTree *t, int i) {
+  int sum = 0;
+  for (int j = i; j > 0; j -= LowBit(j)) {
+    sum += t->bit[j];
+  }
+  return sum;
 }
+

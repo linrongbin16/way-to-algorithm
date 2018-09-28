@@ -5,7 +5,7 @@
 #include <cstring>
 
 struct Set {
-    int father[MAX];
+  int father[MAX];
 };
 
 // create DisjointSet
@@ -19,3 +19,4 @@ void DisjointSetUnion(Set *s, int i, int j);
 
 // query DisjointSet
 bool DisjointSetQuery(Set *s, int i, int j);
+

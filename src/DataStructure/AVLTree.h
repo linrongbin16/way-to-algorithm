@@ -4,17 +4,17 @@
 #include <cassert>
 
 struct Node {
-    /*节点下标号*/
-    int index;
-    /*节点高度值*/
-    int depth;
-    /*左右孩子节点*/
-    Node *left;
-    Node *right;
+  /*节点下标号*/
+  int index;
+  /*节点高度值*/
+  int depth;
+  /*左右孩子节点*/
+  Node *left;
+  Node *right;
 };
 
 struct AVLTree {
-    Node *root;
+  Node *root;
 };
 
 // create AVLTree
@@ -34,3 +34,4 @@ void AVLTreeErase(AVLTree *t, int index);
 
 // AVLTree depth
 int AVLTreeDepth(AVLTree *t);
+

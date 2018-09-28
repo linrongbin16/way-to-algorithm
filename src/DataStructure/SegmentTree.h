@@ -1,7 +1,7 @@
 #pragma once
 
-#include <assert.h>
 #include <algorithm>
+#include <assert.h>
 #ifndef MAX
 #define MAX 64
 #endif
@@ -11,9 +11,9 @@
 #define FATHER(x) (((x)-1) / 2)
 
 struct SegmentTree {
-    int left[MAX * 3];
-    int right[MAX * 3];
-    int sum[MAX * 3];
+  int left[MAX * 3];
+  int right[MAX * 3];
+  int sum[MAX * 3];
 };
 
 // create segment tree
@@ -27,3 +27,4 @@ void SegmentTreeAdd(SegmentTree *t, int index, int value);
 
 // query segment tree
 int SegmentTreeQuery(SegmentTree *t, int start, int end);
+

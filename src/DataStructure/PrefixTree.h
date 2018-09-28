@@ -6,10 +6,10 @@
 #include <cstring>
 
 struct PrefixTree {
-    char letter;
-    const char *word;
-    /* next letter if exist */
-    PrefixTree *child[26];
+  char letter;
+  const char *word;
+  /* next letter if exist */
+  PrefixTree *child[26];
 };
 
 // create prefix tree
@@ -26,3 +26,4 @@ int PrefixTreeFind(PrefixTree *t, const char *word);
 
 // erase word from prefix tree
 void PrefixTreeErase(PrefixTree *t, const char *word);
+

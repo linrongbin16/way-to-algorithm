@@ -7,18 +7,18 @@
 struct LeftistTree;
 
 struct Node {
-    //节点下标
-    int index;
-    int distance;
-    Node *left;
-    Node *right;
-    LeftistTree *tree;
+  //节点下标
+  int index;
+  int distance;
+  Node *left;
+  Node *right;
+  LeftistTree *tree;
 };
 
 struct LeftistTree {
-    Node *root;
-    int size;
-    int (*cmp)(Node *, Node *);
+  Node *root;
+  int size;
+  int (*cmp)(Node *, Node *);
 };
 
 // create leftist tree
@@ -38,3 +38,4 @@ int LeftistTreePush(LeftistTree *t, int index);
 
 // pop value from leftist tree
 int LeftistTreePop(LeftistTree *t);
+
