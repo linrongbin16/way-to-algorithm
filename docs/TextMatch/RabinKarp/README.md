@@ -11,13 +11,13 @@
 
 #### 解法
 
-从位置$$ i, j $$开始的匹配，每次成功的匹配都需要时间复杂度为$$ O(m) $$的遍历，才能确定$$ text[i \dots i+m-1] = pattern[0 \dots m-1] = pattern $$是否成立。如果用$$ hash(i) $$来表示字符串$$ text[i \dots i+m1] $$的哈希值，$$ hash(pattern) $$表示字符串$$ pattern $$的哈希值，则比较$$ hash(i) = hash(pattern) $$是否成功的时间复杂度为$$ O(1) $$。显然当$$ hash(i) \ne hash(pattern) $$时必然有$$ text[i \dots i+m-1] \ne pattern $$。反之若哈希值相同，再用简单匹配来确定字符串$$ text[i \dots i+m-1] = pattern $$确实为真，这样即可找出所有成功匹配。
+从位置$$ i, j $$开始的匹配，每次成功的匹配都需要时间复杂度为$$ O(m) $$的遍历，才能确定$$ text[i \dots i+m-1] = pattern[0 \dots m-1] = pattern $$是否成立。如果用$$ hash(i, i+m-1) $$来表示字符串$$ text[i \dots i+m-1] $$的哈希值，$$ hash(pattern) $$表示字符串$$ pattern $$的哈希值，则比较$$ hash(i, i+m-1) = hash(pattern) $$是否成功的时间复杂度为$$ O(1) $$。显然当$$ hash(i, i+m-1) \ne hash(pattern) $$时必然有$$ text[i \dots i+m-1] \ne pattern $$。反之若哈希值相同，再用简单匹配来确定字符串$$ text[i \dots i+m-1] = pattern $$确实为真，这样即可找出所有成功匹配。
 
 我们通过Rabin Fingerprint算法计算字符串的哈希值，ASCII码中每个字符对应的数字值范围在$$ [0 - 127] $$之间，设每读入新的字符时旧的哈希值的扩大倍数为$$ base = 128 $$（这个$$ base $$是字符表大小的范围）。则有：
 
 $$
 
-hash(text[0 \dots i+1]) = hash(text[0 \dots i]) \cdot base + text[i+1]
+hash(0, i+1) = hash(0, i) \cdot base + text[i+1]
 
 $$
 
@@ -25,7 +25,7 @@ $$
 
 $$
 
-hash(text[i+1 \dots i+m]) = hash(text[i \dots i+m-1]) \cdot base - base^{m-1} \cdot text[i] + text[i+1]
+hash(i+1, i+m) = hash(i, i+m-1) \cdot base - base^{m-1} \cdot text[i] + text[i+1]
 
 $$
 
@@ -33,7 +33,7 @@ $$
 
 $$
 
-hash(text[i+1 \dots i+m]) = (hash(text[i \dots i+m-1]) \cdot base - base^{m-1} \cdot text[i] + text[i+1]) % prime
+hash(i+1, i+m]) = (hash(i, i+m-1) \cdot base - base^{m-1} \cdot text[i] + text[i+1]) % prime
 
 $$
 
