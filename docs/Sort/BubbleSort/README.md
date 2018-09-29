@@ -1,5 +1,5 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
+<script type="text/javascript"> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Bubble Sort - 冒泡排序
 
@@ -42,8 +42,10 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Sort/BubbleSort.h)
+[BubbleSort.h](../../../src/Sort/BubbleSort.h)
+
+[BubbleSort.cpp](../../../src/Sort/BubbleSort.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/Sort/BubbleSort.cpp)
+[BubbleSortTest.cpp](../../../src/Sort/BubbleSortTest.cpp)

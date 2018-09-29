@@ -1,5 +1,5 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
+<script type="text/javascript"> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Merge Sort - 归并排序
 
@@ -25,8 +25,10 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Sort/MergeSort.h)
+[MergeSort.h](../../../src/Sort/MergeSort.h)
+
+[MergeSort.cpp](../../../src/Sort/MergeSort.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/Sort/MergeSort.cpp)
+[MergeSortTest.cpp](../../../src/Sort/MergeSortTest.cpp)

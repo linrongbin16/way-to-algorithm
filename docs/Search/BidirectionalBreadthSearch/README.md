@@ -1,5 +1,5 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
+<script type="text/javascript"> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Bidirectional Breadth Search - 双向广度搜索
 
@@ -59,8 +59,10 @@ $$ (7) $$从$$ bq $$中取出头节点$$ [2,1] $$，将其邻节点$$ [2,2] $$�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Search/BidirectionalBreadthSearch.h)
+[BidirectionalBreadthSearch.h](../../../src/Search/BidirectionalBreadthSearch.h)
+
+[BidirectionalBreadthSearch.cpp](../../../src/Search/BidirectionalBreadthSearch.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/Search/BidirectionalBreadthSearch.cpp)
+[BidirectionalBreadthSearchTest.cpp](../../../src/Search/BidirectionalBreadthSearchTest.cpp)

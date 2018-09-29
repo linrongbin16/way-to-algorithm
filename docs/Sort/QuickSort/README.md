@@ -35,9 +35,10 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Sort/QuickSort.h)
+[QuickSort.h](../../../src/Sort/QuickSort.h)
+
+[QuickSort.cpp](../../../src/Sort/QuickSort.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/Sort/QuickSort.cpp)
-
+[QuickSortTest.cpp](../../../src/Sort/QuickSortTest.cpp)

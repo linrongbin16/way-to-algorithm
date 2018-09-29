@@ -1,5 +1,5 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
+<script type="text/javascript"> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Insert Sort - 插入排序
 
@@ -29,8 +29,10 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Sort/InsertSort.h)
+[InsertSort.h](../../../src/Sort/InsertSort.h)
+
+[InsertSort.cpp](../../../src/Sort/InsertSort.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/Sort/InsertSort.cpp)
+[InsertSortTest.cpp](../../../src/Sort/InsertSortTest.cpp)
