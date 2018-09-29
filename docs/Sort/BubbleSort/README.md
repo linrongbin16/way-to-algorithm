@@ -20,7 +20,7 @@ $$ left $$从左边第一个元素$$ s[i] $$（初始时$$ i = 0 $$）开始向�
 例如对于下图中的数组$$ s $$，$$ left $$为$$ s[0,5] $$，$$ right $$为$$ s[6,n-1] $$。从$$ i = 0 $$开始向右遍历，依次比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，直到$$ i = 5 $$。
 
 
-![BubbleSort1.svg](https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/docs/Sort/res/BubbleSort1.svg)
+![BubbleSort1.svg](../res/BubbleSort1.svg)
 
 ![BubbleSort2.svg](../res/BubbleSort2.svg)
 
