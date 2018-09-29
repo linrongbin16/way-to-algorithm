@@ -11,6 +11,19 @@ using namespace std;
 #define TEST_N_MAX 8
 #define TEST_M_MAX 8
 
+void AssertCombination(int n, int m, const vector<vector<int>> &result) {
+  assert(result.size() == (int)std::pow<double>(m, n));
+  AssertUnique(result);
+  for (int i = 0; i < result.size(); i++) {
+    const vector<int> &vec = result[i];
+    assert(vec.size() == n);
+    for (int j = 0; j < vec.size(); j++) {
+      assert(vec[j] >= 0);
+      assert(vec[j] < m);
+    }
+  }
+}
+
 int main() {
   int s[MAX];
 
@@ -19,8 +32,7 @@ int main() {
       std::memset(s, 0, sizeof(int) * MAX);
       vector<vector<int>> result;
       Recursion(s, i, j, 0, result);
-      assert(result.size() == (int)std::pow<double>(j, i));
-      AssertUnique(result);
+      AssertCombination(i, j, result);
     }
   return 0;
 }
