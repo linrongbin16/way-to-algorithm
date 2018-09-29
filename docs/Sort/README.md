@@ -1,7 +1,7 @@
 # Chapter-1 Sort
 # 第1章 排序
 
-![Sort.svg](res/Sort.svg)
+![Sort.png](res/Sort.png)
 
 --------
 

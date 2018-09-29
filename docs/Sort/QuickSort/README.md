@@ -17,15 +17,15 @@
 
 初始时$$ left $$和$$ right $$两个部分都是空的，分别从数组$$ s $$的左右两边向中间推进。例如下图中的数组：
 
-![QuickSort1.svg](../res/QuickSort1.svg)
+![QuickSort1.png](../res/QuickSort1.png)
 
 初始时设置$$ pivot = s[0] = 45 $$，$$ low = 0 $$，$$ high = n-1 $$。从$$ high $$开始，向左搜索到第一个元素$$ s[high] \lt pivot $$（$$ high = n-1 $$），该元素不符合$$ right $$的性质，因此将$$ s[high] $$移动到$$ s[low] $$（$$ s[low] = s[high] $$）。
 
-![QuickSort2.svg](../res/QuickSort2.svg)
+![QuickSort2.png](../res/QuickSort2.png)
 
 再从$$ low $$开始，向右搜索到第一个元素$$ s[low] \gt pivot $$（$$ low = 1 $$），该元素不符合$$ left $$的性质，因此将$$ s[low] $$移动到$$ s[high] $$（$$ s[high] = s[low] $$）。
 
-![QuickSort3.svg](../res/QuickSort3.svg)
+![QuickSort3.png](../res/QuickSort3.png)
 
 重复上面的操作，直到$$ low = high $$，这时的$$ low $$和$$ high $$的位置即为$$ left $$和$$ right $$的中间位置，将$$ pivot $$移动到该位置（$$ s[low] = pivot $$），就完成了一轮排序。$$ left $$和$$ right $$内部仍然是无序的，把它们也当作一个数组，递归的进行排序即可。
 
