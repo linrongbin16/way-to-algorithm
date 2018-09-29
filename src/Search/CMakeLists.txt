@@ -6,7 +6,7 @@ set(SRC_FILE
     Recursion.cpp
     BreadthFirstSearch.cpp
     BidirectionalBreadthSearch.cpp
-    #AStarSearch.cpp
+    AStarSearch.cpp
     #DancingLink.cpp
     Util.cpp)
 
@@ -15,5 +15,5 @@ add_executable(Search-BruteForce.exe BruteForceTest.cpp ${SRC_FILE})
 add_executable(Search-Recursion.exe RecursionTest.cpp ${SRC_FILE})
 add_executable(Search-BreadthFirstSearch.exe BreadthFirstSearchTest.cpp ${SRC_FILE})
 add_executable(Search-BidirectionalBreadthSearch.exe BidirectionalBreadthSearchTest.cpp ${SRC_FILE})
+add_executable(Search-AStarSearch.exe AStarSearchTest.cpp ${SRC_FILE})
 #add_executable(Search-DancingLink.exe DancingLinkTest.cpp ${SRC_FILE})
-#add_executable(Search-AStarSearch.exe AStarSearchTest.cpp ${SRC_FILE})

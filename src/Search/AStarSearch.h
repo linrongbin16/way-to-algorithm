@@ -1,14 +1,14 @@
 #pragma once
+#include <climits>
 #include <string>
 #include <vector>
+#ifndef MAX
+#define MAX 9
+#endif
+#ifndef INF
+#define INF INT_MAX
+#endif
 
-struct Node {
-  char number[9];
-
-  explicit Node(const std::string &s);
-  friend bool operator==(const Node &a, const Node &b);
-  friend int operator-(const Node &a, const Node &b);
-};
-
-std::vector<Node> AStarSearch(Node beg, Node end);
+extern int a_star_dir[4];
+std::vector<const char *> AStarSearch(const char *beg, const char *end);
 

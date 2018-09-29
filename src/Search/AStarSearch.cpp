@@ -8,77 +8,68 @@
 #include <utility>
 #include <vector>
 
-int direction[4] = {-3, 3, -1, 1};
-Node invalid_node = Node("---------");
+int a_star_dir[4] = {-3, 3, -1, 1};
 
-// node hash
-int HashNode(const Node &a) {
-  return std::hash<std::string>{}(std::string(a.number));
-}
+// string operation
+#define invalid ("---------")
+#define hash(a) (std::hash<std::string>{}(std::string(a, MAX)))
+#define streq(a, b) (std::strncmp((a), (b), (MAX)) == 0)
 
-// node constructor
-Node::Node(const std::string &s) { std::strncpy(number, s.data(), 9); }
-
-// node equal
-bool operator==(const Node &a, const Node &b) {
-  if (&a == &b)
-    return true;
-  return std::strncmp(a.number, b.number, 9) == 0;
-}
-
-// node difference
-int operator-(const Node &a, const Node &b) {
+static int StringDiff(const char *a, const char *b) {
   int diff = 0;
-  for (int i = 0; i < 9; ++i)
-    if (a.number[i] != b.number[i])
+  for (int i = 0; i < MAX; ++i)
+    if (a[i] != b[i])
       diff++;
   return diff;
 }
 
-// node neighbor
-Node Neighbor(const Node &a, int direction) {
+static const char *Neighbor(const char *a, int dir) {
   int xpos;
-  for (xpos = 0; xpos < 9; xpos++)
-    if (a.number[xpos] == 'x')
+  for (xpos = 0; xpos < MAX; xpos++)
+    if (a[xpos] == 'x')
       break;
-  int npos = xpos + direction;
+  int npos = xpos + a_star_dir[dir];
   if (npos < 0 || npos >= 9) {
-    return invalid_node;
+    return invalid;
   }
 
-  Node ret = a;
-  std::swap(ret.number[xpos], ret.number[npos]);
+  char *ret = new char[MAX];
+  std::memcpy(ret, a, MAX);
+  std::swap(ret[xpos], ret[npos]);
   return ret;
 }
 
 // get closest node
-Node PopOpenTable(std::vector<Node> *open_table, Node end,
-                  const std::unordered_map<int, int> &g_score) {
-  Node ret = invalid_node;
-  int f_score = INT_MAX;
-  std::vector<Node>::iterator i = open_table->begin();
-  for (; i != open_table->end(); i++) {
-    Node &tmp = *i;
-    int tmp_hash = HashNode(tmp);
-    int h_score = tmp - end;
-    assert(g_score.find(tmp_hash) != g_score.end());
-    if (f_score > h_score + g_score[tmp_hash]) {
-      f_score = h_score + g_score[tmp_hash];
+static const char *PopOpenTable(std::vector<const char *> *open_tab,
+                                const char *end,
+                                const std::unordered_map<int, int> &g) {
+  const char *ret = invalid;
+  int f = INF;
+  std::vector<const char *>::iterator i = open_tab->begin();
+  for (; i != open_tab->end(); i++) {
+    const char *tmp = *i;
+    int tmp_hash = hash(tmp);
+    int h = StringDiff(tmp, end);
+    assert(g.find(tmp_hash) != g.end());
+    if (f > h + g.find(tmp_hash)->second) {
+      f = h + g.find(tmp_hash)->second;
       ret = tmp;
     }
   }
-  open_table->erase(i);
+  open_tab->erase(i);
   return ret;
 }
 
-std::vector<Node> Path(const std::unordered_map<Node, Node> &close_table,
-                       Node e) {
-  std::vector<Node> path;
+static std::vector<const char *>
+AStarPath(const std::unordered_map<const char *, const char *> &close_tab,
+          const char *e) {
+  std::vector<const char *> path;
   path.push_back(e);
 
   while (true) {
-    std::unordered_map<Node, Node>::const_iterator from = close_table.find(e);
-    if (from == close_table.end() || from->second == invalid_node)
+    std::unordered_map<const char *, const char *>::const_iterator from =
+        close_tab.find(e);
+    if (from == close_tab.end() || streq(from->second, invalid))
       break;
     path.push_back(from->second);
     e = from->second;
@@ -86,38 +77,39 @@ std::vector<Node> Path(const std::unordered_map<Node, Node> &close_table,
   return path;
 }
 
-std::vector<Node> AStarSearch(Node beg, Node end) {
-  std::unordered_map<int, int> g_score;
-  std::vector<Node> open_table;
-  std::unordered_map<Node, Node> close_table;
+std::vector<const char *> AStarSearch(const char *beg, const char *end) {
+  std::unordered_map<int, int> g;
+  std::vector<const char *> open_tab;
+  std::unordered_map<const char *, const char *> close_tab;
 
-  open_table.push_back(beg);
-  close_table.insert(std::make_pair(beg, invalid_node));
+  // g.insert(std::make_pair(hash(beg)));
+  open_tab.push_back(beg);
+  close_tab.insert(std::make_pair(beg, invalid));
 
-  while (!open_table.empty()) {
-    Node node = PopOpenTable(&open_table, end, g_score);
-    int node_hash = HashNode(node);
-    if (node == end) {
-      return Path(close_table, end);
+  while (!open_tab.empty()) {
+    const char *node = PopOpenTable(&open_tab, end, g);
+    int node_hash = hash(node);
+    if (streq(node, end)) {
+      return AStarPath(close_tab, end);
     }
 
     /* node中'x'与上下左右4个方向的数字交换位置 */
     for (int i = 0; i < 4; i++) {
-      Node neighbor = Neighbor(node, i);
-      int neighbor_hash = HashNode(neighbor);
-      if (neighbor == invalid_node) {
+      const char *neighbor = Neighbor(node, i);
+      int neighbor_hash = hash(neighbor);
+      if (streq(neighbor, invalid)) {
         continue;
       }
       // 邻节点的g(x)加1
-      g_score[neighbor_hash] = g_score[node_hash] + 1;
+      g[neighbor_hash] = g[node_hash] + 1;
 
-      // 若close_table中已经存在neighbor_node则跳过该点
-      if (close_table.find(neighbor) != close_table.end())
+      // 若close_tab中已经存在neighbor_node则跳过该点
+      if (close_tab.find(neighbor) != close_tab.end())
         continue;
-      open_table.push_back(neighbor);
-      close_table.insert(std::make_pair(neighbor, node));
+      open_tab.push_back(neighbor);
+      close_tab.insert(std::make_pair(neighbor, node));
     }
   }
-  return std::vector<Node>();
+  return {};
 }
 

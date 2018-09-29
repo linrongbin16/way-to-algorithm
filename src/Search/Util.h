@@ -8,9 +8,10 @@ void AssertUnique(const std::vector<std::vector<int>> &v);
 struct BfsNode {
   int col;
   int row;
+  bool block;
 
   BfsNode();
-  BfsNode(int col, int row);
+  BfsNode(int col, int row, bool block);
   friend bool operator==(const BfsNode &a, const BfsNode &b);
   friend bool operator!=(const BfsNode &a, const BfsNode &b);
 };

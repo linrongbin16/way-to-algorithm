@@ -38,19 +38,16 @@ void AssertUnique(const std::vector<std::vector<int>> &v) {
 int col_dir[4] = {0, 0, 1, -1};
 int row_dir[4] = {1, -1, 0, 0};
 
-#define in_range(pos, range) ((pos) >= 0 && (pos) < range)
+BfsNode::BfsNode() : col(0), row(0), block(false) {}
 
-BfsNode::BfsNode() : col(0), row(0) {}
-
-BfsNode::BfsNode(int col, int row) : col(col), row(row) {}
+BfsNode::BfsNode(int col, int row, bool block)
+    : col(col), row(row), block(block) {}
 
 bool operator==(const BfsNode &a, const BfsNode &b) {
   return a.col == b.col && a.row == b.row;
 }
 
-bool operator!=(const BfsNode &a, const BfsNode &b) {
-  return a.col != b.col || a.row != b.row;
-}
+bool operator!=(const BfsNode &a, const BfsNode &b) { return !(a == b); }
 
 void AssertAdjacent(const BfsNode &a, const BfsNode &b) {
   bool a1 = (a.row == b.row) && (a.col == b.col + 1);
