@@ -15,19 +15,19 @@
 
 例如在下面这个$$ 4 \times 5 $$二维方格$$ s $$中从$$ beg = [0,1] $$移动到$$ end = [3,4] $$。初始时将起点$$ beg $$加入等待搜索的队列$$ queue $$中，之后每次从$$ queue $$中取出头节点$$ e $$，访问$$ e $$四周从未被访问的邻节点，并将邻节点加入$$ queue $$中。将每个节点加入$$ queue $$之前将其染为红色，避免重复访问。
 
-![BreadthFirstSearch1.svg](../res/BreadthFirstSearch1.svg)
+![BreadthFirstSearch1.png](../res/BreadthFirstSearch1.png)
 
 $$ (1) $$初始时将$$ beg = [0,1] $$染红并加入$$ queue $$；
 
 $$ (2) $$从$$ queue $$中取出头节点$$ [0,1] $$，因$$ [0,1] \ne end $$，将其四周未被染红的节点$$ [0,0], [1,1], [0,2] $$染红并加入$$ queue $$，图中$$ queue $$的左边为头部，右边为尾部，新访问的节点插入队列尾部，每次从队列中取出头节点$$ e $$：
 
-![BreadthFirstSearch2.svg](../res/BreadthFirstSearch2.svg)
+![BreadthFirstSearch2.png](../res/BreadthFirstSearch2.png)
 
 $$ (3) $$从$$ queue $$中取出头节点$$ [0,0] $$，因$$ [0,0] \ne end $$，将其四周未被染红的节点$$ [1,0] $$染红并加入$$ queue $$；
 
-![BreadthFirstSearch3.svg](../res/BreadthFirstSearch3.svg)
+![BreadthFirstSearch3.png](../res/BreadthFirstSearch3.png)
 
-![BreadthFirstSearch4.svg](../res/BreadthFirstSearch4.svg)
+![BreadthFirstSearch4.png](../res/BreadthFirstSearch4.png)
 
 $$
 
@@ -35,11 +35,11 @@ $$
 
 $$
 
-![BreadthFirstSearch11.svg](../res/BreadthFirstSearch11.svg)
+![BreadthFirstSearch11.png](../res/BreadthFirstSearch11.png)
 
 $$ (4) $$从$$ queue $$中取出头节点$$ [3,1] $$，因$$ [3,1] \ne end $$，其四周的节点都已经被染红，因此不加入任何新节点；
 
-![BreadthFirstSearch12.svg](../res/BreadthFirstSearch12.svg)
+![BreadthFirstSearch12.png](../res/BreadthFirstSearch12.png)
 
 $$
 
@@ -47,9 +47,9 @@ $$
 
 $$
 
-![BreadthFirstSearch20.svg](../res/BreadthFirstSearch20.svg)
+![BreadthFirstSearch20.png](../res/BreadthFirstSearch20.png)
 
-![BreadthFirstSearch21.svg](../res/BreadthFirstSearch21.svg)
+![BreadthFirstSearch21.png](../res/BreadthFirstSearch21.png)
 
 $$ (5) $$从$$ queue $$中取出头节点$$ [3,4] $$，因$$ [3,4] = end $$，算法结束；
 

@@ -11,13 +11,13 @@ AVL树是最早发明的一种自平衡二叉查找树，树中的任何节点�
 
 为了保持树的左右子树的平衡，避免一侧过长或过短，AVL树会对LL（左左）、RR（右右）、LR（左右）、RL（右左）四种情况进行调整：
 
-![AVLTree1.svg](../res/AVLTree1.svg)
+![AVLTree1.png](../res/AVLTree1.png)
 
-![AVLTree2.svg](../res/AVLTree2.svg)
+![AVLTree2.png](../res/AVLTree2.png)
 
-![AVLTree3.svg](../res/AVLTree3.svg)
+![AVLTree3.png](../res/AVLTree3.png)
 
-![AVLTree4.svg](../res/AVLTree4.svg)
+![AVLTree4.png](../res/AVLTree4.png)
 
 上面四种情况包含了所有从不平衡转化为平衡的步骤，其中单向右旋平衡处理LL，单向左旋平衡处理RR，双向旋转（先左后右）平衡处理LR，双向旋转（先右后左）平衡处理RL。
 
@@ -29,7 +29,7 @@ AVL树的每个节点都有一个高度值$$ depth $$，树的平衡因子为$$ 
 
 对于下面这个AVL树，每个节点中上面的数字是节点下标号，下面的数字是该节点的高度值$$ depth $$。将节点$$ 18 $$插入下面的AVL树：
 
-![AVLTree5.svg](../res/AVLTree5.svg)
+![AVLTree5.png](../res/AVLTree5.png)
 
 $$ (1) $$从根节点开始，将节点$$ 18 $$与节点$$ 10 $$比较，有$$ 18 \lt 10 $$，因此把节点$$ 18 $$插入节点$$ 10 $$的右子树；
 
@@ -45,29 +45,29 @@ $$ (5) $$将节点$$ 18 $$与节点$$ 17 $$比较，有$$ 18 \gt 17 $$，因此�
 
 $$ (6) $$节点$$ 18 $$为叶子节点，因此高度值为$$ 0 $$；
 
-![AVLTree6.svg](../res/AVLTree6.svg)
+![AVLTree6.png](../res/AVLTree6.png)
 
 $$ (7) $$节点$$ 17 $$的平衡因子为$$ balanceFactor_{17} = |depth_{nil} - depth_{18}| = |- 1 - 0| = 1 $$，不需要旋转，高度值更新为$$ depth_{17} = max⁡(depth_{17.leftChild},depth_{17.rightChild}) + 1 = max⁡(-1,0) + 1 = 1 $$；
 
-![AVLTree7.svg](../res/AVLTree7.svg)
+![AVLTree7.png](../res/AVLTree7.png)
 
 $$ (8) $$节点$$ 16 $$的平衡因子为$$ balanceFactor_{16} = |depth_{nil} - depth_{17} | = |- 1 - 1| = 2 $$，高度值更新为$$ depth_{16} = max⁡(depth_{16.leftChild},depth_{16.rightChild}) + 1 = max⁡(-1,1) + 1 = 2 $$，由于节点$$ 16 $$的平衡因子超过$$ 1 $$，需要进行RR操作，旋转后节点$$ 16 $$的高度值减$$ 2 $$；
 
-![AVLTree8.svg](../res/AVLTree8.svg)
+![AVLTree8.png](../res/AVLTree8.png)
 
-![AVLTree9.svg](../res/AVLTree9.svg)
+![AVLTree9.png](../res/AVLTree9.png)
 
 $$ (9) $$节点$$ 19 $$的平衡因子为$$ balanceFactor_{19} = |depth_{17} - depth_{20}| = |1 - 0| = 1 $$，高度值更新为$$ depth_{19} = max⁡(depth_{19.leftChild},depth_{19.rightChild}) + 1 = max⁡(1,0) + 1 = 2 $$；
 
-![AVLTree10.svg](../res/AVLTree10.svg)
+![AVLTree10.png](../res/AVLTree10.png)
 
 $$ (10) $$节点$$ 15 $$的平衡因子为$$ balanceFactor_{15} = |depth_{13} - depth_{19}| = |1 - 2| = 1 $$，高度值更新为$$ depth_{15} = max⁡(depth_{15.leftChild},depth_{15.rightChild}) + 1 = max⁡(1,2) + 1 = 3 $$；
 
-![AVLTree11.svg](../res/AVLTree11.svg)
+![AVLTree11.png](../res/AVLTree11.png)
 
 $$ (11) $$节点$$ 10 $$的平衡因子为$$ balanceFactor_{10} = |depth_{5} - depth_{15}| = |2 - 3| = 1 $$，高度值更新为$$ depth_{10} = max⁡(depth_{10.leftChild},depth_{10.rightChild}) + 1 = max⁡(2,3) + 1 = 4 $$；
 
-![AVLTree12.svg](../res/AVLTree12.svg)
+![AVLTree12.png](../res/AVLTree12.png)
 
 --------
 

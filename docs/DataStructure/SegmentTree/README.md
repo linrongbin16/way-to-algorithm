@@ -13,7 +13,7 @@
 
 线段树$$ s[0,5] $$如下图所示：
 
-![SegmentTree1.svg](../res/SegmentTree1.svg)
+![SegmentTree1.png](../res/SegmentTree1.png)
 
 构造操作：从根节点开始，递归的将节点$$ [i,j] $$拆分为$$ [i, \frac{i+j}{2}] $$和$$ [ \frac{i+j}{2}+1,j] $$（其中$$ 0 \leq i \leq j \lt n $$），父节点所代表的区域和等于左右孩子节点代表的区域和之和，即$$ sum[i,j] = sum[i, \frac{i + j}{2}] + sum[ \frac{i + j}{2} + 1,j] $$，重复该操作直到叶子节点为止。该操作的时间复杂度为$$ O(n) $$。
 

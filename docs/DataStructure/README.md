@@ -1,7 +1,7 @@
 # Chapter-3 Data Structure
 # 第3章 数据结构
 
-![DataStructure.svg](res/DataStructure.svg)
+![DataStructure.png](res/DataStructure.png)
 
 --------
 
