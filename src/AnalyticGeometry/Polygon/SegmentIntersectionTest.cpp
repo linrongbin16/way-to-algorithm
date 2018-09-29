@@ -18,4 +18,3 @@ int main() {
   assert(!SegmentIntersection(s2, s6));
   return 0;
 }
-
