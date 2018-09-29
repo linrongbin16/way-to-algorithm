@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Quick Sort - 快速排序
 
@@ -37,8 +36,14 @@
 
 [QuickSort.h](../../../src/Sort/QuickSort.h)
 
+{% include "../../../src/Sort/QuickSort.h" %}
+
 [QuickSort.cpp](../../../src/Sort/QuickSort.cpp)
+
+{% include "../../../src/Sort/QuickSort.cpp" %}
 
 #### 测试
 
 [QuickSortTest.cpp](../../../src/Sort/QuickSortTest.cpp)
+
+{% include "../../../src/Sort/QuickSortTest.cpp" %}

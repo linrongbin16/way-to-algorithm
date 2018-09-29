@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script type="text/javascript"> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Merge Sort - 归并排序
 
@@ -27,8 +26,14 @@
 
 [MergeSort.h](../../../src/Sort/MergeSort.h)
 
+{% include "../../../src/Sort/MergeSort.h" %}
+
 [MergeSort.cpp](../../../src/Sort/MergeSort.cpp)
+
+{% include "../../../src/Sort/MergeSort.cpp" %}
 
 #### 测试
 
 [MergeSortTest.cpp](../../../src/Sort/MergeSortTest.cpp)
+
+{% include "../../../src/Sort/MergeSortTest.cpp" %}

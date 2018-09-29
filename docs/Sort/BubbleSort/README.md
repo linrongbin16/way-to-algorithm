@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script type="text/javascript"> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Bubble Sort - 冒泡排序
 
@@ -44,15 +43,15 @@ $$
 
 [BubbleSort.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.h)
 
-{% include "https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/src/Sort/BubbleSort.h" %}
+{% include "../../../src/Sort/BubbleSort.h" %}
 
 [BubbleSort.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.cpp)
 
-{% include "https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/src/Sort/BubbleSort.cpp" %}
+{% include "../../../src/Sort/BubbleSort.cpp" %}
 
 #### 测试
 
 [BubbleSortTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSortTest.cpp)
 
-{% include "https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/src/Sort/BubbleSortTest.cpp" %}
+{% include "../../../src/Sort/BubbleSortTest.cpp" %}
 

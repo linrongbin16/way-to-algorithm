@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script type="text/javascript"> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Insert Sort - 插入排序
 
@@ -31,14 +30,14 @@
 
 [InsertSort.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSort.h)
 
-{% include "https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/src/Sort/InsertSort.h" %}
+{% include "../../../src/Sort/InsertSort.h" %}
 
 [InsertSort.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSort.cpp)
 
-{% include "https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/src/Sort/InsertSort.cpp" %}
+{% include "../../../src/Sort/InsertSort.cpp" %}
 
 #### 测试
 
 [InsertSortTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSortTest.cpp)
 
-{% include "https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/src/Sort/InsertSortTest.cpp" %}
+{% include "../../../src/Sort/InsertSortTest.cpp" %}
