@@ -10,7 +10,7 @@ const int direction_row[4] = {1, -1, 0, 0};
 
 Node::Node() : col(0), row(0) {}
 
-Node::Node(int c, int r) : col(c), row(r) {}
+Node::Node(int col, int row) : col(col), row(row) {}
 
 bool operator==(const Node &a, const Node &b) {
   return a.col == b.col && a.row == b.row;
@@ -30,31 +30,24 @@ void BFSPath(Node father[MAX][MAX], Node end, std::vector<Node> &path) {
 
 bool InRange(int pos, int range) { return pos >= 0 && pos < range; }
 
-/**
- * BreadthFirstSearch 广度优先搜索
- * @param m     列col
- * @param n     行row
- * @param beg   起点座标
- * @param end   终点座标
- * @return      从beg到end的搜索路径
- */
-std::vector<Node> BreadthFirstSearch(int m, int n, Node beg, Node end) {
+std::vector<Node> BreadthFirstSearch(int m, int n, const Node &beg,
+                                     const Node &end) {
   Node father[MAX][MAX];
   int visit[MAX][MAX];
-  memset(visit, 0, MAX * MAX * sizeof(int));
+  std::memset(visit, 0, MAX * MAX * sizeof(int));
   for (int i = 0; i < MAX; i++)
     for (int j = 0; j < MAX; j++)
       father[i][j] = Node(i, j);
 
-  std::deque<Node> que;
-  que.push_back(beg);
-  /* beg.col 范围是[0, m) */
-  /* beg.row 范围是[0, n) */
+  std::deque<Node> q;
+  q.push_back(beg);
+  /* beg.col范围是[0, m) */
+  /* beg.row范围是[0, n) */
   visit[beg.col][beg.row] = 1;
 
-  while (!que.empty()) {
-    Node node = que.front();
-    que.pop_front();
+  while (!q.empty()) {
+    Node node = q.front();
+    q.pop_front();
     if (node == end) {
       std::vector<Node> path;
       BFSPath(father, node, path);
@@ -68,7 +61,7 @@ std::vector<Node> BreadthFirstSearch(int m, int n, Node beg, Node end) {
       if (InRange(neighbor_col, m) && InRange(neighbor_row, n) &&
           !visit[neighbor_col][neighbor_row]) {
         /* 加入等待队列 */
-        que.push_back(Node(neighbor_col, neighbor_row));
+        q.push_back(Node(neighbor_col, neighbor_row));
         /* 染红 */
         visit[neighbor_col][neighbor_row] = 1;
         /* 记录父节点 */
@@ -79,3 +72,4 @@ std::vector<Node> BreadthFirstSearch(int m, int n, Node beg, Node end) {
 
   return {};
 }
+

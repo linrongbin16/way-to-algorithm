@@ -2,8 +2,8 @@
 #include <cassert>
 using namespace std;
 
-#define TEST_M_MAX MAX
-#define TEST_N_MAX MAX
+#define TEST_M_MAX 64
+#define TEST_N_MAX 64
 
 auto AssertAdjacent(const Node &a, const Node &b) -> void {
   bool a1 = (a.row == b.row) && (a.col == b.col + 1);
@@ -32,3 +32,4 @@ int main() {
 
   return 0;
 }
+

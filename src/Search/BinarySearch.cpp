@@ -1,15 +1,14 @@
 #include "BinarySearch.h"
+#include <utility>
 
 std::pair<bool, int> BinarySearch(int *s, int beg, int end, int x) {
   int low = beg;
   int high = end - 1;
   int mid;
-  int index;
   while (low <= high) {
     mid = (low + high) / 2;
     if (s[mid] == x) {
-      index = mid;
-      return std::make_pair(true, index);
+      return std::make_pair(true, mid);
     } else if (s[mid] > x) {
       high = mid - 1;
     } else if (s[mid] < x) {
@@ -18,3 +17,4 @@ std::pair<bool, int> BinarySearch(int *s, int beg, int end, int x) {
   }
   return std::make_pair(false, -1);
 }
+
