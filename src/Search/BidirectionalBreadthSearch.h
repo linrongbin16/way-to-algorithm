@@ -1,19 +1,13 @@
 #pragma once
+#include "Util.h"
 #include <cassert>
 #include <cstring>
 #include <deque>
 #include <utility>
 #include <vector>
-
-struct Node {
-    int col;
-    int row;
-
-    Node();
-    explicit Node(int c, int r);
-    friend bool operator==(const Node& a, const Node& b);
-    friend bool operator!=(const Node& a, const Node& b);
-};
+#ifndef MAX
+#define MAX 128
+#endif
 
 /**
  * BidirectionalBreadthSearch 双向广度搜索
@@ -23,4 +17,6 @@ struct Node {
  * @param end   终点座标
  * @return      从起点到终点的座标路径
  */
-std::deque<Node> BidirectionalBreadthSearch(int m, int n, Node beg, Node end);
+std::deque<BfsNode> BidirectionalBreadthSearch(int m, int n, const BfsNode &beg,
+                                               const BfsNode &end);
+

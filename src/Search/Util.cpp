@@ -33,3 +33,30 @@ void AssertUnique(const std::vector<std::vector<int>> &v) {
   }
 }
 
+/* 4个方向: 上 下 右 左 */
+/* m列n行二维方格 col范围[0, m) row范围[0, n) */
+int col_dir[4] = {0, 0, 1, -1};
+int row_dir[4] = {1, -1, 0, 0};
+
+#define in_range(pos, range) ((pos) >= 0 && (pos) < range)
+
+BfsNode::BfsNode() : col(0), row(0) {}
+
+BfsNode::BfsNode(int col, int row) : col(col), row(row) {}
+
+bool operator==(const BfsNode &a, const BfsNode &b) {
+  return a.col == b.col && a.row == b.row;
+}
+
+bool operator!=(const BfsNode &a, const BfsNode &b) {
+  return a.col != b.col || a.row != b.row;
+}
+
+void AssertAdjacent(const BfsNode &a, const BfsNode &b) {
+  bool a1 = (a.row == b.row) && (a.col == b.col + 1);
+  bool a2 = (a.row == b.row) && (a.col == b.col - 1);
+  bool a3 = (a.row == b.row + 1) && (a.col == b.col);
+  bool a4 = (a.row == b.row - 1) && (a.col == b.col);
+  assert(a1 || a2 || a3 || a4);
+}
+
