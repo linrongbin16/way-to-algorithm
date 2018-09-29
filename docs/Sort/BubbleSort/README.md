@@ -42,10 +42,17 @@ $$
 
 #### 源码
 
-[BubbleSort.h](../../../src/Sort/BubbleSort.h)
+[BubbleSort.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.h)
 
-[BubbleSort.cpp](../../../src/Sort/BubbleSort.cpp)
+{% include "https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/src/Sort/BubbleSort.h" %}
+
+[BubbleSort.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.cpp)
+
+{% include "https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/src/Sort/BubbleSort.cpp" %}
 
 #### 测试
 
-[BubbleSortTest.cpp](../../../src/Sort/BubbleSortTest.cpp)
+[BubbleSortTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSortTest.cpp)
+
+{% include "https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/src/Sort/BubbleSortTest.cpp" %}
+
