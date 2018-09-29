@@ -46,12 +46,12 @@ $$
 
 $$
 
-\begin{equation}
+\begin{matrix}
 r_{-2} = q_{0} \times r_{-1} + r_{0}    & k = 0 \\
 r_{-1} = q_{1} \times r_{0} + r_{1}     & k = 1 \\
 r_{0} = q_{2} \times r_{1} + r_{2}      & k = 2 \\
 \cdots
-\end{equation}
+\end{matrix}
 
 $$
 
@@ -59,12 +59,12 @@ $$
 
 $$
 
-\begin{equation}
+\begin{matrix}
 r_{0} = r_{-2} \mod r_{-1}  & k = 0 \\
 r_{1} = r_{-1} \mod r_{0}   & k = 1 \\
 r_{2} = r_{0} \mod r_{1}    & k = 2 \\
 \cdots
-\end{equation}
+\end{matrix}
 
 $$
 
