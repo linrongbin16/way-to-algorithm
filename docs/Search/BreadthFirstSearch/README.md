@@ -29,11 +29,23 @@ $$ (3) $$从$$ queue $$中取出头节点$$ [0,0] $$，因$$ [0,0] \ne end $$，
 
 ![BreadthFirstSearch4.svg](../res/BreadthFirstSearch4.svg)
 
+$$
+
+\cdots
+
+$$
+
 ![BreadthFirstSearch11.svg](../res/BreadthFirstSearch11.svg)
 
 $$ (4) $$从$$ queue $$中取出头节点$$ [3,1] $$，因$$ [3,1] \ne end $$，其四周的节点都已经被染红，因此不加入任何新节点；
 
 ![BreadthFirstSearch12.svg](../res/BreadthFirstSearch12.svg)
+
+$$
+
+\cdots
+
+$$
 
 ![BreadthFirstSearch20.svg](../res/BreadthFirstSearch20.svg)
 
