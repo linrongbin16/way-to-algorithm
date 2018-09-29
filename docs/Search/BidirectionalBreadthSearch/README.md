@@ -17,41 +17,41 @@
 
 在下面这个$$ m = 4 $$，$$ n = 5 $$的二维方格$$ s $$中，从$$ beg = [0,1] $$移动到$$ end = [3,4] $$的过程如下：
 
-![BidirectionalBreadthSearch1.svg](../res/BidirectionalBreadthSearch1.svg)
+![BidirectionalBreadthSearch1.png](../res/BidirectionalBreadthSearch1.png)
 
 $$ (1) $$初始时，将$$ beg = [0,1] $$染红并加入$$ bq $$中，将$$ end = [3,4] $$染绿并加入$$ eq $$；
 
-![BidirectionalBreadthSearch2.svg](../res/BidirectionalBreadthSearch2.svg)
+![BidirectionalBreadthSearch2.png](../res/BidirectionalBreadthSearch2.png)
 
 $$ (2) $$从$$ bq $$中取出头节点$$ [0,1] $$，将其四周未被染色的邻节点$$ [0,0] $$、$$ [1,1] $$、$$ [0,2] $$染红并加入$$ bq $$中。从$$ eq $$中取出头节点$$ [3,4] $$，将其四周未被染色的邻节点$$ [2,4] $$、$$ [3,3] $$染红并加入$$ eq $$中；
 
-![BidirectionalBreadthSearch3.svg](../res/BidirectionalBreadthSearch3.svg)
+![BidirectionalBreadthSearch3.png](../res/BidirectionalBreadthSearch3.png)
 
 $$ (3) $$从$$ bq $$中取出头节点$$ [0,0] $$，将其四周未被染色的邻节点$$ [1,0] $$染红并加入$$ bq $$中。从$$ eq $$中取出头节点$$ [2,4] $$，将其四周未被染色的邻节点$$ [1,4] $$、$$ [2,3] $$染红并加入$$ eq $$中；
 
-![BidirectionalBreadthSearch4.svg](../res/BidirectionalBreadthSearch4.svg)
+![BidirectionalBreadthSearch4.png](../res/BidirectionalBreadthSearch4.png)
 
 $$ (4) $$从$$ bq $$中取出头节点$$ [1,1] $$，将其四周未被染色的邻节点$$ [2,1] $$、$$ [1,2] $$染红并加入$$ bq $$中。从$$ eq $$中取出头节点$$ [3,3] $$，将其四周未被染色的邻节点$$ [3,2] $$染红并加入$$ eq $$中；
 
-![BidirectionalBreadthSearch5.svg](../res/BidirectionalBreadthSearch5.svg)
+![BidirectionalBreadthSearch5.png](../res/BidirectionalBreadthSearch5.png)
 
 $$ (5) $$从$$ bq $$中取出头节点$$ [0,2] $$，将其四周未被染色的邻节点$$ [0,3] $$染红并加入$$ bq $$中。从$$ eq $$中取出头节点$$ [1,4] $$，将其四周未被染色的邻节点$$ [1,3] $$、$$ [0,4] $$染红并加入$$ eq $$中；
 
-![BidirectionalBreadthSearch6.svg](../res/BidirectionalBreadthSearch6.svg)
+![BidirectionalBreadthSearch6.png](../res/BidirectionalBreadthSearch6.png)
 
 $$ (6) $$从$$ bq $$中取出头节点$$ [1,0] $$，将其四周未被染色的邻节点$$ [2,0] $$染红并加入$$ bq $$中。从$$ eq $$中取出头节点$$ [2,3] $$，将其四周未被染色的邻节点$$ [2,2] $$染红并加入$$ eq $$中；
 
-![BidirectionalBreadthSearch7.svg](../res/BidirectionalBreadthSearch7.svg)
+![BidirectionalBreadthSearch7.png](../res/BidirectionalBreadthSearch7.png)
 
 $$ (7) $$从$$ bq $$中取出头节点$$ [2,1] $$，将其邻节点$$ [2,2] $$已经被染绿，说明该节点已经被加入$$ eq $$中，或已经被$$ eq $$访问过了。因此$$ [2,2] $$为$$ bq $$和$$ eq $$相遇的位置，算法结束；
 
 对于二维方格$$ s $$，广度优先搜索从$$ beg $$点遍历到$$ end $$点的过程一般是从$$ beg $$向四周发散开，一直到达$$ end $$点：
 
-![BidirectionalBreadthSearch8.svg](../res/BidirectionalBreadthSearch8.svg)
+![BidirectionalBreadthSearch8.png](../res/BidirectionalBreadthSearch8.png)
 
 而双向广度优先搜索则是从$$ beg $$和$$ end $$两个点分别发散开，在中间相遇：
 
-![BidirectionalBreadthSearch9.svg](../res/BidirectionalBreadthSearch9.svg)
+![BidirectionalBreadthSearch9.png](../res/BidirectionalBreadthSearch9.png)
 
 双向广度搜索的时间复杂度与广度优先搜索一样，也是$$ O(m \times n) $$。
 
