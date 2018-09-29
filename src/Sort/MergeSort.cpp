@@ -20,7 +20,7 @@ void Merge(int *s, int start, int mid, int last) {
   for (; j <= last; j++, k++)
     t[k] = s[j];
 
-  std::memcpy(s + start, &t.begin() + start, (last - start) * sizeof(int));
+  std::memcpy(s + start, t.data() + start, (last - start) * sizeof(int));
 }
 
 void MergeSort(int *s, int beg, int end) {
@@ -33,4 +33,3 @@ void MergeSort(int *s, int beg, int end) {
   MergeSort(s, mid + 1, end);
   Merge(s, beg, mid, end - 1);
 }
-
