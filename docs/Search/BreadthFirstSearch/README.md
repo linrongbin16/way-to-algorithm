@@ -19,47 +19,21 @@
 
 $$ (1) $$初始时将$$ beg = [0,1] $$染红并加入$$ queue $$；
 
-![BreadthFirstSearch2.svg](../res/BreadthFirstSearch2.svg)
-
 $$ (2) $$从$$ queue $$中取出头节点$$ [0,1] $$，因$$ [0,1] \ne end $$，将其四周未被染红的节点$$ [0,0], [1,1], [0,2] $$染红并加入$$ queue $$，图中$$ queue $$的左边为头部，右边为尾部，新访问的节点插入队列尾部，每次从队列中取出头节点$$ e $$：
 
-![BreadthFirstSearch3.svg](../res/BreadthFirstSearch3.svg)
+![BreadthFirstSearch2.svg](../res/BreadthFirstSearch2.svg)
 
 $$ (3) $$从$$ queue $$中取出头节点$$ [0,0] $$，因$$ [0,0] \ne end $$，将其四周未被染红的节点$$ [1,0] $$染红并加入$$ queue $$；
 
+![BreadthFirstSearch3.svg](../res/BreadthFirstSearch3.svg)
+
 ![BreadthFirstSearch4.svg](../res/BreadthFirstSearch4.svg)
-
-![BreadthFirstSearch5.svg](../res/BreadthFirstSearch5.svg)
-
-![BreadthFirstSearch6.svg](../res/BreadthFirstSearch6.svg)
-
-![BreadthFirstSearch7.svg](../res/BreadthFirstSearch7.svg)
-
-![BreadthFirstSearch8.svg](../res/BreadthFirstSearch8.svg)
-
-![BreadthFirstSearch9.svg](../res/BreadthFirstSearch9.svg)
-
-![BreadthFirstSearch10.svg](../res/BreadthFirstSearch10.svg)
 
 ![BreadthFirstSearch11.svg](../res/BreadthFirstSearch11.svg)
 
+$$ (4) $$从$$ queue $$中取出头节点$$ [3,1] $$，因$$ [3,1] \ne end $$，其四周的节点都已经被染红，因此不加入任何新节点；
+
 ![BreadthFirstSearch12.svg](../res/BreadthFirstSearch12.svg)
-
-$$ (4) $$从$$ queue $$中取出头节点$$ [3,1] $$，因$$ [3,1] \ne end $$，其四周的节点都已经被染红，因此不做任何操作；
-
-![BreadthFirstSearch13.svg](../res/BreadthFirstSearch13.svg)
-
-![BreadthFirstSearch14.svg](../res/BreadthFirstSearch14.svg)
-
-![BreadthFirstSearch15.svg](../res/BreadthFirstSearch15.svg)
-
-![BreadthFirstSearch16.svg](../res/BreadthFirstSearch16.svg)
-
-![BreadthFirstSearch17.svg](../res/BreadthFirstSearch17.svg)
-
-![BreadthFirstSearch18.svg](../res/BreadthFirstSearch18.svg)
-
-![BreadthFirstSearch19.svg](../res/BreadthFirstSearch19.svg)
 
 ![BreadthFirstSearch20.svg](../res/BreadthFirstSearch20.svg)
 
