@@ -46,19 +46,19 @@ makefile
 Makefile
 cmake-build-debug
 CMakeCache.txt
-
-node_modules
-_book
 .DS_Store
 _DS_Store
 Thumbs.db
-bin
-.bin
 .temp
 .tags
 tags
 tags.lock
 tags.temp
 
+bin
+.bin
+etc
+node_modules
+_book
 package.json
 package-lock.json
