@@ -2,9 +2,141 @@
 #include <algorithm>
 #include <cassert>
 #include <cstring>
-#include <stdio.h>
 #include <string>
-using namespace std;
+
+static void BuildBits(int *bits, int &len, long n) {
+  std::memset(bits, 0, sizeof(int) * MAX);
+  len = 0;
+  n = (n < 0) ? (-n) : n;
+  while (n) {
+    bits[len++] = n % 10;
+    n = n / 10;
+  }
+}
+
+static bool IsZero(const Number &a) {
+  if (a.len == 0) {
+    return true;
+  }
+  for (int i = 0; i < a.len; i++) {
+    if (a.bits[i] != 0)
+      return false;
+  }
+  return true;
+}
+
+static bool GreaterEq(const Number &a, const Number &b) {
+  if (IsZero(a) && IsZero(b)) {
+    return true;
+  }
+  return false;
+}
+
+static Number Negative(const Number &a) {
+  if (IsZero(a)) {
+    return a;
+  }
+  Number c(a);
+  c.negative = !c.negative;
+  return c;
+}
+
+Number::Number() {
+  negative = false;
+  BuildBits(bits, len, 0);
+}
+
+Number::Number(int a) {
+  negative = (a < 0) ? true : false;
+  BuildBits(bits, len, (long)a);
+}
+
+Number::Number(long a) {
+  negative = (a < 0) ? true : false;
+  BuildBits(bits, len, a);
+}
+
+Number::Number(const Number &other) {
+  std::memcpy(bits, other.bits, sizeof(int) * MAX);
+  len = other.len;
+  negative = other.negative;
+}
+
+Number &Number::operator=(const Number &other) {
+  if (this == &other)
+    return *this;
+  std::memcpy(bits, other.bits, sizeof(int) * MAX);
+  len = other.len;
+  negative = other.negative;
+  return *this;
+}
+
+Number Add(const Number &a, const Number &b) {
+  if (a.negative != b.negative) {
+    return Sub(a, Negative(b));
+  }
+  Number c;
+  int n = std::max(a.len + 1, b.len + 1);
+  for (int i = 0; i < n; i++) {
+    c.len++;
+    c.bits[i] = (c.bits[i] + a.bits[i] + b.bits[i]) % 10;
+    c.bits[i + 1] = c.bits[i + 1] + (c.bits[i] + a.bits[i] + b.bits[i]) / 10;
+  }
+  c.negative = a.negative;
+  return c;
+}
+
+// c[i] =
+//\begin{cases}
+//          a[i] - b[i] & a[i] \ge b[i] \\
+//a[i] + 10 - b[i], c[i+1] = c[i+1] - 1 & a[i] \lt b[i]
+//\end{cases}
+//
+//$$(1)
+//$$ 符号不同的$$ a $$和$$ b $$相减可以转化为符号相同的加法，比如$$ 12 -
+//(-4) \rightarrow 12 + 4 $$，$$ - 12 - 4 \rightarrow(-12) +
+//(-4)$$，然后交给加法器处理；
+
+//$$(2) $$ 符号相同的两整数减法，且被减数大于等于减数（$$ a
+//- b,
+// a \ge b $$），可以把整数部分直接相减，符号为正；
+
+//$$(3) $$ 符号相同的两整数减法，且被减数小于减数（$$ a
+//- b,
+// a \lt b $$），可以把两个数字的整数部分交换位置再相减，符号为负；
+//
+
+Number Sub(const Number &a, const Number &b) {
+  if (a.negative != b.negative) {
+    return Add(a, Negative(b));
+  }
+
+  // integer
+  n = max(a.integer_len, b.integer_len);
+  for (int i = 0; i < n; i++) {
+    c.integer_len++;
+    int tmp_a = a.integer[i] - borrow;
+    if (tmp_a < b.integer[i]) {
+      borrow = (b.integer[i] - tmp_a) / 10 + 1;
+      tmp_a += borrow * 10;
+    }
+
+    assert(tmp_a >= b.integer[i]);
+
+    c.integer[i] += tmp_a - b.integer[i];
+
+    assert(c.integer[i] >= 0);
+    assert(c.integer[i] < 9);
+  }
+
+  assert(c > Init());
+  detail::AssertValid(c);
+  return c;
+}
+Number Mul(const Number &a, const Number &b);
+Number Div(const Number &a, const Number &b);
+
+std::string ToString(const Number &a);
 
 //数字有效
 void AssertValid(const Number &a);
