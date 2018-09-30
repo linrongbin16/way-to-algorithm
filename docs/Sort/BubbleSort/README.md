@@ -41,16 +41,10 @@ $$
 
 #### 源码
 
-[BubbleSort.h](../../../src/Sort/BubbleSort.h)
+[import, lang:"c_cpp", filename:"BubbleSort.h"](../../../src/Sort/BubbleSort.h)
 
-[import, lang:"c_cpp"](../../../src/Sort/BubbleSort.h)
-
-[BubbleSort.cpp](../../../src/Sort/BubbleSort.cpp)
-
-[import, lang:"c_cpp"](../../../src/Sort/BubbleSort.cpp)
+[import, lang:"c_cpp", filename:"BubbleSort.cpp"](../../../src/Sort/BubbleSort.cpp)
 
 #### 测试
 
-[BubbleSortTest.cpp](../../../src/Sort/BubbleSortTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Sort/BubbleSortTest.cpp)
+[import, lang:"c_cpp", filename:"BubbleSortTest.cpp"](../../../src/Sort/BubbleSortTest.cpp)

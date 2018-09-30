@@ -34,16 +34,10 @@
 
 #### 源码
 
-[QuickSort.h](../../../src/Sort/QuickSort.h)
+[import, lang:"c_cpp", filename:"QuickSort.h"](../../../src/Sort/QuickSort.h)
 
-[import, lang:"c_cpp"](../../../src/Sort/QuickSort.h)
-
-[QuickSort.cpp](../../../src/Sort/QuickSort.cpp)
-
-[import, lang:"c_cpp"](../../../src/Sort/QuickSort.cpp)
+[import, lang:"c_cpp", filename:"QuickSort.cpp"](../../../src/Sort/QuickSort.cpp)
 
 #### 测试
 
-[QuickSortTest.cpp](../../../src/Sort/QuickSortTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Sort/QuickSortTest.cpp)
+[import, lang:"c_cpp", filename:"QuickSortTest.cpp"](../../../src/Sort/QuickSortTest.cpp)

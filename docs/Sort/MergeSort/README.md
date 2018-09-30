@@ -24,16 +24,10 @@
 
 #### 源码
 
-[MergeSort.h](../../../src/Sort/MergeSort.h)
+[import, lang:"c_cpp", filename:"MergeSort.h"](../../../src/Sort/MergeSort.h)
 
-[import, lang:"c_cpp"](../../../src/Sort/MergeSort.h)
-
-[MergeSort.cpp](../../../src/Sort/MergeSort.cpp)
-
-[import, lang:"c_cpp"](../../../src/Sort/MergeSort.cpp)
+[import, lang:"c_cpp", filename:"MergeSort.cpp"](../../../src/Sort/MergeSort.cpp)
 
 #### 测试
 
-[MergeSortTest.cpp](../../../src/Sort/MergeSortTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Sort/MergeSortTest.cpp)
+[import, lang:"c_cpp", filename:"MergeSortTest"](../../../src/Sort/MergeSortTest.cpp)

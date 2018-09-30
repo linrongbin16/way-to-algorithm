@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # AVL Tree - AVL二叉树
 
@@ -73,8 +72,16 @@ $$ (11) $$节点$$ 10 $$的平衡因子为$$ balanceFactor_{10} = |depth_{5} - d
 
 #### 源码
 
+[AVLTree.h](../../../src/DataStructure/AVLTree.h)
+
 [import, lang:"c_cpp"](../../../src/DataStructure/AVLTree.h)
+
+[AVLTree.cpp](../../../src/DataStructure/AVLTree.cpp)
+
+[import, lang:"c_cpp"](../../../src/DataStructure/AVLTree.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/DataStructure/AVLTree.cpp)
+[AVLTreeTest.cpp](../../../src/DataStructure/AVLTreeTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/DataStructure/AVLTreeTest.cpp)

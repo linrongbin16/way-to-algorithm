@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Disjoint Set - 并查集
 
@@ -57,8 +56,16 @@ $$ (8) $$声明$$ 1 $$和$$ 7 $$节点属于同一家庭，设置$$ father[7] = 
 
 #### 源码
 
+[DisjointSet.h](../../../src/DataStructure/DisjointSet.h)
+
 [import, lang:"c_cpp"](../../../src/DataStructure/DisjointSet.h)
+
+[DisjointSet.cpp](../../../src/DataStructure/DisjointSet.cpp)
+
+[import, lang:"c_cpp"](../../../src/DataStructure/DisjointSet.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/DataStructure/DisjointSet.cpp)
+[DisjointSetTest.cpp](../../../src/DataStructure/DisjointSetTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/DataStructure/DisjointSetTest.cpp)
