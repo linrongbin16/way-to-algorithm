@@ -34,11 +34,10 @@
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"BinarySearch.h"](../../../src/Search/BinarySearch.h)
+[import, lang:"c_cpp", filename:"BinarySearch.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BinarySearch.h)
 
-[import, lang:"c_cpp", filename:"BinarySearch.cpp"](../../../src/Search/BinarySearch.cpp)
+[import, lang:"c_cpp", filename:"BinarySearch.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BinarySearch.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"BinarySearchTest.cpp"](../../../src/Search/BinarySearchTest.cpp)
-
+[import, lang:"c_cpp", filename:"BinarySearchTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BinarySearchTest.cpp)

@@ -99,10 +99,10 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"AStarSearch.h"](../../../src/Search/AStarSearch.h)
+[import, lang:"c_cpp", filename:"AStarSearch.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/AStarSearch.h)
 
-[import, lang:"c_cpp", filename:"AStarSearch.cpp"](../../../src/Search/AStarSearch.cpp)
+[import, lang:"c_cpp", filename:"AStarSearch.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/AStarSearch.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"AStarSearchTest.cpp"](../../../src/Search/AStarSearchTest.cpp)
+[import, lang:"c_cpp", filename:"AStarSearchTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/AStarSearchTest.cpp)

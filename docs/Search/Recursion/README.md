@@ -68,10 +68,10 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"Recursion.h"](../../../src/Search/Recursion.h)
+[import, lang:"c_cpp", filename:"Recursion.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/Recursion.h)
 
-[import, lang:"c_cpp", filename:"Recursion.cpp"](../../../src/Search/Recursion.cpp)
+[import, lang:"c_cpp", filename:"Recursion.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/Recursion.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"RecursionTest.cpp"](../../../src/Search/RecursionTest.cpp)
+[import, lang:"c_cpp", filename:"RecursionTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/RecursionTest.cpp)

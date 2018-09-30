@@ -58,10 +58,10 @@ $$ (5) $$从$$ queue $$中取出头节点$$ [3,4] $$，因$$ [3,4] = end $$，�
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"BreadthFirstSearch.h"](../../../src/Search/BreadthFirstSearch.h)
+[import, lang:"c_cpp", filename:"BreadthFirstSearch.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BreadthFirstSearch.h)
 
-[import, lang:"c_cpp", filename:"BreadthFirstSearch.cpp"](../../../src/Search/BreadthFirstSearch.cpp)
+[import, lang:"c_cpp", filename:"BreadthFirstSearch.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BreadthFirstSearch.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"BreadthFirstSearchTest.cpp"](../../../src/Search/BreadthFirstSearchTest.cpp)
+[import, lang:"c_cpp", filename:"BreadthFirstSearchTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BreadthFirstSearchTest.cpp)

@@ -34,10 +34,10 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"BruteForce.h"](../../../src/Search/BruteForce.h)
+[import, lang:"c_cpp", filename:"BruteForce.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BruteForce.h)
 
-[import, lang:"c_cpp", filename:"BruteForce.cpp"](../../../src/Search/BruteForce.cpp)
+[import, lang:"c_cpp", filename:"BruteForce.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BruteForce.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"BruteForceTest.cpp"](../../../src/Search/BruteForceTest.cpp)
+[import, lang:"c_cpp", filename:"BruteForceTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BruteForceTest.cpp)

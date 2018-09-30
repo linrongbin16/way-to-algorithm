@@ -56,10 +56,10 @@ $$ (8) $$声明$$ 1 $$和$$ 7 $$节点属于同一家庭，设置$$ father[7] = 
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"DisjointSet.h"](../../../src/DataStructure/DisjointSet.h)
+[import, lang:"c_cpp", filename:"DisjointSet.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/DisjointSet.h)
 
-[import, lang:"c_cpp", filename:"DisjointSet.cpp"](../../../src/DataStructure/DisjointSet.cpp)
+[import, lang:"c_cpp", filename:"DisjointSet.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/DisjointSet.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"DisjointSetTest.cpp"](../../../src/DataStructure/DisjointSetTest.cpp)
+[import, lang:"c_cpp", filename:"DisjointSetTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/DisjointSetTest.cpp)
