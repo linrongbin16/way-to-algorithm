@@ -1,4 +1,3 @@
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 # Longest Common Subsequence - 最长公共子序列
 
@@ -17,13 +16,13 @@
 $$
 f(i,j) =
 \begin{cases}
-0                       &   (initialize)i = 0或j = 0 \\
+0                       &   (initialize)i = 0 or j = 0 \\
 f(i-1,j-1)+1            &   i,j \gt 0, i,j \in [1,n], s_1 [i] = s_2 [j] \\
 max(f(i,j-1),f(i-1,j))  &   i,j \gt 0, i,j \in [1,n], s_1 [i] \neq s_2 [j]
 \end{cases}
 $$
 
-$$ (1) $$ 在动态规划一章中，数组下标$$ 0 $$总是用来表示初始阶段，对于$$ s_1 $$、$$ s_2 $$序列的前$$ 0 $$个元素，他们的最长公共子序列显然是空的，即$$ [] $$，因此$$ f(i,j) = 0 $$，其中$$ i = 0或j = 0 $$；
+$$ (1) $$ 在动态规划一章中，数组下标$$ 0 $$总是用来表示初始阶段，对于$$ s_1 $$、$$ s_2 $$序列的前$$ 0 $$个元素，他们的最长公共子序列显然是空的，即$$ \emptyset $$，因此$$ f(i,j) = 0 $$，其中$$ i = 0$$或$$ j = 0 $$；
 
 $$ (2) $$ 若$$ s_1 [i] = s_2 [j] $$，则显然两个序列的这个部分是公共的，所以$$ f(i,j) $$在$$ f(i-1,j-1) $$的基础上加$$ 1 $$；
 
