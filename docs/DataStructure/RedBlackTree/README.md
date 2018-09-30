@@ -10,10 +10,10 @@
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"RedBlackTree.h"](../../../src/DataStructure/RedBlackTree.h)
+[import, lang:"c_cpp", filename:"RedBlackTree.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/RedBlackTree.h)
 
-[import, lang:"c_cpp", filename:"RedBlackTree.cpp"](../../../src/DataStructure/RedBlackTree.cpp)
+[import, lang:"c_cpp", filename:"RedBlackTree.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/RedBlackTree.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"RedBlackTreeTest.cpp"](../../../src/DataStructure/RedBlackTreeTest.cpp)
+[import, lang:"c_cpp", filename:"RedBlackTreeTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/RedBlackTreeTest.cpp)

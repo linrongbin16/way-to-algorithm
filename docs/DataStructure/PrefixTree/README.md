@@ -18,10 +18,10 @@
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"PrefixTree.h"](../../../src/DataStructure/PrefixTree.h)
+[import, lang:"c_cpp", filename:"PrefixTree.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/PrefixTree.h)
 
-[import, lang:"c_cpp", filename:"PrefixTree.cpp"](../../../src/DataStructure/PrefixTree.cpp)
+[import, lang:"c_cpp", filename:"PrefixTree.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/PrefixTree.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"PrefixTreeTest.cpp"](../../../src/DataStructure/PrefixTreeTest.cpp)
+[import, lang:"c_cpp", filename:"PrefixTreeTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/PrefixTreeTest.cpp)

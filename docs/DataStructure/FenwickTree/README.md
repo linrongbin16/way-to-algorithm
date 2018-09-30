@@ -81,10 +81,10 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"FenwickTree.h"](../../../src/DataStructure/FenwickTree.h)
+[import, lang:"c_cpp", filename:"FenwickTree.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/FenwickTree.h)
 
-[import, lang:"c_cpp", filename:"FenwickTree.cpp"](../../../src/DataStructure/FenwickTree.cpp)
+[import, lang:"c_cpp", filename:"FenwickTree.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/FenwickTree.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"FenwickTreeTest.cpp"](../../../src/DataStructure/FenwickTreeTest.cpp)
+[import, lang:"c_cpp", filename:"FenwickTreeTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/FenwickTreeTest.cpp)
