@@ -6,28 +6,22 @@
 #include <utility>
 #include <vector>
 
-#define in_range(pos, range) ((pos) >= 0 && (pos) < range)
-
 static std::deque<BfsNode> BidirectionalPath(BfsNode bfather[MAX][MAX],
                                              BfsNode efather[MAX][MAX],
                                              const BfsNode &beg,
                                              const BfsNode &end,
                                              const BfsNode &meet_pos) {
   std::deque<BfsNode> path;
-  BfsNode t = meet_pos;
-  while (t != beg) {
-    path.push_front(t);
-    t = bfather[t.col][t.row];
+  BfsNode i;
+  for (i = meet_pos; i != beg; i = bfather[i.col][i.row]) {
+    path.push_front(i);
   }
-  path.push_front(beg);
-  t = efather[meet_pos.col][meet_pos.row];
-  while (t != end) {
-    path.push_back(t);
-    t = efather[t.col][t.row];
+  path.push_front(i);
+  for (i = efather[meet_pos.col][meet_pos.row]; i != end;
+       i = efather[i.col][i.row]) {
+    path.push_back(i);
   }
-  if (path.back() != end) {
-    path.push_back(end);
-  }
+  path.push_back(i);
   return path;
 }
 
@@ -71,16 +65,15 @@ std::deque<BfsNode> BidirectionalBreadthSearch(int m, int n, const BfsNode &beg,
       // 并且它已经被evisit访问过
       // 因此bq和eq在此处相遇
       if (!bvisit[ncol][nrow] && evisit[ncol][nrow]) {
-        bfather[ncol][nrow] = BfsNode(beg_node.col, beg_node.row);
-        std::deque<BfsNode> path =
-            BidirectionalPath(bfather, efather, beg, end, BfsNode(ncol, nrow));
-        return path;
+        bfather[ncol][nrow] = beg_node;
+        return BidirectionalPath(bfather, efather, beg, end,
+                                 BfsNode(ncol, nrow));
       }
       if (!bvisit[ncol][nrow] && !evisit[ncol][nrow]) {
         // 点<ncol, nrow>尚未被bq和eq访问过
         bq.push_back(BfsNode(ncol, nrow));
         bvisit[ncol][nrow] = 1;
-        bfather[ncol][nrow] = BfsNode(beg_node.col, beg_node.row);
+        bfather[ncol][nrow] = beg_node;
       }
     }
 
@@ -99,17 +92,16 @@ std::deque<BfsNode> BidirectionalBreadthSearch(int m, int n, const BfsNode &beg,
       // 并且它已经被bvisit访问过
       // 因此bq和eq在此处相遇
       if (!evisit[ncol][nrow] && bvisit[ncol][nrow]) {
-        efather[ncol][nrow] = BfsNode(end_node.col, end_node.row);
-        std::deque<BfsNode> path =
-            BidirectionalPath(bfather, efather, beg, end, BfsNode(ncol, nrow));
-        return path;
+        efather[ncol][nrow] = end_node;
+        return BidirectionalPath(bfather, efather, beg, end,
+                                 BfsNode(ncol, nrow));
       }
       if (!evisit[ncol][nrow] && !bvisit[ncol][nrow]) {
         // 点 <ncol, nrow> 尚未被 bq 和 eq
         // 访问过
         eq.push_back(BfsNode(ncol, nrow));
         evisit[ncol][nrow] = 1;
-        efather[ncol][nrow] = BfsNode(end_node.col, end_node.row);
+        efather[ncol][nrow] = end_node;
       }
     }
   }

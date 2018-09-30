@@ -4,15 +4,18 @@
 #include <deque>
 #include <vector>
 
-#define in_range(pos, range) ((pos) >= 0 && (pos) < range)
+#define invalid (BfsNode(-1, -1))
 
-/* 递归生成从beg到end的路径 */
-static void BFSPath(BfsNode father[MAX][MAX], BfsNode end,
-                    std::vector<BfsNode> &path) {
-  if (father[end.col][end.row] != end) {
-    BFSPath(father, father[end.col][end.row], path);
+// 生成从end到beg的路径
+static std::vector<BfsNode> BFSPath(BfsNode father[MAX][MAX],
+                                    const BfsNode &end) {
+  std::vector<BfsNode> path;
+  BfsNode i;
+  for (i = end; i != father[i.col][i.row]; i = father[i.col][i.row]) {
+    path.push_back(i);
   }
-  path.push_back(end);
+  path.push_back(i);
+  return path;
 }
 
 std::vector<BfsNode> BreadthFirstSearch(int m, int n, const BfsNode &beg,
@@ -28,36 +31,33 @@ std::vector<BfsNode> BreadthFirstSearch(int m, int n, const BfsNode &beg,
 
   std::deque<BfsNode> q;
   q.push_back(beg);
-  /* beg.col范围是[0, m) */
-  /* beg.row范围是[0, n) */
+  // beg.col范围是[0, m)
+  // beg.row范围是[0, n)
   visit[beg.col][beg.row] = 1;
 
   while (!q.empty()) {
     BfsNode node = q.front();
     q.pop_front();
     if (node == end) {
-      std::vector<BfsNode> path;
-      BFSPath(father, node, path);
-      return path;
+      return BFSPath(father, node);
     }
-    /* 上下左右4个方向 */
+    // 上下左右4个方向
     for (int i = 0; i < 4; i++) {
       int ncol = node.col + col_dir[i];
       int nrow = node.row + row_dir[i];
 
-      /* 检查边界 */
+      // 检查边界
       if (!in_range(ncol, m) || !in_range(nrow, n)) {
         continue;
       }
-
-      /* 检查是否访问过/染红 */
+      // 检查是否访问过/染红
       if (!visit[ncol][nrow]) {
-        /* 加入等待队列 */
+        // 加入等待队列
         q.push_back(BfsNode(ncol, nrow));
-        /* 染红 */
+        // 染红
         visit[ncol][nrow] = 1;
-        /* 记录父节点 */
-        father[ncol][nrow] = BfsNode(node.col, node.row);
+        // 记录父节点
+        father[ncol][nrow] = node;
       }
     }
   }

@@ -1,66 +1,80 @@
 #include "AStarSearch.h"
+#include "Util.h"
 #include <cassert>
 #include <iostream>
 #include <string>
 using namespace std;
 
 struct Test {
-  const char *begin;
-  const char *end;
+  int block[MAX][MAX];
+  int n;
+  int m;
+  BfsNode begin;
+  BfsNode end;
 } test_cases[] = {
-    {"1348x5726", "1238x4765"}, {"2317x8654", "1238x4765"},
-    {"2318x4765", "1238x4765"}, {"1238x4765", "2318x4765"},
-    {"2831x4765", "1238x4765"}, {"1348x5726", "1238x4765"},
+    {
+        {
+            {0, 0},
+            {0, 0},
+        },
+        2,
+        2,
+        {0, 0},
+        {1, 1},
+    },
+    {
+        {
+            {0, 0, 1, 0, 0, 0, 0, 0},
+            {0, 0, 1, 0, 1, 1, 1, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 1, 1, 1, 1, 0, 1, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0},
+        },
+        8,
+        5,
+        {0, 0},
+        {0, 7},
+    },
+    {
+        {
+            //  1           5              10
+            {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0}, // 0
+            {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0}, // 1
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+            {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0}, // 5
+            {0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0},
+            {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0},
+            {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+            {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0}, // 10
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1},
+            {0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        },
+        14,
+        15,
+        {0, 0},
+        {14, 13},
+    },
 };
-
-void AssertXCount(const char *a) {
-  int xcount = 0;
-  for (int i = 0; i < 9; i++) {
-    if (a[i] == 'x')
-      xcount++;
-  }
-  assert(xcount == 1);
-}
-
-void AssertAdjacent(const char *a, const char *b) {
-  AssertXCount(a);
-  AssertXCount(b);
-
-  int xpos = -1;
-  for (int i = 0; i < 9; i++) {
-    if (a[i] == 'x') {
-      xpos = i;
-      break;
-    }
-  }
-  for (int i = 0; i < 4; i++) {
-    if (i + a_star_dir[i] < 0 || i + a_star_dir[i] >= 9) {
-      continue;
-    }
-    if (b[i + a_star_dir[i]] == 'x') {
-      return;
-    }
-  }
-  assert(false);
-}
-
-void AssertPath(const vector<const char *> &path) {
-  if (path.size() == 1)
-    return;
-  for (int i = 0; i < path.size() - 1; i++) {
-    AssertAdjacent(path[i], path[i + 1]);
-  }
-}
 
 int main() {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
-    cout << "i: " << i << endl;
     Test &t = test_cases[i];
-    vector<const char *> path = AStarSearch(t.begin, t.end);
+    vector<BfsNode> path = AStarSearch(t.block, t.m, t.n, t.begin, t.end);
     assert(path.size() > 0);
-    assert(path.front() == t.begin);
-    assert(path.back() == t.begin);
-    AssertPath(path);
+    assert(path[0] == t.end);
+    assert(path[path.size() - 1] == t.begin);
+    for (int k = 0; k < path.size() - 1; k++) {
+      /* 保证路径中相邻两点在二维方格中也是相邻点 */
+      AssertAdjacent(path[k], path[k + 1]);
+    }
+    for (int i = 0; i < path.size(); i++) {
+      assert(!t.block[path[i].col][path[i].row]);
+    }
   }
 
   return 0;

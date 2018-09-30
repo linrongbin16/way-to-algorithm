@@ -8,8 +8,8 @@
 #include <unordered_set>
 using namespace std;
 
-#define TEST_N_MAX 8
-#define TEST_M_MAX 8
+#define TEST_N_MAX 6
+#define TEST_M_MAX 6
 
 void AssertCombination(int n, int m, const vector<vector<int>> &result) {
   assert(result.size() == (int)std::pow<double>(m, n));

@@ -1,10 +1,6 @@
 #pragma once
 #include "Util.h"
-#include <cassert>
-#include <cstring>
 #include <deque>
-#include <utility>
-#include <vector>
 #ifndef MAX
 #define MAX 128
 #endif

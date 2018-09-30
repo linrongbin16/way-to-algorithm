@@ -1,115 +1,100 @@
 #include "AStarSearch.h"
-#include <algorithm>
 #include <cassert>
-#include <climits>
 #include <cstring>
+#include <list>
 #include <string>
 #include <unordered_map>
 #include <utility>
 #include <vector>
 
-int a_star_dir[4] = {-3, 3, -1, 1};
-
-// string operation
-#define invalid ("---------")
-#define hash(a) (std::hash<std::string>{}(std::string(a, MAX)))
-#define streq(a, b) (std::strncmp((a), (b), (MAX)) == 0)
-
-static int StringDiff(const char *a, const char *b) {
-  int diff = 0;
-  for (int i = 0; i < MAX; ++i)
-    if (a[i] != b[i])
-      diff++;
-  return diff;
-}
-
-static const char *Neighbor(const char *a, int dir) {
-  int xpos;
-  for (xpos = 0; xpos < MAX; xpos++)
-    if (a[xpos] == 'x')
-      break;
-  int npos = xpos + a_star_dir[dir];
-  if (npos < 0 || npos >= 9) {
-    return invalid;
-  }
-
-  char *ret = new char[MAX];
-  std::memcpy(ret, a, MAX);
-  std::swap(ret[xpos], ret[npos]);
-  return ret;
-}
-
 // get closest node
-static const char *PopOpenTable(std::vector<const char *> *open_tab,
-                                const char *end,
-                                const std::unordered_map<int, int> &g) {
-  const char *ret = invalid;
+static BfsNode PopMinF(std::list<BfsNode> *open_tab,
+                       const std::unordered_map<BfsNode, int> &close_tab,
+                       const BfsNode &end) {
   int f = INF;
-  std::vector<const char *>::iterator i = open_tab->begin();
-  for (; i != open_tab->end(); i++) {
-    const char *tmp = *i;
-    int tmp_hash = hash(tmp);
-    int h = StringDiff(tmp, end);
-    assert(g.find(tmp_hash) != g.end());
-    if (f > h + g.find(tmp_hash)->second) {
-      f = h + g.find(tmp_hash)->second;
-      ret = tmp;
+  BfsNode ret(-1, -1);
+  std::list<BfsNode>::iterator min_i = open_tab->end();
+
+  for (std::list<BfsNode>::iterator i = open_tab->begin(); i != open_tab->end();
+       i++) {
+    assert(close_tab.find(*i) != close_tab.end());
+    int g = close_tab.find(*i)->second;
+    int h = std::abs(i->col - end.col) + std::abs(i->row - end.row);
+    if (f > h + g) {
+      f = h + g;
+      ret = *i;
+      min_i = i;
     }
   }
-  open_tab->erase(i);
+
+  assert(ret.row != -1 && ret.col != -1);
+  assert(min_i != open_tab->end());
+  open_tab->erase(min_i);
   return ret;
 }
 
-static std::vector<const char *>
-AStarPath(const std::unordered_map<const char *, const char *> &close_tab,
-          const char *e) {
-  std::vector<const char *> path;
-  path.push_back(e);
-
-  while (true) {
-    std::unordered_map<const char *, const char *>::const_iterator from =
-        close_tab.find(e);
-    if (from == close_tab.end() || streq(from->second, invalid))
-      break;
-    path.push_back(from->second);
-    e = from->second;
+static std::vector<BfsNode> AStarPath(BfsNode father[MAX][MAX],
+                                      const BfsNode &end) {
+  std::vector<BfsNode> path;
+  BfsNode i;
+  for (i = end; i != father[i.col][i.row]; i = father[i.col][i.row]) {
+    path.push_back(i);
   }
+  path.push_back(i);
   return path;
 }
 
-std::vector<const char *> AStarSearch(const char *beg, const char *end) {
-  std::unordered_map<int, int> g;
-  std::vector<const char *> open_tab;
-  std::unordered_map<const char *, const char *> close_tab;
+std::vector<BfsNode> AStarSearch(int block[MAX][MAX], int m, int n,
+                                 const BfsNode &beg, const BfsNode &end) {
+  BfsNode father[MAX][MAX];
+  std::list<BfsNode> open_tab;
+  std::unordered_map<BfsNode, int> close_tab;
 
-  // g.insert(std::make_pair(hash(beg)));
+  std::memset(father, 0, sizeof(BfsNode) * MAX * MAX);
+  for (int i = 0; i < MAX; i++)
+    for (int j = 0; j < MAX; j++)
+      father[i][j] = BfsNode(i, j);
   open_tab.push_back(beg);
-  close_tab.insert(std::make_pair(beg, invalid));
+  close_tab.insert(std::make_pair(beg, 0));
 
   while (!open_tab.empty()) {
-    const char *node = PopOpenTable(&open_tab, end, g);
-    int node_hash = hash(node);
-    if (streq(node, end)) {
-      return AStarPath(close_tab, end);
+    BfsNode e = PopMinF(&open_tab, close_tab, end);
+    if (e == end) {
+      return AStarPath(father, end);
     }
 
-    /* node中'x'与上下左右4个方向的数字交换位置 */
+    // e的上下左右四周节点
     for (int i = 0; i < 4; i++) {
-      const char *neighbor = Neighbor(node, i);
-      int neighbor_hash = hash(neighbor);
-      if (streq(neighbor, invalid)) {
+      int ncol = e.col + col_dir[i];
+      int nrow = e.row + row_dir[i];
+
+      if (!in_range(ncol, m) || !in_range(nrow, n)) {
         continue;
       }
-      // 邻节点的g(x)加1
-      g[neighbor_hash] = g[node_hash] + 1;
-
-      // 若close_tab中已经存在neighbor_node则跳过该点
-      if (close_tab.find(neighbor) != close_tab.end())
+      if (block[ncol][nrow]) {
         continue;
-      open_tab.push_back(neighbor);
-      close_tab.insert(std::make_pair(neighbor, node));
-    }
-  }
+      }
+
+      BfsNode y(ncol, nrow);
+
+      // close_tab中不存在节点y
+      if (close_tab.find(y) == close_tab.end()) {
+        close_tab[y] = close_tab[e] + 1;
+        open_tab.push_back(y);
+        father[y.col][y.row] = e;
+      } else {
+        // close_tab中已存在节点y
+        int old_g = close_tab[y];
+        int new_g = close_tab[e] + 1;
+        if (new_g < old_g) {
+          close_tab.erase(close_tab.find(y));
+          close_tab[y] = new_g;
+          open_tab.push_back(y);
+          father[y.col][y.row] = e;
+        }
+      }
+    } // for
+  }   // while
   return {};
 }
 
