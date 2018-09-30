@@ -14,7 +14,7 @@
     * [BreadthFirstSearch 广度优先搜索](Search/BreadthFirstSearch/)
     * [BidirectionalBreadthSearch 双向广度搜索](Search/BidirectionalBreadthSearch/)
     * [AStarSearch A\*搜索](Search/AStarSearch/)
-    * [DancingLinks 舞蹈链](Search/DancingLinks/)
+    * [DancingLink 舞蹈链](Search/DancingLink/)
 * [Chapter-3 DataStructure 第3章 数据结构](DataStructure/)
     * [DisjointSet 并查集](DataStructure/DisjointSet/)
     * [FenwickTree(BinaryIndexTree) 树状数组](DataStructure/FenwickTree/)

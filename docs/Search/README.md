@@ -12,7 +12,7 @@
 5. [BreadthFirstSearch 广度优先搜索](BreadthFirstSearch/README.md)
 6. [BidirectionalBreadthSearch 双向广度搜索](BidirectionalBreadthSearch/README.md)
 7. [AStarSearch A\*搜索](AStarSearch/README.md)
-8. [DancingLinks 舞蹈链](DancingLinks/README.md)
+8. [DancingLink 舞蹈链](DancingLink/README.md)
 
 --------
 
