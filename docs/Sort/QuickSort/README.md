@@ -36,14 +36,14 @@
 
 [QuickSort.h](../../../src/Sort/QuickSort.h)
 
-{% include "../../../src/Sort/QuickSort.h" %}
+[import, lang:"c_cpp"](../../../src/Sort/QuickSort.h)
 
 [QuickSort.cpp](../../../src/Sort/QuickSort.cpp)
 
-{% include "../../../src/Sort/QuickSort.cpp" %}
+[import, lang:"c_cpp"](../../../src/Sort/QuickSort.cpp)
 
 #### 测试
 
 [QuickSortTest.cpp](../../../src/Sort/QuickSortTest.cpp)
 
-{% include "../../../src/Sort/QuickSortTest.cpp" %}
+[import, lang:"c_cpp"](../../../src/Sort/QuickSortTest.cpp)

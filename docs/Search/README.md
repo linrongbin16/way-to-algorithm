@@ -18,11 +18,11 @@
 
 #### 平面搜索中的矩阵
 
-一个矩阵的示例$$ m $$如下图：
+下图是一个矩阵$$ matrix $$：
 
 ![KnowledgePoint1.png](res/KnowledgePoint1.png)
 
-我们称之为$$ 3 $$行$$ 5 $$列的矩阵，在计算机程序中一般用二位数组$$ m = 5 \times 3 $$表示，$$ m[col, row] $$表示第$$ col $$行、第$$ row $$列的元素（也可以颠倒过来表示成$$ m[row, col] $$，只需要保证统一即可）。比如：
+我们称之为$$ 3 $$行$$ 5 $$列的矩阵，在计算机程序中一般用二位数组$$ m = 5 \times 3 $$表示，$$ matrix[col, row] $$表示第$$ col $$行、第$$ row $$列的元素（也可以颠倒过来表示成$$ matrix[row, col] $$，只需要保证统一即可）。比如：
 
 ![KnowledgePoint2.png](res/KnowledgePoint2.png)
 

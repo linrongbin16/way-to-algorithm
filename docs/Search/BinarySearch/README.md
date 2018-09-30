@@ -37,8 +37,15 @@
 
 [BinarySearch.h](../../../src/Search/BinarySearch.h)
 
+[import, lang:"c_cpp"](../../../src/Search/BinarySearch.h)
+
 [BinarySearch.cpp](../../../src/Search/BinarySearch.cpp)
+
+[import, lang:"c_cpp"](../../../src/Search/BinarySearch.cpp)
 
 #### 测试
 
 [BinarySearchTest.cpp](../../../src/Search/BinarySearchTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/Search/BinarySearchTest.cpp)
+

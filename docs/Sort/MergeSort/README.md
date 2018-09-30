@@ -26,14 +26,14 @@
 
 [MergeSort.h](../../../src/Sort/MergeSort.h)
 
-{% include "../../../src/Sort/MergeSort.h" %}
+[import, lang:"c_cpp"](../../../src/Sort/MergeSort.h)
 
 [MergeSort.cpp](../../../src/Sort/MergeSort.cpp)
 
-{% include "../../../src/Sort/MergeSort.cpp" %}
+[import, lang:"c_cpp"](../../../src/Sort/MergeSort.cpp)
 
 #### 测试
 
 [MergeSortTest.cpp](../../../src/Sort/MergeSortTest.cpp)
 
-{% include "../../../src/Sort/MergeSortTest.cpp" %}
+[import, lang:"c_cpp"](../../../src/Sort/MergeSortTest.cpp)
