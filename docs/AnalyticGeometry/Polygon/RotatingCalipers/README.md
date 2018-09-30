@@ -96,9 +96,16 @@ $$ (1) $$ 凸$$ n $$边形直径
 
 #### 源码
 
+[RotatingCalipers.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/RotatingCalipers.h)
+
+[RotatingCalipers.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/RotatingCalipers.cpp)
+
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/RotatingCalipers.h)
 
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/RotatingCalipers.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/RotatingCalipers.cpp)
+[RotatingCalipersTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/RotatingCalipersTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/RotatingCalipersTest.cpp)

@@ -80,8 +80,16 @@ $$ (3) $$ 当$$ (p, k) $$处于其他区域时，我方需要取一个合适的�
 
 #### 源码
 
+[WythoffGame.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GameTheory/WythoffGame.h)
+
+[WythoffGame.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GameTheory/WythoffGame.cpp)
+
 [import, lang:"c_cpp"](../../../src/GameTheory/WythoffGame.h)
+
+[import, lang:"c_cpp"](../../../src/GameTheory/WythoffGame.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/GameTheory/WythoffGame.cpp)
+[WythoffGameTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GameTheory/WythoffGameTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/GameTheory/WythoffGameTest.cpp)

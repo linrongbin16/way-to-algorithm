@@ -34,10 +34,16 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp", name:"Sieve.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Sieve.h)
+[Sieve.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Sieve.h)
 
-[import, lang:"c_cpp", name:"Sieve.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Sieve.cpp)
+[Sieve.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Sieve.cpp)
+
+[import, lang:"c_cpp"](../../../src/NumberTheory/Sieve.h)
+
+[import, lang:"c_cpp"](../../../src/NumberTheory/Sieve.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", name:"SieveTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/SieveTest.cpp)
+[SieveTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/SieveTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/NumberTheory/SieveTest.cpp)

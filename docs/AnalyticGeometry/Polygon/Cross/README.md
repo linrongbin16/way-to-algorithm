@@ -119,9 +119,16 @@ $$ (3) $$ 若为$$ 0 $$则$$ \vec{v_{1}} $$与$$ \vec{v_{2}} $$共线，属于�
 
 #### 源码
 
+[Cross.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/Cross.h)
+
+[Cross.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/Cross.cpp)
+
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Cross.h)
 
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Cross.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Cross.cpp)
+[CrossTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/CrossTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/CrossTest.cpp)

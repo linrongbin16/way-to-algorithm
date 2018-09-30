@@ -41,8 +41,17 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Calculation/Exponentiation.hpp)
+[Exponentiation.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Calculation/Exponentiation.h)
+
+[Exponentiation.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Calculation/Exponentiation.cpp)
+
+[import, lang:"c_cpp"](../../../src/Calculation/Exponentiation.h)
+
+[import, lang:"c_cpp"](../../../src/Calculation/Exponentiation.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/Calculation/Exponentiation.cpp)
+[ExponentiationTest.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Calculation/ExponentiationTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/Calculation/ExponentiationTest.cpp)
+

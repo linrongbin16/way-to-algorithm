@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Nearest Neighbor - 最近点对
 
@@ -43,9 +42,17 @@
 
 #### 源码
 
+[NearestNeighbor.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/NearestNeighbor.h)
+
+[NearestNeighbor.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/NearestNeighbor.cpp)
+
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/ConvexHull/NearestNeighbor.h)
 
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/ConvexHull/NearestNeighbor.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/ConvexHull/NearestNeighbor.cpp)
+[NearestNeighborTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/NearestNeighborTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/ConvexHull/NearestNeighborTest.cpp)
+

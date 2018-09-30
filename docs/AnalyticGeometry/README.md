@@ -6,7 +6,7 @@
 1. Section-1 Polygon 第1节 多边形
     1. [Cross 叉积](Polygon/Cross/README.md)
     2. [SegmentIntersection 线段相交](Polygon/SegmentIntersection/README.md)
-    3. [Sweeping 扫除算法](Polygon/Sweeping/README.md)
+    3. [Util 扫除算法](Polygon/Util/README.md)
     4. [ConvexPolygonArea 凸多边形面积](Polygon/ConvexPolygonArea/README.md)
     5. [ConvexPolygonGravityCenter 凸多边形重心](Polygon/ConvexPolygonGravityCenter/README.md)
     6. [RotatingCalipers 旋转卡壳](Polygon/RotatingCalipers/README.md)
@@ -19,6 +19,10 @@
 
 #### 公共类库源码
 
-[import, lang:"c_cpp"](../../../src/AnalyticGeometry/Util.h)
+[Util.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Util.h)
 
-[import, lang:"c_cpp"](../../../src/AnalyticGeometry/Util.cpp)
+[Util.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Util.cpp)
+
+[import, lang:"c_cpp"](../../src/AnalyticGeometry/Util.h)
+
+[import, lang:"c_cpp"](../../src/AnalyticGeometry/Util.cpp)

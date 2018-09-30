@@ -80,10 +80,16 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp", name:"Euclid.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Euclid.h)
+[Euclid.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Euclid.h)
 
-[import, lang:"c_cpp", name:"Euclid.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Euclid.cpp)
+[Euclid.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Euclid.cpp)
+
+[import, lang:"c_cpp"](../../../src/NumberTheory/Euclid.h)
+
+[import, lang:"c_cpp"](../../../src/NumberTheory/Euclid.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", name:"EuclidTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/EuclidTest.cpp)
+[EuclidTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/EuclidTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/NumberTheory/EuclidTest.cpp)

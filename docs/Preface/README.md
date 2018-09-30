@@ -17,6 +17,7 @@
 欢迎更多同学一起丰富该资料，增加更多专业领域的算法，提交merge request时尽量与书中前4章风格一致。
 
 最后安利一下我的开源开发工具，极大的提高了我的工作效率，欢迎大家使用：
+
 * [lin-vim](https://github.com/linrongbin16/lin-vim)
 * [boostscript](https://github.com/linrongbin16/boostscript)
 

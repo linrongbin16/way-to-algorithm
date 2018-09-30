@@ -19,8 +19,16 @@ $$ (1) $$模拟减法运算的过程将数字$$ x_a = [ 8, 3, 7, 1 ]\_a $$转换
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Calculation/DecimalConversion.hpp)
+[DecimalConversion.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Calculation/DecimalConversion.h)
+
+[DecimalConversion.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Calculation/DecimalConversion.cpp)
+
+[import, lang:"c_cpp"](../../../src/Calculation/DecimalConversion.h)
+
+[import, lang:"c_cpp"](../../../src/Calculation/DecimalConversion.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/Calculation/DecimalConversion.cpp)
+[DecimalConversionTest.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Calculation/DecimalConversionTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/Calculation/DecimalConversionTest.cpp)

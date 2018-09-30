@@ -29,9 +29,16 @@ $$ (2) $$ 多边形面积
 
 #### 源码
 
+[ConvexPolygonArea.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/ConvexPolygonArea.h)
+
+[ConvexPolygonArea.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/ConvexPolygonArea.cpp)
+
 [import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/ConvexPolygonArea.h)
 
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/ConvexPolygonArea.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/ConvexPolygonArea.cpp)
+[ConvexPolygonAreaTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/ConvexPolygonAreaTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/ConvexPolygonAreaTest.cpp)
