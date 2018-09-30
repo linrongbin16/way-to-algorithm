@@ -32,8 +32,16 @@ $$ f(n,t) $$即为$$ n $$个珠宝中重量不超过$$ t $$的最大价值。该
 
 #### 源码
 
+[ZeroOneBag.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/ZeroOneBag.h)
+
+[ZeroOneBag.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/ZeroOneBag.cpp)
+
 [import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBag.h)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBag.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBag.cpp)
+[ZeroOneBagTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/ZeroOneBagTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBagTest.cpp)

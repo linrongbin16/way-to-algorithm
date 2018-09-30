@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Binary Tree DP - 二叉树动规
 
@@ -45,8 +44,16 @@ $$ (2) $$对于该二叉树的左右子树，其根节点分别为$$ leftChild_i
 
 #### 源码
 
+[BinaryTreeDP.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/BinaryTreeDP.h)
+
+[BinaryTreeDP.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/BinaryTreeDP.cpp)
+
 [import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/BinaryTreeDP.h)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/BinaryTreeDP.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/BinaryTreeDP.cpp)
+[BinaryTreeDPTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/BinaryTreeDPTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/BinaryTreeDPTest.cpp)

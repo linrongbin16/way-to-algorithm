@@ -59,8 +59,16 @@ $$ (4) $$若$$ s[i] \gt s[k] $$，且$$ f[k]+1 = f[i] $$，这说明$$ s[i] $$�
 
 #### 源码
 
+[LongestIncreasingSubsequenceExtension.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.h)
+
+[LongestIncreasingSubsequenceExtension.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.cpp)
+
 [import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.h)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension.cpp)
+[LongestIncreasingSubsequenceExtensionTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtensionTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtensionTest.cpp)

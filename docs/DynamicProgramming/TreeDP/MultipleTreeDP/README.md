@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Multiple Tree DP - 多叉树动规
 
@@ -33,8 +32,16 @@ $$ (2) $$对于以$$ i $$为根节点的多叉树，假设它拥有$$ j $$个子
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/MultipleTreeDP.hpp)
+[MultipleTreeDP.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MultipleTreeDP.h)
+
+[MultipleTreeDP.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MultipleTreeDP.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/MultipleTreeDP.h)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/MultipleTreeDP.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/MultipleTreeDP.cpp)
+[MultipleTreeDPTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MultipleTreeDPTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/MultipleTreeDPTest.cpp)

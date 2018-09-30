@@ -34,8 +34,16 @@ $$ f(n,t1,t2) $$即为$$ n $$个珠宝中重量$$ 1 $$不超$$ t1 $$，重量$$ 
 
 #### 源码
 
+[TwoDimensionBag.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/TwoDimensionBag.h)
+
+[TwoDimensionBag.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/TwoDimensionBag.cpp)
+
 [import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/TwoDimensionBag.h)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/TwoDimensionBag.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/TwoDimensionBag.cpp)
+[TwoDimensionBagTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/TwoDimensionBagTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/TwoDimensionBagTest.cpp)

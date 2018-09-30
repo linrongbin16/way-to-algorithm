@@ -7,11 +7,11 @@
 
 #### 问题
 
-在&lt;Zero One Bag&gt;的基础上，不仅求出最大价值，还求出具体选择了哪些珠宝，即求出具体的选择方案。
+在Zero One Bag的基础上，不仅求出最大价值，还求出具体选择了哪些珠宝，即求出具体的选择方案。
 
 #### 解法
 
-仍然按照&lt;Zero One Bag&gt;中的方法，设$$ f(i,j) $$为背包中放入前$$ i $$件物品，重量不大于$$ j $$的最大价值，其中$$ i \in [1,n] $$，$$ j \in [0,t] $$。有如下状态转移方程：
+仍然按照Zero One Bag中的方法，设$$ f(i,j) $$为背包中放入前$$ i $$件物品，重量不大于$$ j $$的最大价值，其中$$ i \in [1,n] $$，$$ j \in [0,t] $$。有如下状态转移方程：
 
 $$
 f(i,j) =
@@ -32,8 +32,16 @@ $$
 
 #### 源码
 
+[ZeroOneBagExtension.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/ZeroOneBagExtension.h)
+
+[ZeroOneBagExtension.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/ZeroOneBagExtension.cpp)
+
 [import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBagExtension.h)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBagExtension.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBagExtension.cpp)
+[ZeroOneBagExtensionTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/ZeroOneBagExtensionTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBagExtensionTest.cpp)

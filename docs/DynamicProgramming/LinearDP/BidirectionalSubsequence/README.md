@@ -21,9 +21,16 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/BidirectionalSubsequence.h)
+[BidirectionalSubsequence.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/BidirectionalSubsequence.h)
 
-#### 测试
+[BidirectionalSubsequence.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/BidirectionalSubsequence.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/BidirectionalSubsequence.h)
 
 [import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/BidirectionalSubsequence.cpp)
 
+#### 测试
+
+[BidirectionalSubsequenceTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/BidirectionalSubsequenceTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/BidirectionalSubsequenceTest.cpp)

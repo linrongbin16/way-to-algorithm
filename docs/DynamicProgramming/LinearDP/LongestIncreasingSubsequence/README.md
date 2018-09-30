@@ -36,8 +36,17 @@ $$ (3) $$ 对于序列$$ s $$中第$$ i $$个数字$$ s[i] $$，若$$ s[i] \gt s
 
 #### 源码
 
+[LongestIncreasingSubsequence.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.h)
+
+[LongestIncreasingSubsequence.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.cpp)
+
 [import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.h)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequence.cpp)
+[LongestIncreasingSubsequenceTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestIncreasingSubsequenceTest.cpp)
+

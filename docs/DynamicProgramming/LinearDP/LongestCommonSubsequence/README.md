@@ -36,8 +36,16 @@ $$ f(n,n) $$即为序列$$ s_1 $$和$$ s_2 $$的最长公共子序列的长度�
 
 #### 源码
 
+[LongestCommonSubsequence.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestCommonSubsequence.h)
+
+[LongestCommonSubsequence.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestCommonSubsequence.cpp)
+
 [import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestCommonSubsequence.h)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestCommonSubsequence.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestCommonSubsequence.cpp)
+[LongestCommonSubsequenceTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestCommonSubsequenceTest.cpp)
+
+[import, lang:"c_cpp"](../../../../src/DynamicProgramming/LinearDP/LongestCommonSubsequenceTest.cpp)
