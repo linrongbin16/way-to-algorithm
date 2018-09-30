@@ -28,11 +28,16 @@
 
 #### 源码
 
-[import, lang:"c_cpp", name:"InsertSort.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSort.h)
+[InsertSort.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSort.h)
 
-[import, lang:"c_cpp", name:"InsertSort.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSort.cpp)
+[InsertSort.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSort.cpp)
+
+[import, lang:"c_cpp"](../../../src/Sort/InsertSort.h)
+
+[import, lang:"c_cpp"](../../../src/Sort/InsertSort.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", name:"InsertSortTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSortTest.cpp)
+[InsertSortTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSortTest.cpp)
 
+[import, lang:"c_cpp"](../../../src/Sort/InsertSortTest.cpp)

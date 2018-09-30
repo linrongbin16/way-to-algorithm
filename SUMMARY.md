@@ -21,7 +21,6 @@
     * [SegmentTree 线段树](docs/DataStructure/SegmentTree/README.md)
     * [LeftistTree(LeftistHeap) 左偏树（左偏堆）](docs/DataStructure/LeftistTree/README.md)
     * [PrefixTree(TrieTree) 前缀树](docs/DataStructure/PrefixTree/README.md)
-    * [SuffixTree 后缀树](docs/DataStructure/SuffixTree/README.md)
     * [AVLTree AVL平衡树](docs/DataStructure/AVLTree/README.md)
     * [RedBlackTree 红黑树](docs/DataStructure/RedBlackTree/README.md)
 * [Chapter-4 DynamicProgramming 第4章 动态规划](docs/DynamicProgramming/README.md)

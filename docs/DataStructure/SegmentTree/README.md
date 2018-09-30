@@ -26,10 +26,16 @@
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"SegmentTree.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/SegmentTree.h)
+[SegmentTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/SegmentTree.h)
 
-[import, lang:"c_cpp", filename:"SegmentTree.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/SegmentTree.cpp)
+[SegmentTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/SegmentTree.cpp)
+
+[import, lang:"c_cpp"](../../../src/DataStructure/SegmentTree.h)
+
+[import, lang:"c_cpp"](../../../src/DataStructure/SegmentTree.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"SegmentTreeTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/SegmentTreeTest.cpp)
+[SegmentTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/SegmentTreeTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/DataStructure/SegmentTreeTest.cpp)

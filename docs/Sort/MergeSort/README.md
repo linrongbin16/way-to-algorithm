@@ -24,10 +24,16 @@
 
 #### 源码
 
-[import, lang:"c_cpp", name:"MergeSort.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/MergeSort.h)
+[MergeSort.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/MergeSort.h)
 
-[import, lang:"c_cpp", name:"MergeSort.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/MergeSort.cpp)
+[MergeSort.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/MergeSort.cpp)
+
+[import, lang:"c_cpp"](../../../src/Sort/MergeSort.h)
+
+[import, lang:"c_cpp"](../../../src/Sort/MergeSort.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", name:"MergeSortTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/MergeSortTest.cpp)
+[MergeSortTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/MergeSortTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/Sort/MergeSortTest.cpp)

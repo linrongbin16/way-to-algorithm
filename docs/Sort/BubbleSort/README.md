@@ -41,10 +41,16 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp", name:"BubbleSort.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.h)
+[BubbleSort.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.h)
 
-[import, lang:"c_cpp", name:"BubbleSort.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.cpp)
+[BubbleSort.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.cpp)
+
+[import, lang:"c_cpp"](../../../src/Sort/BubbleSort.h)
+
+[import, lang:"c_cpp"](../../../src/Sort/BubbleSort.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", name:"BubbleSortTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSortTest.cpp)
+[BubbleSortTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSortTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/Sort/BubbleSortTest.cpp)

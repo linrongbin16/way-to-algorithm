@@ -58,10 +58,16 @@ $$ (5) $$从$$ queue $$中取出头节点$$ [3,4] $$，因$$ [3,4] = end $$，�
 
 #### 源码
 
-[import, lang:"c_cpp", name:"BreadthFirstSearch.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BreadthFirstSearch.h)
+[BreadthFirstSearch.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/BreadthFirstSearch.h)
 
-[import, lang:"c_cpp", name:"BreadthFirstSearch.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BreadthFirstSearch.cpp)
+[BreadthFirstSearch.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/BreadthFirstSearch.cpp)
+
+[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.h)
+
+[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", name:"BreadthFirstSearchTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BreadthFirstSearchTest.cpp)
+[BreadthFirstSearchTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/BreadthFirstSearchTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearchTest.cpp)

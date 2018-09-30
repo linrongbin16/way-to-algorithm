@@ -84,10 +84,16 @@ $$ (11) $$对于节点$$ 6 $$，$$ d_{6.leftChild} = d_{11} = 2 \ge d_{6.rightCh
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"LeftistTree.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/LeftistTree.h)
+[LeftistTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/LeftistTree.h)
 
-[import, lang:"c_cpp", filename:"LeftistTree.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/LeftistTree.cpp)
+[LeftistTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/LeftistTree.cpp)
+
+[import, lang:"c_cpp"](../../../src/DataStructure/LeftistTree.h)
+
+[import, lang:"c_cpp"](../../../src/DataStructure/LeftistTree.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"LeftistTreeTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/LeftistTreeTest.cpp)
+[LeftistTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/LeftistTreeTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/DataStructure/LeftistTreeTest.cpp)

@@ -74,10 +74,17 @@ $$ (4) $$ 这时矩阵$$ d $$为空，所选子集为$$ [ sub_1 ] $$，覆盖的
 
 #### 源码
 
-[import, lang:"c_cpp", name:"DancingLink.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/DancingLink.h)
+[DancingLink.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/DancingLink.h)
 
-[import, lang:"c_cpp", name:"DancingLink.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/DancingLink.cpp)
+[DancingLink.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/DancingLink.cpp)
+
+[import, lang:"c_cpp"](../../../src/Search/DancingLink.h)
+
+[import, lang:"c_cpp"](../../../src/Search/DancingLink.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", name:"DancingLinkTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/DancingLinkTest.cpp)
+[DancingLinkTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/DancingLinkTest.cpp)
+
+[import, lang:"c_cpp"](../../../src/Search/DancingLinkTest.cpp)
+
