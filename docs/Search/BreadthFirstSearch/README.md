@@ -58,16 +58,10 @@ $$ (5) $$从$$ queue $$中取出头节点$$ [3,4] $$，因$$ [3,4] = end $$，�
 
 #### 源码
 
-[BreadthFirstSearch.h](../../../src/Search/BreadthFirstSearch.h)
+[import, lang:"c_cpp", filename:"BreadthFirstSearch.h"](../../../src/Search/BreadthFirstSearch.h)
 
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.h)
-
-[BreadthFirstSearch.cpp](../../../src/Search/BreadthFirstSearch.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.cpp)
+[import, lang:"c_cpp", filename:"BreadthFirstSearch.cpp"](../../../src/Search/BreadthFirstSearch.cpp)
 
 #### 测试
 
-[BreadthFirstSearchTest.cpp](../../../src/Search/BreadthFirstSearchTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearchTest.cpp)
+[import, lang:"c_cpp", filename:"BreadthFirstSearchTest.cpp"](../../../src/Search/BreadthFirstSearchTest.cpp)

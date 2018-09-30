@@ -58,10 +58,10 @@ $$ (7) $$从$$ bq $$中取出头节点$$ [2,1] $$，将其邻节点$$ [2,2] $$�
 
 #### 源码
 
-[BidirectionalBreadthSearch.h](../../../src/Search/BidirectionalBreadthSearch.h)
+[import, lang:"c_cpp", filename:"BidirectionalBreadthSearch.h"](../../../src/Search/BidirectionalBreadthSearch.h)
 
-[BidirectionalBreadthSearch.cpp](../../../src/Search/BidirectionalBreadthSearch.cpp)
+[import, lang:"c_cpp", filename:"BidirectionalBreadthSearch.cpp"](../../../src/Search/BidirectionalBreadthSearch.cpp)
 
 #### 测试
 
-[BidirectionalBreadthSearchTest.cpp](../../../src/Search/BidirectionalBreadthSearchTest.cpp)
+[import, lang:"c_cpp", filename:"BidirectionalBreadthSearchTest.cpp"](../../../src/Search/BidirectionalBreadthSearchTest.cpp)

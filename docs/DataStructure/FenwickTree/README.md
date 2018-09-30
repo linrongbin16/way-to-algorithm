@@ -1,5 +1,4 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
-<script> gitbook.events.bind("page.change", function() { MathJax.Hub.Queue(["Typeset",MathJax.Hub]); } </script>
 
 # Fenwick Tree(Binary Index Tree) - 树状数组
 
@@ -82,8 +81,10 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DataStructure/FenwickTree.h)
+[import, lang:"c_cpp", filename:"FenwickTree.h"](../../../src/DataStructure/FenwickTree.h)
+
+[import, lang:"c_cpp", filename:"FenwickTree.cpp"](../../../src/DataStructure/FenwickTree.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/DataStructure/FenwickTree.cpp)
+[import, lang:"c_cpp", filename:"FenwickTreeTest.cpp"](../../../src/DataStructure/FenwickTreeTest.cpp)

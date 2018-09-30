@@ -68,16 +68,10 @@ $$
 
 #### 源码
 
-[Recursion.h](../../../src/Search/Recursion.h)
+[import, lang:"c_cpp", filename:"Recursion.h"](../../../src/Search/Recursion.h)
 
-[import, lang:"c_cpp"](../../../src/Search/Recursion.h)
-
-[Recursion.cpp](../../../src/Search/Recursion.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/Recursion.cpp)
+[import, lang:"c_cpp", filename:"Recursion.cpp"](../../../src/Search/Recursion.cpp)
 
 #### 测试
 
-[RecursionTest.cpp](../../../src/Search/RecursionTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/RecursionTest.cpp)
+[import, lang:"c_cpp", filename:"RecursionTest.cpp"](../../../src/Search/RecursionTest.cpp)

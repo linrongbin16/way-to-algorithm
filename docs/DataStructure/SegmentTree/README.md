@@ -27,8 +27,10 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DataStructure/SegmentTree.h)
+[import, lang:"c_cpp", filename:"SegmentTree.h"](../../../src/DataStructure/SegmentTree.h)
+
+[import, lang:"c_cpp", filename:"SegmentTree.cpp"](../../../src/DataStructure/SegmentTree.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/DataStructure/SegmentTree.cpp)
+[import, lang:"c_cpp", filename:"SegmentTreeTest.cpp"](../../../src/DataStructure/SegmentTreeTest.cpp)

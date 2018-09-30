@@ -11,8 +11,10 @@
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/DataStructure/SuffixTree.h)
+[import, lang:"c_cpp", filename:"SuffixTree.h"](../../../src/DataStructure/SuffixTree.h)
+
+[import, lang:"c_cpp", filename:"SuffixTree.cpp"](../../../src/DataStructure/SuffixTree.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/DataStructure/SuffixTree.cpp)
+[import, lang:"c_cpp", filename:"SuffixTreeTest.cpp"](../../../src/DataStructure/SuffixTreeTest.cpp)

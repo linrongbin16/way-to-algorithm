@@ -74,16 +74,10 @@ $$ (4) $$ 这时矩阵$$ d $$为空，所选子集为$$ [ sub_1 ] $$，覆盖的
 
 #### 源码
 
-[DancingLink.h](../../../src/Search/DancingLink.h)
+[import, lang:"c_cpp", filename:"DancingLink.h"](../../../src/Search/DancingLink.h)
 
-[import, lang:"c_cpp"](../../../src/Search/DancingLink.h)
-
-[DancingLink.cpp](../../../src/Search/DancingLink.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/DancingLink.cpp)
+[import, lang:"c_cpp", filename:"DancingLink.cpp"](../../../src/Search/DancingLink.cpp)
 
 #### 测试
 
-[DancingLinkTest.cpp](../../../src/Search/DancingLinkTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/DancingLinkTest.cpp)
+[import, lang:"c_cpp", filename:"DancingLinkTest.cpp"](../../../src/Search/DancingLinkTest.cpp)

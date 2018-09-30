@@ -34,16 +34,10 @@ $$
 
 #### 源码
 
-[BruteForce.h](../../../src/Search/BruteForce.h)
+[import, lang:"c_cpp", filename:"BruteForce.h"](../../../src/Search/BruteForce.h)
 
-[import, lang:"c_cpp"](../../../src/Search/BruteForce.h)
-
-[BruteForce.cpp](../../../src/Search/BruteForce.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/BruteForce.cpp)
+[import, lang:"c_cpp", filename:"BruteForce.cpp"](../../../src/Search/BruteForce.cpp)
 
 #### 测试
 
-[BruteForceTest.cpp](../../../src/Search/BruteForceTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/BruteForceTest.cpp)
+[import, lang:"c_cpp", filename:"BruteForceTest.cpp"](../../../src/Search/BruteForceTest.cpp)
