@@ -35,10 +35,10 @@ $$
 
 #### 源码
 
-[include](../../../src/Search/BruteForce.h)
+[import, BruteForce.h](../../../src/Search/BruteForce.h)
 
-[include](../../../src/Search/BruteForce.cpp)
+[import, BruteForce.cpp](../../../src/Search/BruteForce.cpp)
 
 #### 测试
 
-[include](../../../src/Search/BruteForceTest.cpp)
+[import, BruteForceTest.cpp](../../../src/Search/BruteForceTest.cpp)
