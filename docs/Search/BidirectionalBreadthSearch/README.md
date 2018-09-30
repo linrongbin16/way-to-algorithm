@@ -58,10 +58,10 @@ $$ (7) $$从$$ bq $$中取出头节点$$ [2,1] $$，将其邻节点$$ [2,2] $$�
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"BidirectionalBreadthSearch.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BidirectionalBreadthSearch.h)
+[import, lang:"c_cpp", name:"BidirectionalBreadthSearch.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BidirectionalBreadthSearch.h)
 
-[import, lang:"c_cpp", filename:"BidirectionalBreadthSearch.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BidirectionalBreadthSearch.cpp)
+[import, lang:"c_cpp", name:"BidirectionalBreadthSearch.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BidirectionalBreadthSearch.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"BidirectionalBreadthSearchTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BidirectionalBreadthSearchTest.cpp)
+[import, lang:"c_cpp", name:"BidirectionalBreadthSearchTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BidirectionalBreadthSearchTest.cpp)

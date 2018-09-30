@@ -34,10 +34,10 @@
 
 #### 源码
 
-[import, lang:"c_cpp", filename:"QuickSort.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/QuickSort.h)
+[import, lang:"c_cpp", name:"QuickSort.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/QuickSort.h)
 
-[import, lang:"c_cpp", filename:"QuickSort.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/QuickSort.cpp)
+[import, lang:"c_cpp", name:"QuickSort.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/QuickSort.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp", filename:"QuickSortTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/QuickSortTest.cpp)
+[import, lang:"c_cpp", name:"QuickSortTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/QuickSortTest.cpp)

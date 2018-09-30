@@ -1,3 +1,5 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
+
 # Euclid - 欧几里得算法
 
 --------
@@ -78,9 +80,10 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/NumberTheory/Euclid.h)
+[import, lang:"c_cpp", filename:"Euclid.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Euclid.h)
+
+[import, lang:"c_cpp", filename:"Euclid.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Euclid.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/NumberTheory/Euclid.cpp)
-
+[import, lang:"c_cpp", filename:"EuclidTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/EuclidTest.cpp)

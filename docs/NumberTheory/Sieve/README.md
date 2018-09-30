@@ -1,3 +1,5 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/></script>
+
 # Sieve - 筛选算法
 
 --------
@@ -32,8 +34,10 @@ $$
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/NumberTheory/Sieve.h)
+[import, lang:"c_cpp", filename:"Sieve.h"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Sieve.h)
+
+[import, lang:"c_cpp", filename:"Sieve.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Sieve.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/NumberTheory/Sieve.cpp)
+[import, lang:"c_cpp", filename:"SieveTest.cpp"](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/SieveTest.cpp)
