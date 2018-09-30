@@ -99,10 +99,10 @@ $$
 
 #### 源码
 
-[AStarSearch.h](../../../src/Search/AStarSearch.h)
+[import, lang:"c_cpp", filename:"AStarSearch.h"](../../../src/Search/AStarSearch.h)
 
-[AStarSearch.cpp](../../../src/Search/AStarSearch.cpp)
+[import, lang:"c_cpp", filename:"AStarSearch.cpp"](../../../src/Search/AStarSearch.cpp)
 
 #### 测试
 
-[AStarSearchTest.cpp](../../../src/Search/AStarSearchTest.cpp)
+[import, lang:"c_cpp", filename:"AStarSearchTest.cpp"](../../../src/Search/AStarSearchTest.cpp)
