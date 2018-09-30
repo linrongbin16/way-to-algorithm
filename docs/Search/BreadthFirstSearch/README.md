@@ -31,7 +31,7 @@ $$ (3) $$从$$ queue $$中取出头节点$$ [0,0] $$，因$$ [0,0] \ne end $$，
 
 $$
 
-\cdots
+\cdots \cdots
 
 $$
 
@@ -43,7 +43,7 @@ $$ (4) $$从$$ queue $$中取出头节点$$ [3,1] $$，因$$ [3,1] \ne end $$，
 
 $$
 
-\cdots
+\cdots \cdots
 
 $$
 
@@ -59,8 +59,10 @@ $$ (5) $$从$$ queue $$中取出头节点$$ [3,4] $$，因$$ [3,4] = end $$，�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.h)
+[import](../../../src/Search/BreadthFirstSearch.h)
+
+[import](../../../src/Search/BreadthFirstSearch.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.cpp)
+[import](../../../src/Search/BreadthFirstSearchTest.cpp)
