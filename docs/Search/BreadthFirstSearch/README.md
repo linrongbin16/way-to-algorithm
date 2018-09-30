@@ -59,8 +59,10 @@ $$ (5) $$从$$ queue $$中取出头节点$$ [3,4] $$，因$$ [3,4] = end $$，�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.h)
+[import](../../../src/Search/BreadthFirstSearch.h)
+
+[import](../../../src/Search/BreadthFirstSearch.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.cpp)
+[import](../../../src/Search/BreadthFirstSearchTest.cpp)
