@@ -116,17 +116,18 @@ static bool Dance(int x, int *cover) {
     //选择子集row[p]
     cover[row[p]] = 1;
 
-    //删除包含子集row[p]的所有元素的子集
+    //删除包含子集row[p]所有元素的子集
     for (int q = p; q != p; q = right[q])
       Remove(col[q]);
 
-    //继续下1列 若矩阵为空时可以将所有成员都覆盖 则获得精确覆盖方案
+    //下一个元素x+1
     if (Dance(x + 1, cover))
       return true;
-    //若矩阵为空时没有获得精确覆盖方案 说明p选择失败 恢复所有被删掉的节点
-    //并继续尝试x这列中的下一个节点
+
+    //排除子集row[p]
     cover[row[p]] = 0;
 
+    //恢复链表
     for (int q = left[p]; q != p; q = left[q])
       Resume(col[q]);
   }
