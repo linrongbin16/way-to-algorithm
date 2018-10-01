@@ -52,12 +52,6 @@ $$ (2) $$ 当扫除线遇到线段$$ l_{1} $$的右端点$$ a $$时，将线段$
 
 [Sweeping.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/Sweeping.cpp)
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Sweeping.h)
-
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/Sweeping.cpp)
-
 #### 测试
 
 [SweepingTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/SweepingTest.cpp)
-
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/SweepingTest.cpp)

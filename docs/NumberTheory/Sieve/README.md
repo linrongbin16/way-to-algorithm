@@ -38,12 +38,6 @@ $$
 
 [Sieve.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Sieve.cpp)
 
-[import, lang:"c_cpp"](../../../src/NumberTheory/Sieve.h)
-
-[import, lang:"c_cpp"](../../../src/NumberTheory/Sieve.cpp)
-
 #### 测试
 
 [SieveTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/SieveTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/NumberTheory/SieveTest.cpp)

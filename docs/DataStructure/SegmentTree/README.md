@@ -30,12 +30,6 @@
 
 [SegmentTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/SegmentTree.cpp)
 
-[import, lang:"c_cpp"](../../../src/DataStructure/SegmentTree.h)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/SegmentTree.cpp)
-
 #### 测试
 
 [SegmentTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/SegmentTreeTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/SegmentTreeTest.cpp)

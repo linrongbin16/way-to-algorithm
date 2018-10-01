@@ -60,12 +60,6 @@ $$ (8) $$声明$$ 1 $$和$$ 7 $$节点属于同一家庭，设置$$ father[7] = 
 
 [DisjointSet.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/DisjointSet.cpp)
 
-[import, lang:"c_cpp"](../../../src/DataStructure/DisjointSet.h)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/DisjointSet.cpp)
-
 #### 测试
 
 [DisjointSetTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/DisjointSetTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/DisjointSetTest.cpp)

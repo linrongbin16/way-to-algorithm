@@ -90,13 +90,6 @@ $$ (6) $$ 元素$$ 6, 7 \in q $$，可以直接跳过。至此$$ s = q $$，所�
 
 [DancingLink.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/DancingLink.cpp)
 
-[import, lang:"c_cpp"](../../../src/Search/DancingLink.h)
-
-[import, lang:"c_cpp"](../../../src/Search/DancingLink.cpp)
-
 #### 测试
 
 [DancingLinkTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/DancingLinkTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/DancingLinkTest.cpp)
-

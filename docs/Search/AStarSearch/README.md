@@ -41,12 +41,6 @@ A\*算法是一种启发式搜索（DFS和BFS属于无差别搜索），通过�
 
 [AStarSearch.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/AStarSearch.cpp)
 
-[import, lang:"c_cpp"](../../../src/Search/AStarSearch.h)
-
-[import, lang:"c_cpp"](../../../src/Search/AStarSearch.cpp)
-
 #### 测试
 
 [AStarSearchTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/AStarSearchTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/AStarSearchTest.cpp)

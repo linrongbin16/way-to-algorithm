@@ -88,12 +88,6 @@ $$ (11) $$对于节点$$ 6 $$，$$ d_{6.leftChild} = d_{11} = 2 \ge d_{6.rightCh
 
 [LeftistTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/LeftistTree.cpp)
 
-[import, lang:"c_cpp"](../../../src/DataStructure/LeftistTree.h)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/LeftistTree.cpp)
-
 #### 测试
 
 [LeftistTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/LeftistTreeTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/LeftistTreeTest.cpp)

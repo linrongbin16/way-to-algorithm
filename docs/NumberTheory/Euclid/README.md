@@ -84,12 +84,6 @@ $$
 
 [Euclid.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Euclid.cpp)
 
-[import, lang:"c_cpp"](../../../src/NumberTheory/Euclid.h)
-
-[import, lang:"c_cpp"](../../../src/NumberTheory/Euclid.cpp)
-
 #### 测试
 
 [EuclidTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/EuclidTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/NumberTheory/EuclidTest.cpp)

@@ -48,12 +48,6 @@ $$ (2) $$对于该二叉树的左右子树，其根节点分别为$$ leftChild_i
 
 [BinaryTreeDP.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/BinaryTreeDP.cpp)
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/BinaryTreeDP.h)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/BinaryTreeDP.cpp)
-
 #### 测试
 
 [BinaryTreeDPTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/BinaryTreeDPTest.cpp)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/BinaryTreeDPTest.cpp)

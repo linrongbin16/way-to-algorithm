@@ -64,12 +64,6 @@ $$ (5) $$从$$ queue $$中取出头节点$$ [4,3] $$，因$$ [4,3] = end $$，�
 
 [BreadthFirstSearch.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/BreadthFirstSearch.cpp)
 
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.h)
-
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearch.cpp)
-
 #### 测试
 
 [BreadthFirstSearchTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/BreadthFirstSearchTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/BreadthFirstSearchTest.cpp)

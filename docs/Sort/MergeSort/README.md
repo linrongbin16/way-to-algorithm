@@ -28,12 +28,6 @@
 
 [MergeSort.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/MergeSort.cpp)
 
-[import, lang:"c_cpp"](../../../src/Sort/MergeSort.h)
-
-[import, lang:"c_cpp"](../../../src/Sort/MergeSort.cpp)
-
 #### 测试
 
 [MergeSortTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/MergeSortTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Sort/MergeSortTest.cpp)

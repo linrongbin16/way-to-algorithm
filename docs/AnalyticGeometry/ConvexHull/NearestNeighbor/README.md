@@ -46,13 +46,6 @@
 
 [NearestNeighbor.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/NearestNeighbor.cpp)
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/ConvexHull/NearestNeighbor.h)
-
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/ConvexHull/NearestNeighbor.cpp)
-
 #### 测试
 
 [NearestNeighborTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/NearestNeighborTest.cpp)
-
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/ConvexHull/NearestNeighborTest.cpp)
-

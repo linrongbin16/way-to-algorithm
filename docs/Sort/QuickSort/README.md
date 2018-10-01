@@ -38,12 +38,6 @@
 
 [QuickSort.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/QuickSort.cpp)
 
-[import, lang:"c_cpp"](../../../src/Sort/QuickSort.h)
-
-[import, lang:"c_cpp"](../../../src/Sort/QuickSort.cpp)
-
 #### 测试
 
 [QuickSortTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/QuickSortTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Sort/QuickSortTest.cpp)

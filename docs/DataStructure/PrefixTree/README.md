@@ -22,13 +22,6 @@
 
 [PrefixTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/PrefixTree.cpp)
 
-[import, lang:"c_cpp"](../../../src/DataStructure/PrefixTree.h)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/PrefixTree.cpp)
-
 #### 测试
 
 [PrefixTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/PrefixTreeTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/PrefixTreeTest.cpp)
-

@@ -56,12 +56,6 @@ $$ (2) $$向下可达的所有节点的权值和：
 
 [TraverseBinaryTreeDP.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.cpp)
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.h)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.cpp)
-
 #### 测试
 
 [TraverseBinaryTreeDPTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/TraverseBinaryTreeDPTest.cpp)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/TraverseBinaryTreeDPTest.cpp)

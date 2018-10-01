@@ -41,13 +41,6 @@ $$ f(0,2n) $$即为序列$$ s $$的最小合并代价。该算法的时间复杂
 
 [MinimumMergeCostExtension.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCostExtension.cpp)
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/RegionalDP/MinimumMergeCostExtension.h)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/RegionalDP/MinimumMergeCostExtension.cpp)
-
 #### 测试
 
 [MinimumMergeCostExtensionTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCostExtensionTest.cpp)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/RegionalDP/MinimumMergeCostExtensionTest.cpp)
-

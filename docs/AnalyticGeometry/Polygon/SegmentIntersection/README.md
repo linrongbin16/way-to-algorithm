@@ -50,12 +50,6 @@ $$ (2) $$ 线段$$ l_{1} $$的其中一个端点在线段$$ l_{2} $$上，这是
 
 [SegmentIntersection.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/SegmentIntersection.cpp)
 
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/SegmentIntersection.h)
-
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/SegmentIntersection.cpp)
-
 #### 测试
 
 [SegmentIntersectionTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/SegmentIntersectionTest.cpp)
-
-[import, lang:"c_cpp"](../../../../src/AnalyticGeometry/Polygon/SegmentIntersectionTest.cpp)

@@ -35,12 +35,6 @@ $$
 
 [ZeroOneBagExtension.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/ZeroOneBagExtension.cpp)
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBagExtension.h)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBagExtension.cpp)
-
 #### 测试
 
 [ZeroOneBagExtensionTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/ZeroOneBagExtensionTest.cpp)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/ZeroOneBagExtensionTest.cpp)

@@ -32,12 +32,6 @@
 
 [InsertSort.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSort.cpp)
 
-[import, lang:"c_cpp"](../../../src/Sort/InsertSort.h)
-
-[import, lang:"c_cpp"](../../../src/Sort/InsertSort.cpp)
-
 #### 测试
 
 [InsertSortTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSortTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Sort/InsertSortTest.cpp)

@@ -38,13 +38,6 @@ $$
 
 [BruteForce.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/BruteForce.cpp)
 
-[import, lang:"c_cpp"](../../../src/Search/BruteForce.h)
-
-[import, lang:"c_cpp"](../../../src/Search/BruteForce.cpp)
-
 #### 测试
 
 [BruteForceTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/BruteForceTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/BruteForceTest.cpp)
-

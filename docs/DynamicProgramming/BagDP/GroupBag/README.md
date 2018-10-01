@@ -37,12 +37,6 @@ $$ f(m,t) $$即为$$ m $$组珠宝中重量不超过$$ t $$的最大价值。该
 
 [GroupBag.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/GroupBag.cpp)
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/GroupBag.h)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/GroupBag.cpp)
-
 #### 测试
 
 [GroupBagTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/BagDP/GroupBagTest.cpp)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/BagDP/GroupBagTest.cpp)

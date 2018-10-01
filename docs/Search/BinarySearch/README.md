@@ -38,13 +38,6 @@
 
 [BinarySearch.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/BinarySearch.cpp)
 
-[import, lang:"c_cpp"](../../../src/Search/BinarySearch.h)
-
-[import, lang:"c_cpp"](../../../src/Search/BinarySearch.cpp)
-
 #### 测试
 
 [BinarySearchTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/BinarySearchTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Search/BinarySearchTest.cpp)
-

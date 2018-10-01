@@ -80,12 +80,6 @@ $$
 
 [LargeNumber.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Calculation/LargeNumber.cpp)
 
-[import, lang:"c_cpp"](../../../src/Calculation/LargeNumber.h)
-
-[import, lang:"c_cpp"](../../../src/Calculation/LargeNumber.cpp)
-
 #### 测试
 
 [LargeNumberTest.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Calculation/LargeNumberTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/Calculation/LargeNumberTest.cpp)

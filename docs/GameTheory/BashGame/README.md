@@ -44,12 +44,6 @@ $$
 
 [BashGame.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GameTheory/BashGame.cpp)
 
-[import, lang:"c_cpp"](../../../src/GameTheory/BashGame.h)
-
-[import, lang:"c_cpp"](../../../src/GameTheory/BashGame.cpp)
-
 #### 测试
 
 [BashGameTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GameTheory/BashGameTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/GameTheory/BashGameTest.cpp)

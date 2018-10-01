@@ -76,12 +76,6 @@ $$ (11) $$节点$$ 10 $$的平衡因子为$$ balanceFactor_{10} = |depth_{5} - d
 
 [AVLTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/AVLTree.cpp)
 
-[import, lang:"c_cpp"](../../../src/DataStructure/AVLTree.h)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/AVLTree.cpp)
-
 #### 测试
 
 [AVLTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/AVLTreeTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/AVLTreeTest.cpp)

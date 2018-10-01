@@ -14,12 +14,6 @@
 
 [RedBlackTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/RedBlackTree.cpp)
 
-[import, lang:"c_cpp"](../../../src/DataStructure/RedBlackTree.h)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/RedBlackTree.cpp)
-
 #### 测试
 
 [RedBlackTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/RedBlackTreeTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/DataStructure/RedBlackTreeTest.cpp)

@@ -91,12 +91,6 @@ $$
 
 [NimGame.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GameTheory/NimGame.cpp)
 
-[import, lang:"c_cpp"](../../../src/GameTheory/NimGame.h)
-
-[import, lang:"c_cpp"](../../../src/GameTheory/NimGame.cpp)
-
 #### 测试
 
 [NimGameTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GameTheory/NimGameTest.cpp)
-
-[import, lang:"c_cpp"](../../../src/GameTheory/NimGameTest.cpp)

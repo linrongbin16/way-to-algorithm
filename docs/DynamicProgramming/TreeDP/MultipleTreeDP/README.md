@@ -36,12 +36,6 @@ $$ (2) $$对于以$$ i $$为根节点的多叉树，假设它拥有$$ j $$个子
 
 [MultipleTreeDP.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MultipleTreeDP.cpp)
 
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/MultipleTreeDP.h)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/MultipleTreeDP.cpp)
-
 #### 测试
 
 [MultipleTreeDPTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MultipleTreeDPTest.cpp)
-
-[import, lang:"c_cpp"](../../../../src/DynamicProgramming/TreeDP/MultipleTreeDPTest.cpp)
