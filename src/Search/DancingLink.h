@@ -1,4 +1,5 @@
 #pragma once
+#include <utility>
 #include <vector>
 #ifndef MAX
 #define MAX 128
@@ -10,5 +11,5 @@
  * @param s   s[i][j] = 1表示子集s[i]包含元素j
  * @return    返回的数组ret[i] = 1表示精确覆盖中包括子集s[i]
  */
-std::vector<int> DancingLink(int n, int m, int s[MAX][MAX]);
+std::pair<bool, std::vector<int>> DancingLink(int n, int m, int s[MAX][MAX]);
 
