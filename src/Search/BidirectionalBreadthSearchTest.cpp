@@ -8,8 +8,8 @@ using namespace std;
 #define TEST_N_MAX 16
 
 int main() {
-  for (int i = 1; i < TEST_N_MAX; i++)
-    for (int j = 1; j < TEST_M_MAX; j++) {
+  for (int i = 2; i < TEST_N_MAX; i++)
+    for (int j = 2; j < TEST_M_MAX; j++) {
       BfsNode beg_pos(0, 0);
       BfsNode end_pos(i - 1, j - 1);
       deque<BfsNode> path = BidirectionalBreadthSearch(i, j, beg_pos, end_pos);

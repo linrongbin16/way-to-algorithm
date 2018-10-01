@@ -48,9 +48,16 @@ std::deque<BfsNode> BidirectionalBreadthSearch(int n, int m, const BfsNode &beg,
   evisit[end.row][end.col] = 1;
 
   while (true) {
-    /* 先扩展bq */
+    //先扩展bq
     BfsNode beg_node = bq.front();
     bq.pop_front();
+
+    // beg_node已被evisit访问过
+    // beg_node为bq和eq的相遇节点
+    if (evisit[beg_node.row][beg_node.col]) {
+      return BidirectionalPath(bfather, efather, beg, end, beg_node);
+    }
+
     for (int i = 0; i < 4; i++) {
       int nrow = beg_node.row + row_dir[i];
       int ncol = beg_node.col + col_dir[i];
@@ -60,15 +67,7 @@ std::deque<BfsNode> BidirectionalBreadthSearch(int n, int m, const BfsNode &beg,
       }
 
       // 点<nrow, ncol>是beg_node的邻节点
-      // 并且它已经被evisit访问过
-      // 因此bq和eq在此处相遇
-      if (!bvisit[nrow][ncol] && evisit[nrow][ncol]) {
-        bfather[nrow][ncol] = beg_node;
-        return BidirectionalPath(bfather, efather, beg, end,
-                                 BfsNode(nrow, ncol));
-      }
-      if (!bvisit[nrow][ncol] && !evisit[nrow][ncol]) {
-        // 点<nrow, ncol>尚未被bq和eq访问过
+      if (!bvisit[nrow][ncol]) {
         bq.push_back(BfsNode(nrow, ncol));
         bvisit[nrow][ncol] = 1;
         bfather[nrow][ncol] = beg_node;
@@ -78,6 +77,12 @@ std::deque<BfsNode> BidirectionalBreadthSearch(int n, int m, const BfsNode &beg,
     //后扩展eq
     BfsNode end_node = eq.front();
     eq.pop_front();
+    // end_node已被evisit访问过
+    // end_node为bq和eq的相遇节点
+    if (bvisit[end_node.row][end_node.col]) {
+      return BidirectionalPath(bfather, efather, beg, end, end_node);
+    }
+
     for (int i = 0; i < 4; i++) {
       int nrow = end_node.row + row_dir[i];
       int ncol = end_node.col + col_dir[i];
@@ -87,16 +92,7 @@ std::deque<BfsNode> BidirectionalBreadthSearch(int n, int m, const BfsNode &beg,
       }
 
       // 点<nrow, ncol>是end_node的邻节点
-      // 并且它已经被bvisit访问过
-      // 因此bq和eq在此处相遇
-      if (!evisit[nrow][ncol] && bvisit[nrow][ncol]) {
-        efather[nrow][ncol] = end_node;
-        return BidirectionalPath(bfather, efather, beg, end,
-                                 BfsNode(nrow, ncol));
-      }
-      if (!evisit[nrow][ncol] && !bvisit[nrow][ncol]) {
-        // 点<nrow, ncol>尚未被bq和eq
-        // 访问过
+      if (!evisit[nrow][ncol]) {
         eq.push_back(BfsNode(nrow, ncol));
         evisit[nrow][ncol] = 1;
         efather[nrow][ncol] = end_node;
