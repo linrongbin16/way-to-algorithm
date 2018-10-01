@@ -1,117 +1,136 @@
 #include "DancingLink.h"
 #include "Util.h"
+#include <cassert>
 #include <cstring>
 #include <iostream>
 #include <vector>
 
-#define index(i, j, n, m) ((j) + (i) * (m))
+#define index(i, j, m) ((j) + (i) * (m))
 
-// up[i],down[i],left[i],right[i]
+// uplink[i],downlink[i],leftlink[i],rightlink[i]
 //分别为节点i的上下左右邻节点下标
-static int up[MAX], down[MAX], left[MAX], right[MAX];
-// row[i],col[i]为节点i的行号和列号
-static int row[MAX], col[MAX];
+static int uplink[MAX], downlink[MAX], leftlink[MAX], rightlink[MAX];
+// rowlink[i],collink[i]为节点i的行号和列号
+static int rowlink[MAX], collink[MAX];
 // 精确覆盖
 static int cover[MAX];
 
 static void DumpGraph(int s[MAX][MAX], int n, int m) {
   std::cout << std::endl << "dump -- n: " << n << ", m: " << m << std::endl;
-  std::cout << "s[i][j]:p,row,col,up,down,left,right -- " << std::endl;
   for (int i = 0; i <= n; i++) {
     for (int j = 0; j <= m; j++) {
-      int p = index(i, j, n, m);
-      std::cout << "s[" << i << "," << j << "]: (" << p << "," << row[p] << ","
-                << col[p] << "," << up[p] << "," << down[p] << "," << left[p]
-                << "," << right[p] << ") ";
+      if (s[i][j]) {
+        int p = index(i, j, m);
+        std::cout << "s[" << i << "," << j << "]:" << p
+                  << ", u/d/l/r:" << uplink[p] << "/" << downlink[p] << "/"
+                  << leftlink[p] << "/" << rightlink[p] << std::endl;
+      }
     }
-    std::cout << std::endl;
   }
 }
 
 static void BuildLink(int s[MAX][MAX], int n, int m) {
-  // 初始化节点下标
-  for (int i = 0; i <= n; i++) {
-    for (int j = 1; j <= m; j++) {
-      std::cout << "s[" << i << "," << j << "]: " << index(i, j, n, m) << " ";
-    }
-    std::cout << std::endl;
-  }
+  std::memset(uplink, 0, MAX * sizeof(int));
+  std::memset(downlink, 0, MAX * sizeof(int));
+  std::memset(leftlink, 0, MAX * sizeof(int));
+  std::memset(rightlink, 0, MAX * sizeof(int));
+  std::memset(rowlink, 0, MAX * sizeof(int));
+  std::memset(collink, 0, MAX * sizeof(int));
+  std::memset(cover, 0, MAX * sizeof(int));
 
-  // 头节点[0,n]
+  // 初始化头节点[0,n]
   for (int i = 0; i <= m; i++) {
-    row[i] = 0;
-    col[i] = i;
-    up[i] = i;
-    down[i] = i;
-    left[i] = (i > 0) ? (i - 1) : m;
-    right[i] = (i < m) ? (i + 1) : 0;
+    assert(i >= 0);
+    assert(i < MAX);
+    s[0][i] = 1;
+    rowlink[i] = 0;
+    collink[i] = i;
+    uplink[i] = i;
+    downlink[i] = i;
+    leftlink[i] = (i > 0) ? (i - 1) : m;
+    rightlink[i] = (i < m) ? (i + 1) : 0;
   }
 
   for (int i = 1; i <= n; i++)
     for (int j = 1; j <= m; j++) {
-      int p = index(i, j, n, m);
-      if (!p)
+      if (!s[i][j])
         continue;
-      row[p] = i;
-      col[p] = j;
+
+      int p = index(i, j, m);
+      assert(p >= 0);
+      assert(p < MAX);
+      rowlink[p] = i;
+      collink[p] = j;
 
       // 找到p下方节点
-      for (int k = i + 1;; (k < n) ? (k++) : (k = 0))
+      // k:[0, n]
+      for (int k = (i + 1 > n) ? 0 : i + 1;; k = (k + 1 > n) ? 0 : k + 1)
         if (s[k][j]) {
-          down[p] = index(k, j, n, m);
-          up[index(k, j, n, m)] = p;
+          assert(index(k, j, m) >= 0);
+          assert(index(k, j, m) < MAX);
+          downlink[p] = index(k, j, m);
+          uplink[index(k, j, m)] = p;
           break;
         }
       // 找到p上方节点
-      for (int k = i - 1;; (k > 1) ? (k--) : (k = n))
+      // k:[0, n]
+      for (int k = (i - 1 < 0) ? n : i - 1;; k = (k - 1 < 0) ? n : k - 1)
         if (s[k][j]) {
-          up[p] = index(k, j, n, m);
-          down[index(k, j, n, m)] = p;
+          assert(index(k, j, m) >= 0);
+          assert(index(k, j, m) < MAX);
+          uplink[p] = index(k, j, m);
+          downlink[index(k, j, m)] = p;
           break;
         }
       // 找到p右方节点
-      for (int k = j + 1;; (k < m) ? (k++) : (k = 1))
+      // k:[1, m]
+      for (int k = (j + 1 > m) ? 1 : j + 1;; k = (k + 1 > m) ? 1 : k + 1)
         if (s[i][k]) {
-          right[p] = index(i, k, n, m);
-          left[index(i, k, n, m)] = p;
+          assert(index(i, k, m) >= 0);
+          assert(index(i, k, m) < MAX);
+          rightlink[p] = index(i, k, m);
+          leftlink[index(i, k, m)] = p;
           break;
         }
       // 找到p左方节点
-      for (int k = j - 1;; (k > 1) ? (k--) : (k = m))
+      // k:[1, m]
+      for (int k = (j - 1 < 1) ? m : j - 1;; k = (k - 1 < 1) ? m : k - 1)
         if (s[i][k]) {
-          left[p] = index(i, k, n, m);
-          right[index(i, k, n, m)] = p;
+          assert(index(i, k, m) >= 0);
+          assert(index(i, k, m) < MAX);
+          leftlink[p] = index(i, k, m);
+          rightlink[index(i, k, m)] = p;
           break;
         }
     } // for
 }
 
-static void Remove(int x) {
-  //在头节点的一行删除节点x
-  left[right[x]] = left[x];
-  right[left[x]] = right[x];
+static void Remove(int i) {
+  //在头节点的一行删除节点i
+  leftlink[rightlink[i]] = leftlink[i];
+  rightlink[leftlink[i]] = rightlink[i];
 
-  //所有包含x的子集
-  for (int p = down[x]; p != x; p = down[p]) {
-    //在列上删除子集上除了x的其他节点
-    for (int q = right[p]; q != p; q = right[q]) {
-      up[down[q]] = up[q];
-      down[up[q]] = down[q];
+  //所有包含i的子集
+  for (int p = downlink[i]; p != i; p = downlink[p]) {
+    //在列上删除子集上除了i的其他节点
+    for (int q = rightlink[p]; q != p; q = rightlink[q]) {
+      uplink[downlink[q]] = uplink[q];
+      downlink[uplink[q]] = downlink[q];
     }
   }
 }
 
-static void Resume(int x) {
-  //在头节点的一行恢复节点x
-  left[right[x]] = x;
-  right[left[x]] = x;
+static void Resume(int i) {
+  //在头节点的一行恢复节点i
+  leftlink[rightlink[i]] = i;
+  rightlink[leftlink[i]] = i;
 
-  //所有包含x的子集
-  for (int p = up[x]; p != x; p = up[p]) {
-    //在列上恢复子集上除了x的其他节点
-    for (int q = right[p]; q != p; q = right[q]) {
-      up[down[q]] = q;
-      down[up[q]] = q;
+  //所有包含i的子集
+  for (int p = uplink[i]; p != i; p = uplink[p]) {
+    //在列上恢复子集上除了i的其他节点
+    for (int q = rightlink[p]; q != p; q = rightlink[q]) {
+      uplink[downlink[q]] = q;
+      downlink[uplink[q]] = q;
     }
   }
 }
@@ -119,48 +138,40 @@ static void Resume(int x) {
 static bool Dance(int x, int s[MAX][MAX], int n, int m) {
   //头节点一行的所有元素都被删除
   //只剩0节点
-  if (left[0] == 0) {
+  if (leftlink[0] == 0) {
     return true;
   }
 
-  Remove(x);
+  Remove(index(0, x, m));
+  DumpGraph(s, n, m);
   //遍历所有包含x的子集
-  for (int p = down[x]; p != x; p = down[p]) {
-    //选择子集row[p]
-    cover[row[p]] = 1;
-    std::cout << "row[" << p << "]:" << row[p] << ", cover[" << row[p]
-              << "]:" << cover[row[p]] << std::endl;
+  for (int p = downlink[index(0, x, m)]; p != index(0, x, m); p = downlink[p]) {
+    //选择子集rowlink[p]
+    cover[rowlink[p]] = 1;
 
-    //删除包含子集row[p]所有元素的子集
-    for (int q = p; q != p; q = right[q])
-      Remove(col[q]);
+    //删除包含子集rowlink[p]所有元素的子集
+    for (int q = rightlink[p]; q != p; q = rightlink[q])
+      Remove(index(rowlink[q], collink[q], m));
+    DumpGraph(s, n, m);
 
     //下一个元素x+1
     if (Dance(x + 1, s, n, m))
       return true;
 
-    //排除子集row[p]
-    cover[row[p]] = 0;
-    std::cout << "row[" << p << "]:" << row[p] << ", cover[" << row[p]
-              << "]:" << cover[row[p]] << std::endl;
+    //排除子集rowlink[p]
+    cover[rowlink[p]] = 0;
 
     //恢复链表
-    for (int q = left[p]; q != p; q = left[q])
-      Resume(col[q]);
+    for (int q = leftlink[p]; q != p; q = leftlink[q])
+      Resume(index(rowlink[q], collink[q], m));
+    DumpGraph(s, n, m);
   }
-  Resume(x);
+  Resume(index(0, x, m));
+  DumpGraph(s, n, m);
   return false;
 }
 
 std::pair<bool, std::vector<int>> DancingLink(int n, int m, int s[MAX][MAX]) {
-  std::memset(up, 0, MAX * sizeof(int));
-  std::memset(down, 0, MAX * sizeof(int));
-  std::memset(left, 0, MAX * sizeof(int));
-  std::memset(right, 0, MAX * sizeof(int));
-  std::memset(row, 0, MAX * sizeof(int));
-  std::memset(col, 0, MAX * sizeof(int));
-  std::memset(cover, 0, MAX * sizeof(int));
-
   BuildLink(s, n, m);
   DumpGraph(s, n, m);
   bool dance = Dance(1, s, n, m);
