@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+#define index(i, j, n, m) ((j) + (i) * (m))
+
 // up[i],down[i],left[i],right[i]
 //分别为节点i的上下左右邻节点下标
 static int up[MAX], down[MAX], left[MAX], right[MAX];
@@ -13,14 +15,14 @@ static int row[MAX], col[MAX];
 static int cover[MAX];
 
 static void DumpGraph(int s[MAX][MAX], int n, int m) {
-  std::cout << "dump -- n: " << n << ", m: " << m << std::endl;
-  std::cout << "s[i][j],row,col,up,down,left,right -- " << std::endl;
-  for (int i = 0; i <= m; i++) {
-    for (int j = 0; j <= n; j++) {
-      int k = s[i][j];
-      std::cout << "s[" << i << "," << j << "]: (" << k << "," << row[k] << ","
-                << col[k] << "," << up[k] << "," << down[k] << "," << left[k]
-                << "," << right[k] << ") ";
+  std::cout << std::endl << "dump -- n: " << n << ", m: " << m << std::endl;
+  std::cout << "s[i][j]:p,row,col,up,down,left,right -- " << std::endl;
+  for (int i = 0; i <= n; i++) {
+    for (int j = 0; j <= m; j++) {
+      int p = index(i, j, n, m);
+      std::cout << "s[" << i << "," << j << "]: (" << p << "," << row[p] << ","
+                << col[p] << "," << up[p] << "," << down[p] << "," << left[p]
+                << "," << right[p] << ") ";
     }
     std::cout << std::endl;
   }
@@ -28,63 +30,60 @@ static void DumpGraph(int s[MAX][MAX], int n, int m) {
 
 static void BuildLink(int s[MAX][MAX], int n, int m) {
   // 初始化节点下标
-  for (int i = 0; i <= m; i++) {
-    for (int j = 1; j <= n; j++) {
-      s[i][j] = j + i * n;
-      std::cout << "s[" << i << "," << j << "]: " << s[i][j] << " ";
+  for (int i = 0; i <= n; i++) {
+    for (int j = 1; j <= m; j++) {
+      std::cout << "s[" << i << "," << j << "]: " << index(i, j, n, m) << " ";
     }
     std::cout << std::endl;
   }
 
   // 头节点[0,n]
-  for (int i = 0; i <= n; i++) {
+  for (int i = 0; i <= m; i++) {
     row[i] = 0;
     col[i] = i;
     up[i] = i;
     down[i] = i;
-    left[i] = (i > 0) ? (i - 1) : n;
-    right[i] = (i < n) ? (i + 1) : 0;
+    left[i] = (i > 0) ? (i - 1) : m;
+    right[i] = (i < m) ? (i + 1) : 0;
   }
 
-  for (int i = 0; i <= m; i++)
-    for (int j = 1; j <= n; j++) {
-      int index = s[i][j];
-      if (!index)
+  for (int i = 1; i <= n; i++)
+    for (int j = 1; j <= m; j++) {
+      int p = index(i, j, n, m);
+      if (!p)
         continue;
-      row[index] = i;
-      col[index] = j;
+      row[p] = i;
+      col[p] = j;
 
-      // 找到index下方节点
-      for (int k = i + 1;; (k < m) ? (k++) : (k = 0))
+      // 找到p下方节点
+      for (int k = i + 1;; (k < n) ? (k++) : (k = 0))
         if (s[k][j]) {
-          down[index] = s[k][j];
-          up[s[k][j]] = index;
+          down[p] = index(k, j, n, m);
+          up[index(k, j, n, m)] = p;
           break;
         }
-      // 找到index上方节点
-      for (int k = i - 1;; (k > 1) ? (k--) : (k = m))
+      // 找到p上方节点
+      for (int k = i - 1;; (k > 1) ? (k--) : (k = n))
         if (s[k][j]) {
-          up[index] = s[k][j];
-          down[s[k][j]] = index;
+          up[p] = index(k, j, n, m);
+          down[index(k, j, n, m)] = p;
           break;
         }
-      // 找到index右方节点
-      for (int k = j + 1;; (k < n) ? (k++) : (k = 1))
+      // 找到p右方节点
+      for (int k = j + 1;; (k < m) ? (k++) : (k = 1))
         if (s[i][k]) {
-          right[index] = s[i][k];
-          left[s[i][k]] = index;
+          right[p] = index(i, k, n, m);
+          left[index(i, k, n, m)] = p;
           break;
         }
-      // 找到index左方节点
-      for (int k = j - 1;; (k > 1) ? (k--) : (k = n))
+      // 找到p左方节点
+      for (int k = j - 1;; (k > 1) ? (k--) : (k = m))
         if (s[i][k]) {
-          left[index] = s[i][k];
-          right[s[i][k]] = index;
+          left[p] = index(i, k, n, m);
+          right[index(i, k, n, m)] = p;
           break;
         }
     } // for
-
-  DumpGraph(s, n, m);
 }
 
 static void Remove(int x) {
@@ -117,7 +116,7 @@ static void Resume(int x) {
   }
 }
 
-static bool Dance(int x) {
+static bool Dance(int x, int s[MAX][MAX], int n, int m) {
   //头节点一行的所有元素都被删除
   //只剩0节点
   if (left[0] == 0) {
@@ -129,17 +128,21 @@ static bool Dance(int x) {
   for (int p = down[x]; p != x; p = down[p]) {
     //选择子集row[p]
     cover[row[p]] = 1;
+    std::cout << "row[" << p << "]:" << row[p] << ", cover[" << row[p]
+              << "]:" << cover[row[p]] << std::endl;
 
     //删除包含子集row[p]所有元素的子集
     for (int q = p; q != p; q = right[q])
       Remove(col[q]);
 
     //下一个元素x+1
-    if (Dance(x + 1))
+    if (Dance(x + 1, s, n, m))
       return true;
 
     //排除子集row[p]
     cover[row[p]] = 0;
+    std::cout << "row[" << p << "]:" << row[p] << ", cover[" << row[p]
+              << "]:" << cover[row[p]] << std::endl;
 
     //恢复链表
     for (int q = left[p]; q != p; q = left[q])
@@ -160,7 +163,7 @@ std::pair<bool, std::vector<int>> DancingLink(int n, int m, int s[MAX][MAX]) {
 
   BuildLink(s, n, m);
   DumpGraph(s, n, m);
-  bool dance = Dance(1);
-  return std::make_pair(dance, BuildVector(cover, 0, m));
+  bool dance = Dance(1, s, n, m);
+  return std::make_pair(dance, BuildVector(cover, 0, m + 1));
 }
 
