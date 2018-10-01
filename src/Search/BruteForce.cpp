@@ -12,7 +12,7 @@ std::vector<std::vector<int>> BruteForce(int *s, int n, int m) {
           s[2] = i_2;
           /* ... */
           s[n - 1] = i_n_1;
-          result.push_back(IntArrayToVector(s, n));
+          result.push_back(BuildVector(s, 0, n));
         }
   return result;
 }

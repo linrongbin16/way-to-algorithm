@@ -7,7 +7,7 @@ void Recursion(int *s, int n, int m, int prev,
                std::vector<std::vector<int>> &result) {
   // 递归终止条件
   if (prev == n) {
-    result.push_back(IntArrayToVector(s, n));
+    result.push_back(BuildVector(s, 0, n));
     return;
   }
 

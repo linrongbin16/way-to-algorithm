@@ -24,8 +24,9 @@ struct Test {
     },
     {
         {
-            {0, 0, 1, 0, 0, 0, 0, 0},
-            {0, 0, 1, 0, 1, 1, 1, 0},
+            //  1           5
+            {0, 0, 1, 0, 0, 0, 0, 0}, // 0
+            {0, 0, 1, 0, 1, 1, 1, 0}, // 1
             {0, 0, 0, 0, 0, 0, 0, 0},
             {0, 1, 1, 1, 1, 0, 1, 0},
             {0, 0, 0, 0, 0, 0, 0, 0},
@@ -64,7 +65,7 @@ struct Test {
 int main() {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test &t = test_cases[i];
-    vector<BfsNode> path = AStarSearch(t.block, t.m, t.n, t.begin, t.end);
+    vector<BfsNode> path = AStarSearch(t.block, t.n, t.m, t.begin, t.end);
     assert(path.size() > 0);
     assert(path[0] == t.end);
     assert(path[path.size() - 1] == t.begin);
@@ -73,7 +74,7 @@ int main() {
       AssertAdjacent(path[k], path[k + 1]);
     }
     for (int i = 0; i < path.size(); i++) {
-      assert(!t.block[path[i].col][path[i].row]);
+      assert(!t.block[path[i].row][path[i].col]);
     }
   }
 

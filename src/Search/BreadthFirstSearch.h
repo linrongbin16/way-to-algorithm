@@ -7,12 +7,12 @@
 
 /**
  * BreadthFirstSearch 广度优先搜索
- * @param m     列col
- * @param n     行row
+ * @param n     行
+ * @param m     列
  * @param beg   起点座标
  * @param end   终点座标
  * @return      从beg到end的搜索路径
  */
-std::vector<BfsNode> BreadthFirstSearch(int m, int n, const BfsNode &beg,
+std::vector<BfsNode> BreadthFirstSearch(int n, int m, const BfsNode &beg,
                                         const BfsNode &end);
 

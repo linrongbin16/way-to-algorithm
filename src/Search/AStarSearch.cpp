@@ -37,14 +37,14 @@ static std::vector<BfsNode> AStarPath(BfsNode father[MAX][MAX],
                                       const BfsNode &end) {
   std::vector<BfsNode> path;
   BfsNode i;
-  for (i = end; i != father[i.col][i.row]; i = father[i.col][i.row]) {
+  for (i = end; i != father[i.row][i.col]; i = father[i.row][i.col]) {
     path.push_back(i);
   }
   path.push_back(i);
   return path;
 }
 
-std::vector<BfsNode> AStarSearch(int block[MAX][MAX], int m, int n,
+std::vector<BfsNode> AStarSearch(int block[MAX][MAX], int n, int m,
                                  const BfsNode &beg, const BfsNode &end) {
   BfsNode father[MAX][MAX];
   std::list<BfsNode> open_tab;
@@ -65,23 +65,23 @@ std::vector<BfsNode> AStarSearch(int block[MAX][MAX], int m, int n,
 
     // e的上下左右四周节点
     for (int i = 0; i < 4; i++) {
-      int ncol = e.col + col_dir[i];
       int nrow = e.row + row_dir[i];
+      int ncol = e.col + col_dir[i];
 
-      if (!in_range(ncol, m) || !in_range(nrow, n)) {
+      if (!in_range(nrow, n) || !in_range(ncol, m)) {
         continue;
       }
-      if (block[ncol][nrow]) {
+      if (block[nrow][ncol]) {
         continue;
       }
 
-      BfsNode y(ncol, nrow);
+      BfsNode y(nrow, ncol);
 
       // close_tab中不存在节点y
       if (close_tab.find(y) == close_tab.end()) {
         close_tab[y] = close_tab[e] + 1;
         open_tab.push_back(y);
-        father[y.col][y.row] = e;
+        father[y.row][y.col] = e;
       } else {
         // close_tab中已存在节点y
         int old_g = close_tab[y];
@@ -90,7 +90,7 @@ std::vector<BfsNode> AStarSearch(int block[MAX][MAX], int m, int n,
           close_tab.erase(close_tab.find(y));
           close_tab[y] = new_g;
           open_tab.push_back(y);
-          father[y.col][y.row] = e;
+          father[y.row][y.col] = e;
         }
       }
     } // for

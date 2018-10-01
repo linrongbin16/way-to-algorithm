@@ -3,9 +3,9 @@
 #include <string>
 #include <unordered_set>
 
-std::vector<int> IntArrayToVector(int *s, int n) {
+std::vector<int> BuildVector(int *s, int off, int len) {
   std::vector<int> result;
-  for (int i = 0; i < n; i++) {
+  for (int i = off; i < len; i++) {
     result.push_back(s[i]);
   }
   return result;
@@ -33,17 +33,16 @@ void AssertUnique(const std::vector<std::vector<int>> &v) {
   }
 }
 
-/* 4个方向: 上 下 右 左 */
-/* m列n行二维方格 col范围[0, m) row范围[0, n) */
-int col_dir[4] = {0, 0, 1, -1};
+// 上下右左
 int row_dir[4] = {1, -1, 0, 0};
+int col_dir[4] = {0, 0, 1, -1};
 
-BfsNode::BfsNode() : col(0), row(0) {}
+BfsNode::BfsNode() : row(0), col(0) {}
 
-BfsNode::BfsNode(int col, int row) : col(col), row(row) {}
+BfsNode::BfsNode(int row, int col) : row(row), col(col) {}
 
 bool operator==(const BfsNode &a, const BfsNode &b) {
-  return a.col == b.col && a.row == b.row;
+  return a.row == b.row && a.col == b.col;
 }
 
 bool operator!=(const BfsNode &a, const BfsNode &b) { return !(a == b); }

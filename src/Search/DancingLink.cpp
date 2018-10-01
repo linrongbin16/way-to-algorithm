@@ -1,6 +1,7 @@
 #include "DancingLink.h"
 #include "Util.h"
 #include <cstring>
+#include <iostream>
 #include <vector>
 
 // up[i],down[i],left[i],right[i]
@@ -8,24 +9,35 @@
 static int up[MAX], down[MAX], left[MAX], right[MAX];
 // row[i],col[i]为节点i的行号和列号
 static int row[MAX], col[MAX];
+// 精确覆盖
+static int cover[MAX];
+
+static void DumpGraph(int s[MAX][MAX], int n, int m) {
+  std::cout << "dump -- n: " << n << ", m: " << m << std::endl;
+  std::cout << "s[i][j],row,col,up,down,left,right -- " << std::endl;
+  for (int i = 0; i <= m; i++) {
+    for (int j = 0; j <= n; j++) {
+      int k = s[i][j];
+      std::cout << "s[" << i << "," << j << "]: (" << k << "," << row[k] << ","
+                << col[k] << "," << up[k] << "," << down[k] << "," << left[k]
+                << "," << right[k] << ") ";
+    }
+    std::cout << std::endl;
+  }
+}
 
 static void BuildLink(int s[MAX][MAX], int n, int m) {
-  std::memset(up, 0, MAX * sizeof(int));
-  std::memset(down, 0, MAX * sizeof(int));
-  std::memset(left, 0, MAX * sizeof(int));
-  std::memset(right, 0, MAX * sizeof(int));
-  std::memset(row, 0, MAX * sizeof(int));
-  std::memset(col, 0, MAX * sizeof(int));
-
   // 初始化节点下标
-  std::memset(s, 0, MAX * MAX * sizeof(int));
-  for (int i = 0; i <= m; i++)
-    for (int j = 1; j <= n; j++)
-      if (s[i][j])
-        s[i][j] = i + j * n;
+  for (int i = 0; i <= m; i++) {
+    for (int j = 1; j <= n; j++) {
+      s[i][j] = j + i * n;
+      std::cout << "s[" << i << "," << j << "]: " << s[i][j] << " ";
+    }
+    std::cout << std::endl;
+  }
 
   // 头节点[0,n]
-  for (int i = 1; i <= n; i++) {
+  for (int i = 0; i <= n; i++) {
     row[i] = 0;
     col[i] = i;
     up[i] = i;
@@ -34,7 +46,7 @@ static void BuildLink(int s[MAX][MAX], int n, int m) {
     right[i] = (i < n) ? (i + 1) : 0;
   }
 
-  for (int i = 1; i <= m; i++)
+  for (int i = 0; i <= m; i++)
     for (int j = 1; j <= n; j++) {
       int index = s[i][j];
       if (!index)
@@ -50,7 +62,7 @@ static void BuildLink(int s[MAX][MAX], int n, int m) {
           break;
         }
       // 找到index上方节点
-      for (int k = i - 1;; k--)
+      for (int k = i - 1;; (k > 1) ? (k--) : (k = m))
         if (s[k][j]) {
           up[index] = s[k][j];
           down[s[k][j]] = index;
@@ -71,6 +83,8 @@ static void BuildLink(int s[MAX][MAX], int n, int m) {
           break;
         }
     } // for
+
+  DumpGraph(s, n, m);
 }
 
 static void Remove(int x) {
@@ -103,7 +117,7 @@ static void Resume(int x) {
   }
 }
 
-static bool Dance(int x, int *cover) {
+static bool Dance(int x) {
   //头节点一行的所有元素都被删除
   //只剩0节点
   if (left[0] == 0) {
@@ -121,7 +135,7 @@ static bool Dance(int x, int *cover) {
       Remove(col[q]);
 
     //下一个元素x+1
-    if (Dance(x + 1, cover))
+    if (Dance(x + 1))
       return true;
 
     //排除子集row[p]
@@ -136,11 +150,17 @@ static bool Dance(int x, int *cover) {
 }
 
 std::pair<bool, std::vector<int>> DancingLink(int n, int m, int s[MAX][MAX]) {
-  int cover[MAX];
-  std::memset(cover, 0, sizeof(int) * MAX);
+  std::memset(up, 0, MAX * sizeof(int));
+  std::memset(down, 0, MAX * sizeof(int));
+  std::memset(left, 0, MAX * sizeof(int));
+  std::memset(right, 0, MAX * sizeof(int));
+  std::memset(row, 0, MAX * sizeof(int));
+  std::memset(col, 0, MAX * sizeof(int));
+  std::memset(cover, 0, MAX * sizeof(int));
 
   BuildLink(s, n, m);
-  bool dance = Dance(1, cover);
-  return std::make_pair(dance, IntArrayToVector(cover, m));
+  DumpGraph(s, n, m);
+  bool dance = Dance(1);
+  return std::make_pair(dance, BuildVector(cover, 0, m));
 }
 

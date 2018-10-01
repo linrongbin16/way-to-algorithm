@@ -21,11 +21,9 @@
 
 ![KnowledgePoint1.png](res/KnowledgePoint1.png)
 
-我们称之为$$ 3 $$行$$ 5 $$列的矩阵，在计算机程序中一般用二位数组$$ m = 5 \times 3 $$表示，$$ matrix[col, row] $$表示第$$ col $$行、第$$ row $$列的元素（也可以颠倒过来表示成$$ matrix[row, col] $$，只需要保证统一即可）。比如：
+我们称之为$$ 3 $$行$$ 5 $$列的矩阵，一般用二位数组$$ m = 3 \times 5 $$表示，$$ matrix[row, col] $$表示第$$ row $$行、第$$ col $$列的元素。比如：
 
 ![KnowledgePoint2.png](res/KnowledgePoint2.png)
 
 ![KnowledgePoint3.png](res/KnowledgePoint3.png)
-
-本节中我们将第$$ 1 $$维作为列$$ col $$，将第$$ 2 $$维作为行$$ row $$。
 

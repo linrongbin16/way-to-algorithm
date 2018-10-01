@@ -2,7 +2,7 @@
 #include <utility>
 #include <vector>
 #ifndef MAX
-#define MAX 128
+#define MAX 16
 #endif
 
 /**

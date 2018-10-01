@@ -2,16 +2,17 @@
 #include <algorithm>
 #include <vector>
 
-std::vector<int> IntArrayToVector(int *s, int n);
+std::vector<int> BuildVector(int *s, int off, int len);
+
 void AssertEq(int *s1, int n1, int *s2, int n2);
 void AssertUnique(const std::vector<std::vector<int>> &v);
 
 struct BfsNode {
-  int col;
   int row;
+  int col;
 
   BfsNode();
-  BfsNode(int col, int row);
+  BfsNode(int row, int col);
   friend bool operator==(const BfsNode &a, const BfsNode &b);
   friend bool operator!=(const BfsNode &a, const BfsNode &b);
 };
@@ -23,14 +24,14 @@ template <> struct hash<BfsNode> {
     using std::hash;
     using std::size_t;
 
-    return hash<int>()(e.col) ^ hash<int>()(e.row);
+    return hash<int>()(e.row) ^ hash<int>()(e.col);
   }
 };
 
 } // namespace std
 
-extern int col_dir[4];
 extern int row_dir[4];
+extern int col_dir[4];
 
 #ifndef in_range
 #define in_range(pos, range) ((pos) >= 0 && (pos) < range)
