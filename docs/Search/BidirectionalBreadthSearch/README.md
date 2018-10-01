@@ -42,7 +42,7 @@ $$ (7) $$从$$ bq $$中取出头节点$$ [2,1] $$，其邻节点$$ [2,2], [1,3] 
 
 ![BidirectionalBreadthSearch8.png](../res/BidirectionalBreadthSearch8.png)
 
-双向广度搜索的时间复杂度与广度优先搜索一样，也是$$ O(m \times n) $$。
+双向广度搜索的时间复杂度与广度优先搜索一样，也是$$ O(n \times m) $$。
 
 --------
 
