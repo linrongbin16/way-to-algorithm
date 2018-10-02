@@ -1,32 +1,32 @@
 #include "SegmentTree.h"
-#include <assert.h>
+#include <cassert>
+#include <cstdlib>
 #include <iostream>
 using namespace std;
 
-#define TEST_MAX 1024
+#define TEST_MAX 128
 
 int main() {
-  int s[MAX];
-  for (int i = 0; i < MAX; i++) {
+  int s[TEST_MAX];
+  for (int i = 0; i < TEST_MAX; i++) {
     s[i] = i;
   }
-  for (int i = 0; i < MAX; i++) {
-    SegNode *t = SegmentTreeNew(s, 0, MAX - 1);
-    for (int j = 0; j < MAX; j++) {
-      int sum = 0;
-      SegmentTreeAdd(t, j, j);
-      for (int k = 0; k < MAX; k++) {
-        sum += k;
-        if (k < j) {
-          assert(SegmentTreeQuery(t, 0, k) == sum);
-        } else {
-          assert(SegmentTreeQuery(t, 0, k) == sum + j);
+  for (int i = 1; i < TEST_MAX; i++) {
+    SegNode *t = SegmentTreeNew(s, 0, i);
+    for (int j = 0; j < i; j++) {
+      int r = rand() % MAX;
+      SegmentTreeModify(t, j, r);
+      s[j] += r;
+      for (int p = 0; p <= i; p++) {
+        int sum = 0;
+        for (int q = 0; q < p; q++) {
+          sum += s[q];
         }
-      }
-      SegmentTreeAdd(t, j, -j);
-    }
+        assert(sum == SegmentTreeQuery(t, 0, p));
+      } // for
+    }   // for
     SegmentTreeFree(t);
-  }
+  } // for
 
   return 0;
 }

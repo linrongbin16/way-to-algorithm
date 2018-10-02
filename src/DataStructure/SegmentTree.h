@@ -1,30 +1,23 @@
 #pragma once
-
-#include <algorithm>
-#include <assert.h>
 #ifndef MAX
-#define MAX 64
+#define MAX 1024
 #endif
 
-#define LEFT_CHILD(x) (2 * (x) + 1)
-#define RIGHT_CHILD(x) (2 * (x) + 2)
-#define FATHER(x) (((x)-1) / 2)
-
 struct SegNode {
-  int left[MAX * 3];
-  int right[MAX * 3];
-  int sum[MAX * 3];
+  int left[MAX];
+  int right[MAX];
+  int sum[MAX];
 };
 
-// create segment tree
-SegNode *SegmentTreeNew(int s[MAX], int start, int end);
+// create s[beg, end)
+SegNode *SegmentTreeNew(int s[MAX], int beg, int end);
 
-// free segment tree
+// free s[beg, end)
 void SegmentTreeFree(SegNode *t);
 
-// add value to segment tree
-void SegmentTreeAdd(SegNode *t, int index, int value);
+// modify s[i] += value
+void SegmentTreeModify(SegNode *t, int i, int value);
 
-// query segment tree
-int SegmentTreeQuery(SegNode *t, int start, int end);
+// query s[beg, end)
+int SegmentTreeQuery(SegNode *t, int beg, int end);
 
