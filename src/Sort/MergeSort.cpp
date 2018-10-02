@@ -1,35 +1,34 @@
 ﻿#include "MergeSort.h"
 #include <cstring>
-#include <vector>
 
-void Merge(int *s, int start, int mid, int last) {
-  std::vector<int> t(last - start + 2);
-  int i, j, k;
+static void Merge(int *s, int beg, int mid, int end) {
+  int *t = new int[end + 1];
+  int i = beg, j = mid, k = beg;
 
-  for (i = start, j = mid + 1, k = start; i <= mid && j <= last; k++) {
-    if (s[i] <= s[j]) {
-      t[k] = s[i];
-      i++;
-    } else {
-      t[k] = s[j];
-      j++;
+  while (i < mid || j < end) {
+    if (i < mid && j < end) {
+      if (s[i] < s[j]) {
+        t[k++] = s[i++];
+      } else {
+        t[k++] = s[j++];
+      }
+    } else if (i < mid) {
+      t[k++] = s[i++];
+    } else if (j < end) {
+      t[k++] = s[j++];
     }
   }
-  for (; i <= mid; i++, k++)
-    t[k] = s[i];
-  for (; j <= last; j++, k++)
-    t[k] = s[j];
 
-  std::memcpy(s + start, t.data() + start, (last - start) * sizeof(int));
+  std::memcpy(s + beg, t + beg, (end - beg) * sizeof(int));
+  delete[] t;
 }
 
 void MergeSort(int *s, int beg, int end) {
-  int mid = (beg + end - 1) / 2;
-  if (beg + 2 >= end) {
-    Merge(s, beg, mid, end - 1);
-    return;
+  if (end >= beg + 2) {
+    int mid = (beg + end) / 2;
+    MergeSort(s, beg, mid);
+    MergeSort(s, mid, end);
+    Merge(s, beg, mid, end);
   }
-  MergeSort(s, beg, mid + 1);
-  MergeSort(s, mid + 1, end);
-  Merge(s, beg, mid, end - 1);
 }
+

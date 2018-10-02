@@ -10,7 +10,7 @@
  * @param high      序列s的末尾下标，即左闭右闭区间[low, high]
  * @return          最终s[low]所在下标
  */
-int Partion(int *s, int low, int high) {
+static int Partion(int *s, int low, int high) {
   int p = s[low];
   while (low < high) {
     while (low < high && s[high] >= p)

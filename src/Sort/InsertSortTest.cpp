@@ -5,21 +5,16 @@
 using namespace std;
 
 #define TEST_MAX 1024
-#define MAX 64
-
-void AssertInsertSort(int *s, int n) {
-  AssertNotAscend(s, n);
-  InsertSort(s, 0, n);
-  AssertAscend(s, n);
-}
+#define MAX 128
 
 int main(void) {
   int s[MAX];
-  for (int i = 0; i < TEST_MAX; i++) {
-    for (int j = 0; j < MAX; j++) {
+  for (int i = 1; i < MAX; i++) {
+    for (int j = 0; j < i; j++) {
       s[j] = rand() % TEST_MAX;
     }
-    AssertInsertSort(s, MAX);
+    InsertSort(s, 0, i);
+    AssertAscend(s, i);
   }
   return 0;
 }
