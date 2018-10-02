@@ -13,6 +13,8 @@ static int uplink[MAX], downlink[MAX], leftlink[MAX], rightlink[MAX];
 // rowlink[i],collink[i]为节点i的行号和列号
 static int rowlink[MAX], collink[MAX];
 // 精确覆盖
+static int chose[MAX];
+// 覆盖元素
 static int cover[MAX];
 
 static void DumpGraph(int s[MAX][MAX], int n, int m) {
@@ -37,6 +39,7 @@ static void BuildLink(int s[MAX][MAX], int n, int m) {
   std::memset(rowlink, 0, MAX * sizeof(int));
   std::memset(collink, 0, MAX * sizeof(int));
   std::memset(cover, 0, MAX * sizeof(int));
+  std::memset(chose, 0, MAX * sizeof(int));
 
   // 初始化头节点[0,n]
   for (int i = 0; i <= m; i++) {
@@ -109,6 +112,7 @@ static void Remove(int i) {
   //在头节点的一行删除节点i
   leftlink[rightlink[i]] = leftlink[i];
   rightlink[leftlink[i]] = rightlink[i];
+  cover[collink[i]] = 1;
 
   //所有包含i的子集
   for (int p = downlink[i]; p != i; p = downlink[p]) {
@@ -124,6 +128,7 @@ static void Resume(int i) {
   //在头节点的一行恢复节点i
   leftlink[rightlink[i]] = i;
   rightlink[leftlink[i]] = i;
+  cover[collink[i]] = 0;
 
   //所有包含i的子集
   for (int p = uplink[i]; p != i; p = uplink[p]) {
@@ -142,16 +147,22 @@ static bool Dance(int x, int s[MAX][MAX], int n, int m) {
     return true;
   }
 
+  //已经被子集覆盖
+  //不再重复操作
+  if (cover[collink[x]]) {
+    return Dance(x + 1, s, n, m);
+  }
+
   Remove(index(0, x, m));
   DumpGraph(s, n, m);
   //遍历所有包含x的子集
   for (int p = downlink[index(0, x, m)]; p != index(0, x, m); p = downlink[p]) {
     //选择子集rowlink[p]
-    cover[rowlink[p]] = 1;
+    chose[rowlink[p]] = 1;
 
     //删除包含子集rowlink[p]所有元素的子集
     for (int q = rightlink[p]; q != p; q = rightlink[q])
-      Remove(index(rowlink[q], collink[q], m));
+      Remove(index(0, collink[q], m));
     DumpGraph(s, n, m);
 
     //下一个元素x+1
@@ -159,11 +170,11 @@ static bool Dance(int x, int s[MAX][MAX], int n, int m) {
       return true;
 
     //排除子集rowlink[p]
-    cover[rowlink[p]] = 0;
+    chose[rowlink[p]] = 0;
 
     //恢复链表
     for (int q = leftlink[p]; q != p; q = leftlink[q])
-      Resume(index(rowlink[q], collink[q], m));
+      Resume(index(0, collink[q], m));
     DumpGraph(s, n, m);
   }
   Resume(index(0, x, m));
@@ -175,6 +186,6 @@ std::pair<bool, std::vector<int>> DancingLink(int n, int m, int s[MAX][MAX]) {
   BuildLink(s, n, m);
   DumpGraph(s, n, m);
   bool dance = Dance(1, s, n, m);
-  return std::make_pair(dance, BuildVector(cover, 0, m + 1));
+  return std::make_pair(dance, BuildVector(chose, 0, n + 1));
 }
 
