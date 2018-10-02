@@ -1,28 +1,27 @@
 #pragma once
-#include <algorithm>
 #ifndef MAX
 #define MAX 64
 #endif
 
 struct LeftistTree;
 
-struct Node {
+struct LefNode {
   //节点下标
   int index;
   int distance;
-  Node *left;
-  Node *right;
+  LefNode *left;
+  LefNode *right;
   LeftistTree *tree;
 };
 
 struct LeftistTree {
-  Node *root;
+  LefNode *root;
   int size;
-  int (*cmp)(Node *, Node *);
+  int (*cmp)(LefNode *, LefNode *);
 };
 
 // create leftist tree
-LeftistTree *LeftistTreeNew(int (*Compare)(Node *a, Node *b));
+LeftistTree *LeftistTreeNew(int (*Compare)(LefNode *a, LefNode *b));
 
 // free leftist tree
 void LeftistTreeFree(LeftistTree *t);

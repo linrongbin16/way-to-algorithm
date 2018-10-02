@@ -2,12 +2,10 @@
 #include <cassert>
 #include <cstring>
 
-static int ChildIndex(char letter) { return (int)(letter - 'a'); }
+#define child_index(c) ((int)(c) - (int)'a')
 
 PreNode *PrefixTreeNew() {
   PreNode *t = new PreNode();
-  if (!t)
-    return NULL;
   t->letter = (char)(-1);
   t->word = NULL;
   memset(t->child, 0, sizeof(t->child));
@@ -26,7 +24,7 @@ void PrefixTreeInsert(PreNode *t, const char *word) {
   int n = strlen(word);
   PreNode *e = t;
   for (int i = 0; i < n; i++) {
-    int index = ChildIndex(word[i]);
+    int index = child_index(word[i]);
     if (e->child[index] == NULL) {
       e->child[index] = new PreNode();
       // initialize e->child[index]
@@ -46,7 +44,7 @@ int PrefixTreeFind(PreNode *t, const char *word) {
   PreNode *e = t;
   int n = strlen(word);
   for (int i = 0; i < n; i++) {
-    int index = ChildIndex(word[i]);
+    int index = child_index(word[i]);
     if (!e)
       return 0;
     e = e->child[index];
@@ -62,7 +60,7 @@ void PrefixTreeErase(PreNode *t, const char *word) {
   PreNode *e = t;
   int n = strlen(word);
   for (int i = 0; i < n; i++) {
-    int index = ChildIndex(word[i]);
+    int index = child_index(word[i]);
     e = e->child[index];
     if (i == n - 1) {
       e->word = NULL;

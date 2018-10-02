@@ -11,7 +11,6 @@
 struct PreNode {
   char letter;
   const char *word;
-  /* next letter if exist */
   PreNode *child[CHILD_MAX];
 };
 

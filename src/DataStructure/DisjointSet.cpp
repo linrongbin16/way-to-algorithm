@@ -1,12 +1,5 @@
 #include "DisjointSet.h"
-#ifndef MAX
-#define MAX 1024
-#endif
 #include <cstring>
-
-//
-// implement
-//
 
 static int FindFather(Set *s, int i) {
   if (s->father[i] != i)
@@ -16,9 +9,6 @@ static int FindFather(Set *s, int i) {
 
 Set *DisjointSetNew() {
   Set *s = new Set();
-  if (!s) {
-    return NULL;
-  }
   for (int i = 0; i < MAX; i++)
     s->father[i] = i;
   return s;

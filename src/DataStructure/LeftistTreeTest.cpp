@@ -4,10 +4,10 @@ using namespace std;
 
 #define TEST_MAX 1024
 
-int Greater(Node *a, Node *b) { return b->index - a->index; }
-int Less(Node *a, Node *b) { return a->index - b->index; }
+static int Greater(LefNode *a, LefNode *b) { return b->index - a->index; }
+static int Less(LefNode *a, LefNode *b) { return a->index - b->index; }
 
-int main() {
+int main(void) {
   for (int i = 0; i < MAX; i++) {
     LeftistTree *t = LeftistTreeNew(Greater);
     for (int j = 0; j < MAX; j++) {
