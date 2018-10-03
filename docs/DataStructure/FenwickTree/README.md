@@ -52,6 +52,8 @@ t[16] & = \sum_{i=16-16+1}^{16} s[i] & = \sum_{i=1}^{16} s[i]   & = s[1] + \cdot
 \cdots
 \end{matrix}
 
+$$
+
 Fenwick树上每个节点$$ i $$覆盖到的区域之和如图所示：
 
 ![FenwickTree4.png](../res/FenwickTree4.png)
