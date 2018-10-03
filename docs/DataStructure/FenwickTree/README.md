@@ -80,7 +80,7 @@ $$ (3) $$ 最后与原$$ x $$做与操作（$$ x \wedge (x \oplus (x-1)) $$）�
 
 lowbit函数的C++实现如下：
 
-```c++
+``` c++
 int LowBit(int x) {
     return x & (x ^ (x-1));
 }
@@ -88,7 +88,7 @@ int LowBit(int x) {
 
 或者利用反码特性，实现为：
 
-```c++
+``` c++
 int LowBit(int x) {
     return x & (-x);
 }
