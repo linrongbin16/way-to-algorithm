@@ -4,11 +4,8 @@
 #include <cassert>
 
 struct AvlNode {
-  /*节点下标号*/
-  int index;
-  /*节点高度值*/
+  int value;
   int depth;
-  /*左右孩子节点*/
   AvlNode *left;
   AvlNode *right;
 };
@@ -24,13 +21,13 @@ AVLTree *AVLTreeNew();
 void AVLTreeFree(AVLTree *t);
 
 // insert into AVLTree
-void AVLTreeInsert(AVLTree *t, int index);
+void AVLTreeInsert(AVLTree *t, int value);
 
 // find AVLTree
-int AVLTreeFind(AVLTree *t, int index);
+int AVLTreeFind(AVLTree *t, int value);
 
 // erase AVLTree
-void AVLTreeErase(AVLTree *t, int index);
+void AVLTreeErase(AVLTree *t, int value);
 
 // AVLTree depth
 int AVLTreeDepth(AVLTree *t);

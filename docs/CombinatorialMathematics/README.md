@@ -3,15 +3,15 @@
 
 --------
 
-1. [FullPermutation 全排列](FullPermutation/README.md)
-2. [UniqueFullPermutation 唯一的全排列](UniqueFullPermutation/README.md)
-3. [Combination 组合](Combination/README.md)
-4. [DuplicableCombination （元素）可重复的组合](DuplicableCombination/README.md)
-5. [Subset 子集](Subset/README.md)
-6. [UniqueSubset 唯一的子集](UniqueSubset/README.md)
-7. [Permutation 排列](Permutation/README.md)
-8. [PermutationGroup 置换群](PermutationGroup/README.md)
-9. [Catalan 卡特兰数](Catalan/README.md)
+1. [FullPermutation 全排列](FullPermutation/)
+2. [UniqueFullPermutation 唯一的全排列](UniqueFullPermutation/)
+3. [Combination 组合](Combination/)
+4. [DuplicableCombination （元素）可重复的组合](DuplicableCombination/)
+5. [Subset 子集](Subset/)
+6. [UniqueSubset 唯一的子集](UniqueSubset/)
+7. [Permutation 排列](Permutation/)
+8. [PermutationGroup 置换群](PermutationGroup/)
+9. [Catalan 卡特兰数](Catalan/)
 
 --------
 

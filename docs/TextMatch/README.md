@@ -5,8 +5,8 @@
 
 --------
 
-* [SimpleMatch 简单匹配](docs/TextMatch/SimpleMatch/README.md)
-* [AhoCorasickAutomata AC自动机](docs/TextMatch/AhoCorasickAutomata/README.md)
-* [KnuthMorrisPratt KMP匹配算法](docs/TextMatch/KnuthMorrisPratt/README.md)
-* [RabinKarp RabinKarp算法](docs/TextMatch/RabinKarp/README.md)
-* [BoyerMoore BoyerMoore算法](docs/TextMatch/BoyerMoore/README.md)
+* [SimpleMatch 简单匹配](SimpleMatch/)
+* [AhoCorasickAutomata AC自动机](AhoCorasickAutomata/)
+* [KnuthMorrisPratt KMP匹配算法](KnuthMorrisPratt/)
+* [RabinKarp RabinKarp算法](RabinKarp/)
+* [BoyerMoore BoyerMoore算法](BoyerMoore/)

@@ -3,6 +3,6 @@
 
 --------
 
-1. [LargeNumber 大数字](LargeNumber/README.md)
-2. [DecimalConversion 进制转换](DecimalConversion/README.md)
-3. [Exponentiation 幂运算](Exponentiation/README.md)
+1. [LargeNumber 大数字](LargeNumber/)
+2. [DecimalConversion 进制转换](DecimalConversion/)
+3. [Exponentiation 幂运算](Exponentiation/)

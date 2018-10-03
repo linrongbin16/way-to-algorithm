@@ -8,10 +8,8 @@
 // TODO: bugs need fix
 
 struct RbNode {
-  /* 节点颜色 */
   char color;
-  /* 节点值 */
-  int index;
+  int value;
   RbNode *left;
   RbNode *right;
   RbNode *father;
@@ -23,7 +21,7 @@ struct RedBlackTree {
 
 RedBlackTree *RedBlackTreeNew();
 void RedBlackTreeFree(RedBlackTree *t);
-void RedBlackTreeInsert(RedBlackTree *t, int index);
-int RedBlackTreeFind(RedBlackTree *t, int index);
-void RedBlackTreeErase(RedBlackTree *t, int index);
+void RedBlackTreeInsert(RedBlackTree *t, int value);
+int RedBlackTreeFind(RedBlackTree *t, int value);
+void RedBlackTreeErase(RedBlackTree *t, int value);
 

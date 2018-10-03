@@ -5,8 +5,8 @@
 
 --------
 
-1. [InsertSort 插入排序](InsertSort/README.md)
-2. [BubbleSort 冒泡排序](BubbleSort/README.md)
-3. [QuickSort 快速排序](QuickSort/README.md)
-4. [MergeSort 归并排序](MergeSort/README.md)
+1. [InsertSort 插入排序](InsertSort/)
+2. [BubbleSort 冒泡排序](BubbleSort/)
+3. [QuickSort 快速排序](QuickSort/)
+4. [MergeSort 归并排序](MergeSort/)
 

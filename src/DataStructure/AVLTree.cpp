@@ -48,41 +48,41 @@ static void RotateRL(AvlNode **e) {
   RotateRR(e);
 }
 
-static void NodeInsert(AvlNode **e, int index) {
+static void NodeInsert(AvlNode **e, int value) {
   assert(e);
   assert(*e);
   /*二分插入*/
-  if ((*e)->index > index) {
+  if ((*e)->value > value) {
     /*若做孩子节点为空节点 创建新的节点*/
     if ((*e)->left == NULL) {
       (*e)->left = new AvlNode();
       (*e)->left->left = NULL;
       (*e)->left->right = NULL;
-      (*e)->left->index = index;
+      (*e)->left->value = value;
       (*e)->left->depth = 0;
     } else {
-      NodeInsert(&((*e)->left), index);
+      NodeInsert(&((*e)->left), value);
     }
     if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
-      if ((*e)->left->index > index) {
+      if ((*e)->left->value > value) {
         RotateLL(e);
       } else {
         RotateLR(e);
       }
     }
-  } else if ((*e)->index < index) {
+  } else if ((*e)->value < value) {
     /*若右孩子节点为空节点 创建新的节点*/
     if ((*e)->right == NULL) {
       (*e)->right = new AvlNode();
       (*e)->right->left = NULL;
       (*e)->right->right = NULL;
-      (*e)->right->index = index;
+      (*e)->right->value = value;
       (*e)->right->depth = 0;
     } else {
-      NodeInsert(&((*e)->right), index);
+      NodeInsert(&((*e)->right), value);
     }
     if (NodeDepth((*e)->right) - NodeDepth((*e)->left) >= 2) {
-      if ((*e)->right->index < index) {
+      if ((*e)->right->value < value) {
         RotateRR(e);
       } else {
         RotateRL(e);
@@ -93,22 +93,22 @@ static void NodeInsert(AvlNode **e, int index) {
   (*e)->depth = std::max(NodeDepth((*e)->left), NodeDepth((*e)->right)) + 1;
 }
 
-static int NodeFind(AvlNode **e, int index) {
+static int NodeFind(AvlNode **e, int value) {
   if (*e == NULL)
     return 0;
   /*二分查找*/
-  if ((*e)->index == index) {
+  if ((*e)->value == value) {
     return 1;
-  } else if ((*e)->index > index) {
-    return NodeFind(&((*e)->left), index);
+  } else if ((*e)->value > value) {
+    return NodeFind(&((*e)->left), value);
   } else {
-    return NodeFind(&((*e)->right), index);
+    return NodeFind(&((*e)->right), value);
   }
 }
 
-static void NodeErase(AvlNode **e, int index) {
-  if ((*e)->index > index) {
-    NodeErase(&((*e)->left), index);
+static void NodeErase(AvlNode **e, int value) {
+  if ((*e)->value > value) {
+    NodeErase(&((*e)->left), value);
 
     if (NodeDepth((*e)->right) - NodeDepth((*e)->left) >= 2) {
       if ((*e)->right->left != NULL &&
@@ -118,8 +118,8 @@ static void NodeErase(AvlNode **e, int index) {
         RotateRR(e);
       }
     }
-  } else if ((*e)->index < index) {
-    NodeErase(&((*e)->right), index);
+  } else if ((*e)->value < value) {
+    NodeErase(&((*e)->right), value);
 
     if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
       if ((*e)->right->left != NULL &&
@@ -130,7 +130,7 @@ static void NodeErase(AvlNode **e, int index) {
       }
     }
   } else {
-    /* (*e)->index == index */
+    /* (*e)->value == value*/
     if ((*e)->left && (*e)->right) {
       AvlNode *temp = (*e)->right;
 
@@ -139,10 +139,10 @@ static void NodeErase(AvlNode **e, int index) {
       while (temp->left != NULL)
         temp = temp->left;
 
-      (*e)->index = temp->index; /*调整节点数据信息*/
+      (*e)->value = temp->value; /*调整节点数据信息*/
 
       /*删除边缘节点*/
-      NodeErase(&((*e)->right), temp->index);
+      NodeErase(&((*e)->right), temp->value);
       if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
         if ((*e)->left->right != NULL &&
             (NodeDepth((*e)->left->right) > NodeDepth((*e)->left->left))) {
@@ -178,22 +178,22 @@ AVLTree *AVLTreeNew() {
 
 void AVLTreeFree(AVLTree *t) { NodeFree(t->root); }
 
-void AVLTreeInsert(AVLTree *t, int index) {
+void AVLTreeInsert(AVLTree *t, int value) {
   if (t->root) {
-    NodeInsert(&(t->root), index);
+    NodeInsert(&(t->root), value);
     return;
   }
 
   t->root = new AvlNode();
   t->root->left = NULL;
   t->root->right = NULL;
-  t->root->index = index;
+  t->root->value = value;
   t->root->depth = 0;
 }
 
-int AVLTreeFind(AVLTree *t, int index) { return NodeFind(&(t->root), index); }
+int AVLTreeFind(AVLTree *t, int value) { return NodeFind(&(t->root), value); }
 
-void AVLTreeErase(AVLTree *t, int index) { NodeErase(&(t->root), index); }
+void AVLTreeErase(AVLTree *t, int value) { NodeErase(&(t->root), value); }
 
 int AVLTreeDepth(AVLTree *t) {
   if (!t->root)
