@@ -16,8 +16,8 @@ SegNode *SegmentTreeNew(int s[MAX], int beg, int end);
 void SegmentTreeFree(SegNode *t);
 
 // modify s[i] += value
-void SegmentTreeModify(SegNode *t, int i, int value);
+void SegmentTreeAdd(SegNode *t, int i, int value);
 
-// query s[beg, end)
-int SegmentTreeQuery(SegNode *t, int beg, int end);
+// sum s[beg, end)
+int SegmentTreeSum(SegNode *t, int beg, int end);
 

@@ -22,7 +22,7 @@ static int SegmentTreeNewRec(SegNode *t, int s[MAX], int root, int beg,
   return t->sum[root];
 }
 
-static void SegmentTreeModifyRec(SegNode *t, int root, int i, int v) {
+static void SegmentTreeAddRec(SegNode *t, int root, int i, int v) {
   if (t->left[root] > i || t->right[root] <= i) {
     return;
   }
@@ -30,21 +30,21 @@ static void SegmentTreeModifyRec(SegNode *t, int root, int i, int v) {
   assert(t->left[root] <= i);
   assert(t->right[root] > i);
   t->sum[root] += v;
-  SegmentTreeModifyRec(t, left_child(root), i, v);
-  SegmentTreeModifyRec(t, right_child(root), i, v);
+  SegmentTreeAddRec(t, left_child(root), i, v);
+  SegmentTreeAddRec(t, right_child(root), i, v);
 }
 
-static int SegmentTreeQueryRec(SegNode *t, int root, int beg, int end) {
+static int SegmentTreeSumRec(SegNode *t, int root, int beg, int end) {
   int mid = (t->left[root] + t->right[root]) / 2;
   if (t->left[root] == beg && t->right[root] == end) {
     return t->sum[root];
   } else if (end <= mid) {
-    return SegmentTreeQueryRec(t, left_child(root), beg, end);
+    return SegmentTreeSumRec(t, left_child(root), beg, end);
   } else if (beg >= mid) {
-    return SegmentTreeQueryRec(t, right_child(root), beg, end);
+    return SegmentTreeSumRec(t, right_child(root), beg, end);
   } else {
-    return SegmentTreeQueryRec(t, left_child(root), beg, mid) +
-           SegmentTreeQueryRec(t, right_child(root), mid, end);
+    return SegmentTreeSumRec(t, left_child(root), beg, mid) +
+           SegmentTreeSumRec(t, right_child(root), mid, end);
   }
 }
 
@@ -56,11 +56,11 @@ SegNode *SegmentTreeNew(int s[MAX], int beg, int end) {
 
 void SegmentTreeFree(SegNode *t) { delete t; }
 
-void SegmentTreeModify(SegNode *t, int i, int value) {
-  SegmentTreeModifyRec(t, 0, i, value);
+void SegmentTreeAdd(SegNode *t, int i, int value) {
+  SegmentTreeAddRec(t, 0, i, value);
 }
 
-int SegmentTreeQuery(SegNode *t, int beg, int end) {
-  return SegmentTreeQueryRec(t, 0, beg, end);
+int SegmentTreeSum(SegNode *t, int beg, int end) {
+  return SegmentTreeSumRec(t, 0, beg, end);
 }
 

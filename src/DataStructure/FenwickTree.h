@@ -1,17 +1,14 @@
 #pragma once
-#include <cstring>
 #ifndef MAX
 #define MAX 1024
 #endif
 
-struct FenwickTree {
-  /*数组下标从1开始*/
-  int bit[MAX];
+struct FenTree {
+  int bits[MAX];
 };
 
-FenwickTree *FenwickTreeNew();
-FenwickTree *FenwickTreeNewFromArray(int *s);
-void FenwickTreeFree(FenwickTree *t);
-void FenwickTreeAdd(FenwickTree *t, int i, int v);
-int FenwickTreeSum(FenwickTree *t, int i);
+FenTree *FenwickTreeNew();
+void FenwickTreeFree(FenTree *t);
+void FenwickTreeAdd(FenTree *t, int i, int value);
+int FenwickTreeSum(FenTree *t, int i, int j);
 

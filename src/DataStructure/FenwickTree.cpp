@@ -1,47 +1,37 @@
 #include "FenwickTree.h"
+#include <cassert>
+#include <cstring>
 
-static int LowBit(int i) { return i & (-i); }
+static int LowBit(int x) { return x & (-x); }
 
-FenwickTree *FenwickTreeNew() {
-  FenwickTree *t = new FenwickTree();
-  if (!t) {
-    return NULL;
-  }
-
-  memset(t->bit, 0, MAX * sizeof(int));
+FenTree *FenwickTreeNew() {
+  FenTree *t = new FenTree();
+  memset(t->bits, 0, MAX * sizeof(int));
   return t;
 }
 
-FenwickTree *FenwickTreeNewFromArray(int s[MAX]) {
-  FenwickTree *t = new FenwickTree();
-  if (!t) {
-    return NULL;
-  }
+void FenwickTreeFree(FenTree *t) { delete t; }
 
-  memset(t->bit, 0, MAX * sizeof(int));
-  /* 数组下标从1开始 */
-  for (int i = 1; i < MAX; i++) {
-    t->bit[i] = s[i];
-    for (int j = i - 1; j > i - LowBit(i); j--)
-      t->bit[i] += s[i];
-  }
-
-  return t;
-}
-
-void FenwickTreeFree(FenwickTree *t) { delete t; }
-
-void FenwickTreeAdd(FenwickTree *t, int i, int v) {
+void FenwickTreeAdd(FenTree *t, int i, int value) {
+  assert(i > 0);
   for (int j = i; j < MAX; j += LowBit(j)) {
-    t->bit[j] += v;
+    t->bits[j] += value;
   }
 }
 
-int FenwickTreeSum(FenwickTree *t, int i) {
+static int PrefixSum(FenTree *t, int n) {
   int sum = 0;
-  for (int j = i; j > 0; j -= LowBit(j)) {
-    sum += t->bit[j];
+  for (int j = n; j > 0; j -= LowBit(j)) {
+    sum += t->bits[j];
   }
   return sum;
+}
+
+int FenwickTreeSum(FenTree *t, int i, int j) {
+  assert(i > 0);
+  assert(j > i);
+  int p = PrefixSum(t, i - 1);
+  int q = PrefixSum(t, j - 1);
+  return q - p;
 }
 
