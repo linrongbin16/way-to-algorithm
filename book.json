@@ -1,8 +1,8 @@
 {
-    "title": "Way to Algorithm - 算法之路",
-    "description": "Algorithm Tutorial and Source Code - 算法教程与源码",
+    "title": "算法之路",
+    "description": "算法教程与源码",
     "language": "zh-hans",
-    "author": "Lin Rongbin <linrongbin16@gmail.com>",
+    "author": "林荣彬",
     "plugins": [
         "mathjax@https://github.com/OrgVue/gitbook-plugin-mathjax.git#speech-fix",
         "include-codeblock",
@@ -10,12 +10,27 @@
         "splitter",
         "-search",
         "-lunr",
-        "livereload"
+        "livereload",
+        "autocover"
     ],
     "pluginsConfig": {
         "include-codeblock": {
             "template": "ace",
             "theme": "monokai"
+        },
+        "autocover": {
+            "font": {
+                "size": null,
+                "family": "Impact",
+                "color": "#FFF"
+            },
+            "size": {
+                "w": 1800,
+                "h": 2360
+            },
+            "background": {
+                "color": "#09F"
+            }
         }
     }
 }
