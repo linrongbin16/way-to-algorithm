@@ -48,7 +48,7 @@ static void RotateRL(AvlNode **e) {
   RotateRR(e);
 }
 
-static void NodeInsert(AvlNode **e, int value) {
+static void AvlNodeInsert(AvlNode **e, int value) {
   assert(e);
   assert(*e);
   /*二分插入*/
@@ -61,7 +61,7 @@ static void NodeInsert(AvlNode **e, int value) {
       (*e)->left->value = value;
       (*e)->left->depth = 0;
     } else {
-      NodeInsert(&((*e)->left), value);
+      AvlNodeInsert(&((*e)->left), value);
     }
     if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
       if ((*e)->left->value > value) {
@@ -79,7 +79,7 @@ static void NodeInsert(AvlNode **e, int value) {
       (*e)->right->value = value;
       (*e)->right->depth = 0;
     } else {
-      NodeInsert(&((*e)->right), value);
+      AvlNodeInsert(&((*e)->right), value);
     }
     if (NodeDepth((*e)->right) - NodeDepth((*e)->left) >= 2) {
       if ((*e)->right->value < value) {
@@ -93,22 +93,22 @@ static void NodeInsert(AvlNode **e, int value) {
   (*e)->depth = std::max(NodeDepth((*e)->left), NodeDepth((*e)->right)) + 1;
 }
 
-static int NodeFind(AvlNode **e, int value) {
+static int AvlNodeFind(AvlNode **e, int value) {
   if (*e == NULL)
     return 0;
   /*二分查找*/
   if ((*e)->value == value) {
     return 1;
   } else if ((*e)->value > value) {
-    return NodeFind(&((*e)->left), value);
+    return AvlNodeFind(&((*e)->left), value);
   } else {
-    return NodeFind(&((*e)->right), value);
+    return AvlNodeFind(&((*e)->right), value);
   }
 }
 
-static void NodeErase(AvlNode **e, int value) {
+static void AvlNodeErase(AvlNode **e, int value) {
   if ((*e)->value > value) {
-    NodeErase(&((*e)->left), value);
+    AvlNodeErase(&((*e)->left), value);
 
     if (NodeDepth((*e)->right) - NodeDepth((*e)->left) >= 2) {
       if ((*e)->right->left != NULL &&
@@ -119,7 +119,7 @@ static void NodeErase(AvlNode **e, int value) {
       }
     }
   } else if ((*e)->value < value) {
-    NodeErase(&((*e)->right), value);
+    AvlNodeErase(&((*e)->right), value);
 
     if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
       if ((*e)->right->left != NULL &&
@@ -142,7 +142,7 @@ static void NodeErase(AvlNode **e, int value) {
       (*e)->value = temp->value; /*调整节点数据信息*/
 
       /*删除边缘节点*/
-      NodeErase(&((*e)->right), temp->value);
+      AvlNodeErase(&((*e)->right), temp->value);
       if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
         if ((*e)->left->right != NULL &&
             (NodeDepth((*e)->left->right) > NodeDepth((*e)->left->left))) {
@@ -180,7 +180,7 @@ void AVLTreeFree(AVLTree *t) { NodeFree(t->root); }
 
 void AVLTreeInsert(AVLTree *t, int value) {
   if (t->root) {
-    NodeInsert(&(t->root), value);
+    AvlNodeInsert(&(t->root), value);
     return;
   }
 
@@ -191,9 +191,11 @@ void AVLTreeInsert(AVLTree *t, int value) {
   t->root->depth = 0;
 }
 
-int AVLTreeFind(AVLTree *t, int value) { return NodeFind(&(t->root), value); }
+int AVLTreeFind(AVLTree *t, int value) {
+  return AvlNodeFind(&(t->root), value);
+}
 
-void AVLTreeErase(AVLTree *t, int value) { NodeErase(&(t->root), value); }
+void AVLTreeErase(AVLTree *t, int value) { AvlNodeErase(&(t->root), value); }
 
 int AVLTreeDepth(AVLTree *t) {
   if (!t->root)
