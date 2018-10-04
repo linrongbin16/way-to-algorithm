@@ -48,11 +48,11 @@ $$ (4) $$ 层序遍历（$$ LevelOrder $$），访问顺序类似BFS算法，一
 
 #### 源码
 
-[PrefixTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/PrefixTree.h)
+[BinarySearchTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/BinarySearchTree.h)
 
-[PrefixTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/PrefixTree.cpp)
+[BinarySearchTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/BinarySearchTree.cpp)
 
 #### 测试
 
-[PrefixTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/PrefixTreeTest.cpp)
+[BinarySearchTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/BinarySearchTreeTest.cpp)
 
