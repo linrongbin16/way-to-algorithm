@@ -55,6 +55,7 @@ tags
 tags.lock
 tags.temp
 
+build
 bin
 .bin
 etc

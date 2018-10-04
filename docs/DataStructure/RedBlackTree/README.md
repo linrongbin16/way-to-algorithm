@@ -22,8 +22,6 @@ $$ (5) $$ 根节点到任意$$ nil $$节点途中经过的黑色节点的数量�
 
 ![RedBlackTree1.png](../res/RedBlackTree1.png)
 
-红黑树并不严格保持金字塔形状，树的高度只被黑色节点的数量控制。从根节点到叶子节点的分支上黑色节点的数量总比红色节点大$$ 2 $$，即$$ 0 \leq n_{red} \leq n_{black} + 2 $$，红黑树左右子树的高度比例在一定范围$$ 0 \leq \frac_{n_{red}}{n_{black}} \leq \frac_{1}{2} $$。红黑树通过左旋（LR）、右旋（RR）操作来保持形状：
-
 ![RedBlackTree2.png](../res/RedBlackTree2.png)
 
 ![RedBlackTree3.png](../res/RedBlackTree3.png)
