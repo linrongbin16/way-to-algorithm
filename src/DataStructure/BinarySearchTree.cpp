@@ -116,21 +116,51 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
   assert(not_nil(e));
 
   //总是用e的左孩子节点代替e
+
   if (not_nil(e->left)) {
+    //若e的左孩子节点不为空
+    BsNode *left = e->left;
     BsNode *lb = e->left->right;
-    e->value = e->left->value;
-    e->left = e->left->left;
-    e->left->father = e->father;
-    BsNodeInsert(&e->right, e->right, lb->value);
-    if (not_nil(e->right)) {
-      e->right->father = e->left;
+
+    e->value = left->value;
+    e->left = left->left;
+    if (not_nil(e->left)) {
+      e->left->father = e;
     }
+    BsNodeInsert(&e->right, e->right, lb->value);
+
+    delete left;
+    delete lb;
   } else if (not_nil(e->right)) {
-    e->value = e->right->value;
-    e->left = e->right->left;
-    e->right = e->right->right;
+    //若e的右孩子节点不为空
+    BsNode *right = e->right;
+
+    e->value = right->value;
+    e->left = right->left;
+    if (not_nil(e->left)) {
+      e->left->father = e;
+    }
+    e->right = right->right;
+    if (not_nil(e->right)) {
+      e->right->father = e;
+    }
+
+    delete right;
+  } else {
+    //若e的左右孩子节点都为空
+    if (is_nil(e->father)) {
+      set_nil(t->root);
+    } else {
+      if (e->father->left == e) {
+        set_nil(e->father->left);
+      } else if (e->father->right == e) {
+        set_nil(e->father->right);
+      } else {
+        assert(false);
+      }
+    }
+    delete e;
   }
-  delete e;
 }
 
 std::vector<int> BinarySearchTreePreOrder(BinarySearchTree *t) {

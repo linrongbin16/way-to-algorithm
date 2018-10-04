@@ -15,6 +15,9 @@ int main(void) {
       assert(is_nil(BinarySearchTreeFind(t, j)));
       BinarySearchTreeInsert(t, j);
       assert(not_nil(BinarySearchTreeFind(t, j)));
+    } // for
+    for (int j = 0; j < i; j++) {
+      assert(not_nil(BinarySearchTreeFind(t, j)));
       BinarySearchTreeErase(t, j);
       assert(is_nil(BinarySearchTreeFind(t, j)));
     } // for
