@@ -231,5 +231,3 @@ void AvlTreeInsert(AvlTree *t, int value) {
 
 AvlNode *AvlTreeFind(AvlTree *t, int value) { return Find(t->root, value); }
 
-int AvlTreeDepth(AvlTree *t) { return t->root->height; }
-
