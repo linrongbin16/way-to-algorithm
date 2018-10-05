@@ -1,23 +1,36 @@
 #include "AvlTree.h"
-#include <assert.h>
-#include <math.h>
+#include <algorithm>
+#include <cassert>
+#include <iostream>
+#include <vector>
+using namespace std;
 
-#define TEST_MAX 1024
+#define is_nil(e) ((e) == &AVLNIL)
+#define not_nil(e) ((e) != &AVLNIL)
+#define MAX 1024
 
-int main() {
-  AvlTree *t = AvlTreeNew();
-  for (int i = 1; i <= TEST_MAX; i++) {
-    AvlTreeInsert(t, i);
-    assert(pow(2, AvlTreeDepth(t)) <= i);
+int main(void) {
+  for (int i = 1; i < MAX; i++) {
+    vector<int> val;
+    for (int j = 0; j < i; j++) {
+      val.push_back(j);
+    }
+
+    std::random_shuffle(val.begin(), val.end());
+    AvlTree *t = AvlTreeNew();
+    for (int j = 0; j < i; j++) {
+      assert(is_nil(AvlTreeFind(t, val[j])));
+      AvlTreeInsert(t, val[j]);
+      assert(not_nil(AvlTreeFind(t, val[j])));
+    } // for
+    std::random_shuffle(val.begin(), val.end());
+    for (int j = 0; j < i; j++) {
+      assert(not_nil(AvlTreeFind(t, val[j])));
+      AvlTreeErase(t, val[j]);
+      assert(is_nil(AvlTreeFind(t, val[j])));
+    } // for
+    AvlTreeFree(t);
   }
-  assert(pow(2, AvlTreeDepth(t)) <= TEST_MAX);
-  for (int i = 1; i <= TEST_MAX; i++) {
-    assert(AvlTreeFind(t, i) == 1);
-  }
-  for (int i = 1; i <= TEST_MAX; i++) {
-    AvlTreeErase(t, i);
-  }
-  AvlTreeFree(t);
   return 0;
 }
 

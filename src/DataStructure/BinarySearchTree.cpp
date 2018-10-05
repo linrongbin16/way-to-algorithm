@@ -26,7 +26,7 @@ BsNode::BsNode(int v, BsNode *l, BsNode *r, BsNode *f) {
   father = f;
 }
 
-static void BsNodeInsert(BsNode **e, BsNode *father, int value) {
+static void Insert(BsNode **e, BsNode *father, int value) {
   assert(e);
   assert(father);
   if (is_nil(*e)) {
@@ -39,16 +39,16 @@ static void BsNodeInsert(BsNode **e, BsNode *father, int value) {
   }
   //二分查找
   if ((*e)->value > value) {
-    BsNodeInsert(&((*e)->left), *e, value);
+    Insert(&((*e)->left), *e, value);
   } else if ((*e)->value < value) {
-    BsNodeInsert(&((*e)->right), *e, value);
+    Insert(&((*e)->right), *e, value);
   } else {
     // (*e)->value == value
     assert((*e)->value != value);
   }
 }
 
-static BsNode *BsNodeFind(BsNode *e, int value) {
+static BsNode *Find(BsNode *e, int value) {
   if (is_nil(e)) {
     return &BSNIL;
   }
@@ -56,46 +56,46 @@ static BsNode *BsNodeFind(BsNode *e, int value) {
   if (e->value == value) {
     return e;
   } else if (e->value > value) {
-    return BsNodeFind(e->left, value);
+    return Find(e->left, value);
   } else {
-    return BsNodeFind(e->right, value);
+    return Find(e->right, value);
   }
 }
 
-static void BsNodeFree(BsNode *e) {
+static void Free(BsNode *e) {
   if (is_nil(e)) {
     return;
   }
-  BsNodeFree(e->left);
-  BsNodeFree(e->right);
+  Free(e->left);
+  Free(e->right);
   delete e;
 }
 
-static void PreOrderBsNode(BsNode *e, std::vector<int> &result) {
+static void PreOrder(BsNode *e, std::vector<int> &result) {
   if (is_nil(e)) {
     return;
   }
   result.push_back(e->value);
-  PreOrderBsNode(e->left, result);
-  PreOrderBsNode(e->right, result);
+  PreOrder(e->left, result);
+  PreOrder(e->right, result);
 }
 
-static void PostOrderBsNode(BsNode *e, std::vector<int> &result) {
+static void PostOrder(BsNode *e, std::vector<int> &result) {
   if (is_nil(e)) {
     return;
   }
-  PostOrderBsNode(e->left, result);
-  PostOrderBsNode(e->right, result);
+  PostOrder(e->left, result);
+  PostOrder(e->right, result);
   result.push_back(e->value);
 }
 
-static void InOrderBsNode(BsNode *e, std::vector<int> &result) {
+static void InOrder(BsNode *e, std::vector<int> &result) {
   if (is_nil(e)) {
     return;
   }
-  InOrderBsNode(e->left, result);
+  InOrder(e->left, result);
   result.push_back(e->value);
-  InOrderBsNode(e->right, result);
+  InOrder(e->right, result);
 }
 
 BinarySearchTree *BinarySearchTreeNew() {
@@ -106,19 +106,19 @@ BinarySearchTree *BinarySearchTreeNew() {
 
 void BinarySearchTreeFree(BinarySearchTree *t) {
   assert(t);
-  BsNodeFree(t->root);
+  Free(t->root);
   delete t;
 }
 
 void BinarySearchTreeInsert(BinarySearchTree *t, int value) {
-  BsNodeInsert(&(t->root), t->root, value);
+  Insert(&(t->root), &BSNIL, value);
 }
 
 BsNode *BinarySearchTreeFind(BinarySearchTree *t, int value) {
-  return BsNodeFind(t->root, value);
+  return Find(t->root, value);
 }
 
-static BsNode *BsNodeNext(BsNode *e) {
+static BsNode *Next(BsNode *e) {
   if (is_nil(e->right)) {
     return &BSNIL;
   }
@@ -129,17 +129,17 @@ static BsNode *BsNodeNext(BsNode *e) {
   return next;
 }
 
-static BsNode *BsNodePrev(BsNode *e) { return e->left; }
+static BsNode *Prev(BsNode *e) { return e->left; }
 
 void BinarySearchTreeErase(BinarySearchTree *t, int value) {
   assert(not_nil(t->root));
-  BsNode *e = BsNodeFind(t->root, value);
+  BsNode *e = Find(t->root, value);
   assert(not_nil(e));
 
   if (not_nil(e->right)) {
     //用后继节点next代替e
 
-    BsNode *next = BsNodeNext(e);
+    BsNode *next = Next(e);
     e->value = next->value;
     if (next->father->left == next) {
       next->father->left = next->right;
@@ -151,7 +151,7 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
     next->right->father = next->father;
     delete next;
   } else if (not_nil(e->left)) {
-    BsNode *prev = BsNodePrev(e);
+    BsNode *prev = Prev(e);
     e->value = prev->value;
     e->left = prev->left;
     if (not_nil(e->left)) {
@@ -182,19 +182,19 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
 
 std::vector<int> BinarySearchTreePreOrder(BinarySearchTree *t) {
   std::vector<int> result;
-  PreOrderBsNode(t->root, result);
+  PreOrder(t->root, result);
   return result;
 }
 
 std::vector<int> BinarySearchTreePostOrder(BinarySearchTree *t) {
   std::vector<int> result;
-  PostOrderBsNode(t->root, result);
+  PostOrder(t->root, result);
   return result;
 }
 
 std::vector<int> BinarySearchTreeInOrder(BinarySearchTree *t) {
   std::vector<int> result;
-  InOrderBsNode(t->root, result);
+  InOrder(t->root, result);
   return result;
 }
 

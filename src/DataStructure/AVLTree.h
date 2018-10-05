@@ -27,8 +27,8 @@ void AvlTreeFree(AvlTree *t);
 // insert into AvlTree
 void AvlTreeInsert(AvlTree *t, int value);
 
-// find AvlTree
-int AvlTreeFind(AvlTree *t, int value);
+// find value node
+AvlNode *AvlTreeFind(AvlTree *t, int value);
 
 // erase AvlTree
 void AvlTreeErase(AvlTree *t, int value);

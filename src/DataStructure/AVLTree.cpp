@@ -26,11 +26,11 @@ AvlNode::AvlNode(int v, int h, AvlNode *l, AvlNode *r, AvlNode *f) {
   father = f;
 }
 
-static void AvlNodeFree(AvlNode *e) {
+static void Free(AvlNode *e) {
   if (is_nil(e))
     return;
-  AvlNodeFree(e->left);
-  AvlNodeFree(e->right);
+  Free(e->left);
+  Free(e->right);
   delete e;
 }
 
@@ -76,7 +76,7 @@ static void RL(AvlNode **e) {
   RR(e);
 }
 
-static AvlNode *AvlNodeFind(AvlNode *e, int value) {
+static AvlNode *Find(AvlNode *e, int value) {
   if (is_nil(e)) {
     return &AVLNIL;
   }
@@ -84,13 +84,30 @@ static AvlNode *AvlNodeFind(AvlNode *e, int value) {
   if (e->value == value) {
     return e;
   } else if (e->value > value) {
-    return AvlNodeFind(e->left, value);
+    return Find(e->left, value);
   } else {
-    return AvlNodeFind(e->right, value);
+    return Find(e->right, value);
   }
 }
 
-static void AvlNodeInsert(AvlNode **e, AvlNode *father, int value) {
+static void Fix(AvlNode *e) {
+  e->height = get_height(e->left, e->right);
+  int factor = e->left->height - e->right->height;
+  if (factor > 1 && e->left->value > e->value) {
+    LL(&e);
+  }
+  if (factor < -1 && e->right->value < e->value) {
+    RR(&e);
+  }
+  if (factor > 1 && e->left->value < e->value) {
+    LR(&e);
+  }
+  if (factor < -1 && e->right->value > e->value) {
+    RL(&e);
+  }
+}
+
+static void Insert(AvlNode **e, AvlNode *father, int value) {
   assert(e);
   assert(father);
 
@@ -108,9 +125,9 @@ static void AvlNodeInsert(AvlNode **e, AvlNode *father, int value) {
   //利用二分查找找到适合value插入的位置e
 
   if ((*e)->value > value) {
-    AvlNodeInsert(&(*e)->left, *e, value);
+    Insert(&(*e)->left, *e, value);
   } else if ((*e)->value < value) {
-    AvlNodeInsert(&(*e)->right, *e, value);
+    Insert(&(*e)->right, *e, value);
   } else {
     // (*e)->value == value
     assert((*e)->value != value);
@@ -119,23 +136,10 @@ static void AvlNodeInsert(AvlNode **e, AvlNode *father, int value) {
   //叶子节点处完成插入后，沿着父结点向上的每一个节点都需要检查是否满足平衡性，若不平衡则旋转
   //递归函数可以对每个节点*e在插入后进行检查
 
-  (*e)->height = get_height((*e)->left, (*e)->right);
-  int factor = (*e)->left->height - (*e)->right->height;
-  if (factor > 1 && (*e)->left->value > value) {
-    LL(e);
-  }
-  if (factor < -1 && (*e)->right->value < value) {
-    RR(e);
-  }
-  if (factor > 1 && (*e)->left->value < value) {
-    LR(e);
-  }
-  if (factor < -1 && (*e)->right->value > value) {
-    RL(e);
-  }
+  Fix(*e);
 }
 
-static AvlNode *AvlNodeNext(AvlNode *e) {
+static AvlNode *Next(AvlNode *e) {
   if (is_nil(e->right)) {
     return &AVLNIL;
   }
@@ -146,17 +150,20 @@ static AvlNode *AvlNodeNext(AvlNode *e) {
   return next;
 }
 
-static AvlNode *AvlNodePrev(AvlNode *e) { return e->left; }
+static AvlNode *Prev(AvlNode *e) { return e->left; }
 
 void AvlTreeErase(AvlTree *t, int value) {
   assert(not_nil(t->root));
-  AvlNode *e = AvlNodeFind(t->root, value);
+  AvlNode *e = Find(t->root, value);
   assert(not_nil(e));
+
+  AvlNode *fix;
+  set_nil(fix);
 
   if (not_nil(e->right)) {
     //用后继节点next代替e
 
-    AvlNode *next = AvlNodeNext(e);
+    AvlNode *next = Next(e);
     e->value = next->value;
     if (next->father->left == next) {
       next->father->left = next->right;
@@ -167,9 +174,10 @@ void AvlTreeErase(AvlTree *t, int value) {
     }
     next->right->father = next->father;
     delete next;
+    fix = e;
   } else if (not_nil(e->left)) {
 
-    AvlNode *prev = AvlNodePrev(e);
+    AvlNode *prev = Prev(e);
     e->value = prev->value;
     e->left = prev->left;
     if (not_nil(e->left)) {
@@ -180,6 +188,7 @@ void AvlTreeErase(AvlTree *t, int value) {
       e->right->father = e;
     }
     delete prev;
+    fix = e;
   } else {
     //直接删除叶子节点e
 
@@ -195,6 +204,12 @@ void AvlTreeErase(AvlTree *t, int value) {
       set_nil(t->root);
     }
     delete e;
+    fix = e->father;
+  }
+
+  while (not_nil(fix)) {
+    Fix(fix);
+    fix = fix->father;
   }
 }
 
@@ -206,31 +221,15 @@ AvlTree *AvlTreeNew() {
 
 void AvlTreeFree(AvlTree *t) {
   assert(t);
-  AvlNodeFree(t->root);
+  Free(t->root);
   delete t;
 }
 
 void AvlTreeInsert(AvlTree *t, int value) {
-  if (is_nil(t->root)) {
-    t->root = new AvlNode();
-    set_nil(t->root->left);
-    set_nil(t->root->right);
-    t->root->value = value;
-    t->root->height = 0;
-    return;
-  }
-  AvlNodeInsert(&(t->root), value);
+  Insert(&(t->root), &AVLNIL, value);
 }
 
-AvlNode *AvlTreeFind(AvlTree *t, int value) {
-  return AvlNodeFind(t->root, value);
-}
+AvlNode *AvlTreeFind(AvlTree *t, int value) { return Find(t->root, value); }
 
-void AvlTreeErase(AvlTree *t, int value) { AvlNodeErase(&(t->root), value); }
-
-int AvlTreeDepth(AvlTree *t) {
-  if (!t->root)
-    return 0;
-  return t->root->height;
-}
+int AvlTreeDepth(AvlTree *t) { return t->root->height; }
 
