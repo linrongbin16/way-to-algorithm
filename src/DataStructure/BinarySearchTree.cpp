@@ -118,6 +118,7 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
 
   if (not_nil(e->left)) {
     //若e的左孩子节点不为空
+
     BsNode *l = e->left;
     BsNode *lb = e->left->right;
 
@@ -132,6 +133,7 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
     delete lb;
   } else if (not_nil(e->right)) {
     //若e的右孩子节点不为空
+
     BsNode *r = e->right;
 
     e->value = r->value;
@@ -147,6 +149,7 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
     delete r;
   } else {
     //若e的左右孩子节点都为空
+
     if (is_nil(e->father)) {
       set_nil(t->root);
     } else {
