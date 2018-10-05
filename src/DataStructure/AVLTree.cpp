@@ -135,75 +135,67 @@ static void AvlNodeInsert(AvlNode **e, AvlNode *father, int value) {
   }
 }
 
-static AvlNode *InOrderSuccessor(AvlNode *e) {
-  AvlNode *successor = e;
-  if (is_nil(successor->right)) {
-    return successor;
+static AvlNode *AvlNodeNext(AvlNode *e) {
+  if (is_nil(e->right)) {
+    return &AVLNIL;
   }
-  successor = successor->right;
-  while (not_nil(successor->left)) {
-    successor = successor->left;
+  AvlNode *next = e->right;
+  while (not_nil(next->left)) {
+    next = next->left;
   }
-  return successor;
+  return next;
 }
 
-static void AvlNodeErase(AvlNode **e, int value) {
-  if ((*e)->value == value) {
-  }
+static AvlNode *AvlNodePrev(AvlNode *e) { return e->left; }
 
-  if ((*e)->value > value) {
-    AvlNodeErase(&((*e)->left), value);
+void AvlTreeErase(AvlTree *t, int value) {
+  assert(not_nil(t->root));
+  AvlNode *e = AvlNodeFind(t->root, value);
+  assert(not_nil(e));
 
-    if (NodeDepth((*e)->right) - NodeDepth((*e)->left) >= 2) {
-      if ((*e)->right->left != NULL &&
-          ((*e)->right->left->height > (*e)->right->right->height)) {
-        RL(e);
-      } else {
-        RR(e);
-      }
+  if (not_nil(e->right)) {
+    //用后继节点next代替e
+
+    AvlNode *next = AvlNodeNext(e);
+    e->value = next->value;
+    if (next->father->left == next) {
+      next->father->left = next->right;
+    } else if (next->father->right == next) {
+      next->father->right = next->right;
+    } else {
+      assert(next->father->left != next && next->father->right != next);
     }
-  } else if ((*e)->value < value) {
-    AvlNodeErase(&((*e)->right), value);
+    next->right->father = next->father;
+    delete next;
+  } else if (not_nil(e->left)) {
 
-    if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
-      if ((*e)->right->left != NULL &&
-          ((*e)->left->right->height > (*e)->left->left->height)) {
-        LR(e);
-      } else {
-        LL(e);
-      }
+    AvlNode *prev = AvlNodePrev(e);
+    e->value = prev->value;
+    e->left = prev->left;
+    if (not_nil(e->left)) {
+      e->left->father = e;
     }
+    e->right = prev->right;
+    if (not_nil(e->right)) {
+      e->right->father = e;
+    }
+    delete prev;
   } else {
-    // (*e)->value == value
-    AvlNode *successor = InOrderSuccessor(*e);
-    (*e)->value = successor->value; /*调整节点数据信息*/
+    //直接删除叶子节点e
 
-    /*删除边缘节点*/
-    AvlNodeErase(&((*e)->right), temp->value);
-    if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
-      if ((*e)->left->right != NULL &&
-          (NodeDepth((*e)->left->right) > NodeDepth((*e)->left->left))) {
-        LR(e);
+    if (not_nil(e->father)) {
+      if (e->father->left == e) {
+        set_nil(e->father->left);
+      } else if (e->father->right == e) {
+        set_nil(e->father->right);
       } else {
-        LL(e);
+        assert(e->father->left != e && e->father->right != e);
       }
+    } else {
+      set_nil(t->root);
     }
+    delete e;
   }
-  else {
-    AvlNode *temp = (*e);
-    if ((*e)->left == NULL)
-      (*e) = (*e)->right;
-    else if ((*e)->right == NULL)
-      (*e) = (*e)->left;
-    delete temp;
-  }
-}
-
-if ((*e) == NULL)
-  return;
-
-(*e)->height = std::max(NodeDepth((*e)->left), NodeDepth((*e)->right)) + 1;
-return;
 }
 
 AvlTree *AvlTreeNew() {

@@ -26,21 +26,6 @@ BsNode::BsNode(int v, BsNode *l, BsNode *r, BsNode *f) {
   father = f;
 }
 
-static void DumpNodeRec(BsNode *e) {
-  if (is_nil(e))
-    return;
-  std::cout << "e/left/right/father: " << e->value << "," << e->left->value
-            << "," << e->right->value << "," << e->father->value << std::endl;
-  DumpNodeRec(e->left);
-  DumpNodeRec(e->right);
-}
-
-static void DumpNode(BsNode *e, int value) {
-  std::cout << std::endl;
-  std::cout << "value: " << value << std::endl;
-  DumpNodeRec(e);
-}
-
 static void BsNodeInsert(BsNode **e, BsNode *father, int value) {
   assert(e);
   assert(father);
@@ -146,7 +131,6 @@ static BsNode *BsNodeNext(BsNode *e) {
 
 static BsNode *BsNodePrev(BsNode *e) { return e->left; }
 
-// find value from binary search tree
 void BinarySearchTreeErase(BinarySearchTree *t, int value) {
   assert(not_nil(t->root));
   BsNode *e = BsNodeFind(t->root, value);
