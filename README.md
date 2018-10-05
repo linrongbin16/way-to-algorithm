@@ -15,9 +15,9 @@
 
 #### Reading - 阅读
 
-* legacy-gitbook: [legacy-way-to-algorithm](https://legacy.gitbook.com/book/linrongbin16/way-to-algorithm)
-* gitbook: [way-to-algorithm](https://linrongbin16.gitbook.io/gitbook-way-to-algorithm/)
 * github pages: [Way-to-Algorithm](https://linrongbin16.github.io/Way-to-Algorithm/)
+* gitbook: [way-to-algorithm](https://linrongbin16.gitbook.io/gitbook-way-to-algorithm/)
+* legacy-gitbook: [legacy-way-to-algorithm](https://legacy.gitbook.com/book/linrongbin16/way-to-algorithm)
 
 #### Funding - 资助
 
