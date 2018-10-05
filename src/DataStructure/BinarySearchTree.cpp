@@ -4,7 +4,7 @@
 #include <deque>
 #include <vector>
 
-BsNode BSNIL = {-1, NULL, NULL, NULL};
+BsNode BSNIL = {-1, &BSNIL, &BSNIL, &BSNIL};
 
 #define is_nil(e) ((e) == &BSNIL)
 #define not_nil(e) ((e) != &BSNIL)
