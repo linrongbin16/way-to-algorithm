@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include <cassert>
 
 struct AvlNode {
   int value;
