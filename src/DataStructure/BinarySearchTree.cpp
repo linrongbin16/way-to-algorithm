@@ -26,6 +26,7 @@ BsNode::BsNode(int v, BsNode *l, BsNode *r, BsNode *f) {
 
 static void BsNodeInsert(BsNode **e, BsNode *father, int value) {
   assert(e);
+  assert(father);
   if (is_nil(*e)) {
     *e = new BsNode();
     set_nil((*e)->left);
@@ -37,8 +38,11 @@ static void BsNodeInsert(BsNode **e, BsNode *father, int value) {
   //二分查找
   if ((*e)->value > value) {
     BsNodeInsert(&((*e)->left), *e, value);
-  } else {
+  } else if ((*e)->value < value) {
     BsNodeInsert(&((*e)->right), *e, value);
+  } else {
+    // (*e)->value == value
+    assert((*e)->value != value);
   }
 }
 

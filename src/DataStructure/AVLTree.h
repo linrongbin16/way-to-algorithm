@@ -3,13 +3,13 @@
 
 struct AvlNode {
   int value;
-  int depth;
+  int height;
   AvlNode *left;
   AvlNode *right;
   AvlNode *father;
 
   AvlNode();
-  AvlNode(int v, int d, AvlNode *l, AvlNode *r, AvlNode *f);
+  AvlNode(int v, int h, AvlNode *l, AvlNode *r, AvlNode *f);
 };
 
 extern AvlNode AVLNIL;
@@ -33,6 +33,6 @@ int AvlTreeFind(AvlTree *t, int value);
 // erase AvlTree
 void AvlTreeErase(AvlTree *t, int value);
 
-// AvlTree depth
-int AvlTreeDepth(AvlTree *t);
+// AvlTree height
+int AvlTreeHeight(AvlTree *t);
 

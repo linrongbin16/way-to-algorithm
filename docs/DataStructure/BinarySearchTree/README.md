@@ -16,19 +16,7 @@
 
 ![BinarySearchTree2.png](../res/BinarySearchTree2.png)
 
-往二叉查找树插入节点$$ x $$时，首先在树上尝试搜索$$ x $$，搜索失败时会停下的节点$$ e $$就是合适插入的位置。若$$ x \lt e $$则将其作为$$ e $$的左孩子节点，若$$ x \gt e $$则将其作为$$ e $$的右孩子节点。为了方便我们不考虑重复插入$$ x $$的情况。
-
-![BinarySearchTree3.png](../res/BinarySearchTree3.png)
-
-从二叉查找树中删除节点$$ x $$时，首先在树上找到$$ x $$并将其删除，并从$$ x $$的左右孩子节点选择一个，作为$$ x $$父结点的新孩子节点。若$$ x $$为叶子节点则直接删除即可，若$$ x $$只有一个孩子节点则用该孩子节点代替$$ x $$，若$$ x $$有两个孩子节点则可以任意选择，本问题中总是使用左孩子节点，并保证满足$$ left_{x} \lt x \lt right_{x} $$。注意下图中，用$$ left $$替换$$ x $$时，需要将$$ lb $$节点插入以$$ right $$为根节点的子树中，而不是令$$ right $$的左孩子节点为$$ lb $$。
-
-![BinarySearchTree4.png](../res/BinarySearchTree4.png)
-
-随机的插入/删除会让二叉查找树退化为链表，如图所示是一个糟糕的二叉查找树，虽然它满足节点之间有序，但是查找的时间复杂度已经退化为了$$ O(n) $$。
-
-![BinarySearchTree5.png](../res/BinarySearchTree5.png)
-
-二叉树的遍历常见的有：
+二叉树的遍历有：
 
 $$ (1) $$ 先序遍历（$$ PreOrder $$），访问顺序总是$$ x \rightarrow left_{x} \rightarrow right_{x} $$；
 
@@ -43,6 +31,18 @@ $$ (4) $$ 层序遍历（$$ LevelOrder $$），访问顺序类似BFS算法，一
 ![BinarySearchTree6.png](../res/BinarySearchTree6.png)
 
 ![BinarySearchTree7.png](../res/BinarySearchTree7.png)
+
+往二叉查找树插入节点$$ x $$时，首先在树上尝试搜索$$ x $$，搜索失败时会停下的节点$$ e $$就是合适插入的位置。若$$ x \lt e $$则将其作为$$ e $$的左孩子节点，若$$ x \gt e $$则将其作为$$ e $$的右孩子节点。为了方便我们不考虑重复插入$$ x $$的情况。
+
+![BinarySearchTree3.png](../res/BinarySearchTree3.png)
+
+从二叉查找树中删除节点$$ x $$时，若$$ x $$为叶子节点则直接删除即可。否则，按照中序遍历找出二叉树中比$$ x $$大的下一个节点$$ y $$来代替$$ x $$，实际删除节点$$ y $$。这样才能保证二叉查找树的属性$$ left_{x} \lt x \lt right_{x} $$。下图中演示了用节点$$ 5 $$替换节点$$ 4 $$：
+
+![BinarySearchTree4.png](../res/BinarySearchTree4.png)
+
+随机的插入/删除会让二叉查找树退化为链表，如图所示是一个糟糕的二叉查找树，虽然它满足节点之间有序，但是查找的时间复杂度已经退化为了$$ O(n) $$。
+
+![BinarySearchTree5.png](../res/BinarySearchTree5.png)
 
 --------
 
