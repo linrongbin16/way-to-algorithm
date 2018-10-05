@@ -135,6 +135,18 @@ static void AvlNodeInsert(AvlNode **e, AvlNode *father, int value) {
   }
 }
 
+static AvlNode *InOrderSuccessor(AvlNode *e) {
+  AvlNode *successor = e;
+  if (is_nil(successor->right)) {
+    return successor;
+  }
+  successor = successor->right;
+  while (not_nil(successor->left)) {
+    successor = successor->left;
+  }
+  return successor;
+}
+
 static void AvlNodeErase(AvlNode **e, int value) {
   if ((*e)->value == value) {
   }
@@ -162,42 +174,36 @@ static void AvlNodeErase(AvlNode **e, int value) {
       }
     }
   } else {
-    /* (*e)->value == value*/
-    if ((*e)->left && (*e)->right) {
-      AvlNode *temp = (*e)->right;
+    // (*e)->value == value
+    AvlNode *successor = InOrderSuccessor(*e);
+    (*e)->value = successor->value; /*调整节点数据信息*/
 
-      /*temp指向节点的右儿子*/
-      /*找到中序遍历的后继节点*/
-      while (temp->left != NULL)
-        temp = temp->left;
-
-      (*e)->value = temp->value; /*调整节点数据信息*/
-
-      /*删除边缘节点*/
-      AvlNodeErase(&((*e)->right), temp->value);
-      if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
-        if ((*e)->left->right != NULL &&
-            (NodeDepth((*e)->left->right) > NodeDepth((*e)->left->left))) {
-          LR(e);
-        } else {
-          LL(e);
-        }
+    /*删除边缘节点*/
+    AvlNodeErase(&((*e)->right), temp->value);
+    if (NodeDepth((*e)->left) - NodeDepth((*e)->right) >= 2) {
+      if ((*e)->left->right != NULL &&
+          (NodeDepth((*e)->left->right) > NodeDepth((*e)->left->left))) {
+        LR(e);
+      } else {
+        LL(e);
       }
-    } else {
-      AvlNode *temp = (*e);
-      if ((*e)->left == NULL)
-        (*e) = (*e)->right;
-      else if ((*e)->right == NULL)
-        (*e) = (*e)->left;
-      delete temp;
     }
   }
+  else {
+    AvlNode *temp = (*e);
+    if ((*e)->left == NULL)
+      (*e) = (*e)->right;
+    else if ((*e)->right == NULL)
+      (*e) = (*e)->left;
+    delete temp;
+  }
+}
 
-  if ((*e) == NULL)
-    return;
-
-  (*e)->height = std::max(NodeDepth((*e)->left), NodeDepth((*e)->right)) + 1;
+if ((*e) == NULL)
   return;
+
+(*e)->height = std::max(NodeDepth((*e)->left), NodeDepth((*e)->right)) + 1;
+return;
 }
 
 AvlTree *AvlTreeNew() {

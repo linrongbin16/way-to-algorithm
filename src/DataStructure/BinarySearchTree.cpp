@@ -9,6 +9,7 @@ BsNode BSNIL = {-1, &BSNIL, &BSNIL, &BSNIL};
 #define is_nil(e) ((e) == &BSNIL)
 #define not_nil(e) ((e) != &BSNIL)
 #define set_nil(e) ((e) = &BSNIL)
+#define is_leaf(e) (is_nil((e)->left) && is_nil((e)->right))
 
 BsNode::BsNode() {
   value = -1;
@@ -112,60 +113,55 @@ BsNode *BinarySearchTreeFind(BinarySearchTree *t, int value) {
   return BsNodeFind(t->root, value);
 }
 
+static BsNode *InOrderSuccessor(BsNode *e) {
+  BsNode *successor = e;
+  if (is_nil(successor->right)) {
+    return successor;
+  }
+  successor = successor->right;
+  while (not_nil(successor->left)) {
+    successor = successor->left;
+  }
+  return successor;
+}
+
 // find value from binary search tree
 void BinarySearchTreeErase(BinarySearchTree *t, int value) {
   assert(not_nil(t->root));
   BsNode *e = BsNodeFind(t->root, value);
   assert(not_nil(e));
 
-  //总是用e的左孩子节点代替e
+  if (is_leaf(e)) {
+    //直接删除叶子节点e
 
-  if (not_nil(e->left)) {
-    //若e的左孩子节点不为空
-
-    BsNode *l = e->left;
-    BsNode *lb = e->left->right;
-
-    e->value = l->value;
-    e->left = l->left;
-    if (not_nil(e->left)) {
-      e->left->father = e;
-    }
-
-    BsNodeInsert(&(e->right), e, lb->value);
-    delete l;
-    delete lb;
-  } else if (not_nil(e->right)) {
-    //若e的右孩子节点不为空
-
-    BsNode *r = e->right;
-
-    e->value = r->value;
-    e->left = r->left;
-    if (not_nil(e->left)) {
-      e->left->father = e;
-    }
-    e->right = r->right;
-    if (not_nil(e->right)) {
-      e->right->father = e;
-    }
-
-    delete r;
-  } else {
-    //若e的左右孩子节点都为空
-
-    if (is_nil(e->father)) {
-      set_nil(t->root);
-    } else {
+    if (not_nil(e->father)) {
       if (e->father->left == e) {
         set_nil(e->father->left);
       } else if (e->father->right == e) {
         set_nil(e->father->right);
       } else {
-        assert(false);
+        assert(e->father->left != e && e->father->right != e);
       }
+    } else {
+      set_nil(t->root);
     }
     delete e;
+
+  } else {
+    //用后继节点successor代替e
+
+    BsNode *successor = InOrderSuccessor(e);
+    assert(not_nil(successor));
+    e->value = successor->value;
+    if (successor->father->left == successor) {
+      successor->father->left = successor->right;
+    } else if (successor->father->right == successor) {
+      successor->father->right = successor->right;
+    } else {
+      assert(successor->father->left != successor &&
+             successor->father->right != successor);
+    }
+    delete successor;
   }
 }
 

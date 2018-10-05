@@ -1,4 +1,5 @@
 #include "BinarySearchTree.h"
+#include <algorithm>
 #include <cassert>
 #include <iostream>
 #include <vector>
@@ -10,17 +11,27 @@ using namespace std;
 
 int main(void) {
   for (int i = 1; i < MAX; i++) {
+    vector<int> val;
+    for (int j = 0; j < i; j++) {
+      val.push_back(j);
+    }
+
+    cout << "1 - i: " << i << endl;
+    std::random_shuffle(val.begin(), val.end());
     BinarySearchTree *t = BinarySearchTreeNew();
     for (int j = 0; j < i; j++) {
-      assert(is_nil(BinarySearchTreeFind(t, j)));
-      BinarySearchTreeInsert(t, j);
-      assert(not_nil(BinarySearchTreeFind(t, j)));
+      assert(is_nil(BinarySearchTreeFind(t, val[j])));
+      BinarySearchTreeInsert(t, val[j]);
+      assert(not_nil(BinarySearchTreeFind(t, val[j])));
     } // for
+    cout << "2 - i: " << i << endl;
+    std::random_shuffle(val.begin(), val.end());
     for (int j = 0; j < i; j++) {
-      assert(not_nil(BinarySearchTreeFind(t, j)));
-      BinarySearchTreeErase(t, j);
-      assert(is_nil(BinarySearchTreeFind(t, j)));
+      assert(not_nil(BinarySearchTreeFind(t, val[j])));
+      BinarySearchTreeErase(t, val[j]);
+      assert(is_nil(BinarySearchTreeFind(t, val[j])));
     } // for
+    cout << "3 - i: " << i << endl;
     vector<int> preOrder = BinarySearchTreePreOrder(t);
     vector<int> postOrder = BinarySearchTreePostOrder(t);
     vector<int> inOrder = BinarySearchTreeInOrder(t);
