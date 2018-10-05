@@ -203,8 +203,8 @@ void AvlTreeErase(AvlTree *t, int value) {
     } else {
       set_nil(t->root);
     }
-    delete e;
     fix = e->father;
+    delete e;
   }
 
   while (not_nil(fix)) {
