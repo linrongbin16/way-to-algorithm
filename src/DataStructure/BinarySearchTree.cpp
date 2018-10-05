@@ -148,7 +148,9 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
     } else {
       assert(next->father->left != next && next->father->right != next);
     }
-    next->right->father = next->father;
+    if (not_nil(next->right)) {
+      next->right->father = next->father;
+    }
     delete next;
   } else if (not_nil(e->left)) {
     BsNode *prev = Prev(e);

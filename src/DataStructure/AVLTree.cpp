@@ -1,6 +1,7 @@
 #include "AvlTree.h"
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 #include <utility>
 
 AvlNode AVLNIL = {-1, -1, &AVLNIL, &AVLNIL, &AVLNIL};
@@ -24,6 +25,23 @@ AvlNode::AvlNode(int v, int h, AvlNode *l, AvlNode *r, AvlNode *f) {
   left = l;
   right = r;
   father = f;
+}
+
+static void DumpNode(AvlNode *e) {
+  if (is_nil(e))
+    return;
+  std::cout << "e/left/right/father: " << e->value << "," << e->left->value
+            << "," << e->right->value << "," << e->father->value << std::endl;
+  DumpNode(e->left);
+  DumpNode(e->right);
+}
+
+static void DumpTree(AvlNode *e, int value) {
+  std::cout << std::endl;
+  if (value != -1) {
+    std::cout << "value:" << value << std::endl;
+  }
+  DumpNode(e);
 }
 
 static void Free(AvlNode *e) {
@@ -154,6 +172,7 @@ static AvlNode *Prev(AvlNode *e) { return e->left; }
 
 void AvlTreeErase(AvlTree *t, int value) {
   assert(not_nil(t->root));
+  DumpTree(t->root, value);
   AvlNode *e = Find(t->root, value);
   assert(not_nil(e));
 
@@ -172,7 +191,9 @@ void AvlTreeErase(AvlTree *t, int value) {
     } else {
       assert(next->father->left != next && next->father->right != next);
     }
-    next->right->father = next->father;
+    if (not_nil(next->right)) {
+      next->right->father = next->father;
+    }
     delete next;
     fix = e;
   } else if (not_nil(e->left)) {
