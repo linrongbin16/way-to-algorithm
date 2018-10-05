@@ -16,7 +16,6 @@ int main(void) {
       val.push_back(j);
     }
 
-    cout << "1 - i: " << i << endl;
     std::random_shuffle(val.begin(), val.end());
     BinarySearchTree *t = BinarySearchTreeNew();
     for (int j = 0; j < i; j++) {
@@ -24,14 +23,12 @@ int main(void) {
       BinarySearchTreeInsert(t, val[j]);
       assert(not_nil(BinarySearchTreeFind(t, val[j])));
     } // for
-    cout << "2 - i: " << i << endl;
     std::random_shuffle(val.begin(), val.end());
     for (int j = 0; j < i; j++) {
       assert(not_nil(BinarySearchTreeFind(t, val[j])));
       BinarySearchTreeErase(t, val[j]);
       assert(is_nil(BinarySearchTreeFind(t, val[j])));
     } // for
-    cout << "3 - i: " << i << endl;
     vector<int> preOrder = BinarySearchTreePreOrder(t);
     vector<int> postOrder = BinarySearchTreePostOrder(t);
     vector<int> inOrder = BinarySearchTreeInOrder(t);

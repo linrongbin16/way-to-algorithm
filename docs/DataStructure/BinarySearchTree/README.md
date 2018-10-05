@@ -36,9 +36,21 @@ $$ (4) $$ 层序遍历（$$ LevelOrder $$），访问顺序类似BFS算法，一
 
 ![BinarySearchTree3.png](../res/BinarySearchTree3.png)
 
-从二叉查找树中删除节点$$ x $$时，若$$ x $$为叶子节点则直接删除即可。否则，按照中序遍历找出二叉树中比$$ x $$大的下一个节点$$ y $$来代替$$ x $$，实际删除节点$$ y $$。这样才能保证二叉查找树的属性$$ left_{x} \lt x \lt right_{x} $$。下图中演示了用节点$$ 5 $$替换节点$$ 4 $$：
+从二叉查找树中删除节点$$ x $$时需要保证二叉查找树的属性（$$ left_{x} \lt x \lt right_{x} $$），有三种情况：
 
-![BinarySearchTree4.png](../res/BinarySearchTree4.png)
+$$ 1 $$ 若$$ x $$为叶子节点，既没有左孩子节点也没有右孩子节点，直接删除；
+
+$$ 2 $$ 若$$ x $$有右孩子节点，按照中序遍历找出二叉树中比$$ x $$大的下一个节点$$ next $$（中序遍历下的后继节点），用其值代替$$ x $$，实际删除节点$$ next $$；
+
+$$ 3 $$ 若$$ x $$没有右孩子节点，只有左孩子节点，这时以$$ x $$为根节点上的子树不存在$$ x $$的后继节点，选择$$ x $$的左孩子节点$$ prev $$来代替$$ x $$，实际删除节点$$ prev $$；
+
+下图演示了上述的三种删除情况：
+
+![BinarySearchTree8.png](../res/BinarySearchTree8.png)
+
+![BinarySearchTree9.png](../res/BinarySearchTree9.png)
+
+![BinarySearchTree10.png](../res/BinarySearchTree10.png)
 
 随机的插入/删除会让二叉查找树退化为链表，如图所示是一个糟糕的二叉查找树，虽然它满足节点之间有序，但是查找的时间复杂度已经退化为了$$ O(n) $$。
 

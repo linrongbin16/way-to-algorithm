@@ -2,6 +2,7 @@
 #include <cassert>
 #include <cstddef>
 #include <deque>
+#include <iostream>
 #include <vector>
 
 BsNode BSNIL = {-1, &BSNIL, &BSNIL, &BSNIL};
@@ -23,6 +24,21 @@ BsNode::BsNode(int v, BsNode *l, BsNode *r, BsNode *f) {
   left = l;
   right = r;
   father = f;
+}
+
+static void DumpNodeRec(BsNode *e) {
+  if (is_nil(e))
+    return;
+  std::cout << "e/left/right/father: " << e->value << "," << e->left->value
+            << "," << e->right->value << "," << e->father->value << std::endl;
+  DumpNodeRec(e->left);
+  DumpNodeRec(e->right);
+}
+
+static void DumpNode(BsNode *e, int value) {
+  std::cout << std::endl;
+  std::cout << "value: " << value << std::endl;
+  DumpNodeRec(e);
 }
 
 static void BsNodeInsert(BsNode **e, BsNode *father, int value) {
@@ -103,7 +119,11 @@ BinarySearchTree *BinarySearchTreeNew() {
   return t;
 }
 
-void BinarySearchTreeFree(BinarySearchTree *t) { BsNodeFree(t->root); }
+void BinarySearchTreeFree(BinarySearchTree *t) {
+  assert(t);
+  BsNodeFree(t->root);
+  delete t;
+}
 
 void BinarySearchTreeInsert(BinarySearchTree *t, int value) {
   BsNodeInsert(&(t->root), t->root, value);
@@ -113,17 +133,18 @@ BsNode *BinarySearchTreeFind(BinarySearchTree *t, int value) {
   return BsNodeFind(t->root, value);
 }
 
-static BsNode *InOrderSuccessor(BsNode *e) {
-  BsNode *successor = e;
-  if (is_nil(successor->right)) {
-    return successor;
+static BsNode *BsNodeNext(BsNode *e) {
+  if (is_nil(e->right)) {
+    return &BSNIL;
   }
-  successor = successor->right;
-  while (not_nil(successor->left)) {
-    successor = successor->left;
+  BsNode *next = e->right;
+  while (not_nil(next->left)) {
+    next = next->left;
   }
-  return successor;
+  return next;
 }
+
+static BsNode *BsNodePrev(BsNode *e) { return e->left; }
 
 // find value from binary search tree
 void BinarySearchTreeErase(BinarySearchTree *t, int value) {
@@ -131,7 +152,33 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
   BsNode *e = BsNodeFind(t->root, value);
   assert(not_nil(e));
 
-  if (is_leaf(e)) {
+  if (not_nil(e->right)) {
+    //用后继节点next代替e
+
+    BsNode *next = BsNodeNext(e);
+    e->value = next->value;
+    if (next->father->left == next) {
+      next->father->left = next->right;
+    } else if (next->father->right == next) {
+      next->father->right = next->right;
+    } else {
+      assert(next->father->left != next && next->father->right != next);
+    }
+    next->right->father = next->father;
+    delete next;
+  } else if (not_nil(e->left)) {
+    BsNode *prev = BsNodePrev(e);
+    e->value = prev->value;
+    e->left = prev->left;
+    if (not_nil(e->left)) {
+      e->left->father = e;
+    }
+    e->right = prev->right;
+    if (not_nil(e->right)) {
+      e->right->father = e;
+    }
+    delete prev;
+  } else {
     //直接删除叶子节点e
 
     if (not_nil(e->father)) {
@@ -146,22 +193,6 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
       set_nil(t->root);
     }
     delete e;
-
-  } else {
-    //用后继节点successor代替e
-
-    BsNode *successor = InOrderSuccessor(e);
-    assert(not_nil(successor));
-    e->value = successor->value;
-    if (successor->father->left == successor) {
-      successor->father->left = successor->right;
-    } else if (successor->father->right == successor) {
-      successor->father->right = successor->right;
-    } else {
-      assert(successor->father->left != successor &&
-             successor->father->right != successor);
-    }
-    delete successor;
   }
 }
 

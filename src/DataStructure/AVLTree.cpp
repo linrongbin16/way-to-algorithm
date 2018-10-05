@@ -212,7 +212,11 @@ AvlTree *AvlTreeNew() {
   return t;
 }
 
-void AvlTreeFree(AvlTree *t) { AvlNodeFree(t->root); }
+void AvlTreeFree(AvlTree *t) {
+  assert(t);
+  AvlNodeFree(t->root);
+  delete t;
+}
 
 void AvlTreeInsert(AvlTree *t, int value) {
   if (is_nil(t->root)) {

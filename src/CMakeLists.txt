@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(wta CXX)
+project(way-to-algorithm CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
