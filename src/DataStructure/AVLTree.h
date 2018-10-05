@@ -1,6 +1,4 @@
 ﻿#pragma once
-
-#include <algorithm>
 #include <cassert>
 
 struct AvlNode {
@@ -8,27 +6,33 @@ struct AvlNode {
   int depth;
   AvlNode *left;
   AvlNode *right;
+  AvlNode *father;
+
+  AvlNode();
+  AvlNode(int v, int d, AvlNode *l, AvlNode *r, AvlNode *f);
 };
 
-struct AVLTree {
+extern AvlNode AVLNIL;
+
+struct AvlTree {
   AvlNode *root;
 };
 
-// create AVLTree
-AVLTree *AVLTreeNew();
+// create AvlTree
+AvlTree *AvlTreeNew();
 
 // free AVL Tree
-void AVLTreeFree(AVLTree *t);
+void AvlTreeFree(AvlTree *t);
 
-// insert into AVLTree
-void AVLTreeInsert(AVLTree *t, int value);
+// insert into AvlTree
+void AvlTreeInsert(AvlTree *t, int value);
 
-// find AVLTree
-int AVLTreeFind(AVLTree *t, int value);
+// find AvlTree
+int AvlTreeFind(AvlTree *t, int value);
 
-// erase AVLTree
-void AVLTreeErase(AVLTree *t, int value);
+// erase AvlTree
+void AvlTreeErase(AvlTree *t, int value);
 
-// AVLTree depth
-int AVLTreeDepth(AVLTree *t);
+// AvlTree depth
+int AvlTreeDepth(AvlTree *t);
 

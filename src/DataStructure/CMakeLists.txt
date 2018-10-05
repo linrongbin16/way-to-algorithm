@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.4)
 
 set(SRC_FILE
-    AVLTree.cpp
+    #AvlTree.cpp
     DisjointSet.cpp
     FenwickTree.cpp
     LeftistTree.cpp
@@ -16,5 +16,5 @@ add_executable(DataStructure-LeftistTree.exe LeftistTreeTest.cpp ${SRC_FILE})
 add_executable(DataStructure-PrefixTree.exe PrefixTreeTest.cpp ${SRC_FILE})
 add_executable(DataStructure-FenwickTree.exe FenwickTreeTest.cpp ${SRC_FILE})
 add_executable(DataStructure-BinarySearchTree.exe BinarySearchTreeTest.cpp ${SRC_FILE})
-add_executable(DataStructure-AVLTree.exe AVLTreeTest.cpp ${SRC_FILE})
+#add_executable(DataStructure-AvlTree.exe AvlTreeTest.cpp ${SRC_FILE})
 add_executable(DataStructure-RedBlackTree.exe RedBlackTreeTest.cpp ${SRC_FILE})

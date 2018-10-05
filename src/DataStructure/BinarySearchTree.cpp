@@ -26,7 +26,6 @@ BsNode::BsNode(int v, BsNode *l, BsNode *r, BsNode *f) {
 
 static void BsNodeInsert(BsNode **e, BsNode *father, int value) {
   assert(e);
-  assert(father);
   if (is_nil(*e)) {
     *e = new BsNode();
     set_nil((*e)->left);
@@ -37,9 +36,9 @@ static void BsNodeInsert(BsNode **e, BsNode *father, int value) {
   }
   //二分查找
   if ((*e)->value > value) {
-    BsNodeInsert(&(*e)->left, *e, value);
+    BsNodeInsert(&((*e)->left), *e, value);
   } else {
-    BsNodeInsert(&(*e)->right, *e, value);
+    BsNodeInsert(&((*e)->right), *e, value);
   }
 }
 
@@ -102,7 +101,7 @@ BinarySearchTree *BinarySearchTreeNew() {
 void BinarySearchTreeFree(BinarySearchTree *t) { BsNodeFree(t->root); }
 
 void BinarySearchTreeInsert(BinarySearchTree *t, int value) {
-  BsNodeInsert(&t->root, t->root, value);
+  BsNodeInsert(&(t->root), t->root, value);
 }
 
 BsNode *BinarySearchTreeFind(BinarySearchTree *t, int value) {
@@ -119,33 +118,33 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
 
   if (not_nil(e->left)) {
     //若e的左孩子节点不为空
-    BsNode *left = e->left;
+    BsNode *l = e->left;
     BsNode *lb = e->left->right;
 
-    e->value = left->value;
-    e->left = left->left;
+    e->value = l->value;
+    e->left = l->left;
     if (not_nil(e->left)) {
       e->left->father = e;
     }
-    BsNodeInsert(&e->right, e->right, lb->value);
 
-    delete left;
+    BsNodeInsert(&(e->right), e, lb->value);
+    delete l;
     delete lb;
   } else if (not_nil(e->right)) {
     //若e的右孩子节点不为空
-    BsNode *right = e->right;
+    BsNode *r = e->right;
 
-    e->value = right->value;
-    e->left = right->left;
+    e->value = r->value;
+    e->left = r->left;
     if (not_nil(e->left)) {
       e->left->father = e;
     }
-    e->right = right->right;
+    e->right = r->right;
     if (not_nil(e->right)) {
       e->right->father = e;
     }
 
-    delete right;
+    delete r;
   } else {
     //若e的左右孩子节点都为空
     if (is_nil(e->father)) {

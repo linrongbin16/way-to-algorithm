@@ -30,7 +30,7 @@ AVL树的查询操作和二叉查找树一样，插入/删除操作也基本相�
 
 ![AVLTree5.png](../res/AVLTree5.png)
 
-新节点插入完成后，我们沿着父结点指针一路向上，更新所有经过的节点高度值，并判断该节点是否平衡，若不平衡则进行旋转操作。
+新节点插入完成后，我们沿着父结点指针一路向上，判断每个节点是否平衡，若不平衡则进行旋转操作，再更新节点高度。
 
 ![AVLTree6.png](../res/AVLTree6.png)
 
@@ -38,25 +38,25 @@ $$ (1) $$ 节点$$ 18 $$为叶子节点，因此高度值为$$ depth_{18} = 0 $$
 
 ![AVLTree7.png](../res/AVLTree7.png)
 
-$$ (2) $$ 更新节点$$ 17 $$的高度值$$ depth_{17} = max⁡(depth_{nil},depth_{nil}) + 1 = max⁡(-1,0) + 1 = 1 $$，平衡因子为$$ factor_{17} = \lvert depth_{nil} - depth_{18} \rvert = \lvert - 1 - 0 \rvert = 1 $$，不需要旋转；
+$$ (2) $$ 平衡因子为$$ factor_{17} = \lvert depth_{nil} - depth_{18} \rvert = \lvert - 1 - 0 \rvert = 1 $$，不需要旋转，更新节点$$ 17 $$的高度值$$ depth_{17} = max⁡(depth_{nil},depth_{nil}) + 1 = max⁡(-1,0) + 1 = 1 $$；
 
 ![AVLTree8.png](../res/AVLTree8.png)
 
 ![AVLTree9.png](../res/AVLTree9.png)
 
-$$ (3) $$ 更新节点$$ 16 $$的高度值$$ depth_{16} = max⁡(depth_{nil},depth_{17}) + 1 = max⁡(-1,1) + 1 = 2 $$，平衡因子为$$ factor_{16} = \lvert depth_{nil} - depth_{17} \rvert = \lvert - 1 - 1 \rvert = 2 \gt 1 $$，需要进行RR操作，旋转后节点$$ 16 $$的高度值为$$ depth_{16} = 0 $$；
+$$ (3) $$ 平衡因子为$$ factor_{16} = \lvert depth_{nil} - depth_{17} \rvert = \lvert - 1 - 1 \rvert = 2 \gt 1 $$，需要进行RR操作，旋转后节点$$ 16 $$的高度值为$$ depth_{16} = 0 $$，更新节点$$ 16 $$的高度值$$ depth_{16} = max⁡(depth_{nil},depth_{17}) + 1 = max⁡(-1,1) + 1 = 2 $$；
 
 ![AVLTree10.png](../res/AVLTree10.png)
 
-$$ (4) $$ 更新节点$$ 19 $$的高度值$$ depth_{19} = max⁡(depth_{16},depth_{20}) + 1 = max⁡(1,0) + 1 = 2 $$，平衡因子为$$ factor_{19} = \lvert depth_{17} - depth_{20} \rvert = \lvert 1 - 0 \rvert = 1 $$；
+$$ (4) $$ 平衡因子为$$ factor_{19} = \lvert depth_{17} - depth_{20} \rvert = \lvert 1 - 0 \rvert = 1 $$，更新节点$$ 19 $$的高度值$$ depth_{19} = max⁡(depth_{16},depth_{20}) + 1 = max⁡(1,0) + 1 = 2 $$；
 
 ![AVLTree11.png](../res/AVLTree11.png)
 
-$$ (5) $$ 更新节点$$ 15 $$的高度值$$ depth_{15} = max⁡(depth_{13},depth_{19}) + 1 = max⁡(1,2) + 1 = 3 $$，平衡因子为$$ factor_{15} = \lvert depth_{13} - depth_{19} \rvert = \lvert 1 - 2 \rvert = 1 $$；
+$$ (5) $$ 平衡因子为$$ factor_{15} = \lvert depth_{13} - depth_{19} \rvert = \lvert 1 - 2 \rvert = 1 $$，更新节点$$ 15 $$的高度值$$ depth_{15} = max⁡(depth_{13},depth_{19}) + 1 = max⁡(1,2) + 1 = 3 $$；
 
 ![AVLTree12.png](../res/AVLTree12.png)
 
-$$ (6) $$ 更新节点$$ 10 $$的高度值$$ depth_{10} = max⁡(depth_{5},depth_{15}) + 1 = max⁡(2,3) + 1 = 4 $$，平衡因子为$$ factor_{10} = \lvert depth_{5} - depth_{15} \rvert = \lvert 2 - 3 \rvert = 1 $$；
+$$ (6) $$ 平衡因子为$$ factor_{10} = \lvert depth_{5} - depth_{15} \rvert = \lvert 2 - 3 \rvert = 1 $$，更新节点$$ 10 $$的高度值$$ depth_{10} = max⁡(depth_{5},depth_{15}) + 1 = max⁡(2,3) + 1 = 4 $$；
 
 接下来我们从该AVL树中删除节点$$ 15 $$，仍然优先选择用$$ 15 $$左孩子节点代替它，将$$ 14 $$插入到$$ 19 $$的左子树中。显然这次插入又破坏了AVL树的平衡性，需要再从$$ 14 $$向上依次进行旋转操作。
 
@@ -66,10 +66,10 @@ $$ (6) $$ 更新节点$$ 10 $$的高度值$$ depth_{10} = max⁡(depth_{5},depth
 
 #### 源码
 
-[AVLTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/AVLTree.h)
+[AvlTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/AvlTree.h)
 
-[AVLTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/AVLTree.cpp)
+[AvlTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/AvlTree.cpp)
 
 #### 测试
 
-[AVLTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/AVLTreeTest.cpp)
+[AvlTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/AvlTreeTest.cpp)
