@@ -7,7 +7,7 @@ using namespace std;
 
 #define is_nil(e) ((e) == &AVLNIL)
 #define not_nil(e) ((e) != &AVLNIL)
-#define MAX 1024
+#define MAX 16384
 
 int main(void) {
   for (int i = 1; i < MAX; i++) {
@@ -33,4 +33,3 @@ int main(void) {
   }
   return 0;
 }
-
