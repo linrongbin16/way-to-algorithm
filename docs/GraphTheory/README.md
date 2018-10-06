@@ -1,7 +1,7 @@
 # Chapter-5 Graph Theory
 # 第5章 图论
 
-![GraphTheory.png](res/GraphTheory.png)
+![GraphTheory.svg](res/GraphTheory.svg)
 
 --------
 
