@@ -5,10 +5,9 @@ struct BsNode {
   int value;
   BsNode *left;
   BsNode *right;
-  BsNode *father;
 
   BsNode();
-  BsNode(int v, BsNode *l, BsNode *r, BsNode *f);
+  BsNode(int v, BsNode *l, BsNode *r);
 };
 
 extern BsNode BSNIL;

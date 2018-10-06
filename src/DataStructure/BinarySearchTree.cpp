@@ -3,9 +3,10 @@
 #include <cstddef>
 #include <deque>
 #include <iostream>
+#include <utility>
 #include <vector>
 
-BsNode BSNIL = {-1, &BSNIL, &BSNIL, &BSNIL};
+BsNode BSNIL = {-1, &BSNIL, &BSNIL};
 
 #define is_nil(e) ((e) == &BSNIL)
 #define not_nil(e) ((e) != &BSNIL)
@@ -16,36 +17,48 @@ BsNode::BsNode() {
   value = -1;
   set_nil(left);
   set_nil(right);
-  set_nil(father);
 }
 
-BsNode::BsNode(int v, BsNode *l, BsNode *r, BsNode *f) {
+BsNode::BsNode(int v, BsNode *l, BsNode *r) {
   value = v;
   left = l;
   right = r;
-  father = f;
 }
 
-static void Insert(BsNode **e, BsNode *father, int value) {
-  assert(e);
-  assert(father);
-  if (is_nil(*e)) {
-    *e = new BsNode();
-    set_nil((*e)->left);
-    set_nil((*e)->right);
-    (*e)->father = father;
-    (*e)->value = value;
+static void DumpNode(BsNode *e) {
+  if (is_nil(e)) {
     return;
   }
-  //二分查找
-  if ((*e)->value > value) {
-    Insert(&((*e)->left), *e, value);
-  } else if ((*e)->value < value) {
-    Insert(&((*e)->right), *e, value);
-  } else {
-    // (*e)->value == value
-    assert((*e)->value != value);
+  std::cout << "e/left/right:" << e->value << "," << e->left->value << ","
+            << e->right->value << std::endl;
+  DumpNode(e->left);
+  DumpNode(e->right);
+}
+
+static void DumpTree(BinarySearchTree *t, int value) {
+  std::cout << std::endl;
+  std::cout << "value:" << value << std::endl;
+  DumpNode(t->root);
+}
+
+static BsNode *Insert(BsNode *e, int value) {
+  assert(e);
+  if (is_nil(e)) {
+    BsNode *p = new BsNode();
+    set_nil(p->left);
+    set_nil(p->right);
+    p->value = value;
+    return p;
   }
+  //二分查找
+  if (e->value > value) {
+    e->left = Insert(e->left, value);
+  } else if (e->value < value) {
+    e->right = Insert(e->right, value);
+  } else {
+    assert(e->value != value);
+  }
+  return e;
 }
 
 static BsNode *Find(BsNode *e, int value) {
@@ -111,10 +124,14 @@ void BinarySearchTreeFree(BinarySearchTree *t) {
 }
 
 void BinarySearchTreeInsert(BinarySearchTree *t, int value) {
-  Insert(&(t->root), &BSNIL, value);
+  assert(t);
+  assert(value >= 0);
+  t->root = Insert(t->root, value);
 }
 
 BsNode *BinarySearchTreeFind(BinarySearchTree *t, int value) {
+  assert(t);
+  assert(value >= 0);
   return Find(t->root, value);
 }
 
@@ -129,57 +146,49 @@ static BsNode *Next(BsNode *e) {
   return next;
 }
 
-static BsNode *Prev(BsNode *e) { return e->left; }
-
-void BinarySearchTreeErase(BinarySearchTree *t, int value) {
-  assert(not_nil(t->root));
-  BsNode *e = Find(t->root, value);
+static BsNode *Erase(BsNode *e, int value) {
+  assert(value >= 0);
   assert(not_nil(e));
 
-  if (not_nil(e->right)) {
-    //用后继节点next代替e
-
-    BsNode *next = Next(e);
-    e->value = next->value;
-    if (next->father->left == next) {
-      next->father->left = next->right;
-    } else if (next->father->right == next) {
-      next->father->right = next->right;
-    } else {
-      assert(next->father->left != next && next->father->right != next);
-    }
-    if (not_nil(next->right)) {
-      next->right->father = next->father;
-    }
-    delete next;
-  } else if (not_nil(e->left)) {
-    BsNode *prev = Prev(e);
-    e->value = prev->value;
-    e->left = prev->left;
-    if (not_nil(e->left)) {
-      e->left->father = e;
-    }
-    e->right = prev->right;
-    if (not_nil(e->right)) {
-      e->right->father = e;
-    }
-    delete prev;
+  if (e->value > value) {
+    e->left = Erase(e->left, value);
+  } else if (e->value < value) {
+    e->right = Erase(e->right, value);
   } else {
-    //直接删除叶子节点e
+    // e->value == value
 
-    if (not_nil(e->father)) {
-      if (e->father->left == e) {
-        set_nil(e->father->left);
-      } else if (e->father->right == e) {
-        set_nil(e->father->right);
+    if (is_nil(e->left) || is_nil(e->right)) {
+      BsNode *temp = not_nil(e->left) ? e->left : e->right;
+      if (is_nil(temp)) {
+        // 若e没有孩子节点则直接删除
+
+        temp = e;
+        set_nil(e);
+        delete temp;
       } else {
-        assert(e->father->left != e && e->father->right != e);
+        // 若e只有一个孩子节点则直接用该孩子节点替换e
+
+        std::swap(e, temp);
+        delete temp;
       }
     } else {
-      set_nil(t->root);
+      // not_nil(e->left) && not_nil(e->right)
+
+      BsNode *next = Next(e);
+      e->value = next->value;
+      e->right = Erase(e->right, next->value);
     }
-    delete e;
   }
+
+  return e;
+}
+
+void BinarySearchTreeErase(BinarySearchTree *t, int value) {
+  assert(t);
+  assert(not_nil(t->root));
+  assert(value >= 0);
+  // DumpTree(t, value);
+  t->root = Erase(t->root, value);
 }
 
 std::vector<int> BinarySearchTreePreOrder(BinarySearchTree *t) {

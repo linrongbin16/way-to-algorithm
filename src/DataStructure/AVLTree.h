@@ -5,10 +5,9 @@ struct AvlNode {
   int height;
   AvlNode *left;
   AvlNode *right;
-  AvlNode *father;
 
   AvlNode();
-  AvlNode(int v, int h, AvlNode *l, AvlNode *r, AvlNode *f);
+  AvlNode(int v, int h, AvlNode *l, AvlNode *r);
 };
 
 extern AvlNode AVLNIL;
