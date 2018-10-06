@@ -1,7 +1,6 @@
 #include "AvlTree.h"
 #include <algorithm>
 #include <cassert>
-#include <iostream>
 #include <utility>
 
 AvlNode AVLNIL = {-1, -1, &AVLNIL, &AVLNIL};
@@ -24,23 +23,6 @@ AvlNode::AvlNode(int v, int h, AvlNode *l, AvlNode *r) {
   height = h;
   left = l;
   right = r;
-}
-
-static void DumpNode(AvlNode *e) {
-  if (is_nil(e))
-    return;
-  std::cout << "e/left/right: " << e->value << "," << e->left->value << ","
-            << e->right->value << std::endl;
-  DumpNode(e->left);
-  DumpNode(e->right);
-}
-
-static void DumpTree(AvlNode *e, int value) {
-  std::cout << std::endl;
-  if (value != -1) {
-    std::cout << "value:" << value << std::endl;
-  }
-  DumpNode(e);
 }
 
 static void Free(AvlNode *e) {
@@ -134,18 +116,19 @@ static AvlNode *Insert(AvlNode *e, int value) {
 
   e->height = get_height(e->left, e->right);
   int factor = get_factor(e);
-  if (factor > 1 && e->left->value > e->value) {
+  if (factor > 1 && get_factor(e->left) >= 0) {
     return LL(e);
   }
-  if (factor < -1 && e->right->value < e->value) {
-    return RR(e);
-  }
-  if (factor > 1 && e->left->value < e->value) {
+  if (factor > 1 && get_factor(e->left) < 0) {
     return LR(e);
   }
-  if (factor < -1 && e->right->value > e->value) {
+  if (factor < -1 && get_factor(e->right) <= 0) {
+    return RR(e);
+  }
+  if (factor < -1 && get_factor(e->right) > 0) {
     return RL(e);
   }
+
   return e;
 }
 
@@ -215,7 +198,6 @@ static AvlNode *Erase(AvlNode *e, int value) {
 
 void AvlTreeErase(AvlTree *t, int value) {
   assert(not_nil(t->root));
-  DumpTree(t->root, value);
   t->root = Erase(t->root, value);
 }
 

@@ -84,6 +84,13 @@ $$ (3) $$ 若$$ x $$同时有左右孩子节点，按照中序遍历找出二叉
 
 --------
 
+#### AVL Tree
+
+* https://www.geeksforgeeks.org/avl-tree-set-1-insertion/
+* https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
+
+--------
+
 #### 源码
 
 [AvlTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DataStructure/AvlTree.h)
