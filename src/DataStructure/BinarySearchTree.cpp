@@ -25,22 +25,6 @@ BsNode::BsNode(int v, BsNode *l, BsNode *r) {
   right = r;
 }
 
-static void DumpNode(BsNode *e) {
-  if (is_nil(e)) {
-    return;
-  }
-  std::cout << "e/left/right:" << e->value << "," << e->left->value << ","
-            << e->right->value << std::endl;
-  DumpNode(e->left);
-  DumpNode(e->right);
-}
-
-static void DumpTree(BinarySearchTree *t, int value) {
-  std::cout << std::endl;
-  std::cout << "value:" << value << std::endl;
-  DumpNode(t->root);
-}
-
 static BsNode *Insert(BsNode *e, int value) {
   assert(e);
   if (is_nil(e)) {
@@ -187,7 +171,6 @@ void BinarySearchTreeErase(BinarySearchTree *t, int value) {
   assert(t);
   assert(not_nil(t->root));
   assert(value >= 0);
-  // DumpTree(t, value);
   t->root = Erase(t->root, value);
 }
 
