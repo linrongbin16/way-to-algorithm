@@ -1,7 +1,7 @@
 # Chapter-2 Search
 # 第2章 搜索
 
-![Search.png](res/Search.png)
+![Search.svg](res/Search.svg)
 
 --------
 
@@ -19,11 +19,11 @@
 
 下图是一个矩阵$$ matrix $$：
 
-![KnowledgePoint1.png](res/KnowledgePoint1.png)
+![KnowledgePoint1.svg](res/KnowledgePoint1.svg)
 
 我们称之为$$ 3 $$行$$ 5 $$列的矩阵，一般用二位数组$$ m = 3 \times 5 $$表示，$$ matrix[row, col] $$表示第$$ row $$行、第$$ col $$列的元素。比如：
 
-![KnowledgePoint2.png](res/KnowledgePoint2.png)
+![KnowledgePoint2.svg](res/KnowledgePoint2.svg)
 
-![KnowledgePoint3.png](res/KnowledgePoint3.png)
+![KnowledgePoint3.svg](res/KnowledgePoint3.svg)
 

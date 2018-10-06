@@ -16,15 +16,15 @@
 
 在二维方格$$ s = 5 \times 4 $$中，从$$ beg = [1,0] $$移动到$$ end = [4,3] $$的过程如下：
 
-![BidirectionalBreadthSearch1.png](../res/BidirectionalBreadthSearch1.png)
+![BidirectionalBreadthSearch1.svg](../res/BidirectionalBreadthSearch1.svg)
 
 $$ (1) $$初始时，将$$ beg = [1,0] $$染红并加入$$ bq $$中，将$$ end = [4,3] $$染蓝并加入$$ eq $$；
 
-![BidirectionalBreadthSearch2.png](../res/BidirectionalBreadthSearch2.png)
+![BidirectionalBreadthSearch2.svg](../res/BidirectionalBreadthSearch2.svg)
 
 $$ (2) $$从$$ bq $$中取出头节点$$ [1,0] $$，将其四周未被染色的邻节点$$ [0,0], [1,1], [2,0] $$染红并加入$$ bq $$中。从$$ eq $$中取出头节点$$ [4,3] $$，将其四周未被染色的邻节点$$ [4,2], [3,3] $$染蓝并加入$$ eq $$中；
 
-![BidirectionalBreadthSearch3.png](../res/BidirectionalBreadthSearch3.png)
+![BidirectionalBreadthSearch3.svg](../res/BidirectionalBreadthSearch3.svg)
 
 $$ (3) $$从$$ bq $$中取出头节点$$ [0,0] $$，将其四周未被染色的邻节点$$ [0,1] $$染红并加入$$ bq $$中。从$$ eq $$中取出头节点$$ [4,2] $$，将其四周未被染色的邻节点$$ [4,1], [3,2] $$染蓝并加入$$ eq $$中；
 
@@ -34,13 +34,13 @@ $$
 
 $$
 
-![BidirectionalBreadthSearch7.png](../res/BidirectionalBreadthSearch7.png)
+![BidirectionalBreadthSearch7.svg](../res/BidirectionalBreadthSearch7.svg)
 
 $$ (7) $$从$$ bq $$中取出头节点$$ [2,1] $$，其邻节点$$ [2,2], [1,3] $$已经被染蓝（已经被$$ eq $$访问过）。因此$$ [2,2], [1,3] $$为$$ bq $$和$$ eq $$相遇的位置，算法结束；
 
 对于二维方格$$ s $$，广度优先搜索从$$ beg $$点遍历到$$ end $$点的过程一般是从$$ beg $$向四周发散开，一直到达$$ end $$点。而双向广度优先搜索则是从$$ beg $$和$$ end $$两个点分别发散开，在中间相遇。
 
-![BidirectionalBreadthSearch8.png](../res/BidirectionalBreadthSearch8.png)
+![BidirectionalBreadthSearch8.svg](../res/BidirectionalBreadthSearch8.svg)
 
 双向广度搜索的时间复杂度与广度优先搜索一样，也是$$ O(n \times m) $$。
 
