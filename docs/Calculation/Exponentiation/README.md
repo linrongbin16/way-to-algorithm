@@ -19,8 +19,8 @@ x^n =
 \begin{cases}
 1                                   &   n = 0
 x                                   &   n = 1
-x \times (x^2)^{\frac_{n-1}{2}}     &   x is odd
-(x^2)^{\frac_{n}{2}}                &   x is even
+x \times (x^2)^{\frac{n-1}{2}}     &   x is odd
+(x^2)^{\frac{n}{2}}                &   x is even
 \end{cases}
 $$
 
