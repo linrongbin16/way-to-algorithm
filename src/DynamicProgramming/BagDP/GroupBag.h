@@ -1,19 +1,19 @@
 #pragma once
 #ifndef MAX
-#define MAX 1024
+#define MAX 128
 #endif
 
-/**
- * ÎïÆ··ÖÎªn×é
- * µÚi×éÖĞÓĞgroup_n[i]¸öÎïÆ· ·¶Î§Îª[1, group_n[i]]
- * group[i][j]ÎªµÚi×éÖĞµÄµÚj¸öÎïÆ·
- * ¸ÃÎïÆ·itemµÄ¼ÛÖµÎªitem.valueÖØÁ¿Îªitem.weight
- * ±³°üÄÜ×°ÔØµÄ×î´óÖØÁ¿Îªtot_weight
- */
 struct Item {
-  int value;
-  int weight;
+  int v;
+  int w;
 };
 
-int GroupBag(Item group[MAX][MAX], int *group_n, int n, int tot_weight);
+/**
+ * @param   group[i][j]è¡¨ç¤ºç¬¬iç»„ç¬¬jä¸ªç‰©å“çš„ä»·å€¼vå’Œé‡é‡w
+ * @param   mè¡¨ç¤ºç»„çš„æ•°é‡ group[i][j]æ»¡è¶³1<=i<=m
+ * @param   n[i]è¡¨ç¤ºç¬¬iç»„çš„ç‰©å“æ•°é‡
+ * @param   weightä¸ºèƒŒåŒ…æœ€å¤§é‡é‡
+ * @return  è¿”å›èƒŒåŒ…èƒ½å¤Ÿè£…è½½çš„æœ€å¤§ä»·å€¼
+ */
+int GroupBag(Item group[MAX][MAX], int m, int n[MAX], int weight);
 

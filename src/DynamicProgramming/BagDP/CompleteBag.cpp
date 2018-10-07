@@ -1,28 +1,31 @@
 #include "CompleteBag.h"
+#include "Util.h"
 #include <algorithm>
 #include <vector>
 
-int CompleteBag(int *value, int *weight, int count, int tot_weight) {
-  int f[MAX][MAX];
+int CompleteBag(int *v, int *w, int n, int weight) {
 
   // 初始化
-  for (int i = 0; i < MAX; i++) {
-    for (int j = 0; j < MAX; j++) {
-      f[i][j] = 0;
-    }
-  }
 
-  for (int i = 1; i <= count; i++) {
-    for (int j = 0; j <= tot_weight; j++) {
-      // 珠宝 i 最多可以装 max_count 个
-      int max_count = j / weight[i];
+  int **f = Array2DNew(n + 1, weight + 1);
+  for (int i = 0; i <= n; i++)
+    for (int j = 0; j <= weight; j++)
+      f[i][j] = 0;
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 0; j <= weight; j++) {
+
+      // 珠宝i最多可以装max_count个
+
+      int max_count = j / w[i];
       for (int k = 0; k <= max_count; k++) {
-        f[i][j] =
-            std::max(f[i - 1][j], f[i - 1][j - k * weight[i]] + k * value[i]);
+        f[i][j] = std::max(f[i - 1][j], f[i - 1][j - k * w[i]] + k * v[i]);
       }
     }
   }
 
-  return f[count][tot_weight];
+  int result = f[n][weight];
+  Array2DFree(f, n + 1);
+  return result;
 }
 

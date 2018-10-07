@@ -1,24 +1,32 @@
 #include "ZeroOneBag.h"
+#include "Util.h"
 #include <algorithm>
 #include <vector>
 
-int ZeroOneBag(int *value, int *weight, int count, int tot_weight) {
-  int f[MAX][MAX];
+int ZeroOneBag(int *v, int *w, int n, int weight) {
   //初始化
-  for (int i = 0; i < MAX; i++) {
-    f[0][i] = 0;
-    f[i][0] = 0;
-  }
+
+  int **f = Array2DNew(n + 1, weight + 1);
+  for (int i = 0; i <= n; i++)
+    for (int j = 0; j <= weight; j++)
+      f[i][j] = 0;
+
   //第i个物品
-  for (int i = 1; i <= count; i++) {
+
+  for (int i = 1; i <= n; i++) {
+
     //重量不超过j
-    for (int j = 0; j <= tot_weight; j++) {
-      if (j >= weight[i])
-        f[i][j] = std::max(f[i - 1][j], f[i - 1][j - weight[i]] + value[i]);
+
+    for (int j = 0; j <= weight; j++) {
+      if (j >= w[i])
+        f[i][j] = std::max(f[i - 1][j], f[i - 1][j - w[i]] + v[i]);
       else
         f[i][j] = f[i - 1][j];
     }
   }
-  return f[count][tot_weight];
+
+  int result = f[n][weight];
+  Array2DFree(f, n + 1);
+  return result;
 }
 
