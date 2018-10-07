@@ -15,8 +15,8 @@
 $$
 f(i,j) =
 \begin{cases}
-0                                                   &   (initialize)i \in [0,n],j \in [0,t] \\
-max(f(i-1,j),f(i-1,j-k \times w_i) + k \times v_i)  &   i,j \gt 0, k \geq 0, j \geq k \times w_i
+0                                                   &   (initialize)    &   i \in [0,n]     &   j \in [0,t] \\
+max(f(i-1,j),f(i-1,j-k \times w_i) + k \times v_i)  &   i,j \gt 0       &   k \geq 0        &  j \geq k \times w_i
 \end{cases}
 $$
 

@@ -28,8 +28,10 @@ $$ (2) $$不同符号的$$ a, b $$相加可以转化为相同符号的减法，�
 
 $$
 
+\begin{matrix}
 c[i] = ( c[i] + a[i] + b[i] ) % 10 \\
 c[i+1] = c[i+1] + ( c[i] + a[i] + b[i] ) \div 10
+\end{matrix}
 
 $$
 
@@ -71,8 +73,10 @@ $$
 
 $$
 
+\begin{matrix}
 c[i] = ( c[i] + a[i] \times b[i] ) % 10 \\
 c[i+1] = c[i+1] + ( c[i] + a[i] \times b[i] ) \div 10
+\end{matrix}
 
 $$
 
