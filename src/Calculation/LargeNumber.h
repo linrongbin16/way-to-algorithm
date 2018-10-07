@@ -2,7 +2,6 @@
 #ifndef MAX
 #define MAX 1024
 #endif
-#include <string>
 
 struct Number {
   int bits[MAX];

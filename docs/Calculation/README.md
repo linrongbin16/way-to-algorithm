@@ -1,6 +1,8 @@
 # Chapter-6 Calculation
 # 第6章 计算
 
+![Calculation.png](res/Calculation.png)
+
 --------
 
 1. [LargeNumber 大数字](LargeNumber/)

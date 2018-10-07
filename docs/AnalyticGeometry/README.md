@@ -1,6 +1,8 @@
 # Chapter-10 AnalyticGeometry 
 # 第10章 解析几何
 
+![AnalyticGeometry.svg](res/AnalyticGeometry.svg)
+
 --------
 
 1. Section-1 Polygon 第1节 多边形

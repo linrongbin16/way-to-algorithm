@@ -88,7 +88,7 @@ Number Add(const Number &a, const Number &b) {
 
 // c[i] =
 //\begin{cases}
-//          a[i] - b[i] & a[i] \ge b[i] \\
+//             a[i] - b[i] & a[i] \ge b[i] \\
 //a[i] + 10 - b[i], c[i+1] = c[i+1] - 1 & a[i] \lt b[i]
 //\end{cases}
 //
@@ -112,7 +112,7 @@ Number Sub(const Number &a, const Number &b) {
   }
 
   // integer
-  n = max(a.integer_len, b.integer_len);
+  n = std::max(a.integer_len, b.integer_len);
   for (int i = 0; i < n; i++) {
     c.integer_len++;
     int tmp_a = a.integer[i] - borrow;
