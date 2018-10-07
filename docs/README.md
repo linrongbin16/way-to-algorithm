@@ -32,7 +32,6 @@
         * [BidirectionalSubsequence 双向子序列](DynamicProgramming/LinearDP/BidirectionalSubsequence/)
     * Section-2 BagDP 第2节 背包问题
         * [ZeroOneBag 01背包](DynamicProgramming/BagDP/ZeroOneBag/)
-        * [ZeroOneBagExtension 01背包扩展](DynamicProgramming/BagDP/ZeroOneBagExtension/)
         * [CompleteBag 完全背包](DynamicProgramming/BagDP/CompleteBag/)
         * [TwoDimensionBag 二维背包](DynamicProgramming/BagDP/TwoDimensionBag/)
         * [GroupBag 分组背包](DynamicProgramming/BagDP/GroupBag/)

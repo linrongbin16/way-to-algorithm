@@ -10,10 +10,9 @@
     4. [BidirectionalSubsequence 双向子序列](LinearDP/BidirectionalSubsequence/)
 2. BagDP 背包问题
     1. [ZeroOneBag 01背包](BagDP/ZeroOneBag/)
-    2. [ZeroOneBagExtension 01背包扩展](BagDP/ZeroOneBagExtension/)
-    3. [CompleteBag 完全背包](BagDP/CompleteBag/)
-    4. [TwoDimensionBag 二维背包](BagDP/TwoDimensionBag/)
-    5. [GroupBag 分组背包](BagDP/GroupBag/)
+    2. [CompleteBag 完全背包](BagDP/CompleteBag/)
+    3. [TwoDimensionBag 二维背包](BagDP/TwoDimensionBag/)
+    4. [GroupBag 分组背包](BagDP/GroupBag/)
 3. RegionalDP 区域动态规划
     1. [MinimumMergeCost 最小合并代价](RegionalDP/MinimumMergeCost/)
     2. [MinimumMergeCostExtension 最小合并代价扩展](RegionalDP/MinimumMergeCostExtension/)
