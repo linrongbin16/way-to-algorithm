@@ -15,6 +15,21 @@ static void BuildBits(int *bits, int &len, long n) {
   }
 }
 
+Number::Number() {
+  negative = false;
+  BuildBits(bits, len, 0);
+}
+
+Number::Number(int a) {
+  negative = (a < 0) ? true : false;
+  BuildBits(bits, len, (long)a);
+}
+
+Number::Number(long a) {
+  negative = (a < 0) ? true : false;
+  BuildBits(bits, len, a);
+}
+
 static bool IsZero(const Number &a) {
   if (a.len == 0) {
     return true;
@@ -35,20 +50,39 @@ static Number Negative(const Number &a) {
   return c;
 }
 
-Number::Number() {
-  negative = false;
-  BuildBits(bits, len, 0);
+bool Greater(const Number &a, const Number &b) {
+  if (IsZero(a) && IsZero(b)) {
+    return true;
+  }
+  if (a.negative != b.negative) {
+    return !a.negative;
+  }
+  if (!a.negative) {
+    int n = std::max(a.len, b.len);
+    for (int i = n - 1; i >= 0; i--) {
+      if (a.bits[i] != b.bits[i]) {
+        return a.bits[i] > b.bits[i];
+      }
+    }
+    return false;
+  } else {
+    return Greater(Negative(b), Negative(a));
+  }
 }
 
-Number::Number(int a) {
-  negative = (a < 0) ? true : false;
-  BuildBits(bits, len, (long)a);
+bool Less(const Number &a, const Number &b) {
+  return !Greater(a, b) && !Eq(a, b);
 }
 
-Number::Number(long a) {
-  negative = (a < 0) ? true : false;
-  BuildBits(bits, len, a);
+bool Eq(const Number &a, const Number &b) {
+  if (a.len != b.len)
+    return false;
+  if (a.negative != b.negative)
+    return false;
+  return std::memcmp(a.bits, b.bits, MAX * sizeof(int)) == 0;
 }
+
+bool NotEq(const Number &a, const Number &b) { return !Eq(a, b); }
 
 Number::Number(const Number &other) {
   std::memcpy(bits, other.bits, sizeof(int) * MAX);
@@ -73,8 +107,8 @@ Number Add(const Number &a, const Number &b) {
   int n = std::max(a.len, b.len) + 1;
   for (int i = 0; i < n; i++) {
     c.len++;
+    c.bits[i + 1] = c.bits[i + 1] + (c.bits[i] + a.bits[i] + b.bits[i]) / 10;
     c.bits[i] = (c.bits[i] + a.bits[i] + b.bits[i]) % 10;
-    c.bits[i + 1] = c.bits[i + 1] + (a.bits[i] + b.bits[i]) / 10;
   }
   while (c.len - 1 >= 0 && c.bits[c.len - 1] == 0) {
     c.len--;
@@ -83,49 +117,23 @@ Number Add(const Number &a, const Number &b) {
   return c;
 }
 
-static bool Greater(const Number &a, const Number &b) {
-  if (IsZero(a) && IsZero(b)) {
-    return true;
-  }
-  if (a.negative != b.negative) {
-    return !a.negative;
-  }
-  if (a.negative) {
-    int n = std::max(a.len, b.len) + 1;
-    for (int i = n - 1; i >= 0; i--) {
-      if (a.bits[i] != b.bits[i]) {
-        return a.bits[i] < b.bits[i];
-      }
-    }
-  } else {
-    int n = std::max(a.len, b.len) + 1;
-    for (int i = n - 1; i >= 0; i--) {
-      if (a.bits[i] != b.bits[i]) {
-        return a.bits[i] > b.bits[i];
-      }
-    }
-  }
-  return false;
-}
-
-static bool Eq(const Number &a, const Number &b) {
-  if (a.len != b.len)
-    return false;
-  if (a.negative != b.negative)
-    return false;
-  return std::memcmp(a.bits, b.bits, MAX * sizeof(int)) == 0;
-}
-
-static bool GreaterEq(const Number &a, const Number &b) {
-  return Greater(a, b) || Eq(a, b);
-}
-
 Number Sub(const Number &a, const Number &b) {
   if (a.negative != b.negative) {
     return Add(a, Negative(b));
   }
-  if (GreaterEq(b, a)) {
-    return Negative(Sub(b, a));
+
+  if (!a.negative && !b.negative) {
+    if (Greater(b, a)) {
+      return Negative(Sub(b, a));
+    }
+  }
+  if (a.negative && b.negative) {
+    if (Less(a, b)) {
+      return Negative(Sub(Negative(a), Negative(b)));
+    }
+    if (Greater(a, b)) {
+      return Sub(Negative(b), Negative(a));
+    }
   }
 
   Number aa(a);
@@ -151,20 +159,18 @@ Number Mul(const Number &a, const Number &b) {
   for (int j = 0; j < b.len; j++) {
     for (int i = 0; i < a.len; i++) {
       c.len++;
-      c.bits[(int)std::pow(10, j) + i] =
-          (c.bits[(int)std::pow(10, j) + i] + a.bits[i] + b.bits[j]) % 10;
-      c.bits[(int)std::pow(10, j) + i + 1] =
-          c.bits[(int)std::pow(10, j) + i + 1] +
-          (c.bits[(int)std::pow(10, j) + i] + a.bits[i] + b.bits[j]) / 10;
+      c.bits[j + i + 1] =
+          c.bits[j + i + 1] + (c.bits[j + i] + a.bits[i] * b.bits[j]) / 10;
+      c.bits[j + i] = (c.bits[j + i] + a.bits[i] * b.bits[j]) % 10;
     }
   }
   while (c.len - 1 >= 0 && c.bits[c.len - 1] == 0) {
     c.len--;
   }
   if (a.negative != b.negative) {
-    c.negative = false;
-  } else {
     c.negative = true;
+  } else {
+    c.negative = false;
   }
   return c;
 }
@@ -173,19 +179,12 @@ Number Div(const Number &a, const Number &b) { return Number(); }
 
 std::string ToString(const Number &a) {
   std::string s;
+  if (a.negative) {
+    s = "-";
+  }
   for (int i = a.len - 1; i >= 0; i--) {
     s = s + std::to_string(a.bits[i]);
   }
   return s;
 }
-
-bool operator==(const Number &a, const Number &b) {
-  if (a.len != b.len)
-    return false;
-  if (a.negative != b.negative)
-    return false;
-  return std::memcmp(a.bits, b.bits, MAX * sizeof(int)) == 0;
-}
-
-bool operator!=(const Number &a, const Number &b) { return !(a == b); }
 
