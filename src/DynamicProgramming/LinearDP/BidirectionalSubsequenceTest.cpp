@@ -73,7 +73,7 @@ struct Test {
     }, // 11
 };
 
-int main() {
+int main(void) {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test &t = test_cases[i];
     int r = BidirectionalSubsequence(t.a, t.n);
