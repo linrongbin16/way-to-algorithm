@@ -1,9 +1,10 @@
 #include "TwoDimensionBag.h"
-#include "Util.h"
+#include "../Util.h"
 #include <algorithm>
 #include <iostream>
 
-int TwoDimensionBag(int *v, int *w1, int *w2, int n, int weight1, int weight2) {
+int TwoDimensionBag(const int *v, const int *w1, const int *w2, int n,
+                    int weight1, int weight2) {
   int ***f = Array3DNew(n + 1, weight1 + 1, weight2 + 1);
   for (int i = 0; i <= n; i++)
     for (int j = 0; j <= weight1; j++)

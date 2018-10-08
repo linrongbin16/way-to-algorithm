@@ -28,7 +28,6 @@
     * Section-1 LinearDP 第1节 线性动规
         * [LongestCommonSubsequence 最长公共子序列](DynamicProgramming/LinearDP/LongestCommonSubsequence/)
         * [LongestIncreasingSubsequence 最长递增子序列](DynamicProgramming/LinearDP/LongestIncreasingSubsequence/)
-        * [LongestIncreasingSubsequenceExtension 最长递增子序列扩展](DynamicProgramming/LinearDP/LongestIncreasingSubsequenceExtension/)
         * [BidirectionalSubsequence 双向子序列](DynamicProgramming/LinearDP/BidirectionalSubsequence/)
     * Section-2 BagDP 第2节 背包问题
         * [ZeroOneBag 01背包](DynamicProgramming/BagDP/ZeroOneBag/)

@@ -6,7 +6,6 @@
 1. LinearDP 线性动态规划
     1. [LongestCommonSubsequence 最长公共子序列](LinearDP/LongestCommonSubsequence/)
     2. [LongestIncreasingSubsequence 最长递增子序列](LinearDP/LongestIncreasingSubsequence/)
-    3. [LongestIncreasingSubsequenceExtension 最长递增子序列扩展](LinearDP/LongestIncreasingSubsequenceExtension/)
     4. [BidirectionalSubsequence 双向子序列](LinearDP/BidirectionalSubsequence/)
 2. BagDP 背包问题
     1. [ZeroOneBag 01背包](BagDP/ZeroOneBag/)

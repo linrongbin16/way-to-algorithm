@@ -1,4 +1,4 @@
 #pragma once
 
-int ZeroOneBag(int *v, int *w, int n, int weight);
+int ZeroOneBag(const int *v, const int *w, int n, int weight);
 

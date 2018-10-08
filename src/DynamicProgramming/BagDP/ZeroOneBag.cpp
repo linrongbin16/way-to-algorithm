@@ -1,9 +1,9 @@
 #include "ZeroOneBag.h"
-#include "Util.h"
+#include "../Util.h"
 #include <algorithm>
 #include <vector>
 
-int ZeroOneBag(int *v, int *w, int n, int weight) {
+int ZeroOneBag(const int *v, const int *w, int n, int weight) {
   //初始化
 
   int **f = Array2DNew(n + 1, weight + 1);

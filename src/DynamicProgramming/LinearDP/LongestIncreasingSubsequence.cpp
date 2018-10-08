@@ -1,27 +1,29 @@
 #include "LongestIncreasingSubsequence.h"
+#include "../Util.h"
 #include <algorithm>
 
 int LongestIncreasingSubsequence(const int *s, int n) {
-  // 序列a和b的范围是[1,n]
-  int f[MAX];
+  int *f = ArrayNew(n + 1);
 
-  // 初始化
-  f[0] = 0;
+  for (int i = 0; i <= n; i++) {
+    f[i] = 0;
+  }
 
   for (int i = 1; i <= n; i++) {
-    f[i] = 1;
-    int max_length = 0;
+    int maxlen = 0;
     for (int k = 1; k < i; k++) {
       if (s[i] > s[k])
-        max_length = std::max(max_length, f[k]);
+        maxlen = std::max(maxlen, f[k]);
     }
-    f[i] = max_length + 1;
+    f[i] = maxlen + 1;
   }
 
-  int list = 1;
+  int result = 0;
   for (int i = 1; i <= n; i++) {
-    list = std::max(list, f[i]);
+    result = std::max(result, f[i]);
   }
 
-  return list;
+  ArrayFree(f);
+  return result;
 }
+

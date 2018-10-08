@@ -1,15 +1,16 @@
 #include "LongestCommonSubsequence.h"
+#include "../Util.h"
 #include <algorithm>
 #include <vector>
 
-// 序列a和b的范围是[1,n]
 int LongestCommonSubsequence(const int *a, const int *b, int n) {
-  int f[MAX][MAX];
+  int **f = Array2DNew(n + 1, n + 1);
 
   // 初始化
-  for (int i = 0; i < MAX; i++) {
-    f[i][0] = 0;
-    f[0][i] = 0;
+  for (int i = 0; i <= n; i++) {
+    for (int j = 0; j <= n; j++) {
+      f[i][j] = 0;
+    }
   }
 
   for (int i = 1; i <= n; i++) {
@@ -21,6 +22,8 @@ int LongestCommonSubsequence(const int *a, const int *b, int n) {
     }
   }
 
-  return f[n][n];
+  int result = f[n][n];
+  Array2DFree(f, n + 1);
+  return result;
 }
 

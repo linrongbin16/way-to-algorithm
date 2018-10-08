@@ -5,7 +5,7 @@ using namespace std;
 #define TEST_MAX 1024
 
 struct Test {
-  int a[MAX];
+  int a[TEST_MAX];
   int n;
   int result;
 } test_cases[] = {
@@ -30,8 +30,7 @@ struct Test {
 };
 
 int main() {
-  int count = sizeof(test_cases) / sizeof(Test);
-  for (int i = 0; i < count; i++) {
+  for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test &t = test_cases[i];
     int r = LongestIncreasingSubsequence(t.a, t.n);
     // cout << i << "," << r << endl;
@@ -40,3 +39,4 @@ int main() {
 
   return 0;
 }
+

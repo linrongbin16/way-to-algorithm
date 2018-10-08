@@ -1,9 +1,9 @@
 #include "CompleteBag.h"
-#include "Util.h"
+#include "../Util.h"
 #include <algorithm>
 #include <vector>
 
-int CompleteBag(int *v, int *w, int n, int weight) {
+int CompleteBag(const int *v, const int *w, int n, int weight) {
 
   // 初始化
 

@@ -1,7 +1,6 @@
 #pragma once
-#ifndef MAX
-#define MAX 1024
-#endif
-#include <algorithm>
+
+// s的范围是[1,n]
 
 int LongestIncreasingSubsequence(const int *s, int n);
+

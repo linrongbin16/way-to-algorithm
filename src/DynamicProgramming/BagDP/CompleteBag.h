@@ -1,4 +1,4 @@
 #pragma once
 
-int CompleteBag(int *v, int *w, int n, int weight);
+int CompleteBag(const int *v, const int *w, int n, int weight);
 
