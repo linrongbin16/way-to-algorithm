@@ -16,13 +16,13 @@ $$
 f(i,j) =
 \begin{cases}
 0                                                       &   (initialize)    &   i \in [0,n]     &   j \in [0,weight]         \\
-max(f(i-1,j),f(i-1,j-k \times w_{i}) + k \times v_{i})  &   i,j \gt 0       &   k \geq 0        &  j \geq k \times w_{i}
+max(f(i-1,j),f(i-1,j-k \times w_{i}) + k \times v_{i})  &   i \in [1,n], j \in [1,weight], j \geq k \times w_{i}, k \geq 0
 \end{cases}
 $$
 
 $$ (1) $$ 将$$ f(i,j) $$全部初始化为$$ 0 $$；
 
-$$ (2) $$ 对于第$$ i $$件珠宝，背包的剩余重量（还能装载的重量）为$$ W $$，可以装进$$ k $$个该珠宝（其中$$ k \geq 0 $$，且$$ W \geq k \times w_{i} $$），那么背包的价值增大$$ k \times v_{i} $$，剩余重量减小$$ k \times w_{i} $$，即$$ f(i,j) = f(i-1,j-k \times w_{i}) + k \times v_{i} $$；若不装入背包，则一切维持不变，即$$ f(i,j) = f(i-1,j) $$。选择这两种情形中的最大值；
+$$ (2) $$ 对于第$$ i $$种珠宝，若装入背包$$ k $$个，则背包价值增大$$ k \times v_{i} $$，背包的剩余重量减小$$ k \times w_{i} $$（其中$$ k \geq 0, j \geq k \times w_{i} $$），即$$ f(i,j) = f(i-1,j-k \times w_{i}) + k \times v_{i} $$；若不装入背包，则一切维持不变，即$$ f(i,j) = f(i-1,j) $$。选择这两种情形中的最大值；
 
 $$ f(n,weight) $$即为$$ n $$个珠宝中重量不超过$$ weight $$的最大价值。该算法的时间复杂度是$$ O(n \times weight^2) $$，因为状态转移方程中的参数$$ k $$的规模与背包最大重量$$ weight $$线性相关。
 

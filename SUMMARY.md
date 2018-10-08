@@ -34,7 +34,6 @@
         * [ZeroOneBag 01背包](docs/DynamicProgramming/BagDP/ZeroOneBag/README.md)
         * [CompleteBag 完全背包](docs/DynamicProgramming/BagDP/CompleteBag/README.md)
         * [TwoDimensionBag 二维背包](docs/DynamicProgramming/BagDP/TwoDimensionBag/README.md)
-        * [GroupBag 分组背包](docs/DynamicProgramming/BagDP/GroupBag/README.md)
     * Section-3 RegionalDP 第3节 区域动规
         * [MinimumMergeCost - 最小合并代价](docs/DynamicProgramming/RegionalDP/MinimumMergeCost/README.md)
         * [MinimumMergeCostExtension - 最小合并代价扩展](docs/DynamicProgramming/RegionalDP/MinimumMergeCostExtension/README.md)

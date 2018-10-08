@@ -15,10 +15,11 @@ int CompleteBag(int *v, int *w, int n, int weight) {
   for (int i = 1; i <= n; i++) {
     for (int j = 0; j <= weight; j++) {
 
-      // 珠宝i最多可以装max_count个
+      // 珠宝i最多可以装count个
 
-      int max_count = j / w[i];
-      for (int k = 0; k <= max_count; k++) {
+      int count = j / w[i];
+
+      for (int k = 0; k <= count; k++) {
         f[i][j] = std::max(f[i - 1][j], f[i - 1][j - k * w[i]] + k * v[i]);
       }
     }

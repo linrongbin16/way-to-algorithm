@@ -62,7 +62,6 @@ int main() {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test &t = test_cases[i];
     int r = ZeroOneBag(t.v, t.w, t.n, t.weight);
-    cout << i << "," << r << endl;
     assert(r == t.result);
   }
   return 0;

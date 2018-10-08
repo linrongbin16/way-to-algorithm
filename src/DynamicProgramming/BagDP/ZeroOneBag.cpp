@@ -18,10 +18,12 @@ int ZeroOneBag(int *v, int *w, int n, int weight) {
     //重量不超过j
 
     for (int j = 0; j <= weight; j++) {
-      if (j >= w[i])
+
+      if (j >= w[i]) {
         f[i][j] = std::max(f[i - 1][j], f[i - 1][j - w[i]] + v[i]);
-      else
+      } else {
         f[i][j] = f[i - 1][j];
+      }
     }
   }
 

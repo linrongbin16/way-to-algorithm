@@ -24,3 +24,8 @@
 <img src="https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/docs/res/alipay.jpg" alt="alipay">
 </p>
  
+
+#### Reference - 参考
+
+* [Introduction to Algorithm](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [背包问题九讲](https://www.kancloud.cn/kancloud/pack/70124)

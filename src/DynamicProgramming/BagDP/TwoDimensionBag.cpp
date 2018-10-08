@@ -13,6 +13,7 @@ int TwoDimensionBag(int *v, int *w1, int *w2, int n, int weight1, int weight2) {
   for (int i = 1; i <= n; i++) {
     for (int j = 0; j <= weight1; j++) {
       for (int k = 0; k <= weight2; k++) {
+
         if (j >= w1[i] && k >= w2[i]) {
           f[i][j][k] =
               std::max(f[i - 1][j][k], f[i - 1][j - w1[i]][k - w2[i]] + v[i]);

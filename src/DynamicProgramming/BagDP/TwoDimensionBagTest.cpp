@@ -73,7 +73,6 @@ struct Test {
 
 int main() {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
-    cout << "i:" << i << endl;
     Test &t = test_cases[i];
     int r = TwoDimensionBag(t.v, t.w1, t.w2, t.n, t.weight1, t.weight2);
     assert(r == t.result);
