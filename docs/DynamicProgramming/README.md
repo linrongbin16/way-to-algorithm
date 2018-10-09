@@ -6,7 +6,9 @@
 1. LinearDP 线性动态规划
     1. [LongestCommonSubsequence 最长公共子序列](LinearDP/LongestCommonSubsequence/)
     2. [LongestIncreasingSubsequence 最长递增子序列](LinearDP/LongestIncreasingSubsequence/)
-    4. [BidirectionalSubsequence 双向子序列](LinearDP/BidirectionalSubsequence/)
+    3. [BidirectionalSubsequence 双向子序列](LinearDP/BidirectionalSubsequence/)
+    4. [GreatestContinuousSubsequence 最大连续子序列和](LinearDP/GreatestContinuousSubsequence/)
+    5. [LongestPalindromicSubsequence 最长回文子序列](LinearDP/LongestPalindromicSubsequence/)
 2. BagDP 背包问题
     1. [ZeroOneBag 01背包](BagDP/ZeroOneBag/)
     2. [CompleteBag 完全背包](BagDP/CompleteBag/)
@@ -30,7 +32,7 @@
 
 动态规划只能应用于有最优子结构的问题。最优子结构的意思是局部最优解能决定全局最优解（对有些问题这个要求并不能完全满足，故有时需要引入一定的近似）。简单地说，问题能够分解成子问题来解决。
 
-动态规划一般使用递归公式求解。递归公式也称作状态转移方程。编码中用多维数组来实现递归公式中每一步计算的结果。
+动态规划一般使用递归公式求解。递归公式也称作状态转移方程。编码中用多维数组来实现递归公式中每一步计算的结果。常见的动态规划可以划分为线性、区域、树形等。
 
 --------
 

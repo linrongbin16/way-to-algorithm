@@ -12,7 +12,7 @@
 
 #### 解法
 
-设序列$$ s $$长度为$$ n $$（数组从$$ 1 $$开始，范围$$ [1,n] $$），前$$ i $$个元素组成的子序列为$$ [1,i] $$。设$$ f(i) $$为$$ s = [1,i] $$的最大连续子序列的和，则有状态转移方程：
+设序列$$ s $$长度为$$ n $$（数组从$$ 1 $$开始，范围$$ [1,n] $$）。设$$ f(i) $$为$$ s = [1,i] $$的最大连续子序列的和，则有状态转移方程：
 
 $$
 f(i) =
@@ -26,17 +26,17 @@ $$ (1) $$ 初始化$$ f(i) = 0 $$；
 
 $$ (2) $$ 对于元素$$ s[i] $$，若$$ s[i] \geq 0 $$则会使该子序列的和变大，若$$ s[i] \lt 0 $$则会使该子序列的和变小。所以有$$ f(i) = max(f(i-1) + s[i], s[i]) $$在$$ f(i-1,j-1) $$的基础上加$$ 1 $$；
 
-$$ f(n,n) $$即为序列$$ s_1 $$和$$ s_2 $$的最长公共子序列的长度值。遍历该算法的时间复杂度是$$ O(n^2) $$。
+$$ f(n,n) $$即为序列$$ s_1 $$和$$ s_2 $$的最长公共子序列的长度值。该算法的时间复杂度为$$ O(n^2) $$。
 
 --------
 
 #### 源码
 
-[LongestCommonSubsequence.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestCommonSubsequence.h)
+[GreatestContinuousSubsequenceSum.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/GreatestContinuousSubsequenceSum.h)
 
-[LongestCommonSubsequence.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestCommonSubsequence.cpp)
+[GreatestContinuousSubsequenceSum.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/GreatestContinuousSubsequenceSum.cpp)
 
 #### 测试
 
-[LongestCommonSubsequenceTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/LongestCommonSubsequenceTest.cpp)
+[GreatestContinuousSubsequenceSumTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/GreatestContinuousSubsequenceSumTest.cpp)
 

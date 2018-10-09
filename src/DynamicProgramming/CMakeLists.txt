@@ -10,6 +10,7 @@ set(SRC_FILE
     LinearDP/LongestIncreasingSubsequence.cpp
     LinearDP/BidirectionalSubsequence.cpp
     LinearDP/GreatestContinuousSubsequenceSum.cpp
+    LinearDP/LongestPalindromicSubsequence.cpp
     )
 
 add_executable(DynamicProgramming-BagDP-ZeroOneBag.exe BagDP/ZeroOneBagTest.cpp ${SRC_FILE})
@@ -19,4 +20,5 @@ add_executable(DynamicProgramming-LinearDP-LongestCommonSubsequence.exe LinearDP
 add_executable(DynamicProgramming-LinearDP-LongestIncreasingSubsequence.exe LinearDP/LongestIncreasingSubsequenceTest.cpp ${SRC_FILE})
 add_executable(DynamicProgramming-LinearDP-BidirectionalSubsequence.exe LinearDP/BidirectionalSubsequenceTest.cpp ${SRC_FILE})
 add_executable(DynamicProgramming-LinearDP-GreatestContinuousSubsequenceSum.exe LinearDP/GreatestContinuousSubsequenceSumTest.cpp ${SRC_FILE})
+add_executable(DynamicProgramming-LinearDP-LongestPalindromicSubsequence.exe LinearDP/LongestPalindromicSubsequenceTest.cpp ${SRC_FILE})
 

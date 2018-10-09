@@ -54,7 +54,6 @@ int main(void) {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test &t = test_cases[i];
     int r = LongestCommonSubsequence(t.a, t.b, t.n);
-    // cout << i << "," << r << endl;
     assert(r == t.result);
   }
 

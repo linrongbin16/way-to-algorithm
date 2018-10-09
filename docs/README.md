@@ -29,6 +29,8 @@
         * [LongestCommonSubsequence 最长公共子序列](DynamicProgramming/LinearDP/LongestCommonSubsequence/)
         * [LongestIncreasingSubsequence 最长递增子序列](DynamicProgramming/LinearDP/LongestIncreasingSubsequence/)
         * [BidirectionalSubsequence 双向子序列](DynamicProgramming/LinearDP/BidirectionalSubsequence/)
+        * [GreatestContinuousSubsequence 最大连续子序列和](DynamicProgramming/LinearDP/GreatestContinuousSubsequence/)
+        * [LongestPalindromicSubsequence 最长回文子序列](DynamicProgramming/LinearDP/LongestPalindromicSubsequence/)
     * Section-2 BagDP 第2节 背包问题
         * [ZeroOneBag 01背包](DynamicProgramming/BagDP/ZeroOneBag/)
         * [CompleteBag 完全背包](DynamicProgramming/BagDP/CompleteBag/)
