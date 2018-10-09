@@ -2,18 +2,13 @@
 #include "../Util.h"
 #include <algorithm>
 #include <climits>
+#include <cstdarg>
 #include <iostream>
 #include <string>
 
 // 防止int溢出
 
-static int InfAdd(int a, int b) {
-  if (a == INF || b == INF)
-    return INF;
-  return a + b;
-}
-
-static int InfAdd(int a, int b, int c) {
+static int Add(int a = 0, int b = 0, int c = 0) {
   if (a == INF || b == INF || c == INF)
     return INF;
   return a + b + c;
@@ -37,8 +32,8 @@ int MinimumMergeCost(int *s, int n) {
   for (int i = 1; i <= n; i++)
     for (int j = i + 1; j <= n; j++)
       for (int k = i; k < j; k++) {
-        f[i][j] = std::min(f[i][j], InfAdd(InfAdd(f[i][k], f[k + 1][j]),
-                                           sum[i][k], sum[k + 1][j]));
+        f[i][j] = std::min(
+            f[i][j], Add(Add(f[i][k], f[k + 1][j]), sum[i][k], sum[k + 1][j]));
       }
 
   int result = f[1][n];
