@@ -26,11 +26,11 @@
     * [RedBlackTree 红黑树](docs/DataStructure/RedBlackTree/README.md)
 * [Chapter-4 DynamicProgramming 第4章 动态规划](docs/DynamicProgramming/README.md)
     * Section-1 LinearDP 第1节 线性动规
-        * [LongestCommonSubsequence 最长公共子序列](docs/DynamicProgramming/LinearDP/LongestCommonSubsequence/)
-        * [LongestIncreasingSubsequence 最长递增子序列](docs/DynamicProgramming/LinearDP/LongestIncreasingSubsequence/)
-        * [BidirectionalSubsequence 双向子序列](docs/DynamicProgramming/LinearDP/BidirectionalSubsequence/)
-        * [GreatestContinuousSubsequence 最大连续子序列和](docs/DynamicProgramming/LinearDP/GreatestContinuousSubsequence/)
-        * [LongestPalindromicSubsequence 最长回文子序列](docs/DynamicProgramming/LinearDP/LongestPalindromicSubsequence/)
+        * [LongestCommonSubsequence 最长公共子序列](docs/DynamicProgramming/LinearDP/LongestCommonSubsequence/README.md)
+        * [LongestIncreasingSubsequence 最长递增子序列](docs/DynamicProgramming/LinearDP/LongestIncreasingSubsequence/README.md)
+        * [BidirectionalSubsequence 双向子序列](docs/DynamicProgramming/LinearDP/BidirectionalSubsequence/README.md)
+        * [GreatestContinuousSubsequence 最大连续子序列和](docs/DynamicProgramming/LinearDP/GreatestContinuousSubsequence/README.md)
+        * [LongestPalindromicSubsequence 最长回文子序列](docs/DynamicProgramming/LinearDP/LongestPalindromicSubsequence/README.md)
     * Section-2 BagDP 第2节 背包问题
         * [ZeroOneBag 01背包](docs/DynamicProgramming/BagDP/ZeroOneBag/README.md)
         * [CompleteBag 完全背包](docs/DynamicProgramming/BagDP/CompleteBag/README.md)
