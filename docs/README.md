@@ -37,8 +37,7 @@
         * [TwoDimensionBag 二维背包](DynamicProgramming/BagDP/TwoDimensionBag/)
     * Section-3 RegionalDP 第3节 区域动规
         * [MinimumMergeCost - 最小合并代价](DynamicProgramming/RegionalDP/MinimumMergeCost/)
-        * [MinimumMergeCostExtension - 最小合并代价扩展](DynamicProgramming/RegionalDP/MinimumMergeCostExtension/)
-        * [MaximumBinaryTreeMerge - 最大二叉树合并](DynamicProgramming/RegionalDP/MaximumBinaryTreeMerge/)
+        * [UniquePath 唯一路径](DynamicProgramming/RegionalDP/UniquePath/)
     * Section-4 TreeDP 第4节 树形动规
         * [BinaryTreeDP 二叉树动规](DynamicProgramming/TreeDP/BinaryTreeDP/)
         * [MultipleTreeDP 多叉树动规](DynamicProgramming/TreeDP/MultipleTreeDP/)
