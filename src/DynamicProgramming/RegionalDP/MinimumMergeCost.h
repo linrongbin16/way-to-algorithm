@@ -1,7 +1,5 @@
 #pragma once
-#ifndef MAX
-#define MAX 60
-#endif
+#include <climits>
 #ifndef INF
 #define INF INT_MAX
 #endif
