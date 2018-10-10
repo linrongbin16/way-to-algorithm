@@ -6,11 +6,23 @@
 
 #### 问题
 
-在高度为$$ n $$的三角形上从最上面移动到最下面，三角形上节点$$ i $$的值为$$ v_{i} $$，每次移动只能向下移动左右两个邻节点。从节点$$ i$$移动到$$j $$花费的代价为$$ v_{i} + v_{j} $$，从上面移动到下面的代价为所有移动的代价之和，求从上到下的最小移动代价。
+在高度为$$ n $$的三角形上从最上面移动到最下面，三角形上节点$$ i $$的值为$$ v_{i} $$，每次移动只能向下移动左右两个邻节点。如图所示：
+
+![TrianglePath1.svg](../res/TrianglePath1.svg)
+
+从上面移动到下面的代价为所有经过节点的值之和，求从上到下的最小移动代价。
 
 #### 解法
 
-设$$ f(i,j) $$为从$$ [1,1] $$到$$ [i,j] $$的不同路径的数量，其中$$ i \in [1,n], j \in [1,m] $$。因此有如下状态转移方程：
+高度为$$ n $$的三角形拥有$$ \frac{(n+1) \times n}{2} $$个节点。设节点下标从$$ 1 $$开始，则第$$ n $$行的节点为$$ [\frac{n \times (n-1)}{2} + 1, \dots, \frac{(n+1) \times n}{2}] $$。左边节点为$$ \frac{n \times (n-1)}{2} + 1 $$，右边节点为$$ \frac{(n+1) \times n}{2} $$。
+
+![TrianglePath2.svg](../res/TrianglePath2.svg)
+
+从上图可知，第$$ 1 $$行的左边节点为$$ \frac{1 \times (1-1)}{2} +1 = 1 $$，右边节点为$$ \frac{(1+1) \times 1}{2} = 1 $$；第$$ 2 $$行的左边节点为$$ \frac{2 \times (2-1)}{2} + 1 = 2 $$，右边节点为$$ \frac{(2+1) \times 2}{2} = 3 $$；第$$ 3 $$行的左边节点为$$ \frac{3 \times (3-1)}{2} + 1 = 4 $$，右边节点为$$ \frac{(3+1) \times 3}{2} = 6 $$；等等。
+
+三角形的第$$ n $$行有$$ n $$个节点，因此节点$$ i $$的左下节点（类似于左孩子节点）为$$ i + n $$，右下节点为$$ i + n + 1 $$。
+
+设$$ f(i) $$为从$$ [1,1] $$到$$ [i,j] $$的不同路径的数量，其中$$ i \in [1,n], j \in [1,m] $$。因此有如下状态转移方程：
 
 $$
 f(i,j) =
@@ -31,9 +43,9 @@ $$ f(n,m) $$即为从$$ [1,1] $$到$$ [n,m] $$的不同路径的数量。该算�
 
 #### LeetCode
 
-* https://leetcode.com/problems/unique-paths/description/
+* https://leetcode.com/problems/triangle/description/
 
-[leetcode-62.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/leetcode/leetcode-62.cpp)
+[leetcode-120.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/leetcode/leetcode-120.cpp)
 
 --------
 
