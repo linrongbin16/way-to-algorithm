@@ -4,5 +4,5 @@
 #define MAX 128
 #endif
 
-int UniquePath(int s[MAX][MAX], int n, int m);
+int UniquePath(int n, int m);
 
