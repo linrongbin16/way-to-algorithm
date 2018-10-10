@@ -1,14 +1,12 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Unique Path - 唯一路径
+# Triangle Path - 三角形路径
 
 --------
 
 #### 问题
 
-在$$ n $$行$$ m $$列的二维矩阵上从左上角移动到右下角$$ [1,1] \rightarrow [n,m] $$，每次移动只能向右/向下移动。求有多少种不同的路径。
-
-![UniquePath1.svg](../res/UniquePath1.svg)
+在高度为$$ n $$的三角形上从上面移动到右下角$$ [1,1] \rightarrow [n,m] $$，每次移动只能向右/向下移动。求有多少种不同的路径。
 
 #### 解法
 
@@ -41,10 +39,11 @@ $$ f(n,m) $$即为从$$ [1,1] $$到$$ [n,m] $$的不同路径的数量。该算�
 
 #### 源码
 
-[UniquePath.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/UniquePath.h)
+[TrianglePath.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/TrianglePath.h)
 
-[UniquePath.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/UniquePath.cpp)
+[TrianglePath.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/TrianglePath.cpp)
 
 #### 测试
 
-[UniquePathTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/UniquePathTest.cpp)
+[TrianglePathTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/TrianglePathTest.cpp)
+
