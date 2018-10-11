@@ -38,6 +38,7 @@
     * Section-3 RegionalDP 第3节 区域动规
         * [MinimumMergeCost - 最小合并代价](docs/DynamicProgramming/RegionalDP/MinimumMergeCost/README.md)
         * [UniquePath 唯一路径](docs/DynamicProgramming/RegionalDP/UniquePath/README.md)
+        * [TrianglePath 三角形路径](docs/DynamicProgramming/RegionalDP/TrianglePath/README.md)
     * Section-4 TreeDP 第4节 树形动规
         * [BinaryTreeDP 二叉树动规](docs/DynamicProgramming/TreeDP/BinaryTreeDP/README.md)
         * [MultipleTreeDP 多叉树动规](docs/DynamicProgramming/TreeDP/MultipleTreeDP/README.md)
