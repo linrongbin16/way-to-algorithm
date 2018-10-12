@@ -18,7 +18,7 @@
     2. [UniquePath 唯一路径](RegionalDP/UniquePath/)
     3. [TrianglePath 三角形路径](RegionalDP/TrianglePath/)
 4. TreeDP 树形动态规划
-    1. [BinaryTreeDP 二叉树动规](TreeDP/BinaryTreeDP/)
+    1. [BinaryTreeDP 二叉树动态规划](TreeDP/BinaryTreeDP/)
     2. [MultipleTreeDP 多叉树动规](TreeDP/MultipleTreeDP/)
     3. [MultipleTreeDPExtension 多叉树动规问题扩展](TreeDP/MultipleTreeDPExtension/)
     4. [LoopedMultipleTreeDP 带环多叉树动规](TreeDP/LoopedMultipleTreeDP/)
