@@ -40,7 +40,7 @@
         * [UniquePath 唯一路径](docs/DynamicProgramming/RegionalDP/UniquePath/README.md)
         * [TrianglePath 三角形路径](docs/DynamicProgramming/RegionalDP/TrianglePath/README.md)
     * Section-4 TreeDP 第4节 树形动规
-        * [BinaryTreeDP 二叉树动规](docs/DynamicProgramming/TreeDP/BinaryTreeDP/README.md)
+        * [MaximumBinaryTree 最大二叉树](docs/DynamicProgramming/TreeDP/MaximumBinaryTree/README.md)
         * [MultipleTreeDP 多叉树动规](docs/DynamicProgramming/TreeDP/MultipleTreeDP/README.md)
         * [MultipleTreeDPExtension 多叉树动规扩展](docs/DynamicProgramming/TreeDP/MultipleTreeDPExtension/README.md)
         * [LoopedMultipleTreeDP 带环多叉树动规](docs/DynamicProgramming/TreeDP/LoopedMultipleTreeDP/README.md)
