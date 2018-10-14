@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Minimum Merge Cost - 最小合并代价
+# Min Merge Cost - 最小合并代价
 
 --------
 
@@ -8,7 +8,7 @@
 
 将长度为$$ n $$的序列$$ s = [x_{1}, x_{2}, \dots, x_{n}] $$进行合并，每次合并将相邻的两个元素$$ a $$和$$ b $$合并为一个新的元素$$ c $$，并且$$ c = a+b $$，合并的代价也为$$ a+b $$。经过$$ n-1 $$次合并后，序列$$ s $$被合并为1个数字，这个过程的代价是之前所有合并的代价总和。求出将序列$$ s $$合并为一个数字的最小合并代价。合并过程如图：
 
-![MinimumMergeCost1.svg](../res/MinimumMergeCost1.svg)
+![MinMergeCost1.svg](../res/MinMergeCost1.svg)
 
 例如序列$$ s = [1,2,3] $$，合并过程有$$ [1,2,3] \rightarrow [3,3] \rightarrow [6] $$和$$ [1,2,3] \rightarrow [1,5] \rightarrow [6] $$，最终合并代价为$$ 9, 11 $$。
 
@@ -43,10 +43,10 @@ $$ f(1,n) $$即为序列$$ s $$的最小合并代价。该算法的时间复杂�
 
 #### 源码
 
-[MinimumMergeCost.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCost.h)
+[MinMergeCost.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinMergeCost.h)
 
-[MinimumMergeCost.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCost.cpp)
+[MinMergeCost.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinMergeCost.cpp)
 
 #### 测试
 
-[MinimumMergeCostTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCostTest.cpp)
+[MinMergeCostTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinMergeCostTest.cpp)

@@ -1,18 +1,18 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Maximum Multiple Tree - 最大多叉树
+# Max Multiple Tree - 最大多叉树
 
 --------
 
 #### 问题
 
-与Maximum Binary Tree类似，拥有$$ n $$个节点的多叉树，节点范围为$$ [1,n] $$，节点$$ i $$的权值为正整数$$ v_i $$，整个树的权值为所有节点的权值之和。每个节点$$ i $$有最多$$ k $$个孩子节点。现在要求只保留$$ m $$个节点（$$ 0 \lt m \lt n-1 $$），剪裁掉的节点数量为$$ n-1-m $$，要求剩余部分仍然是一个多叉树，而不能是多个树。
+与Max Binary Tree类似，拥有$$ n $$个节点的多叉树，节点范围为$$ [1,n] $$，节点$$ i $$的权值为正整数$$ v_i $$，整个树的权值为所有节点的权值之和。每个节点$$ i $$有最多$$ k $$个孩子节点。现在要求只保留$$ m $$个节点（$$ 0 \lt m \lt n-1 $$），剪裁掉的节点数量为$$ n-1-m $$，要求剩余部分仍然是一个多叉树，而不能是多个树。
 
 对于拥有$$ n $$个节点的多叉树，求出保留$$ m $$个节点的多叉树的最大权值。
 
 #### 解法
 
-与Maximum Binary Tree类似，设$$ f(i,j) $$表示以节点$$ i $$为根节点的树上，保留$$ j $$个节点的最大权值。有状态转移方程如下：
+与Max Binary Tree类似，设$$ f(i,j) $$表示以节点$$ i $$为根节点的树上，保留$$ j $$个节点的最大权值。有状态转移方程如下：
 
 $$
 f(i,j) =
@@ -32,10 +32,10 @@ $$ f(n,m) $$为该多叉树的最大权值。该算法的时间复杂度是$$ O(
 
 #### 源码
 
-[MaximumMultipleTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumMultipleTree.h)
+[MaxMultipleTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxMultipleTree.h)
 
-[MaximumMultipleTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumMultipleTree.cpp)
+[MaxMultipleTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxMultipleTree.cpp)
 
 #### 测试
 
-[MaximumMultipleTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumMultipleTreeTest.cpp)
+[MaxMultipleTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxMultipleTreeTest.cpp)

@@ -29,19 +29,19 @@
         * [LongestCommonSubsequence 最长公共子序列](DynamicProgramming/LinearDP/LongestCommonSubsequence/)
         * [LongestIncreasingSubsequence 最长递增子序列](DynamicProgramming/LinearDP/LongestIncreasingSubsequence/)
         * [BidirectionalSubsequence 双向子序列](DynamicProgramming/LinearDP/BidirectionalSubsequence/)
-        * [GreatestContinuousSubsequence 最大连续子序列和](DynamicProgramming/LinearDP/GreatestContinuousSubsequence/)
+        * [MaxContinuousSubsequence 最大连续子序列和](DynamicProgramming/LinearDP/MaxContinuousSubsequence/)
         * [LongestPalindromicSubsequence 最长回文子序列](DynamicProgramming/LinearDP/LongestPalindromicSubsequence/)
     * Section-2 BagDP 第2节 背包问题
         * [ZeroOneBag 01背包](DynamicProgramming/BagDP/ZeroOneBag/)
         * [CompleteBag 完全背包](DynamicProgramming/BagDP/CompleteBag/)
         * [TwoDimensionBag 二维背包](DynamicProgramming/BagDP/TwoDimensionBag/)
     * Section-3 RegionalDP 第3节 区域动规
-        * [MinimumMergeCost - 最小合并代价](DynamicProgramming/RegionalDP/MinimumMergeCost/)
+        * [MinMergeCost - 最小合并代价](DynamicProgramming/RegionalDP/MinMergeCost/)
         * [UniquePath 唯一路径](DynamicProgramming/RegionalDP/UniquePath/)
         * [TrianglePath 三角形路径](DynamicProgramming/RegionalDP/TrianglePath/)
     * Section-4 TreeDP 第4节 树形动规
-        * [MaximumBinaryTree 最大二叉树](DynamicProgramming/TreeDP/MaximumBinaryTree/)
-        * [MultipleTreeDP 多叉树动规](DynamicProgramming/TreeDP/MultipleTreeDP/)
+        * [MaxBinaryTree 最大二叉树](DynamicProgramming/TreeDP/MaxBinaryTree)
+        * [MaxMultipleTree 最大多叉树](DynamicProgramming/TreeDP/MaxMultipleTree)
         * [MultipleTreeDPExtension 多叉树动规扩展](DynamicProgramming/TreeDP/MultipleTreeDPExtension/)
         * [LoopedMultipleTreeDP 带环多叉树动规](DynamicProgramming/TreeDP/LoopedMultipleTreeDP/)
         * [TraverseBinaryTreeDP 遍历二叉树动规](DynamicProgramming/TreeDP/TraverseBinaryTreeDP/)

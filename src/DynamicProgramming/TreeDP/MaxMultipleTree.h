@@ -13,8 +13,8 @@ struct MtNode {
   int child_cnt;
 };
 
-MtNode *MaximumMultipleTreeNew(int *value, int *father, int n);
-void MaximumMultipleTreeFree(MtNode *t);
+MtNode *MaxMultipleTreeNew(int *value, int *father, int n);
+void MaxMultipleTreeFree(MtNode *t);
 
-int MaximumMultipleTree(MtNode *t, int n, int m);
+int MaxMultipleTree(MtNode *t, int n, int m);
 

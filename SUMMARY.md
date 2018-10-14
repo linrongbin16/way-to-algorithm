@@ -29,19 +29,19 @@
         * [LongestCommonSubsequence 最长公共子序列](docs/DynamicProgramming/LinearDP/LongestCommonSubsequence/README.md)
         * [LongestIncreasingSubsequence 最长递增子序列](docs/DynamicProgramming/LinearDP/LongestIncreasingSubsequence/README.md)
         * [BidirectionalSubsequence 双向子序列](docs/DynamicProgramming/LinearDP/BidirectionalSubsequence/README.md)
-        * [GreatestContinuousSubsequence 最大连续子序列和](docs/DynamicProgramming/LinearDP/GreatestContinuousSubsequence/README.md)
+        * [MaxContinuousSubsequence 最大连续子序列和](docs/DynamicProgramming/LinearDP/MaxContinuousSubsequence/README.md)
         * [LongestPalindromicSubsequence 最长回文子序列](docs/DynamicProgramming/LinearDP/LongestPalindromicSubsequence/README.md)
     * Section-2 BagDP 第2节 背包问题
         * [ZeroOneBag 01背包](docs/DynamicProgramming/BagDP/ZeroOneBag/README.md)
         * [CompleteBag 完全背包](docs/DynamicProgramming/BagDP/CompleteBag/README.md)
         * [TwoDimensionBag 二维背包](docs/DynamicProgramming/BagDP/TwoDimensionBag/README.md)
     * Section-3 RegionalDP 第3节 区域动规
-        * [MinimumMergeCost - 最小合并代价](docs/DynamicProgramming/RegionalDP/MinimumMergeCost/README.md)
+        * [MinMergeCost - 最小合并代价](docs/DynamicProgramming/RegionalDP/MinMergeCost/README.md)
         * [UniquePath 唯一路径](docs/DynamicProgramming/RegionalDP/UniquePath/README.md)
         * [TrianglePath 三角形路径](docs/DynamicProgramming/RegionalDP/TrianglePath/README.md)
     * Section-4 TreeDP 第4节 树形动规
-        * [MaximumBinaryTree 最大二叉树](docs/DynamicProgramming/TreeDP/MaximumBinaryTree/README.md)
-        * [MultipleTreeDP 多叉树动规](docs/DynamicProgramming/TreeDP/MultipleTreeDP/README.md)
+        * [MaxBinaryTree 最大二叉树](docs/DynamicProgramming/TreeDP/MaxBinaryTree/README.md)
+        * [MaxMultipleTree 最大多叉树](docs/DynamicProgramming/TreeDP/MaxMultipleTree/README.md)
         * [MultipleTreeDPExtension 多叉树动规扩展](docs/DynamicProgramming/TreeDP/MultipleTreeDPExtension/README.md)
         * [LoopedMultipleTreeDP 带环多叉树动规](docs/DynamicProgramming/TreeDP/LoopedMultipleTreeDP/README.md)
         * [TraverseBinaryTreeDP 遍历二叉树动规](docs/DynamicProgramming/TreeDP/TraverseBinaryTreeDP/README.md)

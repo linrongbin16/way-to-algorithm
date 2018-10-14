@@ -7,19 +7,19 @@
     1. [LongestCommonSubsequence 最长公共子序列](LinearDP/LongestCommonSubsequence/)
     2. [LongestIncreasingSubsequence 最长递增子序列](LinearDP/LongestIncreasingSubsequence/)
     3. [BidirectionalSubsequence 双向子序列](LinearDP/BidirectionalSubsequence/)
-    4. [GreatestContinuousSubsequence 最大连续子序列和](LinearDP/GreatestContinuousSubsequence/)
+    4. [MaxContinuousSubsequence 最大连续子序列和](LinearDP/MaxContinuousSubsequence/)
     5. [LongestPalindromicSubsequence 最长回文子序列](LinearDP/LongestPalindromicSubsequence/)
 2. BagDP 背包问题
     1. [ZeroOneBag 01背包](BagDP/ZeroOneBag/)
     2. [CompleteBag 完全背包](BagDP/CompleteBag/)
     3. [TwoDimensionBag 二维背包](BagDP/TwoDimensionBag/)
 3. RegionalDP 区域动态规划
-    1. [MinimumMergeCost 最小合并代价](RegionalDP/MinimumMergeCost/)
+    1. [MinMergeCost 最小合并代价](RegionalDP/MinMergeCost/)
     2. [UniquePath 唯一路径](RegionalDP/UniquePath/)
     3. [TrianglePath 三角形路径](RegionalDP/TrianglePath/)
 4. TreeDP 树形动态规划
-    1. [MaximumBinaryTree 最大二叉树](TreeDP/MaximumBinaryTree/)
-    2. [MultipleTreeDP 多叉树动规](TreeDP/MultipleTreeDP/)
+    1. [MaxBinaryTree 最大二叉树](TreeDP/MaxBinaryTree/)
+    2. [MaxMultipleTree 最大多叉树](TreeDP/MaxMultipleTree/)
     3. [MultipleTreeDPExtension 多叉树动规问题扩展](TreeDP/MultipleTreeDPExtension/)
     4. [LoopedMultipleTreeDP 带环多叉树动规](TreeDP/LoopedMultipleTreeDP/)
     5. [TraverseBinaryTreeDP 遍历二叉树动规](TreeDP/TraverseBinaryTreeDP/)

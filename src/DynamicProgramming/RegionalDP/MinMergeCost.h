@@ -4,5 +4,5 @@
 #define INF INT_MAX
 #endif
 
-int MinimumMergeCost(int *s, int n);
+int MinMergeCost(int *s, int n);
 

@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Maximum Binary Tree - 最大二叉树
+# Max Binary Tree - 最大二叉树
 
 --------
 
@@ -10,13 +10,13 @@
 
 正确剪裁
 
-![MaximumBinaryTree1.svg](../res/MaximumBinaryTree1.svg)
+![MaxBinaryTree1.svg](../res/MaxBinaryTree1.svg)
 
-![MaximumBinaryTree2.svg](../res/MaximumBinaryTree2.svg)
+![MaxBinaryTree2.svg](../res/MaxBinaryTree2.svg)
 
 错误剪裁
 
-![MaximumBinaryTree3.svg](../res/MaximumBinaryTree3.svg)
+![MaxBinaryTree3.svg](../res/MaxBinaryTree3.svg)
 
 对于拥有$$ n $$个节点的二叉树，求出保留$$ m $$个节点的二叉树的最大权值。
 
@@ -42,10 +42,10 @@ $$ f(n,m) $$即为该二叉树留下$$ m $$个节点时的最大权值。该算�
 
 #### 源码
 
-[MaximumBinaryTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumBinaryTree.h)
+[MaxBinaryTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTree.h)
 
-[MaximumBinaryTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumBinaryTree.cpp)
+[MaxBinaryTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTree.cpp)
 
 #### 测试
 
-[MaximumBinaryTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumBinaryTreeTest.cpp)
+[MaxBinaryTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTreeTest.cpp)

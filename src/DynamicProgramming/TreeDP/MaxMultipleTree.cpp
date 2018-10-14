@@ -1,9 +1,9 @@
-#include "MaximumMultipleTree.h"
+#include "MaxMultipleTree.h"
 #include "../Util.h"
 #include <cassert>
 #include <cstring>
 
-MtNode *MaximumMultipleTreeNew(int *value, int *father, int n) {
+MtNode *MaxMultipleTreeNew(int *value, int *father, int n) {
   MtNode *t = new MtNode[MAX];
   std::memset(t, 0, sizeof(MtNode) * MAX);
   for (int i = 1; i <= n; i++) {
@@ -16,7 +16,7 @@ MtNode *MaximumMultipleTreeNew(int *value, int *father, int n) {
   return &t[1];
 }
 
-void MaximumMultipleTreeFree(MtNode *t) {
+void MaxMultipleTreeFree(MtNode *t) {
   assert(t);
   MtNode *tb = (MtNode *)((char *)t - sizeof(MtNode));
   delete[] tb;
@@ -27,15 +27,15 @@ static void Dfs(MtNode *t, int **f) {
   assert(f);
 }
 
-static int MaximumMultipleTreeRec(MtNode *t, int **f, int n, int m, int j) {
+static int MaxMultipleTreeRec(MtNode *t, int **f, int n, int m, int j) {
   assert(t);
   assert(f);
   return 0;
 }
 
-int MaximumMultipleTree(MtNode *t, int n, int m) {
+int MaxMultipleTree(MtNode *t, int n, int m) {
   int **f = Array2DNew(n + 1, m + 1);
-  int result = MaximumMultipleTreeRec(t, f, n, m, 1);
+  int result = MaxMultipleTreeRec(t, f, n, m, 1);
   Array2DFree(f, n + 1);
   return result;
 }
