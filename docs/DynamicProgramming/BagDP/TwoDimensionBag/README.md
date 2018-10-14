@@ -18,7 +18,7 @@ $$
 f(i,j,k) =
 \begin{cases}
 0                                                   &   (intialize)     &   i \in [0,n], j \in [0,weight1], k \in [0,weight2] \\
-max{f(i-1,j,k),f(i-1,j-w1_{i},k-w2_{i})+v_{i}}      &   i \in [1,n], j \in[0,weight1], k \in [0,weight2], j \geq w1_{i}, k \geq w2_{i}
+max{f(i-1,j,k),f(i-1,j-w1_{i},k-w2_{i})+v_{i}}      &   (loop)          &   i \in [1,n], j \in[0,weight1], k \in [0,weight2], j \geq w1_{i}, k \geq w2_{i}
 \end{cases}
 $$
 

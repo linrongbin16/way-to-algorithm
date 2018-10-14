@@ -19,7 +19,7 @@ f(i,j) =
 \begin{cases}
 true                            &   (initialize)    &   i,j \in [1,n]   &   i=j \\
 false                           &   (initialize)    &   i,j \in [1,n]   &   i \neq j \\
-f(i+1,j -1) \land s[i] = s[j]   &   1 \leq i \leq n-1, 2 \leq j \leq n  \\
+f(i+1,j -1) \land s[i] = s[j]   &   (loop)          &   1 \leq i \leq n-1, 2 \leq j \leq n  \\
 \end{cases}
 $$
 

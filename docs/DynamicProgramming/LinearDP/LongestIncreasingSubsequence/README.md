@@ -18,7 +18,7 @@ $$
 f(i) =
 \begin{cases}
 0                   &   (initialize)    &   i = 0 \\
-max \{ f(k)+1 \}    &   i \in [1,n], k \in [1,i-1], s[i] \gt s[k]
+max \{ f(k)+1 \}    &   (loop)          &   i \in [1,n], k \in [1,i-1], s[i] \gt s[k]
 \end{cases}
 $$
 

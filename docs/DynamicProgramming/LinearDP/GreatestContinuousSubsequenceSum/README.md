@@ -18,7 +18,7 @@ $$
 f(i) =
 \begin{cases}
 0                           &   (initialize)    &   i \in [0,n] \\
-max(f(i-1) + s[i], s[i])    &   i,j \in [1,n]
+max(f(i-1) + s[i], s[i])    &   (loop)          &   i,j \in [1,n]
 \end{cases}
 $$
 

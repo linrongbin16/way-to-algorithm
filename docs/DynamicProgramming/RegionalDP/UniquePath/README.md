@@ -19,7 +19,7 @@ f(i,j) =
 \begin{cases}
 0                                               &   (initialize)    &   i \in [0,n], j \in [0,m]    \\
 1                                               &   (initialize)    &   i = j = 1   \\
-f(i-1,j) + f(i,j-1)                             &   i \in [1,n], j \in [1,m]
+f(i-1,j) + f(i,j-1)                             &   (loop)          &   i \in [1,n], j \in [1,m]
 \end{cases}
 $$
 

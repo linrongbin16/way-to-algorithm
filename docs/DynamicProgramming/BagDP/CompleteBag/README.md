@@ -15,8 +15,8 @@
 $$
 f(i,j) =
 \begin{cases}
-0                                                       &   (initialize)    &   i \in [0,n]     &   j \in [0,weight]         \\
-max(f(i-1,j),f(i-1,j-k \times w_{i}) + k \times v_{i})  &   i \in [1,n], j \in [1,weight], j \geq k \times w_{i}, k \geq 0
+0                                                       &   (initialize)    &   i \in [0,n], j \in [0,weight]         \\
+max(f(i-1,j),f(i-1,j-k \times w_{i}) + k \times v_{i})  &   (loop)          &   i \in [1,n], j \in [1,weight], j \geq k \times w_{i}, k \geq 0
 \end{cases}
 $$
 

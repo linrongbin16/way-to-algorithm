@@ -17,7 +17,7 @@ f(i,j) =
 
 \begin{cases}
 0                                               &   (initialize)    &   i \in [0,n], j \in [0, weight]  \\
-max( f(i-1,j), f(i - 1, j - w_{i}) + v_{i})     &   i \in [1,n], j \in [0,weight], j \geq w_{i}
+max( f(i-1,j), f(i - 1, j - w_{i}) + v_{i})     &   (loop)          &   i \in [1,n], j \in [0,weight], j \geq w_{i}
 \end{cases}
 $$
 

@@ -28,7 +28,7 @@ $$
 f(i,j) =
 \begin{cases}
 v_i                                                 &   (initialize)    &   i \in [1,n],j = 1 \\
-max⁡\{ f(left_i,k)+f(right_i,j-1-k)+v_i \}          &   i \in [1,n], j \in [2,n]
+max⁡\{ f(left_i,k)+f(right_i,j-1-k)+v_i \}          &   (loop)          &   i \in [1,n], j \in [2,n]
 \end{cases}
 $$
 

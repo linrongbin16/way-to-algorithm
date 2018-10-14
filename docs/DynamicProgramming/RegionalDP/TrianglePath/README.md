@@ -28,7 +28,7 @@ $$
 f(i) =
 \begin{cases}
 v_{1}                                               &   (initialize)    &   i = 1   \\
-min(f(i-height(i)-2), f(i-height(i)-1)) + v_{i}     &   (initialize)    &   i \in [2,k]
+min(f(i-height(i)-2), f(i-height(i)-1)) + v_{i}     &   (loop)          &   i \in [2,k]
 \end{cases}
 $$
 

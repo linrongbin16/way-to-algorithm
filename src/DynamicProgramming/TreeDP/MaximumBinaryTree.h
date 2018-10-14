@@ -8,12 +8,9 @@ struct BiNode {
   int value;
   BiNode *left;
   BiNode *right;
-
-  BiNode();
-  BiNode(int i, int v, BiNode *l, BiNode *r);
 };
 
-BiNode *MaximumBinaryTreeNew(int *v, int *left, int *right, int n);
+BiNode *MaximumBinaryTreeNew(int *value, int *left, int *right, int n);
 
 void MaximumBinaryTreeFree(BiNode *t);
 

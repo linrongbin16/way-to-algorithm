@@ -18,7 +18,7 @@ $$
 f(i,j) =
 \begin{cases}
 v_i                                             &   (initialize)    &   i \in [1,n], j = 1  \\
-max⁡\{ \sum_{p=1}^{k} f(child_p, m_p)+v_i \}  &   i \in [1,n]     &   \sum_{p=1}^{k} m_p = j-1
+max⁡\{ \sum_{p=1}^{k} f(child_p, m_p)+v_i \}    &   (loop)          &   i \in [1,n], \sum_{p=1}^{k} m_p = j-1
 \end{cases}
 $$
 

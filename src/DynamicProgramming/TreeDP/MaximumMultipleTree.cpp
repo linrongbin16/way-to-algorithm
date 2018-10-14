@@ -1,25 +1,46 @@
+#include "MaximumMultipleTree.h"
+#include "../Util.h"
+#include <cassert>
+#include <cstring>
+
+MtNode *MaximumMultipleTreeNew(int *value, int *father, int n) {
+  MtNode *t = new MtNode[MAX];
+  std::memset(t, 0, sizeof(MtNode) * MAX);
+  for (int i = 1; i <= n; i++) {
+    t[i].index = i;
+    t[i].value = value[i];
+    if (father[i]) {
+      t[father[i]].child[t[father[i]].child_cnt++] = &t[i];
+    }
+  }
+  return &t[1];
+}
+
+void MaximumMultipleTreeFree(MtNode *t) {
+  assert(t);
+  MtNode *tb = (MtNode *)((char *)t - sizeof(MtNode));
+  delete[] tb;
+}
+
+static void Dfs(MtNode *t, int **f) {
+  assert(t);
+  assert(f);
+}
+
+static int MaximumMultipleTreeRec(MtNode *t, int **f, int n, int m, int j) {
+  assert(t);
+  assert(f);
+  return 0;
+}
+
+int MaximumMultipleTree(MtNode *t, int n, int m) {
+  int **f = Array2DNew(n + 1, m + 1);
+  int result = MaximumMultipleTreeRec(t, f, n, m, 1);
+  Array2DFree(f, n + 1);
+  return result;
+}
+
 #pragma once
-
-//多叉树动规
-// multiple tree
-
-//如果二叉树中的树变为多叉树 其他条件不变
-//仍然求给定节点数量下的最大权值
-
-//考虑在二叉树中分配resv个剩余节点的情况:
-//如果左子树分配i个节点 那么右子树必然只能分配resv-i-1个节点
-//根节点自己也占1个
-//但在多叉树中分配节点时:
-//对于某个孩子树 若还剩余节点resv个
-//那么这个孩子树可以分配的节点为i个 其中0<=i<=resv
-//下一个孩子树可以分配的剩余节点数量为resv-i个
-//那么总的剩余节点是resv个时
-//给根节点的n个孩子树分配的方法有多少种情况呢
-//如果读者还记得本书第二章搜索中的深度优先搜算法 就可以轻松解决这个问题了
-//
-//状态转移方程与二叉树中一样
-// f[i][j]表示以i为根节点的子树上保留j个节点时所能得到的最大权值
-//使用双递归实现对多叉树的深度搜索
 
 #ifndef MAX
 #define MAX 60
