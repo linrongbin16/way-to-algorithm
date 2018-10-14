@@ -18,30 +18,13 @@ static int Height(int i) {
   return n;
 }
 
-static std::pair<int, int> LineLeftRight(int n) {
-  return std::make_pair(n * (n - 1) / 2, n * (n + 1) / 2);
-}
-
-static std::pair<int, int> UpValue(int *s, int i) {
-  int h = Height(i);
-  std::pair<int, int> upnode = LineLeftRight(h - 1);
-  int lv, rv;
-  int lu = i - h;
-  if (lu < upnode.first || lu > upnode.second) {
-    lv = INF;
-  } else {
-    lv = s[lu];
-  }
-  int ru = i - h + 1;
-  if (ru < upnode.first || ru > upnode.second) {
-    rv = INF;
-  } else {
-    rv = s[ru];
-  }
-  return std::make_pair(lv, rv);
+static std::pair<int, int> Range(int n) {
+  return std::make_pair(n * (n - 1) / 2 + 1, n * (n + 1) / 2);
 }
 
 int TrianglePath(int *s, int k) {
+  assert(Range(Height(k)).second == k);
+
   int *f = ArrayNew(k + 1);
   for (int i = 0; i <= k; i++) {
     f[i] = 0;
@@ -50,13 +33,28 @@ int TrianglePath(int *s, int k) {
     if (i == 1) {
       f[1] = s[1];
     } else {
-      std::pair<int, int> up = UpValue(s, i);
-      f[i] = std::min(up.first, up.second) + s[i];
+      int h = Height(i);
+      std::pair<int, int> up_node = Range(h - 1);
+      int l = i - h;
+      int r = i - h + 1;
+
+      int lu_value, ru_value;
+      if (l < up_node.first || l > up_node.second) {
+        lu_value = INF;
+      } else {
+        lu_value = f[l];
+      }
+      if (r < up_node.first || r > up_node.second) {
+        ru_value = INF;
+      } else {
+        ru_value = f[r];
+      }
+      f[i] = std::min(lu_value, ru_value) + s[i];
     }
   }
 
   int result = INF;
-  for (int i = Height(k); i <= k; i++) {
+  for (int i = Range(Height(k)).first; i <= Range(Height(k)).second; i++) {
     result = std::min(result, f[i]);
   }
   ArrayFree(f);
