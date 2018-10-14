@@ -7,7 +7,7 @@
     1. [LongestCommonSubsequence 最长公共子序列](LinearDP/LongestCommonSubsequence/)
     2. [LongestIncreasingSubsequence 最长递增子序列](LinearDP/LongestIncreasingSubsequence/)
     3. [BidirectionalSubsequence 双向子序列](LinearDP/BidirectionalSubsequence/)
-    4. [MaxContinuousSubsequence 最大连续子序列和](LinearDP/MaxContinuousSubsequence/)
+    4. [MaxContinuousSubsequenceSum 最大连续子序列和](LinearDP/MaxContinuousSubsequenceSum/)
     5. [LongestPalindromicSubsequence 最长回文子序列](LinearDP/LongestPalindromicSubsequence/)
 2. BagDP 背包问题
     1. [ZeroOneBag 01背包](BagDP/ZeroOneBag/)
