@@ -5,8 +5,6 @@
     "author": "林荣彬",
     "plugins": [
         "mathjax@https://github.com/OrgVue/gitbook-plugin-mathjax.git#speech-fix",
-        "include-codeblock",
-        "ace",
         "splitter",
         "-search",
         "-lunr",
