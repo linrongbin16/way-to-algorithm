@@ -17,6 +17,7 @@ set(SRC_FILE
     RegionalDP/TrianglePath.cpp
 
     TreeDP/MaxBinaryTree.cpp
+    TreeDP/MaxMultipleTree.cpp
     )
 
 add_executable(DynamicProgramming-BagDP-ZeroOneBag.exe BagDP/ZeroOneBagTest.cpp ${SRC_FILE})
@@ -31,4 +32,5 @@ add_executable(DynamicProgramming-RegionalDP-MinMergeCost.exe RegionalDP/MinMerg
 add_executable(DynamicProgramming-RegionalDP-UniquePath.exe RegionalDP/UniquePathTest.cpp ${SRC_FILE})
 add_executable(DynamicProgramming-RegionalDP-TrianglePath.exe RegionalDP/TrianglePathTest.cpp ${SRC_FILE})
 add_executable(DynamicProgramming-TreeDP-MaxBinaryTree.exe TreeDP/MaxBinaryTreeTest.cpp ${SRC_FILE})
+add_executable(DynamicProgramming-TreeDP-MaxMultipleTree.exe TreeDP/MaxMultipleTreeTest.cpp ${SRC_FILE})
 

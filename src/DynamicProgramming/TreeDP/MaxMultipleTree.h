@@ -9,7 +9,7 @@
 struct MtNode {
   int index;
   int value;
-  MtNode *child[MAX];
+  MtNode *child[CHILD_MAX];
   int child_cnt;
 };
 
