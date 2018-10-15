@@ -94,7 +94,7 @@
 
 图$$ G $$中的节点$$ u $$所关联的边数，称作该节点的度数。无向图中任意节点$$ v_i $$的度数等于出度度数，也等于入度度数。有向图中任意节点$$ v_i $$的度数等于出度度数与入度度数之和。
 
-![KnowledgePoint1.svg](res/KnowledgePoint1.svg)
+![TraverseKnowledgePoint1.svg](Traverse/res/KnowledgePoint1.svg)
 
 上面两个图中，图$$ A $$为有向图，节点$$ [0,6] $$的出度分别为$$ [2, 2, 1, 1, 2, 1] $$，入度分别为$$ [1, 1, 2, 2, 0, 2] $$。图$$ B $$为无向图，节点$$ [0,6] $$的出度分别为$$ [3, 4, 3, 3, 2, 3] $$，入度与出度一样。
 
@@ -126,13 +126,13 @@ $$
 
 若图$$ G $$中存在一个节点$$ i $$，从它出发可以返回自己，则称这条路径为一个环。不存在环的图称为无环图。下图是一个五向有环图：
 
-![KnowledgePoint2.svg](res/KnowledgePoint2.svg)
+![TraverseKnowledgePoint2.svg](Traverse/res/KnowledgePoint2.svg)
 
 #### 拓扑排序
 
 不存在环的有向图中存在拓扑排序。在可以拓扑排序的有向图$$ G $$中，节点可以分为三类：起点，终点和中间点。起点只有出弧边，没有入弧边；终点只有入弧边，没有出弧边；中间点既有出弧边也有入弧边。下图是一个有向无环图的拓扑排序：
 
-![KnowledgePoint3.svg](res/KnowledgePoint3.svg)
+![TraverseKnowledgePoint3.svg](Traverse/res/KnowledgePoint3.svg)
 
 #### 欧拉路径（Eulerian Path）
 
