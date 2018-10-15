@@ -27,5 +27,5 @@
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/docs/res/alipay.jpg" alt="alipay">
+<img src="https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/docs/res/wxpay.jpg" alt="wxpay">
 </p>
- 
