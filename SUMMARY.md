@@ -45,10 +45,6 @@
         * [MaxBinaryTreeRadiusSum 最大二叉树和](docs/DynamicProgramming/TreeDP/MaxBinaryTreeRadiusSum/README.md)
 * [Chapter-5 GraphTheory 第5章 图论](docs/GraphTheory/README.md)
     * Section-1 Traverse 第1节 遍历
-        * [PreorderTraverse 先序遍历](docs/GraphTheory/Traverse/PreorderTraverse/README.md)
-        * [InorderTraverse 中序遍历](docs/GraphTheory/Traverse/InorderTraverse/README.md)
-        * [PostorderTraverse 后序遍历](docs/GraphTheory/Traverse/PostorderTraverse/README.md)
-        * [LevelorderTraverse 层序遍历](docs/GraphTheory/Traverse/LevelorderTraverse/README.md)
         * [DepthFirstSearch 深度优先搜索](docs/GraphTheory/Traverse/DepthFirstSearch/README.md)
         * [BreadthFirstSearch 广度优先搜索](docs/GraphTheory/Traverse/BreadthFirstSearch/README.md)
         * [TopologicalSort 拓扑排序](docs/GraphTheory/Traverse/TopologicalSort/README.md)
