@@ -1,18 +1,16 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Traverse Binary Tree DP - 遍历二叉树动规
+# Max Binary Tree Radius Sum - 最大二叉树半径和
 
 --------
 
 #### 问题
 
-在一个二叉树上，从任意节点$$ i $$到达另一个任意节点$$ j $$的路线是唯一的。假设该二叉树上的每个节点都是一个牧场，而每个牧场中都有一只奶牛，节点$$ i $$的奶牛拥有一个权值，为$$ v_i $$，奶牛会在二叉树上游荡，但它游荡的位置不超过一个距离，为$$ Dist $$。节点$$ i $$的牧场上拥有的奶牛数量并不固定，可能拥有$$ 0 $$只奶牛，那么节点$$ i $$拥有的权值为$$ 0 $$；可能拥有$$ n $$只奶牛，那么节点$$ i $$拥有的权值为这$$ n $$只奶牛的权值之和，即$$ \sum_{1}^{n} v_k $$ （其中$$ k \in [1,n] $$）。求出所有节点中权值最大的节点的权值。
+在一个二叉树上，从节点$$ i $$到达另一节点$$ j $$的路线是唯一的。设节点$$ i $$权值为$$ v_{i} $$，设所有到节点$$ i $$的距离小于等于$$ radius $$的节点组成的集合为$$ s_{i} = [x_{1}, x_{2}, \dots, x_{n_{i}}] $$，共$$ n_{i} $$个节点，该范围中所有节点的权值之和为$$ \sum_{p=1}^{n_{i}} v_{p} $$ 。称该权值之和为节点$$ i $$在半径$$ radius $$上的半径和。下图演示了节点$$ 4 $$覆盖到的半径为$$ 2 $$的区域：
 
-对于下图中的二叉树，每个节点的标号为上面的数字，权值为下面的数字。但奶牛游荡的距离为$$ 1 $$时，会拥有最大权值的节点为节点$$ 5 $$，最大权值为$$ 51 = 6+7+14+24 $$，即节点$$ 3 $$、$$ 5 $$、$$ 16 $$、$$ 17 $$的权值之和：
+![MaxBinaryTreeRadiusSum1.svg](../res/MaxBinaryTreeRadiusSum1.svg)
 
-![TraverseBinaryTreeDP1.svg](../res/TraverseBinaryTreeDP1.svg)
-
-本问题的原型为USACO Mar 2008 “Cow Travelling”（游荡的奶牛）。
+求二叉树的最大半径和。
 
 #### 解法
 
@@ -20,9 +18,9 @@
 
 节点$$ i $$可以到达二叉树的向上和向下$$ Dist $$层的所有节点，如图：
 
-![TraverseBinaryTreeDP2.svg](../res/TraverseBinaryTreeDP2.svg)
+![MaxBinaryTreeRadiusSum2.svg](../res/MaxBinaryTreeRadiusSum2.svg)
 
-![TraverseBinaryTreeDP3.svg](../res/TraverseBinaryTreeDP3.svg)
+![MaxBinaryTreeRadiusSum3.svg](../res/MaxBinaryTreeRadiusSum3.svg)
 
 对于节点$$ 4 $$的奶牛，当其$$ Dist = 2 $$，则向上可以到达节点$$ 2 $$、$$ 1 $$；向下可以到达$$ 7 $$、$$ 8 $$、$$ 20 $$、$$ 21 $$、$$ 22 $$、$$ 23 $$。
 
@@ -44,7 +42,7 @@ $$ (2) $$向下可达的所有节点的权值和：
 
 --------
 
-#### USACO Mar 2008 “Cow Travelling”（游荡的奶牛）
+#### Cow Travelling
 
 * http://train.usaco.org/TESTDATA/MAR08.ctravel.htm
 
@@ -52,10 +50,10 @@ $$ (2) $$向下可达的所有节点的权值和：
 
 #### 源码
 
-[TraverseBinaryTreeDP.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.h)
+[MaxBinaryTreeRadiusSum.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTreeRadiusSum.h)
 
-[TraverseBinaryTreeDP.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/TraverseBinaryTreeDP.cpp)
+[MaxBinaryTreeRadiusSum.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTreeRadiusSum.cpp)
 
 #### 测试
 
-[TraverseBinaryTreeDPTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/TraverseBinaryTreeDPTest.cpp)
+[MaxBinaryTreeRadiusSumTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTreeRadiusSumTest.cpp)

@@ -42,9 +42,7 @@
     * Section-4 TreeDP 第4节 树形动规
         * [MaxBinaryTree 最大二叉树](DynamicProgramming/TreeDP/MaxBinaryTree)
         * [MaxMultipleTree 最大多叉树](DynamicProgramming/TreeDP/MaxMultipleTree)
-        * [MultipleTreeDPExtension 多叉树动规扩展](DynamicProgramming/TreeDP/MultipleTreeDPExtension/)
-        * [LoopedMultipleTreeDP 带环多叉树动规](DynamicProgramming/TreeDP/LoopedMultipleTreeDP/)
-        * [TraverseBinaryTreeDP 遍历二叉树动规](DynamicProgramming/TreeDP/TraverseBinaryTreeDP/)
+        * [MaxBinaryTreeRadiusSum 最大二叉树和](DynamicProgramming/TreeDP/MaxBinaryTreeRadiusSum/)
 * [Chapter-5 GraphTheory 第5章 图论](GraphTheory/)
     * Section-1 Traverse 第1节 遍历
         * [PreorderTraverse 先序遍历](GraphTheory/Traverse/PreorderTraverse/)
