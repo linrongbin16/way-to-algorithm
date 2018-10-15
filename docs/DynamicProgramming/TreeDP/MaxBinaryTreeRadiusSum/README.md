@@ -51,7 +51,7 @@ $$ (2) $$ 节点$$ i $$在半径$$ j $$上向下的半径和，显然等于它�
 
 ![MaxBinaryTreeRadiusSum3.svg](../res/MaxBinaryTreeRadiusSum3.svg)
 
-还漏掉了节点$$ i $$的叔叔节点$$ uncle_{i} $$，下图中用绿色标记。
+还漏掉了节点$$ i $$的叔叔节点$$ uncle_{i} $$，下图演示节点$$ 4 $$在半径$$ 2 $$上覆盖到的所有节点，其中没有被$$ f(4,2) $$和$$ g(4,2) $$覆盖到的节点用绿色标记：
 
 ![MaxBinaryTreeRadiusSum4.svg](../res/MaxBinaryTreeRadiusSum4.svg)
 
