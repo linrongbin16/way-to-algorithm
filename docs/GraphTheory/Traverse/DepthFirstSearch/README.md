@@ -1,56 +1,24 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 # Depth First Search(DFS) - 深度优先搜索
 
 --------
 
 #### 问题
 
-用深度优先搜索从图$$ G $$的节点$$ beg $$开始，遍历图$$ G $$中的所有节点。
+用深度优先搜索遍历图$$ G $$的所有节点。
 
 #### 解法
 
-在图$$ G $$中，假设节点$$ i $$的邻节点集合为$$ V_i $$，类似于二叉树的先序遍历，对于图中的任意节点$$ i $$，在访问节点$$ i $$之后，从该节点的邻节点集合$$ V_i $$中挑选其中一个$$ j $$，继续递归的重复该遍历操作，直到没有更加深入的节点可以搜索时，再返回上一层，考虑邻节点集合$$ V_i $$中的下一个节点。
+图$$ G $$中，假设节点$$ i $$的邻节点组成的集合为$$ V_i $$，（类似二叉树的先序遍历）访问节点$$ i $$并将其染红，然后从其邻节点集合$$ V_i $$中挑选节点$$ j $$作为下一个要访问的节点，若节点$$ j $$为红色则跳过不访问。递归的重复该访问操作，直到没有更多为被染红的节点可以访问，这时再考虑从递归上一层的集合$$ V_i $$中选取下一个节点，尝试访问。
 
-从某节点$$ V_i $$开始DFS，遍历结束后会得到一串节点，即为从$$ V_i $$开始遍历节点的顺序。我们称这串节点的最后一个节点为图$$ G $$中以$$ V_i $$为起点的$$ DFS $$终点。这串节点的数量即为$$ V_i $$到终点的搜索距离$$ Distance $$，也可以称为DFS的搜索时间，即节点$$ V_i $$进行一次DFS所需的时间（将遍历一个节点的时间看作单位时间）。很多算法中都会利用搜索距离，而不太关心搜索到的这串节点的具体内容。
-
-在整个遍历过程中，为了避免重复的访问一个节点，在访问了某个节点$$ i $$之后，我们将它染成红色（实际编码中，可以设置一个数组$$ visited $$，通过$$ visited_i = true \mid false $$来标记某个节点$$ i $$时候被访问过）。下面演示从无向图$$ G $$中的节点$$ 0 $$开始进行深度优先搜索过程：
+遍历过程中遇到的节点的顺序，即为Dfs的搜索顺序。遍历中两个节点之间的搜索次数，为两个节点的距离，也可以看作搜索需要的时间（每次搜索消耗一个单位时间）。为了避免重复访问同一个节点，访问节点之后将其染红。下图演示无向图$$ UG $$从节点$$ 0 $$开始深度优先搜索的过程：
 
 ![DepthFirstSearch1.svg](../res/DepthFirstSearch1.svg)
 
-$$ (1) $$访问节点$$ 0 $$本身，将它染成红色，在其邻节点$$ \{1, 5\} $$中挑选节点$$ 1 $$，继续遍历；
+节点访问的顺序为$$ [0, 4, 3, 1, 2, 5] $$。
 
-![DepthFirstSearch2.svg](../res/DepthFirstSearch2.svg)
-
-$$ (2) $$访问节点$$ 1 $$本身，将它染成红色，其邻节点$$ \{0, 2\} $$中由于节点$$ 0 $$已经为红色，因此不再考虑该节点，挑选节点$$ 2 $$，继续遍历；
-
-![DepthFirstSearch3.svg](../res/DepthFirstSearch3.svg)
-
-$$ (3) $$访问节点$$ 2 $$本身，将它染成红色，其邻节点$$ \{1, 3\} $$中由于节点$$ 1 $$已经为红色，因此不再考虑该节点，挑选节点$$ 3 $$，继续遍历；
-
-![DepthFirstSearch4.svg](../res/DepthFirstSearch4.svg)
-
-$$ (4) $$访问节点$$ 3 $$本身，将它染成红色，其邻节点$$ \{2, 4\} $$中由于节点$$ 2 $$已经为红色，因此不再考虑该节点，挑选节点$$ 4 $$，继续遍历；
-
-![DepthFirstSearch5.svg](../res/DepthFirstSearch5.svg)
-
-$$ (5) $$访问节点$$ 4 $$本身，将它染成红色，其邻节点$$ \{0, 3\} $$中的所有节点都已经为红色，遍历结束，返回上一层；
-
-![DepthFirstSearch6.svg](../res/DepthFirstSearch6.svg)
-
-$$ (6) $$上一层节点$$ 3 $$的遍历中，其邻节点$$ \{2, 4\} $$中的所有节点都已经为红色，遍历结束，返回上一层；
-
-$$ (7) $$上一层节点$$ 2 $$的遍历中，其邻节点$$ \{1, 3\} $$中的所有节点都已经为红色，遍历结束，返回上一层；
-
-$$ (8) $$上一层节点$$ 1 $$的遍历中，其邻节点$$ \{0, 2\} $$中的所有节点都已经为红色，遍历结束，返回上一层；
-
-$$ (9) $$上一层节点$$ 0 $$的遍历中，其邻节点$$ \{1, 5\} $$中节点$$ 1 $$已经为红色，不再考虑，挑选节点$$ 5 $$，继续遍历；
-
-$$ (10) $$访问节点$$ 5 $$本身，将它染成红色，其邻节点$$ \{0, 2\} $$中的所有节点都已经为红色，遍历结束，返回上一层；
-
-![DepthFirstSearch7.svg](../res/DepthFirstSearch7.svg)
-
-$$ (11) $$上一层节点$$ 0 $$的遍历中，其邻节点$$ \{1, 5\} $$中的所有节点都已经为红色，遍历结束，算法结束；
-
-深度优先搜索的时间复杂度是$$ O(n) $$。
+节点数量为$$ n $$的图上深度优先搜索时间复杂度为$$ O(n) $$。
 
 --------
 
@@ -62,8 +30,10 @@ $$ (11) $$上一层节点$$ 0 $$的遍历中，其邻节点$$ \{1, 5\} $$中的�
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/GraphTheory/Traverse/DepthFirstSearch.hpp)
+[DepthFirstSearch.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/DepthFirstSearch.h)
+
+[DepthFirstSearch.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/DepthFirstSearch.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/GraphTheory/Traverse/DepthFirstSearch.cpp)
+[DepthFirstSearchTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/DepthFirstSearchTest.cpp)
