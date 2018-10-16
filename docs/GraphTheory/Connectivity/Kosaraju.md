@@ -1,2 +1,0 @@
-# Kosaraju Kosaraju算法
-
