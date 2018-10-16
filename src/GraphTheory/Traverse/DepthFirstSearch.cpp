@@ -1,65 +1,28 @@
-#include "DepthFirstSearch.hpp"
-#include <cassert>
-using namespace std;
+#include "DepthFirstSearch.h"
+#include <cstring>
+#include <vector>
 
-struct Test {
-    int g[MAX][MAX];
-    int n;
-    vector<int> result;
-} test_cases[] = {
-    {
-        {
-            { 0, 1, 0, 0, 1, 1 },
-            { 1, 0, 1, 1, 0, 1 },
-            { 0, 1, 0, 1, 0, 1 },
-            { 0, 1, 2, 0, 1, 0 },
-            { 1, 0, 0, 1, 0, 0 },
-            { 1, 1, 1, 0, 0, 0 },
-        },
-        6,
-        { 0, 1, 2, 3, 4, 5 },
-    },
-    {
-        {
-            { 0, 1, 0, 0, 0, 0, 1, 0 },
-            { 1, 0, 1, 0, 1, 0, 0, 1 },
-            { 0, 1, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 1, 1, 0, 0 },
-            { 0, 1, 0, 1, 0, 0, 0, 0 },
-            { 0, 0, 0, 1, 0, 0, 1, 1 },
-            { 1, 0, 0, 0, 0, 1, 0, 1 },
-            { 0, 1, 0, 0, 0, 1, 1, 0 },
-        },
-        8,
-        { 0, 1, 2, 4, 3, 5, 6, 7 },
-    },
-    {
-            {
-                    { 0, 1, 1, 0, 0, 0 }, // 0
-                    { 0, 0, 0, 1, 0, 0 }, // 1
-                    { 0, 0, 0, 1, 1, 0 }, // 2
-                    { 1, 0, 0, 0, 0, 1 }, // 3
-                    { 0, 0, 0, 0, 0, 1 }, // 4
-                    { 0, 0, 0, 0, 0, 0 }, // 5
-            },
-            6,
-            { 0, 1, 3, 5, 2, 4 },
-    },
-};
-
-void AssertEqual(const vector<int> & a, const vector<int> & b)
-{
-    assert(a.size() == b.size());
-    for (int i = 0; i < a.size(); i++)
-        assert(a[i] == b[i]);
+void Dfs(int G[MAX][MAX], int n, int beg, int *visited,
+         std::vector<int> &result) {
+  visited[beg] = 1;
+  result.push_back(beg);
+  for (int i = 0; i < n; i++)
+    if (i != beg && G[beg][i] && !visited[i])
+      Dfs(G, n, i, visited, result);
 }
 
-int main()
-{
-    for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
-        Test & t = test_cases[i];
-        vector<int> r = DepthFirstSearch(t.g, t.n);
-        AssertEqual(r, t.result);
+std::vector<int> DepthFirstSearch(int G[MAX][MAX], int n) {
+  int visited[MAX];
+  std::vector<int> result;
+
+  std::memset(visited, 0, sizeof(visited));
+
+  // all node [0,n-1]
+  for (int i = 0; i < n; ++i)
+    if (!visited[i]) {
+      Dfs(G, n, i, visited, result);
     }
-    return 0;
+
+  return result;
 }
+
