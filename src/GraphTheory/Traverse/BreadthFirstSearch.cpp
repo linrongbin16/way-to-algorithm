@@ -1,8 +1,4 @@
-#pragma once
-#ifndef MAX
-#define MAX 128
-#endif
-#include <algorithm>
+#include "BreadthFirstSearch.h"
 #include <cstring>
 #include <queue>
 #include <vector>
@@ -11,7 +7,7 @@ std::vector<int> BreadthFirstSearch(int G[MAX][MAX], int n) {
   std::vector<int> result;
   std::queue<int> q;
   int visited[MAX];
-  memset(visited, 0, sizeof(visited));
+  std::memset(visited, 0, sizeof(visited));
 
   q.push(0);
   visited[0] = 1;

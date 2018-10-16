@@ -1,71 +1,51 @@
-#include "TopologicalSort.hpp"
-#include <cassert>
-#include <iostream>
-using namespace std;
+#include "TopologicalSort.h"
+#include <algorithm>
+#include <cstring>
+#include <deque>
+#include <vector>
 
-struct Test {
-    int g[MAX][MAX];
-    int n;
-    vector<int> result;
-} test_cases[] = {
-    {
-        {
-            { 0, 1, 0, 0, 0, 1, 0, 0 },
-            { 0, 0, 1, 1, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 1, 0, 0, 0 },
-            { 0, 0, 1, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 1, 1 },
-            { 0, 1, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0 },
-            { 0, 0, 0, 0, 0, 0, 0, 0 },
-        },
-        8,
-        { 0, 5, 1, 3, 2, 4, 6, 7 },
-    },
-    {
-        {
-            { 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 0
-            { 0, 0, 1, 0, 0, 0, 0, 0, 0 }, // 1
-            { 0, 0, 0, 0, 0, 0, 1, 0, 0 }, // 2
-            { 0, 0, 0, 0, 1, 0, 0, 0, 0 }, // 3
-            { 0, 0, 0, 0, 0, 1, 1, 0, 0 }, // 4
-            { 0, 0, 0, 0, 0, 0, 0, 1, 0 }, // 5
-            { 0, 0, 0, 0, 0, 0, 0, 1, 1 }, // 6
-            { 0, 0, 0, 0, 0, 0, 0, 0, 1 }, // 7
-            { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, // 8
-        },
-        9,
-        { 0, 3, 1, 4, 2, 5, 6, 7, 8 },
-    },
-    {
-            {
-                    { 0, 0, 0, 1, 0, 0 }, // 0
-                    { 1, 0, 0, 0, 0, 0 }, // 1
-                    { 1, 0, 0, 0, 0, 0 }, // 2
-                    { 0, 1, 1, 0, 0, 0 }, // 3
-                    { 0, 0, 1, 0, 0, 0 }, // 4
-                    { 0, 0, 0, 1, 1, 0 }, // 5
-            },
-            6,
-            { 5, 4, 0, 1, 2, 3 },
-    },
+struct ToNode {
+  int index;
+  int dist;
+  ToNode() : index(0), dist(0) {}
+  ToNode(int i, int d) : index(i), dist(d) {}
 };
 
-
-void AssertEqual(const vector<int> & a, const vector<int> & b)
-{
-    assert(a.size() == b.size());
-    for (int i = 0; i < a.size(); i++) {
-        assert(a[i] == b[i]);
-    }
+static bool Compare(const ToNode &a, const ToNode &b) {
+  return a.dist > b.dist;
 }
 
-int main()
-{
-    for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
-        Test & t = test_cases[i];
-        vector<int> r = TopologicalSort(t.g, t.n);
-        AssertEqual(r, t.result);
-    }
-    return 0;
+static void Dfs(int G[MAX][MAX], int n, int beg, int *visited,
+                std::vector<int> &result) {
+  visited[beg] = 1;
+  result.push_back(beg);
+  for (int i = 0; i < n; i++)
+    if (i != beg && G[beg][i] && !visited[i])
+      Dfs(G, n, i, visited, result);
 }
+
+std::vector<int> TopologicalSort(int g[MAX][MAX], int n) {
+  std::vector<ToNode> seq(n);
+  int visited[MAX];
+  for (int i = 0; i < n; i++)
+    seq[i].index = i;
+
+  for (int i = 0; i < n; i++) {
+    int dist = 0;
+
+    // 重置visited
+    // 对节点i进行DFS搜搜
+
+    std::memset(visited, 0, sizeof(visited));
+    std::vector<int> counter;
+    Dfs(g, n, i, visited, counter);
+    seq[i].dist = counter.size();
+  }
+  std::sort(seq.begin(), seq.end(), Compare);
+
+  std::vector<int> topo;
+  for (int i = 0; i < seq.size(); i++)
+    topo.push_back(seq[i].index);
+  return topo;
+}
+

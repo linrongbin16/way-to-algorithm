@@ -1,42 +1,22 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 # Breadth First Search(BFS) - 广度优先搜索
 
 --------
 
 #### 问题
 
-用广度优先搜索从图$$ G $$的节点$$ beg $$开始，遍历图$$ G $$中的所有节点。
+用广度优先搜索遍历图$$ G $$的所有节点。
 
 #### 解法
 
-在图$$ G $$中，假设节点$$ i $$的邻节点集合为$$ V_i $$，对于图中的任意节点$$ i $$，在访问节点$$ i $$之后，总是优先访问该节点的邻节点集合$$ V_i $$中的所有节点，然后才继续访问其他节点。
+图$$ G $$中，假设节点$$ i $$的邻节点组成的集合为$$ V_i $$，访问节点$$ i $$并将其染红，然后优先访问$$ i $$的所有邻节点，若某个邻节点$$ j $$为红色则跳过不访问。再递归的从邻节点出发访问其他节点，直到没有更多为被染红的节点可以访问。
 
-广度优先遍历需要一个队列$$ queue $$来存储那些等待访问而尚未被访问的节点，在遍历过程中，为了避免重复的访问一个节点，当某个节点$$ i $$加入$$ queue $$时我们将其染成红色。下面演示从无向图$$ G $$中的节点$$ 0 $$开始进行广度优先搜索过程：
-
-![BreadthFirstSearch1.svg](../res/BreadthFirstSearch1.svg)
-
-$$ (1) $$初始时从节点$$ 0 $$开始，将它染红并加入$$ queue $$中；
+广度优先搜索需要一个队列$$ queue $$来存储那些等待访问而尚未被访问的节点。为了避免重复访问，当把节点$$ i $$加入待访问队列$$ queue $$时将其染红。下图演示无向图$$ UG $$广度优先搜索的过程：
 
 ![BreadthFirstSearch1.svg](../res/BreadthFirstSearch1.svg)
 
-$$ (2) $$从$$ queue $$中取出头节点$$ 0 $$进行访问，然后考虑其未被染色的邻节点$$ \{1, 4, 5\} $$，将$$ \{ 1, 4, 5 \} $$节点染红并加入$$ queue $$中；
-
-![BreadthFirstSearch1.svg](../res/BreadthFirstSearch1.svg)
-
-$$ (3) $$从$$ queue $$中取出头节点$$ 1 $$进行访问，然后考虑其未被染色的邻节点$$ \{2, 3\} $$，将$$ \{ 2, 3 \} $$节点染红并加入$$ queue $$中；
-
-![BreadthFirstSearch1.svg](../res/BreadthFirstSearch1.svg)
-
-$$ (4) $$从$$ queue $$中取出头节点$$ 4 $$进行访问，它没有未被染色的邻节点；
-
-$$ (5) $$从$$ queue $$中取出头节点$$ 5 $$进行访问，它没有未被染色的邻节点；
-
-$$ (6) $$从$$ queue $$中取出头节点$$ 2 $$进行访问，它没有未被染色的邻节点；
-
-$$ (7) $$从$$ queue $$中取出头节点$$ 3 $$进行访问，它没有未被染色的邻节点；
-
-$$ (8) $$队列$$ queue $$为空，算法结束；
-
-广度优先搜索的时间复杂度是$$ O(n) $$。
+广度优先搜索时间复杂度为$$ O(n) $$。
 
 --------
 
@@ -48,8 +28,10 @@ $$ (8) $$队列$$ queue $$为空，算法结束；
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/GraphTheory/Traverse/BreadthFirstSearch.hpp)
+[BreadthFirstSearch.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/BreadthFirstSearch.h)
+
+[BreadthFirstSearch.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/BreadthFirstSearch.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/GraphTheory/Traverse/BreadthFirstSearch.cpp)
+[BreadthFirstSearchTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Traverse/BreadthFirstSearchTest.cpp)
