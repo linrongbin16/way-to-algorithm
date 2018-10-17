@@ -20,34 +20,29 @@ $$
 
 欧几里得扩展算法来源于最大公约数的特性，即对于非负整数$$ a, b $$的公约数$$ gcd(a,b) $$，必然存在整数$$ x, y $$满足问题中的等式。
 
-设：
+根据上一节Euclid中的迭代式：
 
-$$
-a \times x_1 + b \times y_1 = gcd(a, b)
-$$
-
-又因为：
-
-$$
-gcd(a, b) = gcd(b, a % b)
+$$ 
+\begin{matrix}
+a_{k} = b_{k-1}                 \\
+b_{k} = a_{k-1} % b_{k-1} $$
+\end{matrix}
 $$
 
-设：
+有：
 
 $$
-b \times x_2 + (a % b) \times y_2 = gcd(b, a % b)
-$$
-
-连合两个等式可得：
-
-$$
-a \times x_1 + b \times y_1 = b \times x_2 + (a % b) \times y_2
+\begin{matrix}
+a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = gcd(a_{k-1}, b_{k-1}) = gcd(a_{k}, b_{k}) = a_{k} \times x_{k} + b_{k} \times y_{k}   \\
+\rightarrow     \\
+a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = b_{k-1} \times x_{k} + (a_{k-1} % b_{k-1}) \times y_{k}
+\end{matrix}
 $$
 
 注意到：
 
 $$
-a % b = a - \lfloor \frac{a}{b} \rfloor \times b
+a_{k-1} % b_{k-1} = a_{k-1} - \lfloor \frac{a_{k-1}}{b_{k-1}} \rfloor \times b_{k-1}
 $$
 
 其中$$ \lfloor x \rfloor $$表示向下取整，小于等于$$ x $$的最大整数。
@@ -55,38 +50,44 @@ $$
 因此：
 
 $$
-a \times x_1 + b \times y_1 = b \times x_2 + (a - \lfloor \frac{a}{b} \rfloor \times b) \times y_2
+a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = b_{k-1} \times x_{k} + (a_{k-1} - \lfloor \frac{a_{k-1}}{b_{k-1}} \rfloor \times b_{k-1}) \times y_{k}
 $$
 
-将上面等式按照参数$$ a, b $$进行调整，得到：
+将上面等式按照参数$$ a_{k-1}, b_{k-1} $$等式变换，得到：
 
 $$
-a \cdot (x_1) + b \cdot (y_1) = a \cdot (y_1) + b \cdot (x_2 - \lfloor \frac{a}{b} \rfloor \cdot y_2)
+a_{k-1} \cdot (x_{k-1}) + b_{k-1} \cdot (y_{k-1}) = a_{k-1} \cdot (y_{k-1}) + b_{k-1} \cdot (x_{k} - \lfloor \frac{a_{k-1}}{b_{k-1}} \rfloor \cdot y_{k})
 $$
 
 由于等式两边括号外的参数完全相同，可得：
 
 $$
 \begin{matrix}
-x_1 = y_2       \\
-y_1 = x_2 - \lfloor \frac{a}{b} \rfloor \cdot y_2
+x_{k-1} = y_{k}       \\
+y_{k-1} = x_{k} - \lfloor \frac{a_{k-1}}{b_{k-1}} \rfloor \cdot y_{k}
 \end{matrix}
 $$
 
-根据欧几里得定理，设$$ a_0, b_0 $$为原始的$$ a, b $$，用迭代式表达：
+递归的最后一步$$ n + 1 $$时有$$ a_{n+1} = b_{n}, b_{n+1} = 0 $$。这时有一组解：
 
 $$
 \begin{matrix}
-a_{0} = a, b_{0} = b    \\
-gcd(a_{0}, b_{0}) = gcd(b_{0}, a_{0} % b_{0}) = gcd(a_{1}, b_{1}) & \rightarrow & a_{1} = b_{0}, b_{1} = a_{0} % b_{0}  \\
-gcd(a_{1}, b_{1}) = gcd(b_{1}, a_{1} % b_{1}) = gcd(a_{2}, b_{2}) & \rightarrow & a_{2} = b_{1}, b_{2} = a_{1} % b_{1}  \\
-gcd(a_{2}, b_{2}) = gcd(b_{2}, a_{2} % b_{2}) = gcd(a_{3}, b_{3}) & \rightarrow & a_{3} = b_{2}, b_{3} = a_{2} % b_{2}  \\
-\cdots
-gcd(a_{i}, b_{i}) = gcd(b_{i}, a_{i} % b_{i}) = gcd(a_{i+1}, b_{i+1}) & \rightarrow & a_{i+1} = b_{i}, b_{i+1} = a_{i} % b_{i}  \\
-\cdots
-gcd(a_{n}, b_{n}) = gcd(b_{n}, a_{n} % b_{n}) = gcd(a_{n+1}, 0) & \rightarrow & a_{n+1} = b_{n}, b_{n+1} = 0  \\
+a_{n+1} \times x_{n+1} + b_{n+1} \times y_{n+1} = gcd(a_{n+1}, b_{n+1})     &   x_{n+1} = 1, y_{n+1} = 0
 \end{matrix}
 $$
+
+将上面$$ x_{k-1}, y_{k-1} $$与$$ x_{k}, y_{k} $$之间的关系调转，得到：
+
+$$
+
+\begin{matrix}
+x_{k} = y_{k-1} + \lfloor \frac{a_{k-1}}{b_{k-1}} \rfloor \cdot y_{k}   \\
+y_{k} = x_{k-1}
+\end{matrix}
+
+$$
+
+在辗转相除发计算最大公约数时，每一轮中都可以顺带着计算出$$ x, y $$。该算法的时间复杂度约为$$ O(log_2 max(a, b)) $$。
 
 
 --------
