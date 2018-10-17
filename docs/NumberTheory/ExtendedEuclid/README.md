@@ -47,15 +47,15 @@ $$
 注意到：
 
 $$
-a % b = a - \lceil \frac{a}{b} \rceil \times b
+a % b = a - \lfloor \frac{a}{b} \rfloor \times b
 $$
 
-其中$$ \lceil x \rceil $$表示向下取整，小于等于$$ x $$的最大整数。
+其中$$ \lfloor x \rfloor $$表示向下取整，小于等于$$ x $$的最大整数。
 
 因此：
 
 $$
-a \times x_1 + b \times y_1 = b \times x_2 + (a - \lceil \frac{a}{b} \rceil \times b) \times y_2
+a \times x_1 + b \times y_1 = b \times x_2 + (a - \lfloor \frac{a}{b} \rfloor \times b) \times y_2
 $$
 
 
@@ -70,10 +70,10 @@ $$
 
 #### 源码
 
-[EuclidExtension.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/EuclidExtension.h)
+[ExtendedEuclid.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/ExtendedEuclid.h)
 
-[EuclidExtension.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/EuclidExtension.cpp)
+[ExtendedEuclid.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/ExtendedEuclid.cpp)
 
 #### 测试
 
-[EuclidExtensionTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/EuclidExtensionTest.cpp)
+[ExtendedEuclidTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/ExtendedEuclidTest.cpp)
