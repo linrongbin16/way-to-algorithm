@@ -71,9 +71,11 @@ $$
 
 $$
 
+\begin{matrix}
 gcd(a, b) \times lcm(a, b)  & = 4 \times 120 = & 24 \times 20 = 480                      \\
 gcd(a, lcm(b, c)) = gcd(24, 60) & = 12 = & lcm(gcd(a, b), gcd(a, c)) = lcm(4, 6)        \\
 lcm(a, gcd(b, c)) = lcm(24, 10) & = 120 = & gcd(lcm(a, b), lcm(a, c)) = gcd(120, 120)
+\end{matrix}
 
 $$
 
