@@ -1,7 +1,10 @@
 #include "Euclid.h"
 
 int GreatestCommonDivisor(int a, int b) {
-  return (a % b == 0) ? b : GreatestCommonDivisor(b, a % b);
+  if (b == 0) {
+    return a;
+  }
+  return GreatestCommonDivisor(b, a % b);
 }
 
 int LeastCommonMultiple(int a, int b) {

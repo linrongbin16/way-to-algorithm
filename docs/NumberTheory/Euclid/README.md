@@ -6,7 +6,7 @@
 
 #### 问题
 
-求两非负整数$$ a $$和$$ b $$的最大公约数（$$ Greatest Common Divisor $$）和最小公倍数（$$ Least Common Multiple $$）：
+求两正整数$$ a $$和$$ b $$的最大公约数（$$ Greatest Common Divisor $$）和最小公倍数（$$ Least Common Multiple $$）：
 
 $$
 
@@ -33,10 +33,22 @@ $$
 
 $$
 
-gcd(a, b) = 
+gcd(a, b) =
 \begin{cases}
-b                   &   a = 0   \\
-gcd(b, a % b)       &   a \gt 0
+b                   &   a % b = 0   \\
+gcd(b, a % b)       &   a % b \neq 0
+\end{cases}
+
+$$
+
+也可以写作：
+
+$$
+
+gcd(a, b) =
+\begin{cases}
+a                   &   b = 0   \\
+gcd(b, a % b)       &   b \neq 0
 \end{cases}
 
 $$
@@ -48,9 +60,9 @@ $$
 $$
 
 \begin{matrix}
-gcd(a,b) \times lcm(a,b) = a \times b           \\
-gcd(a, lcm(b, c)) = lcm(gcd(a, b), gcd(a, c))   \\
-lcm(a, gcd(b, c)) = gcd(lcm(a, b), lcm(a, c))
+gcd(a,b) \times lcm(a,b) & = & a \times b           \\
+gcd(a, lcm(b, c)) & = & lcm(gcd(a, b), gcd(a, c))   \\
+lcm(a, gcd(b, c)) & = & gcd(lcm(a, b), lcm(a, c))
 \end{matrix}
 
 $$
@@ -59,15 +71,15 @@ $$
 
 $$
 
-gcd(a, b) \times lcm(a, b) = 4 \times 120 = 24 \times 20 = 480                      \\
-gcd(a, lcm(b, c)) = gcd(24, 60) = 12 = lcm(gcd(a, b), gcd(a, c)) = lcm(4, 6)        \\
-lcm(a, gcd(b, c)) = lcm(24, 10) = 120 = gcd(lcm(a, b), lcm(a, c)) = gcd(120, 120)
+gcd(a, b) \times lcm(a, b)  & = 4 \times 120 = & 24 \times 20 = 480                      \\
+gcd(a, lcm(b, c)) = gcd(24, 60) & = 12 = & lcm(gcd(a, b), gcd(a, c)) = lcm(4, 6)        \\
+lcm(a, gcd(b, c)) = lcm(24, 10) & = 120 = & gcd(lcm(a, b), lcm(a, c)) = gcd(120, 120)
 
 $$
 
 因此最小公倍数为$$ lcm = a \times b \div gcd $$。
 
-欧几里得算法的时间复杂度为$$ ? $$（并非$$ O(max(a, b)) $$）。
+欧几里得算法的时间复杂度约为$$ O(log_2 n) $$。
 
 --------
 
