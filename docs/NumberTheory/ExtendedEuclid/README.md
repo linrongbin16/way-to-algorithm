@@ -9,9 +9,7 @@
 求任意100对整数$$ x, y $$，满足不定方程：
 
 $$
-
 a \times x + b \times y = gcd(a, b)
-
 $$
 
 其中$$ a, b $$是正整数，$$ gcd(a,b) $$是$$ a, b $$的最大公约数。
@@ -25,7 +23,7 @@ $$
 $$ 
 \begin{matrix}
 a_{k} = b_{k-1}                 \\
-b_{k} = a_{k-1} % b_{k-1} $$
+b_{k} = a_{k-1} % b_{k-1}
 \end{matrix}
 $$
 
