@@ -112,7 +112,7 @@
     * [Sieve 筛选算法](NumberTheory/Sieve/)
     * [Euclid 欧几里得](NumberTheory/Euclid/)
     * [EuclidExtension 欧几里得扩展](NumberTheory/EuclidExtension/)
-    * [ModularLinearEquation 模线性方程](NumberTheory/ModularLinearEquation/)
+    * [ModularLinearEquations 模线性方程组](NumberTheory/ModularLinearEquations/)
     * [ChineseRemainerTheorem 中国剩余定理](NumberTheory/ChineseRemainerTheorem/)
     * [ModularExponentiation 模幂运算](NumberTheory/ModularExponentiation/)
 * [Chapter-9 LinearAlgebra 第9章 线性代数](LinearAlgebra/)
