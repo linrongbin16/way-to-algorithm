@@ -63,9 +63,9 @@ a_{0} = a, b_{0} = b    \\
 gcd(a_{0}, b_{0}) = gcd(b_{0}, a_{0} \% b_{0}) = gcd(a_{1}, b_{1}) & \rightarrow & a_{1} = b_{0}, b_{1} = a_{0} \% b_{0}  \\
 gcd(a_{1}, b_{1}) = gcd(b_{1}, a_{1} \% b_{1}) = gcd(a_{2}, b_{2}) & \rightarrow & a_{2} = b_{1}, b_{2} = a_{1} \% b_{1}  \\
 gcd(a_{2}, b_{2}) = gcd(b_{2}, a_{2} \% b_{2}) = gcd(a_{3}, b_{3}) & \rightarrow & a_{3} = b_{2}, b_{3} = a_{2} \% b_{2}  \\
-\cdots
+\cdots  \\
 gcd(a_{i}, b_{i}) = gcd(b_{i}, a_{i} \% b_{i}) = gcd(a_{i+1}, b_{i+1}) & \rightarrow & a_{i+1} = b_{i}, b_{i+1} = a_{i} \% b_{i}  \\
-\cdots
+\cdots  \\
 gcd(a_{n}, b_{n}) = gcd(b_{n}, a_{n} \% b_{n}) = gcd(a_{n+1}, 0) & \rightarrow & a_{n+1} = b_{n}, b_{n+1} = 0  \\
 \end{matrix}
 $$
@@ -89,9 +89,9 @@ $$
 $$
 
 \begin{matrix}
-gcd(a, b) \times lcm(a, b)  & = 4 \times 120 = & 24 \times 20 = 480                      \\
-gcd(a, lcm(b, c)) = gcd(24, 60) & = 12 = & lcm(gcd(a, b), gcd(a, c)) = lcm(4, 6)        \\
-lcm(a, gcd(b, c)) = lcm(24, 10) & = 120 = & gcd(lcm(a, b), lcm(a, c)) = gcd(120, 120)
+gcd(a, b) \times lcm(a, b)    & = &   4 \times 120                & = & 24 \times 20  & = & 480                      \\
+gcd(a, lcm(b, c))           & = &   gcd(24, 60) & = & 12        & = &   lcm(gcd(a, b), gcd(a, c))   & = & lcm(4, 6)        \\
+lcm(a, gcd(b, c))           & = &   lcm(24, 10) & = & 120       & = &   gcd(lcm(a, b), lcm(a, c))   & = & gcd(120, 120)
 \end{matrix}
 
 $$
