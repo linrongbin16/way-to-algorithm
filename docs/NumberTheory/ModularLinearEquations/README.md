@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Modular Linear Equations(Chinese Remainer Theorem) - 模线性方程组（中国剩余定理）
+# Modular Linear Equations - 模线性方程组
 
 --------
 
@@ -24,7 +24,7 @@ x \% m_{n-1} = r_{n-1}
 \end{cases}
 $$
 
-即求解模线性方程组，也称中国剩余定理。
+即求解模线性方程组。
 
 #### 解法
 
