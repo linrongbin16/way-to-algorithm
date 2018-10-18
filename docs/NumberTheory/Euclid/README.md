@@ -10,12 +10,12 @@
 
 $$
 
-\begin{matrix}
+\begin{cases}
 gcd \times x = a \\
 gcd \times y = b \\
 a \times p = lcm \\
 b \times q = lcm
-\end{matrix}
+\end{cases}
 
 $$
 

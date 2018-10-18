@@ -1,11 +1,11 @@
 #include "Sieve.h"
 #include <cassert>
+#include <ctime>
 #include <iostream>
 #include <list>
 #include <thread>
 #include <utility>
 #include <vector>
-#include <ctime>
 using namespace std;
 
 #define CONCURRENCY (thread::hardware_concurrency())
@@ -22,7 +22,7 @@ static void AssertPrime(int k) {
 
 static void AssertPrimeRoutine(const tuple<int, vector<int> *> &args) {
   int mod = get<0>(args);
-  vector<int> &vec = *get<1>(args);
+  vector<int> &vec = *(get<1>(args));
   for (int j = 0; j < vec.size(); j++) {
     if (j % CONCURRENCY == mod && vec[j]) {
       AssertPrime(j);
