@@ -1,4 +1,4 @@
-#include "Sieve.h"
+#include "PrimeSieve.h"
 #include <cassert>
 #include <ctime>
 #include <iostream>
@@ -7,6 +7,8 @@
 #include <utility>
 #include <vector>
 using namespace std;
+
+#define MAX 999999
 
 #define CONCURRENCY (thread::hardware_concurrency())
 
@@ -31,9 +33,19 @@ static void AssertPrimeRoutine(const tuple<int, vector<int> *> &args) {
 }
 
 int main(void) {
-  vector<int> prime = Sieve(499999);
+  vector<int> prime = EratosthenesSieve(MAX);
 
   vector<thread *> workers;
+  for (int i = 0; i < CONCURRENCY; i++) {
+    workers.push_back(new thread(AssertPrimeRoutine, make_tuple(i, &prime)));
+  }
+  for (int i = 0; i < workers.size(); i++) {
+    workers[i]->join();
+  }
+
+  prime = EulerSieve(MAX);
+
+  workers.clear();
   for (int i = 0; i < CONCURRENCY; i++) {
     workers.push_back(new thread(AssertPrimeRoutine, make_tuple(i, &prime)));
   }

@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Sieve - 筛选算法
+# Prime Sieve - 素数筛法
 
 --------
 
@@ -10,9 +10,21 @@
 
 判断$$ [1 \dots n) $$中哪些是素数，哪些是合数。
 
-#### 解法
+#### 素数定义
 
-按照素数的定理，判断一个正整数$$ x $$是否为素数，需要遍历$$ [1 \dots x] $$中所有数字$$ i $$是否能被$$ x $$整除，即$$ x % i = 0 $$。判断一个数字的时间复杂度为$$ O(n) $$，判断$$ n $$个数字的时间复杂度为$$ O(n ^ 2) $$。埃拉托斯特尼筛选法（Eratosthenes Sieve）可以更快的完成所有判断。
+按照素数的定义，判断一个正整数$$ n $$是否为素数，需要满足$$ [1, n] $$范围内的所有正整数除了$$ 1, n $$没有其他能够被$$ n $$整除的整数。
+
+即遍历$$ [2, n-1] $$所有数字$$ i $$，判断其是否能被$$ n $$整除（$$ n /% i = 0 $$）即可。
+
+用该算法判断一个正整数是否为素数的时间复杂度为$$ O(n) $$，判断范围$$ [1, n] $$内的整数是否为素数的时间复杂度为$$ O(n ^ 2) $$。
+
+#### 埃拉托斯特尼筛法/埃氏筛法（Sieve of Eratosthenes）
+
+埃氏筛法进行了几点优化：
+
+$$ (1) $$ 对于正整数$$ n $$，只需要判断$$ [2, \lfloor \sqrt{n-1} \rfloor ] $$范围内的正整数是否能被整除即可。
+
+可以更快的完成所有判断。
 
 设置数组$$ s = [1 \dots n) $$，$$ s[i] $$表示数字$$ i $$是否为素数。初始时显然有$$ s[1] = false $$。
 
@@ -30,14 +42,19 @@ $$
 
 因为显然偶数中除了$$ 2 $$都是合数，可以跳过所有偶数只考察奇数。
 
+埃氏筛法的时间复杂度为$$ O() $$。
+
+#### 欧拉筛法（Euler's Sieve）
+
 --------
 
 #### 源码
 
-[Sieve.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Sieve.h)
+[PrimeSieve.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/PrimeSieve.h)
 
-[Sieve.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Sieve.cpp)
+[PrimeSieve.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/PrimeSieve.cpp)
+
 
 #### 测试
 
-[SieveTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/SieveTest.cpp)
+[PrimeSieveTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/PrimeSieveTest.cpp)

@@ -109,7 +109,7 @@
     * [PermutationGroup 置换群](CombinatorialMathematics/PermutationGroup/)
     * [Catalan 卡特兰数](CombinatorialMathematics/Catalan/)
 * [Chapter-8 NumberTheory 第8章 数论](NumberTheory/)
-    * [Sieve 筛选算法](NumberTheory/Sieve/)
+    * [PrimeSieve 素数筛法](NumberTheory/PrimeSieve/)
     * [Euclid 欧几里得算法](NumberTheory/Euclid/)
     * [ExtendedEuclid 扩展欧几里得算法](NumberTheory/ExtendedEuclid/)
     * [ModularLinearEquations 模线性方程组](NumberTheory/ModularLinearEquations/)
