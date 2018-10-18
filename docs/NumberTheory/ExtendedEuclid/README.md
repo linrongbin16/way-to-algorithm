@@ -6,7 +6,7 @@
 
 #### 问题
 
-求任意100对整数$$ x, y $$，满足不定方程：
+求两个整数$$ x, y $$，满足不定方程：
 
 $$
 a \times x + b \times y = gcd(a, b)
@@ -23,7 +23,7 @@ $$
 $$ 
 \begin{matrix}
 a_{k} = b_{k-1}                 \\
-b_{k} = a_{k-1} % b_{k-1}
+b_{k} = a_{k-1} \% b_{k-1}
 \end{matrix}
 $$
 
@@ -33,14 +33,14 @@ $$
 \begin{matrix}
 a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = gcd(a_{k-1}, b_{k-1}) = gcd(a_{k}, b_{k}) = a_{k} \times x_{k} + b_{k} \times y_{k}   \\
 \rightarrow     \\
-a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = b_{k-1} \times x_{k} + (a_{k-1} % b_{k-1}) \times y_{k}
+a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = b_{k-1} \times x_{k} + (a_{k-1} \% b_{k-1}) \times y_{k}
 \end{matrix}
 $$
 
 注意到：
 
 $$
-a_{k-1} % b_{k-1} = a_{k-1} - \lfloor \frac{a_{k-1}}{b_{k-1}} \rfloor \times b_{k-1}
+a_{k-1} \% b_{k-1} = a_{k-1} - \lfloor \frac{a_{k-1}}{b_{k-1}} \rfloor \times b_{k-1}
 $$
 
 其中$$ \lfloor x \rfloor $$表示向下取整，小于等于$$ x $$的最大整数。
@@ -77,15 +77,13 @@ $$
 将上面$$ x_{k-1}, y_{k-1} $$与$$ x_{k}, y_{k} $$之间的关系调转，得到：
 
 $$
-
 \begin{matrix}
 x_{k} = y_{k-1} + \lfloor \frac{a_{k-1}}{b_{k-1}} \rfloor \cdot y_{k}   \\
 y_{k} = x_{k-1}
 \end{matrix}
-
 $$
 
-在辗转相除发计算最大公约数时，每一轮中都可以顺带着计算出$$ x, y $$。该算法的时间复杂度约为$$ O(log_2 max(a, b)) $$。
+在辗转相除发计算最大公约数时，每一轮中都可以顺带着计算出$$ x, y $$，最后得到一组解。该算法的时间复杂度约为$$ O(log_2 max(a, b)) $$。
 
 
 --------
