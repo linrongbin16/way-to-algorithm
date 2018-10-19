@@ -17,7 +17,7 @@
 
 * github pages: [Way-to-Algorithm](https://linrongbin16.github.io/Way-to-Algorithm/)
 * gitbook: [Way-to-Algorithm](https://linrongbin16.gitbook.io/gitbook-way-to-algorithm/)
-* legacy-gitbook: [Way-to-Algorithm](https://legacy.gitbook.com/book/linrongbin16/way-to-algorithm)
+* legacy-gitbook: [Way-to-Algorithm](https://linrongbin16.gitbooks.io/way-to-algorithm/content/)
 
 #### Reference - 参考
 
