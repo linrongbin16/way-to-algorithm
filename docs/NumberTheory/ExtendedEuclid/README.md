@@ -33,11 +33,13 @@ $$
 存在相应的整数$$ x_{k-1}, y_{k-1}, x_{k}, y_{k} $$满足：
 
 $$
-\begin{matrix}
-a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = gcd(a_{k-1}, b_{k-1}) = gcd(a_{k}, b_{k}) = a_{k} \times x_{k} + b_{k} \times y_{k}   \\
-\rightarrow     \\
+a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = gcd(a_{k-1}, b_{k-1}) = gcd(a_{k}, b_{k}) = a_{k} \times x_{k} + b_{k} \times y_{k}
+$$
+
+变换等式得到：
+
+$$
 a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = b_{k-1} \times x_{k} + (a_{k-1} \bmod b_{k-1}) \times y_{k}
-\end{matrix}
 $$
 
 注意到：

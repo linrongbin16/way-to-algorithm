@@ -6,10 +6,10 @@
 
 #### 问题
 
-对于非负整数$$ x $$，给定$$ n $$组正整数的除数$$ a_{i} $$和余数$$ m_{i} $$（范围为$$ [0, n-1] $$），满足：
+对于非负整数$$ x $$，给定$$ n $$组正整数的除数$$ a_{i} $$和余数$$ m_{i} $$（$$ 0 \leq i \lt n $$）满足：
 
 $$
-x \% a_{i} = m_{i}, 0 \leq i \lt n
+x \bmod a_{i} = m_{i}, 0 \leq i \lt n
 $$
 
 其中所有余数$$ m_{i}, m_{j} $$两两互质。设所有余数的乘积为：
@@ -25,10 +25,10 @@ $$
 $$
 (S) = 
 \begin{cases}
-x \equiv a_{0} (mod m_{0})  \\
-x \equiv a_{1} (mod m_{1})  \\
-\cdots                      \\
-x \equiv a_{n-1} (mod m_{n-1})
+x \equiv a_{0} \pmod{m_{0}}     \\
+x \equiv a_{1} \pmod{m_{1}}     \\
+\cdots                          \\
+x \equiv a_{n-1} \pmod{m_{n-1}}
 \end{cases}
 $$
 
@@ -39,13 +39,13 @@ $$
 首先介绍数论倒数，三个整数满足：
 
 $$
-a \times b \% m = 1
+a \times b \bmod m = 1
 $$
 
 即：
 
 $$
-a \times b \equiv 1 (mod m)
+a \times b \equiv 1 \pmod{m}
 $$
 
 则称$$ b $$是$$ a $$关于$$ m $$的数论倒数，也称模倒数、模逆元。
@@ -83,7 +83,7 @@ $$
 因为所有余数两两互质，因此存在$$ t_{i} $$为$$ M_{i} $$关于$$ m_{i} $$的模逆元，即：
 
 $$
-t_{i} \times M_{i} \equiv 1 (mod m_{i}), i \in [0, n-1]
+t_{i} \times M_{i} \equiv 1 \pmod{m_{i}}
 $$
 
 方程组$$ (S) $$的通解形式为：
