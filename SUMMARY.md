@@ -113,7 +113,7 @@
     * [Euclid 欧几里得算法](docs/NumberTheory/Euclid/README.md)
     * [ExtendedEuclid 扩展欧几里得算法](docs/NumberTheory/ExtendedEuclid/README.md)
     * [ModularLinearEquations 模线性方程组](docs/NumberTheory/ModularLinearEquations/README.md)
-    * [ChineseRemainerTheorem 中国剩余定理](ChineseRemainerTheorem/)
+    * [ChineseRemainerTheorem 中国剩余定理](docs/NumberTheory/ChineseRemainerTheorem/README.md)
     * [ModularExponentiation 模幂运算](docs/NumberTheory/ModularExponentiation/README.md)
 * [Chapter-9 LinearAlgebra 第9章 线性代数](docs/LinearAlgebra/README.md)
     * Section-1 Matrix 第1节 矩阵
