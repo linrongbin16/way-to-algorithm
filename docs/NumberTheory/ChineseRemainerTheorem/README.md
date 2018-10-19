@@ -9,7 +9,7 @@
 对于非负整数$$ x $$，给定$$ n $$组正整数的除数$$ a_{i} $$和余数$$ m_{i} $$（$$ 0 \leq i \lt n $$）满足：
 
 $$
-x \bmod a_{i} = m_{i}, 0 \leq i \lt n
+x \bmod a_{i} = m_{i}
 $$
 
 其中所有余数$$ m_{i}, m_{j} $$两两互质。设所有余数的乘积为：
@@ -48,36 +48,14 @@ $$
 a \times b \equiv 1 \pmod{m}
 $$
 
-则称$$ b $$是$$ a $$关于$$ m $$的数论倒数，也称模倒数、模逆元。
-
-设$$ a, m $$的最大公约数为$$ gcd(a, m) $$，根据Extended Euclid可知，存在$$ x, y $$满足：
-
-$$
-a \times x + m \times y = gcd(a, m)
-$$
-
-若$$ gcd(a, m) = 1 $$则存在$$ a $$关于$$ m $$的模逆元，若$$ gcd(a, m) \neq 1 $$则不存在$$ a $$关于$$ m $$的模逆元。
-
-存在模逆元时有：
-
-$$
-a \times x + m \times y = 1
-$$
-
-在模$$ m $$条件下，有：
-
-$$
-a \times x + m \times y \equiv a \times x \equiv 1
-$$
-
-因此$$ x $$即为$$ a $$关于$$ m $$的模逆元。
+则称$$ b $$是$$ a $$关于$$ m $$的数论倒数，也称模倒数、模逆元。显然$$ gcd(a, m) $$即为$$ a $$关于$$ m $$的模逆元，通过Euclid求出。
 
 #### 中国剩余定理
 
 用中国剩余定理求解一元线性同余方程组。设除了$$ m_{i} $$之外所有余数的乘积为：
 
 $$
-M_{i} = \frac{M}{m_{i}}, i \in [0, n-1]
+M_{i} = \frac{M}{m_{i}}
 $$
 
 因为所有余数两两互质，因此存在$$ t_{i} $$为$$ M_{i} $$关于$$ m_{i} $$的模逆元，即：
@@ -86,7 +64,7 @@ $$
 t_{i} \times M_{i} \equiv 1 \pmod{m_{i}}
 $$
 
-方程组$$ (S) $$的通解形式为：
+可得方程组$$ (S) $$的通解形式为：
 
 $$
 x = a_{0} \cdot t_{0} \cdot M_{0} + a_{1} \cdot + t_{1} \cdot M_{1} + \cdots + a_{n-1} \cdot t_{n-1} \cdot M_{n-1} + k \times M = k \times M + \sum_{i=0}^{n-1} a_{i} \cdot t_{i} \cdot M_{i}

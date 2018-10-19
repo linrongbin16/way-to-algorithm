@@ -8,8 +8,6 @@
 #include <vector>
 using namespace std;
 
-#define MAX 999999
-
 #define CONCURRENCY (thread::hardware_concurrency())
 
 static void AssertPrime(int k) {
@@ -33,7 +31,7 @@ static void AssertPrimeRoutine(const tuple<int, vector<int> *> &args) {
 }
 
 int main(void) {
-  vector<int> prime = EratosthenesSieve(MAX);
+  vector<int> prime = EratosthenesSieve(999999);
 
   vector<thread *> workers;
   for (int i = 0; i < CONCURRENCY; i++) {
@@ -43,7 +41,7 @@ int main(void) {
     workers[i]->join();
   }
 
-  prime = EulerSieve(MAX);
+  prime = EulerSieve(999999);
 
   workers.clear();
   for (int i = 0; i < CONCURRENCY; i++) {
