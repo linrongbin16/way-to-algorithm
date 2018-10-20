@@ -1,22 +1,18 @@
 #include "Euclid.h"
+#include "Util.h"
 #include <cassert>
+#include <cstdlib>
 
-struct Test {
-  int a;
-  int b;
-  int gcd;
-  int lcm;
-} tests[] = {
-    {1, 1, 1, 1},
-    {36, 66, 6, 396},
-    {16, 11, 1, 176},
-};
+#define MAX 4096
 
 int main(void) {
-  for (int i = 0; i < sizeof(tests) / sizeof(Test); i++) {
-    Test &t = tests[i];
-    assert(GreatestCommonDivisor(t.a, t.b) == t.gcd);
-    assert(LeastCommonMultiple(t.a, t.b) == t.lcm);
+  for (int i = 0; i < MAX; i++) {
+    int a = abs(rand() % MAX);
+    int b = abs(rand() % MAX);
+    int gcd = GreatestCommonDivisor(a, b);
+    int lcm = LeastCommonMultiple(a, b);
+    AssertGcd(a, b, gcd);
+    AssertLcm(a, b, lcm);
   }
   return 0;
 }
