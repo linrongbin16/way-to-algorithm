@@ -4,12 +4,9 @@
 #include <ctime>
 #include <iostream>
 #include <list>
-#include <thread>
 #include <utility>
 #include <vector>
 using namespace std;
-
-#define CONCURRENCY (thread::hardware_concurrency())
 
 static void AssertPrime(int k) {
   int mod_count = 0;
@@ -19,27 +16,14 @@ static void AssertPrime(int k) {
   }
 }
 
-static void AssertPrimeRoutine(const tuple<int, BitVec *> &args) {
-  int mod = get<0>(args);
-  BitVec *b = get<1>(args);
-  for (int j = 0; j < b->n; j++) {
-    if (j % CONCURRENCY == mod && IsPrime(b, j)) {
-      AssertPrime(j);
-    }
-  }
-}
-
 void TestSmall() {
   int n = 100000;
   BitVec *b = SimpleSieve(n);
-  vector<thread *> workers;
-  for (int i = 0; i < CONCURRENCY; i++) {
-    workers.push_back(new thread(AssertPrimeRoutine, make_tuple(i, b)));
+  for (int i = 2; i < n; i++) {
+    if (IsPrime(b, i)) {
+      AssertPrime(i);
+    }
   }
-  for (int i = 0; i < workers.size(); i++) {
-    workers[i]->join();
-  }
-  BitVecFree(b);
 }
 
 void TestBig() {

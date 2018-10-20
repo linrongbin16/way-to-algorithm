@@ -54,7 +54,7 @@ bool IsPrime(const BitVec *b, int x) { return bit_get(b, x); }
 BitVec *SimpleSieve(int n) {
   BitVec *b = BitVecNew(n);
   for (int i = 2; i < n; i++) {
-    int sqrt_i = sqrt((double)i);
+    int sqrt_i = (int)sqrt((double)i);
     bool is_prime = true;
     for (int j = 2; j <= sqrt_i; j++) {
       if (i % j == 0) {
