@@ -20,36 +20,43 @@ static void AssertPrime(int k) {
   assert(mod_count == 2);
 }
 
-static void AssertPrimeRoutine(const tuple<int, vector<int> *> &args) {
+static void AssertPrimeRoutine(const tuple<int, BitVec *> &args) {
   int mod = get<0>(args);
-  vector<int> &vec = *(get<1>(args));
-  for (int j = 0; j < vec.size(); j++) {
-    if (j % CONCURRENCY == mod && vec[j]) {
+  BitVec *b = get<1>(args);
+  for (int j = 0; j < b->n; j++) {
+    if (j % CONCURRENCY == mod && IsPrime(b, j)) {
       AssertPrime(j);
     }
   }
 }
 
-int main(void) {
-  vector<int> prime = EratosthenesSieve(999999);
-
+void TestSimplePrime(int n) {
+  BitVec *b = SimpleSieve(n);
   vector<thread *> workers;
   for (int i = 0; i < CONCURRENCY; i++) {
-    workers.push_back(new thread(AssertPrimeRoutine, make_tuple(i, &prime)));
+    workers.push_back(new thread(AssertPrimeRoutine, make_tuple(i, b)));
   }
   for (int i = 0; i < workers.size(); i++) {
     workers[i]->join();
   }
+  BitVecFree(b);
+}
 
-  prime = EulerSieve(999999);
-
-  workers.clear();
+void TestEratosthenesSieve(int n) {
+  BitVec *b = EratosthenesSieve(n);
+  vector<thread *> workers;
   for (int i = 0; i < CONCURRENCY; i++) {
-    workers.push_back(new thread(AssertPrimeRoutine, make_tuple(i, &prime)));
+    workers.push_back(new thread(AssertPrimeRoutine, make_tuple(i, b)));
   }
   for (int i = 0; i < workers.size(); i++) {
     workers[i]->join();
   }
+  BitVecFree(b);
+}
+
+int main(void) {
+  TestSimplePrime(999999);
+  TestEratosthenesSieve(999999);
   return 0;
 }
 

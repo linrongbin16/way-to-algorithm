@@ -1,22 +1,16 @@
 #pragma once
+#include <vector>
 
-struct PrimeTable {
+struct BitVec {
   int n;
-  union {
-    int **int_table;
-    unsigned char **uchar_table;
-  } table;
-
-  enum PrimeTableType { INT_TABLE, UCHAR_TABLE };
+  unsigned char **bits;
 };
 
-PrimeTable *PrimeTableNew(int n, enum PrimeTableType type);
+BitVec *SimpleSieve(int n);
 
-void PrimeTableFree(PrimeTable *p);
+BitVec *EratosthenesSieve(int n);
 
-PrimeTable *EratosthenesSieve(int n);
+bool IsPrime(const BitVec *p, int x);
 
-PrimeTable *EulerSieve(int n);
-
-bool IsPrime(const PrimeTable *p, int x);
+void BitVecFree(BitVec *p);
 
