@@ -2,6 +2,7 @@
 #include <cassert>
 #include <cmath>
 #include <cstring>
+#include <iostream>
 
 // 使用字节操作支持更大的素数
 // 每个bit表示一个数字是否为素数
