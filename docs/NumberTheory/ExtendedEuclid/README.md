@@ -42,15 +42,15 @@ $$
 a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = b_{k-1} \times x_{k} + (a_{k-1} \bmod b_{k-1}) \times y_{k}
 $$
 
-注意到：
+注意到两正整数的取模运算满足：
 
 $$
-a_{k-1} \bmod b_{k-1} = a_{k-1} - \lfloor \frac{a_{k-1}}{b_{k-1}} \rfloor \times b_{k-1}
+p \bmod q = p - \lfloor \frac{p}{q} \rfloor \times q
 $$
 
-其中$$ \lfloor x \rfloor $$表示向下取整，小于等于$$ x $$的最大整数。
+其中$$ \lfloor p \rfloor $$表示向下取整，小于等于$$ p $$的最大整数。
 
-因此：
+可以推导出：
 
 $$
 a_{k-1} \times x_{k-1} + b_{k-1} \times y_{k-1} = b_{k-1} \times x_{k} + (a_{k-1} - \lfloor \frac{a_{k-1}}{b_{k-1}} \rfloor \times b_{k-1}) \times y_{k}
