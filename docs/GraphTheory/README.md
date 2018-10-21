@@ -10,17 +10,14 @@
     2. [BreadthFirstSearch(BFS) - 广度优先搜索](Traverse/BreadthFirstSearch/)
     3. [TopologicalSort - 拓扑排序](Traverse/TopologicalSort/)
     4. [EulerCycle - 欧拉回路](Traverse/EulerCycle/)
-2. MinimumSpanningTree - 最小生成树
-    1. [Kruskal - Kruskal算法](MinimumSpanningTree/Kruskal/)
-    2. [Prim - Prim算法](MinimumSpanningTree/Prim/)
-    3. [SecondMinimumSpanningTree - 次小生成树](MinimumSpanningTree/SecondMinimumSpanningTree/)
-    4. [OptimalRatioSpanningTree - 最优比率生成树](MinimumSpanningTree/OptimalRatioSpanningTree/)
+2. MinSpanningTree - 最小生成树
+    1. [Kruskal - Kruskal算法](MinSpanningTree/Kruskal/)
+    2. [Prim - Prim算法](MinSpanningTree/Prim/)
 3. ShortestPath - 最短路径
-    1. [Relaxation - 松弛操作](ShortestPath/Relaxation/)
-    2. [BellmanFord - BellmanFord算法](ShortestPath/BellmanFord/)
-    3. [Dijkstra - Dijkstra算法](ShortestPath/Dijkstra/)
-    4. [Floyd - Floyd算法](ShortestPath/Floyd/)
-    5. [DifferentConstraints - 差分约束](ShortestPath/DifferentConstraints/)
+    1. [BellmanFord - BellmanFord算法](ShortestPath/BellmanFord/)
+    2. [Dijkstra - Dijkstra算法](ShortestPath/Dijkstra/)
+    3. [Floyd - Floyd算法](ShortestPath/Floyd/)
+    4. [DifferentConstraints - 差分约束](ShortestPath/DifferentConstraints/)
 4. Connectivity - 连通
     1. [Kosaraju - Kosaraju算法](Connectivity/Kosaraju/)
     2. [Tarjan - Tarjan算法](Connectivity/Tarjan/)
@@ -39,7 +36,7 @@
     6. [HighestLabelPreflowPush - 最高标号预留与推进算法](FlowNetwork/HighestLabelPreflowPush/)
     7. [DistanceLabel_AdjacentListVersion - 距离标号算法-邻接表优化版](FlowNetwork/DistanceLabel_AdjacentListVersion/)
     8. [Summary-Maxflow - 最大流算法小结](FlowNetwork/Summary-Maxflow/)
-    9. [MinimumCost_Maxflow - 最小费用最大流](FlowNetwork/MinimumCost_Maxflow/)
+    9. [MinCost_Maxflow - 最小费用最大流](FlowNetwork/MinCost_Maxflow/)
     10. [MultipleSourceMultipleSink_Maxflow - 多源点、多汇点最大流](FlowNetwork/MultipleSourceMultipleSink_Maxflow/)
     11. [Connectivity - 连通度](FlowNetwork/Connectivity/)
     12. [NoSourceNoSink_VolumeBounded_Flow - 无源点、无汇点、容量有上下界的流网络](FlowNetwork/NoSourceNoSink_VolumeBounded_Flow/)
@@ -52,8 +49,8 @@
     4. [KuhnMunkres - Kuhn-Munkres算法](BinaryMatch/KuhnMunkres/)
     5. [Introduction-Domination_Independent_Covering_Clique - 支配集、独立集、覆盖集、团的介绍](BinaryMatch/Introduction-Domination_Independent_Covering_Clique/)
     6. [WeightedCoveringAndIndependentSet - 最小点权覆盖和最大点权独立集](BinaryMatch/WeightedCoveringAndIndependentSet/)
-    7. [MinimumDisjointPathCovering - 最小不相交路径覆盖](BinaryMatch/MinimumDisjointPathCovering/)
-    8. [MinimumJointPathCovering - 最小可相交路径覆盖](BinaryMatch/MinimumJointPathCovering/)
+    7. [MinDisjointPathCovering - 最小不相交路径覆盖](BinaryMatch/MinDisjointPathCovering/)
+    8. [MinJointPathCovering - 最小可相交路径覆盖](BinaryMatch/MinJointPathCovering/)
     9. [Coloring - 染色问题](BinaryMatch/Coloring/)
 
 --------
@@ -168,9 +165,15 @@ $$ (2) $$ 判断无向图是否存在欧拉回路：无向图$$ UG $$的任意�
 
 拥有汉密尔顿回路的图$$ G $$称为汉密尔顿图。完全图必然是汉密尔顿图。
 
-#### 最小生成树（Minimum Spanning Tree）
+#### 最小生成树（Min Spanning Tree）
 
 图$$ G $$中存在这样的路径：非环路径，连接图$$ G $$的所有顶点，则称该路径为图$$ G $$的生成树。图$$ G $$中的每个边都有一个权值，边的权值之和最小的生成树，为该图的最小生成树。
+
+#### 最短路径（Shortest Path）
+
+图$$ G $$中每个边都拥有一个距离$$ dist $$（无向图两个邻节点的边的距离相同），从顶点$$ v_i $$到达$$ v_j $$距离最短的路径即为最短路径。
+
+一般来说最短路径问题中的边的距离值都大于0（若某些边的距离为0，则这些边可以无限重复使用而不会增加两顶点之间的距离；若某些边的距离小于0，则多经过一些设置会减小两顶点之间的距离）。
 
 #### 平凡图（Trivial Graph）
 

@@ -49,13 +49,10 @@
         * [BreadthFirstSearch 广度优先搜索](docs/GraphTheory/Traverse/BreadthFirstSearch/README.md)
         * [TopologicalSort 拓扑排序](docs/GraphTheory/Traverse/TopologicalSort/README.md)
         * [EulerCycle 欧拉回路](docs/GraphTheory/Traverse/EulerCycle/README.md)
-    * Section-2 MinimumSpanningTree 第2节 最小生成树
-        * [Kruskal Kruskal算法](docs/GraphTheory/MinimumSpanningTree/Kruskal/README.md)
-        * [Prim Prim算法](docs/GraphTheory/MinimumSpanningTree/Prim/README.md)
-        * [SecondMinimumSpanningTree 次小生成树](docs/GraphTheory/MinimumSpanningTree/SecondMinimumSpanningTree/README.md)
-        * [OptimalRatioSpanningTree 最优比率生成树](docs/GraphTheory/MinimumSpanningTree/OptimalRatioSpanningTree/README.md)
+    * Section-2 MinSpanningTree 第2节 最小生成树
+        * [Kruskal Kruskal算法](docs/GraphTheory/MinSpanningTree/Kruskal/README.md)
+        * [Prim Prim算法](docs/GraphTheory/MinSpanningTree/Prim/README.md)
     * Section-3 ShortestPath 第3节 最短路径
-        * [Relaxation 松弛操作](docs/GraphTheory/ShortestPath/Relaxation/README.md)
         * [BellmanFord BellmanFord算法](docs/GraphTheory/ShortestPath/BellmanFord/README.md)
         * [ShortestPathFasterAlgorithm 最短路径更快算法（SPFA）](docs/GraphTheory/ShortestPath/ShortestPathFasterAlgorithm/README.md)
         * [Dijkstra Dijkstra算法](docs/GraphTheory/ShortestPath/Dijkstra/README.md)
