@@ -75,7 +75,8 @@ $$
 
 $$
 \begin{matrix}
-a_{n+1} \times x_{n+1} + b_{n+1} \times y_{n+1} = gcd(a_{n+1}, b_{n+1})     &   x_{n+1} = 1, y_{n+1} = 0
+a_{n+1} \times x_{n+1} + b_{n+1} \times y_{n+1} = gcd(a_{n+1}, b_{n+1})     \\
+x_{n+1} = 1, y_{n+1} = 0
 \end{matrix}
 $$
 
