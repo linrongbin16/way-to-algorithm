@@ -1,25 +1,36 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 # Kruskal - Kruskal算法
 
 --------
 
 #### 问题
 
-用Kruskal算法求无向图$$ G $$的最小生成树。
+用Kruskal算法求无向图$$ UG $$的最小生成树。
 
 #### 解法
 
-Kruskal算法是一种贪心算法。初始时将图$$ G $$的边集$$ E $$按照权值，从小到大进行排序，并且生成树。从最小权值的边开始，依次考虑每一条边，对于边$$ e_i $$来说，若将它加入生成树集合$$ S $$中，$$ e_i $$不会与$$ S $$中已有的边形成环，那么选取边$$ e_i $$作为生成树中的一条边，将其加入集合$$ S $$；反之若将$$ e_i $$加入$$ S $$中会与已有的边形成环，则跳过$$ e_i $$考虑下一个。
+Kruskal算法是一种贪心算法：
 
-这里对于环的判断，比较像&lt;DisjointSet 并查集&gt;的算法思路：
+$$ (1) $$ 初始时将无向图$$ UG = <V, E> $$的边集$$ E $$按照权值从小到大进行排序，设生成树的边集合为$$ E_{tree} $$，点集合为$$ V_{tree} $$，初始时生成树为空；
 
-判断一条边$$ e_i $$加入生成树集合$$ S $$是否会出现回路，不需要在生成树集合$$ S $$中判断回路是否存在（太过麻烦）。判断边$$ e_i $$的两个端点$$ v_1 $$和$$ v_2 $$是否都属于集合$$ S $$。若两个端点都属于集合$$ S $$，则添加边$$ e_i $$会使生成树中增加环，因此需要跳过该边。下图中红色的边已经加入生成树集合$$ S $$中，节点$$ v_2 $$和$$ v_3 $$属于生成树集合$$ S $$，因此边$$ e_{2-3} $$加入生成树中会产生环：
+$$ (2) $$ 遍历每一条边（权值从小到大），对于边$$ e_i $$，若其与边集合$$ E_{tree} $$中已有的边不会形成环 ，则将$$ e_i $$加入$$ E_{tree} $$，将$$ e_i $$的两端点加入生成树的点集合$$ V_{tree} $$；
+
+$$ (3) $$ 反之若$$ e_i $$与边集合$$ E_{tree} $$中已有的边会形成环，则跳过$$ e_i $$；
+
+重复上述操作，直到$$ V_{tree} = V $$为止，$$ E_{tree} $$即为无向图$$ UG $$的最小生成树。该算法的时间复杂度为$$ O(|E|) $$。
+
+判断环的方法有点像并查集Disjoint Set：若边$$ e_i $$的两个端点$$ v_1 $$和$$ v_2 $$都属于生成树的点集合$$ V_{tree} $$，则边$$ e_i $$会使生成树中增加环，跳过该边。
 
 --------
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../../src/GraphTheory/MinimumSpanningTree/Kruskal.h)
+[Kruskal.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/Kruskal.h)
+
+[Kruskal.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/Kruskal.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../../src/GraphTheory/MinimumSpanningTree/Kruskal.cpp)
+[KruskalTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/KruskalTest.cpp)
+
