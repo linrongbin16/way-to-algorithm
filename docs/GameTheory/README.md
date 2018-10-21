@@ -1,4 +1,4 @@
-# Chapter-12 GameTheory
+# Chapter-12 Game Theory
 # 第12章 博弈论
 
 ![GameTheory.svg](res/GameTheory.svg)

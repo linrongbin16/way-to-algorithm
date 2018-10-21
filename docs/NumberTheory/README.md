@@ -1,4 +1,4 @@
-# Chapter-7 NumberTheory
+# Chapter-7 Number Theory
 # 第7章 数论
 
 ![NumberTheory.svg](res/NumberTheory.svg)
