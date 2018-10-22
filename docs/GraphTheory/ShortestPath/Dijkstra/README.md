@@ -18,7 +18,7 @@ $$
 dist(i, j) =
 \begin{cases}
 0                   &   v_i = v_j                   \\
-+ G(i,j)            &   v_i is adjacent to v_j      \\
+G(i,j)            &   v_i is adjacent to v_j      \\
 + \infty            &   v_i is not adjacent to v_j
 \end{cases}
 $$

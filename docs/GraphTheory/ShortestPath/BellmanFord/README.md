@@ -6,7 +6,7 @@
 
 #### 问题
 
-假设图$$ G = <V, E> $$中顶点$$ v_0 $$可以到达任意其他顶点$$ v_j $$，用Bellman Ford算法求顶点$$ v_0 $$到其他所有顶点的最短距离。
+假设图$$ G = <V, E> $$中任意两顶点$$ v_i, v_j $$相互到达，用Bellman Ford算法求两顶点$$ v_i, v_j $$之间的最短距离。
 
 #### 解法
 
@@ -18,7 +18,7 @@ $$
 dist(i, j) =
 \begin{cases}
 0                   &   v_i = v_j                   \\
-+ G(i,j)            &   v_i is adjacent to v_j      \\
+G(i,j)            &   v_i is adjacent to v_j      \\
 + \infty            &   v_i is not adjacent to v_j
 \end{cases}
 $$
