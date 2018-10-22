@@ -54,7 +54,6 @@
         * [Prim Prim算法](GraphTheory/MinSpanningTree/Prim/)
     * Section-3 ShortestPath 第3节 最短路径
         * [BellmanFord BellmanFord算法](GraphTheory/ShortestPath/BellmanFord/)
-        * [ShortestPathFasterAlgorithm 最短路径更快算法（SPFA）](GraphTheory/ShortestPath/ShortestPathFasterAlgorithm/)
         * [Dijkstra Dijkstra算法](GraphTheory/ShortestPath/Dijkstra/)
         * [Floyd Floyd算法](GraphTheory/ShortestPath/Floyd/)
         * [DifferentConstraints 差分约束](GraphTheory/ShortestPath/DifferentConstraints/)
