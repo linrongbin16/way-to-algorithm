@@ -32,6 +32,13 @@ $$ (2) $$ 若$$ dist(v_i) \gt dist(v_j) + G(v_j, v_i) $$，则更新距离$$ dis
 
 --------
 
+#### Introduction To Algorithms - VI.Graph Algorithms - 24.Single-Source Shortest Paths - 24.3.Dijkstra's algorithm
+
+* https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf
+
+
+--------
+
 #### 源码
 
 [Dijkstra.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/Dijkstra.h)

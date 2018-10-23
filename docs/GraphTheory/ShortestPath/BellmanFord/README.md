@@ -32,6 +32,12 @@ $$ (2) $$ 若$$ dist(v_i) \gt dist(v_j) + G(v_j, v_i) $$，则更新距离$$ dis
 
 --------
 
+#### Introduction To Algorithms - VI.Graph Algorithms - 24.Single-Source Shortest Paths - 24.1.The Bellman-Ford algorithm
+
+* https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf
+
+--------
+
 #### 源码
 
 [BellmanFord.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/BellmanFord.h)
@@ -41,6 +47,3 @@ $$ (2) $$ 若$$ dist(v_i) \gt dist(v_j) + G(v_j, v_i) $$，则更新距离$$ dis
 #### 测试
 
 [BellmanFordTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/BellmanFordTest.cpp)
-
-
-# BellmanFord BellmanFord算法

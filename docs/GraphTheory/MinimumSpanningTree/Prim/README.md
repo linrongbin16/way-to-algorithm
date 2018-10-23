@@ -20,6 +20,12 @@ $$ (2) $$ 类似BFS算法，在$$ V_{tree} $$的所有临边（一个端点属�
 
 --------
 
+#### Introduction To Algorithms - VI.Graph Algorithms - 23.Minimum Spanning Trees - 23.2.The algorithms of Kruskal and Prim
+
+* https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf
+
+--------
+
 #### 源码
 
 [Prim.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/Prim.h)
