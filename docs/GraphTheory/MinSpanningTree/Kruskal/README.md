@@ -32,11 +32,11 @@ $$ (3) $$ 反之若$$ e_i $$与边集合$$ E_{tree} $$中已有的边会形成�
 
 #### 源码
 
-[Kruskal.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/Kruskal.h)
+[Kruskal.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinSpanningTree/Kruskal.h)
 
-[Kruskal.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/Kruskal.cpp)
+[Kruskal.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinSpanningTree/Kruskal.cpp)
 
 #### 测试
 
-[KruskalTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/KruskalTest.cpp)
+[KruskalTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinSpanningTree/KruskalTest.cpp)
 
