@@ -14,11 +14,11 @@
 
 FenwickTree的灵感来源于任意非负整数都可以表示为$$ 2 $$的次方和，比如$$ 3 = 2^1 + 2^0, 7 = 2^2 + 2^1 + 2^0, 8 = 2^3 $$。所以任意非负整数可以用一个代表bit的数组表示：$$ 3 = [0, 0, 1, 1] $$，$$ 7 = [0, 1, 1, 1] $$，$$ 8 = [1, 0, 0, 0] $$，即二进制数字$$ 0011, 0111, 1000 $$。那么区域$$ s $$可以用$$ n $$个二进制数组来表示所有数字，用Fenwick树结构来表示：
 
-![FenwickTree1.svg](../res/FenwickTree1.svg)
+![FenwickTree1.png](../res/FenwickTree1.png)
 
 引入最低有效位lowbit函数来构造Fenwick树上的每个节点。$$ lowbit $$是一个非负整数的二进制数字中，最低的非$$ 0 $$位的数字（比如$$ lowbit_{3} = 1, lowbit_{6} = 2, lowbit_{8} = 8, lowbit_{11} = 1 $$，显然奇数有$$ lowbit_{ord} \equiv 1 $$）：
 
-![FenwickTree2.svg](../res/FenwickTree2.svg)
+![FenwickTree2.png](../res/FenwickTree2.png)
 
 令Fenwick树上的节点$$ x $$存储值$$ t[x] $$：
 
@@ -56,7 +56,7 @@ $$
 
 Fenwick树上每个节点$$ i $$覆盖到的区域之和如图所示：
 
-![FenwickTree4.svg](../res/FenwickTree4.svg)
+![FenwickTree4.png](../res/FenwickTree4.png)
 
 设数字$$ x $$用$$ 2 $$的次方和表示为：
 

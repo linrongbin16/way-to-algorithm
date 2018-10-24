@@ -12,7 +12,7 @@
 
 对于拥有$$ 10 $$个成员的集合$$ s = [ 0,1,2,3,4,5,6,7,8,9 ] $$，将其分成两个家庭$$ A $$和$$ B $$。初始时令每个成员的父亲都是自己，如图所示：
 
-![DisjointSet1.svg](../res/DisjointSet1.svg)
+![DisjointSet1.png](../res/DisjointSet1.png)
 
 当声明$$ 2 $$个成员$$ x_i $$和$$ x_j $$（$$ x_i \le x_j $$）属于同一家庭，直接令$$ x_i $$的节点祖先为$$ x_j $$的父亲（也可以反过来），即$$ father[x_j] = ancestor[x_i] $$。这样的操作会使元素$$ x_j $$的最接近祖先节点，从而缩短了递归向上查找的路径长度，因此该操作也称为压缩路径。
 
@@ -20,35 +20,35 @@
 
 $$ (1) $$声明$$ 0 $$和$$ 4 $$属于同一家庭，比较$$ 0 $$和$$ 4 $$的祖宗节点，设置$$ father[4] = ancestor[0] = 0 $$，本文中我们取左节点的祖宗节点作为右节点的父节点；
 
-![DisjointSet2.svg](../res/DisjointSet2.svg)
+![DisjointSet2.png](../res/DisjointSet2.png)
 
 $$ (2) $$声明$$ 1 $$和$$ 9 $$节点属于同一家庭，设置$$ father[9] = ancestor[1] = 1 $$；
 
-![DisjointSet3.svg](../res/DisjointSet3.svg)
+![DisjointSet3.png](../res/DisjointSet3.png)
 
 $$ (3) $$声明$$ 0 $$和$$ 2 $$节点属于同一家庭，设置$$ father[2] = ancestor[0] = 0 $$；
 
-![DisjointSet4.svg](../res/DisjointSet4.svg)
+![DisjointSet4.png](../res/DisjointSet4.png)
 
 $$ (4) $$声明$$ 1 $$和$$ 3 $$节点属于同一家庭，设置$$ father[3] = ancestor[1] = 1 $$；
 
-![DisjointSet5.svg](../res/DisjointSet5.svg)
+![DisjointSet5.png](../res/DisjointSet5.png)
 
 $$ (5) $$声明$$ 3 $$和$$ 5 $$节点属于同一家庭，设置$$ father[5] = ancestor[3] = 1 $$；
 
-![DisjointSet6.svg](../res/DisjointSet6.svg)
+![DisjointSet6.png](../res/DisjointSet6.png)
 
 $$ (6) $$声明$$ 6 $$和$$ 8 $$节点属于同一家庭，设置$$ father[8] = ancestor[6] = 6 $$；
 
-![DisjointSet7.svg](../res/DisjointSet7.svg)
+![DisjointSet7.png](../res/DisjointSet7.png)
 
 $$ (7) $$声明$$ 2 $$和$$ 6 $$节点属于同一家庭，设置$$ father[6] = ancestor[2] = 0 $$；
 
-![DisjointSet8.svg](../res/DisjointSet8.svg)
+![DisjointSet8.png](../res/DisjointSet8.png)
 
 $$ (8) $$声明$$ 1 $$和$$ 7 $$节点属于同一家庭，设置$$ father[7] = ancestor[1] = 1 $$；
 
-![DisjointSet9.svg](../res/DisjointSet9.svg)
+![DisjointSet9.png](../res/DisjointSet9.png)
 
 合并两节点$$ x $$和$$ y $$时，根据固定规则设置$$ father[y] = ancestor[x] $$（或者相反）；查询节点$$ x $$的祖宗节点时，若$$ father[x] \neq ancestor[x] $$则设置$$ father[x] = ancestor[x] $$。并查集的分类、查询操作的时间复杂度接近$$ O(1) $$。
 

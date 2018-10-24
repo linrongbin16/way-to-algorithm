@@ -22,27 +22,27 @@ $$ (4) $$具有$$ n $$个节点的左偏树的根节点的距离小于等于$$ l
 
 下图中每个节点上，上面的数字代表节点的值，下面的数字代表距离。合并两个左偏树的操作，分为两步：$$ (1) $$递归向下合并子树的根节点；$$ (2) $$递归向上更新所有被修改过的节点的距离。我们通过合并下面两个左偏树来进行演示：
 
-![LeftistTree2.svg](../res/LeftistTree2.svg)
+![LeftistTree2.png](../res/LeftistTree2.png)
 
 $$ (1) $$比较两树的根节点$$ 6 \lt 7 $$，节点$$ 7 $$沿着节点$$ 6 $$向右下寻找第$$ 1 $$个满足$$ 7 \lt x $$的节点$$ x $$，替换$$ x $$作为节点$$ 6 $$的新右孩子节点。该节点为节点$$ 8 $$（$$ 7 \lt 8 $$），节点$$ 6 $$的原右孩子节点$$ 8 $$暂时脱离；
 
-![LeftistTree3.svg](../res/LeftistTree3.svg)
+![LeftistTree3.png](../res/LeftistTree3.png)
 
 $$ (2) $$节点$$ 8 $$沿着节点$$ 7 $$向右下寻找第$$ 1 $$个满足$$ 8 \lt x $$的节点$$ x $$，替换$$ x $$作为节点$$ 7 $$的新右孩子节点。该节点为节点$$ 12 $$（$$ 8 \lt 12 $$），节点$$ 7 $$的原右孩子节点$$ 12 $$暂时脱离；
 
-![LeftistTree4.svg](../res/LeftistTree4.svg)
+![LeftistTree4.png](../res/LeftistTree4.png)
 
 $$ (3) $$节点$$ 12 $$沿着节点$$ 8 $$向右下寻找第$$ 1 $$个满足$$ 12 \lt x $$的节点$$ x $$，替换$$ x $$作为节点$$ 8 $$的新右孩子节点。该节点为节点$$ 13 $$（$$ 12 \lt 13 $$），节点$$ 8 $$的原右孩子节点$$ 13 $$暂时脱离；
 
-![LeftistTree5.svg](../res/LeftistTree5.svg)
+![LeftistTree5.png](../res/LeftistTree5.png)
 
 $$ (4) $$节点$$ 13 $$沿着节点$$ 12 $$向右下寻找第$$ 1 $$个满足$$ 13 \lt x $$的节点$$ x $$，替换$$ x $$作为节点$$ 12 $$的新右孩子节点。该节点为节点$$ 26 $$（$$ 13 \lt 26 $$），节点$$ 12 $$的原右孩子节点$$ 26 $$暂时脱离；
 
-![LeftistTree6.svg](../res/LeftistTree6.svg)
+![LeftistTree6.png](../res/LeftistTree6.png)
 
 $$ (5) $$节点$$ 26 $$沿着节点$$ 13 $$向右下寻找第$$ 1 $$个满足$$ 26 \lt x $$的节点$$ x $$，节点$$ 13 $$没有右孩子节点，因此节点$$ 26 $$直接成为节点$$ 13 $$的右孩子节点，不再需要替换，合并操作结束；
 
-![LeftistTree7.svg](../res/LeftistTree7.svg)
+![LeftistTree7.png](../res/LeftistTree7.png)
 
 向右下插入节点的操作会影响到左偏树的平衡性，右子树变得越来越庞大。而且所有节点的距离也是错的（没有更新）。实际上每一步合并操作后还需要检查左右子树的距离属性：$$ (1) $$对于$$ d_{left} \lt d_{right} $$的情况，交换左右子树；$$ (2) $$对于$$ d_{root} \neq d_{right} + 1 $$的情况，更新$$ d_{root} $$。
 
@@ -50,23 +50,23 @@ $$ (5) $$节点$$ 26 $$沿着节点$$ 13 $$向右下寻找第$$ 1 $$个满足$$ 
 
 $$ (6) $$ 对于节点$$ 26 $$，$$ d_{27} = 0 \ge d_{nil} = - 1 $$，不需要交换左右子树，更新$$ d_{26} = d_{nil} + 1 = - 1 + 1 = 0 $$；
 
-![LeftistTree8.svg](../res/LeftistTree8.svg)
+![LeftistTree8.png](../res/LeftistTree8.png)
 
 $$ (7) $$ 对于节点$$ 13 $$，$$ d_{28} = 0 \ge d_{26} = 0 $$，不需要交换左右子树，更新$$ d_{13} = d_{26} + 1 = 0 + 1 = 1 $$；
 
-![LeftistTree9.svg](../res/LeftistTree9.svg)
+![LeftistTree9.png](../res/LeftistTree9.png)
 
 $$ (8) $$ 对于节点$$ 12 $$，$$ d_{31} = 1 \ge d_{26} = 1 $$，不需要交换左右子树，更新$$ d_{12} = d_{13} + 1 = 1 + 1 = 2 $$；
 
-![LeftistTree10.svg](../res/LeftistTree10.svg)
+![LeftistTree10.png](../res/LeftistTree10.png)
 
 $$ (9) $$ 对于节点$$ 8 $$，$$ d_{10} = 1 \lt d_{12} = 2 $$，需要交换子树$$ 10 $$和子树$$ 12 $$，更新$$ d_{8} = d_{10} + 1 = 1 + 1 = 2 $$；
 
-![LeftistTree11.svg](../res/LeftistTree11.svg)
+![LeftistTree11.png](../res/LeftistTree11.png)
 
 $$ (10) $$ 对于节点$$ 7 $$，$$ d_{9} = 1 \lt d_{8} = 2 $$，需要交换子树$$ 9 $$和子树$$ 8 $$，更新$$ d_{7} = d_{9} + 1 = 1 + 1 = 2 $$；
 
-![LeftistTree12.svg](../res/LeftistTree12.svg)
+![LeftistTree12.png](../res/LeftistTree12.png)
 
 $$ (11) $$对于节点$$ 6 $$，$$ d_{11} = 2 \ge d_{7} = 2 $$，不需要交换左右子树，更新$$ d_{6} = d_{7} + 1 = 2 + 1 = 3 $$；
 
