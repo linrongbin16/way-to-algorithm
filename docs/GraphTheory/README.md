@@ -1,7 +1,7 @@
 # Chapter-5 Graph Theory
 # 第5章 图论
 
-![GraphTheory.svg](res/GraphTheory.svg)
+![GraphTheory.png](res/GraphTheory.png)
 
 --------
 
@@ -67,7 +67,7 @@
 
 所有顶点两两相邻的图称为完全图。
 
-![TraverseKnowledgePoint1.svg](Traverse/res/KnowledgePoint1.svg)
+![TraverseKnowledgePoint1.png](Traverse/res/KnowledgePoint1.png)
 
 #### 无向边
 
@@ -89,7 +89,7 @@
 
 图$$ G $$中的节点$$ u $$所关联的边数，称作该节点的度数。无向图中任意节点$$ v_i $$的度数等于出度度数，也等于入度度数。有向图中任意节点$$ v_i $$的度数等于出度度数与入度度数之和。
 
-![TraverseKnowledgePoint2.svg](Traverse/res/KnowledgePoint2.svg)
+![TraverseKnowledgePoint2.png](Traverse/res/KnowledgePoint2.png)
 
 上面两个图，图$$ A $$为有向图，节点$$ [0,5] $$的出度分别为$$ [2, 2, 1, 1, 2, 1] $$，入度分别为$$ [1, 1, 2, 2, 0, 2] $$。图$$ B $$为无向图，节点$$ [0,5] $$的出度分别为$$ [3, 4, 3, 3, 2, 3] $$，入度与出度一样。
 
@@ -127,7 +127,7 @@ $$
 
 拓扑排序是将图中的节点按照出度、入度排序，起点的入度为$$ 0 $$，终点的出度为$$ 0 $$，其他既有出度也有入度的节点处于拓扑排序的中间位置。只有无环有向图存在拓扑排序，如下图所示：
 
-![TraverseKnowledgePoint3.svg](Traverse/res/KnowledgePoint3.svg)
+![TraverseKnowledgePoint3.png](Traverse/res/KnowledgePoint3.png)
 
 #### 路径
 

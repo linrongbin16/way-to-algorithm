@@ -10,13 +10,13 @@
 
 正确剪裁
 
-![MaxBinaryTree1.svg](../res/MaxBinaryTree1.svg)
+![MaxBinaryTree1.png](../res/MaxBinaryTree1.png)
 
-![MaxBinaryTree2.svg](../res/MaxBinaryTree2.svg)
+![MaxBinaryTree2.png](../res/MaxBinaryTree2.png)
 
 错误剪裁
 
-![MaxBinaryTree3.svg](../res/MaxBinaryTree3.svg)
+![MaxBinaryTree3.png](../res/MaxBinaryTree3.png)
 
 对于拥有$$ n $$个节点的二叉树，求出保留$$ m $$个节点的二叉树的最大权值。
 

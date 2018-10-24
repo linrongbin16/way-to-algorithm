@@ -26,13 +26,13 @@ $$
 
 把$$ (2, 1), (3, 1) $$这样的局势看作棋盘上的坐标时，很像“皇后的棋步”（Queen's Move）。
 
-![WythoffGame1.svg](../res/WythoffGame1.svg)
+![WythoffGame1.png](../res/WythoffGame1.png)
 
 上图中$$ (1,1), (2,2), (3,2), (2,3), (3,3), (3,4), (4,3) \dots $$这些在虚线上的坐标，当我方面对这样的局势时必赢（称这样的局势为安全局势）。棋盘上关键的位置是红色的$$ (1,2), (2,1), (3,5), (5,3) \dots $$，这些是安全局势的边界点，当我方面临边界点时必输。
 
 根据数学研究，这些边界实际是两条直线：
 
-![WythoffGame2.svg](../res/WythoffGame2.svg)
+![WythoffGame2.png](../res/WythoffGame2.png)
 
 在二维坐标系上这两条直线的坐标计算方式是
 
@@ -50,7 +50,7 @@ $$
 
 在下图中，当给定点$$ x, y $$，可以算出其与$$ x, y $$轴平行的直线与两条黄金分割线的四个交点$$ a, b, c, d $$。
 
-![WythoffGame3.svg](../res/WythoffGame3.svg)
+![WythoffGame3.png](../res/WythoffGame3.png)
 
 $$
 x = 2.5, y_{c} = \lceil x \times \phi \rceil \approx \lceil 2.5 \times 1.618 \rceil \approx \lceil 4.045 \rceil = 5 \\

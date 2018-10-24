@@ -8,7 +8,7 @@
 
 在$$ n $$行$$ m $$列的二维矩阵上从左上角移动到右下角$$ [1,1] \rightarrow [n,m] $$，每次移动只能向右/向下移动。求有多少种不同的路径。
 
-![UniquePath1.svg](../res/UniquePath1.svg)
+![UniquePath1.png](../res/UniquePath1.png)
 
 #### 解法
 

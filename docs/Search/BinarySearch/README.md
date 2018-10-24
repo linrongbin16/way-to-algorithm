@@ -18,15 +18,15 @@
 
 例如下图中，若$$ x = 17 = s[mid] $$，可以直接找到$$ x = s[4] $$：
 
-![BinarySearch1.svg](../res/BinarySearch1.svg)
+![BinarySearch1.png](../res/BinarySearch1.png)
 
 若$$ x = 5 \lt s[mid] = 17 $$，则令$$ high = 3 $$之后继续搜索：
 
-![BinarySearch2.svg](../res/BinarySearch2.svg)
+![BinarySearch2.png](../res/BinarySearch2.png)
 
 若$$ x = 30 \gt s[mid] = 17 $$，则令$$ low = 5 $$之后继续搜索：
 
-![BinarySearch3.svg](../res/BinarySearch3.svg)
+![BinarySearch3.png](../res/BinarySearch3.png)
 
 对于长度为$$ n $$的序列$$ s $$，每次计算$$ mid $$的时间看作$$ O(1) $$。在最好情况下1次查找就可以找到；在最坏情况下需要$$ log_{2}n $$次才能找到$$ x $$。该算法的时间复杂度为$$ O(log_{2}n) $$。
 

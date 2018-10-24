@@ -8,7 +8,7 @@
 
 一个二叉树共有$$ n $$个节点，范围为$$ [1,n] $$，每个节点拥有一个权值，所有节点的权值之和不超过$$ m $$。从任意节点$$ i $$都可以到达另一节点$$ j $$，且路线是唯一的，每一条的距离为1（节点与自己的距离为0，与其父节点、左右孩子节点的距离为1）。设节点$$ i $$权值为$$ v_{i} $$，所有到节点$$ i $$的距离小于等于$$ radius $$的节点权值之和为$$ \sum_{p=1}^{n_{i}} v_{p} $$ 。称该权值之和为节点$$ i $$在半径$$ radius $$上的半径和。下图演示了节点$$ 4 $$覆盖到的半径为$$ 2 $$的区域：
 
-![MaxBinaryTreeRadiusSum1.svg](../res/MaxBinaryTreeRadiusSum1.svg)
+![MaxBinaryTreeRadiusSum1.png](../res/MaxBinaryTreeRadiusSum1.png)
 
 求二叉树的最大半径和。
 
@@ -30,7 +30,7 @@ $$ (2) $$ 节点$$ i $$在半径$$ j $$上向上的半径和，显然等于它�
 
 下图演示节点$$ 7 $$向上半径为$$ 3 $$所覆盖到的节点：
 
-![MaxBinaryTreeRadiusSum2.svg](../res/MaxBinaryTreeRadiusSum2.svg)
+![MaxBinaryTreeRadiusSum2.png](../res/MaxBinaryTreeRadiusSum2.png)
 
 设$$ g(i,j) $$表示节点$$ i $$在半径$$ j $$的范围内，只沿着左右孩子节点向下移动的半径和，则有状态转移方程：
 
@@ -49,11 +49,11 @@ $$ (2) $$ 节点$$ i $$在半径$$ j $$上向下的半径和，显然等于它�
 
 下图演示节点$$ 1 $$向下半径为$$ 3 $$所覆盖到的节点：
 
-![MaxBinaryTreeRadiusSum3.svg](../res/MaxBinaryTreeRadiusSum3.svg)
+![MaxBinaryTreeRadiusSum3.png](../res/MaxBinaryTreeRadiusSum3.png)
 
 还漏掉了节点$$ i $$的叔叔节点$$ uncle_{i} $$，下图演示节点$$ 4 $$在半径$$ 2 $$上覆盖到的所有节点，其中没有被$$ f(4,2) $$和$$ g(4,2) $$覆盖到的节点用绿色标记：
 
-![MaxBinaryTreeRadiusSum4.svg](../res/MaxBinaryTreeRadiusSum4.svg)
+![MaxBinaryTreeRadiusSum4.png](../res/MaxBinaryTreeRadiusSum4.png)
 
 设$$ h(i,j) $$为节点$$ i $$在半径$$ j $$上的半径和（本问题所求），则有状态转移方程：
 

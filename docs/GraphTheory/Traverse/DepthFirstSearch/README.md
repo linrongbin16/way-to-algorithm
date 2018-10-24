@@ -16,7 +16,7 @@
 
 下图演示无向图$$ UG $$从节点$$ v_0 $$开始深度优先搜索的过程：
 
-![DepthFirstSearch1.svg](../res/DepthFirstSearch1.svg)
+![DepthFirstSearch1.png](../res/DepthFirstSearch1.png)
 
 顶点访问的顺序为$$ [0, 4, 3, 1, 2, 5] $$。深度优先搜索时间复杂度为$$ O(n) $$。
 

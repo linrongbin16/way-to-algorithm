@@ -8,7 +8,7 @@
 
 在高度为$$ n $$的三角形上从最上面移动到最下面，三角形上节点$$ i $$的值为$$ v_{i} $$，每次移动只能向下移动左右两个邻节点。从上面移动到下面的代价为所有经过节点的值之和。如图所示：
 
-![TrianglePath1.svg](../res/TrianglePath1.svg)
+![TrianglePath1.png](../res/TrianglePath1.png)
 
 给定三角形上的$$ k $$个节点，求从上到下的最小移动代价。
 
@@ -16,7 +16,7 @@
 
 高度为$$ n $$的三角形拥有$$ \frac{(n+1) \times n}{2} $$个节点。设节点下标从$$ 1 $$开始，则第$$ n $$行的节点为$$ [\frac{n \times (n-1)}{2} + 1, \dots, \frac{(n+1) \times n}{2}] $$。左边节点为$$ \frac{n \times (n-1)}{2} + 1 $$，右边节点为$$ \frac{(n+1) \times n}{2} $$。
 
-![TrianglePath2.svg](../res/TrianglePath2.svg)
+![TrianglePath2.png](../res/TrianglePath2.png)
 
 从上图可知，第$$ 1 $$行的节点为$$ [1, 1] $$；第$$ 2 $$行的节点为$$ [2, 3] $$；第$$ 3 $$行的节点为$$ [4, 6] $$；等等。
 
