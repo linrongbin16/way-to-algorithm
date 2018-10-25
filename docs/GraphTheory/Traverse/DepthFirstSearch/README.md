@@ -22,9 +22,9 @@
 
 --------
 
-#### Introduction To Algorithms - VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.3.Depth-first search
+#### Introduction To Algorithms
 
-* https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf
+* [VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.3.Depth-first search](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
 
 --------
 

@@ -23,10 +23,10 @@ $$ (2) $$ 凸多边形重心
 凸多边形的重心是所有三角形的重心坐标的面积加权平均值：
 
 $$
-\begin{matrix}
+\begin{cases}
 x_{gravity} = \frac{\sum_{i=1}^{n} x_{center_{i}} * area_{i}}{\sum_{i=1}^{n} area_{i}}  \\
 y_{gravity} = \frac{\sum_{i=1}^{n} y_{center_{i}} * area_{i}}{\sum_{i=1}^{n}area_{i}}
-\end{matrix}
+\end{cases}
 
 1 \le i \le n
 $$
