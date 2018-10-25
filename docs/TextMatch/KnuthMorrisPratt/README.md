@@ -33,11 +33,11 @@ $$ (2) $$ 对于模式上的位置$$ j \gt 0 $$，其父节点位置为$$ j - 1 
 $$
 
 pmt[j] =
-\begin{matrix}
+\begin{cases}
 -1       &   j = 0   \\
 -1       &   0 \lt j \lt m, pattern[pmt[j-1]+1] \ne pattern[j]   \\
 pmt[j-1] + 1 &  0 \lt i \lt m, pattern[pmt[j-1]+1] = pattern[j]
-\end{matrix}
+\end{cases}
 
 $$
 
