@@ -14,7 +14,7 @@
 
 将AC自动机应用在只有一个模式的匹配时，我们会发现这样的AC自动机中没有输出指针，只有失败指针。为了简化我们不再使用树形结构体，而用数组下标来表示失败指针：
 
-![KnuthMorrisPratt1.svg](../res/KnuthMorrisPratt1.svg)
+![KnuthMorrisPratt1.png](../res/KnuthMorrisPratt1.png)
 
 得到模式$$ pattern $$的每个节点跳转的下标，在KMP算法中，这个跳转的下标数组称为失败函数（Failure Function），或部分匹配表（Partial Match Table）。部分匹配表的实质也是最长后缀字符串。
 

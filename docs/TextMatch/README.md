@@ -1,7 +1,7 @@
 # Chapter-10 Text Match
 # 第10章 文本匹配
 
-![TextMatch.svg](res/TextMatch.svg)
+![TextMatch.png](res/TextMatch.png)
 
 --------
 

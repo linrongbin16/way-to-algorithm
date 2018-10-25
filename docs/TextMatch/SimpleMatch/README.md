@@ -14,11 +14,11 @@
 
 下面演示一个匹配的过程：
 
-![SimpleMatch1.svg](../res/SimpleMatch1.svg)
+![SimpleMatch1.png](../res/SimpleMatch1.png)
 
 $$ (1) $$ 从$$ text $$第$$ 0 $$个字符开始匹配，有$$ text[0 \dots 2] = pattern[0 \dots 2]，text[3] \ne pattern[3] $$，继续匹配下一个字符；
 
-![SimpleMatch2.svg](../res/SimpleMatch2.svg)
+![SimpleMatch2.png](../res/SimpleMatch2.png)
 
 $$ (2) $$ 从$$ text $$第$$ 1 $$个字符开始匹配，有$$ text[1] \ne pattern[0] $$，继续匹配下一个字符；
 
@@ -26,7 +26,7 @@ $$
 \cdots
 $$
 
-![SimpleMatch3.svg](../res/SimpleMatch3.svg)
+![SimpleMatch3.png](../res/SimpleMatch3.png)
 
 $$ (3) $$ 从$$ text $$第$$ 7 $$个字符开始匹配，$$ text[7 \dots 10] = pattern[0 \dots 3] $$，匹配成功，算法结束；
 

@@ -1,7 +1,7 @@
 # Chapter-9 Analytic Geometry
 # 第9章 解析几何
 
-![AnalyticGeometry.svg](res/AnalyticGeometry.svg)
+![AnalyticGeometry.png](res/AnalyticGeometry.png)
 
 --------
 
