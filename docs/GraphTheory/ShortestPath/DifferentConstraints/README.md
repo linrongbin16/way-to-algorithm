@@ -70,10 +70,10 @@ $$
 第$$ k $$行不等式满足：
 
 $$
-x_i \cdot i + x_j \cdot j \leq b_k
+x_i \cdot A(k,i) + x_j \cdot A(k,j) \leq b_k
 $$
 
-其中$$ 1 \leq k \leq n $$，$$ A(k,i) \neq 0, A(k,j) \neq 0$$且$$ i,j \in [1,m] $$。
+其中$$ 1 \leq k \leq n $$，$$ A(k,i), A(k,j) $$等于$$ 1 $$或$$ -1 $$，且$$ i,j \in [1,m] $$。
 
 这样的线性不等式组称为差分约束。
 
