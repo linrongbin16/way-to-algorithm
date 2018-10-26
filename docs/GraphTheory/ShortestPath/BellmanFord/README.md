@@ -10,7 +10,7 @@
 
 #### 解法
 
-设$$ G(i, j) $$为两端点为节点$$ v_i, v_j $$的边的距离，二维数组$$ dist(i) $$表示从节点$$ v_0 $$到$$ v_i $$的最短距离。
+设$$ G(i, j) $$为两端点为顶点$$ v_i, v_j $$的边的距离，数组$$ dist(i) $$表示从顶点$$ v_0 $$到$$ v_i $$的最短距离。
 
 初始时，顶点$$ v_0 $$到自己的距离为0（即$$ dist(0) = 0 $$），$$ v_0 $$到其他顶点的距离为无穷大；
 
@@ -32,18 +32,18 @@ $$ (2) $$ 若$$ dist(v_i) \gt dist(v_j) + G(v_j, v_i) $$，则更新距离$$ dis
 
 --------
 
-#### Introduction To Algorithms - VI.Graph Algorithms - 24.Single-Source Shortest Paths - 24.1.The Bellman-Ford algorithm
+#### Introduction To Algorithms
 
-* https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf
+* [VI.Graph Algorithms - 24.Single-Source Shortest Paths - 24.1.The Bellman-Ford algorithm](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
 
 --------
 
 #### 源码
 
-[BellmanFord.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/BellmanFord.h)
+[BellmanFord.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/ShortestPath/BellmanFord.h)
 
-[BellmanFord.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/BellmanFord.cpp)
+[BellmanFord.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/ShortestPath/BellmanFord.cpp)
 
 #### 测试
 
-[BellmanFordTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/BellmanFordTest.cpp)
+[BellmanFordTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/ShortestPath/BellmanFordTest.cpp)

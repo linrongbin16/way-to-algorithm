@@ -55,7 +55,7 @@
     * Section-3 ShortestPath 第3节 最短路径
         * [BellmanFord BellmanFord算法](GraphTheory/ShortestPath/BellmanFord/)
         * [Dijkstra Dijkstra算法](GraphTheory/ShortestPath/Dijkstra/)
-        * [Floyd Floyd算法](GraphTheory/ShortestPath/Floyd/)
+        * [FloydWarshall FloydWarshall算法](GraphTheory/ShortestPath/FloydWarshall/)
         * [DifferentConstraints 差分约束](GraphTheory/ShortestPath/DifferentConstraints/)
     * Section-4 Connectivity 第4节 连通
         * [Kosaraju Kosaraju算法](GraphTheory/Connectivity/Kosaraju/)

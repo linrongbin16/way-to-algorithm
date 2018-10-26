@@ -16,7 +16,7 @@
 3. ShortestPath - 最短路径
     1. [BellmanFord - BellmanFord算法](ShortestPath/BellmanFord/)
     2. [Dijkstra - Dijkstra算法](ShortestPath/Dijkstra/)
-    3. [Floyd - Floyd算法](ShortestPath/Floyd/)
+    3. [FloydWarshall - FloydWarshall算法](ShortestPath/FloydWarshall/)
     4. [DifferentConstraints - 差分约束](ShortestPath/DifferentConstraints/)
 4. Connectivity - 连通
     1. [Kosaraju - Kosaraju算法](Connectivity/Kosaraju/)

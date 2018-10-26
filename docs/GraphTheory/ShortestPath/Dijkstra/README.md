@@ -10,7 +10,7 @@
 
 #### 解法
 
-设$$ G(i, j) $$为节点$$ v_i $$到$$ v_j $$的边的距离，二维数组$$ dist(i) $$表示从节点$$ v_0 $$到$$ v_i $$的最短距离。
+设$$ G(i, j) $$为顶点$$ v_i $$到$$ v_j $$的边的距离，数组$$ dist(i) $$表示从顶点$$ v_0 $$到$$ v_i $$的最短距离。
 
 初始时，顶点$$ v_0 $$到自己的距离为0（即$$ dist(0) = 0 $$），$$ v_0 $$到其他顶点的距离为无穷大；
 
@@ -28,23 +28,23 @@ $$ (1) $$ 若$$ dist(v_j) \gt dist(v_i) + G(v_i, v_j) $$，则更新距离$$ dis
 
 $$ (2) $$ 若$$ dist(v_i) \gt dist(v_j) + G(v_j, v_i) $$，则更新距离$$ dist(v_i) = dist(v_j) + G(v_j, v_i) $$；
 
-通过这种BFS算法将图$$ G $$中所有顶点都访问过后，算法结束。顶点$$ v_0 $$到任意其他顶点$$ v_i $$的最短距离为$$ dist(v_i) $$。该算法时间复杂度为$$ O(|V| \times |E|) $$。
+通过这种BFS算法将图$$ G $$中所有顶点都访问过后，算法结束。顶点$$ v_0 $$到任意其他顶点$$ v_i $$的最短距离为$$ dist(v_i) $$。该算法时间复杂度为$$ O(|V| \times log_2 |V|) $$，其中$$ log_2 |V| $$表示平均每个顶点的临边数量。
 
 --------
 
-#### Introduction To Algorithms - VI.Graph Algorithms - 24.Single-Source Shortest Paths - 24.3.Dijkstra's algorithm
+#### Introduction To Algorithms
 
-* https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf
+* [VI.Graph Algorithms - 24.Single-Source Shortest Paths - 24.3.Dijkstra's algorithm](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
 
 
 --------
 
 #### 源码
 
-[Dijkstra.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/Dijkstra.h)
+[Dijkstra.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/ShortestPath/Dijkstra.h)
 
-[Dijkstra.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/Dijkstra.cpp)
+[Dijkstra.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/ShortestPath/Dijkstra.cpp)
 
 #### 测试
 
-[DijkstraTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/DijkstraTest.cpp)
+[DijkstraTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/ShortestPath/DijkstraTest.cpp)
