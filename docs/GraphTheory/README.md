@@ -185,9 +185,9 @@ $$
 
 连通图（Connected Graph）是任意两顶点都连通的图。
 
-连通分量/连通分支（Connected Components）是图$$ G $$的子图，又是连通图，且加入图$$ G $$的任意其他节点都会不再连通。（连通分支的概念比较笼统。）连通分支也称为极大连通子图（Maximal Strongly Connected Subgraph）。连通图的连通分支即为它自己，非连通图中存在多个连通分支。
+连通分量/连通分支（Connected Components）是图$$ G $$的子图，又是连通图，且加入图$$ G $$的任意其他节点都会不再连通。连通分支的概念常用于无向图。连通分支也称为极大连通子图（Maximal Strongly Connected Subgraph）。连通图的连通分支即为它自己，非连通图中存在多个连通分支。
 
-强连通分量/强连通分支（Strongly Connected Components）是有向图$$ G $$的子图，又是连通图，且加入图$$ G $$的任意其他节点都会不再连通。
+强连通分量/强连通分支（Strongly Connected Components）是有向图$$ G $$的子图，又是连通图，且加入图$$ G $$的任意其他节点都会不再连通。强连通分支的概念常用于有向图。
 
 双连通分量/双连通分支（Biconnected Components）。
 
@@ -230,4 +230,4 @@ $$
 
 #### 图论术语
 
-* https://zh.wikipedia.org/wiki/%E5%9B%BE%E8%AE%BA%E6%9C%AF%E8%AF%AD
+* https://en.wikipedia.org/wiki/Glossary_of_graph_theory_terms
