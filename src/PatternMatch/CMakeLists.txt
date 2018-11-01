@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.4)
+
+set(SRC_FILE
+    SimpleMatch.cpp
+    KnuthMorrisPratt.cpp
+    AhoCorasickAutomata.cpp
+    RabinKarp.cpp
+    Util.cpp
+    )
+
+add_executable(PatternMatch-SimpleMatch.exe SimpleMatchTest.cpp ${SRC_FILE})
+add_executable(PatternMatch-AhoCorasickAutomata.exe AhoCorasickAutomataTest.cpp ${SRC_FILE})
+add_executable(PatternMatch-KnuthMorrisPratt.exe KnuthMorrisPrattTest.cpp ${SRC_FILE})
+add_executable(PatternMatch-RabinKarp.exe RabinKarpTest.cpp ${SRC_FILE})

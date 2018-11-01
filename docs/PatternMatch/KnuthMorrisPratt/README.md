@@ -49,10 +49,10 @@ KMP算法的时间复杂度为$$ O(n + m) $$。
 
 #### 源码
 
-[KnuthMorrisPratt.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/KnuthMorrisPratt.h)
+[KnuthMorrisPratt.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/KnuthMorrisPratt.h)
 
-[KnuthMorrisPratt.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/KnuthMorrisPratt.cpp)
+[KnuthMorrisPratt.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/KnuthMorrisPratt.cpp)
 
 #### 测试
 
-[KnuthMorrisPrattTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/KnuthMorrisPrattTest.cpp)
+[KnuthMorrisPrattTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/KnuthMorrisPrattTest.cpp)

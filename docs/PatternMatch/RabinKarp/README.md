@@ -55,10 +55,10 @@ Rabin Fingerprint
 
 #### 源码
 
-[RabinKarp.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/RabinKarp.h)
+[RabinKarp.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/RabinKarp.h)
 
-[RabinKarp.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/RabinKarp.cpp)
+[RabinKarp.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/RabinKarp.cpp)
 
 #### 测试
 
-[RabinKarpTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/RabinKarpTest.cpp)
+[RabinKarpTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/RabinKarpTest.cpp)

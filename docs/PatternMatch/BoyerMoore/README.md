@@ -16,10 +16,10 @@ Boyer-Moore算法与KMP算法类似，当匹配失败时跳转到某个位置继
 
 #### 源码
 
-[BoyerMoore.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/BoyerMoore.h)
+[BoyerMoore.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/BoyerMoore.h)
 
-[BoyerMoore.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/BoyerMoore.cpp)
+[BoyerMoore.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/BoyerMoore.cpp)
 
 #### 测试
 
-[BoyerMooreTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/BoyerMooreTest.cpp)
+[BoyerMooreTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/BoyerMooreTest.cpp)

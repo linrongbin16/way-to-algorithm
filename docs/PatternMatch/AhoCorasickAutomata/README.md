@@ -119,10 +119,10 @@ AC自动机的构造时间复杂度为$$ O(m_{sum}) $$，加上匹配的时间�
 
 #### 源码
 
-[AhoCorasickAutomata.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/AhoCorasickAutomata.h)
+[AhoCorasickAutomata.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/AhoCorasickAutomata.h)
 
-[AhoCorasickAutomata.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/AhoCorasickAutomata.cpp)
+[AhoCorasickAutomata.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/AhoCorasickAutomata.cpp)
 
 #### 测试
 
-[AhoCorasickAutomataTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/AhoCorasickAutomataTest.cpp)
+[AhoCorasickAutomataTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/AhoCorasickAutomataTest.cpp)

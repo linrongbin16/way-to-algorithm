@@ -36,10 +36,10 @@ $$ (3) $$ 从$$ text $$第$$ 7 $$个字符开始匹配，$$ text[7 \dots 10] = p
 
 #### 源码
 
-[SimpleMatch.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/SimpleMatch.h)
+[SimpleMatch.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/SimpleMatch.h)
 
-[SimpleMatch.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/SimpleMatch.cpp)
+[SimpleMatch.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/SimpleMatch.cpp)
 
 #### 测试
 
-[SimpleMatchTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/TextMatch/SimpleMatchTest.cpp)
+[SimpleMatchTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/PatternMatch/SimpleMatchTest.cpp)
