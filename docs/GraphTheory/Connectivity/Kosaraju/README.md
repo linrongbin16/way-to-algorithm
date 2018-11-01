@@ -24,15 +24,15 @@ $$ (3) $$ （类似DFS和并查集算法）初始时，令队列中所有顶点$
 
 下图演示有向图的搜索操作和分配操作：
 
-![Kosaraju1.svg](../res/Kosaraju1.svg)
+![Kosaraju1.png](../res/Kosaraju1.png)
 
 上图进行DFS搜索后，得到的队列为$$ [0, 4, 3, 1, 2, 7, 6, 5, 8] $$，逆序为$$ [8, 5, 6, 7, 2, 1, 3, 4, 0] $$。第$$ (2) $$步的DFS搜索过程如下图：
 
-![Kosaraju2.svg](../res/Kosaraju2.svg)
+![Kosaraju2.png](../res/Kosaraju2.png)
 
 按照逆序DFS遍历所有顶点，得到强连通分支：
 
-![Kosaraju3.svg](../res/Kosaraju3.svg)
+![Kosaraju3.png](../res/Kosaraju3.png)
 
 该算法时间复杂度为$$ O(|V|^2) $$。
 
