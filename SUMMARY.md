@@ -32,7 +32,7 @@
         * [MaxContinuousSubsequenceSum 最大连续子序列和](docs/DynamicProgramming/LinearDP/MaxContinuousSubsequenceSum/README.md)
         * [LongestPalindromicSubsequence 最长回文子序列](docs/DynamicProgramming/LinearDP/LongestPalindromicSubsequence/README.md)
     * Section-2 BagDP 第2节 背包问题
-        * [ZeroOneBag 01背包](docs/DynamicProgramming/BagDP/ZeroOneBag/README.md)
+        * [01-Bag 01背包](docs/DynamicProgramming/BagDP/01-Bag/README.md)
         * [CompleteBag 完全背包](docs/DynamicProgramming/BagDP/CompleteBag/README.md)
         * [TwoDimensionBag 二维背包](docs/DynamicProgramming/BagDP/TwoDimensionBag/README.md)
     * Section-3 RegionalDP 第3节 区域动规
@@ -60,8 +60,7 @@
     * Section-4 Connectivity 第4节 连通
         * [Kosaraju Kosaraju算法](docs/GraphTheory/Connectivity/Kosaraju/README.md)
         * [Tarjan Tarjan算法](docs/GraphTheory/Connectivity/Tarjan/README.md)
-        * [Gabow - Gabow算法](docs/GraphTheory/Connectivity/Gabow/README.md)
-        * [TwoSatisfiability 2-SAT问题](docs/GraphTheory/Connectivity/TwoSatisfiability/README.md)
+        * [2-SAT 2-SAT问题](docs/GraphTheory/Connectivity/2-SAT/README.md)
         * [Cut 割](docs/GraphTheory/Connectivity/Cut/README.md)
         * [DoubleConnectedComponent 双联通分支](docs/GraphTheory/Connectivity/DoubleConnectedComponent/README.md)
         * [LeastCommonAncestor 最近公共祖先](docs/GraphTheory/Connectivity/LeastCommonAncestor/README.md)

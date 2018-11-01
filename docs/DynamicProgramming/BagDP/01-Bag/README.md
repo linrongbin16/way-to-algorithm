@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Zero One Bag - 01背包
+# 01-Bag - 01背包
 
 --------
 

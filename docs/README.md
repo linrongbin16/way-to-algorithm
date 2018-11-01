@@ -32,7 +32,7 @@
         * [MaxContinuousSubsequenceSum 最大连续子序列和](DynamicProgramming/LinearDP/MaxContinuousSubsequenceSum/)
         * [LongestPalindromicSubsequence 最长回文子序列](DynamicProgramming/LinearDP/LongestPalindromicSubsequence/)
     * Section-2 BagDP 第2节 背包问题
-        * [ZeroOneBag 01背包](DynamicProgramming/BagDP/ZeroOneBag/)
+        * [01-Bag 01背包](DynamicProgramming/BagDP/01-Bag/)
         * [CompleteBag 完全背包](DynamicProgramming/BagDP/CompleteBag/)
         * [TwoDimensionBag 二维背包](DynamicProgramming/BagDP/TwoDimensionBag/)
     * Section-3 RegionalDP 第3节 区域动规
@@ -60,8 +60,7 @@
     * Section-4 Connectivity 第4节 连通
         * [Kosaraju Kosaraju算法](GraphTheory/Connectivity/Kosaraju/)
         * [Tarjan Tarjan算法](GraphTheory/Connectivity/Tarjan/)
-        * [Gabow - Gabow算法](GraphTheory/Connectivity/Gabow/)
-        * [TwoSatisfiability 2-SAT问题](GraphTheory/Connectivity/TwoSatisfiability/)
+        * [2-SAT 2-SAT问题](GraphTheory/Connectivity/2-SAT/)
         * [Cut 割](GraphTheory/Connectivity/Cut/)
         * [DoubleConnectedComponent 双联通分支](GraphTheory/Connectivity/DoubleConnectedComponent/)
         * [LeastCommonAncestor 最近公共祖先](GraphTheory/Connectivity/LeastCommonAncestor/)

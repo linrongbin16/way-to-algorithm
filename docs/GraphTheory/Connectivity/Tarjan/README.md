@@ -1,30 +1,45 @@
-* [Upper Folder - 上一级目录](../../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/Tarjan.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/Tarjan.cpp)
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+# Tarjan - Tarjan算法
 
 --------
 
-### Tarjan
-### Tarjan算法
-<div>
-问题：
-<p id="i">用Tarjan算法求有向图\(G\)的强连通分支。 </p>
-解法：
-<p id="i">Tarjan算法定义了概念“强连通分支的根节点”。对有向图\(G\)中的节点\(i\)（范围为\([0, n)\)），设置一个\(low_i\)值，表示从节点\(i\)出发进行DFS可以到达的所有节点中最小的节点标号。若节点\(i\)满足\(low_i = i\)，则该节点为强连通分支的根节点。</p>
-<p id="i">Tarjan算法分为\(2\)个步骤：</p>
-<p id="i">\((1)\)对图\(G\)中的所有节点进行深度优先搜索，计算每个遍历到的节点的\(low\)值，并将其压入栈\(Stack\)中；</p>
-<p id="i">\((2)\)依次从栈\(Stack\)中取出每个节点，并放入初始为空的集合\(S\)中。对于刚刚进入集合的节点\(i\)，若该节点为强连通分支的根节点，则当前集合\(S\)中的所有节点属于一个强连通分支。将它们全部取出作为一个强连通分支，将集合\(S\)清空，然后继续从栈\(Stack\)中取出节点，重复该操作。 </p>
-<p id="c"><img src="../res/Tarjan1.svg" /></p>
-<p id="i">节点的low值分别为\([0_0, 0_1, 0_2, 0_3, 4_4, 5_5]\)，遍历顺序为\([0, 1, 3, 2, 4, 5]\)，依次压入栈后得到\(Stack = [5, 4, 2, 3, 1, 0]\)。 </p>
-<p id="i">\((1)\)将节点\(5\)放入集合\(S = [5]\)，节点\(low_5 = 5\)，即节点\(5\)为强连通分支的根节点，因此\([5]\)为一个强连通分支，将集合\(S\)清空；</p>
-<p id="i">\((2)\)将节点\(4\)放入集合\(S = [4]\)，节点\(low_4 = 4\)，即节点\(4\)为强连通分支的根节点，因此\([4]\)为一个强连通分支，将集合\(S\)清空；</p>
-<p id="i">\((3)\)将节点\(2\)放入集合\(S = [2]\)，节点\(low_2 = 0\)，不做任何操作；</p>
-<p id="i">\((4)\)将节点\(3\)放入集合\(S = [2, 3]\)，节点\(low_3 = 0\)，不做任何操作；</p>
-<p id="i">\((5)\)将节点\(1\)放入集合\(S = [2, 3, 1]\)，节点\(low_1 = 0\)，不做任何操作；</p>
-<p id="i">\((6)\)将节点\(0\)放入集合\(S = [2, 3, 1, 0]\)，节点\(low_0 = 0\)，即节点\(0\)为强连通分支的根节点，因此\([2, 3, 1, 0]\)为一个强连通分支，将集合\(S\)清空；</p>
-<p id="i">\((7)\)栈\(Stack\)为空，算法结束。最终得到的强连通分支有\(3\)个，分别为\([5]\)、\([4]\)、\([2, 3, 1, 0]\)；</p>
-<p id="i">在有\(N\)个节点的有向图\(G\)上运行Tarjan算法的时间复杂度为\(O(N)\)。 </p>
-</div>
+#### 问题
 
-Wikipedia:
-* [https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm)
+用Tarjan算法求有向图$$ DG $$的所有强连通分支。
+
+#### 解法
+
+Tarjan算法定义了强连通分支的根节点的概念，来求出有向图$$ DG $$的所有强连通分支。设有向图$$ DG = <V,E> $$的顶点下标范围为$$ [0, 1, 2, \dots, |V|-1] $$，每个顶点拥有唯一下标。一个强连通分支中的根节点是该强连通分支中下标最小的顶点，同事也是强连通分支中任意顶点能够DFS搜索到的下标最小的顶点。
+
+设每个顶点的$$ index $$表示其下标，$$ lowlink $$表示其所属强连通分支的根节点的下标。显然属于同一个强连通分支的所有顶点$$ lowlink $$值相等。同一个强连通分支中的任意顶点一定满足$$ index_i \geq lowlink_i $$，强连通分支的根节点一定满足$$ index_i = lowlink_i $$，其他顶点则满足$$ index_i \gt lowlink_i $$。
+
+算法过程分为以下几步：
+
+$$ (1) $$ 用DFS算法搜索有向图$$ DG $$的所有顶点，标记出每个顶点的$$ lowlink $$值，并按照搜索顺序将顶点推入堆栈$$ Stack $$（先入后出）；
+
+$$ (2) $$ 从堆栈$$ Stack $$中依次取出每个顶点（其实是逆序的遍历之前DFS搜索到的所有顶点），判断其是否为根节点（$$ index = lowlink $$）。若出栈顶点$$ v_i $$是根节点，则在$$ v_i $$之前出栈的且不属于其他强连通分支的顶点，都属于以$$ v_i $$为根节点的强连通分支；若出栈顶点$$ v_i $$不是根节点，则等待后面出栈的根节点$$ v_j $$，属于以$$ v_j $$为根节点的强连通分支；
+
+该算法时间复杂度为$$ O(|V| + |E|) $$。
+
+--------
+
+#### Tarjan Algorithm
+
+* https://rjlipton.files.wordpress.com/2009/10/dfs1971.pdf
+
+#### Introduction To Algorithms
+
+* [VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.5.Strongly connected components](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+
+--------
+
+#### 源码
+
+[Tarjan.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/Tarjan.h)
+
+[Tarjan.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/Tarjan.cpp)
+
+#### 测试
+
+[TarjanTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/TarjanTest.cpp)

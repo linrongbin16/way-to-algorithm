@@ -1,12 +1,12 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Kosaraju - Kosaraju算法
+# EdmondKarp - EdmondKarp算法
 
 --------
 
 #### 问题
 
-用Kosaraju算法求有向图$$ DG $$的所有强连通分支。
+用EdmondKarp算法求有向图$$ DG $$的所有强连通分支。
 
 #### 解法
 
@@ -26,15 +26,15 @@ $$ (3) $$ （类似DFS和并查集算法）初始时，令队列中所有顶点$
 
 下图演示有向图的搜索操作和分配操作：
 
-![Kosaraju1.png](../res/Kosaraju1.png)
+![EdmondKarp1.png](../res/EdmondKarp1.png)
 
 上图进行DFS搜索后，得到的队列为$$ [0, 4, 3, 1, 2, 7, 6, 5, 8] $$，逆序为$$ [8, 5, 6, 7, 2, 1, 3, 4, 0] $$。第$$ (2) $$步的DFS搜索过程如下图：
 
-![Kosaraju2.png](../res/Kosaraju2.png)
+![EdmondKarp2.png](../res/EdmondKarp2.png)
 
 按照逆序DFS遍历所有顶点，得到两个强连通分支$$ [8] $$和$$ [0, 1, 2, 3, 4, 5, 6, 7] $$：
 
-![Kosaraju3.png](../res/Kosaraju3.png)
+![EdmondKarp3.png](../res/EdmondKarp3.png)
 
 该算法时间复杂度为$$ O(|V|) $$。
 
@@ -52,10 +52,10 @@ $$ (3) $$ （类似DFS和并查集算法）初始时，令队列中所有顶点$
 
 #### 源码
 
-[Kosaraju.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/Kosaraju.h)
+[EdmondKarp.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/EdmondKarp.h)
 
-[Kosaraju.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/Kosaraju.cpp)
+[EdmondKarp.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/EdmondKarp.cpp)
 
 #### 测试
 
-[KosarajuTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/KosarajuTest.cpp)
+[EdmondKarpTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/EdmondKarpTest.cpp)

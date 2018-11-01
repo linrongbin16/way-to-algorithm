@@ -21,12 +21,10 @@
 4. Connectivity - 连通
     1. [Kosaraju - Kosaraju算法](Connectivity/Kosaraju/)
     2. [Tarjan - Tarjan算法](Connectivity/Tarjan/)
-    3. [Gabow - Gabow算法](Connectivity/Gabow/)
-    4. [TwoSatisfiability - 2-SAT问题](Connectivity/TwoSatisfiability/)
-    5. [Cut - 割](Connectivity/Cut/)
-    6. [DoubleConnectedComponent - 双联通分支](Connectivity/DoubleConnectedComponent/)
-    7. [LeastCommonAncestor - 最近公共祖先](Connectivity/LeastCommonAncestor/)
-    8. [RangeExtremumQuery - 区域最值查询](Connectivity/RangeExtremumQuery/)
+    3. [2-SAT - 2-SAT问题](Connectivity/2-SAT/)
+    4. [Cut - 割](Connectivity/Cut/)
+    5. [DoubleConnectedComponent - 双联通分支](Connectivity/DoubleConnectedComponent/)
+    6. [LeastCommonAncestor - 最近公共祖先](Connectivity/LeastCommonAncestor/)
 5. FlowNetwork - 网络流
     1. [EdmondsKarp - EdmondsKarp算法](FlowNetwork/EdmondsKarp/)
     2. [PushAndRelabel - 压入与重标记](FlowNetwork/PushAndRelabel/)
@@ -225,8 +223,20 @@ $$
 
 无向图$$G$$中存在某条边$$e_1$$，删去该边后图的连通分支数量加1，即该边将原图分成两个连通分支。假设删去一条割边后得到两个新的连通分支，则割边的两端点可以看作分别属于两个新连通分支，而非割边的两端点只属于同一个连通分支。
 
+#### 网络流（Flow Network）/最大网络流（Max Flow Network）/最小网络流（Min Flow Network）
+
+一片区域中有很多个城市，彼此间用公路相连，每条公路有自己能够运输的最大重量。城市$$ A $$生产货物，城市$$ B $$消费货物，通过公路将城市$$ A $$产生的货物运送到城市$$ B $$消费，经过其他城市。
+
+![FlowNetworkKnowledgePoint1.png](FlowNetwork/res/KnowledgePoint1.png)
+
+如上图所示，每条边的数字表示每天最多运送的货物数量，假设城市$$ A $$每天产生的货物数量无穷多，城市$$ B $$每天能够消费的货物数量无穷多。
+
 
 --------
+
+#### Introduction To Algorithms
+
+* [VI.Graph Algorithms](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
 
 #### 图论术语
 

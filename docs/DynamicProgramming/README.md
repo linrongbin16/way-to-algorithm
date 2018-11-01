@@ -10,7 +10,7 @@
     4. [MaxContinuousSubsequenceSum 最大连续子序列和](LinearDP/MaxContinuousSubsequenceSum/)
     5. [LongestPalindromicSubsequence 最长回文子序列](LinearDP/LongestPalindromicSubsequence/)
 2. BagDP 背包问题
-    1. [ZeroOneBag 01背包](BagDP/ZeroOneBag/)
+    1. [01-Bag 01背包](BagDP/01-Bag/)
     2. [CompleteBag 完全背包](BagDP/CompleteBag/)
     3. [TwoDimensionBag 二维背包](BagDP/TwoDimensionBag/)
 3. RegionalDP 区域动态规划
