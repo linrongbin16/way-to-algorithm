@@ -1,4 +1,4 @@
-# Chapter-10 Text Match
+# Chapter-10 Pattern Match
 # 第10章 文本匹配
 
 ![PatternMatch.png](res/PatternMatch.png)
