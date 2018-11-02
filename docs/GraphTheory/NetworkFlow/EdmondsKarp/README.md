@@ -1,14 +1,38 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# EdmondKarp - EdmondKarp算法
+# Edmonds Karp - Edmonds Karp算法（最短路径增广算法）
 
 --------
 
 #### 问题
 
-用EdmondKarp算法求有向图$$ DG $$的所有强连通分支。
+用Edmond Karp算法求网络流$$ G $$的最大流，$$ G = <V,E> $$是单源点、单汇点，边的容量为正整数。
 
-#### 解法
+#### Ford–Fulkerson方法
+
+Ford-Fulkerson方法是用于求解最大流的方法（并不是算法），它通过寻找增广路径（Argumenting Path）来求最大流，但具体寻找的方法有多种算法实现。
+
+网络流中边$$ e_{u,v} $$的剩余容量（Residual Capacity）是：
+
+$$
+c_f (u,v) = c(u,v) - f(u,v)
+$$
+
+边的剩余容量定义了剩余网络（Residual Network）$$ G_f = <V, E_f>  $$，表示该网络的可用容量。
+
+网络中每新增一个流就会占用一部分剩余容量，新增的流从源点$$ Source $$出发到达汇点$$ Sink $$，中途经过的所有边的剩余容量都被该流占用，称这样的流为增广路径。
+
+Ford-Fulkerson方法的主要过程如下：
+
+$$ (1) $$ 初始时将网络$$ G $$看作一个未被使用的原始剩余网络，该网络的最大流的值初始化为$$ flow = 0 $$；
+
+$$ (2) $$ 尝试从当前剩余网络中找到一条增广路径，该路径经过的所有边的最小的剩余容量$$ c_{min} $$即为这整条流可以使用的容量（就像木桶能够装的水由最短的那块木板决定一样）。使用该路径后最大流的值增大为$$ flow = flow + c_{min} $$，并将该路径经过的边的容量都减去$$ c_{min} $$（更新所有经过的边的剩余容量）；
+
+$$ (3) $$ 
+
+
+
+#### Edmonds Karp算法
 
 按照强连通分支的定义，任意两顶点可以相互到达。首先按照DFS顺序遍历所有顶点，然后再按照这个遍历的逆序DFS尝试搜索所有顶点，显然逆序时某顶点按照DFS可以搜索到的所有顶点，都和它处于同一强连通分支。
 

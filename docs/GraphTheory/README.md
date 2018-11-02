@@ -26,7 +26,7 @@
     5. [DoubleConnectedComponent - 双联通分支](Connectivity/DoubleConnectedComponent/)
     6. [LeastCommonAncestor - 最近公共祖先](Connectivity/LeastCommonAncestor/)
 5. NetworkFlow - 网络流
-    1. [EdmondsKarp - EdmondsKarp算法](NetworkFlow/EdmondsKarp/)
+    1. [EdmondsKarp - EdmondsKarp算法（最大路径增广算法）](NetworkFlow/EdmondsKarp/)
     2. [PushAndRelabel - 压入与重标记](NetworkFlow/PushAndRelabel/)
     3. [Dinic - Dinic算法](NetworkFlow/Dinic/)
     4. [DistanceLabel - 距离标号算法](NetworkFlow/DistanceLabel/)
@@ -223,7 +223,7 @@ $$
 
 无向图$$G$$中存在某条边$$e_1$$，删去该边后图的连通分支数量加1，即该边将原图分成两个连通分支。假设删去一条割边后得到两个新的连通分支，则割边的两端点可以看作分别属于两个新连通分支，而非割边的两端点只属于同一个连通分支。
 
-#### 网络流（Network Flow）/最大网络流（Max Network Flow）
+#### 网络流（Network Flow）/最大流（Max Flow）
 
 一片区域中有很多个城市，彼此间用公路相连，每条公路有自己能够运输的最大重量。城市$$ A $$生产货物，城市$$ B $$消费货物，通过公路将城市$$ A $$产生的货物运送到城市$$ B $$消费，经过其他城市。
 
@@ -265,7 +265,7 @@ $$
 
 边的剩余容量定义了剩余网络（Residual Network）$$ G_f = <V, E_f>  $$，表示该网络的可用容量。
 
-最大网络流（Max Network Flow）是单源点、单汇点、边的容量为正整数的网络流中流量最大的流。
+最大流（Max Flow）是单源点、单汇点、边的容量为正整数的网络流中流量最大的流。
 
 --------
 

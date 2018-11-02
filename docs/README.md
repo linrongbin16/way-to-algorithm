@@ -66,7 +66,7 @@
         * [LeastCommonAncestor 最近公共祖先](GraphTheory/Connectivity/LeastCommonAncestor/)
         * [RangeExtremumQuery 区域最值查询](GraphTheory/Connectivity/RangeExtremumQuery/)
     * Section-5 NetworkFlow 第5节 网络流
-        * [EdmondsKarp EdmondsKarp算法](GraphTheory/NetworkFlow/EdmondsKarp/)
+        * [EdmondsKarp EdmondsKarp算法（最短路径增广算法）](GraphTheory/NetworkFlow/EdmondsKarp/)
         * [PushAndRelabel 压入与重标记](GraphTheory/NetworkFlow/PushAndRelabel/)
         * [Dinic Dinic算法](GraphTheory/NetworkFlow/Dinic/)
         * [DistanceLabel 距离标号算法](GraphTheory/NetworkFlow/DistanceLabel/)
