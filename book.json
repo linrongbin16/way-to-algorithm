@@ -12,6 +12,9 @@
         "autocover"
     ],
     "pluginsConfig": {
+        "search": {
+            "maxIndexSize": 100000
+        },
         "include-codeblock": {
             "template": "ace",
             "theme": "monokai"
