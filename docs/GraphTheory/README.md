@@ -5,27 +5,27 @@
 
 --------
 
-1. Traverse - 遍历
+1. [Traverse - 遍历](Traverse/)
     1. [DepthFirstSearch(DFS) - 深度优先搜索](Traverse/DepthFirstSearch/)
     2. [BreadthFirstSearch(BFS) - 广度优先搜索](Traverse/BreadthFirstSearch/)
     3. [TopologicalSort - 拓扑排序](Traverse/TopologicalSort/)
     4. [EulerCycle - 欧拉回路](Traverse/EulerCycle/)
-2. MinSpanningTree - 最小生成树
+2. [MinSpanningTree - 最小生成树](MinSpanningTree/)
     1. [Kruskal - Kruskal算法](MinSpanningTree/Kruskal/)
     2. [Prim - Prim算法](MinSpanningTree/Prim/)
-3. ShortestPath - 最短路径
+3. [ShortestPath - 最短路径](ShortestPath/)
     1. [BellmanFord - BellmanFord算法](ShortestPath/BellmanFord/)
     2. [Dijkstra - Dijkstra算法](ShortestPath/Dijkstra/)
     3. [FloydWarshall - FloydWarshall算法](ShortestPath/FloydWarshall/)
     4. [DifferentConstraints - 差分约束](ShortestPath/DifferentConstraints/)
-4. Connectivity - 连通
+4. [Connectivity - 连通](Connectivity/)
     1. [Kosaraju - Kosaraju算法](Connectivity/Kosaraju/)
     2. [Tarjan - Tarjan算法](Connectivity/Tarjan/)
     3. [2-SAT - 2-SAT问题](Connectivity/2-SAT/)
     4. [Cut - 割](Connectivity/Cut/)
     5. [DoubleConnectedComponent - 双联通分支](Connectivity/DoubleConnectedComponent/)
     6. [LeastCommonAncestor - 最近公共祖先](Connectivity/LeastCommonAncestor/)
-5. NetworkFlow - 网络流
+5. [NetworkFlow - 网络流](NetworkFlow/)
     1. [EdmondsKarp - EdmondsKarp算法（最大路径增广算法）](NetworkFlow/EdmondsKarp/)
     2. [PushAndRelabel - 压入与重标记](NetworkFlow/PushAndRelabel/)
     3. [Dinic - Dinic算法](NetworkFlow/Dinic/)
@@ -40,7 +40,7 @@
     12. [NoSourceNoSink_VolumeBounded_Flow - 无源点、无汇点、容量有上下界的流网络](NetworkFlow/NoSourceNoSink_VolumeBounded_Flow/)
     13. [VolumeBounded_Maxflow - 容量有上下界的最大流](NetworkFlow/VolumeBounded_Maxflow/)
     14. [VolumeBounded_Minflow - 容量有上下界的最小流](NetworkFlow/VolumeBounded_Minflow/)
-6. BinaryMatch - 二分匹配
+6. [BinaryMatch - 二分匹配](BinaryMatch/)
     1. [Hungarian - 匈牙利算法](BinaryMatch/Hungarian/)
     2. [HopcroftKarp - Hopcroft-Karp算法](BinaryMatch/HopcroftKarp/)
     3. [MatchToMaxflow - 二分匹配转化为最大流](BinaryMatch/MatchToMaxflow/)
@@ -50,229 +50,3 @@
     7. [MinDisjointPathCovering - 最小不相交路径覆盖](BinaryMatch/MinDisjointPathCovering/)
     8. [MinJointPathCovering - 最小可相交路径覆盖](BinaryMatch/MinJointPathCovering/)
     9. [Coloring - 染色问题](BinaryMatch/Coloring/)
-
---------
-
-#### 图（Graph）
-
-图$$ G = <V,E> $$是由顶点集合$$ V $$和边集合$$ E $$组成的数据结构。一个边连接两个顶点，若两顶点$$ u $$和$$ v $$为一条边的两个端点，则称$$ u $$和$$ v $$相邻。
-
-图$$ G $$的子图的所有顶点和边都属于图$$ G $$。
-
-完全图（Complete Graph）的所有顶点两两相邻。如下图所示：
-
-![TraverseKnowledgePoint1.png](Traverse/res/KnowledgePoint1.png)
-
-#### 有向图（Directed Graph）/无向图（Undirected Graph）
-
-无向边$$ e $$的两端点是$$ u $$和$$ v $$，表示既可以从$$ u $$到达$$ v $$，也可以从$$ v $$到达$$ u $$。有向边$$ e $$从$$ u $$指向$$ v $$，表示只能从$$ u $$到达$$ v $$，而不能反向。一条无向边也可以看作两条方向相反，端点相同的有向边的组合。
-
-所有边都是无向边的图为无向图（Undirected Graph），所有边都是有向边的图为有向图（Directed Graph）。
-
-#### 度数（Degree）/出度（Out Degree）/入度（In Degree）
-
-节点$$ u $$的出度（Out Degree）是从节点$$ u $$出发的边的数量，也称为出度度数，从节点$$ u $$出发的边称为出弧边。无向图的顶点$$ u $$的所有边都可以看作出弧边，即节点的边数等于出度。
-
-节点$$ u $$的入度（In Degree）是到达（指向）节点$$ u $$的边的数量，也称为入度度数，到达节点$$ u $$的边称为入弧边。无向图的顶点$$ u $$的所有边都可以看作入弧边，即节点的边数等于入度。无向图中每个节点的出度和入度相等。
-
-节点$$ u $$所关联的边数，称作该节点的度数（Degree）。无向图中节点$$ v_i $$的度数等于边的数量，等于出度度数，等于入度度数。有向图中任意节点$$ v_i $$的度数等于出度度数与入度度数之和。如下图所示：
-
-![TraverseKnowledgePoint2.png](Traverse/res/KnowledgePoint2.png)
-
-上面两个图，图$$ A $$为有向图，节点$$ [0,5] $$的出度分别为$$ [2, 2, 1, 1, 2, 1] $$，入度分别为$$ [1, 1, 2, 2, 0, 2] $$。图$$ B $$为无向图，节点$$ [0,5] $$的出度分别为$$ [3, 4, 3, 3, 2, 3] $$，入度与出度一样。
-
-一般用$$ n \times n $$的矩阵表示一个拥有$$ n $$个节点的图$$ G $$，节点范围为$$ [0,n-1] $$。$$ G[i,j] $$表示从节点$$ i $$到$$ j $$的距离（$$ i,j \in [0,n-1] $$），或节点$$ i $$是否可以直接到达节点$$ j $$，等等信息。注意节点$$ i $$到自己的距离为$$ 0 $$，不能到达自己。上图中$$ A $$和$$ B $$可以表示为矩阵：
-
-$$
-A =
-\begin{bmatrix}
-0 & 1 & 0 & 0 & 0 & 1 \\
-0 & 0 & 1 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 1 \\
-0 & 0 & 1 & 0 & 0 & 0 \\
-1 & 0 & 0 & 1 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 & 0
-\end{bmatrix}
-
-\quad
-
-B =
-\begin{bmatrix}
-0 & 1 & 0 & 0 & 1 & 1 \\
-1 & 0 & 1 & 1 & 0 & 1 \\
-0 & 1 & 0 & 1 & 0 & 1 \\
-0 & 1 & 1 & 0 & 1 & 0 \\
-1 & 0 & 0 & 1 & 0 & 0 \\
-1 & 1 & 1 & 0 & 0 & 0
-\end{bmatrix}
-$$
-
-#### 环（Cycle）
-
-若图$$ G $$中对于顶点$$ v_i $$，存在一条路径从它出发可以到达自己，则称该路径为一个环。不存在环的图称为无环图，存在环的图称为有环图。完全图都是有环图。
-
-#### 拓扑排序（Topological Sort）
-
-拓扑排序（Topological Sort）是有向无环图中所有顶点按照依赖进行的排序。
-
-设完成任务$$ j $$需要先完成任务$$ i $$，则任务$$ j $$依赖任务$$ i $$。用有向图表示这一组任务的完成过程这样存在依赖关系的$$ n $$个任务，即存在边$$ e_{i,j} $$从顶点$$ v_i $$指向$$ v_j $$，最终得到一个有向无环图。如下图所示：
-
-![TraverseKnowledgePoint3.png](Traverse/res/KnowledgePoint3.png)
-
-#### 路径（Path）/回路（Cycle）/欧拉路径（Eulerian Path）/欧拉回路（Eulerian Cycle）/汉密尔顿路径（Hamilton Path）/哈密尔顿回路（Hamilton Cycle）
-
-图$$ G $$的路径（Path）是一组边的有序集合，表示随着时间依次经过的边的顺序。回路（Cycle）是起点和终点相同的路径。
-
-欧拉路径（Eulerian Path）经过图$$ G $$中每条边一次且仅一次（同一个顶点可以经过多次），遍历所有边。
-
-判断欧拉路径：
-
-$$ (1) $$ 判断有向图是否存在欧拉路径：有向图$$ DG $$中存在一个起始顶点$$ v_0 $$满足出度比入度大1（$$ out_{1} = in_{1} + 1 $$），存在一个终止顶点$$ v_1 $$满足入度比出度大1（$$ in_{2} = out_{2} + 1 $$），其余所有顶点的入度等于出度，则该有向图$$ DG $$中存在欧拉路经；
-
-$$ (2) $$ 判断无向图是否存在欧拉路径：无向图$$ UG $$中存在两个顶点$$ v_0 $$和$$ v_1 $$满足度数为奇数，其余节点的度数都是偶数，则该无向图$$ UG $$中存在欧拉路经；
-
-欧拉回路（Eulerian Cycle）是既是欧拉路径又是回路的路径。
-
-判断欧拉回路：
-
-$$ (1) $$ 判断有向图是否存在欧拉回路：有向图$$ DG $$的任意顶点$$ v_i $$满足$$ in_{i} = out_{i} $$，出度等于入度，则该有向图$$ DG $$中存在欧拉回路；
-
-$$ (2) $$ 判断无向图是否存在欧拉回路：无向图$$ UG $$的任意顶点$$ v_i $$满足度数为偶数，则该无向图$$ DG $$中存在欧拉回路；
-
-拥有欧拉回路的图$$ G $$称为欧拉图（Eulerian Graph）。
-
-汉密尔顿路径（Hamilton Path）经过图$$ G $$中每个顶点一次且仅一次（同一条边可以经过多次），遍历所有顶点。求解汉密尔顿路径是一个NP完全问题。
-
-哈密尔顿回路（Hamilton Cycle）是既是哈密尔顿路径又是回路的路径。
-
-拥有汉密尔顿回路的图$$ G $$称为汉密尔顿图。完全图必然是汉密尔顿图。
-
-#### 最小生成树（Min Spanning Tree）
-
-图$$ G $$中所有边都拥有一个正整数权值。最小生成树是图$$ G $$中连接所有顶点，边的权值之和最小的非环路径。
-
-#### 最短路径（Shortest Path）/松弛操作（Relaxation）
-
-图$$ G $$中所有边都拥有一个正整数距离$$ dist $$，若从顶点$$ v_i $$可以到达$$ v_j $$，必然存在一条距离最短的路径，即最短路径。最短路径中不存在环。
-
-存在边的距离为0，或负值的图不存在最短路径。距离为0的边可以无限重复使用而不会增加两顶点之间的距离，距离为负值的边可以减小整个路径的距离，这些情况都会让最短路径中出现环。
-
-用$$ dist(i,j) $$表示顶点$$ v_i $$到达$$ v_j $$的最短距离（$$ dist(i,j) = + \infty $$表示$$ v_i $$到$$ v_j $$的距离为无限远，即不可达）。当存在顶点$$ k $$满足：
-
-$$
-dist(i,j) > dist(i,k) + dist(k,j)
-$$
-
-说明$$ v_i $$经由$$ v_k $$到达$$ v_j $$的距离比当前已知的最短路径距离更近，这时更新$$ v_i, v_j $$之间的距离：
-
-$$
-dist(i,j) = dist(i,k) + dist(k,j)
-$$
-
-下图演示了一个最简单的松弛操作：
-
-![ShortestPathKnowledgePoint1.png](ShortestPath/res/KnowledgePoint1.png)
-
-该更新过程即为松弛操作，松弛操作是最短路径算法的主要手段。
-
-#### 平凡图（Trivial Graph）/非平凡图（Nontrivial Graph）/连通（Connected）/连通图（Connected Graph）/连通分支（Connected Components）
-
-平凡图（Trivial Graph）是只有一个节点，没有边的图。非平凡图（Trivial Graph）是有至少两个节点，一条边的图。
-
-图$$ G $$中顶点$$ v_i $$和$$ v_j $$连通（Connected）表示存在从顶点$$ v_i $$到达顶点$$ v_j $$，且从顶点$$ v_j $$也可以到达顶点$$ v_i $$的路径。无向图中$$ v_i $$到达$$ v_j $$，和$$ v_j $$到达$$ v_i $$，互为充分必要条件。
-
-连通图（Connected Graph）是任意两顶点都连通的图。
-
-连通分量/连通分支（Connected Components）是图$$ G $$的子图，又是连通图，且加入图$$ G $$的任意其他节点都会不再连通。连通分支的概念常用于无向图。连通分支也称为极大连通子图（Maximal Strongly Connected Subgraph）。连通图的连通分支即为它自己，非连通图中存在多个连通分支。
-
-强连通分量/强连通分支（Strongly Connected Components）是有向图$$ G $$的子图，又是连通图，且加入图$$ G $$的任意其他节点都会不再连通。强连通分支的概念常用于有向图。
-
-双连通分量/双连通分支（Biconnected Components）。
-
-三连通分量/三连通分支（Triconnected Components）。
-
-图$$ G = <V, E> $$的逆图是将原图的所有边都反向得到的图$$ G' = <V', E'> $$。逆图的点集与原图相同$$ V' = V $$，边集$$ E' $$中任意边$$ e' = (v, u) $$都在原图边集$$ E $$中存在对应的边$$ e = (u, v) $$。逆图也称为图的转置。无向图的逆图永远都是它自己。
-
-#### 割（Cut）
-
-割$$ C = <S, T> $$将图$$ G = <V, E> $$划分为两个子图$$ S $$和$$ T $$，两个子图的顶点集合没有交集$$ S \bigcap T = \emptyset $$，对图中的任意边$$ e = (u, v) $$，顶点$$ u $$属于子图$$ S $$，顶点$$ v $$属于子图$$ T $$。
-
-图$$ G $$的所有的割组成割集$$ CS = { (u, v) \in E | u \in S, v \in T } $$，其中$$ S, T $$是互不相交的子图。
-
-#### 点割集
-
-图$$ G = <V, E> $$的点集$$ V $$中存在一个非空真子集$$ V_1 $$，满足$$ G $$中删去$$ V_1 $$后不再连通。但对于$$ V_1 $$的任意真子集$$ V_2 $$，$$ G $$中删去$$ V_2 $$后都仍然连通，称这样的点集$$ V_1 $$是$$ G $$的一个点割集。非平凡的无向连通图存在点割集的充要条件是该图中至少存在两个不相邻的相异节点。
-
-#### 边割集
-
-图$$ G = <V, E> $$的边集$$ E $$中有这样的非空真子集$$ E_1 $$，$$ G $$中删去$$ E_1 $$后不再连通。但对于$$E_1$$的任意真子集$$E_2$$，$$G$$中删去$$E_2$$后都仍然连通，称这样的边集$$E_1$$是$$G$$的一个边割集。任何非平凡的无向连通图一定具有边割集。
-
-#### 点连通度
-
-非平凡的无向连通图$$G$$的所有点割集$$V_{cut}$$中的节点数量最少的那个点割集$$V_1$$，其节点数量$$k$$即为图$$G$$的点连通度。即图$$G$$删除任意$$k-1$$个节点后都仍然能够连通，但存在一个方案（点割集）使删除$$k$$个节点后不连通。特别的，当$$k = 2$$时，即图$$G$$任意删除$$1$$个节点都仍然能够连通，但存在一个方案，删除$$2$$个节点后不再连通，称点连通度$$k = 2$$的连通分支(图)为点双连通分支。
-
-#### 边连通度
-
-非平凡的无向连通图$$G$$的所有边割集$$E_{cut}$$中的边数量最少的那个边割集$$E_1$$，其边数量$$k$$即为图$$G$$的边连通度，即图$$G$$删去任意$$k-1$$条边后都仍然能够连通，但存在一个方案(边割集)使删除k条边后不再连通。特别的，当k = 2时，即该图任意删除1条边都仍然连通，但存在一个方案使删除2条边后不再连通，称边连通度k = 2的连通分支(图)为边双连通分支。
-
-#### 割点
-
-无向图$$G$$中存在某个点$$v_1$$，删去该点后图的连通分支数量加1，即该点将原图分成两个连通分支，则称点$$v_1$$为无向图$$G$$的割点。假设删去一个割点后得到两个新的连通分支，则割点可以看作同时属于两个新连通分支，而非割点总是只属于一个连通分支。
-
-#### 割边（桥）
-
-无向图$$G$$中存在某条边$$e_1$$，删去该边后图的连通分支数量加1，即该边将原图分成两个连通分支。假设删去一条割边后得到两个新的连通分支，则割边的两端点可以看作分别属于两个新连通分支，而非割边的两端点只属于同一个连通分支。
-
-#### 网络流（Network Flow）/最大流（Max Flow）
-
-一片区域中有很多个城市，彼此间用公路相连，每条公路有自己能够运输的最大重量。城市$$ A $$生产货物，城市$$ B $$消费货物，通过公路将城市$$ A $$产生的货物运送到城市$$ B $$消费，经过其他城市。
-
-![NetworkFlowKnowledgePoint1.png](NetworkFlow/res/KnowledgePoint1.png)
-
-上图是一个有向图$$ DG = <V,E> $$，假设城市$$ A $$每天产生的货物数量无穷多，城市$$ B $$每天能够消费的货物数量无穷多，每条边的数字表示该公路每天最多运送的货物数量，红色弧边的数字表示当整个运输网络充满时一条公路实际每天运送的货物数量。所有的红色弧边组成一组解，表示城市$$ A, B $$之间每天最多能够运输的货物。显然这样的解可以有多个。
-
-网络流（Network Flow）是指在一个每条边都有容量（Capacity）的有向图分配流，使一条边的流量不会超过它的容量。运筹学中通常将有向图称为网络，顶点称为节点（Node）而边称为弧（Arc）。一道流必须匹配一个结点的进出的流量相同的限制，除非这是一个源点（Source）──有较多向外的流，或是一个汇点（Sink）──有较多向内的流。一个网络可以用来模拟道路系统的交通量、管中的液体、电路中的电流或类似一些东西在一个结点的网络中游动的任何事物。上面两个城市之间运输货物的例子就是典型的网络流问题，每个城市是一个节点，城市$$ A $$是源点$$ Source $$，城市$$ B $$是汇点$$ Sink $$，公路是弧。
-
-有向图$$ DG = <V,E> $$的边$$ e_{u,v} \in E $$都有一个容量$$ c_{u,v} $$（若$$ e_{u,v} \notin E $$则认为$$ c_{u,v} = 0 $$），设源点为$$ s $$汇点为$$ t $$。一道网络流是对于有向图$$ DG $$中所有节点$$ u, v $$都有以下特性的实数函数：
-
-$$
-f : V \times V \rightarrow R
-$$
-
-满足：
-
-$$ (1) $$ 容量限制（Capacity Constraints）：$$ f(u,v) \leq c(u,v) $$，表示一条边的流不能超过其容量；
-
-$$ (2) $$ 反对称（Skew Symmetry）：$$ f(u,v) = -f(v,u) $$，表示由$$ u $$到$$ v $$的净流必须是由$$ v $$到$$ u $$的净流的相反；
-
-$$ (3) $$ 流守恒（Flow Conservation）：除非$$ u = s $$或$$ u = t $$，否则$$ \sum_{w \in V} f(u, w) = 0 $$，表示节点$$ u $$的净流是$$ 0 $$，除了$$ Source $$和$$ Sink $$；
-
-$$ (4) $$ 网络流中除了源点汇点外的任意节点，都满足流守恒：
-
-$$
-\sum_{(u,v) \in E} f(u,v) = \sum_{(v,z) \in E} f(v,z)
-$$
-
-表示对于除源点汇点外任意节点$$ u, v, z \in V \backslash {s, t} $$，所有流向节点$$ v $$的流等于从节点$$ v $$流出的流；
-
-$$ (5) $$ 若由$$ u $$到$$ v $$有$$ 4 $$单位的流，而由$$ v $$到$$ u $$有$$ 3 $$单位的流，那么实际$$ f(u,v) = 1, f(v,u) = -1 $$；
-
-$$ (6) $$ 边的剩余容量（Residual Capacity）是
-
-$$
-c_f (u,v) = c(u,v) - f(u,v)
-$$
-
-边的剩余容量定义了剩余网络（Residual Network）$$ G_f = <V, E_f>  $$，表示该网络的可用容量。
-
-最大流（Max Flow）是单源点、单汇点、边的容量为正整数的网络流中流量最大的流。
-
---------
-
-#### Introduction To Algorithms
-
-* [VI.Graph Algorithms](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
-
-#### 图论术语
-
-* https://en.wikipedia.org/wiki/Glossary_of_graph_theory_terms
