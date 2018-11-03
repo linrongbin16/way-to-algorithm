@@ -3,6 +3,13 @@
 
 --------
 
+1. [DepthFirstSearch(DFS) - 深度优先搜索](DepthFirstSearch/)
+2. [BreadthFirstSearch(BFS) - 广度优先搜索](BreadthFirstSearch/)
+3. [TopologicalSort - 拓扑排序](TopologicalSort/)
+4. [EulerCycle - 欧拉回路](EulerCycle/)
+
+--------
+
 #### 图（Graph）
 
 图$$ G = <V,E> $$是由顶点集合$$ V $$和边集合$$ E $$组成的数据结构。一个边连接两个顶点，若两顶点$$ u $$和$$ v $$为一条边的两个端点，则称$$ u $$和$$ v $$相邻。

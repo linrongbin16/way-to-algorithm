@@ -3,6 +3,13 @@
 
 --------
 
+1. [DepthFirstSearch(DFS) - 深度优先搜索](DepthFirstSearch/)
+2. [BreadthFirstSearch(BFS) - 广度优先搜索](BreadthFirstSearch/)
+3. [TopologicalSort - 拓扑排序](TopologicalSort/)
+4. [EulerCycle - 欧拉回路](EulerCycle/)
+
+--------
+
 #### 最短路径（Shortest Path）/松弛操作（Relaxation）
 
 图$$ G $$中所有边都拥有一个正整数距离$$ dist $$，若从顶点$$ v_i $$可以到达$$ v_j $$，必然存在一条距离最短的路径，即最短路径。最短路径中不存在环。

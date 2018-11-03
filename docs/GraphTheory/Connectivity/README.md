@@ -3,6 +3,15 @@
 
 --------
 
+1. [Kosaraju - Kosaraju算法](Kosaraju/)
+2. [Tarjan - Tarjan算法](Tarjan/)
+3. [2-SAT - 2-SAT问题](2-SAT/)
+4. [Cut - 割](Cut/)
+5. [DoubleConnectedComponent - 双联通分支](DoubleConnectedComponent/)
+6. [LeastCommonAncestor - 最近公共祖先](LeastCommonAncestor/)
+
+--------
+
 #### 平凡图（Trivial Graph）/非平凡图（Nontrivial Graph）/连通（Connected）/连通图（Connected Graph）/连通分支（Connected Components）
 
 平凡图（Trivial Graph）是只有一个节点，没有边的图。非平凡图（Trivial Graph）是有至少两个节点，一条边的图。
