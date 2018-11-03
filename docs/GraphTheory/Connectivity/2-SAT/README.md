@@ -8,9 +8,7 @@
 
 #### 解法
 
-
 --------
-
 
 #### Introduction To Algorithms
 
