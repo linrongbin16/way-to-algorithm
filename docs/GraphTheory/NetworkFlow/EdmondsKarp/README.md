@@ -62,7 +62,7 @@ $$ (3) $$ 重复第$$ (2) $$步，每次找到一条增广路径，路径中剩�
 
 ![EdmondsKarp4.png](../res/EdmondsKarp4.png)
 
-该算法时间复杂度为$$ O(\| V \| \cdot \| E \|^2) $$。
+该算法时间复杂度为$$ O(\mid V \mid \cdot \mid E \mid^2) $$。
 
 --------
 
