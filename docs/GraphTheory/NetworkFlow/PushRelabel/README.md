@@ -6,23 +6,31 @@
 
 #### 问题
 
-用压入与重标记算法求网络流$$ G $$的最大流，$$ G = <V,E> $$是单源点、单汇点，边的容量为正整数。
+用压入与重标记算法求网络流$$ G = <V,E> $$的最大流，$$ G $$是单源点、单汇点的，边的容量为正整数。
 
-#### 压入操作/Push
+#### 压入操作
 
-设网络中每个节点都有一个水位高度$$ height $$，若相邻两节点的边$$ e_{i,j} $$的剩余容量为$$ c(i,j) \gt 0 $$，且两节点的水位高度满足$$ height_{i} \gt height_{j} $$，水位高度差为$$ height_{i} - height_{j} \geq c(i,j) $$。（水从高处流向低处）节点$$ v_i $$流出的流为$$ c(i,j) $$，流到节点$$ v_j $$中。
+设网络中每个节点都有一个水位高度$$ height $$，设节点$$ v_i $$的邻节点为$$ [v_{1}, v_{2}, \dots, v_{n}] $$，与这些邻节点的边为$$ e_{i,j} $$（其中$$ 1 \leq j \leq n $$），剩余容量为$$ c(i,j) $$。
 
-实际中节点$$ v_i, v_j $$和边$$ e_{i,j} $$的水位高度和剩余容量的更新情况为：
+压入操作必须满足条件：邻节点$$ v_i, v_j $$的水位满足$$ height_{i} \gt height_{j} $$且剩余容量满足$$ c(i,j) \gt 0 $$。否则认为$$ v_i $$无法流向$$ v_j $$，即节点$$ v_i $$对邻节点$$ v_j $$没有溢出流。满足条件的两相邻节点，可以由$$ v_i $$流出到$$ v_j $$的流是两节点的水位差与边的剩余容量的最小值：
+
+$$
+flow = min(height_{i} - height_{j}, c(i,j))
+$$
+
+在$$ v_i $$的所有邻节点中选择最大的可压出流$$ flow_{i,j} $$，从节点$$ v_i $$流向节点$$ v_j $$，就像高处的水流向最低洼的位置一样。
+
+节点$$ v_i, v_j $$和边$$ e_{i,j} $$的水位高度和剩余容量更新为：
 
 $$
 \begin{cases}
-height_i = height_i - flow        \\
-height_j = height_j + flow        \\
-c(i,j) = c(i,j) - flow
+height_{i} = height_{i} - flow_{i,j}        \\
+height_{j} = height_{j} + flow_{i,j}        \\
+c(i,j) = c(i,j) - flow_{i,j}
 \end{cases}
 $$
 
-其中$$ height_i \gt height_j $$且$$ flow = min(height_i - height_j, c(i,j)) $$，取水位差与剩余容量的最小值。
+其中$$ flow = min(height_i - height_j, c(i,j)) $$。
 
 将源点$$ Source $$的水位看作无穷大$$ + \infty $$，汇点$$ Sink $$的水位看作$$ 0 $$。
 
