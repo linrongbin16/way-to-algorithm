@@ -56,7 +56,7 @@ $$
 将汇点视作出流无穷大的节点，即
 
 $$
-outflow_{Sink} = + \infty
+outflow_{Sink} = - \infty
 $$
 
 从而有
@@ -85,7 +85,40 @@ $$
 
 #### 算法
 
-初始时设网络的源点$$ Source $$的水位为$$ height_{source} = \mid V \mid $$，汇点$$ Sink $$的水位为$$ height_{sink} = 0 $$，其他节点的水位为$$ height_{i} = 0 $$。进行预压入操作（无视水位）：
+初始时设网络中任意两点间的流为$$ 0 $$，即$$ f(i,j) = f(j,i) = 0 $$（其中$$ v_i ,v_j $$为相邻节点），可知任意节点$$ v_i $$的流入流出差为：
+
+$$
+x(i) = 
+\begin{cases}
++ \infty    &   v_i = Source    \\
+- \infty    &   v_i  = Sink     \\
+0           &   v_i \in V \backslash {Source, Sink}
+\end{cases}
+$$
+
+对源点$$ Source $$进行预压入操作（无视水位），可以得到其所有邻节点的流和流入流出差为：
+
+$$
+x(i) = f(Source, i) = c(Source, i)
+$$
+
+其中$$ v_i $$是所有与源点$$ Source $$相邻，且边$$ e_{Source, i} $$满足容量$$ c(Source, i) \gt 0 $$的邻节点。
+
+然后设置网络中节点的水位：
+
+$$
+height_{i} = 
+\begin{cases}
+\mid V \mid     &   v_i = Source    \\
+0               &   v_i \in V \backslash {Source}
+\end{cases}
+$$
+
+遍历网络找到满足压入操作、重标记操作的相邻节点和边，并进行对应操作。重复这两种操作直到无法继续，算法结束。网络的最大流即为汇点$$ Sink $$的邻节点的出流之和：
+
+$$
+flow = \sum_{u \in V} f(u, Sink)
+$$
 
 该算法的时间复杂度为$$ O(\mid V \mid ^2 \cdot \mid E \mid ) $$。
 
@@ -93,7 +126,7 @@ $$
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms - 26.Maximum Flow - 26.2.The-Ford-Fulkerson method](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms - 26.Maximum Flow - 26.4.Push-relabel algorithms](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
 
 --------
 
