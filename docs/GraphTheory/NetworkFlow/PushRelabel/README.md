@@ -47,6 +47,7 @@ $$
 \begin{matrix}
 inflow_{s} = + \infty   \\
 x(s) = + \infty
+\end{matrix}
 $$
 
 将汇点视作出流无穷大的节点，即有
