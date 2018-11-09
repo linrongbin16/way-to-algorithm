@@ -1,9 +1,9 @@
-#include "MaxContinuousSubsequenceSum.h"
+#include "MaximumContinuousSubsequenceSum.h"
 #include "../Util.h"
 #include <algorithm>
 #include <vector>
 
-int MaxContinuousSubsequenceSum(const int *s, int n) {
+int MaximumContinuousSubsequenceSum(const int *s, int n) {
   int *f = ArrayNew(n + 1);
 
   for (int i = 0; i <= n; i++) {

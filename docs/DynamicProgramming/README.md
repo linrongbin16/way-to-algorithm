@@ -7,20 +7,20 @@
     1. [LongestCommonSubsequence 最长公共子序列](LinearDP/LongestCommonSubsequence/)
     2. [LongestIncreasingSubsequence 最长递增子序列](LinearDP/LongestIncreasingSubsequence/)
     3. [BidirectionalSubsequence 双向子序列](LinearDP/BidirectionalSubsequence/)
-    4. [MaxContinuousSubsequenceSum 最大连续子序列和](LinearDP/MaxContinuousSubsequenceSum/)
+    4. [MaximumContinuousSubsequenceSum 最大连续子序列和](LinearDP/MaximumContinuousSubsequenceSum/)
     5. [LongestPalindromicSubsequence 最长回文子序列](LinearDP/LongestPalindromicSubsequence/)
 2. BagDP 背包问题
     1. [01-Bag 01背包](BagDP/01-Bag/)
     2. [CompleteBag 完全背包](BagDP/CompleteBag/)
     3. [TwoDimensionBag 二维背包](BagDP/TwoDimensionBag/)
 3. RegionalDP 区域动态规划
-    1. [MinMergeCost 最小合并代价](RegionalDP/MinMergeCost/)
+    1. [MinimumMergeCost 最小合并代价](RegionalDP/MinimumMergeCost/)
     2. [UniquePath 唯一路径](RegionalDP/UniquePath/)
     3. [TrianglePath 三角形路径](RegionalDP/TrianglePath/)
 4. TreeDP 树形动态规划
-    1. [MaxBinaryTree 最大二叉树](TreeDP/MaxBinaryTree/)
-    2. [MaxMultipleTree 最大多叉树](TreeDP/MaxMultipleTree/)
-    5. [MaxBinaryTreeRadiusSum 最大二叉树和](TreeDP/MaxBinaryTreeRadiusSum/)
+    1. [MaximumBinaryTree 最大二叉树](TreeDP/MaximumBinaryTree/)
+    2. [MaximumMultipleTree 最大多叉树](TreeDP/MaximumMultipleTree/)
+    5. [MaximumBinaryTreeRadiusSum 最大二叉树和](TreeDP/MaximumBinaryTreeRadiusSum/)
 
 --------
 

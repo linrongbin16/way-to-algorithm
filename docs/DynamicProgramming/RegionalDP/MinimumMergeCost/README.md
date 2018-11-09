@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Min Merge Cost - 最小合并代价
+# Minimum Merge Cost - 最小合并代价
 
 --------
 
@@ -43,10 +43,10 @@ $$ f(1,n) $$即为序列$$ s $$的最小合并代价。该算法的时间复杂�
 
 #### 源码
 
-[MinMergeCost.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinMergeCost.h)
+[MinimumMergeCost.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCost.h)
 
-[MinMergeCost.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinMergeCost.cpp)
+[MinimumMergeCost.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCost.cpp)
 
 #### 测试
 
-[MinMergeCostTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinMergeCostTest.cpp)
+[MinimumMergeCostTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/RegionalDP/MinimumMergeCostTest.cpp)

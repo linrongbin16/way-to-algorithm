@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Max Binary Tree Radius Sum - 最大二叉树半径和
+# Maximum Binary Tree Radius Sum - 最大二叉树半径和
 
 --------
 
@@ -83,10 +83,10 @@ $$ (2) $$ 节点$$ i $$在半径$$ j $$上的半径和，显然等于它的父�
 
 #### 源码
 
-[MaxBinaryTreeRadiusSum.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTreeRadiusSum.h)
+[MaximumBinaryTreeRadiusSum.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumBinaryTreeRadiusSum.h)
 
-[MaxBinaryTreeRadiusSum.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTreeRadiusSum.cpp)
+[MaximumBinaryTreeRadiusSum.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumBinaryTreeRadiusSum.cpp)
 
 #### 测试
 
-[MaxBinaryTreeRadiusSumTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTreeRadiusSumTest.cpp)
+[MaximumBinaryTreeRadiusSumTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumBinaryTreeRadiusSumTest.cpp)

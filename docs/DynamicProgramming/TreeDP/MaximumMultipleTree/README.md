@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Max Multiple Tree - 最大多叉树
+# Maximum Multiple Tree - 最大多叉树
 
 --------
 
@@ -38,10 +38,10 @@ $$ f(n,m) $$为该多叉树的最大权值。该算法的时间复杂度是$$ O(
 
 #### 源码
 
-[MaxMultipleTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxMultipleTree.h)
+[MaximumMultipleTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumMultipleTree.h)
 
-[MaxMultipleTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxMultipleTree.cpp)
+[MaximumMultipleTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumMultipleTree.cpp)
 
 #### 测试
 
-[MaxMultipleTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxMultipleTreeTest.cpp)
+[MaximumMultipleTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumMultipleTreeTest.cpp)

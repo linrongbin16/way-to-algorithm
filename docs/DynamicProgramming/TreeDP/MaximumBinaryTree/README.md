@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Max Binary Tree - 最大二叉树
+# Maximum Binary Tree - 最大二叉树
 
 --------
 
@@ -42,10 +42,10 @@ $$ f(n,m) $$即为该二叉树留下$$ m $$个节点时的最大权值。该算�
 
 #### 源码
 
-[MaxBinaryTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTree.h)
+[MaximumBinaryTree.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumBinaryTree.h)
 
-[MaxBinaryTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTree.cpp)
+[MaximumBinaryTree.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumBinaryTree.cpp)
 
 #### 测试
 
-[MaxBinaryTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaxBinaryTreeTest.cpp)
+[MaximumBinaryTreeTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/TreeDP/MaximumBinaryTreeTest.cpp)

@@ -1,9 +1,9 @@
-#include "MaxMultipleTree.h"
+#include "MaximumMultipleTree.h"
 #include "../Util.h"
 #include <cassert>
 #include <cstring>
 
-MtNode *MaxMultipleTreeNew(int *value, int *father, int n) {
+MtNode *MaximumMultipleTreeNew(int *value, int *father, int n) {
   MtNode *t = new MtNode[n + 1];
   std::memset(t, 0, sizeof(MtNode) * (n + 1));
   for (int i = 1; i <= n; i++) {
@@ -17,13 +17,13 @@ MtNode *MaxMultipleTreeNew(int *value, int *father, int n) {
   return &t[1];
 }
 
-void MaxMultipleTreeFree(MtNode *t) {
+void MaximumMultipleTreeFree(MtNode *t) {
   assert(t);
   MtNode *tb = (MtNode *)((char *)t - sizeof(MtNode));
   delete[] tb;
 }
 
-static int MaxMultipleTreeRec(MtNode *t, int **f, int n, int m, int j);
+static int MaximumMultipleTreeRec(MtNode *t, int **f, int n, int m, int j);
 static void Recursion(MtNode *t, int **f, int n, int m, int j, int p,
                       int *assign_cnt);
 
@@ -35,7 +35,7 @@ static void Recursion(MtNode *t, int **f, int n, int m, int j, int p,
   if (p == t->child_cnt + 1) {
     int sum_f = 0;
     for (int k = 1; k <= t->child_cnt; k++) {
-      sum_f += MaxMultipleTreeRec(t->child[k], f, n, m, assign_cnt[k]);
+      sum_f += MaximumMultipleTreeRec(t->child[k], f, n, m, assign_cnt[k]);
     }
     f[t->index][j] = sum_f;
     return;
@@ -54,7 +54,7 @@ static void Recursion(MtNode *t, int **f, int n, int m, int j, int p,
   }
 }
 
-static int MaxMultipleTreeRec(MtNode *t, int **f, int n, int m, int j) {
+static int MaximumMultipleTreeRec(MtNode *t, int **f, int n, int m, int j) {
   assert(t);
   assert(f);
   if (t == NULL) {
@@ -86,9 +86,9 @@ static int MaxMultipleTreeRec(MtNode *t, int **f, int n, int m, int j) {
   return f[t->index][j];
 }
 
-int MaxMultipleTree(MtNode *t, int n, int m) {
+int MaximumMultipleTree(MtNode *t, int n, int m) {
   int **f = Array2DNew(n + 1, m + 1);
-  int result = MaxMultipleTreeRec(t, f, n, m, 1);
+  int result = MaximumMultipleTreeRec(t, f, n, m, 1);
   Array2DFree(f, n + 1);
   return result;
 }

@@ -1,10 +1,11 @@
-#include "MaxBinaryTreeRadiusSum.h"
+#include "MaximumBinaryTreeRadiusSum.h"
 #include "../Util.h"
 #include <algorithm>
 #include <cassert>
 #include <cstring>
 
-BrsNode *MaxBinaryTreeRadiusSumNew(int *value, int *left, int *right, int n) {
+BrsNode *MaximumBinaryTreeRadiusSumNew(int *value, int *left, int *right,
+                                       int n) {
   BrsNode *t = new BrsNode[n + 1];
   std::memset(t, 0, sizeof(BrsNode) * (n + 1));
   for (int i = 1; i <= n; i++) {
@@ -17,7 +18,7 @@ BrsNode *MaxBinaryTreeRadiusSumNew(int *value, int *left, int *right, int n) {
   }
 }
 
-void MaxBinaryTreeRadiusSumFree(BrsNode *t) {
+void MaximumBinaryTreeRadiusSumFree(BrsNode *t) {
   assert(t);
   BrsNode *tb = (BrsNode *)((char *)t - sizeof(BrsNode));
   delete[] tb;
@@ -49,7 +50,7 @@ static void Sum(BrsNode *e, int **h, int j, int n) {
   }
 }
 
-int MaxBinaryTreeRadiusSum(BrsNode *t, int radius, int n) {
+int MaximumBinaryTreeRadiusSum(BrsNode *t, int radius, int n) {
   int **f = Array2DNew(n + 1, MAX);
   int **g = Array2DNew(n + 1, MAX);
   int **h = Array2DNew(n + 1, MAX);

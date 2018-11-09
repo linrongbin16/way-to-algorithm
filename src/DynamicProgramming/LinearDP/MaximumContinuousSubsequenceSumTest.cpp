@@ -1,4 +1,4 @@
-#include "MaxContinuousSubsequenceSum.h"
+#include "MaximumContinuousSubsequenceSum.h"
 #include <cassert>
 #include <iostream>
 using namespace std;
@@ -36,7 +36,7 @@ struct Test {
 int main(void) {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test &t = test_cases[i];
-    int r = MaxContinuousSubsequenceSum(t.s, t.n);
+    int r = MaximumContinuousSubsequenceSum(t.s, t.n);
     assert(r == t.result);
   }
 

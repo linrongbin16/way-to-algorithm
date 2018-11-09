@@ -1,4 +1,4 @@
-#include "MaxMultipleTree.h"
+#include "MaximumMultipleTree.h"
 #include <cassert>
 #include <iostream>
 using namespace std;

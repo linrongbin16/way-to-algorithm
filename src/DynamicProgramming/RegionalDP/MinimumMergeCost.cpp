@@ -1,4 +1,4 @@
-#include "MinMergeCost.h"
+#include "MinimumMergeCost.h"
 #include "../Util.h"
 #include <algorithm>
 #include <climits>
@@ -14,7 +14,7 @@ static int Add(int a = 0, int b = 0, int c = 0) {
   return a + b + c;
 }
 
-int MinMergeCost(int *s, int n) {
+int MinimumMergeCost(int *s, int n) {
   int **f = Array2DNew(n + 1, n + 1);
   int **sum = Array2DNew(n + 1, n + 1);
 

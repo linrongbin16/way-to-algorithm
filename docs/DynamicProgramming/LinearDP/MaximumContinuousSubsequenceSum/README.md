@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Max Continuous Subsequence Sum - 最大连续子序列和
+# Maximum Continuous Subsequence Sum - 最大连续子序列和
 
 --------
 
@@ -35,11 +35,11 @@ $$ f(n) $$即为序列$$ s $$的最大连续子序列和。该算法的时间复
 
 #### 源码
 
-[MaxContinuousSubsequenceSum.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/MaxContinuousSubsequenceSum.h)
+[MaximumContinuousSubsequenceSum.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/MaximumContinuousSubsequenceSum.h)
 
-[MaxContinuousSubsequenceSum.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/MaxContinuousSubsequenceSum.cpp)
+[MaximumContinuousSubsequenceSum.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/MaximumContinuousSubsequenceSum.cpp)
 
 #### 测试
 
-[MaxContinuousSubsequenceSumTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/MaxContinuousSubsequenceSumTest.cpp)
+[MaximumContinuousSubsequenceSumTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/LinearDP/MaximumContinuousSubsequenceSumTest.cpp)
 

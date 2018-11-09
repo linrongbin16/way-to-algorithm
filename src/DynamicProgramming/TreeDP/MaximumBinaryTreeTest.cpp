@@ -1,4 +1,4 @@
-#include "MaxBinaryTree.h"
+#include "MaximumBinaryTree.h"
 #include <cassert>
 #include <cstring>
 #include <iostream>
@@ -33,9 +33,9 @@ struct Test {
 int main(void) {
   for (int i = 0; i < sizeof(testcases) / sizeof(Test); i++) {
     Test &t = testcases[i];
-    BiNode *tree = MaxBinaryTreeNew(t.value, t.left, t.right, t.n);
-    int r = MaxBinaryTree(tree, t.n, t.m);
-    MaxBinaryTreeFree(tree);
+    BiNode *tree = MaximumBinaryTreeNew(t.value, t.left, t.right, t.n);
+    int r = MaximumBinaryTree(tree, t.n, t.m);
+    MaximumBinaryTreeFree(tree);
     assert(r == t.result);
   }
   return 0;

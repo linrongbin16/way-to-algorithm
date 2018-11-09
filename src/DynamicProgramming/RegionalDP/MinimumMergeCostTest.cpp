@@ -1,4 +1,4 @@
-#include "MinMergeCost.h"
+#include "MinimumMergeCost.h"
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -64,7 +64,7 @@ struct Test {
 int main(void) {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test &t = test_cases[i];
-    int r = MinMergeCost(t.s, t.n);
+    int r = MinimumMergeCost(t.s, t.n);
     assert(r == t.result);
   }
 
