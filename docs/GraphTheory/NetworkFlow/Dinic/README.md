@@ -10,7 +10,11 @@
 
 #### 解法
 
-水位图（Level Graph）/距离标号（Distance Label）：从网络的源点（$$ s $$）出发进行BFS搜索，每个节点的搜索距离（BFS搜索经过的节点数量）即为该节点的水位（$$  $$）/距离（$$ dist $$），其中源点的水位/距离为$$ dist(s) = 0 $$，BFS搜索中相邻节点的距离之差为$$ 1 $$。
+Dinic算法也属于Ford–Fulkerson方法的一种实现，与Edmonds-Karp算法的区别在于增广路径的搜索方式不同。Dinic算法结合了BFS和DFS两种搜索来寻找增广路径，设计出水位图（Level Graph）/距离标号（Distance Label）来管理。
+
+水位图（Level Graph）/距离图（Distance Graph）：从网络的源点（$$ s $$）出发进行BFS搜索，源点的水位/距离为$$ dist = 0 $$，每个节点根据BFS搜索到的邻节点的水位/距离在该节点的基础上加$$ 1 $$且都相等，即$$ dist(j) = dist(i) + 1 $$（设节点$$ v_j $$是节点$$ v_i $$的BFS搜索的邻节点）。下图演示一个网络的距离图，每个节点上前一个数字为该节点的距离，后一个数字为该节点的下标：
+
+![Dinic1.png](../res/Dinic1.png)
 
 阻塞流（Blocking Flow）：从源点$$ s $$到汇点$$ t $$，上面所有的相邻节点$$ v_i, v_j $$的边$$ e_{i,j} $$可以容纳额外的流$$ c(i,j) \gt f(i,j) $$，且水位差满足$$ dist(i) + 1 = dist(j) $$的。
 
@@ -37,6 +41,12 @@ $$
 $$
 flow += min\{ c(i,j) - f(i,j) \}
 $$
+
+--------
+
+#### Dinic Algorithm
+
+* http://101.96.10.64/www.cse.unt.edu/~tarau/teaching/AnAlgo/Dinic's%20algorithm.pdf
 
 --------
 
