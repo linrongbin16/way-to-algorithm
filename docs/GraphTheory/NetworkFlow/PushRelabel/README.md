@@ -32,10 +32,10 @@ $$ (2) $$ 相邻节点$$ v_i, v_j $$的边的剩余容量满足$$ c_f(i,j) \gt 0
 
 $$
 \begin{cases}
-f(i,j) += \Delta        \\
-f(j,i) -= \Delta        \\
-x(i) += \Delta          \\
-x(j) -= \Delta
+f(i,j) = f(i,j) + \Delta        \\
+f(j,i) = f(j,i) - \Delta        \\
+x(i) = x(i) + \Delta          \\
+x(j) = x(j) - \Delta
 \end{cases}
 $$
 

@@ -40,12 +40,12 @@ $$ (1) $$ 用Bellman-Ford算法尝试求出以边的费用为距离的有向图�
 
 $$
 \begin{matrix}
-flow_{max} += \Delta                                \\
-a_{min} += \sum_{i,j \in p} \Delta \cdot a(i,j)     \\
-f(i,j) += \Delta                                    \\
-f(j,i) -= \Delta                                    \\
-c_f(i,j) -= \Delta                                  \\
-c_f(j,i) += \Delta
+flow_{max} = flow_{max} + \Delta                                \\
+a_{min} = a_{min} + \sum_{i,j \in p} \Delta \cdot a(i,j)     \\
+f(i,j) = f(i,j) + \Delta                                    \\
+f(j,i) = f(j,i) - \Delta                                    \\
+c_f(i,j) = c_f(i,j) - \Delta                                  \\
+c_f(j,i) = c_f(j,i) + \Delta
 \end{matrix}
 $$
 

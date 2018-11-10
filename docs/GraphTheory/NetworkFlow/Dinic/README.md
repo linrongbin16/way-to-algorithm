@@ -28,11 +28,11 @@ $$ (3) $$ 在水位图中寻找一个阻塞流作为增广路径，更新该路�
 
 $$
 \begin{matrix}
-flow_{max} += \Delta    \\
-f(i,j) += \Delta        \\
-f(j,i) -= \Delta        \\
-c_f(i,j) -= \Delta      \\
-c_f(j,i) += \Delta
+flow_{max} = flow_{max} + \Delta    \\
+f(i,j) = f(i,j) + \Delta        \\
+f(j,i) = f(j,i) - \Delta        \\
+c_f(i,j) = c_f(i,j) - \Delta      \\
+c_f(j,i) = c_f(j,i) + \Delta
 \end{matrix}
 $$
 
