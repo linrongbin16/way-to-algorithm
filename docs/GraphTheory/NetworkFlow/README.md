@@ -6,12 +6,8 @@
 1. [EdmondsKarp - EdmondsKarp算法（最大路径增广算法）](EdmondsKarp/)
 2. [PushRelabel - 压入与重标记算法](PushRelabel/)
 3. [Dinic - Dinic算法](Dinic/)
-4. [MinCostFlow - 最小费用流](MinCostFlow/)
+4. [MinimumCostFlow - 最小费用流](MinimumCostFlow/)
 5. [MultipleSourceMultipleSinkMaxflow - 多源点多汇点最大流](MultipleSourceMultipleSinkMaxflow/)
-6. [Connectivity - 连通度](Connectivity/)
-7. [NoSourceNoSink_VolumeBounded_Flow - 无源点、无汇点、容量有上下界的流网络](NoSourceNoSink_VolumeBounded_Flow/)
-8. [VolumeBounded_Maxflow - 容量有上下界的最大流](VolumeBounded_Maxflow/)
-9. [VolumeBounded_Minflow - 容量有上下界的最小流](VolumeBounded_Minflow/)
 
 --------
 
@@ -57,9 +53,9 @@ $$
 
 边的剩余容量定义了剩余网络（Residual Network）$$ G_f = <V, E_f>  $$，表示该网络的可用容量。
 
-网络中的增广路径是剩余网络中的一条路径$$ (u_1, u_2, \dots, u_n) $$，其中$$ u_1 $$是源点$$ s $$，$$ u_n $$是汇点$$ t $$，且其中每条边的剩余容量都满足$$ c_{u_{i}, u_{i+1}} \gt 0 $$（其中$$ 1 \leq i \lt i+1 \leq n $$）。
+网络中的增广路径是剩余网络中的一条路径$$ (u_1, u_2, \dots, u_n) $$，其中$$ u_1 $$是源点$$ s $$，$$ u_n $$是汇点$$ t $$，且其中每条边的剩余容量都满足$$ c_f{u_{i}, u_{i+1}} \gt 0 $$（其中$$ 1 \leq i \lt i+1 \leq n $$）。
 
-最大流（Max Flow）是单源点、单汇点、边的容量为正整数的网络中，其剩余网络无法找出更多增广路径的流。
+最大流（Max Flow）是单源点、单汇点、边的容量为正整数的网络，其剩余网络无法找出更多增广路径的流。
 
 --------
 
