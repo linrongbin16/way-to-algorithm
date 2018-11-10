@@ -12,7 +12,7 @@
 
 设网络中每个节点都有一个水位高度$$ level $$，当$$ c_f(i,j) = c(i,j) - f(i,j) \gt 0 $$时边$$ e_{i,j} $$仍然可以容纳更多的流，当$$ c_f(i,j) = 0 $$时称边$$ e_{i,j} $$为饱和边，不能容纳更多的流。
 
-设节点$$ v_i $$（$$ v_i \in V \backslash {s, t} $$）的流入和流出之差为：
+设节点$$ v_i $$（$$ v_i \in V \backslash \{s, t\} $$）的流入和流出之差为：
 
 $$
 x(i) = inflow_{i} - outflow_{i} = \sum_{u \in V} f(u, i) - \sum_{v \in V} f(i, v)
