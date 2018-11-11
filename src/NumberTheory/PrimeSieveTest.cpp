@@ -1,6 +1,7 @@
 #include "PrimeSieve.h"
 #include <cassert>
 #include <climits>
+#include <cmath>
 #include <ctime>
 #include <iostream>
 #include <list>
