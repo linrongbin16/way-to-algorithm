@@ -3,7 +3,7 @@
 #include <queue>
 #include <vector>
 
-std::vector<int> BreadthFirstSearch(int G[MAX][MAX], int n) {
+std::vector<int> BreadthFirstSearch(int g[MAX][MAX], int n) {
   std::vector<int> result;
   std::queue<int> q;
   int visited[MAX];
@@ -19,7 +19,7 @@ std::vector<int> BreadthFirstSearch(int G[MAX][MAX], int n) {
 
     // adjacent node to e
     for (int i = 0; i < n; i++) {
-      if (i != e && G[e][i] && !visited[i]) {
+      if (i != e && g[e][i] && !visited[i]) {
         q.push(i);
         visited[i] = 1;
       }

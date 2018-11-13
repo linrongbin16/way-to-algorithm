@@ -5,7 +5,7 @@
 using namespace std;
 
 struct Test {
-  int G[MAX][MAX];
+  int g[MAX][MAX];
   int n;
   vector<int> result;
 } test_cases[] = {
@@ -58,7 +58,7 @@ void AssertEqual(const vector<int> &a, const vector<int> &b) {
 int main(void) {
   for (int i = 0; i < sizeof(test_cases) / sizeof(Test); i++) {
     Test &t = test_cases[i];
-    vector<int> r = DepthFirstSearch(t.G, t.n);
+    vector<int> r = DepthFirstSearch(t.g, t.n);
     AssertEqual(r, t.result);
   }
   return 0;
