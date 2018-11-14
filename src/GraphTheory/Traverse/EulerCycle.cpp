@@ -1,43 +1,57 @@
 #include "EulerCycle.h"
 #include <cassert>
+#include <stack>
 
-bool UndirectedGraphHasEulerCycle(int g[MAX][MAX], int n) {
+static bool HasEulerCycle(int g[MAX][MAX], int n) {
   for (int i = 0; i < n; i++) {
-    int in_degree = 0;
-    int out_degree = 0;
-    for (int j = 0; j < n; j++) {
-      if (g[i][j] > 0) {
-        out_degree++;
-      }
-      if (g[j][i] > 0) {
-        in_degree++;
-      }
-    }
-    assert(in_degree == out_degree);
-    if (out_degree % 2 > 0 || in_degree % 2 > 0) {
-      return false;
-    }
-  }
-  return true;
-}
-
-bool DirectedGraphHasEulerCycle(int g[MAX][MAX], int n) {
-  for (int i = 0; i < n; i++) {
-    int in_degree = 0;
-    int out_degree = 0;
+    int degree = 0;
     for (int j = 0; j < n; j++) {
       if (g[i][j] > 0) {
         degree++;
       }
     }
-    if (degree % 2 > 0) {
+    if (degree % 2 == 1) {
       return false;
     }
   }
   return true;
 }
 
-std::vector<int> EulerCycle(int g[MAX][MAX], int n) {}
+static int MaxDegree(int g[MAX][MAX], int *degree, int beg) {
+  int d_max(0), index(-1);
+  for (int i = 0; i < g.g_cnt; ++i) {
+    if (i == beg)
+      continue;
+    //在beg相邻节点中找出最大度数节点
+    if (g.g_m[beg][i] and d_max < degree[i])
+      d_max = degree[i], index = i;
+  }
+  return (index);
+}
+
+static void Dfs(int g[MAX][MAX], int *degree, int beg, std::stack<int> &path) {
+  path.push(beg);
+  //找出beg相邻节点中度数最大的节点 对他进行下一次dfs
+  int d_max = max_degree(g, degree, beg);
+  //终止递归条件 若beg没有邻节点则递归搜索结束
+  if (d_max == -1)
+    return;
+
+  //每次从当前节点向外找一条新的边
+  //并将当前走过的路删除
+  g.g_m[beg][d_max] = 0;
+  g.g_m[d_max][beg] = 0;
+  //当前节点和下一个节点的度数也减1
+  --degree[beg];
+  --degree[d_max];
+  dfs_loop(g, degree, d_max, path);
+}
+
+std::pair<bool, std::vector<int>> EulerCycle(int g[MAX][MAX], int n) {
+  if (!HasEulerCycle(g, n)) {
+    return std::make_pair(false, std::vector<int>());
+  }
+}
 
 bool loop_exist(int *degree, int n);
 void dfs_loop(graph_matrix g, int *degree, int beg, stack<int> &path);
