@@ -1,5 +1,6 @@
 #include "Recursion.h"
 #include "Util.h"
+#include <algorithm>
 #include <cstring>
 #include <vector>
 
@@ -7,7 +8,9 @@ void Recursion(int *s, int n, int m, int prev,
                std::vector<std::vector<int>> &result) {
   // 递归终止条件
   if (prev == n) {
-    result.push_back(BuildVector(s, 0, n));
+    std::vector<int> vec;
+    std::transform(s, s + n, std::back_inserter(vec), [](int v) { return v; });
+    result.push_back(vec);
     return;
   }
 

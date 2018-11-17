@@ -3,14 +3,6 @@
 #include <string>
 #include <unordered_set>
 
-std::vector<int> BuildVector(int *s, int off, int len) {
-  std::vector<int> result;
-  for (int i = off; i < len; i++) {
-    result.push_back(s[i]);
-  }
-  return result;
-}
-
 void AssertEq(int *s1, int n1, int *s2, int n2) {
   assert(n1 == n2);
   for (int i = 0; i < n1; i++)

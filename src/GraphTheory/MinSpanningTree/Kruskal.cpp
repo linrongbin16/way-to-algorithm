@@ -15,7 +15,9 @@ static void InitFather(int *father, int n) {
 
 static int FindFather(int *father, int i) {
   if (father[i] != i) {
+
     // 减小并查集中父节点的路径
+
     father[i] = FindFather(father, father[i]);
     return father[i];
   }
@@ -40,6 +42,7 @@ std::vector<Edge> Kruskal(int g[MAX][MAX], int n) {
 
   // 顶点的并查集
   // 顶点i的并查集父节点初始化为i自己
+
   int father[MAX];
   InitFather(father, n);
 
@@ -49,6 +52,7 @@ std::vector<Edge> Kruskal(int g[MAX][MAX], int n) {
 
     // 两个顶点不属于同一个并查集
     // 因此该边不会使生成树中形成环
+
     if (uf != vf) {
       result.push_back(edge_list[i]);
       father[vf] = uf;

@@ -12,7 +12,11 @@ std::vector<std::vector<int>> BruteForce(int *s, int n, int m) {
           s[2] = i_2;
           /* ... */
           s[n - 1] = i_n_1;
-          result.push_back(BuildVector(s, 0, n));
+
+          std::vector<int> vec;
+          std::transform(s, s + n, vec, [](int v) { return v; });
+          result.push_back(vec);
         }
   return result;
 }
+

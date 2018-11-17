@@ -36,8 +36,8 @@ std::vector<int> TopologicalSort(int g[MAX][MAX], int n) {
   std::sort(ts.begin(), ts.end(), CompareVertex);
 
   std::vector<int> result;
-  for (int i = 0; i < ts.size(); i++)
-    result.push_back(ts[i].index);
+  std::transform(std::begin(ts), std::end(ts), std::back_inserter(result),
+                 [](const Vertex &v) { return v.index; });
   return result;
 }
 
