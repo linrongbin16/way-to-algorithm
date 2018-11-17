@@ -28,11 +28,7 @@ std::vector<Edge> Kruskal(int g[MAX][MAX], int n) {
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
       if (g[i][j] > 0) {
-        Edge e;
-        e.u = i;
-        e.v = j;
-        e.value = g[i][j];
-        edge_list.push_back(e);
+        edge_list.push_back(Edge(i, j, g[i][j]));
         edge_n++;
       }
     }
