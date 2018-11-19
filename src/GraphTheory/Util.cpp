@@ -15,6 +15,12 @@ Vertex &Vertex::operator=(const Vertex &other) {
   return *this;
 }
 
+bool operator!=(const Vertex &a, const Vertex &b) { return !(a == b); }
+
+bool operator==(const Vertex &a, const Vertex &b) {
+  return a.index == b.index && a.value == b.value;
+}
+
 Edge::Edge() {}
 
 Edge::Edge(int u, int v) : u(u), v(v) {}
@@ -31,5 +37,11 @@ Edge &Edge::operator=(const Edge &e) {
   v = e.v;
   value = e.value;
   return *this;
+}
+
+bool operator!=(const Edge &a, const Edge &b) { return !(a == b); }
+
+bool operator==(const Edge &a, const Edge &b) {
+  return a.u == b.u && a.v == b.v;
 }
 
