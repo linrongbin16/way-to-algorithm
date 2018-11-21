@@ -50,10 +50,10 @@ $$ (3) $$ 类似DFS和并查集算法，首先令队列$$ queue $$中的任意�
 
 #### 源码
 
-[Kosaraju.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/Kosaraju.h)
+[Kosaraju.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/StrongConnectedComponents/Kosaraju.h)
 
-[Kosaraju.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/Kosaraju.cpp)
+[Kosaraju.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/StrongConnectedComponents/Kosaraju.cpp)
 
 #### 测试
 
-[KosarajuTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/KosarajuTest.cpp)
+[KosarajuTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/StrongConnectedComponents/KosarajuTest.cpp)

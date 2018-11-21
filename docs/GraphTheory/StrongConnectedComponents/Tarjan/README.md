@@ -38,10 +38,10 @@ $$ (3) $$ 从堆栈$$ Stack $$中依次取出每个顶点（即逆序遍历DFS�
 
 #### 源码
 
-[Tarjan.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/Tarjan.h)
+[Tarjan.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/StrongConnectedComponents/Tarjan.h)
 
-[Tarjan.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/Tarjan.cpp)
+[Tarjan.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/StrongConnectedComponents/Tarjan.cpp)
 
 #### 测试
 
-[TarjanTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/TarjanTest.cpp)
+[TarjanTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/StrongConnectedComponents/TarjanTest.cpp)

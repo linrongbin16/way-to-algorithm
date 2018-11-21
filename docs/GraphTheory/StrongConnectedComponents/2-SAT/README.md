@@ -38,10 +38,10 @@ $$ x_i \bigoplus x_j = 1 $$表示$$ x_i, x_j $$中一个为$$ 0 $$，另一个�
 
 #### 源码
 
-[TwoSatisfiability.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/TwoSatisfiability.h)
+[TwoSatisfiability.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/StrongConnectedComponents/TwoSatisfiability.h)
 
-[TwoSatisfiability.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/TwoSatisfiability.cpp)
+[TwoSatisfiability.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/StrongConnectedComponents/TwoSatisfiability.cpp)
 
 #### 测试
 
-[TwoSatisfiabilityTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Connectivity/TwoSatisfiabilityTest.cpp)
+[TwoSatisfiabilityTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/StrongConnectedComponents/TwoSatisfiabilityTest.cpp)
