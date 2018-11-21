@@ -14,6 +14,7 @@ set(SRC_FILE
     ShortestPath/BellmanFord.cpp
     ShortestPath/Dijkstra.cpp
     ShortestPath/FloydWarshall.cpp
+    ShortestPath/DifferenceConstraints.cpp
     )
 
 add_executable(GraphTheory-Traverse-DepthFirstSearch.exe Traverse/DepthFirstSearchTest.cpp ${SRC_FILE})
@@ -28,3 +29,4 @@ add_executable(GraphTheory-StronglyConnectedComponents-TwoSatisfiability.exe Str
 add_executable(GraphTheory-ShortestPath-BellmanFord.exe ShortestPath/BellmanFordTest.cpp ${SRC_FILE})
 add_executable(GraphTheory-ShortestPath-Dijkstra.exe ShortestPath/DijkstraTest.cpp ${SRC_FILE})
 add_executable(GraphTheory-ShortestPath-FloydWarshall.exe ShortestPath/FloydWarshallTest.cpp ${SRC_FILE})
+add_executable(GraphTheory-ShortestPath-DifferenceConstraints.exe ShortestPath/DifferenceConstraintsTest.cpp ${SRC_FILE})
