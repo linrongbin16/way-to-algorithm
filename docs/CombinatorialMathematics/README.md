@@ -45,21 +45,13 @@ $$ (3) $$ $$ P $$的任意两个元素的交集为空集；
 
 #### 阶乘
 
-$$
-n! =
-\begin{cases}
-1 & n = 0 \\
-1 \times 2 \times 3 \times \dots \times n & \forall n \gt 0
-\end{cases}
-$$
-
-也可以写作：
+阶乘的定义为：
 
 $$
 n! =
 \begin{cases}
-1 & n = 0 \\
-\prod_{k = 1}^n k & \forall n \gt 0
+1                                                                   & n = 0 \\
+1 \times 2 \times 3 \times \dots \times n = \prod_{k = 1}^n k       & \forall n \gt 0
 \end{cases}
 $$
 
@@ -68,8 +60,8 @@ $$
 $$
 n! =
 \begin{cases}
-1 & n = 0 \\
-(n-1)! \times n & \forall n \gt 0
+1                       & n = 0 \\
+(n-1)! \times n         & \forall n \gt 0
 \end{cases}
 $$
 
