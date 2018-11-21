@@ -1,8 +1,9 @@
 #pragma once
 #include <algorithm>
+#include <vector>
 #ifndef MAX
 #define MAX 64
 #endif
 
-void floyd(int g[MAX][MAX], int n, int distance[MAX][MAX]);
+std::vector<std::vector<int>> FloydWarshall(int g[MAX][MAX], int n);
 
