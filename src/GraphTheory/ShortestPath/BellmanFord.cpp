@@ -1,15 +1,17 @@
 #include "BellmanFord.h"
 #include "../Util.h"
+#include <algorithm>
 #include <cstring>
 #include <memory>
 #include <tuple>
 #include <utility>
 #include <vector>
 
-bool BellmanFord(int g[MAX][MAX], int n, int distance[MAX][MAX]) {
+std::pair<bool, std::vector<int>> BellmanFord(int g[MAX][MAX], int n, int beg) {
+  int distance[MAX];
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
-      distance[i][j] = (i == j) ? 0 : INF;
+      distance[i] = (i == j) ? 0 : INF;
     }
   }
 
@@ -29,11 +31,11 @@ bool BellmanFord(int g[MAX][MAX], int n, int distance[MAX][MAX]) {
       int u = edge_list[j].u;
       int v = edge_list[j].v;
 
-      if (distance[u][g] > distance[g][v] + g[u][v]) {
-        distance[u][g] = distance[g][v] + g[u][v];
+      if (distance[u] > distance[v] + g[u][v]) {
+        distance[u] = distance[v] + g[u][v];
       }
-      if (distance[v][g] > distance[g][u] + g[v][u]) {
-        distance[v][g] = distance[g][u] + g[v][u];
+      if (distance[v] > distance[u] + g[v][u]) {
+        distance[v] = distance[u] + g[v][u];
       }
     } // for
   }   // for
@@ -44,13 +46,16 @@ bool BellmanFord(int g[MAX][MAX], int n, int distance[MAX][MAX]) {
     int u = edge_list[i].u;
     int v = edge_list[i].v;
     if (distance[u] > distance[v] + g[u][v]) {
-      return false;
+      return std::make_pair(false, std::vector<int>());
     }
     if (distance[v] > distance[u] + g[v][u]) {
-      return false;
+      return std::make_pair(false, std::vector<int>());
     }
   } // for
 
-  return true;
+  std::vector<int> result;
+  std::transform(distance, distance + n, std::back_inserter(result),
+                 [](int x) { return x; });
+  return std::make_pair(true, result);
 }
 

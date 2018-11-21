@@ -1,4 +1,4 @@
-#include "BellmanFord.h"
+#include "Dijkstra.h"
 
 int main(void) { return 0; }
 

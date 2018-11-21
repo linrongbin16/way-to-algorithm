@@ -11,6 +11,8 @@ set(SRC_FILE
     StronglyConnectedComponents/Kosaraju.cpp
     StronglyConnectedComponents/Tarjan.cpp
     StronglyConnectedComponents/TwoSatisfiability.cpp
+    ShortestPath/BellmanFord.cpp
+    ShortestPath/Dijkstra.cpp
     )
 
 add_executable(GraphTheory-Traverse-DepthFirstSearch.exe Traverse/DepthFirstSearchTest.cpp ${SRC_FILE})
@@ -22,3 +24,5 @@ add_executable(GraphTheory-MinSpanningTree-Prim.exe MinSpanningTree/PrimTest.cpp
 add_executable(GraphTheory-StronglyConnectedComponents-Kosaraju.exe StronglyConnectedComponents/KosarajuTest.cpp ${SRC_FILE})
 add_executable(GraphTheory-StronglyConnectedComponents-Tarjan.exe StronglyConnectedComponents/TarjanTest.cpp ${SRC_FILE})
 add_executable(GraphTheory-StronglyConnectedComponents-TwoSatisfiability.exe StronglyConnectedComponents/TwoSatisfiabilityTest.cpp ${SRC_FILE})
+add_executable(GraphTheory-ShortestPath-BellmanFord.exe ShortestPath/BellmanFordTest.cpp ${SRC_FILE})
+add_executable(GraphTheory-ShortestPath-Dijkstra.exe ShortestPath/DijkstraTest.cpp ${SRC_FILE})
