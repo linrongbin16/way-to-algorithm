@@ -46,10 +46,10 @@ $$
 
 #### 源码
 
-[FloydWarshall.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/FloydWarshall.h)
+[FloydWarshall.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/ShortestPath/FloydWarshall.h)
 
-[FloydWarshall.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/FloydWarshall.cpp)
+[FloydWarshall.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/ShortestPath/FloydWarshall.cpp)
 
 #### 测试
 
-[FloydWarshallTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinimumSpanningTree/FloydWarshallTest.cpp)
+[FloydWarshallTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/ShortestPath/FloydWarshallTest.cpp)
