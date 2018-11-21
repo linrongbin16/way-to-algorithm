@@ -1,6 +1,6 @@
 #pragma once
 #include "../Util.h"
-#include <limits>
+#include <climits>
 #include <vector>
 #ifndef MAX
 #define MAX 64

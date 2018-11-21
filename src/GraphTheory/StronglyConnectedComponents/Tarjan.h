@@ -1,5 +1,5 @@
 #pragma once
-#include <limits>
+#include <climits>
 #include <vector>
 #ifndef MAX
 #define MAX 64
