@@ -1,6 +1,7 @@
 #include "Tarjan.h"
 #include "../Util.h"
 #include <algorithm>
+#include <cstring>
 #include <deque>
 
 void Dfs(int g[MAX][MAX], int n, int beg, int *visit, int *lowlink,
@@ -19,8 +20,8 @@ void Dfs(int g[MAX][MAX], int n, int beg, int *visit, int *lowlink,
 std::vector<std::vector<int>> Tarjan(int g[MAX][MAX], int n) {
   int visit[MAX];
   int lowlink[MAX];
-  memset(visit, 0, MAX * sizeof(int));
-  memset(lowlink, 0, MAX * sizeof(int));
+  std::memset(visit, 0, MAX * sizeof(int));
+  std::memset(lowlink, 0, MAX * sizeof(int));
 
   std::deque<int> stk;
 
