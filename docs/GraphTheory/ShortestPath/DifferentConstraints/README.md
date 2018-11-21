@@ -108,7 +108,7 @@ X = [dist(1), dist(2), \dots, dist(m)]
 \end{matrix}
 $$
 
-该算法的时间复杂度与Bellman Ford算法相同，也是$$ O(\mid V \mid \cdot \mid E \mid) $$。
+该算法的时间复杂度与Bellman Ford算法相同，也是$$ O(\| V \| \cdot \| E \|) $$。
 
 --------
 
