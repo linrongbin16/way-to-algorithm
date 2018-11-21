@@ -76,9 +76,11 @@ $$
 
 ![KnowledgePoint3.png](res/KnowledgePoint3.png)
 
-#### 路径（Path）/回路（Cycle）/欧拉路径（Eulerian Path）/欧拉回路（Eulerian Cycle）/汉密尔顿路径（Hamilton Path）/哈密尔顿回路（Hamilton Cycle）
+#### 路径（Path）/回路（Cycle）
 
 图$$ G $$的路径（Path）是一组边的有序集合，表示随着时间依次经过的边的顺序。回路（Cycle）是起点和终点相同的路径。
+
+#### 欧拉路径（Eulerian Path）/欧拉回路（Eulerian Cycle）
 
 欧拉路径（Eulerian Path）经过图$$ G $$中每条边一次且仅一次（同一个顶点可以经过多次），遍历所有边。
 
@@ -97,6 +99,8 @@ $$ (1) $$ 判断有向图是否存在欧拉回路：有向图$$ DG $$的任意�
 $$ (2) $$ 判断无向图是否存在欧拉回路：无向图$$ UG $$的任意顶点$$ v_i $$满足度数为偶数，则该无向图$$ DG $$中存在欧拉回路；
 
 拥有欧拉回路的图$$ G $$称为欧拉图（Eulerian Graph）。
+
+#### 汉密尔顿路径（Hamilton Path）/哈密尔顿回路（Hamilton Cycle）
 
 汉密尔顿路径（Hamilton Path）经过图$$ G $$中每个顶点一次且仅一次（同一条边可以经过多次），遍历所有顶点。求解汉密尔顿路径是一个NP完全问题。
 

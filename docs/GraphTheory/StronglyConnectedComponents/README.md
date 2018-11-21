@@ -9,9 +9,11 @@
 
 --------
 
-#### 平凡图（Trivial Graph）/非平凡图（Nontrivial Graph）/连通（Connected）/连通图（Connected Graph）/连通分支（Connected Components）
+#### 平凡图（Trivial Graph）/非平凡图（Nontrivial Graph）
 
 平凡图（Trivial Graph）是只有一个节点，没有边的图。非平凡图（Trivial Graph）是有至少两个节点，一条边的图。
+
+#### 连通（Connected）/连通图（Connected Graph）/连通分支（Connected Components）
 
 图$$ G $$中顶点$$ v_i $$和$$ v_j $$连通（Connected）表示存在从顶点$$ v_i $$到达顶点$$ v_j $$，且从顶点$$ v_j $$也可以到达顶点$$ v_i $$的路径。无向图中$$ v_i $$到达$$ v_j $$，和$$ v_j $$到达$$ v_i $$，互为充分必要条件。
 
