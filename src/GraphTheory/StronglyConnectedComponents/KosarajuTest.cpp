@@ -6,7 +6,14 @@ using namespace std;
 struct Test {
   int g[MAX][MAX];
   int n;
-} test_cases[] = {};
+} test_cases[] = {
+    {
+        {
+            {0},
+        },
+        1,
+    },
+};
 
 static void AssertStrongCompoennts(const vector<vector<int>> &components) {}
 
