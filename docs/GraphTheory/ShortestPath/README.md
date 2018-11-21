@@ -3,10 +3,10 @@
 
 --------
 
-1. [DepthFirstSearch(DFS) - 深度优先搜索](DepthFirstSearch/)
-2. [BreadthFirstSearch(BFS) - 广度优先搜索](BreadthFirstSearch/)
-3. [TopologicalSort - 拓扑排序](TopologicalSort/)
-4. [EulerCycle - 欧拉回路](EulerCycle/)
+1. [BellmanFord - BellmanFord算法](BellmanFord/)
+2. [Dijkstra - Dijkstra算法](Dijkstra/)
+3. [FloydWarshall - FloydWarshall算法](FloydWarshall/)
+4. [DifferentConstraints - 差分约束](DifferentConstraints/)
 
 --------
 
