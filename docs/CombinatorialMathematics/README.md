@@ -7,7 +7,6 @@
 2. [Combination 组合](Combination/)
 3. [Permutation 排列](Permutation/)
 4. [PermutationGroup 置换群](PermutationGroup/)
-5. [Catalan 卡特兰数](Catalan/)
 
 --------
 

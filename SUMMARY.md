@@ -82,7 +82,6 @@
     * [Combination 组合](docs/CombinatorialMathematics/Combination/README.md)
     * [Permutation 排列](docs/CombinatorialMathematics/Permutation/README.md)
     * [PermutationGroup 置换群](docs/CombinatorialMathematics/PermutationGroup/README.md)
-    * [Catalan 卡特兰数](docs/CombinatorialMathematics/Catalan/README.md)
 * [Chapter-7 NumberTheory 第7章 数论](docs/NumberTheory/README.md)
     * [PrimeSieve 素数筛法](docs/NumberTheory/PrimeSieve/README.md)
     * [Euclid 欧几里得算法](docs/NumberTheory/Euclid/README.md)
