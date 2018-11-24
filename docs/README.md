@@ -79,7 +79,6 @@
         * [Coloring 染色问题](GraphTheory/BinaryMatch/Coloring/)
 * [Chapter-6 CombinatorialMathematics 第6章 组合数学](CombinatorialMathematics/)
     * [FullPermutation 全排列](CombinatorialMathematics/FullPermutation/)
-    * [UniqueFullPermutation 唯一的全排列](CombinatorialMathematics/UniqueFullPermutation/)
     * [Combination 组合](CombinatorialMathematics/Combination/)
     * [DuplicableCombination （元素）可重复的组合](CombinatorialMathematics/DuplicableCombination/)
     * [Subset 子集](CombinatorialMathematics/Subset/)

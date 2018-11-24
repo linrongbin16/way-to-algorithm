@@ -4,7 +4,6 @@
 --------
 
 1. [FullPermutation 全排列](FullPermutation/)
-2. [UniqueFullPermutation 唯一的全排列](UniqueFullPermutation/)
 3. [Combination 组合](Combination/)
 4. [DuplicableCombination （元素）可重复的组合](DuplicableCombination/)
 5. [Subset 子集](Subset/)
