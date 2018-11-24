@@ -4,13 +4,12 @@
 --------
 
 1. [FullPermutation 全排列](FullPermutation/)
-3. [Combination 组合](Combination/)
-4. [DuplicableCombination （元素）可重复的组合](DuplicableCombination/)
-5. [Subset 子集](Subset/)
-6. [UniqueSubset 唯一的子集](UniqueSubset/)
-7. [Permutation 排列](Permutation/)
-8. [PermutationGroup 置换群](PermutationGroup/)
-9. [Catalan 卡特兰数](Catalan/)
+2. [Combination 组合](Combination/)
+3. [Subset 子集](Subset/)
+4. [UniqueSubset 唯一的子集](UniqueSubset/)
+5. [Permutation 排列](Permutation/)
+6. [PermutationGroup 置换群](PermutationGroup/)
+7. [Catalan 卡特兰数](Catalan/)
 
 --------
 

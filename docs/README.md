@@ -80,7 +80,6 @@
 * [Chapter-6 CombinatorialMathematics 第6章 组合数学](CombinatorialMathematics/)
     * [FullPermutation 全排列](CombinatorialMathematics/FullPermutation/)
     * [Combination 组合](CombinatorialMathematics/Combination/)
-    * [DuplicableCombination （元素）可重复的组合](CombinatorialMathematics/DuplicableCombination/)
     * [Subset 子集](CombinatorialMathematics/Subset/)
     * [UniqueSubset 唯一的子集](CombinatorialMathematics/UniqueSubset/)
     * [Permutation 排列](CombinatorialMathematics/Permutation/)
