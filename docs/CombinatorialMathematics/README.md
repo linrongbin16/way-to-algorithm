@@ -5,11 +5,9 @@
 
 1. [FullPermutation 全排列](FullPermutation/)
 2. [Combination 组合](Combination/)
-3. [Subset 子集](Subset/)
-4. [UniqueSubset 唯一的子集](UniqueSubset/)
-5. [Permutation 排列](Permutation/)
-6. [PermutationGroup 置换群](PermutationGroup/)
-7. [Catalan 卡特兰数](Catalan/)
+3. [Permutation 排列](Permutation/)
+4. [PermutationGroup 置换群](PermutationGroup/)
+5. [Catalan 卡特兰数](Catalan/)
 
 --------
 

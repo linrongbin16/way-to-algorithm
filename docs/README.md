@@ -80,8 +80,6 @@
 * [Chapter-6 CombinatorialMathematics 第6章 组合数学](CombinatorialMathematics/)
     * [FullPermutation 全排列](CombinatorialMathematics/FullPermutation/)
     * [Combination 组合](CombinatorialMathematics/Combination/)
-    * [Subset 子集](CombinatorialMathematics/Subset/)
-    * [UniqueSubset 唯一的子集](CombinatorialMathematics/UniqueSubset/)
     * [Permutation 排列](CombinatorialMathematics/Permutation/)
     * [PermutationGroup 置换群](CombinatorialMathematics/PermutationGroup/)
     * [Catalan 卡特兰数](CombinatorialMathematics/Catalan/)

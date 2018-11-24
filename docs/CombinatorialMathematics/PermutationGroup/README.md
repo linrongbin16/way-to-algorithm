@@ -1,6 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Permutation Group - 置换群
+# PermutationGroup Group - 置换群
 
 --------
 
@@ -15,6 +15,7 @@
 \[[6, 4, 2, 0, 1, 7, 3, 5, 9, 8]\]
 </p>
 <p id="i">求长度为\(n\)的序列\(s\)在置换原则t下，经过\(k\)次置换操作后的元素排列情况。 </p>
+
 解法：
 <p id="i">暴力\(k\)次循环时间复杂度过高。我们来仔细考察上面例子中的序列\(s\)及其置换准则\(t\)：
 \[
@@ -33,9 +34,14 @@ t = [3, 4, 2, 6, 1, 7, 0, 5, 9, 8]
 <p id="i">经过观察发现任意元素\(s[i]\)都拥有一个循环周期，因此只要确定每个元素的周期，就可以避免暴力循环，直接求出k次置换操作后的序列s。该算法的时间复杂度为\(O(n)\)。</p>
 </div>
 
-* [Upper Folder - 上一级目录](../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/PermutationGroup.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/PermutationGroup.cpp)
-
 --------
 
+#### 源码
+
+[PermutationGroup.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/PermutationGroup.h)
+
+[PermutationGroup.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/PermutationGroup.cpp)
+
+#### 测试
+
+[PermutationGroupTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/PermutationGroupTest.cpp)

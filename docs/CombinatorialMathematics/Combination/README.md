@@ -50,10 +50,6 @@ $$ (3) $$ 从集合$$ s $$中取出$$ 2 $$个元素作为组合，则$$ c $$中�
 
 包含$$ n $$个元素中选出$$ m $$个元素的所有组合，需要重复$$ m + 1 $$次，每次求有$$ i $$个$$ 1 $$，$$ m - i $$个$$ 0 $$的数组$$ c $$的唯一全排列，其中$$ i \in [0, m] $$。根据全排列反向得到组合，算法结束。第$$ i $$步求唯一全排列的时间复杂度为$$ O(i!) $$，该算法的时间复杂度为$$ O(C_m^n) = O(\frac{n!}{m! \cdot (n-m)!}) $$。
 
-#### 唯一组合
-
-若数组$$ s $$中若存在相同的元素，那么选取$$ m $$个元素作为组合，其结果中也会出现重复的组合。比如数组$$ s = [ 1_1, 2_2, 3_3, 3_4 ] $$.
-
 #### StackOverflow - algorithm-to-return-all-combinations-of-k-elements-from-n
 
 * http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n
