@@ -23,7 +23,7 @@ $$
 这样的方程组即为数论中的一元线性同余方程组：
 
 $$
-(S) = 
+(S) =
 \begin{cases}
 x \equiv a_{0} \pmod{m_{0}}     \\
 x \equiv a_{1} \pmod{m_{1}}     \\
