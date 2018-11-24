@@ -6,84 +6,85 @@
 
 #### 问题
 
-从拥有$$ n $$个元素的集合$$ A = \{a_0, a_1, a_2, \dots ,a_{n-1} \} $$中任意取$$ m $$个元素（$$ m \leq n $$，$$ m $$和$$ n $$都是自然数），求所有组合。
+从包含$$ n $$个元素的集合$$ s = [x_0, x_1, x_2, \dots ,x_{n-1} ] $$中任意取$$ m $$个元素（$$ m \leq n $$）组成组合，求所有组合。集合$$ s $$中任意两元素互不相同。
 
 #### 解法
 
-本文末尾列了很多关于组合算法的文献。本文介绍一种简单易记的算法。
+设置数组$$ c = [ c_0, c_1, c_2, \dots , c_{m-1} ] $$表示集合$$ s $$的选择，$$ c_i = 1 $$表示选择数字$$ x_i $$，$$ c_i = 0 $$表示不选择数字$$ x_i $$。比如集合$$ s = [ x_0, x_1, x_2, \dots, x_{n-1} ] $$中取出组合
 
-设置数组\(s = [s_0,s_1,s_2, \dots ,s_{n-1}]\)表示对集合\(A\)的选择，第\(i\)个数字\(s_i = 1\)表示选择数字\(a_i\)，\(s_i = 0\)表示不选择数字\(a_i\)。假设初始状态下从集合\(A = \{a_0,a_1,a_2, \dots ,a_{n-1} \}\)中取出\(0\)个元素组成组合，即\(s = [0_0,0_1,0_2, \dots ,0_{n-1}]\)，得到\(1\)个组合\(\{\}\)。</p>
+$$
+[x_0, x_1, x_2]
+$$
 
-$$ (1) $$从集合$$ A = \{a_0,a_1,a_2, \dots ,a_{n-1} \} $$中取出$$ 1 $$个元素作为组合。则数组$$ s $$中只有一个元素为$$ 1 $$，其他全是$$ 0 $$，唯一的$$ 1 $$在数组$$ s $$中可以选择任意位置，得到$$ C_1^n = n $$个组合：
+等价于数组
 
-\[
+$$
+c = [1_0, 1_1, 1_2, 0_3, \dots, 0_{n-1} ]
+$$
+
+即元素$$ [ c_0, c_1, c_2 ] $$为$$ 1 $$，元素$$ [ c_3, \dots, c_{n-1} ] $$为$$ 0 $$。
+
+可以看出，包含$$ n $$个元素的集合$$ s = [x_0, x_1, x_2, \dots, x_{n-1} ] $$中取出$$ m $$个元素的所有组合，可以转化为求有$$ i $$个$$ 1 $$，$$ m - i $$个$$ 0 $$的数组$$ c $$的唯一全排列，其中$$ 0 \leq i \leq m $$。
+
+$$ (1) $$ 从集合$$ s $$中取出$$ 0 $$个元素作为组合，即$$ c $$中有$$ 0 $$个$$ 1 $$，$$ m $$个$$ 0 $$，唯一全排列有$$ C_0^m = 1 $$个
+
+$$
+[]
+$$
+
+$$ (2) $$ 从集合$$ s $$中取出$$ 1 $$个元素作为组合。则$$ c $$中有$$ 1 $$个$$ 1 $$，$$ m-1 $$个$$ 0 $$，唯一全排列有$$ C_1^m = m $$个
+
+$$
 \begin{array}{lcr}
-[1_0,0_1,0_2, \dots ,0_{n-1}] && (1-1) \\
-[0_0,1_1,0_2, \dots ,0_{n-1}] && (1-2) \\
-[0_0,0_1,1_2, \dots ,0_{n-1}] && (1-3) \\
-& \cdots & \\
-[0_0,0_1,0_2, \dots ,1_{n-1}] && (1-n)
+[ 1_0, 0_1, 0_2, \dots , 0_{n-1} ]  \\
+[ 0_0, 1_1, 0_2, \dots , 0_{n-1} ]  \\
+[ 0_0, 0_1, 1_2, \dots , 0_{n-1} ]  \\
+\cdots      \\
+[ 0_0, 0_1, 0_2, \dots , 1_{n-1} ]
 \end{array}
-\]
-<p id="i">\((2)\)从集合A中取出2个元素作为组合，可以看作是在第1轮操作数组s后得到的n个组合的基础上增加一个1。 </p>
-<p id="i">对于第\(1\)轮中的数组\((1-1)\quad [1_0,0_1,0_2, \dots ,0_{n-1}]\)增加一个\(1\)后得到数组\([1_0,1_1,0_2, \dots ,0_{n-1}]\)。原本的\(1_0\)保持不变，新增的\(1_1\)可以选择后面等于\(0\)的\(n-1\)个位置，生成\(n-1\)个组合： </p>
-\[
-\begin{array}{lcr}
-[1_0,1_1,0_2,0_3, \dots ,0_{n-1}] && (2-1-1) \\
-[1_0,0_1,1_2,0_3, \dots ,0_{n-1}] && (2-1-2) \\
-[1_0,0_1,0_2,1_3, \dots ,0_{n-1}] && (2-1-3) \\
-& \cdots & \\
-[1_0,0_1,0_2,0_3, \dots ,1_{n-1}] && (2-1-(n-1))
-\end{array}
-\]
-<p id="i">需要注意的是，新增的\(1\)必须在原数组中所有的\(1\)的后面。对于数组\((1-2) \quad [0_0,1_1,0_2, \dots ,0_{n-1}]\)，新增的\(1\)只能选择后面等于\(0\)的\(n-1\)个位置，生成\(n-2\)个组合： </p>
-\[
-\begin{array}{lcr}
-[0_0,1_1,1_2,0_3, \dots ,0_{n-1}] && (2-2-1) \\
-[0_0,1_1,0_2,1_3, \dots ,0_{n-1}] && (2-2-2) \\
-& \cdots & \\
-[0_0,1_1,0_2,0_3, \dots ,1_{n-1}] && (2-2-(n-2))
-\end{array}
-\]
-<p id="i">如果不注意，让新增的\(1\)在原数组的任意的\(1\)的前面，则会产生重复的组合，仍然以数组\((1-2) \quad [0_0,1_1,0_2, \dots ,0_{n-1}]\)为例，如果新增的\(1\)可以选择任意等于\(0\)的位置，会生成\(n-1\)个组合： </p>
-\[
-\begin{array}{lcr}
-[1_0,1_1,0_2,0_3, \dots ,0_{n-1}] && (2-2-0) \\
-[0_0,1_1,1_2,0_3, \dots ,0_{n-1}] && (2-2-1) \\
-[0_0,1_1,0_2,1_3, \dots ,0_{n-1}] && (2-2-2) \\
-& \cdots & \\
-[0_0,1_1,0_2,0_3, \dots ,1_{n-1}] && (2-2-(n-2))
-\end{array}
-\]
-<p id="i">但其中\((2-2-0) \quad [1_0,1_1,0_2,0_3, \dots ,0_{n-1}]\)与第\(1\)个数组产生的组合重复了。对第\(1\)轮中所有的数组重复该操作，即可得到选取\(2\)个元素的所有组合，共有\(C_2^n = \frac{n \times (n-1)}{2} \)个。 </p>
-<p id="i">\((3)\)从集合\(A\)中取出\(3\)个元素作为组合，可以看作是在第\((2)\)轮操作的\((n-1)!\)个组合基础上增加一个\(1\)，对于之前的每个组合，保持之前两个\(1\)不变，新的\(1\)可以选择原数组中最后一个\(1\)之后的任意等于\(0\)的位置。注意新增的\(1\)不能比原数组中的任意的\(1\)更靠前，必须在所有的\(1\)之后的位置进行选择。 </p>
-<p id="i">重复上述的操作，直到选取\(m\)个元素，即可得到所有的组合，算法结束。然后根据\(s\)的全排列生成集合\(A\)的所有组合即可。该算法时间复杂度为\(C_m^n = \frac{n!}{m! \cdot (n-m)!} \)。 </p>
-</div>
+$$
 
-<br>
-StackOverflow上关于组合产生算法的问题：
-* [http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n](http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n)
+$$ (3) $$ 从集合$$ s $$中取出$$ 2 $$个元素作为组合，则$$ c $$中有$$ 2 $$个$$ 1 $$，$$ m-2 $$个$$ 0 $$，唯一全排列有$$ C_2^m = m $$个。
 
-二项式系数：
-* [https://en.wikipedia.org/wiki/Binomial_coefficient](https://en.wikipedia.org/wiki/Binomial_coefficient)
+只要求出所有唯一全排列，即可反向求出对应的组合。
 
-Chase’s Twiddle - Algorithm 382: Combinations of M out of N Objects:
-* [http://dl.acm.org/citation.cfm?id=362502](http://dl.acm.org/citation.cfm?id=362502)
-* [http://www.netlib.no/netlib/toms/382](http://www.netlib.no/netlib/toms/382)
+包含$$ n $$个元素中选出$$ m $$个元素的所有组合，需要重复$$ m + 1 $$次，每次求有$$ i $$个$$ 1 $$，$$ m - i $$个$$ 0 $$的数组$$ c $$的唯一全排列，其中$$ i \in [0, m] $$。根据全排列反向得到组合，算法结束。第$$ i $$步求唯一全排列的时间复杂度为$$ O(i!) $$，该算法的时间复杂度为$$ O(C_m^n) = O(\frac{n!}{m! \cdot (n-m)!}) $$。
 
-Buckles - Algorithm 515: Generation of a Vector from the Lexicographical Index:
-* [http://dl.acm.org/citation.cfm?id=355739](http://dl.acm.org/citation.cfm?id=355739)
-* [https://www.researchgate.net/profile/Bill_Buckles/publication/220492658_Algorithm_515_Generation_of_a_Vector_from_the_Lexicographical_Index_G6/links/5716d7ad08ae497c1a5706ec.pdf](https://www.researchgate.net/profile/Bill_Buckles/publication/220492658_Algorithm_515_Generation_of_a_Vector_from_the_Lexicographical_Index_G6/links/5716d7ad08ae497c1a5706ec.pdf)
+#### 唯一组合
 
-Remark on algorithm 515: Generation of a vector from the lexicographical index combinations:
-* [http://dl.acm.org/citation.cfm?id=1236470](http://dl.acm.org/citation.cfm?id=1236470)
+若数组$$ s $$中若存在相同的元素，那么选取$$ m $$个元素作为组合，其结果中也会出现重复的组合。比如数组$$ s = [ 1_1, 2_2, 3_3, 3_4 ] $$.
+
+#### StackOverflow - algorithm-to-return-all-combinations-of-k-elements-from-n
+
+* http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n
+
+#### 二项式系数
+
+* https://en.wikipedia.org/wiki/Binomial_coefficient
+
+#### Chase’s Twiddle - Algorithm 382: Combinations of M out of N Objects:
+
+* http://dl.acm.org/citation.cfm?id=362502
+* http://www.netlib.no/netlib/toms/382
+
+#### Buckles - Algorithm 515: Generation of a Vector from the Lexicographical Index:
+
+* http://dl.acm.org/citation.cfm?id=355739
+
+* https://www.researchgate.net/profile/Bill_Buckles/publication/220492658_Algorithm_515_Generation_of_x_Vector_from_the_Lexicographical_Index_G6/links/5716d7ad08ae497c1a5706ec.pdf
+
+#### Remark on algorithm 515: Generation of a vector from the lexicographical index combinations
+
+* http://dl.acm.org/citation.cfm?id=1236470
 
 --------
 
 #### 源码
 
-[import, lang:"c_cpp"](../../../src/CombinatorialMathematics/Combination.hpp)
+[Combination.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/Combination.h)
+
+[Combination.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/Combination.cpp)
 
 #### 测试
 
-[import, lang:"c_cpp"](../../../src/CombinatorialMathematics/Combination.cpp)
+[CombinationTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/CombinationTest.cpp)

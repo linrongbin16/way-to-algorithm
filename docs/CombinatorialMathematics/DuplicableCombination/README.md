@@ -1,13 +1,15 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-* [Upper Folder - 上一级目录](../)
-* [Source Code - 源码](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/DuplicableCombination.hpp)
-* [Test Code - 测试](https://github.com/zhaochenyou/Way-to-Algorithm/blob/master/src/CombinatorialMathematics/DuplicableCombination.cpp)
+# Duplicable Combination - 元素可重复的组合
 
 --------
 
-### Duplicable Combination
-### （元素）重复的组合
+#### 问题
+
+从包含$$ n $$个元素的集合$$ s = [x_0, x_1, x_2, \dots ,x_{n-1} ] $$中任意取$$ m $$个元素（$$ m \leq n $$）组成组合，求所有组合。
+
+#### 解法
+
 <div>
 问题：
 <p id="i">在有\(n\)个互不相同元素的集合\(A = \{a_0,a_1,a_2, \dots ,a_{n-1} \}\)中，任意取\(m\)个元素（\(m \leq n\)，\(m\)和\(n\)都是自然数，并且同一个元素可以重复使用）的所有组合。例如对于集合\(A = \{1, 2, 3\}\)，从中取出\(3\)个元素可重复的所有组合为：</p>
