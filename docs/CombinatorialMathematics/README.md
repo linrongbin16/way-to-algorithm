@@ -1,6 +1,8 @@
 # Chapter-6 Combination Mathematics
 # 第6章 组合数学
 
+![CombinationMathematics.png](res/CombinationMathematics.png)
+
 --------
 
 1. [FullPermutation 全排列](FullPermutation/)
