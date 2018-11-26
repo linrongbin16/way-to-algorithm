@@ -64,9 +64,9 @@ $$
 
 $$
 \begin{matrix}
-r = p_5 + p_4 - p_2 + p_6
-s = p_1 + p_2
-t = p_3 + p_4
+r = p_5 + p_4 - p_2 + p_6   \\
+s = p_1 + p_2               \\
+t = p_3 + p_4               \\
 u = p_1 + p_5 - p_3 - p_7
 \end{matrix}
 $$
