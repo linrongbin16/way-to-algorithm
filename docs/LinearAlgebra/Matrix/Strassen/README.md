@@ -16,22 +16,22 @@
 
 $$
 \begin{bmatrix}
-|r  s|
-|t  u|
+r   &   s   \\
+t   &   u
 \end{bmatrix}
 
 =
 
 \begin{bmatrix}
-|a  b|
-|c  d|
+a   &   b   \\
+c   &   d
 \end{bmatrix}
 
 \times
 
 \begin{bmatrix}
-|e  f|
-|g  h|
+e   &   f   \\
+g   &   h
 \end{bmatrix}
 $$
 
