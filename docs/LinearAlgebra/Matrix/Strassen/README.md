@@ -50,12 +50,12 @@ $$
 
 $$
 \begin{matrix}
-p_1 = a \times f - a \times h = a \times (f - h)
-p_2 = a \times h + b \times h = (a + b) \times h
-p_3 = c \times e + d \times e = (c + d) \times e
-p_4 = d \times g - d \times e = d \times (g - e)
-p_5 = a \times e + a \times h + d \times e + d \times h = (a + d) \times (e + h)
-p_6 = b \times g + b \times h - d \times g - d \times h = (b - d) \times (g + h)
+p_1 = a \times f - a \times h = a \times (f - h)            \\
+p_2 = a \times h + b \times h = (a + b) \times h            \\
+p_3 = c \times e + d \times e = (c + d) \times e            \\
+p_4 = d \times g - d \times e = d \times (g - e)            \\
+p_5 = a \times e + a \times h + d \times e + d \times h = (a + d) \times (e + h)        \\
+p_6 = b \times g + b \times h - d \times g - d \times h = (b - d) \times (g + h)        \\
 p_7 = a \times e + a \times f - c \times e - c \times f = (a - c) \times (e + f)
 \end{matrix}
 $$
