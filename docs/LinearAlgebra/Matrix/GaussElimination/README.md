@@ -49,6 +49,7 @@ $$
 
 $$
 (A \mid B) =
+\begin{bmatrix}
 \begin{array} {c|c}
 \begin{matrix}
 a_{1,1} &   a_{1,2} &   a_{1,3} &   \dots   &   a_{1,m}     \\
@@ -58,14 +59,15 @@ a_{3,1} &   a_{3,2} &   a_{3,3} &   \dots   &   a_{3,m}     \\
 a_{n,1} &   a_{n,2} &   a_{n,3} &   \dots   &   a_{n,m}
 \end{matrix}
 &
-\begin{bmatrix}
+\begin{matrix}
 b_{1}   \\
 b_{2}   \\
 b_{3}   \\
 \dots   \\
 b_{n}
-\end{bmatrix}
+\end{matrix}
 \end{array}
+\end{bmatrix}
 $$
 
 
