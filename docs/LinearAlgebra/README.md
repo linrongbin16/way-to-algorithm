@@ -5,7 +5,7 @@
 
 --------
 
-1. [Matrix 矩阵](Matrix/)
+1. Matrix 矩阵
     1. [Strassen Strassen算法](Matrix/Strassen/)
     2. [GaussElimination 高斯消元法](Matrix/GaussElimination/)
     3. [LUP LUP分解](Matrix/LUP/)

@@ -89,7 +89,7 @@
     * [ChineseRemainerTheorem 中国剩余定理](docs/NumberTheory/ChineseRemainerTheorem/README.md)
     * [ModularExponentiation 模幂运算](docs/NumberTheory/ModularExponentiation/README.md)
 * [Chapter-8 LinearAlgebra 第8章 线性代数](docs/LinearAlgebra/README.md)
-    * [Section-1 Matrix 第1节 矩阵](docs/LinearAlgebra/Matrix/README.md)
+    * Section-1 Matrix 第1节 矩阵
         * [Strassen Strassen算法](docs/LinearAlgebra/Matrix/Strassen/README.md)
         * [GaussElimination 高斯消元法](docs/LinearAlgebra/Matrix/GaussElimination/README.md)
         * [LUP LUP分解](docs/LinearAlgebra/Matrix/LUP/README.md)
