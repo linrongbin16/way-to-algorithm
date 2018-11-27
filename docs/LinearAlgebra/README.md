@@ -1,6 +1,8 @@
 # Chapter-8 Linear Algebra
 # 第8章 线性代数
 
+![Matrix.png](res/Matrix.png)
+
 --------
 
 1. [Matrix 矩阵](Matrix/)
