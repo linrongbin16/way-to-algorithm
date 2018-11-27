@@ -1,98 +1,82 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# GaussElimination - 高斯消元法
+# Gauss Elimination - 高斯消元法
 
 --------
 
 #### 问题
 
-用Strassen算法计算两个$$ n $$阶矩阵相乘$$ C = A \times B $$。
+用高斯消元法（Gauss Elimination）求拥有唯一解的线性方程组。
 
-#### 解法
+#### 线性方程组
 
-按照矩阵定义的普通数学方法计算两个$$ n $$阶矩阵相乘，需要$$ n $$次矩阵的行和列相乘，每次行和列相乘需要$$ n $$次乘法操作和$$ n - 1 $$次加法操作，时间复杂度为$$ O(n^2) $$。Strassen算法的时间复杂度比普通数学方法更低。
-
-对于$$ n $$阶矩阵乘法$$ C = A \times B $$，设$$ n $$为偶数，则可以将$$ A, B, C $$三个矩阵划分为$$ 4 $$个$$ n/2 $$的矩阵，矩阵乘法可以转化为
+线性方程组
 
 $$
+\begin{cases}
+a_{1,1} \times x_1 + a_{1,2} \times x_2 + \dots + a_{1,m} \times x_m = b_1      \\
+a_{2,1} \times x_1 + a_{2,2} \times x_2 + \dots + a_{2,m} \times x_m = b_2      \\
+\dots   \\
+a_{n,1} \times x_1 + a_{n,2} \times x_2 + \dots + a_{n,m} \times x_m = b_n
+\end{cases}
+$$
+
+可以表示为$$ n $$行$$ m $$列的矩阵$$ A $$，第$$ i $$行第$$ j $$列的元素为$$ a_{i,j} $$。设$$ X = [x_1, x_2, \dots, x_m ] $$是线性方程组的解，$$ B = [b_1, b_2, \dots, b_n] $$是线性方程的右边一列系数向量。一般简写作$$ A \cdot X = B $$。
+
+上面的线性方程组可以写成增广矩阵
+
+$$
+A =
 \begin{bmatrix}
-r   &   s   \\
-t   &   u
+a_{1,1} &   a_{1,2} &   a_{1,3} &   \dots   &   a_{1,m}     \\
+a_{2,1} &   a_{2,2} &   a_{2,3} &   \dots   &   a_{2,m}     \\
+a_{3,1} &   a_{3,2} &   a_{3,3} &   \dots   &   a_{3,m}     \\
+\dots       \\
+a_{n,1} &   a_{n,2} &   a_{n,3} &   \dots   &   a_{n,m}
 \end{bmatrix}
 
-=
+\quad
 
+B =
 \begin{bmatrix}
-a   &   b   \\
-c   &   d
-\end{bmatrix}
-
-\times
-
-\begin{bmatrix}
-e   &   f   \\
-g   &   h
+b_{1}   \\
+b_{2}   \\
+b_{3}   \\
+\dots   \\
+b_{n}
 \end{bmatrix}
 $$
 
-按照矩阵乘法计算方法可知
-
 $$
+(A \mid B) =
+\begin{array} {c|c}
 \begin{matrix}
-r = a \times e + b \times g     \\
-s = a \times f + b \times h     \\
-t = c \times e + d \times g     \\
-u = c \times f + d \times h
+a_{1,1} &   a_{1,2} &   a_{1,3} &   \dots   &   a_{1,m}     \\
+a_{2,1} &   a_{2,2} &   a_{2,3} &   \dots   &   a_{2,m}     \\
+a_{3,1} &   a_{3,2} &   a_{3,3} &   \dots   &   a_{3,m}     \\
+\dots       \\
+a_{n,1} &   a_{n,2} &   a_{n,3} &   \dots   &   a_{n,m}
 \end{matrix}
+&
+\begin{bmatrix}
+b_{1}   \\
+b_{2}   \\
+b_{3}   \\
+\dots   \\
+b_{n}
+\end{bmatrix}
+\end{array}
 $$
 
-在上式基础上设置$$ 7 $$个中间矩阵，从$$ p_{1} $$到$$ p_{7} $$
-
-$$
-\begin{matrix}
-p_1 = a \times f - a \times h = a \times (f - h)            \\
-p_2 = a \times h + b \times h = (a + b) \times h            \\
-p_3 = c \times e + d \times e = (c + d) \times e            \\
-p_4 = d \times g - d \times e = d \times (g - e)            \\
-p_5 = a \times e + a \times h + d \times e + d \times h = (a + d) \times (e + h)        \\
-p_6 = b \times g + b \times h - d \times g - d \times h = (b - d) \times (g + h)        \\
-p_7 = a \times e + a \times f - c \times e - c \times f = (a - c) \times (e + f)
-\end{matrix}
-$$
-
-又因为
-
-$$
-\begin{matrix}
-r = p_5 + p_4 - p_2 + p_6   \\
-s = p_1 + p_2               \\
-t = p_3 + p_4               \\
-u = p_1 + p_5 - p_3 - p_7
-\end{matrix}
-$$
-
-显然通过特别的设置$$ p_1 $$到$$ p_7 $$这$$ 7 $$个中间矩阵，最终也可求出两矩阵的相乘结果。
-
-从上式可以看出，进行一次矩阵乘法需要计算$$ 8 $$次子矩阵相乘，其时间复杂度为$$ O(n^3) $$。
-
-//但Strassen算法只需要递归的计算7个子矩阵，使得时间复杂度下降到O(n^2.81)
-
-//由此，添加了若干子矩阵的加减运算，但得到一个矩阵只需要进行7次子矩阵的相乘
-//为了方便本文中只考虑n为偶数的矩阵相乘，若n为奇数则子矩阵的划分总是多出一行一列
-//实际中该算法由于增加了过多的矩阵加减运算，其实际效率并不高
-//
-//本节引用了“数学复习全书(2013年李永乐李正元考研数学 数学一)”，作者“李永乐”“李正元”
 
 --------
 
 #### 源码
 
-[Strassen.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/LinearAlgebra/Matrix/Strassen.h)
+[GaussElimination.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/LinearAlgebra/Matrix/GaussElimination.h)
 
-[Strassen.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/LinearAlgebra/Matrix/Strassen.cpp)
+[GaussElimination.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/LinearAlgebra/Matrix/GaussElimination.cpp)
 
 #### 测试
 
-[StrassenTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/LinearAlgebra/Matrix/StrassenTest.cpp)
-
-
+[GaussEliminationTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/LinearAlgebra/Matrix/GaussEliminationTest.cpp)
