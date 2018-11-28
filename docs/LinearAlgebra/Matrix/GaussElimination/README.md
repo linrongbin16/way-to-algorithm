@@ -106,6 +106,12 @@ $$
 
 --------
 
+#### 数学复习全书（李永乐李正元考研数学 数学一）
+
+* https://book.douban.com/subject/21370697/
+
+--------
+
 #### 源码
 
 [GaussElimination.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/LinearAlgebra/Matrix/GaussElimination.h)
