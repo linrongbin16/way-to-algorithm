@@ -19,6 +19,26 @@
 
 #### 行列式
 
+$$ n $$阶行列式
+
+$$
+\begin{vmatrix}
+a_{11}  &   a_{12}  &   \cdots  &   a_{1n}  \\
+a_{21}  &   a_{22}  &   \cdots  &   a_{2n}  \\
+\vdots  &   \vdots  &           &   \vdots  \\
+a_{n1}  &   a_{n2}  &   \cdots  &   a_{nn}
+\end{vmatrix}
+$$
+
+表示$$ n $$个元素的乘积
+
+$$
+a_{1j_{1}} a_{2j_{2}} \cdots a_{nj_{n}}
+$$
+
+的代数和。
+
+
 #### 矩阵
 
 矩阵（Matrix）：$$ n \times m $$个数字组成的$$ n $$行$$ m $$列的表格$$ A_{n,m} $$，第$$ i $$行第$$ j $$列的元素为$$ a_{i,j} $$，其中$$ 1 \leq i \leq n, 1 \leq j \leq m $$。
