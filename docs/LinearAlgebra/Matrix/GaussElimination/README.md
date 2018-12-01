@@ -49,29 +49,6 @@ b_{n}
 \end{bmatrix}
 $$
 
-$$
-(A \mid B) =
-\begin{bmatrix}
-\begin{array} {c|c}
-\begin{matrix}
-a_{11} &   a_{12} &   a_{13} &   \dots   &   a_{1m}     \\
-a_{21} &   a_{22} &   a_{23} &   \dots   &   a_{2m}     \\
-a_{31} &   a_{32} &   a_{33} &   \dots   &   a_{3m}     \\
- \quad &    \quad &   \dots  &  \quad   &   \quad       \\
-a_{n1} &   a_{n2} &   a_{n3} &   \dots   &   a_{nm}
-\end{matrix}
-&
-\begin{matrix}
-b_{1}   \\
-b_{2}   \\
-b_{3}   \\
-\dots   \\
-b_{n}
-\end{matrix}
-\end{array}
-\end{bmatrix}
-$$
-
 增广矩阵的左边部分是线性方程组中的矩阵$$ A $$，右边部分是线性方程组中的系数向量$$ B $$。增广矩阵是一个$$ n \times (m+1) $$的矩阵。
 
 高斯消元法的数学含义在于通过初等变化，将线性方程组对应的增广矩阵变化为只有$$ r $$行不全为$$ 0 $$的矩阵（其中$$ r $$为增广矩阵的秩），形如

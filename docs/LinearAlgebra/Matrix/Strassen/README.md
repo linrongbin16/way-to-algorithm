@@ -12,7 +12,7 @@
 
 #### 行列式
 
-$$ n $$阶行列式
+$$ n $$阶行列式（Determinant）：
 
 $$
 \begin{vmatrix}
@@ -35,7 +35,7 @@ $$
 \begin{vmatrix}
 a_{11}  &   a_{12}  &   \cdots  &   a_{1n}  \\
 a_{21}  &   a_{22}  &   \cdots  &   a_{2n}  \\
-\vdots  &   \vdots  &           &   \vdots  \\
+\vdots  &   \vdots  &    \quad  &   \vdots  \\
 a_{n1}  &   a_{n2}  &   \cdots  &   a_{nn}
 \end{vmatrix}
 
@@ -50,12 +50,12 @@ $$ \sum_{j_{1} j_{2} \cdots j_{n}} $$表示对所有$$ n $$阶排列求和，该
 
 $$
 A_{nm} =
-\begin{pmatrix}
+\begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1m} \\
 a_{21} & a_{22} & \cdots & a_{2m} \\
 \vdots  & \vdots  & \ddots & \vdots  \\
 a_{n1} & a_{n2} & \cdots & a_{nm}
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 零矩阵：所有元素都为$$ 0 $$的矩阵。即$$ A_{nm} $$中的任意元素$$ a_{ij} = 0 $$。
@@ -74,12 +74,12 @@ $$ n $$阶矩阵的主对角线：即矩阵$$ A_{nn} $$上的元素$$ a_{ii} $$�
 
 $$
 A_{nn} =
-\begin{pmatrix}
+\begin{bmatrix}
 1_{11} & 0_{12} & \cdots & 0_{1n} \\
 0_{21} & 1_{22} & \cdots & 0_{2n} \\
 \vdots  & \vdots  & \ddots & \vdots  \\
 0_{n1} & 0_{n2} & \cdots & 1_{nn}
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 转置矩阵：矩阵$$ A $$的转置矩阵是$$ m \times n $$的矩阵$$ AT $$，$$ AT $$中的任意元素$$ at_{ji} = a_{ij} $$。
