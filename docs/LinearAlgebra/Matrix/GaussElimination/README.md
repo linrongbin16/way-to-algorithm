@@ -18,7 +18,7 @@ $$
 \begin{cases}
 a_{11} \times x_1 + a_{12} \times x_2 + \dots + a_{1m} \times x_m = b_1      \\
 a_{21} \times x_1 + a_{22} \times x_2 + \dots + a_{2m} \times x_m = b_2      \\
-\dots   \\
+\cdots   \\
 a_{n1} \times x_1 + a_{n2} \times x_2 + \dots + a_{nm} \times x_m = b_n
 \end{cases}
 $$
@@ -33,7 +33,7 @@ A =
 a_{11} &   a_{12} &   a_{13} &   \dots   &   a_{1m}     \\
 a_{21} &   a_{22} &   a_{23} &   \dots   &   a_{2m}     \\
 a_{31} &   a_{32} &   a_{33} &   \dots   &   a_{3m}     \\
-       &          &   \dots  &           &               \\
+ \quad &    \quad &   \dots  &  \quad   &   \quad       \\
 a_{n1} &   a_{n2} &   a_{n3} &   \dots   &   a_{nm}
 \end{bmatrix}
 
@@ -57,7 +57,7 @@ $$
 a_{11} &   a_{12} &   a_{13} &   \dots   &   a_{1m}     \\
 a_{21} &   a_{22} &   a_{23} &   \dots   &   a_{2m}     \\
 a_{31} &   a_{32} &   a_{33} &   \dots   &   a_{3m}     \\
-       &          &   \dots  &           &               \\
+ \quad &    \quad &   \dots  &  \quad   &   \quad       \\
 a_{n1} &   a_{n2} &   a_{n3} &   \dots   &   a_{nm}
 \end{matrix}
 &
@@ -84,9 +84,9 @@ $$
 c_{11} &   c_{12} &   c_{13} &   \dots   &   c_{1r} &   \dots   &   c_{1m}     \\
 0_{21} &   c_{22} &   c_{23} &   \dots   &   c_{2r} &   \dots   &   c_{2m}     \\
 0_{31} &   0_{32} &   c_{33} &   \dots   &   c_{3r} &   \dots   &   c_{3m}     \\
-       &          &          &   \dots   &          &           &              \\
+ \quad &  \quad   &  \quad   &   \dots   &  \quad   &  \quad    &  \quad       \\
 0_{r1} &   0_{r2} &   0_{r3} &   \dots   &   c_{rr} &   \dots   &   c_{rm}     \\
-       &          &          &   \dots   &          &           &              \\
+ \quad &  \quad   &  \quad   &   \dots   &  \quad   &  \quad    &  \quad       \\
 0_{n1} &   0_{n2} &   0_{n3} &   \dots   &   0_{nr} &   \dots   &   0_{nm}
 \end{matrix}
 &
