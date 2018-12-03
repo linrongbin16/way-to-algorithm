@@ -74,7 +74,7 @@ $$
 
 行列式有以下性质：
 
-$$ (1) $$ 经过转置行列式的值不变，即$$ \begin{vmatrix} A^T \end{vmatrix} = \begin{vmatrix} A \end{vmatrix} $$。行列式的转置是将$$ A $$的行和列交换，得到$$ A^{T} $$，转置行列式的任意元素满足$$ a_{ij}^{T} = a_{ji} $$；例如
+$$ (1) $$ 经过转置行列式的值不变，即$$ \begin{vmatrix} A^T \end{vmatrix} = \begin{vmatrix} A \end{vmatrix} $$。行列式的转置是将$$ A $$的行和列交换，得到$$ A^{T} $$，转置行列式的任意元素满足$$ a_{ij}^{t} = a_{ji} $$；例如
 
 $$
 A_{33} =
