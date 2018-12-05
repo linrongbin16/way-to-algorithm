@@ -1,5 +1,5 @@
-# Chapter-9 Analytic Geometry
-# 第9章 解析几何
+# Chapter-10 Analytic Geometry
+# 第10章 解析几何
 
 ![AnalyticGeometry.png](res/AnalyticGeometry.png)
 

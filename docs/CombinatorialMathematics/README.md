@@ -1,5 +1,5 @@
-# Chapter-6 Combination Mathematics
-# 第6章 组合数学
+# Chapter-7 Combination Mathematics
+# 第7章 组合数学
 
 ![CombinationMathematics.png](res/CombinationMathematics.png)
 

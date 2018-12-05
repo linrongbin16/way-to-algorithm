@@ -1,5 +1,5 @@
-# Chapter-5 Graph Theory
-# 第5章 图论
+# Chapter-6 Graph Theory
+# 第6章 图论
 
 ![GraphTheory.png](res/GraphTheory.png)
 

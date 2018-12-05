@@ -1,5 +1,5 @@
-# Chapter-7 Number Theory
-# 第7章 数论
+# Chapter-8 Number Theory
+# 第8章 数论
 
 ![NumberTheory.png](res/NumberTheory.png)
 

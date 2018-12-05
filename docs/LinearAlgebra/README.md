@@ -1,5 +1,5 @@
-# Chapter-8 Linear Algebra
-# 第8章 线性代数
+# Chapter-9 Linear Algebra
+# 第9章 线性代数
 
 ![Matrix.png](res/Matrix.png)
 
