@@ -17,11 +17,9 @@
 
 #### 平面搜索中的矩阵
 
-下图是一个矩阵$$ matrix $$：
-
 ![KnowledgePoint1.png](res/KnowledgePoint1.png)
 
-我们称之为$$ 3 $$行$$ 5 $$列的矩阵，一般用二位数组$$ m = 3 \times 5 $$表示，$$ matrix[row, col] $$表示第$$ row $$行、第$$ col $$列的元素。比如：
+上图是$$ 3 $$行$$ 5 $$列的矩阵，用$$ 3 \times 5 $$的二位数组表示，$$ matrix[row, col] $$表示第$$ row $$行、第$$ col $$列的元素。例如
 
 ![KnowledgePoint2.png](res/KnowledgePoint2.png)
 
