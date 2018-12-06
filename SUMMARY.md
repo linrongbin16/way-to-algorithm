@@ -10,6 +10,7 @@
     * [MergeSort 归并排序](docs/Sort/MergeSort/README.md)
 * [Chapter-3 Search 第3章 搜索](docs/Search/README.md)
     * [BinarySearch 二分查找法（折半查找法）](docs/Search/BinarySearch/README.md)
+    * [AdditionMultiplicationPrinciple 加法乘法原理](docs/Search/AdditionMultiplicationPrinciple/README.md)
     * [BruteForce 暴力枚举](docs/Search/BruteForce/README.md)
     * [Recursion 递归](docs/Search/Recursion/README.md)
     * [BreadthFirstSearch 广度优先搜索](docs/Search/BreadthFirstSearch/README.md)
