@@ -86,7 +86,7 @@
     * [PermutationGroup 置换群](docs/CombinatorialMathematics/PermutationGroup/README.md)
 * [Chapter-8 NumberTheory 第8章 数论](docs/NumberTheory/README.md)
     * [PrimeSieve 素数筛法](docs/NumberTheory/PrimeSieve/README.md)
-    * [GreatestCommonDivisor 最大公约数](docs/NumberTheory/GreatestCommonDivisor/)
+    * [GreatestCommonDivisor 最大公约数](docs/NumberTheory/GreatestCommonDivisor/README.md)
     * [Euclid 欧几里得算法](docs/NumberTheory/Euclid/README.md)
     * [ExtendedEuclid 扩展欧几里得算法](docs/NumberTheory/ExtendedEuclid/README.md)
     * [ChineseRemainerTheorem 中国剩余定理](docs/NumberTheory/ChineseRemainerTheorem/README.md)
