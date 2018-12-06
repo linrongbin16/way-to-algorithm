@@ -31,14 +31,12 @@ $$ (2) $$ 对于模式上的位置$$ j \gt 0 $$，其父节点位置为$$ j - 1 
 即公式：
 
 $$
-
 pmt[j] =
 \begin{cases}
 -1       &   j = 0   \\
 -1       &   0 \lt j \lt m, pattern[pmt[j-1]+1] \ne pattern[j]   \\
 pmt[j-1] + 1 &  0 \lt i \lt m, pattern[pmt[j-1]+1] = pattern[j]
 \end{cases}
-
 $$
 
 实际编程中为了方便操作数组下标，通常会定义数组$$ next $$，令$$ next[i] = pmt[i-1] $$。
