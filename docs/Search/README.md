@@ -6,12 +6,13 @@
 --------
 
 1. [BinarySearch 二分查找法（折半查找法）](BinarySearch/)
-2. [BruteForce 暴力枚举](BruteForce/)
-3. [Recursion 递归](Recursion/)
-4. [BreadthFirstSearch 广度优先搜索](BreadthFirstSearch/)
-5. [BidirectionalBreadthSearch 双向广度搜索](BidirectionalBreadthSearch/)
-6. [AStarSearch A\*搜索](AStarSearch/)
-7. [DancingLink 舞蹈链](DancingLink/)
+2. [AdditionMultiplicationPrinciple 加法乘法原理](AdditionMultiplicationPrinciple/)
+3. [BruteForce 暴力枚举](BruteForce/)
+4. [Recursion 递归](Recursion/)
+5. [BreadthFirstSearch 广度优先搜索](BreadthFirstSearch/)
+6. [BidirectionalBreadthSearch 双向广度搜索](BidirectionalBreadthSearch/)
+7. [AStarSearch A\*搜索](AStarSearch/)
+8. [DancingLink 舞蹈链](DancingLink/)
 
 --------
 
