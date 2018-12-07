@@ -95,10 +95,10 @@ $$ (1) $$ 凸$$ n $$边形直径
 
 #### 源码
 
-[RotatingCalipers.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/RotatingCalipers.h)
+[RotatingCalipers.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/RotatingCalipers.h)
 
-[RotatingCalipers.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/RotatingCalipers.cpp)
+[RotatingCalipers.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/RotatingCalipers.cpp)
 
 #### 测试
 
-[RotatingCalipersTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/RotatingCalipersTest.cpp)
+[RotatingCalipersTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/RotatingCalipersTest.cpp)

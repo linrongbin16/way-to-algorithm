@@ -6,16 +6,16 @@
 --------
 
 1. Section-1 Polygon 第1节 多边形
-    1. [Cross 叉积](Polygon/Cross/)
+    1. [Cross 向量叉积](Polygon/Cross/)
     2. [SegmentIntersection 线段相交](Polygon/SegmentIntersection/)
     3. [Sweeping 扫除算法](Polygon/Sweeping/)
     4. [ConvexPolygonArea 凸多边形面积](Polygon/ConvexPolygonArea/)
     5. [ConvexPolygonGravityCenter 凸多边形重心](Polygon/ConvexPolygonGravityCenter/)
-    6. [RotatingCalipers 旋转卡壳](Polygon/RotatingCalipers/)
 2. Section-2 ConvexHull 第2节 凸包
     1. [NearestNeighbor 最近点对](ConvexHull/NearestNeighbor/)
     2. [GrahamScan Graham扫描算法](ConvexHull/GrahamScan/)
     3. [QuickConvexHull 快速凸包算法](ConvexHull/QuickConvexHull/)
+    4. [RotatingCalipers 旋转卡壳](Polygon/RotatingCalipers/)
 
 --------
 

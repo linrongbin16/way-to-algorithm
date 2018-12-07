@@ -102,7 +102,7 @@
         * [Dinkelback Dinkelback算法](docs/LinearAlgebra/LinearProgramming/Dinkelback/README.md)
 * [Chapter-10 AnalyticGeometry 第10章 解析几何](docs/AnalyticGeometry/README.md)
     * Section-1 Polygon 第1节 多边形
-        * [Cross 叉积](docs/AnalyticGeometry/Polygon/Cross/README.md)
+        * [Cross 向量叉积](docs/AnalyticGeometry/Polygon/Cross/README.md)
         * [SegmentIntersection 线段相交](docs/AnalyticGeometry/Polygon/SegmentIntersection/README.md)
         * [Sweeping 扫除算法](docs/AnalyticGeometry/Polygon/Sweeping/README.md)
         * [ConvexPolygonArea 凸多边形面积](docs/AnalyticGeometry/Polygon/ConvexPolygonArea/README.md)
