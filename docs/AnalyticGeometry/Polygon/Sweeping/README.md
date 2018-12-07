@@ -6,7 +6,7 @@
 
 #### 问题
 
-判断一组线段中是否存在相交的线段。
+判断$$ n $$个线段中是否存在相交的线段。
 
 #### 解法
 
@@ -34,11 +34,11 @@ $$ (2) $$ 当扫除线遇到线段$$ l_{1} $$的右端点$$ a $$时，将线段$
 
 状态$$ T $$通过红黑树实现，需要实现：插入线段$$ Insert(l) $$，删除线段$$ Erase(l) $$、查询线段$$ l $$上方的线段$$ Above(l) $$，查询线段$$ l $$下方的线段$$ Below(l) $$四种操作。
 
-对于数量为$$ n $$的一组线段，该算法的时间复杂度为$$ O(n) $$。
+对于$$ n $$个线段，该算法的时间复杂度为$$ O(n) $$。
 
 --------
 
-#### 算法导论-第33章计算几何学
+#### Introduction to Algorithms
 
 * [VII.Selected Topics - 33.Computational Geometry - 33.2.Determining whether any pair of segments intersects](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
 

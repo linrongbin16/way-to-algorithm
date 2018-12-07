@@ -42,10 +42,10 @@
 
 #### 源码
 
-[NearestNeighbor.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/NearestNeighbor.h)
+[NearestNeighbor.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/NearestNeighbor.h)
 
-[NearestNeighbor.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/NearestNeighbor.cpp)
+[NearestNeighbor.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/NearestNeighbor.cpp)
 
 #### 测试
 
-[NearestNeighborTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/ConvexHull/NearestNeighborTest.cpp)
+[NearestNeighborTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Polygon/NearestNeighborTest.cpp)
