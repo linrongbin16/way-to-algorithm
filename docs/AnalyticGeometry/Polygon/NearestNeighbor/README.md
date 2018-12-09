@@ -23,8 +23,10 @@
 当合并两个相邻子区域$$ left $$和$$ right $$时，设两个子区域的最近两点距离分别为$$ dist_{left}, dist_{right} $$，分割两个区域的中点为$$ p $$。对于$$ left $$区域中的任意顶点$$ a $$，若其满足
 
 $$
-\mid x_a - x_p \mid \leq dist_{left}
+\begin{matrix}
+\mid x_a - x_p \mid \leq dist_{left}    \\
 \mid y_a - y_p \mid \leq dist_{left}
+\end{matrix}
 $$
 
 则$$ a $$与$$ p $$有可能是最近点对，不满足该条件的$$ a $$与$$ p $$必然不是最近点对。
@@ -32,8 +34,10 @@ $$
 通过直接判断$$ x, y $$轴可以避免计算二维平面上两点距离时的乘法运算，最终只需要计算出$$ p $$与它周围最近的的一部分顶点的距离即可。算出点$$ p $$与它周围顶点的距离$$ dist_{ap} $$。同理，对于区域$$ right $$中的所有满足下列条件的顶点$$ b $$：
 
 $$
-\mid x_b - x_p \mid \leq dist_{right}
+\begin{matrix}
+\mid x_b - x_p \mid \leq dist_{right}   \\
 \mid y_b - y_p \mid \leq dist_{right}
+\end{matrix}
 $$
 
 点$$ p $$与这些顶点的距离为$$ dist_{bp} $$。在$$ p $$周围的顶点，以及$$ left, right $$区域中的最近点对，在这些点对中选出距离最近的两点。重复上述操作，递归合并相邻两区域，最终可以求出$$ n $$个点中的最近两点距离。
