@@ -14,9 +14,11 @@
 
 通过分治法将二维平面坐标系上的$$ n $$个顶点作为一个区域$$ s $$，可知该区域的$$ x $$坐标范围为$$ [ x_{min}, x_{max} ] $$，$$ y $$坐标范围为$$ [ y_{min}, y_{max} ] $$。如下图所示：
 
-![NearestNeighbor.png](../res/NearestNeighbor1.png)
+![NearestNeighbor1.png](../res/NearestNeighbor1.png)
 
 在区域$$ s $$中选取$$ x $$坐标最接近$$ \frac{x_{min} + x_{max}}{2} $$的顶点$$ p $$，用垂直于$$ x $$轴，$$ x $$坐标为$$ x_{p} $$的直线将该区域划分为左右两个子区域$$ left $$和$$ right $$。顶点$$ p $$不属于$$ left $$或$$ right $$任意区域。对两个子区域，类似的继续进行划分，直到区域中顶点的数量$$ n \leq 3 $$。
+
+![NearestNeighbor2.png](../res/NearestNeighbor2.png)
 
 当一个区域中的顶点数量$$ n \leq 3 $$时，可以直接求出这些顶点中的最近两点距离$$ dist_{min} $$。对于两个相邻子区域，虽然已知两个子区域内的最近两点距离，但两个相邻子区域合并后的最近两点距离仍然不确定。
 
