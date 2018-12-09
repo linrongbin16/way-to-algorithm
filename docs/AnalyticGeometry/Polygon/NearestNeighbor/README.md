@@ -16,7 +16,7 @@
 
 ![NearestNeighbor1.png](../res/NearestNeighbor1.png)
 
-在区域$$ s $$中选取$$ x $$坐标最接近$$ \frac{x_{min} + x_{max}}{2} $$的顶点$$ p $$，用垂直于$$ x $$轴，$$ x $$坐标为$$ x_{p} $$的直线将该区域划分为左右两个子区域$$ left $$和$$ right $$。顶点$$ p $$不属于$$ left $$或$$ right $$任意区域。对两个子区域，类似的继续进行划分，直到区域中顶点的数量$$ n \leq 3 $$。
+在区域$$ s $$中选取$$ x $$坐标最接近$$ \frac{x_{min} + x_{max}}{2} $$的顶点$$ p $$（若存在多个相同坐标的顶点$$ p $$，选择$$ x $$轴最小的），用垂直于$$ x $$轴，$$ x $$坐标为$$ x_{p} $$的直线将该区域划分为左右两个子区域$$ left $$和$$ right $$。顶点$$ p $$不属于$$ left $$或$$ right $$任意区域。对两个子区域，类似的继续进行划分，直到区域中顶点的数量$$ n \leq 3 $$。
 
 ![NearestNeighbor2.png](../res/NearestNeighbor2.png)
 
