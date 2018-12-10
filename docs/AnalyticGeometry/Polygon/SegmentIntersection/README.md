@@ -36,7 +36,7 @@ $$ (2) $$ 线段$$ l_{1} $$的其中一个端点在线段$$ l_{2} $$上，这是
 
 #### Introduction to Algorithms
 
-* [VII.Selected Topics - 33.Computational Geometry - 33.1.Line-segment properties](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VII.Selected Topics - 33.Computational Geometry - 33.2.Determining whether any pair of segments intersects](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
 
 --------
 
