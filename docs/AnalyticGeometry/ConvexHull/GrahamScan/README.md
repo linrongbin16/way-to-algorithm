@@ -12,7 +12,23 @@
 
 在二维平面上选取$$ y $$坐标最小，$$ x $$坐标最小的顶点$$ p_0 $$，将其余$$ n-1 $$个顶点$$ [p_1, p_2, \dots, p_{n-1}] $$按照以$$ p_0 $$的顺时针方向排序。如图所示：
 
-<!--![GrahamScan1.png](../res/GrahamScan1.png)-->
+![GrahamScan1.png](../res/GrahamScan1.png)
+
+上图中以$$ p_0 $$点为基准，对其余点排序的结果为$$ [] $$。
+
+根据Cross中向量叉积的知识，可知对于三个顶点$$ p_0, p_1, p_2 $$组成的向量$$ \vec{p_0 p_1}, \vec{p_0 p_2} $$，设$$ C = \vec{p_0 p_1} \times \vec{p_0 p_2} $$有以下情况：
+
+$$ (1) $$ 若$$ C \gt 0 $$则$$ \vec{p_0 p_1} $$在$$ \vec{p_0 p_2} $$顺时针方向；如图：
+
+![GrahamScan2.png](../res/GrahamScan2.png)
+
+$$ (2) $$ 若$$ C \lt 0 $$则$$ \vec{p_0 p_1} $$在$$ \vec{p_0 p_2} $$逆时针方向；如图：
+
+![GrahamScan3.png](../res/GrahamScan3.png)
+
+$$ (3) $$ 若$$ C \eq 0 $$则$$ \vec{p_0 p_1} $$与$$ \vec{p_0 p_2} $$方向相同；如图：
+
+![GrahamScan4.png](../res/GrahamScan4.png)
 
 
 --------
