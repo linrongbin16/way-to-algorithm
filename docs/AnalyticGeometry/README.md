@@ -12,7 +12,7 @@
     4. [ConvexPolygonArea 凸多边形面积](Polygon/ConvexPolygonArea/)
     5. [ConvexPolygonGravityCenter 凸多边形重心](Polygon/ConvexPolygonGravityCenter/)
     6. [NearestNeighbor 最近点对](Polygon/NearestNeighbor/)
-2. Section-2 ConvexHull 第2节 凸包
+2. [Section-2 ConvexHull 第2节 凸包](ConvexHull/)
     2. [GrahamScan Graham扫描算法](ConvexHull/GrahamScan/)
     3. [QuickConvexHull 快速凸包算法](ConvexHull/QuickConvexHull/)
     4. [RotatingCalipers 旋转卡壳](Polygon/RotatingCalipers/)

@@ -108,7 +108,7 @@
         * [ConvexPolygonArea 凸多边形面积](docs/AnalyticGeometry/Polygon/ConvexPolygonArea/README.md)
         * [ConvexPolygonGravityCenter 凸多边形重心](docs/AnalyticGeometry/Polygon/ConvexPolygonGravityCenter/README.md)
         * [NearestNeighbor 最近点对](docs/AnalyticGeometry/Polygon/NearestNeighbor/README.md)
-    * Section-2 ConvexHull 第2节 凸包
+    * [Section-2 ConvexHull 第2节 凸包](docs/AnalyticGeometry/ConvexHull/README.md)
         * [GrahamScan Graham扫描算法](docs/AnalyticGeometry/ConvexHull/GrahamScan/README.md)
         * [QuickConvexHull 快速凸包算法](docs/AnalyticGeometry/ConvexHull/QuickConvexHull/README.md)
         * [RotatingCalipers 旋转卡壳](docs/AnalyticGeometry/ConvexHull/RotatingCalipers/README.md)
