@@ -18,11 +18,11 @@
 
 根据Cross中向量叉积的知识，可知对于三个顶点$$ p_0, p_1, p_2 $$组成的向量$$ \vec{p_0 p_1}, \vec{p_0 p_2} $$，设$$ C = \vec{p_0 p_1} \times \vec{p_0 p_2} $$有以下情况：
 
-$$ (1) $$ 若$$ C \gt 0 $$则$$ \vec{p_0 p_1} $$在$$ \vec{p_0 p_2} $$顺时针方向。如图：
+$$ (1) $$ 若$$ C \gt 0 $$则$$ \vec{p_0 p_2} $$在$$ \vec{p_0 p_1} $$逆时针方向。如图：
 
 ![GrahamScan2.png](../res/GrahamScan2.png)
 
-$$ (2) $$ 若$$ C \lt 0 $$则$$ \vec{p_0 p_1} $$在$$ \vec{p_0 p_2} $$逆时针方向。如图：
+$$ (2) $$ 若$$ C \lt 0 $$则$$ \vec{p_0 p_2} $$在$$ \vec{p_0 p_1} $$顺时针方向。如图：
 
 ![GrahamScan3.png](../res/GrahamScan3.png)
 
@@ -30,14 +30,14 @@ $$ (3) $$ 若$$ C = 0 $$则$$ \vec{p_0 p_1} $$与$$ \vec{p_0 p_2} $$方向相同
 
 ![GrahamScan4.png](../res/GrahamScan4.png)
 
-排序时比较任意两点到$$ p_0 $$的向量叉积都为正数，则整组顶点可以按照顺时针排列。设排列后的顶点顺序为$$ [p_1, p_2, \dots, p_{n-1}] $$。
+排序时比较任意两点到$$ p_0 $$的向量叉积都为负数，则整组顶点可以按照顺时针排列。设排列后的顶点顺序为$$ [p_1, p_2, \dots, p_{n-1}] $$。
 
 设置一个空堆栈$$ stack = \varnothing $$，初始时推入三个顶点$$ p_0, p_1, p_2 $$，此时堆栈为$$ stack = [p_0, p_1, p_2] $$。
 
-然后遍历剩余顶点$$ [p_3, \dots, p_{n-1} ] $$，对于每个顶点$$ p_i $$，考虑堆栈$$ stack $$的头部顶点$$ p_{top} $$、次头部顶点$$ p_{next-top} $$，判断这三个点组成的两个向量$$ \vec{p_{next-top} p_{top}} $$和$$ \vec{p_{top} p_i} $$，后者是否相对于前者是顺时针方向的，即满足
+然后遍历剩余顶点$$ [p_3, \dots, p_{n-1} ] $$，对于每个顶点$$ p_i $$，考虑堆栈$$ stack $$的头部顶点$$ p_{top} $$、次头部顶点$$ p_{next-top} $$，判断这三个点组成的两个向量$$ \vec{p_{top} p_i} $$和$$ \vec{p_{next-top} p_{top}} $$，前者是否在后者的顺时针方向，即满足
 
 $$
-\vec{p_{next-top} p_{top}} \times \vec{p_{top} p_i} \gt 0
+\vec{p_{next-top} p_{top}} \times \vec{p_{top} p_i} \lt 0
 $$
 
 $$ (1) $$ 若$$ p_i $$不满足条件，说明不是凸包上的点，对堆栈$$ stack $$进行出栈操作（推出头部顶点$$ top $$）。然后再重复判断$$ \vec{p_{next-top} p_{top}} \times \vec{p_{top} p_i} $$的值，直到满足该条件为止；
