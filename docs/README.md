@@ -110,7 +110,7 @@
         * [NearestNeighbor 最近点对](AnalyticGeometry/Polygon/NearestNeighbor/)
     * [Section-2 ConvexHull 第2节 凸包](AnalyticGeometry/ConvexHull/)
         * [GrahamScan Graham扫描算法](AnalyticGeometry/ConvexHull/GrahamScan/)
-        * [QuickConvexHull 快速凸包算法](AnalyticGeometry/ConvexHull/QuickConvexHull/)
+        * [QuickHull 快速凸包算法](AnalyticGeometry/ConvexHull/QuickHull/)
         * [RotatingCalipers 旋转卡壳](AnalyticGeometry/ConvexHull/RotatingCalipers/)
 * [Chapter-11 PatternMatch 第11章 文本匹配](PatternMatch/)
     * [SimpleMatch 简单匹配](PatternMatch/SimpleMatch/README.md)

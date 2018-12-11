@@ -14,7 +14,7 @@
     6. [NearestNeighbor 最近点对](Polygon/NearestNeighbor/)
 2. [Section-2 ConvexHull 第2节 凸包](ConvexHull/)
     2. [GrahamScan Graham扫描算法](ConvexHull/GrahamScan/)
-    3. [QuickConvexHull 快速凸包算法](ConvexHull/QuickConvexHull/)
+    3. [QuickHull 快速凸包算法](ConvexHull/QuickHull/)
     4. [RotatingCalipers 旋转卡壳](Polygon/RotatingCalipers/)
 
 --------
