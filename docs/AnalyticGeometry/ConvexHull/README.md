@@ -2,7 +2,7 @@
 # 第2节 凸包
 
 1. [GrahamScan Graham扫描算法](GrahamScan/)
-2. [QuickConvexHull 快速凸包算法](QuickConvexHull/)
+2. [QuickHull 快速凸包算法](QuickHull/)
 3. [RotatingCalipers 旋转卡壳](RotatingCalipers/)
 
 --------
