@@ -10,9 +10,13 @@
 
 #### 解法
 
-将长度为$$ n $$的序列$$ s = [x_0, x_1, \dots, x_{n-1}] $$分为$$ left = [x_0, \dots, x_k] $$和$$ right = [x_{k+1}, \dots, x_{n-1}] $$两个部分（$$ 0 \lt k \leq n $$），其中$$ left $$是无序的，$$ right $$是有序的。
+将长度为$$ n $$的序列$$ s = [x_0, x_1, \dots, x_{n-1}] $$分为$$ left = [x_0, \dots, x_k] $$和$$ right = [x_{k+1}, \dots, x_{n-1}] $$两个部分（$$ 0 \lt k \leq n $$），其中$$ left $$是无序的，$$ right $$是有序的。如图所示：
 
-初始时$$ left $$与$$ s $$相同，即$$ [x_0, \dots, x_{n-1}] $$，$$ right $$为空，即$$ [] $$。
+![BubbleSort6.png](../res/BubbleSort6.png)
+
+初始时$$ left $$与$$ s $$相同，即$$ [x_0, \dots, x_{n-1}] $$，$$ right $$为空，即$$ [] $$。如图所示：
+
+![BubbleSort7.png](../res/BubbleSort7.png)
 
 从左向右遍历$$ left $$中的所有元素$$ s[i] $$（$$ 0 \leq i \leq k $$）。依次比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，否则不做任何操作。这样一次遍历会将$$ left $$中的最大元素移动到最右边，然后将$$ left $$最右边的元素弹出，从左边加入$$ right $$中。
 
