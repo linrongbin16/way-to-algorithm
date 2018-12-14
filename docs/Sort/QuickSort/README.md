@@ -10,7 +10,9 @@
 
 #### 解法
 
-将长度为$$ n $$的序列$$ s $$，选取最左边的值作为$$ pivot $$，将剩余部分分为$$ left $$和$$ right $$两个部分，$$ left $$和$$ right $$是无序的，且$$ left $$中的所有元素$$ \forall x \le pivot $$（其中$$ x \in left $$），$$ right $$中的所有元素$$ \forall y \le pivot $$（其中$$ y \in right $$）。
+将长度为$$ n $$的序列$$ s $$，选取最左边的值作为$$ pivot $$，将剩余部分分为$$ left $$和$$ right $$两个部分，$$ left $$和$$ right $$是无序的，且$$ left $$中的所有元素$$ \forall x \le pivot $$（其中$$ x \in left $$），$$ right $$中的所有元素$$ \forall y \le pivot $$（其中$$ y \in right $$）。如图所示：
+
+![QuickSort4.png](../res/QuickSort4.png)
 
 初始时$$ left $$和$$ right $$两个部分都是空的，分别从数组$$ s $$的左右两边向中间推进。例如下图中的数组：
 
