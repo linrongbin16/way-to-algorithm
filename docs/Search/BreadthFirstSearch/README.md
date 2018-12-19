@@ -16,41 +16,37 @@
 
 ![BreadthFirstSearch1.png](../res/BreadthFirstSearch1.png)
 
-$$ (1) $$初始时将$$ beg = [1,0] $$染红并加入$$ queue $$；
+$$ (1) $$ 初始时将$$ beg = [1,0] $$染红并加入$$ queue $$；
 
-$$ (2) $$从$$ queue $$中取出头节点$$ [1,0] $$，因$$ [1,0] \ne end $$，将其四周未被染红的节点$$ [0,0], [1,1], [2,0] $$染红并加入$$ queue $$，图中$$ queue $$的左边为头部，右边为尾部，新访问的节点插入队列尾部，每次从队列中取出头节点$$ e $$：
+$$ (2) $$ 从$$ queue $$中取出头节点$$ [1,0] $$，因$$ [1,0] \ne end $$，将其四周未被染红的节点$$ [0,0], [1,1], [2,0] $$染红并加入$$ queue $$，图中$$ queue $$的左边为头部，右边为尾部，新访问的节点插入队列尾部，每次从队列中取出头节点$$ e $$：
 
 ![BreadthFirstSearch2.png](../res/BreadthFirstSearch2.png)
 
-$$ (3) $$从$$ queue $$中取出头节点$$ [0,0] $$，因$$ [0,0] \ne end $$，将其四周未被染红的节点$$ [0,1] $$染红并加入$$ queue $$；
+$$ (3) $$ 从$$ queue $$中取出头节点$$ [0,0] $$，因$$ [0,0] \ne end $$，将其四周未被染红的节点$$ [0,1] $$染红并加入$$ queue $$；
 
 ![BreadthFirstSearch3.png](../res/BreadthFirstSearch3.png)
 
 ![BreadthFirstSearch4.png](../res/BreadthFirstSearch4.png)
 
 $$
-
 \cdots
-
 $$
 
 ![BreadthFirstSearch11.png](../res/BreadthFirstSearch11.png)
 
-$$ (4) $$从$$ queue $$中取出头节点$$ [1,3] $$，因$$ [1,3] \ne end $$，其四周的节点都已经被染红，因此不加入任何新节点；
+$$ (4) $$ 从$$ queue $$中取出头节点$$ [1,3] $$，因$$ [1,3] \ne end $$，其四周的节点都已经被染红，因此不加入任何新节点；
 
 ![BreadthFirstSearch12.png](../res/BreadthFirstSearch12.png)
 
 $$
-
 \cdots
-
 $$
 
 ![BreadthFirstSearch20.png](../res/BreadthFirstSearch20.png)
 
 ![BreadthFirstSearch21.png](../res/BreadthFirstSearch21.png)
 
-$$ (5) $$从$$ queue $$中取出头节点$$ [4,3] $$，因$$ [4,3] = end $$，算法结束；
+$$ (5) $$ 从$$ queue $$中取出头节点$$ [4,3] $$，因$$ [4,3] = end $$，算法结束；
 
 本章的图搜索中，一个节点通常只需要搜索一次，常用染色来标记一个节点是否被搜索过，染红后就不会再放入待搜索队列$$ queue $$中。用类似“父节点”指针来记录搜索时遇到节点的上一个节点，搜索完成时通过“父节点”逆向的找到一条从$$ end $$回到$$ beg $$的路径。
 
