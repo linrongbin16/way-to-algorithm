@@ -28,16 +28,15 @@ $$
 
 ![FenwickTree2.png](../res/FenwickTree2.png)
 
-令Fenwick树上的节点$$ x $$存储值$$ t[x] $$：
+令Fenwick树上的节点$$ x $$存储值
 
 $$
 t[x] = \sum_{i=x-lowbit(x)+1}^{x} s[i]
 $$
 
-比如：
+比如
 
 $$
-
 \begin{matrix}
 t[1] & = \sum_{i=1-1+1}^{1} s[i] & = \sum_{i=1}^{1} s[i] & = s[1]   &   x=1 \\
 t[2] & = \sum_{i=2-2+1}^{2} s[i] & = \sum_{i=1}^{2} s[i] & = s[1] + s[2]   &   x=2 \\
@@ -57,10 +56,9 @@ t[15] & = \sum_{i=15-1+1}^{15} s[i] & = \sum_{i=15}^{15} s[i]   & = s[15]   &   
 t[16] & = \sum_{i=16-16+1}^{16} s[i] & = \sum_{i=1}^{16} s[i]   & = s[1] + \cdots + s[16]   &   x=16 \\
 \cdots
 \end{matrix}
-
 $$
 
-Fenwick树上每个节点$$ i $$覆盖到的区域之和如图所示：
+那么Fenwick树上每个节点$$ i $$覆盖到的区域和如图所示：
 
 ![FenwickTree4.png](../res/FenwickTree4.png)
 
