@@ -40,7 +40,7 @@ $$
 
 可以看出Dinic算法与Edmonds-Karp算法的核心区别只在于BFS搜索的数据结构不同，Dinic算法用距离标号来限制邻节点的搜索，而Edmonds-Karp除了剩余容量以外没有其他限制。Dinic算法运行在重新构建的水位图上，边的数量比原始的网络少很多，因此搜索的时间复杂度大大降低。
 
-该算法的时间复杂度为$$ O(\mid V \mid \cdot \mid E \mid \cdot log_2 \mid V \mid) $$。
+该算法的时间复杂度为$$ O(\lvert V \rvert \cdot \lvert E \rvert \cdot log_2 \lvert V \rvert) $$。
 
 --------
 

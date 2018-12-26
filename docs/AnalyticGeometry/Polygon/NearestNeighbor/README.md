@@ -26,8 +26,8 @@
 
 $$
 \begin{matrix}
-\mid x_a - x_p \mid \leq dist_{left}    \\
-\mid y_a - y_p \mid \leq dist_{left}
+\lvert x_a - x_p \rvert \leq dist_{left}    \\
+\lvert y_a - y_p \rvert \leq dist_{left}
 \end{matrix}
 $$
 
@@ -37,8 +37,8 @@ $$
 
 $$
 \begin{matrix}
-\mid x_b - x_p \mid \leq dist_{right}   \\
-\mid y_b - y_p \mid \leq dist_{right}
+\lvert x_b - x_p \rvert \leq dist_{right}   \\
+\lvert y_b - y_p \rvert \leq dist_{right}
 \end{matrix}
 $$
 

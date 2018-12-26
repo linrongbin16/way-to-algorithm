@@ -101,7 +101,7 @@ $$
 $$
 level(i) =
 \begin{cases}
-\mid V \mid     &   v_i = s                         \\
+\lvert V \rvert &   v_i = s                         \\
 0               &   v_i \in V \backslash \{ s \}
 \end{cases}
 $$
@@ -112,7 +112,7 @@ $$
 flow_{max} = \sum_{u \in V} f(u, t)
 $$
 
-该算法的时间复杂度为$$ O(\mid V \mid ^2 \cdot \mid E \mid ) $$。
+该算法的时间复杂度为$$ O(\lvert V \rvert ^2 \cdot \lvert E \rvert) $$。
 
 --------
 

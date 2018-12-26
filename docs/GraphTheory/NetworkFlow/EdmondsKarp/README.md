@@ -92,7 +92,7 @@ $$ flow_{max} = flow_{max} + \Delta $$
 
 ![EdmondsKarp4.png](../res/EdmondsKarp4.png)
 
-该算法时间复杂度为$$ O(\mid V \mid \cdot \mid E \mid ^2) $$。
+该算法时间复杂度为$$ O(\lvert V \rvert \cdot \lvert E \rvert ^2) $$。
 
 --------
 
