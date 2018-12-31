@@ -24,8 +24,8 @@ $$
 f(i) =
 \begin{cases}
 0                           &   (initialize)    &   i \in [0,n] \\
-s[i]                        &   (loop)          &   i \in [1,n]     &   f(i-1) \leq 0   \\
-f(i-1) + s[i]               &   (loop)          &   i \in [1,n]     &   f(i-1) \gt 0
+s[i]                        &   (loop)          &   i \in [1,n], f(i-1) \leq 0  \\
+f(i-1) + s[i]               &   (loop)          &   i \in [1,n], f(i-1) \gt 0
 \end{cases}
 $$
 

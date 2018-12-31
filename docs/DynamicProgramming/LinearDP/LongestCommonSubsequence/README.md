@@ -22,8 +22,8 @@ $$
 f(i,j) =
 \begin{cases}
 0                       &   (initialize)    &   i,j \in [0,n] \\
-f(i-1,j-1)+1            &   (loop)          &   i,j \in [1,n]   &   s_1 [i] = s_2 [j] \\
-max(f(i,j-1),f(i-1,j))  &   (loop)          &   i,j \in [1,n]   &   s_1 [i] \neq s_2 [j]
+f(i-1,j-1)+1            &   (loop)          &   i,j \in [1,n], s_1 [i] = s_2 [j] \\
+max(f(i,j-1),f(i-1,j))  &   (loop)          &   i,j \in [1,n], s_1 [i] \neq s_2 [j]
 \end{cases}
 $$
 
