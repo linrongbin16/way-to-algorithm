@@ -2,8 +2,6 @@
 #include <algorithm>
 #include <cassert>
 #include <utility>
-#define RED 'R'
-#define BLACK 'B'
 
 // TODO: bugs need fix
 

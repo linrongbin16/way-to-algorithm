@@ -3,6 +3,9 @@
 #include <cassert>
 #include <utility>
 
+#define RED 'R'
+#define BLACK 'B'
+
 // declaration
 
 static RbNode *Left(RbNode *e);
