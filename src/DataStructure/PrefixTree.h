@@ -8,24 +8,24 @@
 #include <cassert>
 #include <cstring>
 
-struct PreNode {
+struct PtNode {
   char letter;
   const char *word;
-  PreNode *child[CHILD_MAX];
+  PtNode *child[CHILD_MAX];
 };
 
 // create prefix tree
-PreNode *PrefixTreeNew();
+PtNode *PrefixTreeNew();
 
 // free prefix tree
-void PrefixTreeFree(PreNode *t);
+void PrefixTreeFree(PtNode *t);
 
 // insert word to prefix tree
-void PrefixTreeInsert(PreNode *t, const char *word);
+void PrefixTreeInsert(PtNode *t, const char *word);
 
 // find word from prefix tree
-int PrefixTreeFind(PreNode *t, const char *word);
+int PrefixTreeFind(PtNode *t, const char *word);
 
 // erase word from prefix tree
-void PrefixTreeErase(PreNode *t, const char *word);
+void PrefixTreeErase(PtNode *t, const char *word);
 
