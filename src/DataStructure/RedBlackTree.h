@@ -10,6 +10,7 @@ struct RbNode {
   int value;
   RbNode *left;
   RbNode *right;
+  RbNode *father;
 };
 
 struct RedBlackTree {
