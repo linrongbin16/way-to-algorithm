@@ -4,8 +4,8 @@ using namespace std;
 
 #define TEST_MAX 1024
 
-static int Greater(LefNode *a, LefNode *b) { return b->index - a->index; }
-static int Less(LefNode *a, LefNode *b) { return a->index - b->index; }
+static int Greater(LtNode *a, LtNode *b) { return b->index - a->index; }
+static int Less(LtNode *a, LtNode *b) { return a->index - b->index; }
 
 int main(void) {
   for (int i = 0; i < MAX; i++) {

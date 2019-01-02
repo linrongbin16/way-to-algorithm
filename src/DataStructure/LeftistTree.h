@@ -5,23 +5,23 @@
 
 struct LeftistTree;
 
-struct LefNode {
+struct LtNode {
   //节点下标
   int index;
   int distance;
-  LefNode *left;
-  LefNode *right;
+  LtNode *left;
+  LtNode *right;
   LeftistTree *tree;
 };
 
 struct LeftistTree {
-  LefNode *root;
+  LtNode *root;
   int size;
-  int (*cmp)(LefNode *, LefNode *);
+  int (*cmp)(LtNode *, LtNode *);
 };
 
 // create leftist tree
-LeftistTree *LeftistTreeNew(int (*Compare)(LefNode *a, LefNode *b));
+LeftistTree *LeftistTreeNew(int (*Compare)(LtNode *a, LtNode *b));
 
 // free leftist tree
 void LeftistTreeFree(LeftistTree *t);

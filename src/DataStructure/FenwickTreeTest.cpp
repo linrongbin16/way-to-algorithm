@@ -19,7 +19,7 @@ int main() {
   for (int i = 2; i < TEST_MAX; i++) {
     int s[TEST_MAX];
     memset(s, 0, sizeof(int) * TEST_MAX);
-    FenTree *t = FenwickTreeNew();
+    FwTree *t = FenwickTreeNew();
     for (int j = 1; j < i; j++) {
       int r = rand() % TEST_MAX;
       FenwickTreeAdd(t, j, r);

@@ -1,7 +1,7 @@
 #include "LeftistTree.h"
 #include <algorithm>
 
-static LefNode *Merge(LefNode *a, LefNode *b, LeftistTree *t) {
+static LtNode *Merge(LtNode *a, LtNode *b, LeftistTree *t) {
   if (!a && !b)
     return NULL;
   if (!a) {
@@ -31,15 +31,15 @@ static LefNode *Merge(LefNode *a, LefNode *b, LeftistTree *t) {
   return a;
 }
 
-static void LefNodeFree(LefNode *e) {
+static void LtNodeFree(LtNode *e) {
   if (!e)
     return;
-  LefNodeFree(e->left);
-  LefNodeFree(e->right);
+  LtNodeFree(e->left);
+  LtNodeFree(e->right);
   delete e;
 }
 
-LeftistTree *LeftistTreeNew(int (*Compare)(LefNode *a, LefNode *b)) {
+LeftistTree *LeftistTreeNew(int (*Compare)(LtNode *a, LtNode *b)) {
   LeftistTree *t = new LeftistTree();
   t->cmp = Compare;
   t->root = NULL;
@@ -48,7 +48,7 @@ LeftistTree *LeftistTreeNew(int (*Compare)(LefNode *a, LefNode *b)) {
 }
 
 void LeftistTreeFree(LeftistTree *t) {
-  LefNodeFree(t->root);
+  LtNodeFree(t->root);
   delete t;
 }
 
@@ -65,7 +65,7 @@ LeftistTree *LeftistTreeMerge(LeftistTree *a, LeftistTree *b) {
 int LeftistTreeTop(LeftistTree *t) { return t->root ? t->root->index : -1; }
 
 int LeftistTreePush(LeftistTree *t, int index) {
-  LefNode *e = new LefNode();
+  LtNode *e = new LtNode();
   if (!e)
     return -1;
   e->distance = 0;
@@ -84,7 +84,7 @@ int LeftistTreePop(LeftistTree *t) {
   if (t->size <= 0)
     return -1;
 
-  LefNode *old = t->root;
+  LtNode *old = t->root;
   t->root = Merge(t->root->left, t->root->right, t);
   t->size -= 1;
   delete old;

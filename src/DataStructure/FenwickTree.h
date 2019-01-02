@@ -3,12 +3,12 @@
 #define MAX 1024
 #endif
 
-struct FenTree {
+struct FwTree {
   int bits[MAX];
 };
 
-FenTree *FenwickTreeNew();
-void FenwickTreeFree(FenTree *t);
-void FenwickTreeAdd(FenTree *t, int i, int value);
-int FenwickTreeSum(FenTree *t, int i, int j);
+FwTree *FenwickTreeNew();
+void FenwickTreeFree(FwTree *t);
+void FenwickTreeAdd(FwTree *t, int i, int value);
+int FenwickTreeSum(FwTree *t, int i, int j);
 
