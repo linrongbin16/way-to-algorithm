@@ -5,7 +5,7 @@
 #define right_child(x) (2 * (x) + 2)
 #define father(x) (((x)-1) / 2)
 
-static int SegmentTreeNewRec(SegNode *t, int s[MAX], int root, int beg,
+static int SegmentTreeNewRec(StNode *t, int s[MAX], int root, int beg,
                              int end) {
   if (end == beg + 1) {
     t->left[root] = beg;
@@ -22,7 +22,7 @@ static int SegmentTreeNewRec(SegNode *t, int s[MAX], int root, int beg,
   return t->sum[root];
 }
 
-static void SegmentTreeAddRec(SegNode *t, int root, int i, int v) {
+static void SegmentTreeAddRec(StNode *t, int root, int i, int v) {
   if (t->left[root] > i || t->right[root] <= i) {
     return;
   }
@@ -34,7 +34,7 @@ static void SegmentTreeAddRec(SegNode *t, int root, int i, int v) {
   SegmentTreeAddRec(t, right_child(root), i, v);
 }
 
-static int SegmentTreeSumRec(SegNode *t, int root, int beg, int end) {
+static int SegmentTreeSumRec(StNode *t, int root, int beg, int end) {
   int mid = (t->left[root] + t->right[root]) / 2;
   if (t->left[root] == beg && t->right[root] == end) {
     return t->sum[root];
@@ -48,19 +48,19 @@ static int SegmentTreeSumRec(SegNode *t, int root, int beg, int end) {
   }
 }
 
-SegNode *SegmentTreeNew(int s[MAX], int beg, int end) {
-  SegNode *t = new SegNode();
+StNode *SegmentTreeNew(int s[MAX], int beg, int end) {
+  StNode *t = new StNode();
   SegmentTreeNewRec(t, s, 0, beg, end);
   return t;
 }
 
-void SegmentTreeFree(SegNode *t) { delete t; }
+void SegmentTreeFree(StNode *t) { delete t; }
 
-void SegmentTreeAdd(SegNode *t, int i, int value) {
+void SegmentTreeAdd(StNode *t, int i, int value) {
   SegmentTreeAddRec(t, 0, i, value);
 }
 
-int SegmentTreeSum(SegNode *t, int beg, int end) {
+int SegmentTreeSum(StNode *t, int beg, int end) {
   return SegmentTreeSumRec(t, 0, beg, end);
 }
 

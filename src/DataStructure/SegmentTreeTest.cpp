@@ -20,7 +20,7 @@ int main() {
     s[i] = i;
   }
   for (int i = 1; i < TEST_MAX; i++) {
-    SegNode *t = SegmentTreeNew(s, 0, i);
+    StNode *t = SegmentTreeNew(s, 0, i);
     for (int j = 0; j < i; j++) {
       int r = rand() % TEST_MAX;
       SegmentTreeAdd(t, j, r);
