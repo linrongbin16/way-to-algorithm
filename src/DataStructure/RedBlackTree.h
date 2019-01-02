@@ -10,12 +10,13 @@ struct RbNode {
   int value;
   RbNode *left;
   RbNode *right;
-  RbNode *father;
 };
 
 struct RedBlackTree {
   RbNode *root;
 };
+
+extern RbNode RBNIL;
 
 RedBlackTree *RedBlackTreeNew();
 void RedBlackTreeFree(RedBlackTree *t);
