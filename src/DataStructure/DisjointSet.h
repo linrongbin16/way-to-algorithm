@@ -3,19 +3,19 @@
 #define MAX 1024
 #endif
 
-struct Set {
+struct DjSet {
   int father[MAX];
 };
 
 // create DisjointSet
-Set *DisjointSetNew();
+DjSet *DisjointSetNew();
 
 // free DisjointSet
-void DisjointSetFree(Set *s);
+void DisjointSetFree(DjSet *s);
 
 // union DisjointSet
-void DisjointSetUnion(Set *s, int i, int j);
+void DisjointSetUnion(DjSet *s, int i, int j);
 
 // query DisjointSet
-bool DisjointSetQuery(Set *s, int i, int j);
+bool DisjointSetQuery(DjSet *s, int i, int j);
 

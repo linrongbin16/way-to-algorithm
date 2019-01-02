@@ -3,7 +3,7 @@
 using namespace std;
 
 void test1() {
-  Set *s = DisjointSetNew();
+  DjSet *s = DisjointSetNew();
   assert(s);
   DisjointSetUnion(s, 0, 4);
   DisjointSetUnion(s, 1, 9);
@@ -46,7 +46,7 @@ void test1() {
 }
 
 void test2() {
-  Set *s = DisjointSetNew();
+  DjSet *s = DisjointSetNew();
   assert(s);
   DisjointSetUnion(s, 1, 2);
   DisjointSetUnion(s, 1, 3);

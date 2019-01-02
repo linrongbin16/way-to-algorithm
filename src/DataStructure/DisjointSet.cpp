@@ -1,28 +1,28 @@
 #include "DisjointSet.h"
 #include <cstring>
 
-static int FindFather(Set *s, int i) {
+static int FindFather(DjSet *s, int i) {
   if (s->father[i] != i)
     s->father[i] = FindFather(s, s->father[i]);
   return s->father[i];
 }
 
-Set *DisjointSetNew() {
-  Set *s = new Set();
+DjSet *DisjointSetNew() {
+  DjSet *s = new DjSet();
   for (int i = 0; i < MAX; i++)
     s->father[i] = i;
   return s;
 }
 
-void DisjointSetFree(Set *s) { delete s; }
+void DisjointSetFree(DjSet *s) { delete s; }
 
-void DisjointSetUnion(Set *s, int i, int j) {
+void DisjointSetUnion(DjSet *s, int i, int j) {
   int i_father = FindFather(s, i);
   int j_father = FindFather(s, j);
   s->father[j] = i_father;
 }
 
-bool DisjointSetQuery(Set *s, int i, int j) {
+bool DisjointSetQuery(DjSet *s, int i, int j) {
   return FindFather(s, i) == FindFather(s, j);
 }
 
