@@ -22,6 +22,6 @@ extern RbNode RBNIL;
 RedBlackTree *RedBlackTreeNew();
 void RedBlackTreeFree(RedBlackTree *t);
 void RedBlackTreeInsert(RedBlackTree *t, int value);
-int RedBlackTreeFind(RedBlackTree *t, int value);
+RbNode *RedBlackTreeFind(RedBlackTree *t, int value);
 void RedBlackTreeErase(RedBlackTree *t, int value);
 
