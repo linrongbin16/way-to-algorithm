@@ -32,9 +32,9 @@ $$ (5) $$ 根节点到任意$$ nil $$节点途中经过的黑色节点的数量�
 
 ![RedBlackTree3.png](../res/RedBlackTree3.png)
 
-![RedBlackTree4.png](../res/RedBlackTree4.png)
-
 ![RedBlackTree5.png](../res/RedBlackTree5.png)
+
+![RedBlackTree4.png](../res/RedBlackTree4.png)
 
 ![RedBlackTree6.png](../res/RedBlackTree6.png)
 

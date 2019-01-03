@@ -15,8 +15,6 @@ RbNode RBNIL = {BLACK, -1, &RBNIL, &RBNIL, &RBNIL};
 
 // declaration
 
-static RbNode *Find(RedBlackTree *t, int value, RbNode **father);
-
 static void InsertCase1(RedBlackTree *t, RbNode *e);
 static void InsertCase2(RedBlackTree *t, RbNode *e);
 static void InsertCase3(RedBlackTree *t, RbNode *e);
@@ -113,6 +111,47 @@ static void Free(RbNode *e) {
 
 static void RedUncle(RedBlackTree *t, RbNode *e) {}
 
+// left left case
+// right-rotate
+static AvlNode *LL(AvlNode *e) {
+  AvlNode *p;
+
+  p = e->left;
+  e->left = p->right;
+  p->right = e;
+
+  e->height = get_height(e->left, e->right);
+  p->height = get_height(p->left, e);
+  return p;
+}
+
+static RbNode *LL(RbNode *e) {
+  RbNode *father = e->father;
+  RbNode *grand_father = GrandFather(e);
+  RbNode *uncle = Uncle(e);
+
+  RbNode *p = father->right;
+
+  father->right = grand_father;
+  grand_father->left = p;
+
+  return father;
+}
+
+// right right case
+// left-rotate
+static AvlNode *RR(AvlNode *e) {
+  AvlNode *p;
+
+  p = e->right;
+  e->right = p->left;
+  p->left = e;
+
+  e->height = get_height(e->left, e->right);
+  p->height = get_height(p->right, e);
+  return p;
+}
+
 static void RL(RedBlackTree *t, RbNode *e) {
   RbNode *p = e;
   RbNode *q = e->right;
@@ -157,19 +196,6 @@ static void RR(RedBlackTree *t, RbNode *e) {
   if (p->left)
     p->left->father = p;
   q->right = p;
-}
-
-static RbNode *LL(RbNode *e) {
-  RbNode *father = e->father;
-  RbNode *grand_father = GrandFather(e);
-  RbNode *uncle = Uncle(e);
-
-  RbNode *p = father->right;
-
-  father->right = grand_father;
-  grand_father->left = p;
-
-  return father;
 }
 
 static void LR(RedBlackTree *t, RbNode *e) {
