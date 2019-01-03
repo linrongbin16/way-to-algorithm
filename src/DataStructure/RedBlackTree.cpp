@@ -113,29 +113,14 @@ static void RedUncle(RedBlackTree *t, RbNode *e) {}
 
 // left left case
 // right-rotate
-static AvlNode *LL(AvlNode *e) {
-  AvlNode *p;
+static RbNode *LL(RbNode *e) {
+  RbNode *p;
 
   p = e->left;
   e->left = p->right;
   p->right = e;
 
-  e->height = get_height(e->left, e->right);
-  p->height = get_height(p->left, e);
   return p;
-}
-
-static RbNode *LL(RbNode *e) {
-  RbNode *father = e->father;
-  RbNode *grand_father = GrandFather(e);
-  RbNode *uncle = Uncle(e);
-
-  RbNode *p = father->right;
-
-  father->right = grand_father;
-  grand_father->left = p;
-
-  return father;
 }
 
 // right right case
