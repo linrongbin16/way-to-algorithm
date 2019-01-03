@@ -166,6 +166,35 @@ static RbNode *Find(RedBlackTree *t, int value, RbNode **father) {
   return NULL;
 }
 
+static RbNode *Insert(RbNode *e, RbNode *fa, int value) {
+  assert(e);
+
+  if (is_nil(e)) {
+    RbNode *p = new RbNode();
+    set_nil(p->left);
+    set_nil(p->right);
+    p->father = fa;
+    p->color = BLACK;
+    p->value = value;
+    return p;
+  }
+
+  //利用二分查找找到适合value插入的位置e
+
+  if (e->value > value) {
+    e->left = Insert(e->left, e, value);
+  } else if (e->value < value) {
+    e->right = Insert(e->right, e, value);
+  } else {
+    assert(e->value != value);
+  }
+
+  //叶子节点处完成插入后，沿着父结点向上的每一个节点都需要检查是否满足红黑树特性，若不平衡则旋转
+  //递归函数可以对每个节点*e在插入后进行检查
+
+  return e;
+}
+
 static void InsertCase5(RedBlackTree *t, RbNode *e) {
   e->father->color = BLACK;
   GrandFather(e)->color = RED;
@@ -329,11 +358,15 @@ RedBlackTree *RedBlackTreeNew() {
   RedBlackTree *t = new RedBlackTree();
   if (!t)
     return NULL;
-  t->root = NULL;
+  t->root = &RBNIL;
   return t;
 }
 
-void RedBlackTreeFree(RedBlackTree *t) { Free(t->root); }
+void RedBlackTreeFree(RedBlackTree *t) {
+  assert(t);
+  Free(t->root);
+  delete t;
+}
 
 void RedBlackTreeInsert(RedBlackTree *t, int value) {
   RbNode *e = new RbNode();
