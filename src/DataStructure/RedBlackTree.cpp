@@ -15,19 +15,8 @@ RbNode RBNIL = {BLACK, -1, &RBNIL, &RBNIL, &RBNIL};
 
 // declaration
 
-static void Swapvalue(RbNode *a, RbNode *b);
-static void Swapcolor(RbNode *a, RbNode *b);
-static RbNode *GrandFather(RbNode *e);
-static RbNode *Previous(RbNode *e);
-static RbNode *Next(RbNode *e);
-static RbNode *Uncle(RbNode *e);
-static RbNode *Brother(RbNode *e);
-static bool IsleftChild(RbNode *e);
-static bool IsrightChild(RbNode *e);
-static int ChildNumber(RbNode *e);
-static void Rotateleft(RedBlackTree *t, RbNode *e);
-static void Rotateright(RedBlackTree *t, RbNode *e);
 static RbNode *Find(RedBlackTree *t, int value, RbNode **father);
+
 static void InsertCase1(RedBlackTree *t, RbNode *e);
 static void InsertCase2(RedBlackTree *t, RbNode *e);
 static void InsertCase3(RedBlackTree *t, RbNode *e);
@@ -85,13 +74,13 @@ static RbNode *Uncle(RbNode *e) {
   return &RBNIL;
 }
 
-static bool IsleftChild(RbNode *e) {
+static bool IsLeft(RbNode *e) {
   if (is_nil(e->father))
     return false;
   return e->father->left == e;
 }
 
-static bool IsrightChild(RbNode *e) {
+static bool IsRight(RbNode *e) {
   if (is_nil(e->father))
     return false;
   return e->father->right == e;
@@ -102,6 +91,18 @@ static int ChildNumber(RbNode *e) {
                    : ((is_nil(e->left) ? 0 : 1) + (is_nil(e->right) ? 0 : 1));
 }
 
+static RbNode *Brother(RbNode *e) {
+  if (is_nil(e))
+    return &RBNIL;
+  if (IsLeft(e)) {
+    return e->father->right;
+  }
+  if (IsRight(e)) {
+    return e->father->left;
+  }
+  return &RBNIL;
+}
+
 static void Free(RbNode *e) {
   if (is_nil(e))
     return;
@@ -109,6 +110,8 @@ static void Free(RbNode *e) {
   Free(e->right);
   delete e;
 }
+
+static void RedUncle(RedBlackTree *t, RbNode *e) {}
 
 static void RL(RedBlackTree *t, RbNode *e) {
   RbNode *p = e;
@@ -156,27 +159,17 @@ static void RR(RedBlackTree *t, RbNode *e) {
   q->right = p;
 }
 
-static void LL(RedBlackTree *t, RbNode *e) {
-  RbNode *p = e;
-  RbNode *q = e->right;
+static RbNode *LL(RbNode *e) {
   RbNode *father = e->father;
+  RbNode *grand_father = GrandFather(e);
+  RbNode *uncle = Uncle(e);
 
-  if (father == NULL) {
-    t->root = q;
-  } else {
-    if (father->left == p)
-      father->left = q;
-    else
-      father->right = q;
-  }
+  RbNode *p = father->right;
 
-  q->father = father;
-  p->father = q;
+  father->right = grand_father;
+  grand_father->left = p;
 
-  p->right = q->left;
-  if (q->left)
-    q->left->father = p;
-  q->left = p;
+  return father;
 }
 
 static void LR(RedBlackTree *t, RbNode *e) {
@@ -224,20 +217,20 @@ static RbNode *Find(RedBlackTree *t, int value, RbNode **father) {
 static void InsertCase5(RedBlackTree *t, RbNode *e) {
   e->father->color = BLACK;
   GrandFather(e)->color = RED;
-  if (IsleftChild(e) && IsleftChild(e->father)) {
+  if (IsLeft(e) && IsLeft(e->father)) {
     Rotateright(t, GrandFather(e));
   } else {
-    assert(IsrightChild(e));
-    assert(IsrightChild(e->father));
+    assert(IsRight(e));
+    assert(IsRight(e->father));
     Rotateleft(t, GrandFather(e));
   }
 }
 
 static void InsertCase4(RedBlackTree *t, RbNode *e) {
-  if (IsrightChild(e) && IsleftChild(e->father)) {
+  if (IsRight(e) && IsLeft(e->father)) {
     Rotateleft(t, e->father);
     e = e->left;
-  } else if (IsleftChild(e) && IsrightChild(e->father)) {
+  } else if (IsLeft(e) && IsRight(e->father)) {
     Rotateright(t, e->father);
     e = e->right;
   }
@@ -245,7 +238,7 @@ static void InsertCase4(RedBlackTree *t, RbNode *e) {
 }
 
 static void InsertCase3(RedBlackTree *t, RbNode *e) {
-  if (IsleftChild(e->father)) {
+  if (IsLeft(e->father)) {
   }
   if (Uncle(e)->color == RED) {
     e->father->color = BLACK;
@@ -324,9 +317,9 @@ static void EraseCase2(RedBlackTree *t, RbNode *e) {
   if (Brother(e)->color == RED) {
     e->father->color = RED;
     Brother(e)->color = BLACK;
-    if (IsleftChild(e)) {
+    if (IsLeft(e)) {
       Rotateleft(t, e->father);
-    } else if (IsrightChild(e)) {
+    } else if (IsRight(e)) {
       Rotateright(t, e->father);
     }
     // Swapcolor(e->father, Brother(e));
@@ -354,11 +347,11 @@ static void EraseCase4(RedBlackTree *t, RbNode *e) {
 }
 
 static void EraseCase5(RedBlackTree *t, RbNode *e) {
-  if (IsleftChild(e) && Brother(e)->color == BLACK &&
+  if (IsLeft(e) && Brother(e)->color == BLACK &&
       Brother(e)->left->color == RED && Brother(e)->right->color == BLACK) {
     Swapcolor(Brother(e), Brother(e)->left);
     Rotateright(t, Brother(e));
-  } else if (IsrightChild(e) && Brother(e)->color == BLACK &&
+  } else if (IsRight(e) && Brother(e)->color == BLACK &&
              Brother(e)->right->color == RED &&
              Brother(e)->left->color == BLACK) {
     Swapcolor(Brother(e), Brother(e)->right);
@@ -369,7 +362,7 @@ static void EraseCase5(RedBlackTree *t, RbNode *e) {
 
 static void EraseCase6(RedBlackTree *t, RbNode *e) {
   Swapcolor(Brother(e), e->father);
-  if (IsleftChild(e)) {
+  if (IsLeft(e)) {
     assert(Brother(e)->right->color == RED);
     Brother(e)->right->color = BLACK;
     Rotateleft(t, e->father);
