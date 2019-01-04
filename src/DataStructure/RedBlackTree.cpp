@@ -85,7 +85,7 @@ static void Free(RbNode *e) {
   delete e;
 }
 
-static void RotateLeft(RbNode *&father, RbNode *&e) {
+static void LeftRotate(RbNode *&father, RbNode *&e) {
   RbNode *p_right = e->right;
   e->right = p_right->left;
 
@@ -107,7 +107,7 @@ static void RotateLeft(RbNode *&father, RbNode *&e) {
   e->father = p_right;
 }
 
-static void RotateRight(RbNode *&father, RbNode *&e) {
+static void RightRotate(RbNode *&father, RbNode *&e) {
   RbNode *p_left = e->left;
   e->left = p_left->right;
 
@@ -129,11 +129,11 @@ static void RotateRight(RbNode *&father, RbNode *&e) {
   e->father = p_left;
 }
 
-void FixDoubleRed(RbNode *&father, RbNode *&e) {
+void FixInsert(RbNode *&root, RbNode *&e) {
   RbNode *e_father = &RBNIL;
   RbNode *e_grand_father = &RBNIL;
 
-  while ((e != father) && (e->color != BLACK) && (e->father->color == RED)) {
+  while ((e != root) && (e->color != BLACK) && (e->father->color == RED)) {
     e_father = e->father;
     e_grand_father = e->father->father;
 
@@ -141,7 +141,7 @@ void FixDoubleRed(RbNode *&father, RbNode *&e) {
     if (e_father == e_grand_father->left) {
       RbNode *e_uncle = e_grand_father->right;
 
-      // case 1
+      // case 1: Red Uncle
       if (not_nil(e_uncle) && e_uncle->color == RED) {
         e_grand_father->color = RED;
         e_father->color = BLACK;
@@ -149,15 +149,15 @@ void FixDoubleRed(RbNode *&father, RbNode *&e) {
         e = e_grand_father;
       } else {
 
-        // case 2
+        // case 2: Black Uncle, left-right-case
         if (e == e_father->right) {
-          RotateLeft(father, e_father);
+          LeftRotate(root, e_father);
           e = e_father;
           e_father = e->father;
         }
 
-        // case3
-        RotateRight(father, e_grand_father);
+        // case 3: Black Uncle, left-left-case
+        RightRotate(root, e_grand_father);
         std::swap(e_father->color, e_grand_father->color);
         e = e_father;
       }
@@ -167,6 +167,7 @@ void FixDoubleRed(RbNode *&father, RbNode *&e) {
     else {
       RbNode *e_uncle = e_grand_father->right;
 
+      // case 1: Red Uncle
       if (not_nil(e_uncle) && (e_uncle->color == RED)) {
         e_grand_father->color = RED;
         e_father->color = BLACK;
@@ -174,23 +175,23 @@ void FixDoubleRed(RbNode *&father, RbNode *&e) {
         e = e_grand_father;
       } else {
 
-        // case 2
+        // case 4: Black Uncle, left-right-case
         if (e == e_father->left) {
-          RotateRight(father, e_father);
+          RightRotate(root, e_father);
           e = e_father;
           e_father = e->father;
         }
 
-        // case 3
-        RotateLeft(father, e_grand_father);
+        // case 5: Black Uncle, right-right-case
+        LeftRotate(root, e_grand_father);
         std::swap(e_father->color, e_grand_father->color);
         e = e_father;
       }
     }
   } // while
 
-  father->color = BLACK;
-}
+  root->color = BLACK;
+} // FixInsert
 
 static RbNode *Replace(RbNode *e) {
   if (not_nil(e->left) && not_nil(e->right)) {
@@ -206,7 +207,7 @@ static RbNode *Replace(RbNode *e) {
   }
 }
 
-static void FixDoubleBlack(RbNode *&root, RbNode *&e) {
+static void FixErase(RbNode *&root, RbNode *&e) {
   if (e == root) {
     e->color = BLACK;
     return;
@@ -236,7 +237,7 @@ static void Erase(RbNode *&root, RbNode *&e) {
       set_nil(root);
     } else {
       if (pe_black) {
-        FixDoubleBlack(root, e);
+        FixErase(root, e);
       } else {
         if (not_nil(Uncle(e))) {
           Uncle(e)->color = RED;
@@ -251,7 +252,7 @@ static void Erase(RbNode *&root, RbNode *&e) {
 
     delete e;
     return;
-  }
+  } // if (is_nil(p))
 
   if (is_nil(e->left) || is_nil(e->right)) {
     if (e == root) {
@@ -268,17 +269,17 @@ static void Erase(RbNode *&root, RbNode *&e) {
       delete e;
       p->father = e_father;
       if (pe_black) {
-        FixDoubleBlack(root, e);
+        FixErase(root, e);
       } else {
         p->color = BLACK;
       }
     }
     return;
-  }
+  } // if (is_nil(e->left) || is_nil(e->right))
 
   std::swap(p->color, e->color);
   Erase(root, e);
-}
+} // Erase
 
 static RbNode *Find(RbNode *e, int value) {
   if (is_nil(e)) {
@@ -338,7 +339,7 @@ void RedBlackTreeInsert(RedBlackTree *t, int value) {
   set_nil(e->left);
   set_nil(e->right);
   set_nil(e->father);
-  e->color = BLACK;
+  e->color = RED; // new node is red
   e->value = value;
 
   t->root = Insert(t->root, e);
@@ -354,6 +355,6 @@ void RedBlackTreeErase(RedBlackTree *t, int value) {
   if (is_nil(e)) {
     return;
   }
-  Erase(t->root, t->root, e);
+  Erase(t->root, e);
 }
 
