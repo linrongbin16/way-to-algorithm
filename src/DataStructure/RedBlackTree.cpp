@@ -129,7 +129,7 @@ static void RotateRight(RbNode *&father, RbNode *&e) {
   e->father = p_left;
 }
 
-void FixInsert(RbNode *&father, RbNode *&e) {
+void FixDoubleRed(RbNode *&father, RbNode *&e) {
   RbNode *e_father = &RBNIL;
   RbNode *e_grand_father = &RBNIL;
 
@@ -138,7 +138,6 @@ void FixInsert(RbNode *&father, RbNode *&e) {
     e_grand_father = e->father->father;
 
     // case A
-
     if (e_father == e_grand_father->left) {
       RbNode *e_uncle = e_grand_father->right;
 
@@ -161,9 +160,8 @@ void FixInsert(RbNode *&father, RbNode *&e) {
         RotateRight(father, e_grand_father);
         std::swap(e_father->color, e_grand_father->color);
         e = e_father;
-
-      } // else
-    }   // if (e_father == e_grand_father->left) {
+      }
+    }
 
     // case B
     else {
@@ -189,9 +187,97 @@ void FixInsert(RbNode *&father, RbNode *&e) {
         e = e_father;
       }
     }
-  }
+  } // while
 
   father->color = BLACK;
+}
+
+static RbNode *Replace(RbNode *e) {
+  if (not_nil(e->left) && not_nil(e->right)) {
+    return Previous(e->right);
+  }
+  if (is_nil(e->left) && is_nil(e->right)) {
+    return &RBNIL;
+  }
+  if (not_nil(e->left)) {
+    return e->left;
+  } else {
+    return e->right;
+  }
+}
+
+static void FixDoubleBlack(RbNode *&root, RbNode *&e) {
+  if (e == root) {
+    e->color = BLACK;
+    return;
+  }
+
+  RbNode *e_father = e->father;
+  RbNode *e_grand_father = e_father->father;
+  RbNode *e_uncle = Uncle(e);
+
+  if (e_father->color != BLACK) {
+    if (not_nil(e_uncle) && e_uncle->color == RED) {
+      e_father->color = BLACK;
+      e_uncle->color = BLACK;
+      e_grand_father->color = RED;
+      e_grand_father->color = RED;
+    }
+  }
+}
+
+static void Erase(RbNode *&root, RbNode *&e) {
+  RbNode *p = Replace(e);
+  bool pe_black = ((is_nil(p) || p->color == BLACK) && (e->color == BLACK));
+  RbNode *e_father = e->father;
+
+  if (is_nil(p)) {
+    if (e == root) {
+      set_nil(root);
+    } else {
+      if (pe_black) {
+        FixDoubleBlack(root, e);
+      } else {
+        if (not_nil(Uncle(e))) {
+          Uncle(e)->color = RED;
+        }
+      }
+      if (IsLeft(e)) {
+        set_nil(e_father->left);
+      } else {
+        set_nil(e_father->right);
+      }
+    }
+
+    delete e;
+    return;
+  }
+
+  if (is_nil(e->left) || is_nil(e->right)) {
+    if (e == root) {
+      e->value = p->value;
+      set_nil(e->left);
+      set_nil(e->right);
+      delete p;
+    } else {
+      if (IsLeft(e)) {
+        e_father->left = p;
+      } else {
+        e_father->right = p;
+      }
+      delete e;
+      p->father = e_father;
+      if (pe_black) {
+        FixDoubleBlack(root, e);
+      } else {
+        p->color = BLACK;
+      }
+    }
+    return;
+  }
+
+  std::swap(p->color, e->color);
+  Erase(root, e);
 }
 
 static RbNode *Find(RbNode *e, int value) {
@@ -263,5 +349,11 @@ RbNode *RedBlackTreeFind(RedBlackTree *t, int value) {
   return Find(t->root, value);
 }
 
-void RedBlackTreeErase(RedBlackTree *t, int value) {}
+void RedBlackTreeErase(RedBlackTree *t, int value) {
+  RbNode *e = Find(t->root, value);
+  if (is_nil(e)) {
+    return;
+  }
+  Erase(t->root, t->root, e);
+}
 
