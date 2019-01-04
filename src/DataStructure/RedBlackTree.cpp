@@ -13,12 +13,6 @@ RbNode RBNIL = {BLACK, -1, &RBNIL, &RBNIL, &RBNIL};
 #define set_nil(e) ((e) = &RBNIL)
 #define is_leaf(e) (is_nil((e)->left) && is_nil((e)->right))
 
-static RbNode *Previous(RbNode *e) {
-  while (not_nil(e->left))
-    e = e->left;
-  return e;
-}
-
 static RbNode *Next(RbNode *e) {
   if (is_nil(e->right)) {
     return &RBNIL;
@@ -58,11 +52,6 @@ static bool IsRight(RbNode *e) {
   if (is_nil(e->father))
     return false;
   return e->father->right == e;
-}
-
-static int ChildNumber(RbNode *e) {
-  return is_nil(e) ? 0
-                   : ((is_nil(e->left) ? 0 : 1) + (is_nil(e->right) ? 0 : 1));
 }
 
 static RbNode *Brother(RbNode *e) {
@@ -130,8 +119,9 @@ static void RightRotate(RbNode *&father, RbNode *&e) {
 }
 
 void FixInsert(RbNode *&root, RbNode *&e) {
-  RbNode *e_father = &RBNIL;
-  RbNode *e_grand_father = &RBNIL;
+  RbNode *e_father, *e_grand_father;
+  set_nil(e_father);
+  set_nil(e_grand_father);
 
   while ((e != root) && (e->color != BLACK) && (e->father->color == RED)) {
     e_father = e->father;
@@ -195,7 +185,7 @@ void FixInsert(RbNode *&root, RbNode *&e) {
 
 static RbNode *Replace(RbNode *e) {
   if (not_nil(e->left) && not_nil(e->right)) {
-    return Previous(e->right);
+    return Next(e->right);
   }
   if (is_nil(e->left) && is_nil(e->right)) {
     return &RBNIL;
@@ -208,24 +198,82 @@ static RbNode *Replace(RbNode *e) {
 }
 
 static void FixErase(RbNode *&root, RbNode *&e) {
+  // reach root
   if (e == root) {
-    e->color = BLACK;
     return;
   }
 
-  RbNode *e_father = e->father;
-  RbNode *e_grand_father = e_father->father;
-  RbNode *e_uncle = Uncle(e);
+  RbNode *e_brother = &RBNIL;
+  RbNode *e_father = &RBNIL;
 
-  if (e_father->color != BLACK) {
-    if (not_nil(e_uncle) && e_uncle->color == RED) {
-      e_father->color = BLACK;
-      e_uncle->color = BLACK;
-      e_grand_father->color = RED;
-      e_grand_father->color = RED;
+  while (true) {
+    e_brother = Brother(e);
+    e_father = e->father;
+
+    RbNode *e_brother = Brother(e);
+    RbNode *e_father = e->father;
+
+    if (is_nil(e_brother)) {
+      // no brother
+      // double black pushed up
+      FixErase(root, e_father);
+
+    } else {
+      if (e_brother->color == RED) {
+        // brother red
+        e_father->color = RED;
+        e_brother->color = BLACK;
+        if (IsLeft(e_brother)) {
+          // left case
+          RightRotate(root, e_father);
+        } else {
+          // right case
+          LeftRotate(root, e_father);
+        }
+        FixErase(root, e);
+      } else {
+        // brother black
+        if (e_brother->left->color == RED || e_brother->right->color == RED) {
+          // at least 1 red children
+          if (not_nil(e_brother->left) && e_brother->left->color == RED) {
+            if (IsLeft(e_brother)) {
+              // left left
+              e_brother->left->color = e_brother->color;
+              e_brother->color = e_father->color;
+              RightRotate(root, e_father);
+            } else {
+              // right left
+              e_brother->left->color = e_father->color;
+              RightRotate(root, e_brother);
+              LeftRotate(root, e_father);
+            }
+          } else {
+            if (IsLeft(e_brother)) {
+              // left right
+              e_brother->right->color = e_father->color;
+              LeftRotate(root, e_brother);
+              RightRotate(root, e_father);
+            } else {
+              // right right
+              e_brother->right->color = e_brother->color;
+              e_brother->color = e_father->color;
+              LeftRotate(root, e_father);
+            }
+          }
+          e_father->color = BLACK;
+        } else {
+          // 2 black children
+          e_brother->color = RED;
+          if (e_father->color == BLACK) {
+            FixErase(root, e_father);
+          } else {
+            e_father->color = BLACK;
+          }
+        }
+      }
     }
-  }
-}
+  } // while
+} // FixErase
 
 static void Erase(RbNode *&root, RbNode *&e) {
   RbNode *p = Replace(e);
