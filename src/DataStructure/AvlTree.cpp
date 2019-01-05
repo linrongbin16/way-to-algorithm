@@ -130,7 +130,7 @@ static AvlNode *Insert(AvlNode *e, int value) {
   }
 
   return e;
-} // Insert
+}
 
 static AvlNode *Next(AvlNode *e) {
   if (is_nil(e->right)) {
@@ -194,7 +194,7 @@ static AvlNode *Erase(AvlNode *e, int value) {
   }
 
   return e;
-} // Erase
+}
 
 void AvlTreeErase(AvlTree *t, int value) {
   assert(not_nil(t->root));

@@ -181,110 +181,84 @@ void FixInsert(RbNode *&root, RbNode *&e) {
   } // while
 
   root->color = BLACK;
-} // FixInsert
-
-static RbNode *Replace(RbNode *e) {
-  if (not_nil(e->left) && not_nil(e->right)) {
-    return Next(e->right);
-  }
-  if (is_nil(e->left) && is_nil(e->right)) {
-    return &RBNIL;
-  }
-  if (not_nil(e->left)) {
-    return e->left;
-  } else {
-    return e->right;
-  }
 }
 
 static void FixErase(RbNode *&root, RbNode *&e) {
-  // reach root
+  // Reached root
   if (e == root) {
     return;
   }
 
-  RbNode *e_brother = &RBNIL;
-  RbNode *e_father = &RBNIL;
+  RbNode *e_brother = Brother(e);
+  RbNode *e_father = e->father;
 
-  while (true) {
-    e_brother = Brother(e);
-    e_father = e->father;
-
-    RbNode *e_brother = Brother(e);
-    RbNode *e_father = e->father;
-
-    if (is_nil(e_brother)) {
-      // no brother
-      // double black pushed up
-      FixErase(root, e_father);
-
-    } else {
-      if (e_brother->color == RED) {
-        // brother red
-        e_father->color = RED;
-        e_brother->color = BLACK;
-        if (IsLeft(e_brother)) {
-          // left case
-          RightRotate(root, e_father);
-        } else {
-          // right case
-          LeftRotate(root, e_father);
-        }
-        FixErase(root, e);
+  if (is_nil(e_brother)) {
+    // No sibiling, double black pushed up
+    FixErase(root, e_father);
+  } else {
+    if (e_brother->color == RED) {
+      // brother red
+      e_father->color = RED;
+      e_brother->color = BLACK;
+      if (IsLeft(e_brother)) {
+        // left case
+        RightRotate(root, e_father);
       } else {
-        // brother black
-        if (e_brother->left->color == RED || e_brother->right->color == RED) {
-          // at least 1 red children
-          if (not_nil(e_brother->left) && e_brother->left->color == RED) {
-            if (IsLeft(e_brother)) {
-              // left left
-              e_brother->left->color = e_brother->color;
-              e_brother->color = e_father->color;
-              RightRotate(root, e_father);
-            } else {
-              // right left
-              e_brother->left->color = e_father->color;
-              RightRotate(root, e_brother);
-              LeftRotate(root, e_father);
-            }
+        // right case
+        LeftRotate(root, e_father);
+      }
+      FixErase(root, e);
+    } else {
+      // brother black
+      if (e_brother->left->color == RED || e_brother->right->color == RED) {
+        // at least 1 red children
+        if (not_nil(e_brother->left) && e_brother->left->color == RED) {
+          if (IsLeft(e_brother)) {
+            // left left
+            e_brother->left->color = e_brother->color;
+            e_brother->color = e_father->color;
+            RightRotate(root, e_father);
           } else {
-            if (IsLeft(e_brother)) {
-              // left right
-              e_brother->right->color = e_father->color;
-              LeftRotate(root, e_brother);
-              RightRotate(root, e_father);
-            } else {
-              // right right
-              e_brother->right->color = e_brother->color;
-              e_brother->color = e_father->color;
-              LeftRotate(root, e_father);
-            }
+            // right left
+            e_brother->left->color = e_father->color;
+            RightRotate(root, e_brother);
+            LeftRotate(root, e_father);
           }
-          e_father->color = BLACK;
         } else {
-          // 2 black children
-          e_brother->color = RED;
-          if (e_father->color == BLACK) {
-            FixErase(root, e_father);
+          if (IsLeft(e_brother)) {
+            // left right
+            e_brother->right->color = e_father->color;
+            LeftRotate(root, e_brother);
+            RightRotate(root, e_father);
           } else {
-            e_father->color = BLACK;
+            // right right
+            e_brother->right->color = e_brother->color;
+            e_brother->color = e_father->color;
+            LeftRotate(root, e_father);
           }
+        }
+        e_father->color = BLACK;
+      } else {
+        // 2 black children
+        e_brother->color = RED;
+        if (e_father->color == BLACK) {
+          FixErase(root, e_father);
+        } else {
+          e_father->color = BLACK;
         }
       }
     }
-  } // while
-} // FixErase
+  }
+}
 
 static void Erase(RbNode *&root, RbNode *&e) {
-  RbNode *p = Replace(e);
-  bool pe_black = ((is_nil(p) || p->color == BLACK) && (e->color == BLACK));
-  RbNode *e_father = e->father;
 
-  if (is_nil(p)) {
+  // case 1: e has no child
+  if (is_nil(e->left) && is_nil(e->right)) {
     if (e == root) {
       set_nil(root);
     } else {
-      if (pe_black) {
+      if (e->color == BLACK) {
         FixErase(root, e);
       } else {
         if (not_nil(Uncle(e))) {
@@ -292,17 +266,18 @@ static void Erase(RbNode *&root, RbNode *&e) {
         }
       }
       if (IsLeft(e)) {
-        set_nil(e_father->left);
+        set_nil(e->father->left);
       } else {
-        set_nil(e_father->right);
+        set_nil(e->father->right);
       }
     }
-
     delete e;
     return;
-  } // if (is_nil(p))
+  }
 
+  // case 2: e has 1 child
   if (is_nil(e->left) || is_nil(e->right)) {
+    RbNode *p = not_nil(e->left) ? e->left : e->right;
     if (e == root) {
       e->value = p->value;
       set_nil(e->left);
@@ -310,24 +285,26 @@ static void Erase(RbNode *&root, RbNode *&e) {
       delete p;
     } else {
       if (IsLeft(e)) {
-        e_father->left = p;
+        e->father->left = p;
       } else {
-        e_father->right = p;
+        e->father->right = p;
       }
       delete e;
-      p->father = e_father;
-      if (pe_black) {
+      p->father = e->father;
+      if (e->color == BLACK && p->color == BLACK) {
         FixErase(root, e);
       } else {
         p->color = BLACK;
       }
     }
     return;
-  } // if (is_nil(e->left) || is_nil(e->right))
+  }
 
+  // case 3: e has 2 child
+  RbNode *p = Next(e);
   std::swap(p->color, e->color);
   Erase(root, e);
-} // Erase
+}
 
 static RbNode *Find(RbNode *e, int value) {
   if (is_nil(e)) {
