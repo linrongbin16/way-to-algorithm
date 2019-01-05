@@ -3,8 +3,6 @@
 #include <cassert>
 #include <utility>
 
-// TODO: bugs need fix
-
 struct RbNode {
   char color;
   int value;
