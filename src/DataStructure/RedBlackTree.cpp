@@ -8,11 +8,6 @@
 
 RbNode RBNIL = {BLACK, -1, &RBNIL, &RBNIL, &RBNIL};
 
-#define is_nil(e) ((e) == &RBNIL)
-#define not_nil(e) ((e) != &RBNIL)
-#define set_nil(e) ((e) = &RBNIL)
-#define is_leaf(e) (is_nil((e)->left) && is_nil((e)->right))
-
 static RbNode *Next(RbNode *e) {
   if (is_nil(e->right)) {
     return &RBNIL;

@@ -1,28 +1,38 @@
 #include "RedBlackTree.h"
+#include <algorithm>
 #include <cassert>
+#include <iostream>
+#include <vector>
+using namespace std;
 
-#define TEST_MAX 1024
-#define is_nil(e) ((e) == &RBNIL)
-#define not_nil(e) ((e) != &RBNIL)
+#define TEST_MAX 4096
 
 int main() {
-  RedBlackTree *t = RedBlackTreeNew();
-  assert(t);
+  for (int i = 1; i < TEST_MAX; i++) {
+    vector<int> val;
+    for (int j = 0; j < i; j++) {
+      val.push_back(j);
+    }
 
-  for (int i = 1; i <= TEST_MAX; i++) {
-    RedBlackTreeInsert(t, i);
+    random_shuffle(val.begin(), val.end());
+    RedBlackTree *t = RedBlackTreeNew();
+    for (int j = 0; j < i; j++) {
+      assert(is_nil(RedBlackTreeFind(t, val[j])));
+      RedBlackTreeInsert(t, val[j]);
+      RbNode *e = RedBlackTreeFind(t, val[j]);
+      assert(not_nil(e));
+      assert(e->value == val[j]);
+    } // for
+    random_shuffle(val.begin(), val.end());
+    for (int j = 0; j < i; j++) {
+      RbNode *e = RedBlackTreeFind(t, val[j]);
+      assert(not_nil(e));
+      assert(e->value == val[j]);
+      RedBlackTreeErase(t, val[j]);
+      assert(is_nil(RedBlackTreeFind(t, val[j])));
+    } // for
+    RedBlackTreeFree(t);
   }
-  for (int i = 1; i <= TEST_MAX; i++) {
-    RbNode *e = RedBlackTreeFind(t, i);
-    assert(not_nil(e));
-    assert(e->value == i);
-  }
-  for (int i = 1; i <= TEST_MAX; i++) {
-    RedBlackTreeErase(t, i);
-    assert(is_nil(RedBlackTreeFind(t, i)));
-  }
-  RedBlackTreeFree(t);
-
   return 0;
 }
 

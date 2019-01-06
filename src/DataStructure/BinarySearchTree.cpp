@@ -7,11 +7,6 @@
 
 BsNode BSNIL = {-1, &BSNIL, &BSNIL};
 
-#define is_nil(e) ((e) == &BSNIL)
-#define not_nil(e) ((e) != &BSNIL)
-#define set_nil(e) ((e) = &BSNIL)
-#define is_leaf(e) (is_nil((e)->left) && is_nil((e)->right))
-
 BsNode::BsNode() {
   value = -1;
   set_nil(left);

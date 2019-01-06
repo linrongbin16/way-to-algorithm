@@ -5,12 +5,10 @@
 #include <vector>
 using namespace std;
 
-#define is_nil(e) ((e) == &AVLNIL)
-#define not_nil(e) ((e) != &AVLNIL)
-#define MAX 16384
+#define TEST_MAX 4096
 
-int main(void) {
-  for (int i = 1; i < MAX; i++) {
+int main() {
+  for (int i = 1; i < TEST_MAX; i++) {
     vector<int> val;
     for (int j = 0; j < i; j++) {
       val.push_back(j);
@@ -21,11 +19,15 @@ int main(void) {
     for (int j = 0; j < i; j++) {
       assert(is_nil(AvlTreeFind(t, val[j])));
       AvlTreeInsert(t, val[j]);
-      assert(not_nil(AvlTreeFind(t, val[j])));
+      AvlNode *e = AvlTreeFind(t, val[j]);
+      assert(not_nil(e));
+      assert(e->value == val[j]);
     } // for
     random_shuffle(val.begin(), val.end());
     for (int j = 0; j < i; j++) {
-      assert(not_nil(AvlTreeFind(t, val[j])));
+      AvlNode *e = AvlTreeFind(t, val[j]);
+      assert(not_nil(e));
+      assert(e->value == val[j]);
       AvlTreeErase(t, val[j]);
       assert(is_nil(AvlTreeFind(t, val[j])));
     } // for

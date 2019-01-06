@@ -5,9 +5,6 @@
 
 AvlNode AVLNIL = {-1, -1, &AVLNIL, &AVLNIL};
 
-#define is_nil(e) ((e) == &AVLNIL)
-#define not_nil(e) ((e) != &AVLNIL)
-#define set_nil(e) ((e) = &AVLNIL)
 #define get_height(left, right) (std::max((left)->height, (right)->height) + 1)
 #define get_factor(e) ((e)->left->height - (e)->right->height)
 

@@ -16,6 +16,10 @@ struct AvlTree {
   AvlNode *root;
 };
 
+#define is_nil(e) ((e) == &AVLNIL)
+#define not_nil(e) ((e) != &AVLNIL)
+#define set_nil(e) ((e) = &AVLNIL)
+
 // create AvlTree
 AvlTree *AvlTreeNew();
 

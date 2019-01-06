@@ -5,8 +5,6 @@
 #include <vector>
 using namespace std;
 
-#define is_nil(e) ((e) == &BSNIL)
-#define not_nil(e) ((e) != &BSNIL)
 #define MAX 1024
 
 int main(void) {

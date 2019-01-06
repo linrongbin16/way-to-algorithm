@@ -17,6 +17,10 @@ struct RedBlackTree {
 
 extern RbNode RBNIL;
 
+#define is_nil(e) ((e) == &RBNIL)
+#define not_nil(e) ((e) != &RBNIL)
+#define set_nil(e) ((e) = &RBNIL)
+
 RedBlackTree *RedBlackTreeNew();
 void RedBlackTreeFree(RedBlackTree *t);
 void RedBlackTreeInsert(RedBlackTree *t, int value);

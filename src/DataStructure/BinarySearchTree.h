@@ -10,11 +10,15 @@ struct BsNode {
   BsNode(int v, BsNode *l, BsNode *r);
 };
 
-extern BsNode BSNIL;
-
 struct BinarySearchTree {
   BsNode *root;
 };
+
+extern BsNode BSNIL;
+
+#define is_nil(e) ((e) == &BSNIL)
+#define not_nil(e) ((e) != &BSNIL)
+#define set_nil(e) ((e) = &BSNIL)
 
 // create binary search tree
 BinarySearchTree *BinarySearchTreeNew();
