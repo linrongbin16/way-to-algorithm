@@ -187,8 +187,7 @@ std::pair<bool, std::vector<int>> DancingLink(int n, int m, int s[MAX][MAX]) {
   DumpGraph(s, n, m);
   bool dance = Dance(1, s, n, m);
   std::vector<int> vec;
-  std::transform(chose, chose + n + 1, std::back_inserter(vec),
-                 [](int v) { return v; });
+  std::for_each(chose, chose + n + 1, [&vec](const int &v) { vec.push_back(v); });
   return std::make_pair(dance, vec);
 }
 

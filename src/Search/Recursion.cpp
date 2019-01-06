@@ -9,7 +9,7 @@ void Recursion(int *s, int n, int m, int prev,
   // 递归终止条件
   if (prev == n) {
     std::vector<int> vec;
-    std::transform(s, s + n, std::back_inserter(vec), [](int v) { return v; });
+    std::for_each(s, s + n, [&vec](const int &v) { vec.push_back(v); });
     result.push_back(vec);
     return;
   }
