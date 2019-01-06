@@ -14,7 +14,7 @@ std::vector<std::vector<int>> BruteForce(int *s, int n, int m) {
           s[n - 1] = i_n_1;
 
           std::vector<int> vec;
-          std::for_each(s, s + n, [&vec](const int &v) { vec.push_back(v); });
+          std::transform(s, s + n, std::back_inserter(vec), [](const int &v) { return v; });
           result.push_back(vec);
         }
   return result;

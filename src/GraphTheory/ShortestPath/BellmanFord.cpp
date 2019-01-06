@@ -54,7 +54,7 @@ std::pair<bool, std::vector<int>> BellmanFord(int g[MAX][MAX], int n, int beg) {
   } // for
 
   std::vector<int> result;
-  std::for_each(distance, distance + n, [&result](const int &v){ result.push_back(v); });
+  std::transform(distance, distance + n, std::back_inserter(result), [](const int &v){ return v; });
   return std::make_pair(true, result);
 }
 
