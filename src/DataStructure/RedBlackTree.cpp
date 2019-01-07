@@ -70,11 +70,16 @@ static void DumpNode(RbNode *e) {
   } else {
     std::cout << " [" << e->value << " " 
       << (e->color == RED ? "R" : "B") 
-      << " l:" << (is_nil(e->left) ? "nil" : std::to_string(e->left->value)) 
-      << " r:" << (is_nil(e->right) ? "nil" : std::to_string(e->right->value))
+      << " left:" << (is_nil(e->left) ? "nil" : std::to_string(e->left->value)) 
+      << " right:" << (is_nil(e->right) ? "nil" : std::to_string(e->right->value))
+      << " father:" << (is_nil(e->father) ? "nil" : std::to_string(e->father->value))
       << "]" << std::endl;
-    DumpNode(e->left);
-    DumpNode(e->right);
+    if (not_nil(e->left)) {
+      DumpNode(e->left);
+    }
+    if (not_nil(e->right)) {
+      DumpNode(e->right);
+    }
   }
 }
 
@@ -321,7 +326,7 @@ static void Erase(RbNode *&root, RbNode *&e) {
   // case 3: e has 2 child
   RbNode *p = Next(e);
   std::swap(p->color, e->color);
-  Erase(root, e);
+  Erase(root, p);
 }
 
 static RbNode *Find(RbNode *e, int value) {
