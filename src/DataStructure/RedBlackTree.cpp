@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <cassert>
 #include <utility>
+#include <iostream>
+#include <string>
 
 #define RED 'R'
 #define BLACK 'B'
@@ -59,6 +61,27 @@ static RbNode *Brother(RbNode *e) {
     return e->father->left;
   }
   return &RBNIL;
+}
+
+static void DumpNode(RbNode *e) {
+  assert(e);
+  if (is_nil(e)) {
+    std::cout << " [nil B]" << std::endl;
+  } else {
+    std::cout << " [" << e->value << " " 
+      << (e->color == RED ? "R" : "B") 
+      << " l:" << (is_nil(e->left) ? "nil" : std::to_string(e->left->value)) 
+      << " r:" << (is_nil(e->right) ? "nil" : std::to_string(e->right->value))
+      << "]" << std::endl;
+    DumpNode(e->left);
+    DumpNode(e->right);
+  }
+}
+
+static void DumpTree(RedBlackTree *t) {
+  assert(t);
+  std::cout << std::endl << std::endl << std::endl;
+  DumpNode(t->root);
 }
 
 static void Free(RbNode *e) {
@@ -364,6 +387,7 @@ void RedBlackTreeInsert(RedBlackTree *t, int value) {
 
   t->root = Insert(t->root, e);
   FixInsert(t->root, e);
+  DumpTree(t);
 }
 
 RbNode *RedBlackTreeFind(RedBlackTree *t, int value) {
@@ -376,5 +400,6 @@ void RedBlackTreeErase(RedBlackTree *t, int value) {
     return;
   }
   Erase(t->root, e);
+  DumpTree(t);
 }
 
