@@ -1,9 +1,9 @@
 #include "RedBlackTree.h"
 #include <algorithm>
 #include <cassert>
-#include <utility>
 #include <iostream>
 #include <string>
+#include <utility>
 
 #define RED 'R'
 #define BLACK 'B'
@@ -32,9 +32,9 @@ static RbNode *GrandFather(RbNode *e) {
 static RbNode *Uncle(RbNode *e) {
   if (is_nil(GrandFather(e)))
     return &RBNIL;
-  if (GrandFather(e)->left == e)
+  if (GrandFather(e)->left == e->father)
     return GrandFather(e)->right;
-  if (GrandFather(e)->right == e)
+  if (GrandFather(e)->right == e->father)
     return GrandFather(e)->left;
   return &RBNIL;
 }
@@ -68,12 +68,14 @@ static void DumpNode(RbNode *e) {
   if (is_nil(e)) {
     std::cout << " [nil B]" << std::endl;
   } else {
-    std::cout << " [" << e->value << " " 
-      << (e->color == RED ? "R" : "B") 
-      << " left:" << (is_nil(e->left) ? "nil" : std::to_string(e->left->value)) 
-      << " right:" << (is_nil(e->right) ? "nil" : std::to_string(e->right->value))
-      << " father:" << (is_nil(e->father) ? "nil" : std::to_string(e->father->value))
-      << "]" << std::endl;
+    std::cout << " [" << e->value << " " << (e->color == RED ? "R" : "B")
+              << " left:"
+              << (is_nil(e->left) ? "nil" : std::to_string(e->left->value))
+              << " right:"
+              << (is_nil(e->right) ? "nil" : std::to_string(e->right->value))
+              << " father:"
+              << (is_nil(e->father) ? "nil" : std::to_string(e->father->value))
+              << "]" << std::endl;
     if (not_nil(e->left)) {
       DumpNode(e->left);
     }
@@ -142,28 +144,30 @@ static void RightRotate(RbNode *&father, RbNode *&e) {
 }
 
 void FixInsert(RbNode *&root, RbNode *&e) {
-  RbNode *e_father, *e_grand_father;
+  RbNode *e_father, *e_grand_father, *e_uncle;
   set_nil(e_father);
   set_nil(e_grand_father);
 
-  while ((e != root) && (e->color != BLACK) && (e->father->color == RED)) {
+  while ((e != root) && (e->color == RED) && (e->father->color == RED)) {
     e_father = e->father;
-    e_grand_father = e->father->father;
+    e_grand_father = GrandFather(e);
+    e_uncle = Uncle(e);
 
-    // case A
-    if (e_father == e_grand_father->left) {
-      RbNode *e_uncle = e_grand_father->right;
+    // case A: e_father is e_grand_father's left child
+    if (IsLeft(e_father)) {
 
-      // case 1: Red Uncle
+      // case 1: Red Uncle, e e_uncle is red
       if (not_nil(e_uncle) && e_uncle->color == RED) {
+        assert(e_father == RED);
+        assert(e_grand_father == RED);
         e_grand_father->color = RED;
         e_father->color = BLACK;
         e_uncle->color = BLACK;
-        e = e_grand_father;
-      } else {
+        e = e_grand_father; // next loop from e_grand_father
 
+      } else {
         // case 2: Black Uncle, left-right-case
-        if (e == e_father->right) {
+        if (IsRight(e)) {
           LeftRotate(root, e_father);
           e = e_father;
           e_father = e->father;
@@ -172,24 +176,23 @@ void FixInsert(RbNode *&root, RbNode *&e) {
         // case 3: Black Uncle, left-left-case
         RightRotate(root, e_grand_father);
         std::swap(e_father->color, e_grand_father->color);
-        e = e_father;
+        e = e_father; // next loop from e_father
       }
     }
 
-    // case B
+    // case B: e_father is e_grand_father's right child
     else {
-      RbNode *e_uncle = e_grand_father->right;
 
       // case 1: Red Uncle
       if (not_nil(e_uncle) && (e_uncle->color == RED)) {
         e_grand_father->color = RED;
         e_father->color = BLACK;
         e_uncle->color = BLACK;
-        e = e_grand_father;
+        e = e_grand_father; // next loop from e_grand_father
       } else {
 
         // case 4: Black Uncle, left-right-case
-        if (e == e_father->left) {
+        if (IsLeft(e)) {
           RightRotate(root, e_father);
           e = e_father;
           e_father = e->father;
@@ -198,7 +201,7 @@ void FixInsert(RbNode *&root, RbNode *&e) {
         // case 5: Black Uncle, right-right-case
         LeftRotate(root, e_grand_father);
         std::swap(e_father->color, e_grand_father->color);
-        e = e_father;
+        e = e_father; // next loop from e_father
       }
     }
   } // while
