@@ -386,7 +386,7 @@ RbNode *RedBlackTreeFind(RedBlackTree *t, int value) {
 
 void RedBlackTreeErase(RedBlackTree *t, int value) {
   RbNode *e = Find(t->root, value);
-  Erase(t, e);
+  t->root = Erase(t->root, e);
   DumpTree(t, "erase");
   assert(RBNIL.color == BLACK);
 }
