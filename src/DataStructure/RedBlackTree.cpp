@@ -208,7 +208,6 @@ void FixInsert(RbNode *&root, RbNode *e) {
   } // while
 
   root->color = BLACK;
-  set_nil(root->father);
 }
 
 static void FixErase(RbNode *&root, RbNode *e) {
