@@ -84,7 +84,6 @@ static void Free(RbNode *e) {
 }
 
 static RbNode *LeftRotate(RbNode *root, RbNode *e) {
-  DumpTree(root, "before left rotate e:" + std::to_string(e->value));
   RbNode *p = e->right;
 
   e->right = p->left;
@@ -109,12 +108,10 @@ static RbNode *LeftRotate(RbNode *root, RbNode *e) {
   if (not_nil(e)) {
     e->father = p;
   }
-  DumpTree(root, "after left rotate e:" + std::to_string(e->value));
   return root;
 }
 
 static RbNode *RightRotate(RbNode *root, RbNode *e) {
-  DumpTree(root, "before right rotate e:" + std::to_string(e->value));
   RbNode *p = e->left;
 
   e->left = p->right;
@@ -139,7 +136,6 @@ static RbNode *RightRotate(RbNode *root, RbNode *e) {
   if (not_nil(e)) {
     e->father = p;
   }
-  DumpTree(root, "after right rotate e:" + std::to_string(e->value));
   return root;
 }
 
@@ -204,7 +200,6 @@ static RbNode *FixInsert(RbNode *root, RbNode *e) {
 static RbNode *FixErase(RbNode *root, RbNode *e) {
   assert(RBNIL.color == BLACK);
   while ((e != root) && (e->color == BLACK)) {
-    DumpTree(root, "fix erase");
     // case A: e is left child
     if (IsLeft(e)) {
       RbNode *e_brother = Brother(e);
@@ -241,7 +236,7 @@ static RbNode *FixErase(RbNode *root, RbNode *e) {
       if (e_brother->color == RED) {
         e_brother->color = BLACK;
         e->father->color = RED;
-        root = LeftRotate(root, e->father);
+        root = RightRotate(root, e->father);
         e_brother = e->father->left;
       }
 
@@ -378,6 +373,7 @@ void RedBlackTreeInsert(RedBlackTree *t, int value) {
   t->root = Insert(t->root, e);
   t->root = FixInsert(t->root, e);
   assert(RBNIL.color == BLACK);
+  DumpTree(t, "insert");
 }
 
 RbNode *RedBlackTreeFind(RedBlackTree *t, int value) {

@@ -18,14 +18,13 @@ static void DumpArray(const vector<int> &val) {
 int main() {
   for (int i = 1; i < TEST_MAX; i++) {
     vector<int> val;
-    for (int j = 0; j < i; j++) {
+    for (int j = 1; j <= i; j++) {
       val.push_back(j);
     }
 
     random_shuffle(val.begin(), val.end());
     RedBlackTree *t = RedBlackTreeNew();
     for (int j = 0; j < i; j++) {
-      DumpArray(val);
       cout << "insert i:" << i << " j:" << j << " val:" << val[j] << endl;
       assert(is_nil(RedBlackTreeFind(t, val[j])));
       RedBlackTreeInsert(t, val[j]);
