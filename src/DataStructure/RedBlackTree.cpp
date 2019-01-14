@@ -55,18 +55,21 @@ static RbNode *Brother(RbNode *e) {
   return &RBNIL;
 }
 
+static std::string DumpColor(const RbNode *e) {
+  return (is_nil(e) ? "B" : (e->color == BLACK ? "B" : "R"));
+}
+
 static void DumpNode(RbNode *e) {
   if (is_nil(e)) {
-    std::cout << " [nil B]" << std::endl;
+    std::cout << " [nil B] RBNIL[" << DumpColor(&RBNIL) << "]" << std::endl;
   } else {
-    std::cout << " [" << e->value << " " << (e->color == RED ? "R" : "B")
-              << " left:"
+    std::cout << " [" << e->value << " " << DumpColor(e) << " left:"
               << (is_nil(e->left) ? "nil" : std::to_string(e->left->value))
               << " right:"
               << (is_nil(e->right) ? "nil" : std::to_string(e->right->value))
               << " father:"
               << (is_nil(e->father) ? "nil" : std::to_string(e->father->value))
-              << "]" << std::endl;
+              << "] RBNIL[" << DumpColor(&RBNIL) << "]" << std::endl;
     if (not_nil(e->left)) {
       DumpNode(e->left);
     }
