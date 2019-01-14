@@ -11,48 +11,33 @@
 RbNode RBNIL = {BLACK, -1, &RBNIL, &RBNIL, &RBNIL};
 
 static RbNode *Next(RbNode *e) {
-  if (is_nil(e->right)) {
-    return &RBNIL;
+  RbNode *p = e->right;
+  while (not_nil(p->left)) {
+    p = p->left;
   }
-  RbNode *next = e->right;
-  while (not_nil(next->left)) {
-    next = next->left;
-  }
-  return next;
+  return p;
 }
 
 static RbNode *Uncle(RbNode *e) {
-  if (is_nil(e->father->father))
-    return &RBNIL;
   if (e->father->father->left == e->father)
     return e->father->father->right;
   if (e->father->father->right == e->father)
     return e->father->father->left;
-  return &RBNIL;
+  assert(false);
 }
 
-static bool IsLeft(RbNode *e) {
-  if (is_nil(e->father))
-    return false;
-  return e->father->left == e;
-}
+static bool IsLeft(RbNode *e) { return e->father->left == e; }
 
-static bool IsRight(RbNode *e) {
-  if (is_nil(e->father))
-    return false;
-  return e->father->right == e;
-}
+static bool IsRight(RbNode *e) { return e->father->right == e; }
 
 static RbNode *Brother(RbNode *e) {
-  if (is_nil(e))
-    return &RBNIL;
   if (IsLeft(e)) {
     return e->father->right;
   }
   if (IsRight(e)) {
     return e->father->left;
   }
-  return &RBNIL;
+  assert(false);
 }
 
 static std::string DumpColor(const RbNode *e) {
@@ -286,18 +271,23 @@ static void Erase(RbNode *&root, RbNode *e) {
   if (is_nil(e)) {
     return;
   }
+
   if (is_nil(e->left) || is_nil(e->right)) {
     p = e;
   } else {
     p = Next(e);
   }
 
-  q = not_nil(p->left) ? p->left : p->right;
+  if (not_nil(p->left)) {
+    q = p->left;
+  } else {
+    q = p->right;
+  }
+
   if (not_nil(q)) {
     q->father = p->father;
   }
-
-  if (not_nil(p->father)) {
+  if (p->father) {
     if (IsLeft(p)) {
       p->father->left = q;
     } else {
@@ -310,6 +300,7 @@ static void Erase(RbNode *&root, RbNode *e) {
   if (p != e) {
     e->value = p->value;
   }
+
   if (p->color == BLACK) {
     FixErase(root, q);
   }
