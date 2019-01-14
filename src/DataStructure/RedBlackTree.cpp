@@ -83,8 +83,8 @@ static void Free(RbNode *e) {
   delete e;
 }
 
-static void LeftRotate(RbNode *&root, RbNode *e) {
-  DumpTree(root, "before left rotate e:" + std::to_string(e->value));
+static void LeftRotate(RedBlackTree *t, RbNode *e) {
+  DumpTree(t, "before left rotate e:" + std::to_string(e->value));
   RbNode *p = e->right;
 
   e->right = p->left;
@@ -102,18 +102,18 @@ static void LeftRotate(RbNode *&root, RbNode *e) {
       e->father->right = p;
     }
   } else {
-    root = p;
+    t->root = p;
   }
 
   p->left = e;
   if (not_nil(e)) {
     e->father = p;
   }
-  DumpTree(root, "after left rotate e:" + std::to_string(e->value));
+  DumpTree(t, "after left rotate e:" + std::to_string(e->value));
 }
 
-static void RightRotate(RbNode *&root, RbNode *e) {
-  DumpTree(root, "before right rotate e:" + std::to_string(e->value));
+static void RightRotate(RedBlackTree *t, RbNode *e) {
+  DumpTree(t, "before right rotate e:" + std::to_string(e->value));
   RbNode *p = e->left;
 
   e->left = p->right;
@@ -131,19 +131,19 @@ static void RightRotate(RbNode *&root, RbNode *e) {
       e->father->left = p;
     }
   } else {
-    root = p;
+    t->root = p;
   }
 
   p->right = e;
   if (not_nil(e)) {
     e->father = p;
   }
-  DumpTree(root, "after right rotate e:" + std::to_string(e->value));
+  DumpTree(t, "after right rotate e:" + std::to_string(e->value));
 }
 
-void FixInsert(RbNode *&root, RbNode *e) {
+void FixInsert(RedBlackTree *t, RbNode *e) {
   assert(RBNIL.color == BLACK);
-  while ((e != root) && (e->father->color == RED)) {
+  while ((e != t->root) && (e->father->color == RED)) {
     // case A: e.father is e.grand_father's left child
     if (IsLeft(e->father)) {
       RbNode *e_uncle = Uncle(e);
@@ -159,13 +159,13 @@ void FixInsert(RbNode *&root, RbNode *e) {
         // case 2: Black Uncle, left-right-case
         if (IsRight(e)) {
           e = e->father;
-          LeftRotate(root, e);
+          LeftRotate(t, e);
         }
 
         // case 3: Black Uncle, left-left-case
         e->father->color = BLACK;
         e->father->father->color = RED;
-        RightRotate(root, e->father->father);
+        RightRotate(t, e->father->father);
       }
     }
 
@@ -184,24 +184,24 @@ void FixInsert(RbNode *&root, RbNode *e) {
         // case 4: Black Uncle, left-right-case
         if (IsLeft(e)) {
           e = e->father;
-          RightRotate(root, e);
+          RightRotate(t, e);
         }
 
         // case 5: Black Uncle, right-right-case
         e->father->color = BLACK;
         e->father->father->color = RED;
-        LeftRotate(root, e->father->father);
+        LeftRotate(t, e->father->father);
       }
     }
   } // while
 
-  root->color = BLACK;
+  t->root->color = BLACK;
 }
 
-static void FixErase(RbNode *&root, RbNode *e) {
+static void FixErase(RedBlackTree *t, RbNode *e) {
   assert(RBNIL.color == BLACK);
-  while ((e != root) && (e->color == BLACK)) {
-    DumpTree(root, "fix erase");
+  while ((e != t->root) && (e->color == BLACK)) {
+    DumpTree(t, "fix erase");
     // case A: e is left child
     if (IsLeft(e)) {
       RbNode *e_brother = Brother(e);
@@ -209,7 +209,7 @@ static void FixErase(RbNode *&root, RbNode *e) {
       if (e_brother->color == RED) {
         e_brother->color = BLACK;
         e->father->color = RED;
-        LeftRotate(root, e->father);
+        LeftRotate(t, e->father);
         e_brother = e->father->right;
       }
 
@@ -220,14 +220,14 @@ static void FixErase(RbNode *&root, RbNode *e) {
         if (e_brother->right->color == BLACK) {
           e_brother->left->color = BLACK;
           e_brother->color = RED;
-          RightRotate(root, e_brother);
+          RightRotate(t, e_brother);
           e_brother = e->father->right;
         }
         e_brother->color = e->father->color;
         e->father->color = BLACK;
         e_brother->right->color = BLACK;
-        LeftRotate(root, e->father);
-        e = root; // break loop
+        LeftRotate(t, e->father);
+        e = t->root; // break loop
       }
     }
 
@@ -238,7 +238,7 @@ static void FixErase(RbNode *&root, RbNode *e) {
       if (e_brother->color == RED) {
         e_brother->color = BLACK;
         e->father->color = RED;
-        LeftRotate(root, e->father);
+        LeftRotate(t, e->father);
         e_brother = e->father->left;
       }
 
@@ -249,14 +249,14 @@ static void FixErase(RbNode *&root, RbNode *e) {
         if (e_brother->left->color == BLACK) {
           e_brother->right->color = BLACK;
           e_brother->color = RED;
-          LeftRotate(root, e_brother);
+          LeftRotate(t, e_brother);
           e_brother = e->father->left;
         }
         e_brother->color = e->father->color;
         e->father->color = BLACK;
         e_brother->left->color = BLACK;
-        RightRotate(root, e->father);
-        e = root; // break loop
+        RightRotate(t, e->father);
+        e = t->root; // break loop
       }
     }
   }
@@ -264,7 +264,7 @@ static void FixErase(RbNode *&root, RbNode *e) {
   e->color = BLACK;
 }
 
-static void Erase(RbNode *&root, RbNode *e) {
+static void Erase(RedBlackTree *t, RbNode *e) {
   assert(RBNIL.color == BLACK);
   RbNode *p, *q;
 
@@ -287,14 +287,14 @@ static void Erase(RbNode *&root, RbNode *e) {
   if (not_nil(q)) {
     q->father = p->father;
   }
-  if (p->father) {
+  if (not_nil(p->father)) {
     if (IsLeft(p)) {
       p->father->left = q;
     } else {
       p->father->right = q;
     }
   } else {
-    root = q;
+    t->root = q;
   }
 
   if (p != e) {
@@ -302,7 +302,7 @@ static void Erase(RbNode *&root, RbNode *e) {
   }
 
   if (p->color == BLACK) {
-    FixErase(root, q);
+    FixErase(t, q);
   }
 
   delete p;
@@ -371,7 +371,7 @@ void RedBlackTreeInsert(RedBlackTree *t, int value) {
   e->value = value;
 
   t->root = Insert(t->root, e);
-  FixInsert(t->root, e);
+  FixInsert(t, e);
   assert(RBNIL.color == BLACK);
 }
 
@@ -381,7 +381,7 @@ RbNode *RedBlackTreeFind(RedBlackTree *t, int value) {
 
 void RedBlackTreeErase(RedBlackTree *t, int value) {
   RbNode *e = Find(t->root, value);
-  Erase(t->root, e);
+  Erase(t, e);
   DumpTree(t, "erase");
   assert(RBNIL.color == BLACK);
 }
