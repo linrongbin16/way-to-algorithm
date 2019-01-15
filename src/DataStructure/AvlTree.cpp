@@ -149,19 +149,19 @@ static AvlNode *Erase(AvlNode *e, int value) {
     // e->value == value
 
     if (is_nil(e->left) || is_nil(e->right)) {
-      AvlNode *temp = not_nil(e->left) ? e->left : e->right;
-      if (is_nil(temp)) {
+      AvlNode *p = not_nil(e->left) ? e->left : e->right;
+      if (is_nil(p)) {
         // 若e没有孩子节点则直接删除
 
-        temp = e;
+        p = e;
         set_nil(e);
-        delete temp;
+        delete p;
         return e;
       } else {
         // 若e只有一个孩子节点则直接用该孩子节点替换e
 
-        std::swap(e, temp);
-        delete temp;
+        std::swap(e, p);
+        delete p;
       }
     } else {
       // 若e有两个孩子节点则用后继节点替换e

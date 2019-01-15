@@ -15,7 +15,7 @@ int main(void) {
     }
 
     random_shuffle(val.begin(), val.end());
-    RedBlackTree *t = RedBlackTreeNew();
+    RbTree *t = RedBlackTreeNew();
     for (int j = 0; j < i; j++) {
       assert(is_nil(t, RedBlackTreeFind(t, val[j])));
       RedBlackTreeInsert(t, val[j]);

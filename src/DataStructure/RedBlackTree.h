@@ -11,7 +11,7 @@ struct RbNode {
   RbNode *father;
 };
 
-struct RedBlackTree {
+struct RbTree {
   RbNode *root;
   RbNode NIL;
 };
@@ -20,9 +20,9 @@ struct RedBlackTree {
 #define not_nil(t, e) (!is_nil(t, e))
 #define set_nil(t, e) ((e) = &(t->NIL))
 
-RedBlackTree *RedBlackTreeNew();
-void RedBlackTreeFree(RedBlackTree *t);
-void RedBlackTreeInsert(RedBlackTree *t, int value);
-RbNode *RedBlackTreeFind(RedBlackTree *t, int value);
-void RedBlackTreeErase(RedBlackTree *t, int value);
+RbTree *RedBlackTreeNew();
+void RedBlackTreeFree(RbTree *t);
+void RedBlackTreeInsert(RbTree *t, int value);
+RbNode *RedBlackTreeFind(RbTree *t, int value);
+void RedBlackTreeErase(RbTree *t, int value);
 

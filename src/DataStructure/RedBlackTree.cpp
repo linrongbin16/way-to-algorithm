@@ -8,7 +8,7 @@
 #define RED 'R'
 #define BLACK 'B'
 
-static RbNode *Next(RedBlackTree *t, RbNode *e) {
+static RbNode *Next(RbTree *t, RbNode *e) {
   RbNode *p = e->right;
   while (not_nil(t, p->left)) {
     p = p->left;
@@ -38,7 +38,7 @@ static RbNode *Brother(RbNode *e) {
   assert(false);
 }
 
-static void Free(RedBlackTree *t, RbNode *e) {
+static void Free(RbTree *t, RbNode *e) {
   if (e == NULL || is_nil(t, e))
     return;
   Free(t, e->left);
@@ -46,7 +46,7 @@ static void Free(RedBlackTree *t, RbNode *e) {
   delete e;
 }
 
-static void LeftRotate(RedBlackTree *t, RbNode *e) {
+static void LeftRotate(RbTree *t, RbNode *e) {
   RbNode *p = e->right;
 
   e->right = p->left;
@@ -73,7 +73,7 @@ static void LeftRotate(RedBlackTree *t, RbNode *e) {
   }
 }
 
-static void RightRotate(RedBlackTree *t, RbNode *e) {
+static void RightRotate(RbTree *t, RbNode *e) {
   RbNode *p = e->left;
 
   e->left = p->right;
@@ -100,7 +100,7 @@ static void RightRotate(RedBlackTree *t, RbNode *e) {
   }
 }
 
-static void FixInsert(RedBlackTree *t, RbNode *e) {
+static void FixInsert(RbTree *t, RbNode *e) {
   assert(t->NIL.color == BLACK);
   while ((e != t->root) && (e->father->color == RED)) {
     // case A: e.father is e.grand_father's left child
@@ -157,7 +157,7 @@ static void FixInsert(RedBlackTree *t, RbNode *e) {
   t->root->color = BLACK;
 }
 
-static void FixErase(RedBlackTree *t, RbNode *e) {
+static void FixErase(RbTree *t, RbNode *e) {
   assert(t->NIL.color == BLACK);
   while ((e != t->root) && (e->color == BLACK)) {
     // case A: e is left child
@@ -222,7 +222,7 @@ static void FixErase(RedBlackTree *t, RbNode *e) {
   e->color = BLACK;
 }
 
-static void Erase(RedBlackTree *t, RbNode *e) {
+static void Erase(RbTree *t, RbNode *e) {
   assert(t->NIL.color == BLACK);
   RbNode *p, *q;
 
@@ -242,6 +242,8 @@ static void Erase(RedBlackTree *t, RbNode *e) {
     q = p->right;
   }
 
+  // q can be NIL
+  // to avoid making NIL a global variable, we put NIL in RbTree
   q->father = p->father;
   if (not_nil(t, p->father)) {
     if (IsLeft(p)) {
@@ -264,7 +266,7 @@ static void Erase(RedBlackTree *t, RbNode *e) {
   delete p;
 }
 
-static RbNode *Find(RedBlackTree *t, int value) {
+static RbNode *Find(RbTree *t, int value) {
   assert(t->NIL.color == BLACK);
   RbNode *p = t->root;
   while (not_nil(t, p)) {
@@ -277,7 +279,7 @@ static RbNode *Find(RedBlackTree *t, int value) {
   return p;
 }
 
-static void Insert(RedBlackTree *t, RbNode *e) {
+static void Insert(RbTree *t, RbNode *e) {
   assert(t->NIL.color == BLACK);
   assert(e);
 
@@ -309,8 +311,8 @@ static void Insert(RedBlackTree *t, RbNode *e) {
   e->father = fp;
 }
 
-RedBlackTree *RedBlackTreeNew() {
-  RedBlackTree *t = new RedBlackTree();
+RbTree *RedBlackTreeNew() {
+  RbTree *t = new RbTree();
   if (!t)
     return NULL;
 
@@ -323,13 +325,13 @@ RedBlackTree *RedBlackTreeNew() {
   return t;
 }
 
-void RedBlackTreeFree(RedBlackTree *t) {
+void RedBlackTreeFree(RbTree *t) {
   assert(t);
   Free(t, t->root);
   delete t;
 }
 
-void RedBlackTreeInsert(RedBlackTree *t, int value) {
+void RedBlackTreeInsert(RbTree *t, int value) {
   assert(t);
   assert(value >= 0);
 
@@ -345,9 +347,9 @@ void RedBlackTreeInsert(RedBlackTree *t, int value) {
   assert(t->NIL.color == BLACK);
 }
 
-RbNode *RedBlackTreeFind(RedBlackTree *t, int value) { return Find(t, value); }
+RbNode *RedBlackTreeFind(RbTree *t, int value) { return Find(t, value); }
 
-void RedBlackTreeErase(RedBlackTree *t, int value) {
+void RedBlackTreeErase(RbTree *t, int value) {
   RbNode *e = Find(t, value);
   Erase(t, e);
   assert(t->NIL.color == BLACK);
