@@ -16,9 +16,9 @@ struct RbTree {
   RbNode NIL;
 };
 
-#define is_nil(t, e) ((e) == &(t->NIL))
+#define is_nil(t, e) ((e) == &((t)->NIL))
 #define not_nil(t, e) (!is_nil(t, e))
-#define set_nil(t, e) ((e) = &(t->NIL))
+#define set_nil(t, e) ((e) = &((t)->NIL))
 
 RbTree *RedBlackTreeNew();
 void RedBlackTreeFree(RbTree *t);
