@@ -130,9 +130,6 @@ static AvlNode *Insert(AvlNode *e, int value) {
 }
 
 static AvlNode *Next(AvlNode *e) {
-  if (is_nil(e->right)) {
-    return &AVLNIL;
-  }
   AvlNode *next = e->right;
   while (not_nil(next->left)) {
     next = next->left;
