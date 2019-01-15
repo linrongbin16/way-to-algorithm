@@ -13,13 +13,12 @@ struct RbNode {
 
 struct RedBlackTree {
   RbNode *root;
+  RbNode NIL;
 };
 
-extern RbNode RBNIL;
-
-#define is_nil(e) ((e) == &RBNIL)
-#define not_nil(e) ((e) != &RBNIL)
-#define set_nil(e) ((e) = &RBNIL)
+#define is_nil(t, e) ((e) == &(t->NIL))
+#define not_nil(t, e) (!is_nil(t, e))
+#define set_nil(t, e) ((e) = &(t->NIL))
 
 RedBlackTree *RedBlackTreeNew();
 void RedBlackTreeFree(RedBlackTree *t);
