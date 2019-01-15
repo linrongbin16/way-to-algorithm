@@ -283,9 +283,7 @@ static RbNode *Erase(RbNode *root, RbNode *e) {
     q = p->right;
   }
 
-  if (not_nil(q)) {
-    q->father = p->father;
-  }
+  q->father = p->father;
   if (not_nil(p->father)) {
     if (IsLeft(p)) {
       p->father->left = q;
