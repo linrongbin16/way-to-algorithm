@@ -38,3 +38,12 @@
 
 * https://en.wikipedia.org/wiki/Operations_research
 * https://book.douban.com/subject/4747771/
+
+--------
+
+#### 公共代码
+
+[Util.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/Util.h)
+
+[Util.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/DynamicProgramming/Util.cpp)
+

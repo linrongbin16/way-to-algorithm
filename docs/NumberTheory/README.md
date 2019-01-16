@@ -11,3 +11,11 @@
 4. [ExtendedEuclid 扩展欧几里得算法](ExtendedEuclid/)
 5. [ChineseRemainerTheorem 中国剩余定理](ChineseRemainerTheorem/)
 6. [ModularExponentiation 模幂运算](ModularExponentiation/)
+
+--------
+
+#### 公共代码
+
+[Util.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Util.h)
+
+[Util.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/NumberTheory/Util.cpp)

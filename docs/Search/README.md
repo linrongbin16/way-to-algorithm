@@ -26,3 +26,10 @@
 
 ![KnowledgePoint3.png](res/KnowledgePoint3.png)
 
+--------
+
+#### 公共代码
+
+[Util.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/Util.h)
+
+[Util.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Search/Util.cpp)

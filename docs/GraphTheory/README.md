@@ -38,3 +38,11 @@
     7. [MinDisjointPathCovering - 最小不相交路径覆盖](BinaryMatch/MinDisjointPathCovering/)
     8. [MinJointPathCovering - 最小可相交路径覆盖](BinaryMatch/MinJointPathCovering/)
     9. [Coloring - 染色问题](BinaryMatch/Coloring/)
+
+--------
+
+#### 公共代码
+
+[Util.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Util.h)
+
+[Util.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/Util.cpp)
