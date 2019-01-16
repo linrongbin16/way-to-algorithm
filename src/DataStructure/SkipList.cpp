@@ -20,10 +20,11 @@ static SkNode *SkNodeNew(int value, int maxlv) {
 SkList *SkipListNew(int node_count) {
   assert(node_count > 0);
   int maxlv = std::log2(node_count) + 1;
+  maxlv = (maxlv > MIN_LEVEL) ? maxlv : MIN_LEVEL;
 
   SkList *l = new SkList();
   l->size = 0;
-  l->max_level = (maxlv > MIN_LEVEL) ? maxlv : MIN_LEVEL;
+  l->max_level = maxlv;
   l->head = new SkNode *[maxlv];
   for (int i = 0; i < maxlv; i++) {
     l->head[i] = NULL;
@@ -48,11 +49,20 @@ int SkipListSize(SkList *l) {
   return l->size;
 }
 
+static SkNode *HighestHead(SkList *l) {
+  for (int i = l->max_level - 1; i >= 0; i--) {
+    if (l->head[i]) {
+      return l->head[i];
+    }
+  }
+  assert(false);
+}
+
 void SkipListInsert(SkList *l, int value) {
   assert(l);
   assert(value >= 0);
   SkNode *e = SkNodeNew(value, l->max_level);
-  int n = 0;
+  int n = 1;
   for (int i = 0; i < l->max_level; i++) {
     if (((float)rand() / (float)RAND_MAX) < P) {
       break;
@@ -72,7 +82,7 @@ void SkipListInsert(SkList *l, int value) {
     return;
   }
 
-  SkNode *p = l->head[l->max_level - 1];
+  SkNode *p = HighestHead(l);
   for (int i = l->max_level - 1; i >= 0; i--) {
     while (p->link[i] && (p->link[i]->value < value)) {
       p = p->link[i];
@@ -104,7 +114,7 @@ void SkipListErase(SkList *l, int value) {
     return;
   }
 
-  SkNode *e = l->head[l->max_level - 1];
+  SkNode *e = HighestHead(l);
   for (int i = l->max_level - 1; i >= 0; i--) {
     if (e->link[i]->value == value) {
       SkNode *p = e->link[i];
@@ -132,7 +142,7 @@ SkNode *SkipListFind(SkList *l, int value) {
     return (l->head[0]->value == value) ? l->head[0] : NULL;
   }
 
-  SkNode *e = l->head[l->max_level - 1];
+  SkNode *e = HighestHead(l);
   for (int i = l->max_level - 1; i >= 0; i--) {
     if (e->value == value) {
       return e;
