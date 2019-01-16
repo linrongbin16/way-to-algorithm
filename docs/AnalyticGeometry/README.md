@@ -19,7 +19,7 @@
 
 --------
 
-#### 公共类库源码
+#### 公共代码
 
 [Util.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/AnalyticGeometry/Util.h)
 
