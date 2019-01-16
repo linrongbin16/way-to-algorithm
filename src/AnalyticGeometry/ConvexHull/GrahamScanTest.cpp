@@ -1,8 +1,10 @@
 #include "GrahamScan.h"
+#include <iostream>
+#include <stack>
 #include <vector>
 using namespace std;
 
-int main() {
+int main(void) {
   Node s[26];
   s[0].x = 10;
   s[0].y = 1;
