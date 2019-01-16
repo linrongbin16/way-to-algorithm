@@ -230,6 +230,7 @@ static void Erase(RbTree *t, RbNode *e) {
     return;
   }
 
+  // p is the real node will be delete
   if (is_nil(t, e->left) || is_nil(t, e->right)) {
     p = e;
   } else {

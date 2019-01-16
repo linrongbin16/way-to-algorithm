@@ -3,11 +3,11 @@
 #include <cassert>
 #include <utility>
 
-struct SlNode {
+struct SkNode {
   int value;
 };
 
-SlNode *SkipListNew();
+SkNode *SkipListNew();
 void SkipListFree(SlNode *l);
 void SkipListInsert(SlNode *l, int value);
 SlNode *SkipListFind(SlNode *l, int value);
