@@ -12,14 +12,8 @@ struct SkNode {
 struct SkList {
   int size;
   int max_level;
-  SkNode head;
+  SkNode **head;
 };
-
-extern SkNode SKNIL;
-
-#define is_nil(e) ((e) == &SKNIL)
-#define not_nil(e) (!is_nil(e))
-#define set_nil(e) ((e) = &SKNIL)
 
 // create skip list
 SkList *SkipListNew(int node_count);
