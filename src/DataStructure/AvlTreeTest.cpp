@@ -3,11 +3,13 @@
 #include <cassert>
 #include <iostream>
 #include <vector>
+#include <ctime>
 using namespace std;
 
-#define TEST_MAX 4096
+#define TEST_MAX 8192
 
 int main() {
+  int start = time(NULL);
   for (int i = 1; i < TEST_MAX; i++) {
     vector<int> val;
     for (int j = 0; j < i; j++) {
@@ -33,5 +35,7 @@ int main() {
     } // for
     AvlTreeFree(t);
   }
+  int end = time(NULL);
+  cout << "start: " << start << " end: " << end << " use: " << (end - start) << endl;
   return 0;
 }
