@@ -4,15 +4,15 @@
 struct SkNode {
   int value;
 
-  // link[0] is lowest link, link[max_level-1] is highest link
+  // forward[0] is lowest link, forward[max_level-1] is highest link
   // pointer to next node
-  SkNode **link;
+  SkNode **forward;
 };
 
 struct SkList {
   int size;
-  int max_level;
-  SkNode **head;
+  int level;
+  SkNode *head;
 };
 
 // create skip list
