@@ -2,6 +2,7 @@
 
 * [Preface 前言](docs/Preface/README.md)
 * [Content 目录](SUMMARY.md)
+* [SymbolTable 数学符号表](docs/SymbolTable/README.md)
 * [Chapter-1 TimeComplexity 第1章 时间复杂度](docs/TimeComplexity/README.md)
 * [Chapter-2 Sort 第2章 排序](docs/Sort/README.md)
     * [InsertSort 插入排序](docs/Sort/InsertSort/README.md)
