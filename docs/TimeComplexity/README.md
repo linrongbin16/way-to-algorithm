@@ -64,14 +64,31 @@ $$
 $$ (2) $$ 对拥有$$ n $$个互不相等的整数的数组进行快速排序
 
 $$
-T(n) = 2 \cdot T(\frac{n}{2}) + O(n)
+T(n) =
+\begin{cases}
+1                              &  n = 1    \\
+2 \cdot T(\frac{n}{2}) + O(n)  &  n \gt 1
+\end{cases}
 $$
 
 快速排序的每次递归中，首先需要选取一个元素作为哨兵，然后遍历所有元素，将小于哨兵的元素移动到其左边，将大于哨兵的元素移动到其右边，该遍历操作的时间复杂度为$$ O(n) $$。之后对于哨兵左右两边的子数组，递归的进行下一轮移动操作。因此可以得到上式，等号左边是本次操作前的问题规模$$ T(n) $$，等号右边是本次操作后还需要解决的问题规模，即2个$$ T(\frac{n}{2}) $$，而本次操作所需要的操作代价为$$ O(n) $$。
 
+对该递归式推导可得：
+
+$$
+\begin{matrix}
+T(n)    & = 2 \cdot T(\frac{n}{2}) + n  \\
+        & = 2 \cdot T(2 \cdot T(\frac{n}{2^2}) + \frac{n}{2}) + n = 2^2 \cdot T( \frac{n}{2^2}) \\
+
+\end{matrix}
+$$
+
+$$
+
+$$
 
 --------
 
 #### Introduction to Algorithms
 
-* [VII.Selected Topics - 33.Computational Geometry - 33.3.Finding the convex hull](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [I.Foundations - 2.Getting Started - 2.3.Designing algorithms](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
