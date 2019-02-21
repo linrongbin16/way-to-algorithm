@@ -118,7 +118,7 @@ $$
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms - 26.Maximum Flow - 26.4.Push-relabel algorithms](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms - 26.Maximum Flow - 26.4.Push-relabel algorithms](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 --------
 

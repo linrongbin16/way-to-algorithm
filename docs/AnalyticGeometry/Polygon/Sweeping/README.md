@@ -40,7 +40,7 @@ $$ (2) $$ 当扫除线遇到线段$$ l_{1} $$的右端点$$ a $$时，将线段$
 
 #### Introduction to Algorithms
 
-* [VII.Selected Topics - 33.Computational Geometry - 33.2.Determining whether any pair of segments intersects](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VII.Selected Topics - 33.Computational Geometry - 33.2.Determining whether any pair of segments intersects](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 --------
 

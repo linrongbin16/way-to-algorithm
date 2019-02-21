@@ -34,7 +34,7 @@ $$ (2) $$ 若$$ dist(i) \gt dist(j) + G(j, i) $$，则更新距离$$ dist(i) = d
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms - 24.Single-Source Shortest Paths - 24.3.Dijkstra's algorithm](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms - 24.Single-Source Shortest Paths - 24.3.Dijkstra's algorithm](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 
 --------

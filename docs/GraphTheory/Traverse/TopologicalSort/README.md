@@ -48,7 +48,7 @@ $$ (8) $$ 顶点$$ 7 $$的DFS距离为$$ d_7 = 1 $$，DFS搜索顺序为$$ [7] $
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.4.Topological sort](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.4.Topological sort](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 --------
 

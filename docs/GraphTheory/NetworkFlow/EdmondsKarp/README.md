@@ -98,7 +98,7 @@ $$ flow_{max} = flow_{max} + \Delta $$
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms - 26.Maximum Flow - 26.2.The-Ford-Fulkerson method](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms - 26.Maximum Flow - 26.2.The-Ford-Fulkerson method](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 --------
 

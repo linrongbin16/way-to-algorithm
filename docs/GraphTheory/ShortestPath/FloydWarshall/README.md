@@ -40,7 +40,7 @@ $$
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms - 25.All-Pairs Shortest Paths - 25.2.The Floyd-Warshall algorithm](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms - 25.All-Pairs Shortest Paths - 25.2.The Floyd-Warshall algorithm](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 --------
 

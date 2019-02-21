@@ -16,7 +16,7 @@
 
 #### Introduction to Algorithms
 
-* [VII.Selected Topics - 33.Computational Geometry - 33.3.Finding the convex hull](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VII.Selected Topics - 33.Computational Geometry - 33.3.Finding the convex hull](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 --------
 

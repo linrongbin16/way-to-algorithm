@@ -112,7 +112,7 @@ $$ (2) $$ 判断无向图是否存在欧拉回路：无向图$$ UG $$的任意�
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 #### 图论术语
 

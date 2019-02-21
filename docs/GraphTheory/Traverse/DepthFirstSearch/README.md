@@ -26,7 +26,7 @@ $$ (1) $$ 对于任意顶点$$ v_i $$，若该顶点已染红则跳过；若该�
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.3.Depth-first search](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.3.Depth-first search](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 --------
 

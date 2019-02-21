@@ -28,7 +28,7 @@ Prim算法的时间复杂度为$$ O(\| V \| \cdot log_2 \| V \|) $$，其中$$ l
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms - 23.Minimum Spanning Trees - 23.2.The algorithms of Kruskal and Prim](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms - 23.Minimum Spanning Trees - 23.2.The algorithms of Kruskal and Prim](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 --------
 
@@ -41,4 +41,3 @@ Prim算法的时间复杂度为$$ O(\| V \| \cdot log_2 \| V \|) $$，其中$$ l
 #### 测试
 
 [PrimTest.cpp](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/GraphTheory/MinSpanningTree/PrimTest.cpp)
-

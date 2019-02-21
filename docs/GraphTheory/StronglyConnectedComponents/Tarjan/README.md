@@ -32,7 +32,7 @@ $$ (3) $$ 从堆栈$$ Stack $$中依次取出每个顶点（即逆序遍历DFS�
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.5.Strongly connected components](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.5.Strongly connected components](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 --------
 

@@ -26,7 +26,7 @@ $$ (2) $$ 重复从队列$$ queue $$中取出头节点$$ v_i $$访问，将$$ v_
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.2.Breadth-first search](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms - 22.Elementary Graph Algorithms - 22.2.Breadth-first search](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 --------
 

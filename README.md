@@ -21,7 +21,7 @@
 
 #### Reference - 参考
 
-* [Introduction to Algorithm](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [Introduction to Algorithm](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 * [Wikipedia](https://www.wikipedia.org/)
 * [背包问题九讲](https://www.kancloud.cn/kancloud/pack/70124)
 * [编程之法：面试和算法心得](https://github.com/julycoding/The-Art-Of-Programming-By-July)

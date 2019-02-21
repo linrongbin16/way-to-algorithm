@@ -38,9 +38,8 @@ $$
 
 #### Introduction To Algorithms
 
-* [VI.Graph Algorithms](https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf)
+* [VI.Graph Algorithms](https://www.google.com/search?q=Introduction+to+Algorithms+3rd+Edition+pdf)
 
 #### 图论术语
 
 * https://en.wikipedia.org/wiki/Glossary_of_graph_theory_terms
-
