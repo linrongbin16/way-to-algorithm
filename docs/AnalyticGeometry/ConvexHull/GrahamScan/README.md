@@ -48,9 +48,9 @@ $$
 
 ```
 for i = 3 to n-1:
-  while size(stack) >= 2 and ccw(next_top(stack), top(stack), p[i]) <= 0:
-    pop(stack)
-  push(stack, p[i])
+  while stack.size() >= 2 and ccw(stack.nextTop(), stack.top(), p[i]) <= 0:
+    stack.pop()
+  stack.push(p[i])
 end
 ```
 遍历完点集$$ Q $$中所有顶点后，堆栈$$ stack $$中的点即为$$ Q $$的凸包$$ CH(Q) $$。该算法的时间复杂度为$$ O(n \cdot log_2 n) $$。
