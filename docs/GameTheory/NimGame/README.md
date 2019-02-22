@@ -33,7 +33,7 @@ $$
 s_{1} = 0_{10} = 000_{2}    \\
 s_{2} = 7_{10} = 111_{2}    \\
 s_{3} = 0_{10} = 000_{2}    \\
-nim_{1} = 0 \bigoplus 7 \bigoplus 0 = 1
+nim_{1} = 0 \oplus 7 \oplus 0 = 1
 \end{matrix}
 $$
 
@@ -44,7 +44,7 @@ s_{2} = 1_{10} = 001_{2}    \\
 s_{3} = 1_{10} = 001_{2}    \\
 s_{4} = 0_{10} = 000_{2}    \\
 s_{5} = 0_{10} = 000_{2}    \\
-nim_{2} = 0 \bigoplus 1 \bigoplus 1 \bigoplus 0 \bigoplus 0 = 0
+nim_{2} = 0 \oplus 1 \oplus 1 \oplus 0 \oplus 0 = 0
 \end{matrix}
 $$
 
@@ -55,7 +55,7 @@ s_{2} = 1_{10} = 001_{2}    \\
 s_{3} = 1_{10} = 001_{2}    \\
 s_{4} = 1_{10} = 001_{2}    \\
 s_{5} = 0_{10} = 000_{2}    \\
-nim_{3} = 0 \bigoplus 1 \bigoplus 1 \bigoplus 1 \bigoplus 0 = 1
+nim_{3} = 0 \oplus 1 \oplus 1 \oplus 1 \oplus 0 = 1
 \end{matrix}
 $$
 
@@ -64,11 +64,11 @@ $$
 s_{1} = 3_{10} = 011_{2}    \\
 s_{2} = 4_{10} = 100_{2}    \\
 s_{3} = 5_{10} = 101_{2}    \\
-nim_{4} = 3 \bigoplus 4 \bigoplus 5 = 2
+nim_{4} = 3 \oplus 4 \oplus 5 = 2
 \end{matrix}
 $$
 
-可以看出，当我方面临$$ \bigoplus_{i=1}^{n} s_{i} = s_{1} \bigoplus s_{2} \bigoplus \cdots \bigoplus s_{n} \ne 0 $$局势时必赢，否则必输。
+可以看出，当我方面临$$ \oplus_{i=1}^{n} s_{i} = s_{1} \oplus s_{2} \oplus \cdots \oplus s_{n} \ne 0 $$局势时必赢，否则必输。
 
 该算法时间复杂度为$$ O(n) $$。
 
