@@ -20,15 +20,15 @@
 
 1. 若$$ C \gt 0 $$则$$ \vec{p_0 p_2} $$在$$ \vec{p_0 p_1} $$逆时针方向。如图：
 
-![GrahamScan2.png](../res/GrahamScan2.png)
+  ![GrahamScan2.png](../res/GrahamScan2.png)
 
 2. 若$$ C \lt 0 $$则$$ \vec{p_0 p_2} $$在$$ \vec{p_0 p_1} $$顺时针方向。如图：
 
-![GrahamScan3.png](../res/GrahamScan3.png)
+  ![GrahamScan3.png](../res/GrahamScan3.png)
 
 3. 若$$ C = 0 $$则$$ \vec{p_0 p_1} $$与$$ \vec{p_0 p_2} $$方向相同。对于向量完全相同的两顶点$$ p_1, p_2 $$，按照到$$ p_0 $$距离从近到远排序。如图：
 
-![GrahamScan4.png](../res/GrahamScan4.png)
+  ![GrahamScan4.png](../res/GrahamScan4.png)
 
 排序时比较任意两点到$$ p_0 $$的向量叉积都为负数，则整组顶点可以按照顺时针排列。设排列后的顶点顺序为$$ [p_1, p_2, \dots, p_{n-1}] $$。
 
@@ -41,6 +41,7 @@ $$
 $$
 
 1. 若$$ p_i $$不满足条件，说明不是凸包上的点，对堆栈$$ stack $$进行出栈操作（推出头部顶点$$ top $$）。然后再重复判断$$ \vec{p_{next-top} p_{top}} \times \vec{p_{top} p_i} $$的值，直到满足该条件为止；
+
 2. 若$$ p_i $$满足条件，说明是凸包上的点，将其推入堆栈$$ stack $$中。然后继续考虑下一个顶点$$ p_{i+1} $$；
 
 用伪代码来描述上述过程是
