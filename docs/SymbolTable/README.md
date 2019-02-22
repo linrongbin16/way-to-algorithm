@@ -35,7 +35,7 @@
 | $$ \nsubseteq $$  | 非子集     | 左边不是右边的子集 | $$ x \nsubseteq y $$ | $$ \{4\} \nsubseteq \{1, 2, 3\} $$                   |
 | $$ \nsupseteq $$  | 非子集     | 右边不是左边的子集 | $$ y \nsupseteq x $$ | $$ \{1, 2, 3\} \nsupseteq \{0\} $$                   |
 | $$ \varnothing $$ | 空集       | 空集               | $$ \varnothing $$    | $$ \varnothing \subset \{1\} $$                      |
-| $$ \\ $$          | 补集       | 除去               | $$ x \\ y $$         | $$ \{1, 2, 3\} \\ \{1\} = \{2, 3\} $$                |
+| $$ \backslash $$  | 补集       | 除去               | $$ x \backslash y $$ | $$ \{1, 2, 3\} \backslash \{1\} = \{2, 3\} $$        |
 
 --------
 
