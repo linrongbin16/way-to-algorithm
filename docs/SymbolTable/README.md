@@ -41,6 +41,10 @@
 | $$ \prod $$       | 求积符号   | 求积               | $$ \prod_{i=1}^{n} x_{i} $$ | $$ \prod_{i=1}^{3} x_{i} = x_{1} \cdot x_{2} \cdot x_{3} $$ |
 | $$ \forall $$     | 任意符号   | 对任意的           | $$ \forall x $$             | $$ \forall x \in \{1, 2, 3\} $$                             |
 | $$ \exists $$     | 存在符号   | 存在               | $$ \exists x $$             | $$ \exists x $$                                             |
+| $$ \leftarrow $$  | 左箭头     | 向左               | $$ x \leftarrow y $$        | $$ x \leftarrow y $$                                        |
+| $$ \rightarrow $$ | 右箭头     | 向右               | $$ x \rightarrow y $$       | $$ x \rightarrow y $$                                       |
+| $$ \uparrow $$    | 上箭头     | 向上               | $$ x \uparrow y $$          | $$ \uparrow $$                                              |
+| $$ \downarrow $$  | 下箭头     | 向下               | $$ x \downarrow y $$        | $$ \downarrow  $$                                           |
 
 --------
 
