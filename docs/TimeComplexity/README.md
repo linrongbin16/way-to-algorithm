@@ -105,10 +105,12 @@ $$
 因此递归式可推导为：
 
 $$
+\begin{matrix}
 T(n) & = & 2^L \cdot T(\frac{n}{2^L}) + L \cdot n  \\
      & = & 2^{log_2 n} + n \cdot log_2 n \\
      & = & n + n \cdot log_2 n \\
      & = & O(n \cdot log_2 n)
+\end{matrix}
 $$
 
 最终可以得到快速排序的时间复杂度为$$ O(n \cdot log_2 n) $$。
