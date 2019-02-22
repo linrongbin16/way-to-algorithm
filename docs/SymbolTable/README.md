@@ -30,7 +30,7 @@
 | $$ \notin $$     | 不属于     | 不属于             | $$ x \notin y $$     | $$ 4 \notin \{1, 2, 3\} $$                           |
 | $$ \subset $$    | 真子集     | 左边是右边的真子集 | $$ x \subset y $$    | $$ \{1\} \subset \{1, 2, 3\} $$                      |
 | $$ \supset $$    | 真子集     | 右边是左边的真子集 | $$ y \supset x $$    | $$ \{1, 2, 3\} \supset \{1\} $$                      |
-| $$ \subseteq $$  | 子集       | 左边是右边的子集   | $$ x \subseteq x $$  | $$ \{1, 2, 3\} \subseteq \{1, 2, 3\} $$              |
+| $$ \subseteq $$  | 子集       | 左边是右边的子集   | $$ x \subseteq y $$  | $$ \{1, 2, 3\} \subseteq \{1, 2, 3\} $$              |
 | $$ \supseteq $$  | 子集       | 右边是左边的子集   | $$ y \supseteq x $$  | $$ \{1, 2, 3\} \supseteq \{1, 2, 3\} $$              |
 | $$ \nsubseteq $$ | 非子集     | 左边不是右边的子集 | $$ x \nsubseteq y $$ | $$ \{4\} \nsupseteq \{1, 2, 3\} $$                   |
 | $$ \nsupseteq $$ | 非子集     | 右边不是左边的子集 | $$ y \nsupseteq x $$ | $$ \{1, 2, 3\} \nsupseteq \{0\} $$                   |
