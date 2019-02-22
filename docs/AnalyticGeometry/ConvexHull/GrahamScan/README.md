@@ -22,12 +22,10 @@
 
 ![GrahamScan2.png](../res/GrahamScan2.png)
 
-{:start="2"}
 2. 若$$ C \lt 0 $$则$$ \vec{p_0 p_2} $$在$$ \vec{p_0 p_1} $$顺时针方向。如图：
 
 ![GrahamScan3.png](../res/GrahamScan3.png)
 
-{:start="3"}
 3. 若$$ C = 0 $$则$$ \vec{p_0 p_1} $$与$$ \vec{p_0 p_2} $$方向相同。对于向量完全相同的两顶点$$ p_1, p_2 $$，按照到$$ p_0 $$距离从近到远排序。如图：
 
 ![GrahamScan4.png](../res/GrahamScan4.png)
