@@ -77,8 +77,8 @@ $$
 
 $$
 \begin{matrix}
-T(n)    & = 2 \cdot T(\frac{n}{2}) + n  \\
-        & = 2 \cdot T(2 \cdot T(\frac{n}{2^2}) + \frac{n}{2}) + n = 2^2 \cdot T(\frac{n}{2^2})
+T(n)    & = & 2 \cdot T(\frac{n}{2}) + n  \\
+        & = & 2 \cdot T(2 \cdot T(\frac{n}{2^2}) + \frac{n}{2}) + n = 2^2 \cdot T(\frac{n}{2^2})
 \end{matrix}
 $$
 
