@@ -39,6 +39,8 @@
 | $$ \infty $$      | 无穷       | 无穷               | $$ \infty $$                | $$ -\infty \lt 0 \lt +\infty $$                             |
 | $$ \sum $$        | 求和符号   | 求和               | $$ \sum_{i=1}^{n} x_{i} $$  | $$ \sum_{i=1}^{3} x_{i} = x_{1} + x_{2} + x_{3} $$          |
 | $$ \prod $$       | 求积符号   | 求积               | $$ \prod_{i=1}^{n} x_{i} $$ | $$ \prod_{i=1}^{3} x_{i} = x_{1} \cdot x_{2} \cdot x_{3} $$ |
+| $$ \forall $$     | 任意符号   | 对任意的           | $$ \forall x $$             | $$ \forall x \in \{1, 2, 3\} $$                             |
+| $$ \exists $$     | 存在符号   | 存在               | $$ \exists x $$             | $$ \exists x $$                                             |
 
 --------
 
