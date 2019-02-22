@@ -77,10 +77,41 @@ $$
 
 $$
 \begin{matrix}
-T(n)    & = & 2 \cdot T(\frac{n}{2}) + n  &  & \\
-        & = & 2 \cdot T(2 \cdot T(\frac{n}{2^2}) + \frac{n}{2}) + n & = & 2^2 \cdot T(\frac{n}{2^2})
+T(n)    & = & 2 \cdot T(\frac{n}{2}) + n                                            &   & \\
+        & = & 2 \cdot T(2 \cdot T(\frac{n}{2^2}) + \frac{n}{2}) + n                 & = & 2^2 \cdot T(\frac{n}{2^2}) + 2 \cdot n \\
+        & = & 2 \cdot T(2 \cdot T(\frac{n}{2^3}) + \frac{n}{2^2}) + 2 \cdot n       & = & 2^3 \cdot T(\frac{n}{2^3}) + 3 \cdot n \\
+        & = & \cdots                                                                &   &
 \end{matrix}
 $$
+
+假设递归层数为$$ L $$，可得：
+
+$$
+T(\frac{n}{2^L}) = 1
+$$
+
+因为：
+
+$$
+\frac{2}{2^L} = 1
+$$
+
+可以得到：
+
+$$
+L = log_2 n
+$$
+
+因此递归式可推导为：
+
+$$
+T(n) & = & 2^L \cdot T(\frac{n}{2^L}) + L \cdot n  \\
+     & = & 2^{log_2 n} + n \cdot log_2 n \\
+     & = & n + n \cdot log_2 n \\
+     & = & O(n \cdot log_2 n)
+$$
+
+最终可以得到快速排序的时间复杂度为$$ O(n \cdot log_2 n) $$。
 
 --------
 
