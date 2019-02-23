@@ -45,8 +45,8 @@
 | $$ \exists $$     | 存在符号   | 存在               | $$ \exists x $$             | $$ \exists x $$                                             |
 | $$ \leftarrow $$  | 左箭头     | 向左               | $$ x \leftarrow y $$        | $$ x \leftarrow y $$                                        |
 | $$ \rightarrow $$ | 右箭头     | 向右               | $$ x \rightarrow y $$       | $$ x \rightarrow y $$                                       |
-| $$ \uparrow $$    | 上箭头     | 向上               | $$ x \uparrow y $$          | $$ \uparrow $$                                              |
-| $$ \downarrow $$  | 下箭头     | 向下               | $$ x \downarrow y $$        | $$ \downarrow  $$                                           |
+| $$ \uparrow $$    | 上箭头     | 向上               | $$ \uparrow $$              | $$ \uparrow $$                                              |
+| $$ \downarrow $$  | 下箭头     | 向下               | $$ \downarrow $$            | $$ \downarrow  $$                                           |
 
 --------
 
