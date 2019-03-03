@@ -75,7 +75,7 @@ T(k) & = & O(k) + O(1)  \\
 \end{matrix}
 $$
 
-`bubble_sort`函数的输入规模为$$ T(n) $$，循环调用$$ n $$次`travel_left`函数，平均时间复杂度为$$ O(n) $$，该操作的时间复杂度为：
+`bubble_sort`函数的输入规模为$$ T(n) $$，循环调用$$ n $$次`travel_left`函数，时间复杂度为$$ O(n) $$，调用`travel_left`的平均输入规模为$$ T(n) $$，该操作的时间复杂度为：
 
 $$
 \begin{matrix}
