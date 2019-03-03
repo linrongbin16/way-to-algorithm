@@ -23,8 +23,8 @@
 ```
 func travel_left(s, k):
     for i = [0, k]
-        if s_i > s_{i+1}
-            swap(s_i, s_{i+1})
+        if s[i] > s[i+1]
+            swap(s[i], s[i+1])
 end
 ```
 
