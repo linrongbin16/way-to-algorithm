@@ -10,11 +10,11 @@
 
 #### 解法
 
-将长度为$$ n $$的序列$$ s = [x_0, x_1, \dots, x_{n-1}] $$分为$$ left = [x_0, \dots, x_k] $$和$$ right = [x_{k+1}, \dots, x_{n-1}] $$两个部分（$$ 0 \lt k \leq n $$），其中$$ left $$是无序的，$$ right $$是有序的。如图所示：
+将长度为$$ n $$的序列$$ s = [x_0, x_1, \dots, x_{n-1}] $$分为$$ left = [x_0, \dots, x_k] $$和$$ right = [x_{k+1}, \dots, x_{n-1}] $$两个部分（$$ 0 \lt k \leq n $$），其中$$ left $$是无序的，$$ right $$是有序的。如图：
 
 ![BubbleSort6.png](../res/BubbleSort6.png)
 
-初始时$$ left $$与$$ s $$相同，即$$ [x_0, \dots, x_{n-1}] $$，$$ right $$为空，即$$ [] $$。如图所示：
+初始时整个序列是无序的，即$$ left = [x_0, \dots, x_{n-1}], right = \varnothing $$。如图：
 
 ![BubbleSort7.png](../res/BubbleSort7.png)
 
