@@ -18,18 +18,31 @@
 
 ![BubbleSort7.png](../res/BubbleSort7.png)
 
-我们对无序的左部分序列$$ left $$重复如下操作：
+对无序的左部分序列$$ left $$重复如下操作：
 
 ```
-{% codeblock [start:1][linenos:false] %}
-for i = 0 to k
-    if s[i] > s[i+1]
-        swap(s[i], s[i+1])
-
-{% codeblock %}
+func travel_left(s, k):
+    for i = [0, k]
+        if s_i > s_{i+1}
+            swap(s_i, s_{i+1})
+end
 ```
 
-从左向右遍历$$ left $$中的所有元素$$ s[i] $$（$$ 0 \leq i \leq k $$）。依次比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，否则不做任何操作。这样一次遍历会将$$ left $$中的最大元素移动到最右边，然后将$$ left $$最右边的元素弹出，从左边加入$$ right $$中。
+(1) 第2行：从左向右遍历$$ left $$中的所有元素$$ s[i] $$（$$ 0 \leq i \leq k $$）；
+
+(2) 第3-4行：比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，否则不做任何操作。这样一次遍历会将$$ left $$中的最大元素移动到最右边，下一次$$ i $$变为$$ i + 1 $$时，会将现在$$ left $$最右边的元素加入$$ right $$的最左边。如图；
+
+![BubbleSort8.png](../res/BubbleSort7.png)
+
+![BubbleSort9.png](../res/BubbleSort7.png)
+
+运行一次`travel_left`函数可以将$$ left $$中最大的元素移动到$$ right $$中的最左边，并且令$$ left $$长度减1，$$ right $$长度加1。因为初始时$$ left = s $$长度为$$ n $$，$$ right = \varnothing $$长度为$$ 0 $$，只需重复调用$$ n $$次`travel_left`函数即可完成排序：
+
+```
+func bubble_sort(s, n):
+    for i = [0, n):
+        travel_left(s, i)
+```
 
 例如对于下图中的数组$$ s $$，$$ left $$为$$ s[0,5] $$，$$ right $$为$$ s[6,n-1] $$。从$$ i = 0 $$开始向右遍历，依次比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，直到$$ i = 5 $$。
 
@@ -40,7 +53,7 @@ for i = 0 to k
 ![BubbleSort3.png](../res/BubbleSort3.png)
 
 $$
-\cdots \cdots
+\cdots
 $$
 
 ![BubbleSort4.png](../res/BubbleSort4.png)
@@ -49,7 +62,29 @@ $$
 
 ![BubbleSort5.png](../res/BubbleSort5.png)
 
-每次遍历都可以筛选出$$ left $$中最大的元素，重复$$ n $$次即可对整个数组完成排序，算法结束。该算法的时间复杂度为$$ O(n^2) $$。
+每次遍历都可以筛选出$$ left $$中最大的元素，重复$$ n $$次即可对整个数组完成排序，算法结束。
+
+#### 复杂度推导
+
+`travel_left`函数的输入规模为$$ T(k) $$，遍历$$ k $$个元素的时间复杂度为$$ O(k) $$，判断两个元素的大小、交换两元素的值的时间复杂度为$$ O(1) $$，该操作的时间复杂度为：
+
+$$
+\begin{matrix}
+T(k) & = & O(k) + O(1)  \\
+     & = & O(k)
+\end{matrix}
+$$
+
+`bubble_sort`函数的输入规模为$$ T(n) $$，循环调用$$ n $$次`travel_left`函数，平均时间复杂度为$$ O(n) $$，该操作的时间复杂度为：
+
+$$
+\begin{matrix}
+T(n) & = & O(n) \cdot O(n)  \\
+     & = & O(n^2)
+\end{matrix}
+$$
+
+该算法的时间复杂度为$$ O(n^2) $$。该算法没有额外占用内存（没有动态分配内存），空间复杂度为为$$ O(1) $$。
 
 --------
 
