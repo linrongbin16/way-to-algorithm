@@ -18,6 +18,17 @@
 
 ![BubbleSort7.png](../res/BubbleSort7.png)
 
+我们对无序的左部分序列$$ left $$重复如下操作：
+
+```
+{% codeblock [start:1][linenos:false] %}
+for i = 0 to k
+    if s[i] > s[i+1]
+        swap(s[i], s[i+1])
+
+{% codeblock %}
+```
+
 从左向右遍历$$ left $$中的所有元素$$ s[i] $$（$$ 0 \leq i \leq k $$）。依次比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，否则不做任何操作。这样一次遍历会将$$ left $$中的最大元素移动到最右边，然后将$$ left $$最右边的元素弹出，从左边加入$$ right $$中。
 
 例如对于下图中的数组$$ s $$，$$ left $$为$$ s[0,5] $$，$$ right $$为$$ s[6,n-1] $$。从$$ i = 0 $$开始向右遍历，依次比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，直到$$ i = 5 $$。
