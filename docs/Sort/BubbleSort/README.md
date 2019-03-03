@@ -32,9 +32,9 @@ end
 
 (2) 第3-4行：比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，否则不做任何操作。这样一次遍历会将$$ left $$中的最大元素移动到最右边，下一次$$ i $$变为$$ i + 1 $$时，会将现在$$ left $$最右边的元素加入$$ right $$的最左边。如图；
 
-![BubbleSort8.png](../res/BubbleSort7.png)
+![BubbleSort8.png](../res/BubbleSort8.png)
 
-![BubbleSort9.png](../res/BubbleSort7.png)
+![BubbleSort9.png](../res/BubbleSort9.png)
 
 运行一次`travel_left`函数可以将$$ left $$中最大的元素移动到$$ right $$中的最左边，并且令$$ left $$长度减1，$$ right $$长度加1。因为初始时$$ left = s $$长度为$$ n $$，$$ right = \varnothing $$长度为$$ 0 $$，只需重复调用$$ n $$次`travel_left`函数即可完成排序：
 
