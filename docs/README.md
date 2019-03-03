@@ -2,7 +2,7 @@
 
 * [Content 目录](.)
 * [Preface 前言](Preface/)
-* [SymbolTable 数学符号表](SymbolTable/)
+* [MathSymbolTable 数学符号表](MathSymbolTable/)
 * [Chapter-1 TimeComplexity 第1章 时间复杂度](TimeComplexity/)
 * [Chapter-2 Sort 第2章 排序](Sort/)
     * [InsertSort 插入排序](Sort/InsertSort/)
