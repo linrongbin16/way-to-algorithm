@@ -35,7 +35,7 @@ func travel_left(s, k):
 
 ![BubbleSort9.png](../res/BubbleSort9.png)
 
-运行一次`travel_left`函数可以将$$ left $$中最大的元素移动到$$ right $$中的最左边，并且令$$ left $$长度减1，$$ right $$长度加1。因为初始时$$ left = s $$长度为$$ n $$，$$ right = \varnothing $$长度为$$ 0 $$，只需重复调用$$ n $$次`travel_left`函数即可完成排序：
+运行一次`travel_left`函数可以将$$ left $$中最大的元素移动到$$ right $$最左边（$$ left $$长度减1，$$ right $$长度加1）。初始时$$ left $$长度为$$ n $$，$$ right $$长度为$$ 0 $$，只需重复调用$$ n $$次`travel_left`函数即可完成排序：
 
 ```
 func bubble_sort(s, n):
