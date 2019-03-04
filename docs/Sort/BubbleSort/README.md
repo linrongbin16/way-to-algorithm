@@ -21,15 +21,15 @@
 对$$ left $$做如下操作：
 
 ```
-func bubble(s, k):
+function bubble(s, k):
     for i = [0, k]
         if s[i] > s[i+1]
             swap(s[i], s[i+1])
 ```
 
-(1) 代码第2行：从左向右遍历$$ left $$中的所有元素$$ s[i] $$（$$ 0 \leq i \leq k $$）；
+(1) `bubble`函数第2行：从左向右遍历$$ left $$中的所有元素$$ s[i] $$（$$ 0 \leq i \leq k $$）；
 
-(2) 代码第3-4行：比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，否则不做任何操作。这样一次操作会将$$ left $$中的最大元素移动到最右边，下一次调用`bubble`函数时，只需要将输入参数$$ k $$变为$$ k - 1 $$，就可以将上一次$$ left $$最右边的元素加入$$ right $$的最左边。如图；
+(2) `bubble`函数第3-4行：比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，否则不做任何操作。这样一次操作会将$$ left $$中的最大元素移动到最右边，下一次调用`bubble`函数时，只需要将输入参数$$ k $$变为$$ k - 1 $$，就可以将上一次$$ left $$最右边的元素加入$$ right $$的最左边。如图；
 
 ![BubbleSort8.png](../res/BubbleSort8.png)
 
@@ -38,8 +38,8 @@ func bubble(s, k):
 运行一次`bubble`函数可以将$$ left $$中最大的元素移动到$$ right $$最左边（$$ left $$长度减1，$$ right $$长度加1）。初始时$$ left $$长度为$$ n $$，$$ right $$长度为$$ 0 $$，只需重复调用$$ n $$次`bubble`函数即可完成排序：
 
 ```
-func bubble_sort(s, n):
-    for k = [n-1, 0]:
+function bubble_sort(s, n):
+    for k = [n-1, 0]
         bubble(s, k)
 ```
 

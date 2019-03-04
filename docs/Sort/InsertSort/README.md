@@ -19,18 +19,32 @@
 对$$ left $$和$$ right $$进行如下操作：
 
 ```
-func insert(s, k, n):
+function insert(s, k, n):
     let x = s[k+1]
+    let p = -1
     for i = [0, k]
-        if (i > 0 and s[i-1] < x) and (x < s[i])
-            move s[i...k] to s[i+1...k+1]
-            let s[i] = x
-        if i = k and s[i] < x
-            // do nothing
-            // let s[k+1] = x
+        if i = 0 and x < s[i]
+            let p = i
+            break
+        if i > 0 and s[i-1] < x and x < s[i]
+            let p = i
+            break
+    if p >= 0
+        move s[p...k] to s[p+1...k+1]
+        let s[p] = x
 ```
 
-对$$ right $$最左边的元素$$ s[k+1] $$，在$$ left $$找到一个位置$$ i $$满足$$ s[i-1] \le x \le s[i] $$（即$$ x $$可以夹在$$ s[i-1] $$和$$ s[i] $$之间）。再将$$ left $$中$$ s[i,k] $$部分的元素向右移动一个位置到$$ s[i+1,k+1] $$，$$ x $$取代原$$ s[i] $$即可。
+(1) `insert`函数第4-10行：遍历$$ left $$找出一个适合$$ x $$插入的位置$$ s[p] $$。其中$$ i = 0 $$属于边界条件，只需判断$$ x \lt s[0] $$即可；
+
+(2) `insert`函数第11-13行：若找到一个合适的插入位置$$ p $$则将其插入；若找不到说明$$ x $$比$$ left $$中所有元素都大，则$$ x $$已经处于$$ left $$最右边，不需要移动。下次调用`insert`函数时输入参数$$ k $$变成$$ k + 1 $$，就可以将现在的$$ s[k+1] $$加入$$ left $$中；
+
+运行一次`insert`函数可以将$$ right $$最左边的元素插入到$$ left $$中合适的位置（$$ left $$长度减1，$$ right $$长度加1）。初始时$$ left $$长度为$$ 0 $$，$$ right $$长度为$$ n $$，只需重复调用$$ n $$次`insert`函数即可完成排序：
+
+```
+function insert_sort(s, n):
+    for k = [0, n-2]
+        insert(s, k, n)
+```
 
 例如下图中，$$ left $$部分为$$ s[0,5] $$，$$ right $$部分为$$ s[6,n-1] $$，$$ right $$最左边的首部元素$$ x = s[6] = 41 $$，在$$ left $$部分中合适的插入位置为$$ i = 3 $$（$$ s[2] \le x \le s[3] $$）。
 
@@ -40,7 +54,9 @@ func insert(s, k, n):
 
 ![InsertSort2.png](../res/InsertSort2.png)
 
-该算法的时间复杂度为$$ O(n^2) $$。
+#### 复杂度推导
+
+与BubbleSort算法类似，该算法的时间复杂度为$$ O(n^2) $$，空间复杂度为$$ O(1) $$。
 
 --------
 
