@@ -21,22 +21,19 @@
 ```
 function insert(s, k, n):
     let x = s[k+1]
-    let p = -1
-    for i = [0, k]
-        if i = 0 and x < s[i]
-            let p = i
+    for i = [0, k+1]
+        if i = 0 and x <= s[i]
             break
-        if i > 0 and s[i-1] < x and x < s[i]
-            let p = i
+        if i > 0 and s[i-1] <= x <= s[i]
             break
-    if p >= 0
-        move s[p...k] to s[p+1...k+1]
-        let s[p] = x
+    if i <= k
+        move s[i...k] to s[i+1...k+1]
+    let s[i] = x
 ```
 
-(1) `insert`函数第4-10行：遍历$$ left $$找出一个适合$$ x $$插入的位置$$ s[p] $$。其中$$ i = 0 $$属于边界条件，只需判断$$ x \lt s[0] $$即可；
+(1) `insert`函数第3-7行：遍历$$ left $$找出一个适合$$ x $$插入的位置$$ s[i] $$。其中$$ i = 0 $$属于边界条件，只需判断$$ x \lt s[0] $$即可；
 
-(2) `insert`函数第11-13行：若找到一个合适的插入位置$$ p $$则将其插入；若找不到说明$$ x $$比$$ left $$中所有元素都大，则$$ x $$已经处于$$ left $$最右边，不需要移动。下次调用`insert`函数时输入参数$$ k $$变成$$ k + 1 $$，就可以将现在的$$ s[k+1] $$加入$$ left $$中；
+(2) `insert`函数第8-10行：若找到一个合适的插入位置$$ 0 \le i \le k $$则将其插入；若找不到（$$ i = k + 1 $$）则说明$$ x $$比$$ left $$中所有元素都大，不需要移动。下次调用`insert`函数时输入参数$$ k $$变成$$ k + 1 $$，就可以将现在的$$ s[k+1] $$加入$$ left $$中；
 
 运行一次`insert`函数可以将$$ right $$最左边的元素插入到$$ left $$中合适的位置（$$ left $$长度减1，$$ right $$长度加1）。初始时$$ left $$长度为$$ 0 $$，$$ right $$长度为$$ n $$，只需重复调用$$ n $$次`insert`函数即可完成排序：
 
