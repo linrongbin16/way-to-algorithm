@@ -22,9 +22,12 @@
 func insert(s, k, n):
     let x = s[k+1]
     for i = [0, k]
-        if (i = 0 and x < s[i]) or (i = k and s[i] < x) or (s[i-1] < x < s[i])
+        if (i > 0 and s[i-1] < x) and (x < s[i])
             move s[i...k] to s[i+1...k+1]
             let s[i] = x
+        if i = k and s[i] < x
+            // do nothing
+            // let s[k+1] = x
 ```
 
 对$$ right $$最左边的元素$$ s[k+1] $$，在$$ left $$找到一个位置$$ i $$满足$$ s[i-1] \le x \le s[i] $$（即$$ x $$可以夹在$$ s[i-1] $$和$$ s[i] $$之间）。再将$$ left $$中$$ s[i,k] $$部分的元素向右移动一个位置到$$ s[i+1,k+1] $$，$$ x $$取代原$$ s[i] $$即可。
