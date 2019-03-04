@@ -14,7 +14,7 @@
 
 ![BubbleSort6.png](../res/BubbleSort6.png)
 
-初始时整个序列是无序的，即$$ left = [x_0, \dots, x_{n-1}], right = \varnothing $$。如图：
+初始时$$ left = [x_0, \dots, x_{n-1}], right = \varnothing $$。如图：
 
 ![BubbleSort7.png](../res/BubbleSort7.png)
 

@@ -14,7 +14,7 @@
 
 ![InsertSort3.png](../res/InsertSort3.png)
 
-其中$$ 0 \le k \lt n $$。初始时整个序列是无序的，即$$ left = \varnothing $$，$$ right = [x_0, \dots, x_{n-1}] $$。
+其中$$ 0 \le k \lt n $$。初始时$$ left = \varnothing, right = [x_0, \dots, x_{n-1}] $$。
 
 对$$ left $$和$$ right $$进行如下操作：
 
