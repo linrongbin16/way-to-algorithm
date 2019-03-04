@@ -25,7 +25,6 @@ func travel_left(s, k):
     for i = [0, k]
         if s[i] > s[i+1]
             swap(s[i], s[i+1])
-end
 ```
 
 (1) 第2行：从左向右遍历$$ left $$中的所有元素$$ s[i] $$（$$ 0 \leq i \leq k $$）；
