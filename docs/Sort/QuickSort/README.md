@@ -10,7 +10,7 @@
 
 #### 解法
 
-在长度为$$ n $$的序列$$ s = [x_0, x_1, \dots, x_{n-1}] $$选取最左边元素$$ x_0 $$作为$$ pivot $$，然后将剩余部分分为两个部分，$$ left = [x_1, \dots, x_k] $$和$$ right = [x_{k+1}, \dots, x_{n-1}] $$，其中$$ 1 \le k \le n-1 $$，$$ left $$和$$ right $$都是未排序的。如图：
+在长度为$$ n $$的序列$$ s = [x_0, x_1, \dots, x_{n-1}] $$选取最左边元素$$ x_0 $$作为$$ pivot $$，然后将剩余部分分为两个部分，$$ left = [x_1, \dots, x_k] $$和$$ right = [x_{k+1}, \dots, x_{n-1}] $$（其中$$ 1 \le k \le n-1 $$），满足$$ left $$所有元素都小于等于$$ pivot $$，$$ right $$所有元素都大于等于$$ pivot $$，而$$ left, right $$内部并不必须是有序的。如图：
 
 ![QuickSort4.png](../res/QuickSort4.png)
 
