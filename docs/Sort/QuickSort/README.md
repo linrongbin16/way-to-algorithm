@@ -10,7 +10,7 @@
 
 #### 解法
 
-将长度为$$ n $$的序列$$ s $$，选取最左边的值作为$$ pivot $$，将剩余部分分为$$ left $$和$$ right $$两个部分，$$ left $$和$$ right $$是无序的，且$$ left $$中的所有元素$$ \forall x \le pivot $$（其中$$ x \in left $$），$$ right $$中的所有元素$$ \forall y \le pivot $$（其中$$ y \in right $$）。如图所示：
+在长度为$$ n $$的序列$$ s = [x_0, x_1, \dots, x_{n-1}] $$选取最左边元素$$ x_0 $$作为$$ pivot $$，然后将剩余部分分为两个部分，$$ left = [x_1, \dots, x_k] $$和$$ right = [x_{k+1}, \dots, x_{n-1}] $$，其中$$ 1 \le k \le n-1 $$，$$ left $$和$$ right $$都是未排序的。如图：
 
 ![QuickSort4.png](../res/QuickSort4.png)
 

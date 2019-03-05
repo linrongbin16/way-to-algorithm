@@ -10,7 +10,7 @@
 
 #### 解法
 
-对于长度为$$ n $$的序列$$ s = [x_0, x_1, \dots, x_{n-1}] $$分为左右两个部分，$$ left = [x_0, \dots, x_k] $$和$$ right = [x_{k+1}, \dots, x_{n-1}] $$，其中$$ 0 \le k \le n-1 $$。想象$$ left $$和$$ right $$都是已排序的。如图：
+将长度为$$ n $$的序列$$ s = [x_0, x_1, \dots, x_{n-1}] $$分为左右两个部分，$$ left = [x_0, \dots, x_k] $$和$$ right = [x_{k+1}, \dots, x_{n-1}] $$，其中$$ 0 \le k \le n-1 $$。想象$$ left $$和$$ right $$都是已排序的。如图：
 
 ![MergeSort2.png](../res/MergeSort2.png)
 
