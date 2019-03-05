@@ -10,11 +10,35 @@
 
 #### 解法
 
-对于长度为$$ n $$的序列$$ s[0,n) $$，将其从中间分开为$$ left[0,k] $$和$$ right[k+1,n-1] $$两个部分（$$ 0 \le k \lt n-1 $$）。如图所示：
+对于长度为$$ n $$的序列$$ s = [x_0, x_1, \dots, x_{n-1}] $$分为左右两个部分，$$ left = [x_0, \dots, x_k] $$和$$ right = [x_{k+1}, \dots, x_{n-1}] $$，其中$$ 0 \le k \le n-1 $$。想象$$ left $$和$$ right $$都是已排序的。如图：
 
 ![MergeSort2.png](../res/MergeSort2.png)
 
-对于$$ left[0,k] $$和$$ right[k+1,n-1] $$两个部分，只需将这两个部分合并即可得到整个有序序列。设$$ i $$和$$ j $$两个下标分别从$$ left $$和$$ right $$的最左边（$$ 0 \le i \le k $$，$$ k+1 \le j \le n-1 $$）向右遍历，每次将$$ left[i] $$和$$ right[j] $$中较小的值插入新的数组中，即可完成一次合并操作。如图所示：
+将$$ left $$和$$ right $$两个已排序的序列合并即可得到更大的有序序列：
+
+```
+function merge(s, k, n):
+    let sc = s[0...n-1]
+    let i = 0, j = k+1, k = 0
+    while i <= k and j <= n-1
+        if s[i] < s[j]
+            sc[k++] = s[i++]
+        else
+            sc[k++] = s[j++]
+    while i <= k
+        sc[k++] = s[i++]
+    while j <= n-1
+        sc[k++] = s[j++]
+    let s = sc
+```
+
+(1) `merge`函数第2行：构造长度与`s`相同的数组`sc`，存储$$ left $$和$$ right $$合并后的结果，该结果最终会复制给`s`。该操作需要的空间规模为$$ T(n) $$；
+
+(2) `merge`函数第3-12行：将$$ left $$和$$ right $$按序合并，得到有序序列`sc`；
+
+(3) `merge`函数第13行：将`sc`复制到`s`上；
+
+上述操作如图：
 
 ![MergeSort1.png](../res/MergeSort1.png)
 
