@@ -18,7 +18,7 @@
 
 ```
 function merge(s, k, begin, end):
-    let sc = s[begin...end]
+    let sc[begin...end] = s[begin...end]
     let i = begin, j = k+1, k = begin
     while i <= k and j <= end
         if s[i] < s[j]
@@ -29,7 +29,7 @@ function merge(s, k, begin, end):
         sc[k++] = s[i++]
     while j <= end
         sc[k++] = s[j++]
-    let s = sc
+    let s[begin...end] = sc[begin...end]
 ```
 
 (1) `merge`函数第1行：$$ left = [x_{begin}, \dots, x_{k}], right = [x_{k+1}, \dots, x_{end}] $$；
