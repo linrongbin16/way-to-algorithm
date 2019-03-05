@@ -57,7 +57,7 @@ function insert_sort(s, n):
 
 ![InsertSort2.png](../res/InsertSort2.png)
 
-#### 复杂度推导
+#### 复杂度
 
 与BubbleSort算法类似，该算法的时间复杂度为$$ O(n^2) $$，空间复杂度为$$ O(1) $$。
 

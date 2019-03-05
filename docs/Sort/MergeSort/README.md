@@ -62,7 +62,7 @@ function merge_sort(s, begin, end):
 
 (3) `merge_sort`函数第4-7行：将待排序的序列$$ s = [x_{begin}, x_{end}] $$从$$ mid $$分开，分别递归的调用自己进行排序，得到两个已排序的$$ left = [x_{begin}, \dots, x_{mid}], right = [x_{mid+1}, \dots, x_{end}] $$，再将两部分合并即可；
 
-#### 复杂度推导
+#### 复杂度
 
 设$$ k = end - begin $$，`merge`函数的输入规模为$$ T(k) $$，合并$$ k $$个元素的时间复杂度为$$ O(k) $$。
 
