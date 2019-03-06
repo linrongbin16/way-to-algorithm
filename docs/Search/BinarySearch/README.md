@@ -6,13 +6,35 @@
 
 #### 问题
 
-在长度为$$ n $$的有序序列$$ s $$中查找元素$$ x $$的位置。
+在长度为$$ n $$的升序（从小到大）序列$$ s $$中查找元素$$ x $$的位置。
 
 #### 解法
 
-有序序列$$ s $$可以是升序（从小到大）或降序（从大到小）的，本问题中的$$ s $$是升序。
+令$$ low = 0, high = n-1, mid = \frac{low+high}{2} $$，元素$$ x $$与$$ mid $$的关系有三种情况：
 
-初始化$$ low = 0 $$，$$ high = n-1 $$。$$ low $$和$$ high $$有以下情况：
+(1) 若$$ x = s[mid] $$，显然已经查询到元素$$ x $$的位置，算法结束；
+
+(2) 若$$ x \lt s[mid] $$，则$$ x $$处于$$ s[mid] $$左边；
+
+(3) 若$$ x \gt s[mid] $$，则$$ x $$处于$$ s[mid] $$右边；
+
+该操作用伪代码表示为：
+
+```
+function search(s, low, high, x):
+    let mid = (low + high) / 2
+    if x = s[mid]
+        return true, mid
+    else if x < s[mid]
+        return false, low, mid-1
+    else if x > s[mid]
+        return false, mid+1, high
+```
+
+(1) search函数第2行：计算搜索范围的中间位置$$ mid $$，以$$ s[mid] $$为基准与$$ x $$进行比较；
+
+(2) search函数第2行：计算搜索范围的中间位置$$ mid $$，以$$ s[mid] $$为基准与$$ x $$进行比较；
+
 
 $$ (1) $$ $$ low \leq high $$，令$$ mid = \lfloor \frac{high+low}{2}\rfloor $$（向下取整）。若$$ x = s[mid] $$则$$ mid $$即为所求，算法结束；若$$ x \lt s[mid] $$，则$$ x $$的位置在子范围$$ s[0,mid-1] $$中，令$$ high = mid-1 $$；若$$ x \gt s[mid] $$，则$$ x $$的位置在子范围$$ s[mid+1,n-1] $$中，令$$ low = mid+1 $$。然后继续重复该操作；
 

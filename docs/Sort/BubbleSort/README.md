@@ -27,9 +27,9 @@ function bubble(s, k):
             swap(s[i], s[i+1])
 ```
 
-(1) `bubble`函数第2行：从左向右遍历$$ left $$中的所有元素$$ s[i] $$（$$ 0 \leq i \leq k $$）；
+(1) bubble函数第2行：从左向右遍历$$ left $$中的所有元素$$ s[i] $$；
 
-(2) `bubble`函数第3-4行：比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，否则不做任何操作。这样一次操作会将$$ left $$中的最大元素移动到最右边，下一次调用`bubble`函数时，只需要将输入参数$$ k $$变为$$ k - 1 $$，就可以将上一次$$ left $$最右边的元素加入$$ right $$的最左边；
+(2) bubble函数第3-4行：比较$$ s[i] $$和$$ s[i+1] $$，若$$ s[i] \gt s[i+1] $$则交换两个元素，否则不做任何操作。这样一次操作会将$$ left $$中的最大元素移动到最右边，下一次调用bubble函数时，只需要将输入参数$$ k $$变为$$ k - 1 $$，就可以将上一次$$ left $$最右边的元素加入$$ right $$的最左边；
 
 上述操作如图：
 
@@ -37,7 +37,7 @@ function bubble(s, k):
 
 ![BubbleSort9.png](../res/BubbleSort9.png)
 
-运行一次`bubble`函数可以将$$ left $$中最大的元素移动到$$ right $$最左边（$$ left $$长度减1，$$ right $$长度加1）。初始时$$ left $$长度为$$ n $$，$$ right $$长度为$$ 0 $$，只需重复调用$$ n $$次`bubble`函数即可完成排序：
+运行一次bubble函数可以将$$ left $$中最大的元素移动到$$ right $$最左边（$$ left $$长度减1，$$ right $$长度加1）。初始时$$ left $$长度为$$ n $$，$$ right $$长度为$$ 0 $$，只需重复调用$$ n $$次bubble函数即可完成排序：
 
 ```
 function bubble_sort(s, n):
@@ -76,7 +76,7 @@ T(k) & = & O(k) + O(1)  \\
 \end{matrix}
 $$
 
-`bubble_sort`函数的输入规模为$$ T(n) $$，循环调用$$ n $$次`bubble`函数，时间复杂度为$$ O(n) $$，调用`bubble`的平均输入规模为$$ T(n) $$，该操作的时间复杂度为：
+bubble_sort函数的输入规模为$$ T(n) $$，循环调用$$ n $$次bubble函数，时间复杂度为$$ O(n) $$，调用bubble的平均输入规模为$$ T(n) $$，该操作的时间复杂度为：
 
 $$
 \begin{matrix}

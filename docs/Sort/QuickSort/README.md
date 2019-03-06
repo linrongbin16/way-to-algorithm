@@ -30,11 +30,11 @@ function partition(s, low, high):
     return low
 ```
 
-(1) `partition`函数第2行：令$$ s $$第一个元素$$ s[low] $$作为$$ pivot $$；
+(1) partition函数第2行：令$$ s $$第一个元素$$ s[low] $$作为$$ pivot $$；
 
-(2) `partition`函数第3-9行：轮流从$$ s $$最右边选出第一个$$ x \lt pivot $$移动到其左边，从$$ s $$最左边选出第一个$$ x \gt pivot $$移动到其右边，直到$$ low \ge high $$；
+(2) partition函数第3-9行：轮流从$$ s $$最右边选出第一个$$ x \lt pivot $$移动到其左边，从$$ s $$最左边选出第一个$$ x \gt pivot $$移动到其右边，直到$$ low \ge high $$；
 
-(3) `partition`函数第10-11行：经过移动之后$$ low $$的位置即为最终$$ pivot $$的位置，将该位置返回给函数调用者；
+(3) partition函数第10-11行：经过移动之后$$ low $$的位置即为最终$$ pivot $$的位置，将该位置返回给函数调用者；
 
 上述操作的示例如图：
 
@@ -65,9 +65,9 @@ function quick_sort(s, begin, end):
 
 #### 复杂度
 
-设$$ high - low = k $$，则`partition`函数的输入规模为$$ T(k) $$，其时间复杂度为$$ O(k) $$。
+设$$ high - low = k $$，则partition函数的输入规模为$$ T(k) $$，其时间复杂度为$$ O(k) $$。
 
-`quick_sort`函数的初始输入规模为$$ T(n) $$，调用`partition`的输入规模为$$ T(n) $$，每次递归后输入规模为上一层的$$ T(\frac{n}{2}) $$，可得：
+quick_sort函数的初始输入规模为$$ T(n) $$，调用partition的输入规模为$$ T(n) $$，每次递归后输入规模为上一层的$$ T(\frac{n}{2}) $$，可得：
 
 $$
 \begin{matrix}
