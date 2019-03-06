@@ -60,7 +60,7 @@ function quick_sort(s, begin, end):
         return
     let mid = partition(s, begin, end)
     quick_sort(s, begin, mid)
-    quick_sort(s, mid, end)
+    quick_sort(s, mid+1, end)
 ```
 
 #### 复杂度
