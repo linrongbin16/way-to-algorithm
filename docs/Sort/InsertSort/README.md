@@ -61,8 +61,6 @@ function insert_sort(s, n):
 
 与BubbleSort算法类似，该算法的时间复杂度为$$ O(n^2) $$，空间复杂度为$$ O(1) $$。
 
---------
-
 #### 源码
 
 [InsertSort.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/InsertSort.h)

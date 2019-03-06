@@ -87,8 +87,6 @@ $$
 
 该算法的时间复杂度为$$ O(n^2) $$。该算法没有额外占用内存（没有动态分配内存），空间复杂度为为$$ O(1) $$。
 
---------
-
 #### 源码
 
 [BubbleSort.h](https://github.com/linrongbin16/Way-to-Algorithm/blob/master/src/Sort/BubbleSort.h)
