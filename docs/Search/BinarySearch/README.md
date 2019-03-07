@@ -63,9 +63,46 @@ function BinarySearch(s, n, x):
 
 #### 复杂度
 
-最好情况下$$ 1 $$次查找即可找到，最坏情况下$$ log_2 n $$次才能找到。该算法的时间复杂度为$$ O(log_2 n) $$。
+Search函数的输入规模为$$ T(4) $$，该函数中最多有1次加法、1次除法、3次比较操作，因此时间复杂度为
 
---------
+$$
+T(4) = O(5) = O(1)
+$$
+
+BinarySearch函数的输入规模为$$ T(n) $$，每次调用Search函数后$$ high - low $$的值都会减小一半，即
+
+$$
+\begin{matrix}
+T(n)    & = &   T(\frac{n}{2}) + O(1)               \\
+        & = &   T(\frac{n}{2^2}) + 2 \cdot O(1)     \\
+        & = &   T(\frac{n}{2^3}) + 3 \cdot O(1)     \\
+        & = &   \cdots
+\end{matrix}
+$$
+
+假设递归层数为$$ L $$，可得：
+
+$$
+T(\frac{n}{2^L}) = 1
+$$
+
+即：
+
+$$
+L = T(log_2 n) = O(log_2 n)
+$$
+
+将$$ L $$代入原始递推公式，可得：
+
+$$
+\begin{matrix}
+T(n)    & = &   T(\frac{n}{2^L}) + L \cdot O(1) \\
+        & = &   O(1) + O(log_2 n) \cdot O(1)    \\
+        & = &   O(log_2 n)
+\end{matrix}
+$$
+
+该算法时间复杂度为$$ O(log_2 n) $$，空间复杂度为$$ O(1) $$。
 
 #### 源码
 
