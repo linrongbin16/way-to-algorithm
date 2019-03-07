@@ -17,7 +17,7 @@
 将$$ s = [x_0, \dots, x_{n-1}] $$中任意$$ x \lt pivot $$移动到其左边，任意$$ x \gt pivot $$移动到其右边。需要如下操作：
 
 ```
-function partition(s, low, high):
+function Partition(s, low, high):
     let pivot = s[low]
     while low < high
         while low < high and s[high] >= pivot
@@ -30,11 +30,11 @@ function partition(s, low, high):
     return low
 ```
 
-(1) partition函数第2行：令$$ s $$第一个元素$$ s[low] $$作为$$ pivot $$；
+(1) Partition函数第2行：令$$ s $$第一个元素$$ s[low] $$作为$$ pivot $$；
 
-(2) partition函数第3-9行：轮流从$$ s $$最右边选出第一个$$ x \lt pivot $$移动到其左边，从$$ s $$最左边选出第一个$$ x \gt pivot $$移动到其右边，直到$$ low \ge high $$；
+(2) Partition函数第3-9行：轮流从$$ s $$最右边选出第一个$$ x \lt pivot $$移动到其左边，从$$ s $$最左边选出第一个$$ x \gt pivot $$移动到其右边，直到$$ low \ge high $$；
 
-(3) partition函数第10-11行：经过移动之后$$ low $$的位置即为最终$$ pivot $$的位置，将该位置返回给函数调用者；
+(3) Partition函数第10-11行：经过移动之后$$ low $$的位置即为最终$$ pivot $$的位置，将该位置返回给函数调用者；
 
 上述操作的示例如图：
 
@@ -55,19 +55,19 @@ function partition(s, low, high):
 递归的对$$ left $$和$$ right $$进行该操作，即可完成整个数组排序：
 
 ```
-function quick_sort(s, begin, end):
+function QuickSort(s, begin, end):
     if end <= begin+1
         return
-    let mid = partition(s, begin, end)
-    quick_sort(s, begin, mid)
-    quick_sort(s, mid+1, end)
+    let mid = Partition(s, begin, end)
+    QuickSort(s, begin, mid)
+    QuickSort(s, mid+1, end)
 ```
 
 #### 复杂度
 
-设$$ high - low = k $$，则partition函数的输入规模为$$ T(k) $$，其时间复杂度为$$ O(k) $$。
+设$$ high - low = k $$，则Partition函数的输入规模为$$ T(k) $$，其时间复杂度为$$ O(k) $$。
 
-quick_sort函数的初始输入规模为$$ T(n) $$，调用partition的输入规模为$$ T(n) $$，每次递归后输入规模为上一层的$$ T(\frac{n}{2}) $$，可得：
+QuickSort函数的初始输入规模为$$ T(n) $$，调用Partition的输入规模为$$ T(n) $$，每次递归后输入规模为上一层的$$ T(\frac{n}{2}) $$，可得：
 
 $$
 \begin{matrix}

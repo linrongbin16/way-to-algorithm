@@ -19,7 +19,7 @@
 对$$ left $$和$$ right $$进行如下操作：
 
 ```
-function insert(s, k, n):
+function Insert(s, k, n):
     let x = s[k+1]
     for i = [0, k+1]
         if i = 0 and x <= s[i]
@@ -31,9 +31,9 @@ function insert(s, k, n):
         let s[i] = x
 ```
 
-(1) insert函数第3-7行：遍历$$ left $$找出一个适合$$ x $$插入的位置$$ s[i] $$。其中$$ i = 0 $$属于边界条件，只需判断$$ x <= s[0] $$即可；
+(1) Insert函数第3-7行：遍历$$ left $$找出一个适合$$ x $$插入的位置$$ s[i] $$。其中$$ i = 0 $$属于边界条件，只需判断$$ x <= s[0] $$即可；
 
-(2) insert函数第8-10行：若找到一个合适的插入位置$$ 0 <= i <= k $$则将其插入；若找不到（$$ i = k + 1 $$）则说明$$ x $$比$$ left $$中所有元素都大，不需要移动。下次调用`insert`函数时输入参数$$ k $$变成$$ k + 1 $$，就可以将现在的$$ s[k+1] $$加入$$ left $$中；
+(2) Insert函数第8-10行：若找到一个合适的插入位置$$ 0 <= i <= k $$则将其插入；若找不到（$$ i = k + 1 $$）则说明$$ x $$比$$ left $$中所有元素都大，不需要移动。下次调用Insert函数时输入参数$$ k $$变成$$ k + 1 $$，就可以将现在的$$ s[k+1] $$加入$$ left $$中；
 
 上述操作如图：
 
@@ -41,12 +41,12 @@ function insert(s, k, n):
 
 ![InsertSort5.png](../res/InsertSort5.png)
 
-运行一次insert函数可以将$$ right $$最左边的元素插入到$$ left $$中合适的位置（$$ left $$长度减1，$$ right $$长度加1）。初始时$$ left $$长度为$$ 0 $$，$$ right $$长度为$$ n $$，只需重复调用$$ n $$次insert函数即可完成排序：
+运行一次Insert函数可以将$$ right $$最左边的元素插入到$$ left $$中合适的位置（$$ left $$长度减1，$$ right $$长度加1）。初始时$$ left $$长度为$$ 0 $$，$$ right $$长度为$$ n $$，只需重复调用$$ n $$次Insert函数即可完成排序：
 
 ```
-function insert_sort(s, n):
+function InsertSort(s, n):
     for k = [0, n-2]
-        insert(s, k, n)
+        Insert(s, k, n)
 ```
 
 例如下图中，$$ left $$部分为$$ s[0,5] $$，$$ right $$部分为$$ s[6,n-1] $$，$$ right $$最左边的首部元素$$ x = s[6] = 41 $$，在$$ left $$部分中合适的插入位置为$$ i = 3 $$（$$ s[2] \le x \le s[3] $$）。
