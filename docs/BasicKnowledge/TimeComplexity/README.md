@@ -1,7 +1,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-# Chapter-1 Time Complexity
-# 第1章 时间复杂度
+# Time Complexity - 时间复杂度
 
 --------
 
