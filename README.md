@@ -25,12 +25,3 @@
 * [Wikipedia](https://www.wikipedia.org/)
 * [背包问题九讲](https://www.kancloud.cn/kancloud/pack/70124)
 * [编程之法：面试和算法心得](https://github.com/julycoding/The-Art-Of-Programming-By-July)
-
-#### Funding - 资助
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/docs/res/wxpay.jpg" alt="wxpay">
-</p>
-<p align="center">
-<img src="https://raw.githubusercontent.com/linrongbin16/Way-to-Algorithm/master/docs/res/alipay.jpg" alt="alipay">
-</p>
